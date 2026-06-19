@@ -164,5 +164,29 @@ const navigation = [
 		<main>
 			<slot />
 		</main>
+
+		<footer class="border-t border-white/10 bg-slate-900 text-white">
+			<div class="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-3 lg:px-8 lg:py-16">
+				<section class="lg:col-span-2" aria-labelledby="footer-contact-title">
+					<p id="footer-contact-title" class="text-sm font-bold tracking-[0.2em] text-orange-500 uppercase">Contact Us</p>
+					<p class="mt-5 text-xl font-bold tracking-[0.12em] text-white">FORCEBEYOND</p>
+					<address class="mt-4 max-w-md text-sm leading-7 text-slate-300 not-italic">261 Quigley Blvd, Suite 18, New Castle, Delaware 19720</address>
+					<p class="mt-4 text-sm leading-7 text-slate-300">Phone: <a class="transition hover:text-orange-500" href="tel:+13029956588">(302) 995 6588</a> <span class="px-1 text-slate-500">|</span> Fax: (302) 355 1166 <span class="px-1 text-slate-500">|</span> Email: <a class="transition hover:text-orange-500" href="mailto:contact@forcebeyond.com">contact@forcebeyond.com</a></p>
+					<div class="mt-7 flex flex-wrap gap-3" aria-label="Industrial certifications">
+						<div class="border border-orange-500 bg-orange-600/10 px-4 py-3"><p class="text-xs font-bold tracking-[0.16em] text-orange-500 uppercase">CAGE#</p><p class="mt-1 font-bold text-white">1AMF7</p></div>
+						<div class="border border-white/20 bg-white/5 px-4 py-3"><p class="text-xs font-bold tracking-[0.16em] text-slate-300 uppercase">Quality System</p><p class="mt-1 font-bold text-white">ISO 9001:2015 Certified</p></div>
+					</div>
+				</section>
+
+				<nav aria-labelledby="footer-resources-title">
+					<p id="footer-resources-title" class="text-sm font-bold tracking-[0.2em] text-orange-500 uppercase">RESOURCES &amp; CAREER</p>
+					<ul class="mt-5 space-y-3 text-sm font-semibold text-slate-200">
+						<li><a class="transition hover:text-orange-500 focus-visible:text-orange-500" href="/resources/global-supply-chain-faqs">Global Supply Chain FAQs</a></li>
+						<li><a class="transition hover:text-orange-500 focus-visible:text-orange-500" href="/resources/manufacturing-process-animations">Manufacturing Process Animations</a></li>
+						<li><a class="transition hover:text-orange-500 focus-visible:text-orange-500" href="/jobs">Jobs</a></li>
+					</ul>
+				</nav>
+			</div>
+		</footer>
 	</body>
 </html>
