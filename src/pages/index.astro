@@ -132,22 +132,9 @@ const displayedValuePoints = homepage?.valuePoints?.length ? homepage.valuePoint
 const displayedQualityAreas = homepage?.qualityAreas?.length ? homepage.qualityAreas : qualityAreas;
 const displayedFaqs = homepage?.faqs?.length ? homepage.faqs : faqs;
 
-const faqSchema = {
-	'@context': 'https://schema.org',
-	'@type': 'FAQPage',
-	mainEntity: displayedFaqs.map((faq) => ({
-		'@type': 'Question',
-		name: faq.question,
-		acceptedAnswer: {
-			'@type': 'Answer',
-			text: faq.answer
-		}
-	}))
-};
 ---
 
 <Layout title="ForceBeyond | Precision Metal Components" description="ForceBeyond delivers custom precision cast, forged, and CNC-machined metal components.">
-	<script slot="head" type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
 	<section class="border-b border-white/10 bg-slate-900">
 		<div class="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[minmax(0,1fr)_20rem] lg:items-end lg:gap-20 lg:px-8 lg:py-32">
 			<div>

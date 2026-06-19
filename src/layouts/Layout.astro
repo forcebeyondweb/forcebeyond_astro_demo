@@ -30,6 +30,84 @@ const navigation = [
 		<link rel="icon" href="/favicon.ico" />
 		<title>{title}</title>
 		<slot name="head" />
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@graph": [
+					{
+						"@type": "IndustrialBusiness",
+						"@id": "https://fbwebdemo.netlify.app/#organization",
+						"name": "ForceBeyond",
+						"description": "ForceBeyond provides custom metal component manufacturing solutions including investment casting, die casting, forging, stainless steel casting, titanium casting, sand casting, CNC machining, and secondary operations for industrial applications.",
+						"image": "https://fbwebdemo.netlify.app/favicon.svg",
+						"knowsAbout": [
+							"Investment Casting",
+							"Die Casting",
+							"Forging",
+							"CNC Machining",
+							"Stainless Steel Casting",
+							"Titanium Casting",
+							"Sand Casting",
+							"Tier 1.5 Supply Chain Management"
+						],
+						"areaServed": [
+							{ "@type": "AdministrativeArea", "name": "Aerospace Market" },
+							{ "@type": "AdministrativeArea", "name": "Automotive Market" },
+							{ "@type": "AdministrativeArea", "name": "Energy Market" },
+							{ "@type": "AdministrativeArea", "name": "Oil & Gas Market" },
+							{ "@type": "AdministrativeArea", "name": "Industrial Machinery Market" },
+							{ "@type": "AdministrativeArea", "name": "Medical Market" }
+						]
+					},
+					{
+						"@type": "FAQPage",
+						"@id": "https://fbwebdemo.netlify.app/#faq",
+						"mainEntity": [
+							{
+								"@type": "Question",
+								"name": "What does ForceBeyond manufacture?",
+								"acceptedAnswer": {
+									"@type": "Answer",
+									"text": "ForceBeyond provides custom metal component manufacturing solutions including investment casting, die casting, forging, stainless steel casting, titanium casting, sand casting, CNC machining, and secondary operations."
+								}
+							},
+							{
+								"@type": "Question",
+								"name": "What industries does ForceBeyond serve?",
+								"acceptedAnswer": {
+									"@type": "Answer",
+									"text": "ForceBeyond supports customers in industries such as aerospace, automotive, energy, oil and gas, medical, industrial machinery, electrical equipment, and chemical processing."
+								}
+							},
+							{
+								"@type": "Question",
+								"name": "Does ForceBeyond provide CNC machining?",
+								"acceptedAnswer": {
+									"@type": "Answer",
+									"text": "Yes. ForceBeyond provides CNC machining and secondary operations for cast, forged, and engineered metal components that require dimensional accuracy and production-ready finishing."
+								}
+							},
+							{
+								"@type": "Question",
+								"name": "What information is needed for a quote?",
+								"acceptedAnswer": {
+									"@type": "Answer",
+									"text": "For a quote, customers should provide drawings, material requirements, target quantity, tolerance expectations, finishing requirements, application details, and any inspection or documentation needs."
+								}
+							},
+							{
+								"@type": "Question",
+								"name": "Can ForceBeyond support both prototypes and production?",
+								"acceptedAnswer": {
+									"@type": "Answer",
+									"text": "ForceBeyond can support customers from early manufacturing review and prototype planning through production sourcing, machining, finishing, inspection, and ongoing supply coordination."
+								}
+							}
+						]
+					}
+				]
+			}
+		</script>
 	</head>
 	<body class="min-h-screen bg-slate-900 text-white antialiased">
 		<header class="sticky top-0 z-50 border-b border-white/10 bg-slate-900/95 shadow-lg shadow-slate-950/20 backdrop-blur">
