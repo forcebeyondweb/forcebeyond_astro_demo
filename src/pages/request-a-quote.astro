@@ -1,0 +1,43 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const countries = ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belgium', 'Belize', 'Brazil', 'Bulgaria', 'Cambodia', 'Cameroon', 'Canada', 'Chile', 'China', 'Colombia', 'Costa Rica', 'Croatia', 'Cyprus', 'Czechia', 'Denmark', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Estonia', 'Ethiopia', 'Finland', 'France', 'Germany', 'Ghana', 'Greece', 'Guatemala', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Ireland', 'Israel', 'Italy', 'Japan', 'Jordan', 'Kenya', 'Malaysia', 'Mexico', 'Netherlands', 'New Zealand', 'Nigeria', 'Norway', 'Pakistan', 'Panama', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Saudi Arabia', 'Singapore', 'South Africa', 'South Korea', 'Spain', 'Sweden', 'Switzerland', 'Taiwan', 'Thailand', 'Turkey', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'Uruguay', 'Vietnam', 'United States of America'];
+const sources = ['Cold Call', 'Direct Mail', 'Email', 'Industry Event', 'Referral', 'Search Engine', 'Web Research'];
+const budgets = ['$0 - $25,000', '$25,001 - $100,000', '$100,001 - $250,000', '$250,001 - $500,000', '$500,001 - $1,000,000', '$1,000,000 & Above'];
+const input = 'mt-2 w-full border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-orange-600 focus:ring-2 focus:ring-orange-100';
+---
+
+<Layout title="Request a Quote | ForceBeyond" description="Request a quote for custom metal component manufacturing.">
+	<section class="border-b border-white/10 bg-slate-900"><div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20"><p class="text-sm font-bold tracking-[0.2em] text-orange-500 uppercase">Start a project</p><h1 class="mt-3 max-w-4xl text-4xl font-bold tracking-tight text-white sm:text-5xl">Ready to Start A Conversation? Request for Quote?</h1><p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300">Tell our team about your component requirements, manufacturing needs, and project timeline. We will review your information and follow up with the right next step.</p></div></section>
+
+	<section class="bg-slate-100 py-14 text-slate-900 sm:py-20"><div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+		<form name="request-a-quote" method="POST" action="/request-a-quote?submitted=true" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" class="border border-slate-200 bg-white shadow-xl shadow-slate-900/10">
+			<input type="hidden" name="form-name" value="request-a-quote" /><p class="hidden"><label>Do not fill this out if you are human: <input name="bot-field" /></label></p>
+			<div class="border-b border-slate-200 bg-slate-50 px-6 py-5 sm:px-8"><p class="text-sm font-semibold text-slate-600"><span class="mr-2 text-orange-600">*</span>Required fields</p></div>
+			<div class="grid gap-x-10 gap-y-12 p-6 sm:p-8 lg:grid-cols-2 lg:p-10">
+				<div class="lg:col-span-2"><h2 class="text-2xl font-bold">Contact Information</h2><p class="mt-2 text-slate-600">Let us know who we should contact about your request.</p></div>
+				<label class="block text-sm font-bold">First Name <span class="text-orange-600">*</span><input class={input} required name="first-name" autocomplete="given-name" type="text" /></label>
+				<label class="block text-sm font-bold">Last Name <span class="text-orange-600">*</span><input class={input} required name="last-name" autocomplete="family-name" type="text" /></label>
+				<label class="block text-sm font-bold">My Job Title Is <span class="text-orange-600">*</span><input class={input} required name="job-title" autocomplete="organization-title" type="text" /></label>
+				<label class="block text-sm font-bold">My Business / Organization Is <span class="text-orange-600">*</span><input class={input} required name="organization" autocomplete="organization" type="text" /></label>
+
+				<div class="lg:col-span-2 border-t border-slate-200 pt-10"><h2 class="text-2xl font-bold">Mailing Data</h2><div class="mt-6 grid gap-6 lg:grid-cols-2">
+					<label class="block text-sm font-bold lg:col-span-2">Address Line 1<input class={input} name="address-line-1" autocomplete="address-line1" type="text" /></label>
+					<label class="block text-sm font-bold lg:col-span-2">Address Line 2<input class={input} name="address-line-2" autocomplete="address-line2" type="text" /></label>
+					<label class="block text-sm font-bold">City<input class={input} name="city" autocomplete="address-level2" type="text" /></label><label class="block text-sm font-bold">State<input class={input} name="state" autocomplete="address-level1" type="text" /></label>
+					<label class="block text-sm font-bold">Postal Code<input class={input} name="postal-code" autocomplete="postal-code" type="text" /></label>
+					<label class="block text-sm font-bold">Country<select class={input} name="country" autocomplete="country-name"><option value="">Select a country</option>{countries.map((country) => <option value={country}>{country}</option>)}</select></label>
+				</div></div>
+
+				<div class="lg:col-span-2 border-t border-slate-200 pt-10"><h2 class="text-2xl font-bold">Verification</h2><div class="mt-6 grid gap-6 lg:grid-cols-2"><label class="block text-sm font-bold">My Email Is <span class="text-orange-600">*</span><input class={input} required name="email" autocomplete="email" type="email" /></label><label class="block text-sm font-bold">Confirm Email<input class={input} required name="confirm-email" autocomplete="email" type="email" /></label><label class="block text-sm font-bold lg:col-span-2">Give Me A Call Sometime At <span class="text-orange-600">*</span><input class={input} required name="phone" autocomplete="tel" type="tel" /></label></div></div>
+
+				<fieldset class="lg:col-span-2 border-t border-slate-200 pt-10"><legend class="text-2xl font-bold">How Did You Hear About ForceBeyond?</legend><div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">{sources.map((source) => <label class="flex cursor-pointer items-center gap-3 border border-slate-200 px-4 py-3 text-sm font-semibold transition hover:border-orange-500"><input type="radio" name="marketing-source" value={source} class="h-4 w-4 accent-orange-600" />{source}</label>)}</div></fieldset>
+
+				<fieldset class="lg:col-span-2 border-t border-slate-200 pt-10"><legend class="text-2xl font-bold">Project Context</legend><div class="mt-6 grid gap-8 lg:grid-cols-2"><label class="block text-sm font-bold">I Am Interested In<input class={input} name="project-interest" type="text" placeholder="Casting, forging, machining, or another requirement" /></label><div><p class="text-sm font-bold">With Annual Budget Of</p><div class="mt-2 grid gap-2 sm:grid-cols-2">{budgets.map((budget) => <label class="flex cursor-pointer items-center gap-3 border border-slate-200 px-3 py-2.5 text-sm font-semibold transition hover:border-orange-500"><input type="radio" name="annual-budget" value={budget} class="h-4 w-4 accent-orange-600" />{budget}</label>)}</div></div></div></fieldset>
+
+				<div class="lg:col-span-2 border-t border-slate-200 pt-10"><p class="text-2xl font-bold">Engineering Assets</p><label class="mt-5 flex min-h-48 cursor-pointer flex-col items-center justify-center border-2 border-dashed border-slate-300 bg-slate-50 px-6 text-center transition hover:border-orange-600 hover:bg-orange-50 focus-within:border-orange-600"><svg class="h-10 w-10 text-orange-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M12 16V4m0 0L8 8m4-4 4 4M5 14v5h14v-5" stroke-linecap="round" stroke-linejoin="round" /></svg><span class="mt-4 font-bold">File Upload - Click or drag files to this area to upload.</span><span class="mt-2 text-sm text-slate-600">You can upload up to 12 files.</span><input name="engineering-assets" type="file" multiple class="sr-only" /></label></div>
+			</div>
+			<div class="border-t border-slate-200 bg-slate-50 px-6 py-7 sm:px-8 lg:px-10"><button type="submit" class="w-full bg-orange-600 px-8 py-4 text-base font-bold tracking-wide text-white transition hover:bg-orange-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600 sm:w-auto">Submit</button></div>
+		</form>
+	</div></section>
+</Layout>
