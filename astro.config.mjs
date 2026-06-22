@@ -1,5 +1,7 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
+import netlify from '@astrojs/netlify';
+import react from '@astrojs/react';
 import sanity from '@sanity/astro';
 
 import tailwindcss from '@tailwindcss/vite';
@@ -11,12 +13,15 @@ const dataset = env.PUBLIC_SANITY_DATASET;
 
 // https://astro.build/config
 export default defineConfig({
+	adapter: netlify(),
 	integrations: [
 		sanity({
 			projectId: projectId || '00000000',
 			dataset: dataset || 'production',
-			useCdn: false
-		})
+			useCdn: false,
+			studioBasePath: '/admin'
+		}),
+		react()
 	],
   vite: {
     plugins: [tailwindcss()]
