@@ -7,7 +7,7 @@ const data = await sanityClient.fetch(`*[_type == "quotePage"][0]`);
 
 // 前端底层硬编码数据资产：保持你原有的工业级标准列表
 const countries = ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belgium', 'Belize', 'Brazil', 'Bulgaria', 'Cambodia', 'Cameroon', 'Canada', 'Chile', 'China', 'Colombia', 'Costa Rica', 'Croatia', 'Cyprus', 'Czechia', 'Denmark', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Estonia', 'Ethiopia', 'Finland', 'France', 'Germany', 'Ghana', 'Greece', 'Guatemala', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Ireland', 'Israel', 'Italy', 'Japan', 'Jordan', 'Kenya', 'Malaysia', 'Mexico', 'Netherlands', 'New Zealand', 'Nigeria', 'Norway', 'Pakistan', 'Panama', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Saudi Arabia', 'Singapore', 'South Africa', 'South Korea', 'Spain', 'Sweden', 'Switzerland', 'Taiwan', 'Thailand', 'Turkey', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'Uruguay', 'Vietnam', 'United States of America'];
-const sources = ['Cold Call', 'Direct Mail', 'Email', 'Industry Event', 'Referral', 'Search Engine', 'Web Research'];
+const sources = ['Cold Call', 'Direct Mail', 'Email', 'Industry Event', 'Referral', 'Search Engine', 'Web Research', 'AI Search (ChatGPT/Gemini/Claude)'];
 const budgets = ['$0 - $25,000', '$25,001 - $100,000', '$100,001 - $250,000', '$250,001 - $500,000', '$500,001 - $1,000,000', '$1,000,000 & Above'];
 const input = 'mt-2 w-full border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-orange-600 focus:ring-2 focus:ring-orange-100';
 ---
