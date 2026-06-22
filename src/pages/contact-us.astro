@@ -36,32 +36,118 @@ const contactSchema = {
 };
 ---
 
-<Layout title="Contact Us | ForceBeyond" description={data?.seoDescription || "Contact ForceBeyond..."}>
+<Layout title="Contact Us | ForceBeyond" description={data?.seoDescription || "Contact ForceBeyond to discuss your metal component manufacturing requirements."}>
     <script slot="head" type="application/ld+json" set:html={JSON.stringify(contactSchema)}></script>
     
     <section class="border-b border-white/10 bg-slate-900">
         <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-            <p class="text-sm font-bold tracking-[0.2em] text-orange-500 uppercase">{data?.badge}</p>
-            <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">{data?.title}</h1>
+            <p class="text-sm font-bold tracking-[0.2em] text-orange-500 uppercase">{data?.badge || "Corporate access"}</p>
+            <h1 class="mt-3 text-4xl font-bold tracking-tight text-white sm:text-5xl">{data?.title || "Contact ForceBeyond"}</h1>
         </div>
     </section>
 
     <section class="bg-slate-100 py-14 text-slate-900 sm:py-20">
         <div class="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
+            
             <aside class="h-fit border-t-4 border-orange-600 bg-slate-900 p-7 text-white sm:p-8">
                 <p class="text-sm font-bold tracking-[0.2em] text-orange-500 uppercase">Corporate Access Info</p>
-                <h2 class="mt-4 text-2xl font-bold">{data?.companyName}</h2>
+                <h2 class="mt-4 text-2xl font-bold">{data?.companyName || "FORCEBEYOND"}</h2>
                 <address class="mt-7 border-t border-white/10 pt-6 text-base leading-7 text-slate-300 not-italic">
-                    {data?.streetAddress}<br />{data?.locality}, {data?.region} {data?.postalCode}
+                    {data?.streetAddress || "261 Quigley Blvd, Suite 18"}<br />
+                    {data?.locality || "New Castle"}, {data?.region || "Delaware"} {data?.postalCode || "19720"}
                 </address>
-                </aside>
+                <dl class="mt-7 space-y-5 border-t border-white/10 pt-6 text-sm">
+                    <div>
+                        <dt class="font-bold tracking-wide text-orange-500 uppercase">Phone</dt>
+                        <dd class="mt-1 text-slate-200">
+                            <a href={`tel:${data?.phone || "+13029956588"}`} class="hover:text-orange-500">{data?.phone || "(302) 995 6588"}</a>
+                        </dd>
+                    </div>
+                    <div>
+                        <dt class="font-bold tracking-wide text-orange-500 uppercase">Fax</dt>
+                        <dd class="mt-1 text-slate-200">{data?.fax || "(302) 355 1166"}</dd>
+                    </div>
+                    <div>
+                        <dt class="font-bold tracking-wide text-orange-500 uppercase">Email</dt>
+                        <dd class="mt-1">
+                            <a href={`mailto:${data?.email || "contact@forcebeyond.com"}`} class="text-slate-200 hover:text-orange-500">{data?.email || "contact@forcebeyond.com"}</a>
+                        </dd>
+                    </div>
+                </dl>
+            </aside>
 
             <div>
-                <form ...>
-                    <h2 class="text-2xl font-bold">{data?.formTitle}</h2>
-                    <p class="mt-3 leading-7 text-slate-600">{data?.formDescription}</p>
-                    </form>
+                <form name="contact" method="POST" action="/contact-us?submitted=true" data-netlify="true" netlify-honeypot="bot-field" class="bg-white p-6 shadow-xl shadow-slate-900/10 sm:p-8 lg:p-10">
+                    <input type="hidden" name="form-name" value="contact" />
+                    <p class="hidden"><label>Do not fill this out if you are human: <input name="bot-field" /></label></p>
+                    
+                    <h2 class="text-2xl font-bold">{data?.formTitle || "B2B Communications"}</h2>
+                    <p class="mt-3 leading-7 text-slate-600">{data?.formDescription || "We would love to hear from you, please drop us a line and we will get back with you very soon."}</p>
+                    
+                    <div class="mt-10 grid gap-x-6 gap-y-7 lg:grid-cols-2">
+                        <fieldset class="contents">
+                            <legend class="lg:col-span-2 text-lg font-bold">Your Name <span class="text-orange-600">*</span></legend>
+                            <label class="block text-sm font-bold">First<input class={input} required name="first-name" autocomplete="given-name" type="text" /></label>
+                            <label class="block text-sm font-bold">Last<input class={input} required name="last-name" autocomplete="family-name" type="text" /></label>
+                        </fieldset>
+                        
+                        <label class="block text-sm font-bold">Your Job Title <span class="text-orange-600">(required)</span><input class={input} required name="job-title" autocomplete="organization-title" type="text" /></label>
+                        <label class="block text-sm font-bold">Your Company Name <span class="text-orange-600">(required)</span><input class={input} required name="company-name" autocomplete="organization" type="text" /></label>
+                        
+                        <fieldset class="contents">
+                            <legend class="lg:col-span-2 mt-3 text-lg font-bold">Your Address <span class="text-orange-600">(required)</span></legend>
+                            <label class="block text-sm font-bold lg:col-span-2">Address Line 1<input class={input} required name="address-line-1" autocomplete="address-line1" type="text" /></label>
+                            <label class="block text-sm font-bold lg:col-span-2">Address Line 2<input class={input} name="address-line-2" autocomplete="address-line2" type="text" /></label>
+                            <label class="block text-sm font-bold">City<input class={input} required name="city" autocomplete="address-level2" type="text" /></label>
+                            <label class="block text-sm font-bold">State/Province/Region<input class={input} required name="state-region" autocomplete="address-level1" type="text" /></label>
+                            <label class="block text-sm font-bold">Postal Code<input class={input} required name="postal-code" autocomplete="postal-code" type="text" /></label>
+                            <label class="block text-sm font-bold">Country
+                                <select class={input} required name="country" autocomplete="country-name">
+                                    <option value="">Select a country</option>
+                                    {countries.map((country) => <option value={country}>{country}</option>)}
+                                </select>
+                            </label>
+                        </fieldset>
+                        
+                        <label class="block text-sm font-bold">Your Email <span class="text-orange-600">(required)</span><input id="contact-email" class={input} required name="email" autocomplete="email" type="email" /></label>
+                        <label class="block text-sm font-bold">Confirm Email<input id="contact-confirm-email" class={input} required name="confirm-email" autocomplete="email" type="email" /></label>
+                        <label class="block text-sm font-bold lg:col-span-2">Your Phone <span class="text-orange-600">(Required)</span><input class={input} required name="phone" autocomplete="tel" type="tel" /></label>
+                        
+                        <fieldset class="lg:col-span-2 border-y border-slate-200 py-7">
+                            <legend class="text-lg font-bold">How Did You Hear About Us? <span class="text-orange-600">(required)</span></legend>
+                            <div class="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+                                {sources.map((source) => (
+                                    <label class="flex cursor-pointer items-center gap-3 border border-slate-200 px-4 py-3 text-sm font-semibold transition hover:border-orange-500">
+                                        <input required type="radio" name="marketing-source" value={source} class="h-4 w-4 accent-orange-600" />{source}
+                                    </label>
+                                ))}
+                            </div>
+                        </fieldset>
+                        
+                        <label class="block text-sm font-bold lg:col-span-2">Subject <span class="text-orange-600">(required)</span><input class={input} required name="subject" type="text" /></label>
+                        <label class="block text-sm font-bold lg:col-span-2">Your Message<textarea class={input + ' min-h-40 resize-y'} name="message"></textarea></label>
+                    </div>
+                    
+                    <button type="submit" class="mt-9 bg-orange-600 px-8 py-4 font-bold tracking-wide text-white transition hover:bg-orange-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600">Submit</button>
+                </form>
+                
+                <a href={`mailto:${data?.email || "contact@forcebeyond.com"}?subject=Web%20Conference%20Appointment`} class="mt-6 flex items-center justify-between border-l-4 border-orange-600 bg-slate-900 p-6 text-white transition hover:bg-slate-800">
+                    <span>
+                        <span class="block text-lg font-bold">Make an Appointment For a Web Conference?</span>
+                        <span class="mt-1 block text-sm text-slate-300">To Schedule a Web Conference</span>
+                    </span>
+                    <span class="text-2xl text-orange-500">→</span>
+                </a>
             </div>
+
         </div>
     </section>
+
+    <script is:inline>
+        const email = document.querySelector('#contact-email');
+        const confirmation = document.querySelector('#contact-confirm-email');
+        const validateEmailMatch = () => confirmation.setCustomValidity(confirmation.value && confirmation.value !== email.value ? 'Email addresses must match.' : '');
+        email.addEventListener('input', validateEmailMatch);
+        confirmation.addEventListener('input', validateEmailMatch);
+    </script>
 </Layout>
