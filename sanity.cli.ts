@@ -5,4 +5,7 @@ export default defineCliConfig({
     projectId: 'hxb9nbp2',  // 项目 ID
     dataset: 'production'   // 数据集
   }
+  deployment: {
+    appId: 'wwivlwmargqj5kn6kmrslhik',
+  }
 });
