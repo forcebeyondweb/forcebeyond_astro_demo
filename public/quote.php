@@ -97,11 +97,10 @@ $mail = new PHPMailer(true);
 try {
     // --- Server Settings ---
     $mail->isSMTP();
-    $mail->Host       = 'REMOVED_SMTP_HOST';
-    $mail->SMTPAuth   = true;
-    $mail->Username   = 'REMOVED_SMTP_USERNAME';         
-    $mail->Password   = 'REMOVED_SMTP_PASSWORD';      
-    $mail->Port       = 465;                                  
+    $mail->Host = 'YOUR_SMTP_HOST';
+    $mail->Username = 'YOUR_SMTP_USERNAME';
+    $mail->Password = 'YOUR_SMTP_PASSWORD';
+    $mail->Port = 465;                                  
     
     if ($mail->Port == 465) {
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
