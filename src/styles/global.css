@@ -2,23 +2,30 @@
 
 @theme {
 	--color-brand-navy: #0B192C;
-	--color-brand-orange: #FF6B00;
+	--color-brand-blue: #2563EB;
+	--color-brand-light: #F8FAFC;
 }
 
 @layer base {
 	html {
-		background-color: #0B192C;
-		color: #FFFFFF;
+		background-color: #FFFFFF;
+		color: #0F172A;
 	}
 
 	body {
 		margin: 0;
-		background-color: #0B192C;
-		color: #FFFFFF;
+		background-color: #FFFFFF;
+		color: #0F172A;
 	}
 
 	::selection {
-		background-color: #FF6B00;
+		background-color: #2563EB;
 		color: #FFFFFF;
+	}
+}
+
+@layer utilities {
+	#fileStatus {
+		text-transform: none;
 	}
 }

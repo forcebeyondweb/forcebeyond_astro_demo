@@ -5,59 +5,95 @@ import { sanityClient } from 'sanity:client';
 // 1. 从 Sanity 云端精准拉取询盘报价页的动态配置文案
 const data = await sanityClient.fetch(`*[_type == "quotePage"][0]`);
 
-// 前端底层硬编码数据资产：保持你原有的工业级标准列表
 const countries = ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belgium', 'Belize', 'Brazil', 'Bulgaria', 'Cambodia', 'Cameroon', 'Canada', 'Chile', 'China', 'Colombia', 'Costa Rica', 'Croatia', 'Cyprus', 'Czechia', 'Denmark', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Estonia', 'Ethiopia', 'Finland', 'France', 'Germany', 'Ghana', 'Greece', 'Guatemala', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Ireland', 'Israel', 'Italy', 'Japan', 'Jordan', 'Kenya', 'Malaysia', 'Mexico', 'Netherlands', 'New Zealand', 'Nigeria', 'Norway', 'Pakistan', 'Panama', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Saudi Arabia', 'Singapore', 'South Africa', 'South Korea', 'Spain', 'Sweden', 'Switzerland', 'Taiwan', 'Thailand', 'Turkey', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'Uruguay', 'Vietnam', 'United States of America'];
 const sources = ['Cold Call', 'Direct Mail', 'Email', 'Industry Event', 'Referral', 'Search Engine', 'Web Research', 'AI Search (ChatGPT/Gemini/Claude)'];
 const budgets = ['$0 - $25,000', '$25,001 - $100,000', '$100,001 - $250,000', '$250,001 - $500,000', '$500,001 - $1,000,000', '$1,000,000 & Above'];
-const input = 'mt-2 w-full border border-slate-300 bg-white px-4 py-3 text-slate-900 outline-none transition focus:border-orange-600 focus:ring-2 focus:ring-orange-100';
+const input = 'mt-2 w-full border border-slate-200 transition-all duration-300 bg-white px-5 py-3.5 text-slate-900 text-sm font-medium outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-100 placeholder:text-slate-400';
+// Define safe file extensions for engineering blueprints
+const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.igs', '.sldprt', '.zip', '.jpg', '.jpeg', '.png','.doc','.docx'];
 ---
 
 <Layout title="Request a Quote | ForceBeyond" description={data?.seoDescription || "Request a quote for custom metal component manufacturing."}>
     
-    <section class="border-b border-white/10 bg-slate-900">
-        <div class="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-            <p class="text-sm font-bold tracking-[0.2em] text-orange-500 uppercase">
-                {data?.badge || "Start a project"}
-            </p>
-            <h1 class="mt-3 max-w-4xl text-4xl font-bold tracking-tight text-white sm:text-5xl">
-                {data?.title || "Ready to Start A Conversation? Request for Quote?"}
-            </h1>
-            <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-                {data?.description || "Tell our team about your component requirements..."}
-            </p>
-        </div>
-    </section>
+    <section class="relative border-b border-white/10 bg-slate-900 h-[420px] lg:h-[500px] flex items-center justify-center overflow-hidden">
+    <img 
+        src="/oscar/media/trust.webp" 
+        alt="Request for Quote"
+        class="absolute inset-0 z-0 h-full w-full object-cover object-center"
+    />
+
+    <div class="absolute inset-0 z-1 bg-slate-950/25"></div>
+    <div class="absolute inset-0 z-2 bg-gradient-to-r from-slate-950/45 via-transparent to-transparent"></div>
+
+    <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+        <h1 class="mt-3 text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl uppercase leading-none">
+            Request for quote
+        </h1>
+    </div>
+</section>
 
     <section class="bg-slate-100 py-14 text-slate-900 sm:py-20">
         <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <form name="request-a-quote" method="POST" action="/request-a-quote?submitted=true" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" class="border border-slate-200 bg-white shadow-xl shadow-slate-900/10">
-                <input type="hidden" name="form-name" value="request-a-quote" />
-                <p class="hidden"><label>Do not fill this out if you are human: <input name="bot-field" /></label></p>
-                
-                <div class="border-b border-slate-200 bg-slate-50 px-6 py-5 sm:px-8">
-                    <p class="text-sm font-semibold text-slate-600"><span class="mr-2 text-orange-600">*</span>Required fields</p>
+            
+            <div id="thankYouState" class="hidden mx-auto max-w-2xl border border-slate-200 bg-white p-8 text-center shadow-xl shadow-slate-900/10 sm:p-12">
+                <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-100 text-green-600">
+                    <svg class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                    </svg>
                 </div>
-                
-                <div class="grid gap-x-10 gap-y-12 p-6 sm:p-8 lg:grid-cols-2 lg:p-10">
+                <h2 class="mt-6 text-3xl font-bold tracking-tight text-slate-900">Thank You!</h2>
+                <p class="mt-4 text-lg text-slate-600">
+                    Thank you so much for contacting us!
+                    Your Request for Quote (RFQ) has been safely received along with your engineering assets. 
+                    Our team will review your specs and get back to you.
+                </p>
+                <div class="mt-8">
+                    <button onclick="window.location.reload()" class="inline-flex items-center justify-center bg-slate-900 px-6 py-3 text-sm font-bold text-white transition hover:bg-slate-800">
+                        Submit Another Request
+                    </button>
+                </div>
+            </div>
+            <div class="mb-10 text-center">
+                <h2 class="text-2xl font-black tracking-tight text-slate-950 uppercase">
+                    Ready to Start A Conversation? Request for Quote?
+                </h2>
+                <p class="mx-auto mt-3 max-w-3xl text-sm leading-relaxed text-slate-600">
+                    Hey ForceBeyond, I would like to drop you a line about my project/product needs. Please contact me back to start a conversation.
+                </p>
+            </div>
+            <form 
+                id="rfqForm"
+                action="/oscar/quote.php" 
+                method="POST" 
+                enctype="multipart/form-data" 
+                class="bg-white rounded-2xl border border-slate-200/80 shadow-xl shadow-slate-900/5 overflow-hidden"
+            >
+                <div class="border-b border-slate-200 bg-white px-8 py-6 lg:px-14">
+                    <p class="text-xs font-black tracking-wider text-slate-500 uppercase">
+                        <span class="mr-2 text-blue-600">*</span>Required fields
+                    </p>
+                </div>
+        
+                <div class="grid gap-x-6 gap-y-8 p-8 lg:grid-cols-2 lg:p-14">
                     <div class="lg:col-span-2">
-                        <h2 class="text-2xl font-bold">Contact Information</h2>
-                        <p class="mt-2 text-slate-600">Let us know who we should contact about your request.</p>
+                        <h2 class="text-2xl font-black tracking-tight text-slate-950 uppercase">Contact Information</h2>
+                        <p class="mt-3 leading-relaxed text-slate-600 text-sm">Let us know who we should contact about your request.</p>
                     </div>
-                    
-                    <label class="block text-sm font-bold">First Name <span class="text-orange-600">*</span><input class={input} required name="first-name" autocomplete="given-name" type="text" /></label>
-                    <label class="block text-sm font-bold">Last Name <span class="text-orange-600">*</span><input class={input} required name="last-name" autocomplete="family-name" type="text" /></label>
-                    <label class="block text-sm font-bold">My Job Title Is <span class="text-orange-600">*</span><input class={input} required name="job-title" autocomplete="organization-title" type="text" /></label>
-                    <label class="block text-sm font-bold">My Business / Organization Is <span class="text-orange-600">*</span><input class={input} required name="organization" autocomplete="organization" type="text" /></label>
+            
+                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">First Name <span class="text-blue-600">*</span><input class={input} required name="first-name" autocomplete="given-name" type="text" /></label>
+                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">Last Name <span class="text-blue-600">*</span><input class={input} required name="last-name" autocomplete="family-name" type="text" /></label>
+                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">My Job Title Is <span class="text-blue-600">*</span><input class={input} required name="job-title" autocomplete="organization-title" type="text" /></label>
+                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">My Business / Organization Is <span class="text-blue-600">*</span><input class={input} required name="organization" autocomplete="organization" type="text" /></label>
 
                     <div class="lg:col-span-2 border-t border-slate-200 pt-10">
-                        <h2 class="text-2xl font-bold">Mailing Data</h2>
+                        <h2 class="text-2xl font-black tracking-tight text-slate-950 uppercase">Mailing Data</h2>
                         <div class="mt-6 grid gap-6 lg:grid-cols-2">
-                            <label class="block text-sm font-bold lg:col-span-2">Address Line 1<input class={input} name="address-line-1" autocomplete="address-line1" type="text" /></label>
-                            <label class="block text-sm font-bold lg:col-span-2">Address Line 2<input class={input} name="address-line-2" autocomplete="address-line2" type="text" /></label>
-                            <label class="block text-sm font-bold">City<input class={input} name="city" autocomplete="address-level2" type="text" /></label>
-                            <label class="block text-sm font-bold">State<input class={input} name="state" autocomplete="address-level1" type="text" /></label>
-                            <label class="block text-sm font-bold">Postal Code<input class={input} name="postal-code" autocomplete="postal-code" type="text" /></label>
-                            <label class="block text-sm font-bold">Country:
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">Address Line 1<input class={input} name="address-line-1" autocomplete="address-line1" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">Address Line 2<input class={input} name="address-line-2" autocomplete="address-line2" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">City<input class={input} name="city" autocomplete="address-level2" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">State<input class={input} name="state" autocomplete="address-level1" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">Postal Code<input class={input} name="postal-code" autocomplete="postal-code" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">Country:
                                 <select class={input} name="country" autocomplete="country-name">
                                     <option value="">Select a country</option>
                                     {countries.map((country) => <option value={country}>{country}</option>)}
@@ -67,37 +103,37 @@ const input = 'mt-2 w-full border border-slate-300 bg-white px-4 py-3 text-slate
                     </div>
 
                     <div class="lg:col-span-2 border-t border-slate-200 pt-10">
-                        <h2 class="text-2xl font-bold">Verification</h2>
+                        <h2 class="text-2xl font-black tracking-tight text-slate-950 uppercase">Verification</h2>
                         <div class="mt-6 grid gap-6 lg:grid-cols-2">
-                            <label class="block text-sm font-bold">My Email Is <span class="text-orange-600">*</span><input class={input} required name="email" autocomplete="email" type="email" /></label>
-                            <label class="block text-sm font-bold">Confirm Email<input class={input} required name="confirm-email" autocomplete="email" type="email" /></label>
-                            <label class="block text-sm font-bold lg:col-span-2">Give Me A Call Sometime At <span class="text-orange-600">*</span><input class={input} required name="phone" autocomplete="tel" type="tel" /></label>
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">My Email Is <span class="text-blue-600">*</span><input id="quote-email" class={input} required name="email" autocomplete="email" type="email" /></label>
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">Confirm Email<input id="quote-confirm-email" class={input} required name="confirm-email" autocomplete="email" type="email" /></label>
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">Give Me A Call Sometime At <span class="text-blue-600">*</span><input class={input} required name="phone" autocomplete="tel" type="tel" /></label>
                         </div>
                     </div>
 
                     <fieldset class="lg:col-span-2 border-t border-slate-200 pt-10">
-                        <legend class="text-2xl font-bold">How Did You Hear About ForceBeyond?</legend>
+                        <legend class="text-2xl font-black tracking-tight text-blue-600 uppercase">How Did You Hear About ForceBeyond?</legend>
                         <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                             {sources.map((source) => (
-                                <label class="flex cursor-pointer items-center gap-3 border border-slate-200 px-4 py-3 text-sm font-semibold transition hover:border-orange-500">
-                                    <input type="radio" name="marketing-source" value={source} class="h-4 w-4 accent-orange-600" />{source}
+                                <label class="flex cursor-pointer items-center gap-3 rounded border border-slate-200 bg-slate-50/50 px-4 py-3 text-xs font-bold text-slate-700 transition hover:border-blue-500 hover:bg-slate-50">
+                                    <input type="radio" name="marketing-source" value={source} class="h-4 w-4 accent-blue-600" />{source}
                                 </label>
                             ))}
                         </div>
                     </fieldset>
 
                     <fieldset class="lg:col-span-2 border-t border-slate-200 pt-10">
-                        <legend class="text-2xl font-bold">Project Context</legend>
+                        <legend class="text-2xl font-black tracking-tight text-blue-600 uppercase">Project Context</legend>
                         <div class="mt-6 grid gap-8 lg:grid-cols-2">
-                            <label class="block text-sm font-bold">I Am Interested In
+                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">I Am Interested In
                                 <input class={input} name="project-interest" type="text" placeholder="Casting, forging, machining, or another requirement" />
                             </label>
                             <div>
                                 <p class="text-sm font-bold">With Annual Budget Of</p>
                                 <div class="mt-2 grid gap-2 sm:grid-cols-2">
                                     {budgets.map((budget) => (
-                                        <label class="flex cursor-pointer items-center gap-3 border border-slate-200 px-3 py-2.5 text-sm font-semibold transition hover:border-orange-500">
-                                            <input type="radio" name="annual-budget" value={budget} class="h-4 w-4 accent-orange-600" />{budget}
+                                        <label class="flex cursor-pointer items-center gap-3 rounded border border-slate-200 bg-slate-50/50 px-4 py-3 text-xs font-bold text-slate-700 transition hover:border-blue-500 hover:bg-slate-50">
+                                            <input type="radio" name="annual-budget" value={budget} class="h-4 w-4 accent-blue-600" />{budget}
                                         </label>
                                     ))}
                                 </div>
@@ -106,24 +142,234 @@ const input = 'mt-2 w-full border border-slate-300 bg-white px-4 py-3 text-slate
                     </fieldset>
 
                     <div class="lg:col-span-2 border-t border-slate-200 pt-10">
-                        <p class="text-2xl font-bold">Engineering Assets</p>
-                        <label class="mt-5 flex min-h-48 cursor-pointer flex-col items-center justify-center border-2 border-dashed border-slate-300 bg-slate-50 px-6 text-center transition hover:border-orange-600 hover:bg-orange-50 focus-within:border-orange-600">
-                            <svg class="h-10 w-10 text-orange-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+                        <h2 class="text-2xl font-black tracking-tight text-slate-950 uppercase">Engineering Assets</p>
+                        <label class="mt-5 flex min-h-48 cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-slate-200 bg-slate-50/60 px-6 text-center transition hover:border-blue-500 hover:bg-blue-50/60 focus-within:border-blue-600">
+                            <svg class="h-10 w-10 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
                                 <path d="M12 16V4m0 0L8 8m4-4 4 4M5 14v5h14v-5" stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <span class="mt-4 font-bold">File Upload - Click or drag files to this area to upload.</span>
-                            <span class="mt-2 text-sm text-slate-600">You can upload up to 12 files.</span>
-                            <input name="engineering-assets" type="file" multiple class="sr-only" />
+                            <span class="mt-4 font-bold normal-case" id="fileStatus">
+                                Click or drag files here to upload.
+                            </span>
+                            <span class="mt-2 text-sm text-slate-600">
+                                Supported formats: PDF, DWG, DXF, STEP, IGES, SLDPRT, ZIP, Images, Doc. Max 25MB per file.
+                            </span>
+                            <input 
+                                id="fileInput" 
+                                name="engineering-assets[]" 
+                                type="file" 
+                                multiple 
+                                accept={allowedExtensions.join(',')} 
+                                class="sr-only" 
+                            />
                         </label>
+                        
+                        <div id="fileError" class="mt-3 hidden text-sm font-bold text-red-600"></div>
+
+                        <div id="fileListContainer" class="mt-4 hidden">
+                            <p class="text-xs font-bold uppercase tracking-wider text-slate-500">Files Selected for Upload:</p>
+                            <ul id="fileVisualList" class="mt-2 divide-y divide-slate-200 border border-slate-200 bg-slate-50 rounded-md">
+                                </ul>
+                        </div>
                     </div>
+
                 </div>
-                
-                <div class="border-t border-slate-200 bg-slate-50 px-6 py-7 sm:px-8 lg:px-10">
-                    <button type="submit" class="w-full bg-orange-600 px-8 py-4 text-base font-bold tracking-wide text-white transition hover:bg-orange-500 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-orange-600 sm:w-auto">
-                        Submit
+        
+                <div class="border-t border-slate-200 bg-white px-8 py-8 lg:px-14 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                    <div id="formErrorMessage" class="text-sm font-bold text-red-600 hidden"></div>
+                    <button type="submit" id="submitBtn" class="w-full rounded-full bg-blue-600 px-12 py-4 font-black tracking-widest text-white uppercase text-xs transition hover:bg-blue-700 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-blue-600/10 cursor-pointer sm:w-auto">
+                        Submit Request
                     </button>
                 </div>
             </form>
         </div>
     </section>
 </Layout>
+
+
+<script is:inline>
+    // 1. Email 校验
+    const email = document.querySelector('#quote-email');
+    const confirmation = document.querySelector('#quote-confirm-email');
+    const validateEmailMatch = () => confirmation.setCustomValidity(confirmation.value && confirmation.value !== email.value ? 'Email addresses must match.' : '');
+    
+    const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.igs', '.sldprt', '.zip', '.jpg', '.jpeg', '.png', '.doc', '.docx'];
+    const MAX_FILE_SIZE = 25 * 1024 * 1024;
+
+    email.addEventListener('input', validateEmailMatch);
+    confirmation.addEventListener('input', validateEmailMatch);
+
+    // ==================================================================
+    // 🚀 核心改进：引入浏览器高级 DataTransfer 虚拟仓库，实现分批追加文件
+    // ==================================================================
+    let fileBufferContainer = new DataTransfer(); // 这是一个持久化的虚拟文件集仓库
+
+    const fileInput = document.getElementById('fileInput');
+    const fileStatus = document.getElementById('fileStatus');
+    const fileError = document.getElementById('fileError');
+    const fileListContainer = document.getElementById('fileListContainer');
+    const fileVisualList = document.getElementById('fileVisualList');
+
+    fileInput.addEventListener('change', () => {
+        const freshSelectedFiles = fileInput.files; // 本次弹窗新选中的文件
+        fileError.classList.add('hidden');
+
+        if (freshSelectedFiles.length > 0) {
+            for (let i = 0; i < freshSelectedFiles.length; i++) {
+                const file = freshSelectedFiles[i];
+                const extension = '.' + file.name.split('.').pop().toLowerCase();
+                
+                // 安全过滤拦截
+                if (file.name.includes('.php') || file.name.includes('.js') || file.name.includes('.sh') || file.name.includes('.exe')) {
+                    fileError.textContent = `🛑 Security exception: "${file.name}" is unauthorized.`;
+                    fileError.remove('hidden');
+                    return;
+                }
+                if (!allowedExtensions.includes(extension)) {
+                    fileError.textContent = `❌ Extension rejected: "${extension}" is not supported.`;
+                    fileError.classList.remove('hidden');
+                    return;
+                }
+                if (file.size > MAX_FILE_SIZE) {
+                    fileError.textContent = `❌ File size exceeded: "${file.name}" is larger than 25MB.`;
+                    fileError.classList.remove('hidden');
+                    return;
+                }
+
+                // ✨ 核心黑魔法：如果总数没超10个，就把新文件追加到我们的虚拟仓库里，而不是覆盖！
+                if (fileBufferContainer.files.length >= 10) {
+                    fileError.textContent = `⚠️ Upper limit breached: You can upload a maximum of 10 engineering assets.`;
+                    fileError.classList.remove('hidden');
+                    break;
+                }
+                
+                // 检查是否重复添加了同名文件
+                unsetDuplicate: {
+                    for(let j=0; j<fileBufferContainer.files.length; j++) {
+                        if(fileBufferContainer.files[j].name === file.name && fileBufferContainer.files[j].size === file.size) {
+                            break unsetDuplicate; // 存在完全一样的文件，跳过不重复添加
+                        }
+                    }
+                    fileBufferContainer.items.add(file); // 顺利追加进仓库
+                }
+            }
+
+            // 联动将虚拟仓库里合并后的【总文件集】硬塞回给原生的 HTML Input 元素，供表单提交
+            fileInput.files = fileBufferContainer.files;
+            
+            // 渲染 UI 列表
+            renderVisualList();
+        }
+    });
+
+    // 动态渲染带删除按钮的视觉列表
+    function renderVisualList() {
+        fileVisualList.innerHTML = '';
+        const currentFiles = fileBufferContainer.files;
+
+        if (currentFiles.length > 0) {
+            let totalSize = 0;
+
+            for (let i = 0; i < currentFiles.length; i++) {
+                const file = currentFiles[i];
+                totalSize += file.size;
+                const sizeInMB = (file.size / (1024 * 1024)).toFixed(2);
+                
+                const li = document.createElement('li');
+                li.className = 'flex items-center justify-between px-4 py-3 text-sm';
+                li.innerHTML = `
+                    <div class="flex items-center gap-2 truncate">
+                        <svg class="h-5 w-5 text-slate-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span class="font-medium text-slate-700 truncate">${file.name}</span>
+                    </div>
+                    <div class="flex items-center gap-3 flex-shrink-0">
+                        <span class="text-xs font-semibold text-slate-400 bg-slate-200/60 px-2 py-1 rounded">${sizeInMB} MB</span>
+                        <button type="button" data-index="${i}" class="remove-file-btn text-red-500 hover:text-red-700 font-bold px-1">✕</button>
+                    </div>
+                `;
+                fileVisualList.appendChild(li);
+            }
+
+            const totalMB = (totalSize / (1024 * 1024)).toFixed(1);
+            fileStatus.innerHTML = `Total <span class="text-blue-600 font-extrabold">${currentFiles.length}</span> file(s) appended (${totalMB} MB).`;
+            fileListContainer.classList.remove('hidden');
+
+            // 挂载删除事件监听
+            document.querySelectorAll('.remove-file-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    const indexToRemove = parseInt(e.target.getAttribute('data-index'));
+                    
+                    // 通过重建 DataTransfer 实现删除特定位置的文件
+                    const newContainer = new DataTransfer();
+                    for(let k = 0; k < fileBufferContainer.files.length; k++) {
+                        if(k !== indexToRemove) {
+                            newContainer.items.add(fileBufferContainer.files[k]);
+                        }
+                    }
+                    fileBufferContainer = newContainer;
+                    fileInput.files = fileBufferContainer.files; // 同步回原生的 Input
+                    
+                    renderVisualList(); // 重新渲染列表
+                    if(fileBufferContainer.files.length === 0) {
+                        fileStatus.textContent = 'Click or drag files here to upload.';
+                        fileListContainer.classList.add('hidden');
+                    }
+                });
+            });
+
+        } else {
+            fileStatus.textContent = 'Click or drag files here to upload.';
+            fileListContainer.classList.add('hidden');
+        }
+    }
+
+    // 3. AJAX 无刷新就地视图切换提交逻辑（已移除 Turnstile 拦截保护，供您本地顺畅调测）
+    const form = document.getElementById('rfqForm');
+    const submitBtn = document.getElementById('submitBtn');
+    const thankYouState = document.getElementById('thankYouState');
+    const formErrorMessage = document.getElementById('formErrorMessage');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        formErrorMessage.classList.add('hidden');
+
+        submitBtn.textContent = 'Uploading Assets & Submitting RFQ...';
+        submitBtn.disabled = true;
+
+        const formData = new FormData(form);
+
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: formData 
+            });
+
+            let result;
+            const contentType = response.headers.get("content-type");
+            if (contentType && contentType.includes("application/json")) {
+                result = await response.json();
+            } else {
+                const textResponse = await response.text();
+                result = { success: response.ok, error: textResponse };
+            }
+
+            if (result.success || response.status === 200) {
+                form.reset();
+                fileBufferContainer = new DataTransfer(); // 清空前端持久缓存
+                form.classList.add('hidden');
+                thankYouState.classList.remove('hidden');
+                window.scrollTo({ top: thankYouState.offsetTop - 100, behavior: 'smooth' });
+            } else {
+                formErrorMessage.textContent = 'Submission failed: ' + (result.error || 'Unknown server exception.');
+                formErrorMessage.classList.remove('hidden');
+            }
+        } catch (error) {
+            formErrorMessage.textContent = 'A transmission anomaly took place.';
+            formErrorMessage.classList.remove('hidden');
+        } finally {
+            submitBtn.textContent = 'Submit Request';
+            submitBtn.disabled = false;
+        }
+    });
+</script>

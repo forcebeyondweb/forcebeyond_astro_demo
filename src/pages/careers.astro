@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = 'Careers';
+const pageDescription = 'This page is under development. ForceBeyond provides custom metal component manufacturing solutions for industrial applications.';
+---
+
+<Layout 
+    title={`${pageTitle} | ForceBeyond`}
+    description={pageDescription}
+>
+    <!-- Placeholder Page -->
+    <section class="relative w-full min-h-[calc(100vh-5rem)] bg-slate-50 pt-20 pb-24 px-6 sm:px-12">
+        <div class="w-full max-w-6xl mx-auto">
+            
+            <!-- Breadcrumb -->
+            <nav class="mb-10 text-sm text-slate-500">
+                <a href="/oscar/" class="hover:text-[#0082D6] transition">Home</a>
+                <span class="mx-2">/</span>
+                <span class="text-slate-700">{pageTitle}</span>
+            </nav>
+
+            <!-- Main Content -->
+            <div class="rounded-2xl border border-slate-200 bg-white p-8 sm:p-12 lg:p-16 shadow-sm">
+                
+                <p class="mb-4 text-xs font-semibold tracking-[0.22em] text-[#0082D6] uppercase">
+                    Page Under Development
+                </p>
+
+                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 uppercase">
+                    {pageTitle}
+                </h1>
+
+                <div class="mt-6 h-1 w-16 bg-[#0082D6] rounded-full"></div>
+
+                <p class="mt-8 max-w-3xl text-lg sm:text-xl leading-8 text-slate-700 font-medium">
+                    This page is currently being prepared. ForceBeyond supports customers with precision casting, forging, CNC machining, quality control, and global supply chain coordination for high-demand industrial applications.
+                </p>
+
+                <div class="mt-10 grid gap-4 sm:grid-cols-3">
+                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
+                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
+                            Manufacturing
+                        </h3>
+                        <p class="mt-2 text-sm leading-6 text-slate-600">
+                            Casting, forging, machining, and finishing support.
+                        </p>
+                    </div>
+
+                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
+                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
+                            Quality
+                        </h3>
+                        <p class="mt-2 text-sm leading-6 text-slate-600">
+                            Inspection, documentation, and traceability workflows.
+                        </p>
+                    </div>
+
+                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
+                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
+                            Supply Chain
+                        </h3>
+                        <p class="mt-2 text-sm leading-6 text-slate-600">
+                            Multi-facility sourcing and delivery coordination.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="mt-12 flex flex-col sm:flex-row gap-4">
+                    <a 
+                        href="/oscar/request-a-quote" 
+                        class="inline-flex items-center justify-center rounded-full bg-[#67bd18] px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#5aaa14] shadow-sm"
+                    >
+                        Request Quote
+                    </a>
+
+                    <a 
+                        href="/oscar/#capabilities" 
+                        class="inline-flex items-center justify-center rounded-full border border-slate-300 px-8 py-3 text-sm font-semibold text-slate-700 transition hover:border-[#0082D6] hover:text-[#0082D6]"
+                    >
+                        View Capabilities
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</Layout>
