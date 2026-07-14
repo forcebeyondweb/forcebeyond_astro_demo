@@ -1,0 +1,203 @@
+---
+import Layout from './Layout.astro';
+import '../styles/individual.css';
+export interface FaqItem {
+    q: string;
+    a: string;
+}
+
+interface Props {
+    title?: string;
+    description?: string;
+    pageTitle?: string;
+    heroImage?: string;
+    heroImageAlt?: string;
+
+    // FAQ 区域
+    faqSectionTitle?: string;
+    faqItems?: FaqItem[];
+
+    // CTA 区域 (支持字符串或字符串数组)
+    ctaTitle?: string;
+    ctaDescription?: string | string[];
+    ctaButtonUrl?: string;
+
+    // Sources & Resources 区域
+    sourcesTitle?: string;
+    sourcesList?: { label: string; url?: string }[];
+    resourcesTitle?: string;
+    resourcesList?: { label: string; url: string }[];
+}
+
+const {
+    title = 'Industrial Solutions',
+    description = 'Reliable industrial solutions built for performance.',
+    pageTitle = 'Industrial Solutions',
+    heroImage = '',
+    heroImageAlt = '',
+
+    // FAQ 默认数据
+    faqSectionTitle = 'FAQ: Sourcing Inconel 718 Forgings',
+    faqItems = [],
+
+    // CTA 默认数据 (写死 Button 名称为 Request for Quote)
+    ctaTitle = 'Request an Inconel 718 Technical Consultation',
+    ctaDescription = 'Direct access to our engineering team. Feasibility reviews delivered within 48 hours.',
+    ctaButtonUrl = '/contact',
+
+    // Resources & Sources 默认数据
+    sourcesTitle = 'Sources',
+    sourcesList = [],
+    resourcesTitle = 'Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting',
+    resourcesList = []
+} = Astro.props;
+
+// 判断 ctaDescription 是普通字符串还是数组列表
+const isCtaDescArray = Array.isArray(ctaDescription);
+---
+
+<Layout title={title} description={description}>
+
+    <!-- ========================================
+         Compact Hero Section (防拉伸、精致高度)
+         ======================================== -->
+    <section class="relative w-full overflow-hidden bg-[#0363ce] py-12 sm:py-16 lg:py-33">
+        
+        <!-- Background Image -->
+        {heroImage && (
+            <div class="absolute inset-0 z-0">
+                <img
+                    src={heroImage}
+                    alt={heroImageAlt || pageTitle}
+                    class="w-full h-full object-cover object-center"
+                    loading="eager"
+                    decoding="async"
+                />
+            </div>
+        )}
+
+        <!-- Centered Content -->
+        <div class="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 text-center">
+            <div class="max-w-7xl mx-auto">
+                <h1 
+                    class="text-3xl sm:text-4xl lg:text-5xl leading-[1.2]  text-white tracking-tight"
+                    set:html={pageTitle}
+                />
+            </div>
+        </div>
+
+    </section>
+
+    <section class="w-full bg-white">
+        <div class="w-full max-w-7xl mx-auto px-6 sm:px-12 py-16 lg:py-12">
+            <div class="individual-content">
+                <slot />
+            </div>
+        </div>
+    </section>
+
+    <slot name="full-width" />
+
+    <section class="w-full bg-white  border-slate-200 py-16 lg:py-20 text-slate-800">
+        <div class="w-full max-w-7xl mx-auto px-6 sm:px-12 space-y-12">
+
+            {faqItems && faqItems.length > 0 && (
+                <div class="space-y-6">
+                    <h2 
+                        class="text-2xl sm:text-3xl font-normal text-[#0B192C] !mt-0 !mb-6"
+                    >
+                        {faqSectionTitle}
+                    </h2>
+
+                    <div class="space-y-6">
+                        {faqItems.map((item) => (
+                            <div class="space-y-2">
+                                <p class="text-base font-semibold text-[#0B192C]">
+                                    Q: {item.q}
+                                </p>
+                                <p class="text-base text-slate-600 leading-relaxed pl-4 border-l-2 border-slate-200">
+                                    A: {item.a}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            )}
+
+            <div class="py-8 text-center  border-slate-100 my-10">
+                <h2 
+                    class="text-2xl sm:text-3xl font-normal text-[#0B192C] !mt-0 !mb-4"
+                >
+                    {ctaTitle}
+                </h2>
+
+                {ctaDescription && (
+                    <div class="max-w-3xl mx-auto mb-8 text-slate-600 text-sm sm:text-base leading-relaxed text-center">
+                        {isCtaDescArray ? (
+                            <ul class="list-disc pl-6 space-y-2 inline-block text-left">
+                                {(ctaDescription as string[]).map((point) => (
+                                    <li>{point}</li>
+                                ))}
+                            </ul>
+                        ) : (
+                            <p class="text-center italic text-slate-500">{ctaDescription}</p>
+                        )}
+                    </div>
+                )}
+
+                <div class="flex justify-center">
+                    <a
+                        href="/oscar/request-a-quote"
+                        class="inline-flex items-center justify-center rounded-full bg-brand-green px-8 py-3.5 text-base font-semibold text-white shadow-md transition hover:bg-[#5aaa14] hover:shadow-lg"
+                    >
+                        Request Quote
+                    </a>
+                </div>
+            </div>
+
+            {sourcesList && sourcesList.length > 0 && (
+                <div class="space-y-4">
+                    <h2 
+                        class="text-2xl sm:text-3xl font-normal text-[#0B192C] !mt-0 !mb-4"
+                    >
+                        {sourcesTitle}
+                    </h2>
+                    <ul class="list-disc pl-6 space-y-2 text-sm sm:text-base text-slate-600">
+                        {sourcesList.map((source) => (
+                            <li>
+                                {source.url ? (
+                                    <a href={source.url} class="text-[#0363CE] hover:underline" target="_blank" rel="noopener noreferrer">
+                                        {source.label}
+                                    </a>
+                                ) : (
+                                    <span>{source.label}</span>
+                                )}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+
+            {resourcesList && resourcesList.length > 0 && (
+                <div class="space-y-4 pt-4">
+                    <h2 
+                        class="text-2xl sm:text-3xl font-normal text-[#0B192C] !mt-0 !mb-4"
+                    >
+                        {resourcesTitle}
+                    </h2>
+                    <ul class="list-disc pl-6 space-y-2 text-sm sm:text-base text-slate-600">
+                        {resourcesList.map((res) => (
+                            <li>
+                                <a href={res.url} class="text-[#0363CE] hover:underline font-medium">
+                                    {res.label}
+                                </a>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            )}
+
+        </div>
+    </section>
+
+</Layout>

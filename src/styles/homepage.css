@@ -1,0 +1,125 @@
+
+@import "./global.css";
+
+@layer components {
+    /* Hero Section */
+    .home-hero {
+        @apply sticky top-0 z-10 flex h-[calc(100vh-5rem)] w-full items-center justify-center overflow-hidden bg-slate-950 px-6 sm:px-12;
+    }
+    .home-hero-bg {
+        @apply absolute inset-0 z-0;
+    }
+    .home-hero-bg img {
+        @apply w-full h-full object-cover opacity-100;
+    }
+    .home-hero-overlay-dark {
+        @apply absolute inset-0 bg-slate-950/25;
+    }
+    .home-hero-overlay-gradient {
+        @apply absolute inset-0 bg-gradient-to-b from-slate-950/10 via-slate-950/10 to-slate-950/40;
+    }
+    .home-hero-content {
+        @apply relative z-10 w-full max-w-6xl mx-auto text-center px-2 sm:px-6 space-y-6 sm:space-y-8;
+    }
+    .home-hero-title {
+        @apply mx-auto max-w-6xl text-[3.35rem] sm:text-6xl lg:text-7xl xl:text-[5.25rem] font-black tracking-[-0.04em] text-white uppercase leading-[0.9] drop-shadow-lg;
+    }
+    .home-hero-badge {
+        @apply text-lg sm:text-xl lg:text-2xl font-bold tracking-[0.16em] sm:tracking-[0.22em] text-amber-400 uppercase drop-shadow-md;
+    }
+    .home-hero-subtitle {
+        @apply mx-auto max-w-3xl text-base sm:text-xl lg:text-2xl leading-7 sm:leading-8 text-slate-100 font-medium tracking-normal drop-shadow-md;
+    }
+
+    /* Section Headers */
+    .home-section-header {
+        @apply w-full mb-10 sm:mb-14 lg:mb-16;
+    }
+    .home-section-title {
+        @apply text-3xl font-black tracking-tight text-[#0363ce] sm:text-4xl lg:text-5xl text-center;
+    }
+
+    /* Capabilities Accordion */
+    .home-capabilities-section {
+        @apply relative z-20 w-full py-16 sm:py-20 lg:py-24 bg-slate-50 px-6 sm:px-12;
+    }
+    .home-capabilities-grid {
+        @apply grid grid-cols-1 sm:grid-cols-2 lg:flex lg:flex-row gap-4 lg:gap-3 w-full overflow-hidden;
+    }
+    .home-capability-card {
+        @apply flex-1 transition-all duration-500 ease-in-out border border-slate-200 bg-white p-6 sm:p-8 rounded-sm flex flex-col justify-between relative overflow-hidden cursor-pointer shadow-sm min-h-[320px] sm:min-h-[360px] lg:min-h-[450px];
+    }
+    
+    .home-capability-bg {
+        @apply absolute inset-0 z-0 opacity-90 lg:opacity-75 transition-all duration-500 ease-out;
+    }
+    .home-capability-bg img {
+        @apply w-full h-full object-cover transition-transform duration-700 ease-out;
+    }
+    .home-capability-overlay {
+        @apply absolute inset-0 z-[1] bg-slate-950/35 lg:bg-slate-950/25 transition-all duration-500;
+    }
+    .home-capability-gradient {
+        @apply absolute inset-x-0 bottom-0 z-[1] h-2/3 bg-gradient-to-t from-slate-950/75 via-slate-950/30 to-transparent;
+    }
+    .home-capability-title {
+        @apply text-2xl sm:text-3xl lg:text-2xl font-black mt-2 text-white drop-shadow-md text-center;
+    }
+    .home-capability-desc {
+        @apply text-slate-200 font-medium text-sm sm:text-base lg:text-sm max-w-sm lg:max-w-xs transition duration-200 drop-shadow-xs;
+    }
+    .home-capability-list-mobile {
+        @apply block lg:hidden transition duration-300 mt-5 pt-5 border-t border-white/20;
+    }
+    .home-capability-list-desktop {
+        @apply relative z-10 hidden transition duration-300 mt-6 pt-6 border-t border-white/20;
+    }
+    .home-capability-bullet {
+        @apply w-2 h-2 rounded-full bg-amber-400 shadow-sm shrink-0;
+    }
+
+    /* ==========================================
+    Who We Supply Section (homepage.css)
+    ========================================== */
+    .home-supply-section {
+        @apply relative z-20 w-full pt-6 sm:pt-8 lg:pt-10 pb-16 sm:pb-20 lg:pb-24 bg-slate-50 border-b border-slate-200 overflow-hidden;
+    }
+
+    .home-supply-grid {
+        @apply grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-6;
+    }
+
+    /* 基础卡片容器 */
+    .home-supply-card {
+        @apply relative flex items-center justify-center p-3 sm:p-5 lg:p-6 text-center rounded-xl aspect-[4/3] min-h-[120px] sm:min-h-[170px] lg:min-h-[200px] shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden;
+    }
+
+    /* 卡片背景图片 */
+    .home-supply-img {
+        @apply absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out;
+    }
+
+    /* 卡片文字标签 */
+    .home-supply-label {
+        @apply font-black text-xs sm:text-base lg:text-lg text-white tracking-[0.08em] transition-all duration-300 block relative z-10 [text-shadow:0_2px_8px_rgba(0,0,0,0.55)];
+    }
+
+    /* Core Positioning & Quality Sections */
+    .home-split-section {
+        @apply relative z-20 w-full min-h-[800px] lg:min-h-[920px] xl:min-h-[980px] flex items-center bg-slate-50 overflow-hidden;
+    }
+    .home-split-text-box {
+        @apply col-span-11 lg:col-span-6 space-y-6 backdrop-blur-xs lg:backdrop-blur-none p-6 lg:p-0 rounded-sm bg-slate-50/60 lg:bg-transparent;
+    }
+    .home-bullet-callout {
+        @apply border-l-4 border-[#0363ce] pl-4 text-lg sm:text-xl leading-8 text-slate-700 font-medium space-y-1.5;
+    }
+
+    /* Testimonial & RFQ Loop Section */
+    .home-testimonial-section {
+        @apply block w-full relative z-20 min-h-[550px] flex items-center justify-center py-24 text-center px-6 overflow-hidden;
+    }
+    .home-rfq-button {
+        @apply inline-flex items-center justify-center rounded-full bg-[#67BD18] px-7 py-3 text-sm font-semibold text-white transition hover:bg-[#5aaa14] shadow-sm;
+    }
+}

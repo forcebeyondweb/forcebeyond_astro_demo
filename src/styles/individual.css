@@ -1,0 +1,120 @@
+@import "./global.css";
+
+@layer components {
+    .individual-content {
+        color: #475569;
+        font-size: 1rem;
+        line-height: 1.75;
+    }
+
+    /* Paragraphs */
+    .individual-content p,
+    .individual-content .content-paragraph {
+        @apply text-base sm:text-lg leading-7 sm:leading-8 text-slate-600 mt-4;
+    }
+
+    .individual-content p:first-child,
+    .individual-content .content-paragraph:first-child {
+        @apply mt-0;
+    }
+
+    .individual-content p strong,
+    .individual-content p b {
+        @apply font-semibold text-[#0B192C];
+    }
+
+    .individual-content .page-lead {
+        @apply mb-8 text-slate-700 text-lg sm:text-xl leading-relaxed;
+    }
+
+    /* Headings */
+    .individual-content h2,
+    .individual-content .content-heading {
+        @apply text-3xl sm:text-4xl lg:text-4xl font-normal leading-tight text-[#0B192C] mt-10 mb-5;
+    }
+
+    .individual-content h2:first-child,
+    .individual-content .content-heading:first-child {
+        @apply mt-0;
+    }
+
+    .individual-content h3,
+    .individual-content .content-subheading {
+        @apply text-xl sm:text-2xl font-bold leading-snug text-[#0363ce] mt-8 mb-4;
+    }
+
+    .individual-content h4,
+    .individual-content .content-minor-heading {
+        @apply text-lg font-bold leading-normal text-slate-800 mt-6 mb-3;
+    }
+
+    /* Lists */
+    .individual-content ul,
+    .individual-content .content-list-unordered {
+        @apply list-disc pl-6 space-y-3 mt-4 text-base sm:text-lg leading-7 text-slate-600;
+    }
+
+    .individual-content ol,
+    .individual-content .content-list-ordered {
+        @apply list-decimal pl-6 space-y-3 mt-4 text-base sm:text-lg leading-7 text-slate-600;
+    }
+
+    .individual-content li strong {
+        @apply text-slate-800 font-semibold;
+    }
+    /* Tables */
+    .individual-content .content-table-wrapper {
+        @apply w-full overflow-x-auto border border-slate-200 rounded-lg bg-white mt-8 mb-10;
+    }
+
+    .individual-content table,
+    .individual-content .content-table {
+        @apply min-w-[720px] w-full border-collapse text-left text-sm sm:text-base;
+    }
+
+    .individual-content caption {
+        @apply border-b border-slate-200 px-6 py-5 text-left bg-[#F8FAFC];
+    }
+
+    .individual-content caption .caption-title {
+        @apply block text-xl font-bold text-[#0363ce];
+    }
+
+    .individual-content caption .caption-subtitle {
+        @apply mt-1 block text-sm text-slate-500 font-normal;
+    }
+
+    .individual-content thead {
+        @apply bg-[#0363ce] text-white;
+    }
+
+    .individual-content th[scope="col"] {
+        @apply px-6 py-4 text-sm font-bold;
+    }
+
+    .individual-content tbody tr {
+        @apply border-t border-slate-200 transition-colors hover:bg-slate-50;
+    }
+
+    .individual-content tbody tr:nth-child(even) {
+        @apply bg-[#F8FAFC];
+    }
+
+    .individual-content tbody th[scope="row"] {
+        @apply px-6 py-4 font-semibold text-[#0363ce];
+    }
+
+    .individual-content tbody td {
+        @apply px-6 py-4 text-slate-600;
+    }
+
+    /* Links & Callouts */
+    .individual-content a,
+    .individual-content .content-link {
+        @apply font-semibold text-[#0363CE] underline decoration-blue-500/30 underline-offset-4 transition hover:text-blue-700;
+    }
+
+    .individual-content .content-callout {
+        @apply mt-8 mb-8 border-l-4 border-[#0363CE] bg-[#F8FAFC] p-6 text-slate-700 leading-relaxed rounded-r-lg;
+    }
+}
