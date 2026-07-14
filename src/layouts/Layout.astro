@@ -123,7 +123,8 @@ const {
         </a>
         
         <!-- Desktop Navigation -->
-        <nav class="hidden 2xl:flex items-center gap-5 text-sm tracking-wide text-slate-900">
+        <!-- <nav class="hidden 2xl:flex items-center gap-5 text-sm tracking-wide text-slate-900"> -->
+        <nav class="hidden lg:flex items-center gap-5 text-sm tracking-wide text-slate-900">
     
     <!-- Home -->
     <a href="/oscar/#" class="py-8 hover:text-[#0363ce] transition">
@@ -430,15 +431,16 @@ const {
     <!-- Desktop RFQ Button -->
     <a 
         href="/oscar/request-a-quote" 
-        class="hidden 2xl:inline-flex items-center justify-center rounded-full bg-[#67bd18] px-7 py-3 text-sm font-semibold text-white transition hover:bg-[#5aaa14] shadow-sm"
+        class="hidden lg:inline-flex items-center justify-center rounded-full bg-[#67bd18] px-7 py-3 text-sm font-semibold text-white transition hover:bg-[#5aaa14] shadow-sm"
     >
         Request Quote
     </a>
 
     <!-- Mobile Hamburger -->
+     <!-- "2xl:hidden inline-flex items-center justify-center text-slate-900 hover:text-[#0363ce] transition" -->
     <button 
         id="mobile-menu-button"
-        class="2xl:hidden inline-flex items-center justify-center text-slate-900 hover:text-[#0363ce] transition"
+        class="lg:hidden inline-flex items-center justify-center text-slate-900 hover:text-[#0363ce] transition"
         aria-label="Open mobile menu"
         type="button"
     >
@@ -450,7 +452,7 @@ const {
     </div>
     <!-- Mobile Menu -->
     <!-- Mobile Fullscreen Menu - Simple Nested Dropdown -->
-<div id="mobile-menu" class="hidden fixed inset-0 z-[80] bg-white 2xl:hidden overflow-y-auto">
+<div id="mobile-menu" class="hidden fixed inset-0 z-[80] bg-white lg:hidden overflow-y-auto">
     
     <!-- Top brand strip -->
     <div class="h-1.5 w-full bg-[#0363ce]"></div>
