@@ -1,0 +1,377 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Inconel 718 Casting: High-Precision Manufacturing in USA, South Korea & Taiwan';
+const seoTitle = 'Inconel 718 Casting: High-Precision Manufacturing in USA, South Korea & Taiwan';
+const seoDescription = 'AS9100-certified Inconel 718 casting with VIM & HIP for zero-defect aerospace & power gen parts. Global dual-shore production with complete 5-axis CNC machining.';
+const faqs = [
+    {
+        q: "Who are the leading Inconel 718 casting suppliers with global locations?",
+        a: "ForceBeyond is a premier Inconel 718 casting supplier headquartered in Delaware, USA. We offer a unique dual-shore advantage with co-owned foundries in the United States, South Korea, and Taiwan, providing direct control over quality and global supply chain redundancy."
+    },
+    {
+        q: "What are the benefits of VIM for Inconel 718?",
+        a: "Vacuum Induction Melting (VIM) is critical for Inconel 718 because it removes dissolved gases and prevents the formation of oxides. This results in a cleaner alloy with the high-stress durability required for aerospace engine parts."
+    },
+    {
+        q: "Does ForceBeyond offer rapid prototyping for Inconel castings?",
+        a: "Yes. We utilize 3D-printed wax patterns at our co-owned facilities to provide rapid prototypes of complex Inconel 718 components for design validation before full-scale production."  
+    }
+];
+
+// Sources 
+const sources = [
+    { label: 'American Foundry Society: "Metal Casting"', url: 'https://www.afsinc.org' },
+    { label: 'Forging Industry Association: "Forging Industry"', url: 'https://www.forging.org' },
+    { label: 'efunda. “Sand Casting“', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'The Investment Casting Institute. “What is Investment Casting?“',url:'https://www.investmentcasting.org/what-is-investment-casting.html'},
+    { label: 'ASM International. “Inconel 718 Alloy“', url: 'https://www.asminternational.org/materials-resources/alloy-database/technical-bulletin/inconel-718-alloy' }
+];
+
+// Resources 
+const internalResources = [
+    { label: "Die Casting", url: "/die-casting" },
+    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
+    { label: "Inconel 718 Machining", url: "/inconel-718-machining" },
+    { label: "Precision CNC Machining and Secondary Operations", url: "/cnc-machining" }
+];
+// Service / Product Schema
+// Ensure 'faqs' array exists in your frontmatter
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/inconel-718-casting#webpage",
+      "url": "https://www.forcebeyond.store/oscar/inconel-718-casting",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Inconel 718",
+          "sameAs": "https://en.wikipedia.org/wiki/Inconel_718"
+        },
+        {
+          "@type": "Thing",
+          "name": "Investment Casting",
+          "sameAs": "https://en.wikipedia.org/wiki/Investment_casting"
+        },
+        {
+          "@type": "Thing",
+          "name": "Hot Isostatic Pressing",
+          "sameAs": "https://en.wikipedia.org/wiki/Hot_isostatic_pressing"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/inconel-718-casting#service",
+      "name": "Inconel 718 Investment Casting Services",
+      "serviceType": "Inconel 718 Investment Casting Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Inconel 718 (UNS N07718 / AMS 5383)",
+          "Vacuum Induction Melting (VIM)",
+          "Hot Isostatic Pressing (HIP)",
+          "AS9100D Certification",
+          "5-Axis CNC Machining",
+          "Aerospace & Nuclear Components"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Inconel 718 Casting & Manufacturing Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Inconel 718 Precision Investment Casting",
+              "description": "AS9100-certified VIM investment casting for high-stress aerospace and energy components."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Hot Isostatic Pressing (HIP)",
+              "description": "100% HIP process to eliminate internal microporosity and maximize mechanical integrity."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "5-Axis Precision CNC Machining & Heat Treatment",
+              "description": "Complete finish machining and solution heat treatment per AMS 5383 specifications."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/inconel-718-casting#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/industry-aerospace-turbine-engine-v5.webp"
+    heroImageAlt="industry-aerospace-turbine-engine"
+    faqSectionTitle="FAQ: Sourcing Inconel 718 Casting"
+    faqItems={faqs}
+    ctaTitle="Contact ForceBeyond for an Inconel 718 Technical Quote"
+    ctaDescription="Leverage our co-owned global network for your next superalloy project. Our engineering headquarters in Newark, Delaware, provides a seamless bridge to our advanced production assets in Asia and the US."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+    <div class="individual-content ">
+        <p>
+            <strong>Inconel 718 Casting Key Facts:</strong> Inconel 718 (UNS N07718 / AMS 5383) is a high-strength, 
+            corrosion-resistant nickel superalloy investment cast using Vacuum Induction Melting (VIM) and 100% Hot 
+            Isostatic Pressing (HIP) to eliminate porosity. Engineered for extreme thermal and high-stress environments 
+            up to 704°C (1,300°F), ForceBeyond’s AS9100-certified facilities provide complete precision 5-axis CNC machining, 
+            solution heat treatment, and NDT inspection for aerospace turbines, rocket engine components, and nuclear SMR applications.
+        </p>
+    </div>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview" >
+            <div class="content-container">
+                
+                <h2>Inconel 718 Casting: High-Precision Manufacturing in USA, South Korea & Taiwan</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                           ForceBeyond is a specialized Inconel 718 casting supplier providing mission-critical components for aerospace, 
+                           space exploration, and power generation. Through our co-owned foundry network in the USA, South Korea, and Taiwan, 
+                           we deliver high-strength, corrosion-resistant Inconel 718 parts utilizing advanced Vacuum Induction Melting (VIM) technology. 
+                           Our dual-shore model combines domestic engineering expertise with global manufacturing scale to ensure quality and supply chain 
+                           redundancy. The sizes of the casting parts range up to 32 inches. The weights of the vacuum casting parts are from 0.02 to 
+                           220 pounds. Typical casting tolerances meet ISO 8062 CT7 to CT5/ VDG P690 D1 to D2. As part of our broader Superalloy 
+                           Casting expertise, we utilize Hot Isostatic Pressing (HIP) to eliminate internal microporosity, ensuring our 718 parts 
+                           meet the rigorous AS9100 standards required for mission-critical energy infrastructure.
+                        </p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/Gas-Turbine-Impeller-sku-3.webp"
+                                alt="Gas-Turbine-Impeller-sku-3"
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="properties-table">
+            <div class="content-container">
+                <h2>Technical Specifications: Precision Inconel 718 Properties</h2>
+                <p>
+                        ForceBeyond ensures all Inconel 718 castings meet rigorous international standards, 
+                        including AMS 5383 and ASTM B637. 
+                        We provide full material traceability (MTRs) and NDT reports with every 
+                        shipment to verify mechanical integrity.
+                    </p>
+                <div class="content-table-wrapper">
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Alloy Grade</th>
+                                <th scope="col">Value (Typical Cast & Aged)</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Tensile strength</th>
+                                <td>125,000 psi (860 MPa)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Yield strength(0.2% offset)</th>
+                                <td>110,000 psi (760 MPa)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Elongation</th>
+                                <td>5% – 10%</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Service Temperature</th>
+                                <td>Up to 1300°F (704°C)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="Why Forcebeyond" >
+            <div class="content-container">
+                <h2>Why Partner with ForceBeyond for Inconel 718 Casting?</h2>
+                
+                <p>
+                    A stable supply of Inconel 718 requires more than just a vendor; it requires a manufacturing partner with direct oversight.
+                </p>
+                
+                <ul>
+                    <li>
+                        <strong>VIM (Vacuum Induction Melting) Expertise:</strong>  Inconel 718 contains reactive elements like Aluminum and Titanium. Our vacuum melting process prevents oxidation during the pour, ensuring superior grain structure and fatigue life for high-stress components.
+                    </li>
+                    <li>
+                        <strong>Direct Co-Owned Operational Control:</strong> We eliminate the “broker gap.” <strong>By co-owning our foundries</strong> in the US, South Korea, and Taiwan, ForceBeyond manages the Quality Management System (QMS) and production scheduling directly, ensuring prioritized lead times.
+                    <li>
+                        <strong>Near-Net-Shape Accuracy:</strong> Our investment casting process achieves tight tolerances, significantly reducing the cost of secondary machining on high-hardness Inconel 718 alloys.
+                </ul>
+
+                <p>
+                    Hot Isostatic Pressing (HIP) for Zero-Defect Castings
+                </p>
+                <p>
+                    To meet the fatigue-life requirements of rotating engine components, 
+                    ForceBeyond utilizes <strong>Hot Isostatic Pressing (HIP)</strong> for all critical Inconel 718 castings. 
+                    By subjecting the parts to 15,000+ psi at high temperatures, we effectively “heal” 
+                    any internal microporosity common in nickel-alloy castings. This process results 
+                    in a part with mechanical properties that rival forged components, 
+                    making them suitable for the most demanding high-stress environments.
+                </p>
+
+            </div>
+        </section>
+
+
+        <section id="Tier-1.5-Integration">
+            <div class="content-container">
+                <h2>Tier-1.5 Integration: Precision Cast-to-Machine Solutions</h2>
+                
+                <p>
+                    ForceBeyond provides a seamless transition from Vacuum Investment Casting to finished print dimensions. 
+                    Because Inconel 718 is exceptionally hard to machine (up to 44 HRC after aging), 
+                    our Tier-1.5 model integrates our casting foundries with our specialized Inconel 718 Machining centers.
+                </p>
+
+                <p>
+                    By managing both casting and 5-axis CNC machining under one AS9100 quality umbrella, 
+                    we eliminate the dimensional “hand-off” risk. We provide Proof Machining on as-cast 
+                    surfaces to facilitate more accurate NDT (Ultrasonic Testing) and ensure that critical 
+                    datum features are perfectly aligned for final finish machining.
+                </p>
+
+                <p>
+                    For components requiring superior grain flow over complex internal geometries, 
+                    explore our integrated Inconel 718 Forging solutions.
+                </p>
+            </div>
+        </section>
+
+
+        <section id="certified-applications" >
+            <div class="content-container">
+                <h2>Certified Inconel 718 Casting Applications</h2>
+                
+                <p>
+                   Our specialized foundry network supports the world’s most demanding sectors:
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Aerospace:</strong> Turbine blades, compressor casings, and structural segments.
+                    </li>
+                    <li>
+                        <strong>Space Exploration:</strong> Rocket engine manifolds and turbopump hardware.
+                    </li>
+                    <li>
+                        <strong>Power Generation:</strong>  Industrial Gas Turbine (IGT) components and Nuclear SMR hardware.
+                </ul>
+            </div>
+        </section>
+
+
+        
+
+
+        <section id="quality-assurance" >
+            <div class="content-container">
+                <h2>Quality Assurance & Certification Standards</h2>
+                <p>
+                    Every Inconel 718 casting is accompanied by a full documentation package to ensure compliance with AMS 5383 and mission-critical specifications.
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Inspection Method</th>
+                                <th scope="col">Purpose for Inconel 718 Casting</th>
+                                <th scope="col">Standard Compliance</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Radiographic Testing (RT)</th>
+                                <td>X-ray inspection to detect internal shrinkage or inclusions.</td>
+                                <td>ASTM E192 / ASTM E1030</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Fluorescent Penetrant (FPI)</th>
+                                <td>Identifying surface-breaking porosity or cracks.</td>
+                                <td>ASTM E1417 / Nadcap</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Spectrographic Analysis</th>
+                                <td>Verifying chemical balance (Ni, Cr, Fe, Nb, Mo, Ti, Al).</td>
+                                <td>ASTM E1476</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Mechanical Testing</th>
+                                <td>Room temperature and elevated temperature tensile testing.</td>
+                                <td>ASTM E8 / ASTM E21</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</IndividualPageLayout>

@@ -12,17 +12,18 @@ interface Props {
     pageTitle?: string;
     heroImage?: string;
     heroImageAlt?: string;
+    schema?: Record<string, any>; 
 
-    // FAQ 区域
+    // FAQ 
     faqSectionTitle?: string;
     faqItems?: FaqItem[];
 
-    // CTA 区域 (支持字符串或字符串数组)
+    // CTA 
     ctaTitle?: string;
     ctaDescription?: string | string[];
     ctaButtonUrl?: string;
 
-    // Sources & Resources 区域
+    // Sources & Resources 
     sourcesTitle?: string;
     sourcesList?: { label: string; url?: string }[];
     resourcesTitle?: string;
@@ -35,31 +36,34 @@ const {
     pageTitle = 'Industrial Solutions',
     heroImage = '',
     heroImageAlt = '',
+    schema,
 
-    // FAQ 默认数据
+    // FAQ 
     faqSectionTitle = 'FAQ: Sourcing Inconel 718 Forgings',
     faqItems = [],
 
-    // CTA 默认数据 (写死 Button 名称为 Request for Quote)
+    // CTA 
     ctaTitle = 'Request an Inconel 718 Technical Consultation',
     ctaDescription = 'Direct access to our engineering team. Feasibility reviews delivered within 48 hours.',
     ctaButtonUrl = '/contact',
 
-    // Resources & Sources 默认数据
+    // Resources & Sources 
     sourcesTitle = 'Sources',
     sourcesList = [],
     resourcesTitle = 'Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting',
     resourcesList = []
 } = Astro.props;
 
-// 判断 ctaDescription 是普通字符串还是数组列表
+// check ctaDescription array
 const isCtaDescArray = Array.isArray(ctaDescription);
 ---
 
 <Layout title={title} description={description}>
-
+    {schema && (
+        <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+    )}
     <!-- ========================================
-         Compact Hero Section (防拉伸、精致高度)
+         Compact Hero Section 
          ======================================== -->
     <section class="relative w-full overflow-hidden bg-[#0363ce] py-12 sm:py-16 lg:py-33">
         
@@ -77,10 +81,10 @@ const isCtaDescArray = Array.isArray(ctaDescription);
         )}
 
         <!-- Centered Content -->
-        <div class="relative z-10 w-full max-w-7xl mx-auto px-6 sm:px-12 text-center">
-            <div class="max-w-7xl mx-auto">
+        <div class="relative z-10 w-full px-0 text-center">
+            <div class="w-full">
                 <h1 
-                    class="text-3xl sm:text-4xl lg:text-5xl leading-[1.2]  text-white tracking-tight"
+                    class="text-4xl sm:text-4xl lg:text-6xl leading-[1.2] text-white tracking-tight w-full"
                     set:html={pageTitle}
                 />
             </div>
@@ -88,23 +92,25 @@ const isCtaDescArray = Array.isArray(ctaDescription);
 
     </section>
 
-    <section class="w-full bg-white">
-        <div class="w-full max-w-7xl mx-auto px-6 sm:px-12 py-16 lg:py-12">
+   <section class="w-full pt-8 pb-14 lg:pt-12 lg:pb-16">
+        <div class="mx-auto max-w-7xl px-6 sm:px-12">
             <div class="individual-content">
                 <slot />
             </div>
         </div>
     </section>
 
-    <slot name="full-width" />
+    <div class="layout-sections-wrapper">
+        <slot name="full-width" />
+    </div>
 
-    <section class="w-full bg-white  border-slate-200 py-16 lg:py-20 text-slate-800">
+    <section class="w-full bg-white  border-slate-200 py-14 lg:py-4 text-slate-800">
         <div class="w-full max-w-7xl mx-auto px-6 sm:px-12 space-y-12">
 
             {faqItems && faqItems.length > 0 && (
                 <div class="space-y-6">
                     <h2 
-                        class="text-2xl sm:text-3xl font-normal text-[#0B192C] !mt-0 !mb-6"
+                        class="text-3xl sm:text-4xl lg:text-4xl font-normal leading-tight text-black mt-10 mb-5"
                     >
                         {faqSectionTitle}
                     </h2>
@@ -115,7 +121,7 @@ const isCtaDescArray = Array.isArray(ctaDescription);
                                 <p class="text-base font-semibold text-[#0B192C]">
                                     Q: {item.q}
                                 </p>
-                                <p class="text-base text-slate-600 leading-relaxed pl-4 border-l-2 border-slate-200">
+                                <p class="text-base text-slate-600 leading-relaxed border-slate-200">
                                     A: {item.a}
                                 </p>
                             </div>
@@ -126,7 +132,7 @@ const isCtaDescArray = Array.isArray(ctaDescription);
 
             <div class="py-8 text-center  border-slate-100 my-10">
                 <h2 
-                    class="text-2xl sm:text-3xl font-normal text-[#0B192C] !mt-0 !mb-4"
+                    class="text-3xl sm:text-4xl lg:text-4xl font-normal leading-tight text-black mt-10 mb-5"
                 >
                     {ctaTitle}
                 </h2>
@@ -158,7 +164,7 @@ const isCtaDescArray = Array.isArray(ctaDescription);
             {sourcesList && sourcesList.length > 0 && (
                 <div class="space-y-4">
                     <h2 
-                        class="text-2xl sm:text-3xl font-normal text-[#0B192C] !mt-0 !mb-4"
+                        class="text-3xl sm:text-4xl lg:text-4xl font-normal leading-tight text-black mt-10 mb-5"
                     >
                         {sourcesTitle}
                     </h2>
@@ -181,7 +187,7 @@ const isCtaDescArray = Array.isArray(ctaDescription);
             {resourcesList && resourcesList.length > 0 && (
                 <div class="space-y-4 pt-4">
                     <h2 
-                        class="text-2xl sm:text-3xl font-normal text-[#0B192C] !mt-0 !mb-4"
+                        class="text-3xl sm:text-4xl lg:text-4xl font-normal leading-tight text-black mt-10 mb-5"
                     >
                         {resourcesTitle}
                     </h2>
@@ -199,5 +205,37 @@ const isCtaDescArray = Array.isArray(ctaDescription);
 
         </div>
     </section>
+<style>
+    /* 1. 统一调整 section 本身的上下高度，并让其撑满整宽 */
+    .layout-sections-wrapper :global(section) {
+        padding-top: 2rem !important;    /* 相当于 py-18 */
+        padding-bottom: 2rem !important; /* 相当于 py-18 */
+        width: 100% !important;
+        display: block !important;
+    }
+    .layout-sections-wrapper :global(section:first-child) {
+        padding-top: 0rem !important;    /* 👈 调整这个值，来决定第一个 section 距离 Hero 的高度 */
+        padding-bottom: 2rem !important; /* 保持下方 Padding 与其他 section 相同 */
+    }
 
+    /* 2. 统一约束 section 里的直接子容器（把 mx-auto max-w-7xl px-6 sm:px-12 搬到这里） */
+    .layout-sections-wrapper :global(section > div) {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        max-width: 80rem !important;      /* 7xl = 1280px / 80rem */
+        width: 100% !important;
+        
+        /* 移动端的左右安全留白 px-6 (24px) */
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+
+    /* 3. 在平板及桌面端自动放大左右留白 sm:px-12 (48px) */
+    @media (min-width: 640px) {
+        .layout-sections-wrapper :global(section > div) {
+            padding-left: 3rem !important;
+            padding-right: 3rem !important;
+        }
+    }
+</style>
 </Layout>

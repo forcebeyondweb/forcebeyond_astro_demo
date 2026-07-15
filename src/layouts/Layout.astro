@@ -38,6 +38,7 @@ const {
         --font-body: 'Open Sans', Arial, sans-serif;
         --font-heading: 'Oswald', 'Arial Narrow', sans-serif;
         --brand-blue: #0363ce;
+        --font-color: text-black;
     }
 
     html,
@@ -48,9 +49,7 @@ const {
     }
 
     
-    h2 {
-        color: var(--brand-blue);
-    }
+    
 
     /* Active navigation state */
     .nav-link-active {
@@ -118,7 +117,7 @@ const {
         </a>
         
         <!-- Desktop Navigation -->
-        <nav class="hidden 2xl:flex items-center gap-5  text-[16px] tracking-wide text-slate-900">
+        <nav class="hidden desktop:flex items-center gap-5  text-[16px] tracking-wide text-slate-900">
     
             <!-- Home -->
             <a href="/oscar/#" class="py-8 hover:text-brand-blue transition">
@@ -425,7 +424,7 @@ const {
             <!-- Desktop RFQ Button -->
             <a 
                 href="/oscar/request-a-quote" 
-                class="hidden 2xl:inline-flex items-center justify-center rounded-full bg-brand-green px-7 py-3 text-sm font-semibold text-white transition hover:bg-[#5aaa14] shadow-sm"
+                class="hidden desktop:inline-flex items-center justify-center rounded-full bg-brand-green px-7 py-3 text-sm font-semibold text-white transition hover:bg-[#5aaa14] shadow-sm"
             >
                 Request Quote
             </a>
@@ -433,7 +432,7 @@ const {
             <!-- Mobile Hamburger -->
             <button 
                 id="mobile-menu-button"
-                class="2xl:hidden inline-flex items-center justify-center text-slate-900 hover:text-brand-blue transition"
+                class="desktop:hidden inline-flex items-center justify-center text-slate-900 hover:text-brand-blue transition"
                 aria-label="Open mobile menu"
                 type="button"
             >
@@ -445,7 +444,7 @@ const {
     </div>
     <!-- Mobile Menu -->
     <!-- Mobile Fullscreen Menu - Simple Nested Dropdown -->
-    <div id="mobile-menu" class="hidden fixed inset-0 z-[80] bg-white 2xl:hidden overflow-y-auto">
+    <div id="mobile-menu" class="hidden fixed inset-0 z-[80] bg-white desktop:hidden overflow-y-auto">
     
     <!-- Top brand strip -->
     <div class="h-1.5 w-full bg-brand-blue"></div>

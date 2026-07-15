@@ -1,0 +1,436 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Inconel Vacuum Precision Casting: Global Co-Owned Foundries';
+const seoTitle = 'Inconel Vacuum Precision Casting: Global Co-Owned Foundries';
+const seoDescription = 'AS9100-certified Inconel vacuum investment casting utilizing VIM & 100% HIP for zero-defect aerospace & subsea parts. Global production with 5-axis CNC machining.';
+const faqs = [
+    {
+        q: "Where are ForceBeyond’s Inconel casting foundries located?",
+        a: "ForceBeyond co-owns and operates specialized investment casting facilities in the United States, South Korea, and Taiwan, providing a redundant and flexible global supply chain."
+    },
+    {
+        q: "What is the benefit of a co-owned foundry vs. a partner foundry?",
+        a: "Co-ownership ensures that ForceBeyond has priority production capacity and direct control over the manufacturing floor, avoiding the markups and communication gaps associated with traditional sourcing brokers."
+    },
+    {
+        q: "Does ForceBeyond provide certified Inconel 718 components?",
+        a: "Yes. Every shipment includes full material certification (MTRs), chemical analysis, and NDT (Non-Destructive Testing) reports to ensure compliance with ASTM, AMS, and customer-specific standards."  
+    },
+    {
+        q: "What Inconel grades can be vacuum investment cast?",
+        a: "Common grades include Inconel 718, 625, 713C, X-750, and other nickel-based superalloys, subject to component geometry, specification, mechanical-property requirements, and production volume."
+    },
+    {
+        q: "Why is vacuum melting used for Inconel castings?",
+        a: "Vacuum melting helps limit oxidation, gas pickup, and contamination when processing nickel-based superalloys containing reactive alloying elements."
+    },
+    {
+        q: "Is HIP required for every Inconel casting?",
+        a: "No. HIP is applied when required by the drawing, customer specification, qualification plan, or service conditions. It may be used to reduce internal porosity in critical components."
+    },
+    {
+        q: "What NDT methods are available for Inconel investment castings?",
+        a: "Available inspection methods may include radiographic testing, fluorescent penetrant inspection, dimensional inspection, chemical analysis, mechanical testing, and positive material identification."
+    },
+    {
+        q: "Can Inconel castings be delivered fully machined?",
+        a: "Yes. ForceBeyond can coordinate casting, heat treatment, HIP where required, 5-axis CNC machining, surface finishing, inspection, and final documentation."
+    }
+];
+
+// Sources 
+const sources = [
+    { label: 'American Foundry Society: "Metal Casting"', url: 'https://www.afsinc.org' },
+    { label: 'Forging Industry Association: "Forging Industry"', url: 'https://www.forging.org' },
+    { label: 'efunda. “Sand Casting“', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'The Investment Casting Institute. “What is Investment Casting?“',url:'https://www.investmentcasting.org/what-is-investment-casting.html'},
+    { label: 'ASM International. “Inconel 718 Alloy“', url: 'https://www.asminternational.org/materials-resources/alloy-database/technical-bulletin/inconel-718-alloy' }
+];
+
+// Resources 
+const internalResources = [
+    { label: "Die Casting", url: "/die-casting" },
+    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
+    { label: "Inconel 718 Machining", url: "/inconel-718-machining" },
+    { label: "Precision CNC Machining and Secondary Operations", url: "/cnc-machining" }
+];
+// Service / Product Schema
+// Ensure 'faqs' array exists in your frontmatter
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/inconel-vacuum-precision-casting#webpage",
+      "url": "https://www.forcebeyond.store/oscar/inconel-vacuum-precision-casting",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Investment Casting",
+          "sameAs": "https://en.wikipedia.org/wiki/Investment_casting"
+        },
+        {
+          "@type": "Thing",
+          "name": "Vacuum Induction Melting",
+          "sameAs": "https://en.wikipedia.org/wiki/Vacuum_induction_melting"
+        },
+        {
+          "@type": "Thing",
+          "name": "Hot Isostatic Pressing",
+          "sameAs": "https://en.wikipedia.org/wiki/Hot_isostatic_pressing"
+        },
+        {
+          "@type": "Thing",
+          "name": "Superalloy",
+          "sameAs": "https://en.wikipedia.org/wiki/Superalloy"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/inconel-vacuum-precision-casting#service",
+      "name": "Inconel Vacuum Precision Investment Casting Services",
+      "serviceType": "Inconel Vacuum Precision Investment Casting Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Inconel Superalloys (Inconel 718, 625, X-750, 600)",
+          "Vacuum Induction Melting (VIM)",
+          "Hot Isostatic Pressing (HIP)",
+          "AS9100D Certification",
+          "5-Axis CNC Machining",
+          "Aerospace Turbines & Rocket Propulsion",
+          "Nuclear SMR & Subsea Hardware"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Inconel Vacuum Precision Casting Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Inconel Vacuum Investment Casting (VIM)",
+              "description": "AS9100-certified VIM casting for high-temperature nickel superalloy components."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Hot Isostatic Pressing (HIP) Densification",
+              "description": "100% HIP process to eliminate internal microporosity and ensure maximum structural density."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Multi-Alloy Inconel Casting (718, 625, X-750, 600)",
+              "description": "Precision casting across full range of heat-resistant and corrosion-resistant Inconel grades."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "5-Axis CNC Precision Machining & Thermal Processing",
+              "description": "Complete finish machining, solution annealing, and age-hardening heat treatment."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/inconel-vacuum-precision-casting#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/industry-aerospace-turbine-engine-v5.webp"
+    heroImageAlt="Close-up of an aerospace gas turbine engine illustrating high-temperature Inconel casting applications"
+    faqSectionTitle="Frequently Asked Questions: Inconel Casting & Supply"
+    faqItems={faqs}
+    ctaTitle=""
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+    <section aria-labelledby="quick-answer">
+        <h2 id="quick-answer">What Is Inconel Vacuum Precision Casting?</h2>
+
+        <p>
+            Inconel vacuum precision casting is an investment-casting process
+            used to produce complex nickel-based superalloy components in a
+            controlled low-pressure or vacuum environment. The process helps
+            reduce oxidation and contamination while supporting near-net-shape
+            aerospace, energy, marine, and industrial components.
+        </p>
+
+        <dl>
+            <div>
+                <dt>Primary process</dt>
+                <dd>Vacuum investment casting</dd>
+            </div>
+            <div>
+                <dt>Melting method</dt>
+                <dd>Vacuum induction melting, where specified</dd>
+            </div>
+            <div>
+                <dt>Common alloys</dt>
+                <dd>Inconel 718, 625, 713C, X-750, and related superalloys</dd>
+            </div>
+            <div>
+                <dt>Secondary services</dt>
+                <dd>HIP, heat treatment, CNC machining, NDT, and documentation</dd>
+            </div>
+        </dl>
+    </section>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Precision Superalloy Manufacturing in the USA, South Korea, and Taiwan</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                           ForceBeyond is a premier global Inconel casting supplier specializing in high-performance vacuum investment 
+                           casting. Unlike traditional brokers, we co-own and operate a specialized network of foundries in the United 
+                           States, South Korea, and Taiwan. This strategic co-ownership model ensures ForceBeyond maintains direct 
+                           operational oversight, priority production scheduling, and rigorous quality control for mission-critical 
+                           components.
+                        </p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="overflow-hidden ">
+                            <img
+                                src="/oscar/media/Gas-Turbine-Disc-and-Nozzle-Ring-sku-5.webp"
+                                alt="Vacuum-cast gas turbine nozzle ring made for high-temperature aerospace and power-generation applications"
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="co-owned-foundry-control">
+            <div class="content-container">
+                <h2>The ForceBeyond Advantage: Co-Owned Foundry Control</h2>
+                
+                <p>
+                    Procurement teams searching for an Inconel casting provider require transparency and reliability. 
+                    ForceBeyond provides the technical engineering support of a domestic partner combined with the massive scale of a global manufacturer.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Direct Operational Oversight:</strong>  Our co-ownership model allows our engineering teams to manage the Quality Management System (QMS) directly at the foundry level.
+                    </li>
+                    <li>
+                        <strong>VIM (Vacuum Induction Melting):</strong>All facilities utilize advanced VIM technology to eliminate impurities and dissolved gases, ensuring the structural integrity required for aerospace and energy sectors.
+                    </li>
+                    <li>
+                        <strong>Global Supply Chain Redundancy: </strong>  Mitigate geopolitical and logistical risks with verified production capabilities in three strategic regions: USA, South Korea, and Taiwan.
+                    </li>
+                    <li>
+                        <strong>Near-Net-Shape Precision:</strong>  Our vacuum investment casting process achieves tight tolerances, reducing material waste and minimizing expensive secondary machining of hard-to-cut Inconel alloys.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="properties-table">
+            <div class="content-container">
+                <h2>Technical Specifications: Precision Inconel & Superalloy Expertise</h2>
+                    <p>
+                        ForceBeyond provides full material traceability and rigorous adherence to international standards for all nickel-based superalloys. Below are the primary Inconel grades manufactured at our co-owned facilities:
+                    </p>
+                <div class="content-table-wrapper">
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Alloy Grade</th>
+                                <th scope="col">Key Characteristics</th>
+                                <th scope="col">Typical Components</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Inconel 718</th>
+                                <td>Exceptional yield, tensile, and creep-rupture properties up to 1300°F.</td>
+                                <td>Turbine blades, rocket engine parts, high-strength bolts.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Inconel 625</th>
+                                <td>Superior fatigue strength and excellent resistance to pitting and crevice corrosion.</td>
+                                <td>Marine exhaust systems, chemical processing, fuel manifolds.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Inconel 713C</th>
+                                <td>Outstanding resistance to thermal fatigue and oxidation at high temperatures.</td>
+                                <td>Turbocharger wheels, gas turbine hot-section components.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Inconel X-750</th>
+                                <td>High resistance to chemical corrosion and oxidation with high tensile strength.</td>
+                                <td>Pressure vessels, heat exchangers, rocket thrust chambers.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="vacuum-investment-casting">
+            <div class="content-container">
+                <h2>Our Specialized Vacuum Investment Casting Process</h2>
+                
+                <p>
+                    Our co-owned foundries follow a precision-engineered “Lost Wax” process specifically 
+                    optimized for nickel-based superalloys to ensure “near-net-shape” accuracy:
+                </p>
+                
+                <ul>
+                    <li>
+                        <strong>Vacuum Induction Melting (VIM):</strong>  Alloys are melted and poured in a high-vacuum environment to prevent the oxidation of reactive elements like Aluminum and Titanium.
+                    </li>
+                    <li>
+                        <strong>Robotic Shelling:</strong>   Automated dipping ensures consistent ceramic shell thickness for complex, thin-walled geometries.
+                    </li>
+                    <li>
+                        <strong>Controlled Thermal Processing: </strong>  Precise cooling rates and in-house heat treatment to optimize grain structure and mechanical properties.
+                    </li>
+                    <li>
+                        <strong>Rigorous Inspection (NDT):</strong>  100% material traceability, Level I & II X-ray, Fluorescent Penetrant Inspection (FPI), and Tensile testing.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="serving-high-growth-industries">
+            <div class="content-container">
+                <h2>Serving High-Growth Industries as a Tier-1.5 Supplier</h2>
+                
+                <p>
+                   ForceBeyond’s global manufacturing footprint supports the world’s most demanding sectors with certified Inconel components:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Aerospace & Defense:</strong> Propulsion systems, structural engine components, and vane segments for commercial and military aviation.
+                    </li>
+                    <li>
+                        <strong>Power Generation & Nuclear:</strong>Industrial Gas Turbine (IGT) components and specialized hardware for Nuclear SMR (Small Modular Reactor) projects.
+                    </li>
+                    <li>
+                        <strong>Space Exploration:</strong> Cryogenic valves, high-pressure turbopumps, and rocket engine manifold hardware.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+        <section id="why-choose-forcebeyond">
+            <div class="content-container">
+                <h2>Why Choose ForceBeyond as Your Inconel 625 Supplier?</h2>
+                <ul>
+                    <li>
+                        <strong>VIM (Vacuum Induction Melting) Purity:</strong> Reactive elements in 625, such as Niobium and Molybdenum, require the oxygen-free environment of our VIM furnaces to prevent inclusions and ensure maximum metallurgical integrity.
+                    </li>
+                    <li>
+                        <strong>Co-Owned Supply Chain Redundancy:</strong> We operate our own facilities in the USA, South Korea, and Taiwan. This allows us to mitigate geopolitical risks and provide prioritized lead times for mission-critical projects.
+                    </li>
+                    <li>
+                        <strong>Advanced NDT & HIPing:</strong> Every casting undergoes rigorous Non-Destructive Testing (NDT). For nuclear-grade applications, we utilize Hot Isostatic Pressing (HIPing) to eliminate internal microporosity and guarantee 100% density.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="quality-compliance">
+            <div class="content-container">
+                <h2>Quality Compliance & Corrosion Verification</h2>
+                <p>
+                    Every Inconel 625 casting undergoes a strict battery of tests to ensure zero-defect performance in corrosive environments.
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Inspection Method</th>
+                                <th scope="col">Purpose for Inconel 625 Casting</th>
+                                <th scope="col">Specification Compliance</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">X-Ray (Radiography)</th>
+                                <td>Detecting internal shrinkage in complex valve bodies.</td>
+                                <td>ASTM E192 / ASTM E1030</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Corrosion Testing</th>
+                                <td>Verifying resistance to intergranular corrosion.</td>
+                                <td>ASTM G28 Methods A & B</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Positive Material ID</th>
+                                <td>Ensuring precise Ni-Cr-Mo metallurgical balance.</td>
+                                <td>Spectrographic Analysis</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Fluorescent Penetrant</th>
+                                <td>Surface-breaking crack detection post-machining.</td>
+                                <td>ASTM E1417 / Nadcap</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</IndividualPageLayout>

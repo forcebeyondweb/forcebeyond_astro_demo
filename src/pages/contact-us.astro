@@ -9,7 +9,7 @@ const countries = ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'An
 
 const sources = ['Cold Call', 'Direct Mail', 'Email', 'Industry Event', 'Referral', 'Search Engine', 'Web Research', 'AI Search (ChatGPT/Gemini/Claude)'];
 
-// 统一的表单输入框样式 - 纯白微透明底色，聚焦蓝色高亮
+// Unified form input style – solid white, slightly translucent background; blue highlight on focus
 const input = 'mt-2 w-full border border-slate-200 transition-all duration-300 bg-white px-5 py-3.5 text-slate-900 text-sm font-medium outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-100 placeholder:text-slate-400';
 
 const contactSchema = {
@@ -49,7 +49,7 @@ const contactSchema = {
         class="absolute inset-0 z-0 h-full w-full object-cover object-center"
     />
 
-    <!-- 轻微遮罩，只保证文字可读，不压暗图片 -->
+    <!-- Subtle overlay; ensures text readability without darkening the image -->
     <div class="absolute inset-0 z-1 bg-slate-950/25"></div>
     <div class="absolute inset-0 z-2 bg-gradient-to-r from-slate-950/45 via-transparent to-transparent"></div>
     
@@ -86,7 +86,7 @@ const contactSchema = {
 </section>
 
     <!-- ========================================= -->
-    <!-- SECTION 3: CORE B2B INQUIRY FORM (单列大气表单) -->
+    <!-- SECTION 3: CORE B2B INQUIRY FORM -->
     <!-- ========================================= -->
     <section class="bg-slate-50 py-16 text-slate-900 sm:py-24 relative z-10">
     <div class="mx-auto max-w-7xl px-6 sm:px-12">
@@ -97,21 +97,21 @@ const contactSchema = {
             <aside class="bg-white rounded-2xl border border-slate-200/80 p-8 shadow-xl shadow-slate-900/5 text-slate-900 lg:sticky lg:top-28">
                 <h3 class="text-2xl font-black mt-2 text-slate-950 tracking-tight">Forcebeyond</h3>
                 
-                <address class="mt-6 text-sm text-slate-600 not-italic leading-relaxed border-l-2 border-blue-600 pl-4">
+                <address class="mt-6 text-sm text-slate-600 not-italic leading-relaxed  pl-4">
                     {data?.streetAddress || "261 Quigley Blvd, Suite 18"}<br />
                     {data?.locality || "New Castle"}, {data?.region || "Delaware"} {data?.postalCode || "19720"}, USA
                 </address>
 
                 <div class="mt-8 space-y-6 text-sm">
                     <div>
-                        <p class="text-[10px] font-black tracking-[0.2em] text-blue-600 uppercase">Phone</p>
+                        <p class="text-[10px] font-black tracking-[0.2em] text-slate-950 uppercase">Phone</p>
                         <a href={`tel:${data?.phone || "+13029956588"}`} class="mt-2 inline-block text-slate-700 hover:text-blue-600 transition">
                             {data?.phone || "(302) 995 6588"}
                         </a>
                     </div>
 
                     <div>
-                        <p class="text-[10px] font-black tracking-[0.2em] text-blue-600 uppercase">Email</p>
+                        <p class="text-[10px] font-black tracking-[0.2em] text-slate-950 uppercase">Email</p>
                         <a href={`mailto:${data?.email || "contact@forcebeyond.com"}`} class="mt-2 inline-block text-slate-700 hover:text-blue-600 transition break-all">
                             {data?.email || "contact@forcebeyond.com"}
                         </a>
@@ -123,8 +123,8 @@ const contactSchema = {
                 </a>
             </aside>
 
-            <!-- 右侧表单主体容器 -->
-            <!-- 右侧表单主体容器 -->
+            <!-- Right-side form body container -->
+            <!-- Right-side form body container -->
             <div class="bg-white rounded-2xl border border-slate-200/80 p-8 shadow-xl shadow-slate-900/5 lg:p-14">
 
                 <div id="thankYouState" class="hidden mx-auto max-w-2xl text-center">
@@ -210,7 +210,7 @@ const contactSchema = {
                         </label>
                     </div>
 
-                    <!-- 统一的首页圆形饱满蓝色提交按钮 -->
+                    <!-- Standardized, full, round blue submit button for the homepage -->
                     <div class="mt-10 text-center sm:text-left">
                         <button type="submit" id="submitBtn" class="inline-flex items-center justify-center rounded-full bg-blue-600 px-12 py-4.5 font-black tracking-widest text-white uppercase text-xs transition hover:bg-blue-700 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-blue-600/10 cursor-pointer">
                             Submit
@@ -221,7 +221,7 @@ const contactSchema = {
             </div>
         </div>
     </div>
-        <!-- Email匹配验证小脚本 -->
+        <!-- Email matching validation script -->
         <script is:inline>
             const emailInput = document.getElementById('contact-email');
             const confirmEmailInput = document.getElementById('contact-confirm-email');

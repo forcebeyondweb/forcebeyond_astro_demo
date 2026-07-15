@@ -6,6 +6,8 @@
     --color-brand-light: #F8FAFC;
     --color-brand-navy: #0363ce;
     --font-oblik: 'Oblik Serif', Georgia, Cambria, serif;
+
+    --breakpoint-desktop: 1050px;
 }
 
 @layer base {
@@ -25,7 +27,7 @@
         color: #FFFFFF;
     }
 
-    /* 全局标题默认字体控制 */
+    /* global heading font control */
     h1, h2, h3, h4, h5, h6 {
         font-family: var(--font-oblik);
         font-weight: 400;
@@ -33,7 +35,7 @@
     }
 }
 
-/* 保护 Header 导航栏下拉菜单的小箭头，防止受衬线字体影响 */
+/* nav dropdown arrow */
 header span.text-xs,
 header summary span.text-xs {
     font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;

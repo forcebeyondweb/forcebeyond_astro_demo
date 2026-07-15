@@ -36,7 +36,7 @@
         @apply w-full mb-10 sm:mb-14 lg:mb-16;
     }
     .home-section-title {
-        @apply text-3xl font-black tracking-tight text-[#0363ce] sm:text-4xl lg:text-5xl text-center;
+        @apply text-3xl font-black tracking-tight text-[#000000] sm:text-4xl lg:text-5xl text-center;
     }
 
     /* Capabilities Accordion */
@@ -112,7 +112,7 @@
         @apply col-span-11 lg:col-span-6 space-y-6 backdrop-blur-xs lg:backdrop-blur-none p-6 lg:p-0 rounded-sm bg-slate-50/60 lg:bg-transparent;
     }
     .home-bullet-callout {
-        @apply border-l-4 border-[#0363ce] pl-4 text-lg sm:text-xl leading-8 text-slate-700 font-medium space-y-1.5;
+        @apply  pl-4 text-lg sm:text-xl leading-8 text-slate-700 font-medium space-y-1.5;
     }
 
     /* Testimonial & RFQ Loop Section */

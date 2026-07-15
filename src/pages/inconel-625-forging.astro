@@ -1,9 +1,9 @@
 ---
-import IndividualPageLayout from '../layouts/individualpagelayout.astro';
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
 const pageTitle = 'Inconel 625 Forging: Superior Corrosion & Fatigue Resistance';
 const seoTitle = 'Inconel 625 Forging: Superior Corrosion & Fatigue Resistance';
-const seoDescription = 'ForceBeyond provides precision Inconel 625 forging services for high-performance industrial components, offering superior corrosion resistance and fatigue strength for critical applications.';
+const seoDescription = 'AS9100 certified Inconel 625 forging for Nuclear SMR and subsea applications. Utilizing VIM and HIP across our USA, South Korea, and Taiwan facilities.';
 const faqs = [
     {
         q: "When should I choose 625 over 718 for a forging?",
@@ -15,29 +15,70 @@ const faqs = [
     }
 ];
 
-// Sources 外部引文数据
+// Sources 
 const sources = [
     { label: 'American Foundry Society: "Metal Casting"', url: 'https://www.afsinc.org' },
     { label: 'Wikipedia: "Investment Casting", "Sand Casting"', url: '' },
     { label: 'Forging Industry Association: "Forging Industry"', url: 'https://www.forging.org' }
 ];
 
-// Resources 站内内部链接列表
+// Resources 
 const internalResources = [
     { label: "Die Casting", url: "/die-casting" },
     { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
     { label: "Inconel 718 Machining", url: "/inconel-718-machining" },
     { label: "Precision CNC Machining and Secondary Operations", url: "/cnc-machining" }
 ];
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/inconel-625-forging#service",
+      "name": "Inconel 625 Forging Services",
+      "provider": {
+        "@type": "Organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "description": seoDescription,
+      "serviceType": "Inconel 625 Forging Services",
+      "areaServed": "United States, South Korea, Taiwan",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Inconel 625 Forging Capabilities",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Closed-Die Forging" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seamless Rolled Rings" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Open-Die Forging" } }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/inconel-625-forging#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
 ---
 
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
+    schema={pageSchema}
     pageTitle={pageTitle}
     heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
-    heroImageAlt="Inconel 625 Forging: Superior Corrosion & Fatigue Resistance"
-    faqSectionTitle="FAQ: Sourcing Inconel 718 Forgings"
+    heroImageAlt="Precision forged Inconel 625 component"
+    faqSectionTitle="FAQ: Sourcing Inconel 625 Forgings"
     faqItems={faqs}
     ctaTitle="Request an Inconel 625 Technical Consultation"
     ctaDescription="Typical response time: 48 hours for full technical and feasibility review."
@@ -46,10 +87,14 @@ const internalResources = [
     resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
     resourcesList={internalResources}
 >
+    <div class="individual-content">
+        <p><strong>Inconel 625 Forging Key Facts:</strong> Inconel 625 (UNS N06625) is a nickel-chromium-molybdenum alloy forged for extreme corrosion resistance, high fatigue strength, and thermal stability up to 980°C (1,800°F). Ideal for subsea, nuclear SMR, and aerospace applications.</p>
+    </div>
+
     <div slot="full-width" class="individual-content">
 
-        <section id="overview" class="w-full pt-8 pb-14 lg:pt-12 lg:pb-16">
-            <div class="mx-auto max-w-7xl px-6 sm:px-12">
+        <section id="overview">
+            <div class="content-container">
                 
                 <h2>Inconel 625 Forging: Superior Corrosion & Fatigue Resistance</h2>
 
@@ -71,10 +116,10 @@ const internalResources = [
                     </div>
 
                     <div class="relative">
-                        <div class="overflow-hidden rounded-xl bg-slate-100 shadow-lg border border-slate-200">
+                        <div class="overflow-hidden">
                             <img
                                 src="/oscar/media/Precision-seamless-rolled-ring-forging-of-Inconel-718-for-aerospace-engine-at-ForceBeyond-co-owned-facility.jpg"
-                                alt="Inconel 718 Precision Forged Component"
+                                alt="Inconel 625 Precision Forged Component"
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
                         </div>
@@ -85,8 +130,8 @@ const internalResources = [
         </section>
 
 
-        <section id="tier-1-5-advantage" class="w-full bg-[#F8FAFC] border-t border-slate-200 py-14 lg:py-20">
-            <div class="mx-auto max-w-7xl px-6 sm:px-12">
+        <section id="tier-1-5-advantage">
+            <div class="content-container">
                 <h2>Tier-1.5 Integration: Forging for Severe Environments</h2>
                 
                 <p>
@@ -109,8 +154,8 @@ const internalResources = [
         </section>
 
 
-        <section id="why-forged" class="w-full border-t border-slate-200 py-14 lg:py-20">
-            <div class="mx-auto max-w-7xl px-6 sm:px-12">
+        <section id="why-forged">
+            <div class="content-container">
                 <h2>Why Forged Inconel 625?</h2>
                 
                 <p>
@@ -136,8 +181,8 @@ const internalResources = [
         </section>
 
 
-        <section id="specifications" class="w-full bg-[#F8FAFC] border-t border-slate-200 py-14 lg:py-20">
-            <div class="mx-auto max-w-7xl px-6 sm:px-12">
+        <section id="specifications" >
+            <div class="content-container">
                 <h2>Technical Specifications & Standards</h2>
                 
                 <p>
@@ -156,18 +201,9 @@ const internalResources = [
                         <strong>Oil & Gas:</strong> NACE MR0175 / ISO 15156
                     </li>
                 </ul>
-            </div>
-        </section>
-
-
-        <section id="properties-table" class="w-full border-t border-slate-200 py-14 lg:py-20">
-            <div class="mx-auto max-w-7xl px-6 sm:px-12">
+                <h3>Typical Mechanical Properties (Forged & Annealed)</h3>
                 <div class="content-table-wrapper">
                     <table>
-                        <caption>
-                            <span class="caption-title">Typical Mechanical Properties (Forged & Annealed)</span>
-                        </caption>
-
                         <thead>
                             <tr>
                                 <th scope="col">Property</th>
@@ -204,8 +240,8 @@ const internalResources = [
         </section>
 
 
-        <section id="forging-processes" class="w-full bg-[#F8FAFC] border-t border-slate-200 py-14 lg:py-20">
-            <div class="mx-auto max-w-7xl px-6 sm:px-12">
+        <section id="forging-processes" >
+            <div class="content-container">
                 <h2>Forging Processes for Inconel 625</h2>
                 <p>
                     Our co-owned facilities in the USA, South Korea, and Taiwan specialize in high-integrity 625 components:
@@ -225,8 +261,8 @@ const internalResources = [
         </section>
 
 
-        <section id="applications" class="w-full border-t border-slate-200 py-14 lg:py-20">
-            <div class="mx-auto max-w-7xl px-6 sm:px-12">
+        <section id="applications">
+            <div class="content-container">
                 <h2>Key Applications for Forged 625</h2>   
 
                 <ul>
@@ -246,8 +282,8 @@ const internalResources = [
             </div>
         </section>
 
-        <section id="quality-assurance" class="w-full bg-[#F8FAFC] border-t border-slate-200 py-14 lg:py-20">
-            <div class="mx-auto max-w-7xl px-6 sm:px-12">
+        <section id="quality-assurance">
+            <div class="content-container">
                 <h2>Quality Assurance & NDT Suite</h2>
                 <p>
                     Every Inconel 625 forging is subjected to our proprietary Tier-1.5 Quality Protocol:

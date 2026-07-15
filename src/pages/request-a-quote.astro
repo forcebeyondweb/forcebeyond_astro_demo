@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import { sanityClient } from 'sanity:client';
 
-// 1. 从 Sanity 云端精准拉取询盘报价页的动态配置文案
+// 1. Precisely fetch dynamic configuration copy for the inquiry/quote page from the Sanity cloud.
 const data = await sanityClient.fetch(`*[_type == "quotePage"][0]`);
 
 const countries = ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belgium', 'Belize', 'Brazil', 'Bulgaria', 'Cambodia', 'Cameroon', 'Canada', 'Chile', 'China', 'Colombia', 'Costa Rica', 'Croatia', 'Cyprus', 'Czechia', 'Denmark', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Estonia', 'Ethiopia', 'Finland', 'France', 'Germany', 'Ghana', 'Greece', 'Guatemala', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Ireland', 'Israel', 'Italy', 'Japan', 'Jordan', 'Kenya', 'Malaysia', 'Mexico', 'Netherlands', 'New Zealand', 'Nigeria', 'Norway', 'Pakistan', 'Panama', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Saudi Arabia', 'Singapore', 'South Africa', 'South Korea', 'Spain', 'Sweden', 'Switzerland', 'Taiwan', 'Thailand', 'Turkey', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'Uruguay', 'Vietnam', 'United States of America'];
@@ -112,7 +112,7 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
                     </div>
 
                     <fieldset class="lg:col-span-2 border-t border-slate-200 pt-10">
-                        <legend class="text-2xl font-black tracking-tight text-brand-blue uppercase">How Did You Hear About ForceBeyond?</legend>
+                        <h2 class="text-2xl font-black tracking-tight text-slate-950 uppercase">How Did You Hear About ForceBeyond?</h2>
                         <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                             {sources.map((source) => (
                                 <label class="flex cursor-pointer items-center gap-3 rounded border border-slate-200 bg-slate-50/50 px-4 py-3 text-xs font-bold text-slate-700 transition hover:border-blue-500 hover:bg-slate-50">
@@ -123,7 +123,7 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
                     </fieldset>
 
                     <fieldset class="lg:col-span-2 border-t border-slate-200 pt-10">
-                        <legend class="text-2xl font-black tracking-tight text-brand-blue uppercase">Project Context</legend>
+                        <h2 class="text-2xl font-black tracking-tight text-slate-950 uppercase">Project Context</h2>
                         <div class="mt-6 grid gap-8 lg:grid-cols-2">
                             <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">I Am Interested In
                                 <input class={input} name="project-interest" type="text" placeholder="Casting, forging, machining, or another requirement" />
@@ -187,7 +187,7 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
 
 
 <script is:inline>
-    // 1. Email 校验
+    // 1. Email check
     const email = document.querySelector('#quote-email');
     const confirmation = document.querySelector('#quote-confirm-email');
     const validateEmailMatch = () => confirmation.setCustomValidity(confirmation.value && confirmation.value !== email.value ? 'Email addresses must match.' : '');
@@ -199,9 +199,9 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
     confirmation.addEventListener('input', validateEmailMatch);
 
     // ==================================================================
-    // 🚀 核心改进：引入浏览器高级 DataTransfer 虚拟仓库，实现分批追加文件
+    // Introduce an advanced browser-based `DataTransfer` virtual repository to enable the incremental appending of files.
     // ==================================================================
-    let fileBufferContainer = new DataTransfer(); // 这是一个持久化的虚拟文件集仓库
+    let fileBufferContainer = new DataTransfer(); // This is a persistent virtual file collection repository
 
     const fileInput = document.getElementById('fileInput');
     const fileStatus = document.getElementById('fileStatus');
@@ -210,7 +210,7 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
     const fileVisualList = document.getElementById('fileVisualList');
 
     fileInput.addEventListener('change', () => {
-        const freshSelectedFiles = fileInput.files; // 本次弹窗新选中的文件
+        const freshSelectedFiles = fileInput.files; // Files newly selected in this pop-up window
         fileError.classList.add('hidden');
 
         if (freshSelectedFiles.length > 0) {
@@ -218,7 +218,7 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
                 const file = freshSelectedFiles[i];
                 const extension = '.' + file.name.split('.').pop().toLowerCase();
                 
-                // 安全过滤拦截
+                // Security filter
                 if (file.name.includes('.php') || file.name.includes('.js') || file.name.includes('.sh') || file.name.includes('.exe')) {
                     fileError.textContent = `🛑 Security exception: "${file.name}" is unauthorized.`;
                     fileError.remove('hidden');
@@ -235,33 +235,33 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
                     return;
                 }
 
-                // ✨ 核心黑魔法：如果总数没超10个，就把新文件追加到我们的虚拟仓库里，而不是覆盖！
+                // If the total count is not over 10, append the new file to our virtual repository instead of overwriting!
                 if (fileBufferContainer.files.length >= 10) {
                     fileError.textContent = `⚠️ Upper limit breached: You can upload a maximum of 10 engineering assets.`;
                     fileError.classList.remove('hidden');
                     break;
                 }
                 
-                // 检查是否重复添加了同名文件
+                // Check whether a file with the same name has been added more than once.
                 unsetDuplicate: {
                     for(let j=0; j<fileBufferContainer.files.length; j++) {
                         if(fileBufferContainer.files[j].name === file.name && fileBufferContainer.files[j].size === file.size) {
-                            break unsetDuplicate; // 存在完全一样的文件，跳过不重复添加
+                            break unsetDuplicate; // An identical file exists; skipping to avoid adding a duplicate.
                         }
                     }
-                    fileBufferContainer.items.add(file); // 顺利追加进仓库
+                    fileBufferContainer.items.add(file); 
                 }
             }
 
-            // 联动将虚拟仓库里合并后的【总文件集】硬塞回给原生的 HTML Input 元素，供表单提交
+            // The integration mechanism forcibly injects the merged [total file set] from the virtual repository back into the native HTML input element, making it available for form submission.
             fileInput.files = fileBufferContainer.files;
             
-            // 渲染 UI 列表
+            // Render UI list
             renderVisualList();
         }
     });
 
-    // 动态渲染带删除按钮的视觉列表
+    // Render the visual list with delete buttons
     function renderVisualList() {
         fileVisualList.innerHTML = '';
         const currentFiles = fileBufferContainer.files;
@@ -295,12 +295,12 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
             fileStatus.innerHTML = `Total <span class="text-blue-600 font-extrabold">${currentFiles.length}</span> file(s) appended (${totalMB} MB).`;
             fileListContainer.classList.remove('hidden');
 
-            // 挂载删除事件监听
+            // Attach a listener for the deletion event.
             document.querySelectorAll('.remove-file-btn').forEach(btn => {
                 btn.addEventListener('click', (e) => {
                     const indexToRemove = parseInt(e.target.getAttribute('data-index'));
                     
-                    // 通过重建 DataTransfer 实现删除特定位置的文件
+                    // Delete a file at a specific location by reconstructing DataTransfer.
                     const newContainer = new DataTransfer();
                     for(let k = 0; k < fileBufferContainer.files.length; k++) {
                         if(k !== indexToRemove) {
@@ -308,9 +308,9 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
                         }
                     }
                     fileBufferContainer = newContainer;
-                    fileInput.files = fileBufferContainer.files; // 同步回原生的 Input
+                    fileInput.files = fileBufferContainer.files;
                     
-                    renderVisualList(); // 重新渲染列表
+                    renderVisualList(); 
                     if(fileBufferContainer.files.length === 0) {
                         fileStatus.textContent = 'Click or drag files here to upload.';
                         fileListContainer.classList.add('hidden');
@@ -324,7 +324,6 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
         }
     }
 
-    // 3. AJAX 无刷新就地视图切换提交逻辑（已移除 Turnstile 拦截保护，供您本地顺畅调测）
     const form = document.getElementById('rfqForm');
     const submitBtn = document.getElementById('submitBtn');
     const thankYouState = document.getElementById('thankYouState');
@@ -356,7 +355,7 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
 
             if (result.success || response.status === 200) {
                 form.reset();
-                fileBufferContainer = new DataTransfer(); // 清空前端持久缓存
+                fileBufferContainer = new DataTransfer(); 
                 form.classList.add('hidden');
                 thankYouState.classList.remove('hidden');
                 window.scrollTo({ top: thankYouState.offsetTop - 100, behavior: 'smooth' });
