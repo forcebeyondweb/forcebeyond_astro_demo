@@ -69,8 +69,10 @@
 
     .individual-content table,
     .individual-content .content-table {
-        @apply min-w-[720px] w-full border-collapse text-left text-sm sm:text-base;
+        @apply w-full border-collapse text-left text-sm sm:text-base;
     }
+    
+
 
     .individual-content caption {
         @apply border-b border-slate-200 px-6 py-5 text-left bg-[#F8FAFC];
@@ -79,7 +81,22 @@
     .individual-content caption .caption-title {
         @apply block text-xl font-bold text-black;
     }
+    /* Mobile table optimization */
+    @media (max-width: 640px) {
 
+        .individual-content table,
+        .individual-content .content-table {
+            table-layout: fixed;
+        }
+
+        .individual-content th,
+        .individual-content td {
+            white-space: normal;
+            overflow-wrap: anywhere;
+            padding: 0.75rem 0.5rem;
+        }
+
+    }
     .individual-content caption .caption-subtitle {
         @apply mt-1 block text-sm text-slate-500 font-normal;
     }
