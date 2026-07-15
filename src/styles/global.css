@@ -6,6 +6,8 @@
     --color-brand-light: #F8FAFC;
     --color-brand-navy: #0363ce;
     --font-oblik: 'Oblik Serif', Georgia, Cambria, serif;
+
+    --breakpoint-desktop: 1050px;
 }
 
 @layer base {
