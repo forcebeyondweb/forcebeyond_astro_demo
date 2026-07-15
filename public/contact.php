@@ -60,24 +60,33 @@ $fullName = $firstName . ' ' . $lastName;
 $mail = new PHPMailer(true);
 
 try {
+    // --- Load private SMTP config ---
+    $configPath = __DIR__ . '/mail-config.php';
+
+    if (!file_exists($configPath)) {
+        throw new Exception('Mail configuration file is missing.');
+    }
+
+    $config = require $configPath;
+
     // --- Server Settings ---
     $mail->isSMTP();
+    $mail->Host       = $config['SMTP_HOST'];
     $mail->SMTPAuth   = true;
-    $mail->Host = 'YOUR_SMTP_HOST';
-    $mail->Username = 'YOUR_SMTP_USERNAME';
-    $mail->Password = 'YOUR_SMTP_PASSWORD';
-    $mail->Port = 465;                // ⚠️ 确认端口正确 (465 或 587)
-    
-    if ($mail->Port == 465) {
+    $mail->Username   = $config['SMTP_USERNAME'];
+    $mail->Password   = $config['SMTP_PASSWORD'];
+    $mail->Port       = (int) $config['SMTP_PORT'];
+
+    if ($mail->Port === 465) {
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
-    } else if ($mail->Port == 587) {
+    } else if ($mail->Port === 587) {
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
     }
 
     $mail->CharSet = 'UTF-8';
 
     // --- EMAIL 1: Detailed Notification to Sales Team ---
-    $mail->setFrom('REMOVED_SMTP_USERNAME', 'www.forcebeyond.com');
+    $mail->setFrom($mail->Username, 'www.forcebeyond.com');
     $mail->addAddress('oscar.wang@forcebeyond.com');            
     $mail->addReplyTo($email, $fullName);                 
 
@@ -116,7 +125,7 @@ try {
     $mail->clearAddresses();
     $mail->clearReplyTos();
     
-    $mail->setFrom('REMOVED_SMTP_USERNAME', 'www.forcebeyond.com');
+    $mail->setFrom($mail->Username, 'www.forcebeyond.com');
     $mail->addAddress($email, $fullName);                        
     $mail->addReplyTo('oscar.wang@forcebeyond.com', 'ForceBeyond Sales'); 
 

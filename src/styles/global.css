@@ -1,31 +1,40 @@
 @import "tailwindcss";
 
 @theme {
-	--color-brand-navy: #0B192C;
-	--color-brand-blue: #2563EB;
-	--color-brand-light: #F8FAFC;
+    --color-brand-blue: #0363CE;
+    --color-brand-green: #67BD18;
+    --color-brand-light: #F8FAFC;
+    --color-brand-navy: #0363ce;
+    --font-oblik: 'Oblik Serif', Georgia, Cambria, serif;
 }
 
 @layer base {
-	html {
-		background-color: #FFFFFF;
-		color: #0F172A;
-	}
+    html {
+        background-color: #FFFFFF;
+        color: #0F172A;
+    }
 
-	body {
-		margin: 0;
-		background-color: #FFFFFF;
-		color: #0F172A;
-	}
+    body {
+        margin: 0;
+        background-color: #FFFFFF;
+        color: #0F172A;
+    }
 
-	::selection {
-		background-color: #2563EB;
-		color: #FFFFFF;
-	}
+    ::selection {
+        background-color: #2563EB;
+        color: #FFFFFF;
+    }
+
+    /* 全局标题默认字体控制 */
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-oblik);
+        font-weight: 400;
+        letter-spacing: -0.01em;
+    }
 }
 
-@layer utilities {
-	#fileStatus {
-		text-transform: none;
-	}
+/* 保护 Header 导航栏下拉菜单的小箭头，防止受衬线字体影响 */
+header span.text-xs,
+header summary span.text-xs {
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
 }

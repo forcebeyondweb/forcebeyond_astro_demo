@@ -1,304 +1,278 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { sanityClient } from 'sanity:client';
+import IndividualPageLayout from '../layouts/individualpagelayout.astro';
 
-// 1. 定义严谨的特种工业材料页面接口定义（TypeScript Types）
-interface SnapshotItem {
-    term: string;
-    description: string;
-}
-
-interface MechanicalProperty {
-    property: string;
-    metric: string;
-    imperial: string;
-}
-
-interface ForgingRoute {
-    title: string;
-    text: string;
-}
-
-interface TechnicalFAQ {
-    question: string;
-    answer: string;
-}
-
-// 从 Sanity 动态抓取特定产品数据
-const data = await sanityClient.fetch(`*[_type == "solutionPage" && slug.current == "inconel-718-forging"][0]`);
-
-// 2. 保持你原有的工业级标准数据作为优雅降级兜底（并指定严格类型）
-const defaultSnapshot: SnapshotItem[] = [
-    { term: 'Material', description: 'Inconel 718 nickel-based superalloy' },
-    { term: 'Process', description: 'Controlled closed-die, ring, or open-die forging' },
-    { term: 'Performance', description: 'Strength, fatigue resistance, and oxidation resistance' },
-    { term: 'Component formats', description: 'Disks, rings, shafts, and critical load-bearing forms' },
-    { term: 'Supply model', description: 'Integrated machining, inspection, and delivery coordination' }
-];
-const defaultDecisionFactors: string[] = ['Operating temperature and exposure profile', 'Tensile, fatigue, and creep loading requirements', 'Part geometry, section thickness, and grain-flow needs', 'Material specification and traceability requirements', 'Production volume, qualification path, and lead-time target', 'Secondary machining, testing, and documentation scope'];
-const defaultProperties: MechanicalProperty[] = [
-    { property: 'Tensile strength', metric: '≥ 1,275 MPa', imperial: '≥ 185 ksi' },
-    { property: '0.2% yield strength', metric: '≥ 1,035 MPa', imperial: '≥ 150 ksi' },
-    { property: 'Elongation', metric: '≥ 12%', imperial: '≥ 12%' },
-    { property: 'Hardness', metric: 'Typical 38–44 HRC', imperial: 'Typical 38–44 HRC' }
-];
-const defaultRoutes: ForgingRoute[] = [
-    { title: 'Closed-Die Forging', text: 'A repeatable route for complex forms and production volumes where controlled grain flow, near-net geometry, and consistency are central to the program.' },
-    { title: 'Seamless Rings', text: 'For high-integrity ring sections where circumferential grain flow and structural continuity support demanding rotating or pressure-service applications.' },
-    { title: 'Open-Die Forging', text: 'A flexible route for larger cross-sections, shafts, and lower-volume shapes that require robust wrought structure before machining.' }
-];
-const defaultFaqs: TechnicalFAQ[] = [
-    { question: 'What is Inconel 718 forging?', answer: 'Inconel 718 forging shapes a precipitation-hardenable nickel-based superalloy into wrought forms with a controlled grain structure for demanding high-temperature and high-stress service.' },
-    { question: 'Why choose a forged Inconel 718 component?', answer: 'Forging is selected when a component needs the structural continuity, directional grain flow, and mechanical performance associated with wrought processing. The best route depends on geometry, load path, specification, and volume.' },
-    { question: 'Which applications use forged Inconel 718?', answer: 'Forged Inconel 718 is commonly considered for aerospace propulsion hardware, high-pressure energy equipment, oil and gas tools, and other components exposed to severe heat, corrosion, or cyclic loads.' },
-    { question: 'Can ForceBeyond coordinate machining and inspection?', answer: 'Yes. ForceBeyond can coordinate material sourcing, forging, heat treatment, CNC machining, specified testing, documentation, and delivery as an integrated supply program.' }
+const pageTitle = `
+  <span class="block">
+    Inconel 718 Forging: High-Strength Aerospace & Energy
+  </span>
+  <span class="block">
+    Components
+  </span>
+`;const seoTitle = 'Inconel 718 Forging: High-Strength Aerospace & Energy Components';
+const seoDescription = 'Custom Inconel 718 forging services for aerospace, energy, oil and gas, and other high-temperature, high-stress industrial applications.';
+const faqs = [
+    {
+        q: "How does ForceBeyond manage Inconel 718 lead times?",
+        a: "By maintaining a strategic billet inventory in our USA and Asian hubs, we can often bypass the 40+ week mill delays, delivering custom forgings in 14-18 weeks."
+    },
+    {
+        q: "What is the difference between AMS 5662 and AMS 5663?",
+        a: "AMS 5662 is for material in the solution-treated condition (easier to machine). AMS 5663 is for material that has been precipitation (age) hardened for maximum strength."
+    }
 ];
 
-// 激活运行数据资产（通过显式强转断言确保类型不丢失）
-const snapshot = (data?.snapshot || defaultSnapshot) as SnapshotItem[];
-const decisionFactors = (data?.decisionFactors || defaultDecisionFactors) as string[];
-const properties = (data?.properties || defaultProperties) as MechanicalProperty[];
-const routes = (data?.routes || defaultRoutes) as ForgingRoute[];
-const faqs = (data?.faqs || defaultFaqs) as TechnicalFAQ[];
-
-// 原版固定资产（流程、质量和内链）
-const flow: string[] = ['Drawing & specification review', 'Material and route selection', 'Forge planning & qualified sourcing', 'Heat treatment & machining coordination', 'Inspection, NDT & documentation', 'Packaging, logistics & supplier coordination'];
-const applications: string[] = ['Turbine Disks', 'High-Pressure Shafts', 'Oil & Gas Downhole Tools', 'Critical Aerospace Fasteners'];
-const quality: string[][] = [
-    ['Material', 'Heat-lot traceability, chemistry, and certification review'],
-    ['NDT', 'Coordinated ultrasonic, penetrant, or other specified examination'],
-    ['Testing', 'Mechanical testing aligned to drawing and specification needs'],
-    ['Documents', 'Inspection records and certificate package assembled for release']
-];
-const connectedPages: string[][] = [
-    ['Investment Casting', '/capabilities'], ['Die Casting', '/capabilities'], ['CNC Machining', '/capabilities'], ['Stainless Steel Casting', '/capabilities'], ['Titanium & Sand Casting', '/capabilities'], ['Request a Quote', '/request-a-quote']
+// Sources 外部引文数据
+const sources = [
+    { label: 'American Foundry Society: "Metal Casting"', url: 'https://www.afsinc.org' },
+    { label: 'Wikipedia: "Investment Casting", "Sand Casting"', url: '' },
+    { label: 'Forging Industry Association: "Forging Industry"', url: 'https://www.forging.org' }
 ];
 
-// 3. 动态组装完美契合全站基因的 @graph 架构 JSON-LD 资产
-const productSchema = {
-    '@context': 'https://schema.org',
-    '@graph': [
-        {
-            '@type': 'Product',
-            '@id': 'https://fbwebdemo.netlify.app/solutions/inconel-718-forging#product',
-            name: data?.pageTitle || 'Inconel 718 Forging',
-            description: data?.seoDescription || 'Custom forged Inconel 718 components for high-stress, high-temperature industrial applications.',
-            material: 'Inconel 718 nickel-based superalloy',
-            additionalProperty: properties.map((p: MechanicalProperty) => ({
-                '@type': 'PropertyValue',
-                name: p.property,
-                value: `Metric: ${p.metric} / Imperial: ${p.imperial}`
-            }))
-        },
-        {
-            '@type': 'FAQPage',
-            '@id': 'https://fbwebdemo.netlify.app/solutions/inconel-718-forging#faq',
-            mainEntity: faqs.map((f: TechnicalFAQ) => ({
-                '@type': 'Question',
-                name: f.question,
-                acceptedAnswer: { '@type': 'Answer', text: f.answer }
-            }))
-        }
-    ]
-};
+// Resources 站内内部链接列表
+const internalResources = [
+    { label: "Die Casting", url: "/die-casting" },
+    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
+    { label: "Inconel 718 Machining", url: "/inconel-718-machining" },
+    { label: "Precision CNC Machining and Secondary Operations", url: "/cnc-machining" }
+];
 ---
 
-<Layout title={`${data?.pageTitle || "Inconel 718 Forging"} | ForceBeyond`} description={data?.seoDescription || "Inconel 718 forging support for high-stress components in demanding industrial applications."}>
-    <script slot="head" type="application/ld+json" set:html={JSON.stringify(productSchema)}></script>
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"
+    faqSectionTitle="FAQ: Sourcing Inconel 718 Forgings"
+    faqItems={faqs}
+    ctaTitle="Request an Inconel 718 Technical Consultation"
+    ctaDescription="Direct access to our Delaware-based engineering team. Feasibility reviews delivered within 48 hours."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+    <div slot="full-width" class="individual-content">
 
-    <section class="border-b border-white/10 bg-slate-900">
-        <div class="mx-auto grid max-w-7xl gap-12 px-4 py-20 sm:px-6 lg:grid-cols-[1.15fr_0.85fr] lg:items-end lg:px-8 lg:py-28">
-            <div>
-                <p class="text-sm font-bold tracking-[0.2em] text-orange-500 uppercase">{data?.badge || "High-performance alloy forging"}</p>
-                <h1 class="mt-4 max-w-4xl text-4xl font-bold tracking-tight text-white sm:text-6xl">{data?.pageTitle || "Inconel 718 Forging"}</h1>
-                <p class="mt-6 max-w-3xl text-lg leading-8 text-slate-300">
-                    {data?.description || "High-strength forged Inconel 718 components for applications that demand reliable performance under extreme heat, pressure, corrosion, and cyclic loading."}
-                </p>
-                <div class="mt-9 flex flex-col gap-4 sm:flex-row">
-                    <a href="/request-a-quote" class="inline-flex justify-center bg-orange-600 px-6 py-3.5 text-sm font-bold text-white transition hover:bg-orange-500">Request a Quote</a>
-                    <a href="#material" class="inline-flex justify-center border border-white/30 px-6 py-3.5 text-sm font-bold text-white transition hover:border-orange-500 hover:text-orange-500">View Inconel 718 Material</a>
-                </div>
-            </div>
-            <aside class="border-l-2 border-orange-600 bg-slate-800 p-6 sm:p-8">
-                <p class="text-sm font-bold tracking-[0.18em] text-orange-500 uppercase">Solution Snapshot</p>
-                <dl class="mt-6 space-y-4">
-                    {snapshot.map((item: SnapshotItem) => (
-                        <div class="border-t border-white/10 pt-4">
-                            <dt class="text-sm font-bold text-white">{item.term}</dt>
-                            <dd class="mt-1 text-sm leading-6 text-slate-300">{item.description}</dd>
+        <section id="overview" class="w-full pt-8 pb-14 lg:pt-12 lg:pb-16">
+            <div class="mx-auto max-w-7xl px-6 sm:px-12">
+                
+                <h2>Inconel 718 Forging: High-Strength Aerospace & Energy Components</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            Precision forged Inconel 718 (UNS N07718) engineered for high-stress applications up to 700°C. 
+                            ForceBeyond provides AS9100-certified forging solutions with optimized grain refinement from our co-owned global facilities.
+                        </p>
+                        <p>
+                            As a core pillar of our comprehensive Superalloy Forging Services, 
+                            ForceBeyond specializes in the precision manufacturing of <b>Inconel 718 (UNS N07718)</b> components. 
+                            Engineered for mission-critical environments, our forged 718 provides a superior structural alternative to cast parts, 
+                            offering the refined grain structure and fatigue resistance required for high-stress applications up to <b>700°C (1,292°F)</b>.
+                        </p>
+                        <p>
+                            Leveraging our <b>Tier-1.5 “Tri-Regional” model</b>, we provide US-based engineering oversight with high-capacity production 
+                            from our co-owned facilities in <b>South Korea</b> and <b>Taiwan</b>, ensuring both metallurgical excellence and supply chain resilience.
+                        </p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="overflow-hidden rounded-xl bg-slate-100 shadow-lg border border-slate-200">
+                            <img
+                                src="/oscar/media/Precision-seamless-rolled-ring-forging-of-Inconel-718-for-aerospace-engine-at-ForceBeyond-co-owned-facility.jpg"
+                                alt="Inconel 718 Precision Forged Component"
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
                         </div>
-                    ))}
-                </dl>
-            </aside>
-        </div>
-    </section>
-
-    <section id="material" class="bg-white py-18 text-slate-900 sm:py-24">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="overflow-hidden border border-slate-200">
-                <div class="grid text-center sm:grid-cols-3">
-                    <div class="p-7">
-                        <p class="text-xs font-bold tracking-[0.16em] text-orange-600 uppercase">Material</p>
-                        <p class="mt-2 text-xl font-bold">Inconel 718</p>
-                    </div>
-                    <div class="border-y border-slate-200 bg-slate-50 p-7 sm:border-x sm:border-y-0">
-                        <p class="text-xs font-bold tracking-[0.16em] text-orange-600 uppercase">Process</p>
-                        <p class="mt-2 text-xl font-bold">Forging</p>
-                    </div>
-                    <div class="p-7">
-                        <p class="text-xs font-bold tracking-[0.16em] text-orange-600 uppercase">Result</p>
-                        <p class="mt-2 text-xl font-bold">High-Stress Components</p>
                     </div>
                 </div>
-            </div>
-        </div>
-    </section>
 
-    <section class="border-y border-white/10 bg-slate-800 py-20">
-        <div class="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
-            <div>
-                <p class="text-sm font-bold tracking-[0.2em] text-orange-500 uppercase">Technical evaluation</p>
-                <h2 class="mt-3 text-3xl font-bold text-white sm:text-4xl">When Inconel 718 Forging Makes Sense</h2>
-                <p class="mt-6 text-lg leading-8 text-slate-300">Inconel 718 forging is a practical path when service conditions and component criticality call for a nickel-based superalloy with a controlled wrought structure. A program review should connect the actual load path, environment, geometry, and qualification requirements before a route is selected.</p>
             </div>
-            <div>
-                <p class="text-sm font-bold tracking-[0.16em] text-slate-400 uppercase">Common Decision Factors</p>
-                <ul class="mt-5 divide-y divide-white/10 border-y border-white/10">
-                    {decisionFactors.map((factor: string, index: number) => (
-                        <li class="flex gap-4 py-4 text-slate-100">
-                            <span class="font-bold text-orange-500">0{index + 1}</span>{factor}
-                        </li>
-                    ))}
+        </section>
+
+
+        <section id="tier-1-5-advantage" class="w-full bg-[#F8FAFC] border-t border-slate-200 py-14 lg:py-20">
+            <div class="mx-auto max-w-7xl px-6 sm:px-12">
+                <h2>The Tier-1.5 Forging Advantage: From Billet to Finished Part</h2>
+                
+                <p>
+                    Traditional supply chains are fragmented, forcing you to manage separate forge and machine shops.
+                    ForceBeyond’s <b>Tier-1.5 model</b> integrates Inconel 718 Forging with our precision Inconel 718 Machining centers.
+                </p>
+                
+                <p>By taking total ownership of the metallurgical lifecycle, we ensure:</p>
+                
+                <ul>
+                    <li>
+                        <strong>Controlled Grain Flow:</strong> Optimizing the forging process to align grain flow with the part’s primary stress axes.
+                    </li>
+                    <li>
+                        <strong>Reduced Buy-to-Fly Ratio:</strong> Near-net-shape forging techniques that minimize raw material waste and machining cycle times.
+                    </li>
+                    <li>
+                        <strong>Single-Source Traceability:</strong> Full heat-lot documentation from the initial melt through forging, heat treatment, and final NDT.
+                    </li>
+                </ul>
+
+                <p>
+                    While our forging process optimizes grain flow for high-stress rotating components, 
+                    parts with extremely complex internal cooling channels or non-symmetrical housings may be 
+                    better suited for our Inconel 718 Casting solutions utilizing Vacuum Induction Melting (VIM).
+                </p>
+            </div>
+        </section>
+
+
+        <section id="why-forged" class="w-full border-t border-slate-200 py-14 lg:py-20">
+            <div class="mx-auto max-w-7xl px-6 sm:px-12">
+                <h2>Why Forged Inconel 718?</h2>
+                
+                <p>
+                    Inconel 718 is a precipitation-hardenable nickel-chromium alloy.
+                    While casting is common for complex static parts, forging is mandatory for rotating or 
+                    high-pressure components.
+                    Our forging process breaks down the cast dendritic structure 
+                    and creates a directed grain flow, significantly increasing fatigue life and structural reliability.
+                </p>
+
+                <h3>The Mechanical Advantage</h3>
+                <ul>
+                    <li>
+                        <strong>Yield Strength:</strong> Retains <b>1,035 MPa</b> at temperatures up to <b>700°C (1,292°F)</b>.
+                    </li>
+                    <li>
+                        <strong>Creep Resistance:</strong> Optimized for long-term stability under high-stress thermal loads.
+                    </li>
+                    <li>
+                        <strong>Workability:</strong> Excellent weldability and cryogenic properties compared to other nickel superalloys.
+                    </li>
                 </ul>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="bg-white py-20 text-slate-900">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="grid gap-8 border-l-2 border-orange-600 bg-slate-50 p-7 lg:grid-cols-[0.75fr_1.25fr]">
-                <div>
-                    <p class="text-sm font-bold tracking-[0.18em] text-orange-600 uppercase">Standards & data</p>
-                    <h2 class="mt-3 text-3xl font-bold">Compliance Framework</h2>
-                </div>
-                <p class="leading-7 text-slate-600">Programs can be planned against customer-defined requirements and applicable material standards, including AMS 5662, NACE requirements for sour-service applications, and relevant ASTM specifications. Final compliance is determined by the drawing, purchase order, and approved quality plan.</p>
+
+        <section id="specifications" class="w-full bg-[#F8FAFC] border-t border-slate-200 py-14 lg:py-20">
+            <div class="mx-auto max-w-7xl px-6 sm:px-12">
+                <h2>Technical Specifications & Standards</h2>
+                
+                <p>
+                    We forge Inconel 718 to comply with the most stringent global standards, 
+                    ensuring seamless integration into Tier-1 aerospace and energy supply chains.
+                </p>
+
+                <h3>Industry Standards Compliance</h3>
+                <ul>
+                    <li>
+                        <strong>Aerospace:</strong> AMS 5662 (Solution Annealed), AMS 5663 (Precipitation Hardened)
+                    </li>
+                    <li>
+                        <strong>Oil & Gas:</strong> NACE MR0175 / ISO 15156
+                    </li>
+                    <li>
+                        <strong>General:</strong> ASTM B637, UNS N07718
+                    </li>
+                </ul>
             </div>
-            <div class="mt-12 overflow-x-auto">
-                <table class="min-w-full border border-slate-200 text-left">
-                    <caption class="caption-top mb-4 text-left text-2xl font-bold">Mechanical Properties <span class="text-slate-500">(Forged & Aged)</span></caption>
-                    <thead class="bg-slate-900 text-white">
-                        <tr>
-                            <th scope="col" class="px-6 py-4">Property</th>
-                            <th scope="col" class="px-6 py-4">Metric</th>
-                            <th scope="col" class="px-6 py-4">Imperial</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {properties.map((p: MechanicalProperty) => (
-                            <tr class="border-t border-slate-200 even:bg-slate-50">
-                                <th scope="row" class="px-6 py-4 font-bold">{p.property}</th>
-                                <td class="px-6 py-4 text-slate-600">{p.metric}</td>
-                                <td class="px-6 py-4 text-slate-600">{p.imperial}</td>
+        </section>
+
+
+        <section id="properties-table" class="w-full border-t border-slate-200 py-14 lg:py-20">
+            <div class="mx-auto max-w-7xl px-6 sm:px-12">
+                <div class="content-table-wrapper">
+                    <table>
+                        <caption>
+                            <span class="caption-title">Mechanical Properties (Forged & Aged)</span>
+                        </caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Property</th>
+                                <th scope="col">Metric</th>
+                                <th scope="col">Imperial</th>
                             </tr>
-                        ))}
-                    </tbody>
-                </table>
-                <p class="mt-3 text-sm text-slate-500">Reference values only; final requirements depend on product form, heat treatment, and governing specification.</p>
-            </div>
-        </div>
-    </section>
+                        </thead>
 
-    <section class="border-y border-white/10 bg-slate-900 py-20">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <p class="text-sm font-bold tracking-[0.2em] text-orange-500 uppercase">Route selection</p>
-            <h2 class="mt-3 text-3xl font-bold text-white sm:text-4xl">Forging Routes</h2>
-            <div class="mt-10 grid gap-5 lg:grid-cols-3">
-                {routes.map((route: ForgingRoute, index: number) => (
-                    <article class="border border-white/15 bg-slate-800 p-7">
-                        <p class="text-sm font-bold text-orange-500">0{index + 1}</p>
-                        <h3 class="mt-8 text-xl font-bold text-white">{route.title}</h3>
-                        <p class="mt-3 leading-7 text-slate-300">{route.text}</p>
-                    </article>
-                ))}
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-orange-600 py-16 text-white">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <p class="text-sm font-bold tracking-[0.2em] text-orange-100 uppercase">One coordinated program</p>
-            <h2 class="mt-3 text-3xl font-bold sm:text-4xl">Integrated Manufacturing Support Flow</h2>
-            <div class="mt-10 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {flow.map((step: string, index: number) => (
-                    <div class="flex items-center gap-4 border border-white/30 bg-orange-700/30 p-5">
-                        <span class="font-bold text-orange-100">0{index + 1}</span>
-                        <span class="font-semibold">{step}</span>
-                    </div>
-                ))}
-            </div>
-        </div>
-    </section>
-
-    <section class="bg-white py-20 text-slate-900">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div class="grid gap-12 lg:grid-cols-2">
-                <div>
-                    <p class="text-sm font-bold tracking-[0.2em] text-orange-600 uppercase">Applications</p>
-                    <h2 class="mt-3 text-3xl font-bold">Forged Component Applications</h2>
-                    <ul class="mt-7 grid gap-3 sm:grid-cols-2">
-                        {applications.map((application: string) => (
-                            <li class="border border-slate-200 bg-slate-50 p-5 font-bold">{application}</li>
-                        ))}
-                    </ul>
-                </div>
-                <div>
-                    <p class="text-sm font-bold tracking-[0.2em] text-orange-600 uppercase">Quality Planning</p>
-                    <h2 class="mt-3 text-3xl font-bold">Defined Before Production</h2>
-                    <div class="mt-7 grid gap-px border border-slate-200 bg-slate-200 sm:grid-cols-2">
-                        {quality.map(([title, text]: string[]) => (
-                            <div class="bg-white p-5">
-                                <h3 class="font-bold">{title}</h3>
-                                <p class="mt-2 text-sm leading-6 text-slate-600">{text}</p>
-                            </div>
-                        ))}
-                    </div>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Tensile strength</th>
+                                <td>1,275 MPa</td>
+                                <td>185 ksi</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Yield strength</th>
+                                <td>1,035 MPa</td>
+                                <td>150 ksi</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Elongation</th>
+                                <td>12%–15%</td>
+                                <td>12%–15%</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Reduction of area</th>
+                                <td>15%–20%</td>
+                                <td>15%–20%</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Typical hardness</th>
+                                <td>36–44 HRC</td>
+                                <td>36–44 HRC</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Density</th>
+                                <td>8.19 g/cm³</td>
+                                <td>0.296 lb/in³</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section class="border-y border-white/10 bg-slate-800 py-20">
-        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <p class="text-sm font-bold tracking-[0.2em] text-orange-500 uppercase">Explore ForceBeyond</p>
-            <h2 class="mt-3 text-3xl font-bold text-white">Connected Network</h2>
-            <div class="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                {connectedPages.map(([title, href]: string[]) => (
-                    <a href={href} class="flex items-center justify-between border border-white/15 bg-slate-900 px-5 py-4 font-bold text-white transition hover:border-orange-500 hover:text-orange-500">
-                        <span>{title}</span>
-                        <span class="flex h-6 w-6 items-center justify-center bg-orange-600 text-sm text-white">→</span>
-                    </a>
-                ))}
-            </div>
-        </div>
-    </section>
 
-    <section class="bg-white py-20 text-slate-900">
-        <div class="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.75fr_1.25fr] lg:px-8">
-            <div>
-                <p class="text-sm font-bold tracking-[0.2em] text-orange-600 uppercase">Technical FAQs</p>
-                <h2 class="mt-3 text-3xl font-bold">Inconel 718 Frequently Asked Questions</h2>
+        <section id="forging-processes" class="w-full bg-[#F8FAFC] border-t border-slate-200 py-14 lg:py-20">
+            <div class="mx-auto max-w-7xl px-6 sm:px-12">
+                <h2>Specialized Forging Processes for 718</h2>
+
+                <ul>
+                    <li>
+                        <strong>Closed-Die Forging:</strong> For high-precision, near-net-shape turbine disks and compressor blades.
+                    </li>
+                    <li>
+                        <strong>Seamless Rolled Rings:</strong> Ideal for engine casings and structural rings up to 3,500mm OD.
+                    </li>
+                    <li>
+                        <strong>Open-Die Forging:</strong> Cost-effective for shafts, custom blocks, and prototypes up to 5,000kg.
+                    </li>
+                </ul>
             </div>
-            <div class="divide-y divide-slate-200 border-y border-slate-200">
-                {faqs.map((faq: TechnicalFAQ) => (
-                    <details class="group py-1">
-                        <summary class="flex cursor-pointer list-none items-center justify-between gap-6 py-5 text-left text-lg font-bold marker:content-none">
-                            {faq.question}
-                            <span class="flex h-7 w-7 shrink-0 items-center justify-center border border-slate-300 text-orange-600 transition group-open:rotate-45">+</span>
-                        </summary>
-                        <p class="max-w-3xl pb-5 pr-12 leading-7 text-slate-600">{faq.answer}</p>
-                    </details>
-                ))}
+        </section>
+
+
+        <section id="quality-assurance" class="w-full border-t border-slate-200 py-14 lg:py-20">
+            <div class="mx-auto max-w-7xl px-6 sm:px-12">
+                <h2>Quality Assurance & NDT Protocol</h2>   
+
+                <p>
+                    Every Inconel 718 forging undergoes rigorous testing at our co-owned facilities to ensure zero defects:
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Ultrasonic Testing (UT):</strong> Performed to <b>AMS 2154</b> standards to identify internal inclusions or porosity.
+                    </li>
+                    <li>
+                        <strong>Fluorescent Penetrant Inspection (FPI):</strong> For surface crack detection in complex geometries.
+                    </li>
+                    <li>
+                        <strong>Macro-Etch Testing:</strong> To verify the integrity and directionality of the forged grain flow.
+                    </li>
+                    <li>
+                        <strong>Mechanical Verification:</strong> Tensile and creep testing on witness coupons from every heat lot.
+                    </li>
+                </ul>
             </div>
-        </div>
-    </section>
-</Layout>
+        </section>
+    </div>
+</IndividualPageLayout>
