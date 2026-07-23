@@ -1,0 +1,440 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Superalloy Forging Services: Co-Owned Factories in USA, South Korea & Taiwan';
+const seoTitle = 'Superalloy Forging Services | Inconel 718 & 625 | ForceBeyond';
+const seoDescription = 'AS9100-certified Tier-1.5 superalloy forging services specializing in Inconel 718 (AMS 5663) and Inconel 625. Our co-owned factories in the USA, South Korea, and Taiwan provide supply chain resilience and in-house precision machining for aerospace, defense, and nuclear applications.';
+const faqs = [
+    {
+        q: " Why choose ForceBeyond as your Inconel 718 forging supplier?",
+        a: "We offer a unique “Dual-Shore” model. Our Delaware-based team manages the engineering, DFM, and quality oversight, while our co-owned factories in South Korea and Taiwan provide the cost-efficiencies of global manufacturing without the risk of an unverified broker."
+    },
+    {
+        q: "How do you manage lead times for Inconel 625 forgings?",
+        a: "By maintaining a strategic inventory of Inconel billets across our three global locations, we can often bypass the 40+ week lead times currently seen at major mills, delivering custom forgings in significantly shorter windows."
+    },
+    {
+        q:" What is the difference between Superalloy Casting vs. Forging?",
+        a: "While casting is ideal for complex internal geometries (like hollow turbine vanes), forging is required for components that must withstand high rotational stress or pressure (like turbine disks and shafts) due to its superior grain refinement and fatigue resistance."
+    },
+];
+
+// Sources 
+const sources = [
+    { label: 'American Foundry Society: "Metal Casting"', url: 'https://www.afsinc.org' },
+    { label: 'Forging Industry Association: "Forging Industry"', url: 'https://www.forging.org' },
+    { label: 'efunda. “Sand Casting“', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'The Investment Casting Institute. “What is Investment Casting?“',url:'https://www.investmentcasting.org/what-is-investment-casting.html'},
+    { label: 'ASM International. “Inconel 718 Alloy“', url: 'https://www.asminternational.org/materials-resources/alloy-database/technical-bulletin/inconel-718-alloy' }
+];
+
+// Resources 
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/superalloy-forging-services#webpage",
+      "url": "https://www.forcebeyond.store/oscar/superalloy-forging-services",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Superalloy",
+          "sameAs": "https://en.wikipedia.org/wiki/Superalloy"
+        },
+        {
+          "@type": "Thing",
+          "name": "Forging",
+          "sameAs": "https://en.wikipedia.org/wiki/Forging"
+        },
+        {
+          "@type": "Thing",
+          "name": "Inconel",
+          "sameAs": "https://en.wikipedia.org/wiki/Inconel"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/superalloy-forging-services#service",
+      "name": "High-Performance Superalloy Forging Services",
+      "serviceType": "Superalloy Forging Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Inconel 718 Forging",
+          "Inconel 625 Forging",
+          "Seamless Rolled Ring Forging",
+          "Tier-1.5 Manufacturing Integration",
+          "AS9100 Certified Quality Systems",
+          "Aerospace, Nuclear SMR & Power Generation Components"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Superalloy Forging Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tier-1.5 Integrated Forging & Machining",
+              "description": "Integration of high-tonnage superalloy forging with in-house CNC machining under a single AS9100 quality umbrella to perfectly align grain flow with structural stress axes."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tri-Regional Geopolitical Resilience",
+              "description": "Redundant and diversified supply chains utilizing co-owned factories across the USA (ITAR/Defense prototypes), South Korea (heavy nuclear SMR/power gen infrastructure), and Taiwan (high-efficiency industrial gas turbine blades)."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "High-Integrity Rolled Ring & Near-Net-Shape Forging",
+              "description": "Advanced metallurgical lifecycle management for Inconel 718 and 625 minimizing buy-to-fly ratios and ensuring deep grain refinement for high-fatigue components."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/superalloy-forging-services#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/inconel-718-5-axis-cnc-machining-turbine-impeller.webp"
+    heroImageAlt="5-axis CNC machining an Inconel 718 turbine impeller inside a high-precision machining center"
+    faqSectionTitle="Frequently Asked Questions (FAQ) for Forging Procurement"
+    faqItems={faqs}
+    ctaTitle="Ready to forge stronger, more reliable components?"
+    ctaDescription="Stop compromising on grain structure. Whether you need a single prototype ring or high-volume production of closed-die parts, ForceBeyond delivers the metallurgical integrity required for aerospace and nuclear applications."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview" >
+            <div class="content-container">
+                
+                <h2>Superalloy Forging Services: Co-Owned Factories in USA, South Korea & Taiwan</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                           ForceBeyond is a premier Tier-1.5 partner specializing in high-performance <a href="/oscar/inconel-718-forging" class="highlight-link">Inconel 718 Forging</a> and 
+                           <a href="/oscar/inconel-625-forging" class="highlight-link">Inconel 625 Forging</a>. We bridge the gap between US engineering oversight and high-capacity global 
+                           production to deliver zero-defect, mission-critical components for Aerospace, Nuclear, and Power Generation.
+                        </p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/Precision-seamless-rolled-ring-forging-of-Inconel-718-for-aerospace-engine-at-ForceBeyond-co-owned-facility.jpg"
+                                alt="Precision-seamless-rolled-ring-forging-of-Inconel-718-for-aerospace-engine-at-ForceBeyond-co-owned-facility"
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="tri-regional-advantage" >
+            <div class="content-container">
+                <h2>The Tri-Regional Advantage: Geopolitical Resilience in Forging</h2>
+                    <p>
+                        Unlike traditional forging suppliers tied to a single location, ForceBeyond’s co-ownership of factories 
+                        in the USA, Taiwan, and South Korea provides a diversified supply chain that mitigates risk and optimizes lead times.
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>USA Operations:</strong> Specialized in ITAR-compliant projects, aerospace prototyping, and high-complexity Inconel 718 forgings for domestic defense.
+                        </li>
+                        <li>
+                            <strong>South Korea Facilities: </strong> World-class heavy forging infrastructure for large-scale Power Generation and Nuclear SMR components.
+                        </li>
+                        <li>
+                            <strong>Taiwan Facilities:</strong>High-efficiency, scalable production for Industrial Gas Turbine (IGT) blades and high-pressure valve bodies.
+                        </li>
+                    </ul>
+                    <p>
+                        <strong>Whether your project requires the high-strength properties of Inconel 718 for a US-based aerospace defense project or the corrosion-resistant forged Inconel 625 
+                                for an international Nuclear SMR build, ForceBeyond’s tri-regional co-ownership ensures material availability 
+                                and logistical redundancy.
+                        </strong>
+                    </p>
+            </div>
+        </section>
+
+        <section id="tier-1-5-integration" >
+            <div class="content-container">
+                <h2>Tier-1.5 Integration: High-Integrity Forging with Precision Finishing</h2>
+                
+                <p>
+                    Traditional supply chains often break down during the hand-off between the forge shop and the machine shop. 
+                    ForceBeyond eliminates this risk through our <strong>Tier-1.5 manufacturing model</strong>. We integrate our high-tonnage 
+                    <a href="/oscar/superalloy-forging-services" class="highlight-link">Superalloy Forging</a> operations with our in-house <a href="/oscar/superalloy-machining-services" class="highlight-link">Superalloy Machining</a> centers.
+                </p>
+
+                <p>
+                    By managing the thermal-mechanical processing and the final CNC material removal under a single AS9100 quality 
+                    umbrella, we ensure that the grain flow is perfectly aligned with the part’s primary stress axes. 
+                    For complex geometries where forging is not feasible—such as thin-walled housings or intricate valve 
+                    manifolds—we offer seamless integration with our <a href="/oscar/superalloy-casting-services" class="highlight-link">Superalloy Casting</a> solutions, ensuring you always 
+                    have the optimal near-net-shape starting point for your project.
+                </p>
+                
+            </div>
+        </section>
+
+
+        <section id="inconel-718-625-machining" >
+            <div class="content-container">
+                <h2>Leading Forging Suppliers for Inconel 718 & 625</h2>
+                
+                <p>
+                    We focus on the two most critical alloys in the superalloy market, ensuring our grain flow and thermal 
+                    processing meet the most stringent aerospace and energy standards.
+                </p>
+                <h3>Inconel 718 Forging (AMS 5662 / 5663)</h3>
+                <p>Inconel 718 is the “workhorse” of the industry. Our forging process is optimized for <strong>Precipitation Hardening</strong>, 
+                    ensuring the material retains its <strong>1,035 MPa</strong> yield strength at temperatures up to <strong>700°C</strong>.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Primary Use: </strong>Turbine disks, shafts, and high-strength fasteners.
+                    </li>
+                    <li>
+                        <a href="/oscar/inconel-718-forging" class="highlight-link">Link: Detailed Inconel 718 Forging Specs & Capabilities</a>
+                    </li>
+                </ul>
+                <h3>Inconel 625 Forging (ASTM B446 / B564)</h3>
+                <p>For environments where corrosion resistance is more critical than pure tensile strength, 
+                    our Inconel 625 forgings provide superior protection against pitting and crevice corrosion.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Primary Use: </strong>Nuclear SMR cooling loops, marine hardware, and chemical processing.
+                    </li>
+                    <li>
+                        <a href="/oscar/inconel-625-forging" class="highlight-link">Link: Detailed Inconel 625 Forging Specs & Corrosion Resistance</a>
+                    </li>
+                </ul>
+
+                <p>Inconel Forging Selection Guide: 718 vs. 625</p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Property</th>
+                                <th scope="col">Inconel 718 Forging</th>
+                                <th scope="col">Inconel 625 Forging</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Primary Benefit</th>
+                                <td>High Fatigue & Tensile Strength</td>
+                                <td>Excellent Corrosion Resistance</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Max Temp (Strength)</th>
+                                <td>700°C (1,292°F)</td>
+                                <td>650°C (1,200°F)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Heat Treatment</th>
+                                <td>Precipitation (Age) Hardened</td>
+                                <td>Solution Annealed</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Hardness</th>
+                                <td>36 – 44 HRC</td>
+                                <td>15 – 25 HRC</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Best Industry</th>
+                                <td>Aerospace & Power Gen</td>
+                                <td>Nuclear SMR & Subsea</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="engineering-specifications" >
+            <div class="content-container">
+                <h2>Engineering Specifications & High-Tonnage Forging Capabilities</h2>
+                <div class="content-table-wrapper">
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Process Capability</th>
+                                <th scope="col">Dimensional & Weight Limits</th>
+                                <th scope="col">Technical Advantage</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Closed-Die Forging</th>
+                                <td>Up to 1,200mm Dia / 1,500kg</td>
+                                <td>Precise grain flow control for high-fatigue disks.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Seamless Ring Rolling</th>
+                                <td>Up to 3,500mm OD / 600mm Face</td>
+                                <td>Superior hoop strength for engine casings and SMR rings.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Open-Die Forging	</th>
+                                <td>Up to 5,000kg Unit Weight</td>
+                                <td>Ideal for near-net-shape shafts and heavy valve bodies.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">VIM / VAR Melting</th>
+                                <td>100% Heat Traceability</td>
+                                <td>Minimizes trace elements for critical purity (AMS 5662).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3>Precision Thermal Control & Secondary Operations</h3>
+                <p>
+                   Our co-owned facilities utilize automated thermal monitoring to maintain the narrow forging window required for 
+                   Inconel 718 (950°C to 1,050°C), ensuring zero grain growth or phase segregation.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Near-Net-Shape (NNS):</strong> We reduce the “buy-to-fly” ratio through precision dies, lowering your raw material spend by 20%–30%.
+                    </li>
+                    <li>
+                        <strong>Proof Machining: </strong> All forgings can be delivered rough-machined to ±0.5mm, facilitating immediate Ultrasonic Testing (UT) upon arrival at your facility.
+                    </li>
+                    <li>
+                        <strong>Aging & Solution Treatment:</strong>  In-house vertical quenching and aging furnaces to achieve full AMS 5663 mechanical properties.
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section id="quality-assurance" >
+            <div class="content-container">
+                <h2>Quality Assurance: Why Tier-1.5 Matters</h2>
+                <p>
+                    As a Tier-1.5 supplier, we perform rigorous Non-Destructive Testing (NDT) in-house at 
+                    our South Korea and Taiwan facilities to ensure every forged component is flight-ready or reactor-ready.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Ultrasonic Testing (UT): </strong>Detecting internal inclusions, voids, or thermal cracks according to AMS 2154.
+                    </li>
+                    <li>
+                        <strong>Fluorescent Penetrant (FPI):</strong> Identifying surface-level micro-cracks invisible to the naked eye.
+                    </li>
+                    <li>
+                        <strong>Macro-Etch Testing: </strong>Verifying the integrity and uniformity of the forged grain flow.
+                    </li>
+                </ul>
+            </div>
+
+        </section>
+
+        <section id="value-added-processing" >
+            <div class="content-container">
+                <h2>Value-Added Processing</h2>
+                
+                <p>
+                    We don’t just forge; we deliver a finished component.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Heat Treatment:  </strong>Solution Annealing, Age Hardening (AMS 5662/5663 for Inconel 718).
+                    </li>
+                    <li>
+                        <strong>Rough & Finish Machining: </strong>Turning and milling forgings to final print dimensions.
+
+                    </li>
+                    <li>
+                        <strong>Destructive Testing:</strong>Tensile, Impact, and Grain Size analysis to verify AS9100 compliance.
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</IndividualPageLayout>

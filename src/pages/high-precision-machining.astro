@@ -1,0 +1,323 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'High Precision Component Machining: Ultra-Tight Tolerances & Micro-Machining';
+const seoTitle = 'Custom High Precision CNC Component Machining Services | ForceBeyond';
+const seoDescription = 'ForceBeyond provides ultra-high precision CNC component machining, Swiss-style turning, Wire EDM, and micro-milling with micron-level tolerances for aerospace, medical, and semiconductor applications.';
+
+const faqs = [
+    {
+        q: "What is the difference between standard CNC turning and Swiss-style turning?",
+        a: "In a standard CNC lathe, the material is clamped at one end and sticks out, making long, thin parts prone to bending or deflecting under the pressure of the cutting tool. In a Swiss-style lathe, the material is fed through a guide bushing directly past the cutting tool. The tool cuts millimeters away from the support bushing, providing immense rigidity and allowing us to hold extreme tolerances on long, microscopic parts (like medical screws)."
+    },
+    {
+        q: "How does ForceBeyond inspect parts with tolerances this tight?",
+        a: "Standard calipers and micrometers are insufficient for this level of precision. We inspect high-precision components in a temperature-controlled metrology lab using programmable Coordinate Measuring Machines (CMMs) equipped with touch probes, as well as optical/vision systems that can measure micro-features down to the sub-micron level without physically touching the part."
+    },
+    {
+        q: "Can you perform high-precision machining on investment castings or forgings?",
+        a: "Yes. We frequently utilize our advanced Tier-1.5 model to forge or cast a near-net shape out of a challenging material (like Inconel or Duplex steel) and then utilize our high-precision milling and grinding cells to hit the final, ultra-tight tolerances on the critical sealing faces or bearing journals."
+    }
+];
+
+// Sources 
+const sources = [
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'ASM International: "Micro-Machining and Precision Machining Processes"', url: 'https://www.asminternational.org' },
+    { label: 'National Institute of Standards and Technology (NIST): Precision Engineering Metrology', url: 'https://www.nist.gov' }
+];
+
+// Resources 
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/high-precision-component-machining#webpage",
+      "url": "https://www.forcebeyond.store/oscar/high-precision-component-machining",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Micro-machining",
+          "sameAs": "https://en.wikipedia.org/wiki/Micro-machining"
+        },
+        {
+          "@type": "Thing",
+          "name": "Electrical discharge machining",
+          "sameAs": "https://en.wikipedia.org/wiki/Electrical_discharge_machining"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/high-precision-component-machining#service",
+      "name": "High Precision Component Machining Services",
+      "serviceType": "Ultra-Tight Tolerance CNC & Micro-Machining",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Swiss-Style Turning for Slender Components",
+          "5-Axis High-Speed Micro-Milling",
+          "Precision Wire EDM (Electrical Discharge Machining)",
+          "Sub-Micron Surface & Cylindrical Grinding",
+          "Climate-Controlled Machining Environments",
+          "Medical Grade Titanium & Stainless Steel Machining",
+          "Superalloy Machining (Inconel 718/625, Hastelloy)",
+          "CMM, Optical Comparator & Laser Metrology Inspection"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "High-Precision Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Swiss-Style Turning & Micro-Milling",
+              "description": "High-speed multi-axis micro-milling and Swiss turning capable of holding tight tolerances up to ± 0.0001” (0.0025 mm)."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Wire EDM & Precision Grinding",
+              "description": "Non-contact electrical discharge machining and precision surface grinding holding tolerances down to ± 0.00005” (0.001 mm)."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Superalloy Micro-Machining & Finishing",
+              "description": "Expert micro-machining for Inconel, Titanium, and PEEK combined with microscopic deburring, electropolishing, and CMM metrology."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/high-precision-component-machining#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"
+    faqSectionTitle="Frequently Asked Questions: High-Precision Machining"
+    faqItems={faqs}
+    ctaTitle="Request Quote For High-Precision Component Machining"
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>High Precision Component Machining: Ultra-Tight Tolerances & Micro-Machining</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond is a premier manufacturer of ultra-high precision components for applications where failure is not an option and tolerances are measured in microns. When standard CNC machining cannot meet the strict dimensional, concentricity, or surface finish requirements of your engineering prints, our dedicated high-precision machining cells provide the ultimate solution.
+                        </p>
+                        <p>
+                            Operating within strictly climate-controlled environments under ISO 9001:2015 standards, we utilize advanced Swiss-style turning, Wire EDM, high-speed micro-milling, and precision grinding to achieve extreme accuracy. From life-saving medical implants to aerospace guidance systems, ForceBeyond delivers flawless, zero-defect components machined from the world’s most demanding superalloys.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/5-axis-cnc-machining-titanium-impeller.webp"
+                                alt="Close-up of a 5-axis CNC machine milling a high-precision titanium impeller with complex curved blades inside a modern machining center."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="technical-capabilities">
+            <div class="content-container">
+                <h2>Technical Capabilities: Precision & Tolerances</h2>
+                <p>
+                    True high-precision machining requires more than just advanced CNC centers; it requires rigid thermal stability, specialized micro-cutting tools, and sub-micron metrology. ForceBeyond consistently holds the following extreme tolerances:
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Machining Discipline</th>
+                                <th scope="col">Core Capabilities & Equipment</th>
+                                <th scope="col">Typical Tolerances Held</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Swiss-Style Turning</th>
+                                <td>Ideal for ultra-small, long, and slender cylindrical parts (like bone screws and firing pins). Eliminates part deflection.</td>
+                                <td>± 0.0001” (0.0025 mm)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Micro-Milling (5-Axis)</th>
+                                <td>High-RPM spindles utilizing miniature endmills for intricate medical, optical, and electronic housings.</td>
+                                <td>± 0.0002” (0.005 mm)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Wire EDM (Electrical Discharge Machining)</th>
+                                <td>Uses an electrically charged wire to vaporize metal. Mandatory for ultra-intricate profiles in hardened superalloys.</td>
+                                <td>± 0.00005” (0.001 mm)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Precision Surface & Cylindrical Grinding</th>
+                                <td>The final step for achieving mirror-like surface finishes and absolute flatness or concentricity.</td>
+                                <td>± 0.00005” (0.001 mm)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
+            </div>
+        </section>
+
+        <section id="why-partner">
+            <div class="content-container">
+                <h2>Why Partner with ForceBeyond for High-Precision Components?</h2>
+                <p>
+                    Achieving ultra-tight tolerances on a single prototype is one thing; holding that exact tolerance across a production run of 10,000 parts requires world-class manufacturing controls:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Rigorous Metrology & QA:</strong> Our quality assurance labs are equipped with advanced Coordinate Measuring Machines (CMMs), optical comparators, and laser micrometers. We provide comprehensive First Article Inspection (FAI) reports, capability studies (CPK), and 100% lot traceability.
+                    </li>
+                    <li>
+                        <strong>Climate-Controlled Machining:</strong> In high-precision manufacturing, temperature fluctuations cause metal to expand or contract, destroying micron-level tolerances. Our precision machining cells are strictly temperature-regulated to ensure absolute dimensional stability from the first cut to the final CMM inspection.
+                    </li>
+                    <li>
+                        <strong>Micro-Deburring & Polishing:</strong> A micro-component is easily ruined by microscopic burrs. We utilize advanced media tumbling, electropolishing, and manual microscopic deburring to ensure completely clean, sterile, and burr-free edges.
+                    </li>
+                    <li>
+                        <strong>Zero-Defect Culture:</strong> We specialize in mission-critical parts for the aerospace and medical fields, operating under a culture where absolute precision is the minimum acceptable standard.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="material-expertise">
+            <div class="content-container">
+                <h2>Material Expertise: Extreme Precision in Hard Metals</h2>
+                <p>
+                    Holding tight tolerances in soft aluminum is standard; holding them in high-hardness, heat-resistant superalloys is ForceBeyond’s specialty. We provide high-precision machining for:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Medical Grade Stainless Steel:</strong> 316LVM and 17-4 PH for surgical instruments, cardiac devices, and orthopedic implants requiring sterile, mirror-like finishes.
+                    </li>
+                    <li>
+                        <strong>Aerospace Titanium:</strong> Ti-6Al-4V (Grade 5) for lightweight, high-strength structural linkages and micro-fasteners.
+                    </li>
+                    <li>
+                        <strong>Superalloys:</strong> Inconel 718, Inconel 625, and Hastelloy. We utilize Wire EDM and specialized rigid milling to hold micron-level tolerances on these notoriously difficult-to-machine, rapidly work-hardening metals.
+                    </li>
+                    <li>
+                        <strong>Engineered Plastics:</strong> PEEK, Delrin, and PTFE for medical insulators, optical housings, and semiconductor components.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="certified-applications">
+            <div class="content-container">
+                <h2>Certified High-Precision Applications</h2>
+                <p>
+                    Our high-precision manufacturing cells supply ultra-accurate components to:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Medical Devices:</strong> Bone screws, spinal implants, endoscope components, and titanium pacemaker housings.
+                    </li>
+                    <li>
+                        <strong>Aerospace & Defense:</strong> Gyroscope components, missile guidance linkages, micro-valves, and satellite deployment mechanisms.
+                    </li>
+                    <li>
+                        <strong>Semiconductor & Optics:</strong> Laser housings, high-vacuum chamber components, and precise wafer handling fixtures.
+                    </li>
+                    <li>
+                        <strong>Fluid & Flow Control:</strong> Micro-dispensing nozzles, high-pressure relief valve stems, and precision pneumatic spools.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

@@ -1,0 +1,348 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Custom Metal Casting Services: Precision Near-Net-Shape Solutions';
+const seoTitle = 'Custom Metal Casting Services | Investment, Sand & Die Casting';
+const seoDescription = 'ForceBeyond offers custom metal casting services including vacuum investment casting, automated green sand molding, and high-pressure die casting.';
+
+const faqs = [
+    {
+        q: "What is the main benefit of Investment Casting over Sand Casting?",
+        a: "Investment casting (lost-wax) provides vastly superior dimensional accuracy (±0.005 in/in) and a smoother surface finish (125 RMS), making it ideal for intricate geometries, thin walls, and hard-to-machine superalloys where minimizing secondary machining is critical. Sand casting is better suited for larger, heavier parts where lower tooling costs and high volume outweigh tight as-cast tolerances."
+    },
+    {
+        q: "How does Hot Isostatic Pressing (HIP) improve cast component quality?",
+        a: "During the solidification of liquid metal, microscopic shrinkage pores can form inside thick sections of a casting. Hot Isostatic Pressing subjects the casting to extreme heat and multidirectional argon gas pressure (15,000+ psi), which physically squeezes those internal pores closed and diffusion-welds the metal walls together—giving the casting the density, impact toughness, and fatigue life of a wrought forging."
+    },
+    {
+        q: "Can ForceBeyond machine castings in-house?",
+        a: "Yes. Under our Tier-1.5 Model, we design the initial casting with the exact optimal material allowance needed for secondary CNC machining. We then transfer the raw casting directly into our 5-axis CNC machining centers to finish critical sealing faces, bearing journals, and threaded holes—guaranteeing 100% dimensional fit and zero vendor hand-off risk."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'AS9100 Aerospace Quality Management Systems Standard', url: 'https://www.sae.org' },
+    { label: 'IATF 16949 Automotive Quality Management System', url: 'https://www.iatfglobaloversight.org' },
+    { label: 'ASTM International: Standards for Investment Casting & Non-Destructive Testing (NDT)', url: 'https://www.astm.org' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Page Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/custom-metal-casting#webpage",
+      "url": "https://www.forcebeyond.store/oscar/custom-metal-casting",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/custom-metal-casting#service",
+      "name": "Custom Metal Casting Services",
+      "serviceType": "Precision Contract Metal Casting",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Vacuum Investment Casting (Lost-Wax)",
+          "Automated Green Sand Molding & Resin No-Bake Casting",
+          "High-Pressure Die Casting (HPDC)",
+          "Hot Isostatic Pressing (HIP) & Thermal Processing",
+          "AS9100 Rev D, ISO 9001:2015 & IATF 16949 Systems"
+        ]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Custom Metal Casting Processes",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Investment Casting (Lost-Wax)",
+              "description": "High-precision investment casting for superalloys, stainless steel, and titanium with 125 RMS surface finish."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Automated Sand Casting",
+              "description": "Cost-effective production for mid-to-large structural components in ductile iron and carbon steel."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "High-Pressure Die Casting",
+              "description": "Rapid cycle time production for thin-walled aluminum and zinc structural components."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/custom-metal-casting#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"
+    faqSectionTitle="Frequently Asked Questions: Metal Casting"
+    faqItems={faqs}
+    ctaTitle="Need High-Integrity Custom Metal Castings?"
+    ctaDescription="Contact our engineering team today to analyze your drawings, select the optimal casting process, and optimize design for manufacturability."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Custom Metal Casting Services: Precision Near-Net-Shape Solutions</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond is a premier global manufacturer of high-integrity custom metal castings. Utilizing advanced foundry technologies—including Vacuum Investment Casting, Automated Green Sand Molding, Resin No-Bake Casting, and High-Pressure Die Casting—we transform complex engineering prints into dense, high-strength, near-net-shape components.
+                        </p>
+                        <p>
+                            Operating under strict ISO 9001:2015, AS9100 Rev D, and IATF 16949 quality management systems, our dual-shore manufacturing network delivers mission-critical cast parts for the aerospace, medical, automotive, energy, and heavy equipment sectors. By integrating primary casting with secondary Hot Isostatic Pressing (HIP), thermal heat treatment, and multi-axis CNC machining, ForceBeyond guarantees zero internal porosity, tight dimensional tolerances, and complete material traceability.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/custom-metal-casting-overview-4k.webp"
+                                alt="High-integrity precision metal casting component engineered for aerospace and energy industries."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="casting-processes">
+            <div class="content-container">
+                <h2>Core Casting Processes & Technical Capabilities</h2>
+                <p>
+                    ForceBeyond matches your part geometry, alloy composition, and production volume to the optimal casting process to minimize unit cost and eliminate material waste:
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Casting Process</th>
+                                <th scope="col">Ideal Volume & Part Size</th>
+                                <th scope="col">Surface Finish & Tolerances</th>
+                                <th scope="col">Key Process Advantages & Primary Alloys</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Investment Casting (Lost-Wax)</th>
+                                <td>Low to High Volume<br />(Micro to 100 lbs)</td>
+                                <td>125 RMS Surface Finish<br />Linear Tolerance: ±0.005 in/in</td>
+                                <td>Exceptional geometric freedom, thin-wall capabilities (≤1.5mm), and minimal secondary machining. Ideal for Superalloys, Stainless Steel, and Titanium.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Automated Sand Casting</th>
+                                <td>Mid to High Volume<br />(1 lb to Multi-Ton)</td>
+                                <td>250–500 RMS Surface Finish<br />Linear Tolerance: ±0.030 in/in</td>
+                                <td>High-speed, cost-effective production for large structural components using Green Sand or Chemically Bonded Resin. Ideal for Ductile Iron and Carbon Steel.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">High-Pressure Die Casting</th>
+                                <td>High Volume (&gt;5,000 pcs)<br />(Small to 50 lbs)</td>
+                                <td>63–125 RMS Surface Finish<br />Linear Tolerance: ±0.002 in/in</td>
+                                <td>Rapid cycle times, thin walls, and high dimensional repeatability for lightweight Aluminum and Zinc alloys.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="alloy-capabilities">
+            <div class="content-container">
+                <h2>Complete Alloy Casting Capabilities</h2>
+                <p>
+                    ForceBeyond pours a broad spectrum of ferrous, non-ferrous, and high-temperature superalloys, engineered to withstand severe mechanical wear, thermal fatigue, and corrosive environments:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Inconel 718 & Superalloys:</strong> Vacuum-cast (VIM) Nickel superalloys for high-temperature aerospace turbines and SMR Nuclear Energy.
+                    </li>
+                    <li>
+                        <strong>Duplex & Super Duplex Stainless Steel:</strong> 2205 and 2507 alloys providing superior resistance to chloride stress corrosion cracking in Oil & Gas and marine hardware.
+                    </li>
+                    <li>
+                        <strong>Stainless Steel (300 & 400 Series):</strong> 304, 316L, 17-4 PH, and 410 grades for Medical Devices and sanitary Fluid & Flow Control.
+                    </li>
+                    <li>
+                        <strong>Ductile & Gray Iron:</strong> ASTM A536 grades providing high strength-to-weight ratios and vibration dampening for Automotive and Agricultural Equipment.
+                    </li>
+                    <li>
+                        <strong>Titanium Alloys (Ti-6Al-4V):</strong> Vacuum-cast lightweight, high-strength titanium for safety-critical Aerospace & Defense applications.
+                    </li>
+                    <li>
+                        <strong>Aluminum Alloys (A356, A380):</strong> High-integrity heat-treatable (T6) aluminum for lightweight structural housings and Data Center Power enclosures.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="tier-1-5-advantage">
+            <div class="content-container">
+                <h2>The Tier-1.5 OEM Advantage: Cast-to-Assembly Integration</h2>
+                <p>
+                    In traditional supply chains, managing separate vendors for raw castings, heat treating, CNC machining, and surface plating introduces severe lead-time delays and vendor disputes over out-of-spec parts.
+                </p>
+                <p>
+                    ForceBeyond operates on a Tier-1.5 Manufacturing Model, taking 100% single-source ownership of the entire post-forming value chain:
+                </p>
+                <blockquote class="my-4 italic">
+                    [ Near-Net Casting ] &rarr; [ HIP / Heat Treatment ] &rarr; [ 5-Axis CNC Machining ] &rarr; [ Surface Coating ] &rarr; [ Assembly & Kitting ]
+                </blockquote>
+                <h3>Integrated Post-Casting Secondary Operations</h3>
+                <ul>
+                    <li>
+                        <strong>Hot Isostatic Pressing (HIP):</strong> Subjects castings to simultaneous high temperatures and 15,000+ psi Argon gas pressure to physically collapse internal shrinkage voids and achieve 100% theoretical density.
+                    </li>
+                    <li>
+                        <strong>Thermal Processing & Heat Treatment:</strong> Solution annealing, T6 artificial aging, quenching, tempering, and age hardening (H900/H1150) to optimize mechanical strength.
+                    </li>
+                    <li>
+                        <strong>Precision CNC Machining:</strong> In-house 5-axis milling, live-tool turning, and Swiss machining to hit sub-micron tolerances on critical mounting faces and threads.
+                    </li>
+                    <li>
+                        <strong>Surface Finishing & Coating:</strong> Passivation, electropolishing, Type III hardcoat anodizing, E-coating, and powder coating.
+                    </li>
+                    <li>
+                        <strong>Assembly & Kitting Services:</strong> Delivering complete, pressure-tested, and torque-verified sub-assemblies directly to your assembly line under a single SKU.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="quality-and-ndt">
+            <div class="content-container">
+                <h2>Quality Control & Non-Destructive Testing (NDT)</h2>
+                <p>
+                    To ensure zero-defect reliability across safety-critical components, ForceBeyond integrates rigorous metrology and NDT inspection protocols directly into the casting line:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Radiographic Testing (X-Ray - ASTM E192):</strong> 100% internal void and shrinkage inspection for critical pressure containment.
+                    </li>
+                    <li>
+                        <strong>Fluorescent Penetrant Inspection (FPI - ASTM E1417):</strong> Exposes microscopic surface-breaking cracks and porosity on sealing faces.
+                    </li>
+                    <li>
+                        <strong>Full 3.1 Material Traceability:</strong> Certified EN 10204 3.1 Material Test Reports (MTRs) tracing chemistry back to the raw melt heat lot.
+                    </li>
+                    <li>
+                        <strong>3D CMM & Laser Scanning:</strong> Full GD&T inspection maps and First Article Inspection (FAI) reports per AS9102 standards.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="industry-solutions">
+            <div class="content-container">
+                <h2>Industry Solutions</h2>
+                <p>
+                    Our global casting facilities engineer custom components for leading OEMs across key verticals:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Aerospace & Defense:</strong> Vacuum-cast turbine vanes, structural brackets, and landing gear hardware.
+                    </li>
+                    <li>
+                        <strong>Nuclear & SMR Energy:</strong> ASME Section III-compliant valve bodies and reactor internal supports.
+                    </li>
+                    <li>
+                        <strong>Data Center Power & Infrastructure:</strong> Hot Gas Path (HGP) turbine buckets and liquid cooling distribution housings.
+                    </li>
+                    <li>
+                        <strong>Oil & Gas / Petrochemical:</strong> NACE MR0175-compliant Duplex valve bodies, mud pump ends, and blowout preventers.
+                    </li>
+                    <li>
+                        <strong>Automotive & Transportation:</strong> Lightweight aluminum die castings, steering knuckles, and ductile iron differential cases.
+                    </li>
+                    <li>
+                        <strong>Mining & Heavy Equipment:</strong> Wear-resistant bucket teeth, crusher liners, and track rollers.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

@@ -1,0 +1,349 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle ='Stainless Steel Casting: Corrosion-Resistant Precision Manufacturing';
+const seoTitle = 'Stainless Steel Investment Casting | 304, 316, 17-4 PH & 410';
+const seoDescription = 'Custom lost-wax stainless steel investment casting for corrosion-resistant components up to 200 lbs. ForceBeyond pours 304, 316, and 17-4 PH (up to 150,000+ psi tensile) with ISO 8062 CT5–CT7 near-net precision.';
+const faqs = [
+    {
+        q: "What is the difference between 304 and 316 stainless steel?",
+        a: "While both are highly corrosion-resistant austenitic steels, 316 stainless steel contains the addition of Molybdenum. This element provides drastically improved resistance to pitting and crevice corrosion in chloride environments (like saltwater or de-icing salts). If your part will be exposed to the ocean or harsh industrial chemicals, 316 is the mandatory choice."
+    },
+    {
+        q: "Why do stainless steel castings need to be passivated?",
+        a: "During casting and CNC machining, free iron particles can become embedded in the surface of the stainless steel, which can lead to localized rusting. Passivation is a chemical bath (usually nitric or citric acid) that dissolves this free iron and accelerates the formation of the alloy's natural, invisible chromium-oxide layer, which is what actually prevents the part from rusting."
+    },
+    {
+        q: "Can you cast 17-4 PH stainless steel?",
+        a: "Yes. 17-4 PH (Precipitation Hardening) is one of our specialties. It is highly valued because it provides the corrosion resistance of 304 stainless but can be heat-treated to achieve the massive mechanical strength and hardness of a martensitic steel, making it ideal for aerospace parts and high-stress pump shafts."
+    }
+];
+
+// Sources 
+const sources = [
+    { label: 'American Foundry Society: "Metal Casting"', url: 'https://www.afsinc.org' },
+    { label: 'Forging Industry Association: "Forging Industry"', url: 'https://www.forging.org' },
+    { label: 'efunda. “Sand Casting“', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'The Investment Casting Institute. “What is Investment Casting?“',url:'https://www.investmentcasting.org/what-is-investment-casting.html'},
+    { label: 'ASM International. “Inconel 718 Alloy“', url: 'https://www.asminternational.org/materials-resources/alloy-database/technical-bulletin/inconel-718-alloy' }
+];
+
+// Resources 
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/beta-titanium-forging#webpage",
+      "url": "https://www.forcebeyond.store/oscar/beta-titanium-forging",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Titanium alloy",
+          "sameAs": "https://en.wikipedia.org/wiki/Titanium_alloy"
+        },
+        {
+          "@type": "Thing",
+          "name": "Forging",
+          "sameAs": "https://en.wikipedia.org/wiki/Forging"
+        },
+        {
+          "@type": "Thing",
+          "name": "Beta titanium alloys",
+          "sameAs": "https://en.wikipedia.org/wiki/Beta_titanium_alloys"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/beta-titanium-forging#service",
+      "name": "High-Strength Beta Titanium Forging Services",
+      "serviceType": "Beta Titanium Forging Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Beta Titanium Forging",
+          "Ti-10V-2Fe-3Al & Beta-C (Grade 19) Alloys",
+          "Solution Treated and Aged (STA) Microstructures",
+          "High Yield Strength (>1200 MPa) Forging",
+          "Fracture Toughness & Fatigue Resistance Optimization",
+          "Aerospace Landing Gear & Fastener Production",
+          "Closed-Die Forging & Seamless Rolled Rings"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Beta Titanium Forging Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "STA Microstructure Optimization",
+              "description": "Advanced thermomechanical processing and closed-die forging of metastable Beta titanium alloys, tailored through strict Solution Treated and Aged heat treatment protocols to clear 1,200 MPa yield thresholds."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Flight-Critical High-Fatigue Component Forging",
+              "description": "Precision engineering of high-strength aerospace components including landing gear cylinders, structural bulkheads, and heavy fasteners featuring continuous macro-grain flow lines."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "End-to-End Tier-1.5 Metallurgical Validation",
+              "description": "Complete supply chain tracing from initial alloy melt through precision near-net-shape forging, heat treating, and multi-axis NDT inspection with detailed aerospace compliance documentation."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/beta-titanium-forging#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/stainless-steel-investment-casting-components-hero.webp"
+    heroImageAlt="Titanium investment casting hero image showing a finished precision cast component, ceramic shell tree, and molten metal pouring in a modern foundry"
+    faqSectionTitle="Frequently Asked Questions: Stainless Steel Casting"
+    faqItems={faqs}
+    ctaTitle="Request Quote For Stainless Steel Casting"
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview" >
+            <div class="content-container">
+                
+                <h2>Stainless Steel Casting: Corrosion-Resistant Precision Manufacturing</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                           ForceBeyond is a premier global supplier of high-precision stainless steel investment castings. 
+                           By utilizing the advanced lost-wax casting process, we manufacture highly intricate, near-net-shape stainless steel components 
+                           that deliver exceptional corrosion resistance, heat tolerance, and structural durability.
+                        </p>
+                        <p>
+                            Operating under a strict ISO 9001:2015 quality management system, our global foundry network provides scalable manufacturing solutions for the world’s 
+                            most demanding environments. From sanitary food processing fittings to high-pressure marine valves, we produce fully machined, passivated, 
+                            and assembly-ready stainless steel parts weighing from a fraction of an ounce up to 200 pounds.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/precision-stainless-steel-investment-casting-parts-4k.webp"
+                                alt="Precision stainless steel investment-cast parts with machined flanges, threaded ports, mounting holes, and industrial housing features on a white background."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="technical-capabilities" >
+            <div class="content-container">
+                <h2>Technical Specifications: Stainless Steel Alloys</h2>
+                    <p>
+                        ForceBeyond pours a comprehensive range of austenitic, martensitic, and precipitation-hardening (PH) stainless steel alloys. 
+                        We ensure strict metallurgical control to maximize the specific chemical and mechanical properties required by your application.
+                    </p>
+                    <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Alloy Grade</th>
+                                <th scope="col">Typical Tensile Strength</th>
+                                <th scope="col">Typical Yield Strength</th>
+                                <th scope="col">Key Features & Optimal Applications</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">304 / 304L</th>
+                                <td>75,000 psi (515 MPa)</td>
+                                <td>30,000 psi (205 MPa)</td>
+                                <td>The standard "18/8" stainless. Excellent general corrosion resistance and weldability. Ideal for food & dairy equipment, medical instruments, and commercial plumbing.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">316 / 316L</th>
+                                <td>70,000 psi (485 MPa)</td>
+                                <td>25,000 psi (170 MPa)</td>
+                                <td>Contains molybdenum for superior resistance to chloride pitting. The premier choice for marine hardware, chemical processing, and wastewater fluid control.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">17-4 PH</th>
+                                <td>Up to 150,000+ psi (Condition H900)</td>
+                                <td>Up to 130,000+ psi</td>
+                                <td>A precipitation-hardening alloy offering an exceptional combination of high strength, hardness, and corrosion resistance. Used heavily in aerospace, pump shafts, and oil & gas valves.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">410 / 416</th>
+                                <td>70,000+ psi (Annealed)</td>
+                                <td>40,000+ psi</td>
+                                <td>Martensitic stainless steels that can be heat-treated for high hardness and wear resistance. Ideal for industrial cutlery, hand tools, and highly stressed valve parts.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">430</th>
+                                <td>65,000 psi (450 MPa)</td>
+                                <td>30,000 psi (205 MPa)</td>
+                                <td>Ferritic stainless with good corrosion resistance and oxidation resistance at elevated temperatures. Often used in decorative applications and automotive trim.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
+                <p>
+                    (Note: For applications requiring extreme resistance to stress corrosion cracking and pitting in harsh chloride environments, 
+                    explore our dedicated Duplex and Super Duplex Stainless Steel Casting capabilities).
+                </p>
+            </div>
+        </section>
+
+        <section id="why-forcebeyond" >
+            <div class="content-container">
+                <h2>Why Partner with ForceBeyond for Stainless Steel Casting?</h2>
+                
+                <p>
+                    Machining stainless steel from solid billet is notoriously difficult, tool-intensive, and wasteful. 
+                    Investment casting provides the ultimate solution for complex stainless components.
+                <ul>
+                    <li>
+                        <strong>Intricate Internal Geometries:</strong>The lost-wax process allows for the creation of complex internal coring, undercuts, and intersecting fluid channels that are impossible or cost-prohibitive to machine from solid steel.
+                    <li>
+                        <strong>Near-Net-Shape Accuracy:</strong>We achieve extremely tight dimensional tolerances (ISO 8062 CT5 to CT7), drastically reducing the need for secondary CNC machining on work-hardening materials like 304 and 316 stainless.
+                    </li>
+                    <li>
+                        <strong>Superior Surface Finish:</strong>:The fine ceramic shells used in our foundries yield exceptionally smooth as-cast surfaces (125 RMS or better). This significantly reduces the time and cost required for manual polishing in sanitary or decorative applications.
+                    </li>
+                    <li>
+                        <strong>Optimized Material Yield:</strong>Stainless steel and PH alloys are expensive. Investment casting pours metal directly into your final part shape, virtually eliminating material waste and lowering per-part costs on high-volume runs.
+                    </li>
+                </ul>
+                
+            </div>
+        </section>
+
+        <section id = "Tier-1.5-integration">
+            <div class="content-container">
+                <h2>Tier-1.5 Integration: Cast-to-Machine Solutions</h2>
+                <p>
+                    Because stainless steel applications often require strict hygiene or high-pressure sealing, the final finish and dimensional accuracy are critical. 
+                    ForceBeyond’s Tier-1.5 model integrates precision casting with comprehensive secondary processing.
+                </p>
+                <ul>
+                    <li>
+                        <strong>High-Precision CNC Machining:</strong>5-axis milling, turning, and threading of critical sealing faces and mounting datums.
+                    </li>
+                    <li>
+                        <strong>Passivation & Electropolishing:</strong>We utilize advanced chemical passivation to restore the crucial protective chromium-oxide layer after casting and machining. For medical and sanitary parts, we offer premium electropolishing for ultra-smooth, sterile surfaces.
+                    </li>
+                    <li>
+                        <strong>Advanced Heat Treatment:</strong>Solution annealing to maximize corrosion resistance, and specific precipitation age-hardening (e.g., H900, H1150) for 17-4 PH components to lock in required tensile strength.
+                    </li>
+                    <li>
+                        <strong>Rigorous NDT:</strong>100% Radiographic Testing (X-Ray) and Fluorescent Penetrant Inspection (FPI) to guarantee zero internal or surface defects in high-pressure fluid control parts.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="certified-applications" >
+            <div class="content-container">
+                <h2>Certified Stainless Steel Applications</h2>
+                
+                <p>
+                    Our specialized foundry network supplies corrosion-resistant stainless castings to:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Fluid & Flow Control:</strong>High-pressure ball valves, gate valves, pump impellers, and heavy-duty pipe fittings.
+                    </li>
+                    <li>
+                        <strong>Medical & Healthcare:</strong>Surgical instruments, MRI-compatible hardware, and orthopedic device components.
+                    </li>
+                    <li>
+                        <strong>Food & Beverage / Dairy:</strong>Sanitary fittings, mixing impellers, and bottling machinery parts that require strict FDA-compliant finishes.
+                    </li>
+                    <li>
+                        <strong>Marine & Offshore:</strong>Saltwater-resistant cleats, shackles, propeller hubs, and subsea sensor housings (utilizing 316L and 17-4 PH).
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</IndividualPageLayout>

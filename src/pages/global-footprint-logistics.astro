@@ -1,0 +1,232 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Global Footprint & Logistics: Tri-Regional Supply Chain Resilience';
+const seoTitle = 'Global Footprint & Logistics Network | ForceBeyond';
+const seoDescription = 'ForceBeyond’s tri-regional manufacturing network across the USA, South Korea, and Taiwan provides Tier-1 OEMs with geopolitical risk mitigation and flexible logistics.';
+
+const faqs = [
+    {
+        q: "How does ForceBeyond handle ITAR compliance if you have overseas facilities?",
+        a: "Compliance and intellectual property security are strictly enforced. Any project designated as ITAR (International Traffic in Arms Regulations) or defense-related is isolated and manufactured exclusively within our US-based manufacturing footprint. We never export ITAR-controlled technical data to our South Korean or Taiwanese facilities."
+    },
+    {
+        q: "Can ForceBeyond hold safety stock and release it based on our production schedule?",
+        a: "Yes. To help our Tier-1 and Tier-2 OEM partners optimize cash flow and reduce warehouse space, we offer customized Just-In-Time (JIT) and Kanban inventory programs. We hold your finished safety stock in our domestic US warehouses and drop-ship exact quantities to your assembly lines precisely when your ERP system triggers demand."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'AS9100 Rev D Quality Management Systems - Aviation, Space & Defense', url: 'https://www.sae.org' },
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'U.S. Directorate of Defense Trade Controls (DDTC) ITAR Compliance Guidelines', url: 'https://www.pmddtc.state.gov' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Page Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/global-footprint-logistics#webpage",
+      "url": "https://www.forcebeyond.store/oscar/global-footprint-logistics",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/global-footprint-logistics#service",
+      "name": "Tri-Regional Supply Chain & Global Logistics Management",
+      "serviceType": "Global Supply Chain & Freight Logistics Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Tri-Regional Manufacturing Network (USA, South Korea, Taiwan)",
+          "ITAR/Defense Compliant Domestic Manufacturing",
+          "Geopolitical Supply Chain Redundancy & Risk Mitigation",
+          "JIT / Kanban Inventory Warehousing Programs",
+          "Custom Point-of-Use Kitting & Landed Freight Management"
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/global-footprint-logistics#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="Global logistics and tri-regional foundry network management"
+    faqSectionTitle="Frequently Asked Questions: Logistics & Global Footprint"
+    faqItems={faqs}
+    ctaTitle="Streamline Your Global Manufacturing & Logistics"
+    ctaDescription="Partner with ForceBeyond for geopolitical risk mitigation, JIT warehousing, and seamless door-to-door delivery across our USA, South Korea, and Taiwan facilities."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Quality and Global Operations"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Global Footprint & Logistics: Tri-Regional Supply Chain Resilience</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            In today’s volatile geopolitical climate, relying on a single geographic region for mission-critical manufacturing introduces unacceptable supply chain risk. ForceBeyond protects our OEM partners through a highly resilient, tri-regional manufacturing network spanning the USA, South Korea, and Taiwan.
+                        </p>
+                        <p>
+                            By strategically distributing our engineering, casting, forging, and CNC machining operations across allied, high-tech manufacturing hubs, we provide Tier-1 and Tier-2 procurement teams with tariff navigation flexibility, disaster redundancy, and rapid speed-to-market.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/global-footprint-logistics-overview-4k.webp"
+                                alt="Tri-regional logistics and global shipping container transport network."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="foundry-network">
+            <div class="content-container">
+                <h2>The Tri-Regional Foundry & Machining Network</h2>
+                <p>
+                    Our globally integrated footprint allows us to match your component’s specific technical requirements, volume, and ITAR restrictions to the optimal facility:
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Geographic Hub</th>
+                                <th scope="col">Primary Manufacturing & Operational Focus</th>
+                                <th scope="col">Strategic Advantage for Procurement</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">United States (Delaware HQ)</th>
+                                <td>Executive Engineering, ITAR/Defense Manufacturing, QA Management, Domestic Warehousing.</td>
+                                <td>Ensures strict ITAR/EAR compliance, local engineering support, and rapid domestic JIT distribution.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">South Korea</th>
+                                <td>Heavy-Tonnage Closed-Die Forging, AS9100 Aerospace Machining, Large-Scale Sand Casting.</td>
+                                <td>World-class metallurgical expertise; ideal for heavy nuclear, aerospace, and oil & gas forgings.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Taiwan</th>
+                                <td>Vacuum Investment Casting (VIM), High-Volume Precision CNC Machining, Electronics Infrastructure.</td>
+                                <td>Premier destination for high-precision superalloy castings, medical devices, and data center thermal hardware.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="risk-management">
+            <div class="content-container">
+                <h2>Supply Chain Risk Management</h2>
+                <p>
+                    ForceBeyond operates as a single, unified corporate entity. You work directly with our US-based engineering and project management teams, while we seamlessly manage the complexities of global production:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Geopolitical Redundancy:</strong> By maintaining duplicate tooling capabilities across South Korea and Taiwan, we can rapidly pivot production lines to avoid regional disruptions, shipping delays, or sudden tariff implementations.
+                    </li>
+                    <li>
+                        <strong>Tariff & Duty Navigation:</strong> Our logistics experts optimize Country of Origin (COO) strategies to legally minimize import duties and Section 301 tariffs, lowering your Total Cost of Ownership (TCO).
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="advanced-logistics">
+            <div class="content-container">
+                <h2>Advanced Logistics, Kanban & Custom Kitting</h2>
+                <p>
+                    We don't just manufacture parts; we manage your inventory. To reduce your warehouse footprint and accelerate your assembly lines, ForceBeyond provides tailored logistics programs:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Just-In-Time (JIT) & Kanban:</strong> We hold strategic safety stock in our domestic US warehouses, releasing product to your production floor precisely when your ERP system triggers demand.
+                    </li>
+                    <li>
+                        <strong>Custom Point-of-Use Kitting:</strong> Instead of receiving loose castings, machined parts, and hardware from multiple vendors, we deliver fully assembled, pressure-tested, and custom-packaged kits under a single SKU directly to your assembly stations.
+                    </li>
+                    <li>
+                        <strong>Global Freight Forwarding:</strong> We handle 100% of the international logistics—including ocean/air freight booking, customs clearance, and final-mile delivery—providing a frictionless, door-to-door purchasing experience.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

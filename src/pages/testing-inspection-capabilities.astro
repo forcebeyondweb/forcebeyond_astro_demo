@@ -1,0 +1,245 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Testing & Inspection Capabilities: NDT, Metrology & Destructive Testing';
+const seoTitle = 'Testing & Inspection Capabilities (NDT, CMM) | ForceBeyond';
+const seoDescription = 'Advanced metrology and metallurgical testing services. In-house CMM, X-Ray (RT), Fluorescent Penetrant (FPI), and destructive testing for high-integrity metal parts.';
+
+const faqs = [
+    {
+        q: "Can ForceBeyond provide 100% NDT inspection on production runs?",
+        a: "Yes. Depending on your engineering print and industry requirements (such as ASME Section III for nuclear or AMS standards for aerospace), we can perform 100% Radiographic Testing (X-Ray), 100% Fluorescent Penetrant Inspection (FPI), or 100% Hydrostatic Leak Testing on all production parts before shipment."
+    },
+    {
+        q: "How do you measure complex internal geometries on castings that standard calipers cannot reach?",
+        a: "For complex, organic shapes—such as pump volutes, internal cooling channels in turbine blades, or deep valve body cavities—we utilize 3D Coordinate Measuring Machines (CMM) equipped with articulating probes, as well as non-contact 3D blue-light laser scanners to map internal surfaces directly against your original 3D CAD model."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'ASTM E192 Standard Reference Radiographs for Investment Steel Castings for Aerospace Applications', url: 'https://www.astm.org' },
+    { label: 'ASTM E1417 Standard Practice for Liquid Penetrant Testing', url: 'https://www.astm.org' },
+    { label: 'ASTM A388 Standard Practice for Ultrasonic Examination of Steel Forgings', url: 'https://www.astm.org' },
+    { label: 'ASTM E1444 Standard Practice for Magnetic Particle Testing', url: 'https://www.astm.org' },
+    { label: 'ASTM E8 Standard Test Methods for Tension Testing of Metallic Materials', url: 'https://www.astm.org' },
+    { label: 'ASTM E23 Standard Test Methods for Notched Bar Impact Testing of Metallic Materials', url: 'https://www.astm.org' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Page Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/testing-inspection-capabilities#webpage",
+      "url": "https://www.forcebeyond.store/oscar/testing-inspection-capabilities",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/testing-inspection-capabilities#service",
+      "name": "Testing & Metrology Inspection Services",
+      "serviceType": "Non-Destructive & Metallurgical Inspection Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Non-Destructive Testing (X-Ray RT, FPI, UT, MPI)",
+          "3D CMM & Optical Laser Scanning Metrology",
+          "Mechanical Tensile & Charpy Impact Testing",
+          "Hardness Verification (Rockwell, Brinell, Micro-Vickers)",
+          "Metallographic Microstructural Analysis"
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/testing-inspection-capabilities#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="Quality laboratory technician performing CMM metrology and non-destructive testing"
+    faqSectionTitle="Frequently Asked Questions: Testing & Inspection"
+    faqItems={faqs}
+    ctaTitle="Ensure Structural Integrity with Advanced Testing"
+    ctaDescription="Partner with ForceBeyond for certified Level II/III NDT inspection, sub-micron CMM metrology, and complete metallurgical verification on your critical metal components."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Quality and Global Operations"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Testing & Inspection Capabilities: NDT, Metrology & Destructive Testing</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            Validating the structural integrity and sub-micron dimensional accuracy of high-performance metal components requires world-class metrology and testing infrastructure. ForceBeyond equips our quality labs with advanced Non-Destructive Testing (NDT), 3D coordinate metrology, and destructive metallurgical testing to certify that every casting, forging, and machined part meets exact engineering specifications.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/testing-inspection-capabilities-overview-4k.webp"
+                                alt="CMM laser scanning and non-destructive testing equipment in quality control laboratory."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="non-destructive-testing">
+            <div class="content-container">
+                <h2>Non-Destructive Testing (NDT)</h2>
+                <p>
+                    For safety-critical components subject to extreme pressure or cyclic fatigue, verifying internal soundness is mandatory. Our certified Level II and Level III NDT technicians perform comprehensive evaluations without altering the part:
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Testing Method</th>
+                                <th scope="col">ASTM Standard</th>
+                                <th scope="col">Primary Defect Detection Target</th>
+                                <th scope="col">Target Applications</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Radiographic Testing (X-Ray)</th>
+                                <td>ASTM E192</td>
+                                <td>Detects internal shrinkage voids, gas porosity, and inclusions deep within solid metal.</td>
+                                <td>Nuclear valve bodies, aerospace superalloy turbine blades.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Fluorescent Penetrant (FPI)</th>
+                                <td>ASTM E1417</td>
+                                <td>High-sensitivity fluorescent dye reveals minute surface-breaking cracks, cold shuts, or micro-porosity.</td>
+                                <td>High-pressure sealing flanges, titanium medical implants.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ultrasonic Testing (UT)</th>
+                                <td>ASTM A388</td>
+                                <td>Uses high-frequency sound waves to evaluate internal structural soundness across thick profiles.</td>
+                                <td>Heavy-tonnage forgings, steam generator tubesheets.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Magnetic Particle (MPI)</th>
+                                <td>ASTM E1444</td>
+                                <td>Detects surface and shallow subsurface discontinuities in ferromagnetic materials.</td>
+                                <td>Carbon steel gears, forged suspension linkages.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="dimensional-metrology">
+            <div class="content-container">
+                <h2>Dimensional Metrology & Laser Scanning</h2>
+                <p>
+                    Achieving the tight tolerances required by AI data center cold plates or aerospace actuators requires uncompromised measurement capabilities. Our temperature-controlled metrology labs utilize:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Coordinate Measuring Machines (CMM):</strong> Automated, multi-axis probe measurements verifying true position, flatness, concentricity, and complex GD&T profiles down to sub-micron accuracy.
+                    </li>
+                    <li>
+                        <strong>3D Optical & Laser Scanning:</strong> Non-contact blue-light scanners compare the physical part's surface topology directly against the native 3D CAD model, generating full-color deviation heat maps.
+                    </li>
+                    <li>
+                        <strong>Surface Roughness Profilometers:</strong> Verifying precise surface finish requirements for fluid sealing faces and medical instruments.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="destructive-testing">
+            <div class="content-container">
+                <h2>Destructive & Metallurgical Testing</h2>
+                <p>
+                    To guarantee that our thermal processing and heat treatments (such as T6 or Quench & Temper) have successfully optimized the alloy, we perform rigorous destructive testing on sacrificial lot samples:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Mechanical Testing:</strong> Universal tensile testing (ASTM E8) to measure yield strength and elongation; Charpy V-notch impact testing (ASTM E23) for low-temperature toughness.
+                    </li>
+                    <li>
+                        <strong>Hardness Verification:</strong> Rockwell (HRC/HRB), Brinell (HBW), and Micro-Vickers testing for case-depth validation.
+                    </li>
+                    <li>
+                        <strong>Microstructural Analysis:</strong> High-magnification metallography to verify grain size, check for alpha-case in titanium, and confirm optimal phase balances (e.g., 50/50 ferrite-austenite in Duplex 2205).
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

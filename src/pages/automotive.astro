@@ -1,87 +1,271 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Automotive';
-const pageDescription = 'This page is under development. ForceBeyond provides custom metal component manufacturing solutions for industrial applications.';
+const pageTitle = 'Automotive & Transportation Casting, Forging & CNC Machining';
+const seoTitle = 'Automotive & Transportation Casting, Forging & CNC | ForceBeyond';
+const seoDescription = 'ForceBeyond supplies IATF 16949-aligned precision castings, forgings, and CNC machined components for automotive, truck, marine, and rail OEMs.';
+
+const faqs = [
+    {
+        q: "Does ForceBeyond hold IATF 16949 quality certification?",
+        a: "ForceBeyond operates under a certified ISO 9001:2015 QMS, while our specialized automotive casting, forging, and machining facilities hold direct IATF 16949 certifications, ensuring full automotive quality compliance."
+    },
+    {
+        q: "Why use Ductile Iron instead of Steel for heavy commercial truck parts?",
+        a: "Ductile iron contains nodular graphite, which gives it tensile strength and toughness comparable to carbon steel, but with significantly better castability, vibration dampening, and a lower overall production cost."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'IATF 16949 Automotive Quality Management Standard', url: 'https://www.iatfglobaloversight.org' },
+    { label: 'ASTM International: Automotive & Transportation Material Standards', url: 'https://www.astm.org' },
+    { label: 'AIAG Production Part Approval Process (PPAP) Manual', url: 'https://www.aiag.org' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Page Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/automotive-transportation#webpage",
+      "url": "https://www.forcebeyond.store/oscar/automotive-transportation",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/automotive-transportation#service",
+      "name": "Automotive & Transportation Component Manufacturing",
+      "serviceType": "Transportation Precision Manufacturing",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "IATF 16949 & ISO 9001:2015 Quality Protocols",
+          "High-Pressure Aluminum Die Casting for Lightweight Housings",
+          "Hot & Cold Alloy Steel Forging for Shock-Resistant Hardware",
+          "Full PPAP Level 1-5 Compliance & IMDS Material Submissions",
+          "JIT Kitting, Kanban Delivery, & Global Logistics Management"
+        ]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Automotive & Transportation Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Powertrain & Engine Hardware",
+              "description": "Cylinder heads, engine blocks, turbocharger housings, connecting rods, and ring gear blanks."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Drivetrain & Chassis Components",
+              "description": "Steering knuckles, differential housings, axle shafts, drive pinions, and suspension arms."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Brake & Safety Systems",
+              "description": "Brake calipers, rotors, master cylinder bodies, and safety-critical structural brackets."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/automotive-transportation#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
 ---
 
-<Layout 
-    title={`${pageTitle} | ForceBeyond`}
-    description={pageDescription}
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/heavy-duty-mining-dump-truck-industrial-haulage.webp"
+    heroImageAlt="Close-up of a large yellow mining dump truck with oversized tires, heavy-duty suspension, and elevated operator cab for open-pit mining operations"
+    faqSectionTitle="Frequently Asked Questions"
+    faqItems={faqs}
+    ctaTitle="Optimize Your Automotive & Vehicle Supply Chain"
+    ctaDescription="Partner with our Tier-1.5 engineering team for fully certified, light-weighted, and high-performance transportation components."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
 >
-    <!-- Placeholder Page -->
-    <section class="relative w-full min-h-[calc(100vh-5rem)] bg-slate-50 pt-20 pb-24 px-6 sm:px-12">
-        <div class="w-full max-w-6xl mx-auto">
-            
-            <!-- Breadcrumb -->
-            <nav class="mb-10 text-sm text-slate-500">
-                <a href="/oscar/" class="hover:text-brand-blue transition">Home</a>
-                <span class="mx-2">/</span>
-                <span class="text-slate-700">{pageTitle}</span>
-            </nav>
 
-            <!-- Main Content -->
-            <div class="rounded-2xl border border-slate-200 bg-white p-8 sm:p-12 lg:p-16 shadow-sm">
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
                 
-                <p class="mb-4 text-xs font-semibold tracking-[0.22em] text-brand-blue uppercase">
-                    Page Under Development
-                </p>
+                <h2>Automotive & Transportation Casting, Forging & CNC Machining</h2>
 
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 uppercase">
-                    {pageTitle}
-                </h1>
-
-                <div class="mt-6 h-1 w-16 bg-brand-blue rounded-full"></div>
-
-                <p class="mt-8 max-w-3xl text-lg sm:text-xl leading-8 text-slate-700 font-medium">
-                    This page is currently being prepared. ForceBeyond supports customers with precision casting, forging, CNC machining, quality control, and global supply chain coordination for high-demand industrial applications.
-                </p>
-
-                <div class="mt-10 grid gap-4 sm:grid-cols-3">
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Manufacturing
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Casting, forging, machining, and finishing support.
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond is a premier global supplier of high-integrity engineered metal components for the automotive, commercial truck, bus, marine, and rail transportation sectors. In an industry driven by light-weighting initiatives, rigorous safety standards, and relentless cost pressure, ForceBeyond provides precision investment castings, high-capacity sand castings, hot/cold forgings, and 5-axis CNC machining under a unified quality umbrella.
+                        </p>
+                        <p>
+                            Operating under strict IATF 16949 and ISO 9001:2015 quality protocols, we supply Tier-1 automotive systems suppliers and commercial vehicle OEMs with fully machined, heat-treated, and surface-coated sub-assemblies. From lightweight A356-T6 aluminum engine blocks to high-tensile 4140 forged drive axles, ForceBeyond optimizes vehicle performance, structural safety, and supply chain reliability.
                         </p>
                     </div>
-
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Quality
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Inspection, documentation, and traceability workflows.
-                        </p>
-                    </div>
-
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Supply Chain
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Multi-facility sourcing and delivery coordination.
-                        </p>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/heavy-duty-mining-haul-truck-industrial-vehicle.webp"
+                                alt="Large yellow heavy-duty mining haul truck with oversized tires designed for open-pit mining and industrial material transport"
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
                     </div>
                 </div>
 
-                <div class="mt-12 flex flex-col sm:flex-row gap-4">
-                    <a 
-                        href="/oscar/request-a-quote" 
-                        class="inline-flex items-center justify-center rounded-full bg-brand-green px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#5aaa14] shadow-sm"
-                    >
-                        Request Quote
-                    </a>
+            </div>
+        </section>
 
-                    <a 
-                        href="/oscar/#capabilities" 
-                        class="inline-flex items-center justify-center rounded-full border border-slate-300 px-8 py-3 text-sm font-semibold text-slate-700 transition hover:border-[#0363CE] hover:text-brand-blue"
-                    >
-                        View Capabilities
-                    </a>
+        <section id="capabilities-matrix">
+            <div class="content-container">
+                <h2>Capabilities & Materials Matrix for Transportation</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Manufacturing Process</th>
+                                <th scope="col">Target Materials</th>
+                                <th scope="col">Key Engineering Benefits</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">High-Pressure Aluminum Die Casting</th>
+                                <td>A380, A360, A413 Aluminum Alloys</td>
+                                <td>Thin-wall, lightweight structural housings with smooth surface finishes; drastically reduces vehicle weight.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ductile & Gray Iron Sand Casting</th>
+                                <td>ASTM A536 (65-45-12, 80-55-06), Gray Iron Class 30/40</td>
+                                <td>Superior vibration dampening, high fatigue strength, and low unit costs for heavy-duty powertrain hardware.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Hot & Cold Alloy Steel Forging</th>
+                                <td>AISI 4140, 8620, 1045 Carbon/Alloy Steel</td>
+                                <td>Maximized directional grain flow for extreme shock resistance across axles, gears, and suspension linkages.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5-Axis Precision CNC Finishing</th>
+                                <td>All Ferrous & Non-Ferrous Alloys</td>
+                                <td>High-speed machining of critical bearing seats, mating flanges, and internal bores to sub-micron tolerances.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </div>
-    </section>
-</Layout>
+        </section>
+
+        <section id="certified-components">
+            <div class="content-container">
+                <h2>Certified Automotive & Transportation Components</h2>
+                <p>
+                    Our global manufacturing network delivers certified, defect-free vehicle hardware:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Powertrain & Engine:</strong> Cylinder heads, engine blocks, turbocharger housings, connecting rods, and ring gear blanks.
+                    </li>
+                    <li>
+                        <strong>Drivetrain & Chassis:</strong> Steering knuckles, differential housings, axle shafts, drive pinions, and suspension arms.
+                    </li>
+                    <li>
+                        <strong>Brake & Safety Systems:</strong> Brake calipers, rotors, master cylinder bodies, and safety-critical structural brackets.
+                    </li>
+                    <li>
+                        <strong>Bus, Marine & Rail:</strong> High-strength structural fabrications, rail sub-assemblies, and corrosion-resistant marine hardware.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="tier-1-5-advantage">
+            <div class="content-container">
+                <h2>The Tier-1.5 OEM Advantage</h2>
+                <p>
+                    Managing separate foundries, heat-treaters, machine shops, and coating vendors creates severe lead time and quality risks. ForceBeyond unifies the entire manufacturing process:
+                </p>
+                <blockquote class="my-4 italic">
+                    Forming (Cast/Forge) &rarr; Heat Treatment (T6/Q&T) &rarr; Precision CNC Machining &rarr; Protective E-Coating &rarr; Sub-Assembly / PPAP
+                </blockquote>
+                <ul>
+                    <li>
+                        <strong>Full PPAP Compliance:</strong> Complete Level 1–5 Production Part Approval Process documentation, including Cpk/Ppk capability studies and IMDS material submissions.
+                    </li>
+                    <li>
+                        <strong>Global Logistics & JIT Kitting:</strong> Dedicated inventory management, safety stock warehousing, and Kanban delivery directly to assembly plants.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

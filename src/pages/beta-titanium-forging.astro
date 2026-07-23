@@ -1,0 +1,336 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'High-Strength Beta Titanium Forging: Ti-5553 & Ti-10-2-3 Experts';
+const seoTitle = 'High-Strength Beta Titanium Forging | Ti-10V-2Fe-3Al & Beta-C';
+const seoDescription = 'AS9100-certified Beta titanium forging services specializing in Ti-10V-2Fe-3Al and Beta-C (Grade 19) alloys. ForceBeyond optimizes Solution Treated and Aged (STA) microstructures to achieve yield strengths exceeding 1,200 MPa with superior fracture toughness.';
+const faqs = [
+    {
+        q: "Why choose Ti-5553 over standard Ti-6Al-4V?",
+        a: "Ti-5553 offers significantly higher depth-hardenability and higher strength, making it the superior choice for very thick sections (over 3 inches) where standard Grade 5 would lose its properties in the center of the part."
+    },
+    {
+        q: "Can you forge Beta titanium to Near-Net-Shape?",
+        a: "Yes. Our <a href='near-net-shape-titanium-forging' class = 'highlight-link'>NNS Forging</a> process is specifically designed to minimize the machining allowance on Beta alloys, which is critical given how difficult and expensive they are to machine."
+    },
+    {
+        q:"Does ForceBeyond manage the heat treatment for Beta alloys?",
+        a: "Yes. High-strength properties in Beta alloys are achieved through precise Solution Treating and Aging (STA) cycles. We manage this process within our AS9100 QMS to ensure the final part meets the required <strong>AMS 4983</strong> or <strong>AMS 4984</strong> standards."
+    }
+];
+
+// Sources 
+const sources = [
+    { label: 'American Foundry Society: "Metal Casting"', url: 'https://www.afsinc.org' },
+    { label: 'Forging Industry Association: "Forging Industry"', url: 'https://www.forging.org' },
+    { label: 'efunda. “Sand Casting“', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'The Investment Casting Institute. “What is Investment Casting?“',url:'https://www.investmentcasting.org/what-is-investment-casting.html'},
+    { label: 'ASM International. “Inconel 718 Alloy“', url: 'https://www.asminternational.org/materials-resources/alloy-database/technical-bulletin/inconel-718-alloy' }
+];
+
+// Resources 
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/beta-titanium-forging#webpage",
+      "url": "https://www.forcebeyond.store/oscar/beta-titanium-forging",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Titanium alloy",
+          "sameAs": "https://en.wikipedia.org/wiki/Titanium_alloy"
+        },
+        {
+          "@type": "Thing",
+          "name": "Forging",
+          "sameAs": "https://en.wikipedia.org/wiki/Forging"
+        },
+        {
+          "@type": "Thing",
+          "name": "Beta titanium alloys",
+          "sameAs": "https://en.wikipedia.org/wiki/Beta_titanium_alloys"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/beta-titanium-forging#service",
+      "name": "High-Strength Beta Titanium Forging Services",
+      "serviceType": "Beta Titanium Forging Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Beta Titanium Forging",
+          "Ti-10V-2Fe-3Al & Beta-C (Grade 19) Alloys",
+          "Solution Treated and Aged (STA) Microstructures",
+          "High Yield Strength (>1200 MPa) Forging",
+          "Fracture Toughness & Fatigue Resistance Optimization",
+          "Aerospace Landing Gear & Fastener Production",
+          "Closed-Die Forging & Seamless Rolled Rings"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Beta Titanium Forging Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "STA Microstructure Optimization",
+              "description": "Advanced thermomechanical processing and closed-die forging of metastable Beta titanium alloys, tailored through strict Solution Treated and Aged heat treatment protocols to clear 1,200 MPa yield thresholds."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Flight-Critical High-Fatigue Component Forging",
+              "description": "Precision engineering of high-strength aerospace components including landing gear cylinders, structural bulkheads, and heavy fasteners featuring continuous macro-grain flow lines."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "End-to-End Tier-1.5 Metallurgical Validation",
+              "description": "Complete supply chain tracing from initial alloy melt through precision near-net-shape forging, heat treating, and multi-axis NDT inspection with detailed aerospace compliance documentation."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/beta-titanium-forging#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/titanium-aerospace-jet-engine-testing-hero.webp"
+    heroImageAlt="Titanium aerospace jet engine undergoing a high-performance ground test with active exhaust"
+    faqSectionTitle="Frequently Asked Questions: Beta Titanium"
+    faqItems={faqs}
+    ctaTitle=""
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview" >
+            <div class="content-container">
+                
+                <h2>High-Strength Beta Titanium Forging: Ti-5553 & Ti-10-2-3 Experts</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                           ForceBeyond specializes in the <a href="beta-titanium-forging" class="highlight-link">Beta Titanium Forging</a> of high-performance near-beta alloys, 
+                           including <strong>Ti-5Al-5Mo-5V-3Cr (Ti-5553)</strong> and <strong>Ti-10V-2Fe-3Al</strong>. As a Tier-1.5 provider, 
+                           we manage the complex thermal processing required to achieve tensile strengths exceeding <strong>1,250 MPa</strong> 
+                           while maintaining critical fracture toughness. Our integrated oversight ensures that every 
+                           high-strength blank is optimized for final <a href="titanium-machining" class="highlight-link">Titanium Machining</a>, delivering flight-ready 
+                           landing gear and structural airframe components for the U.S. aerospace and defense sectors.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="why-beta-titanium" >
+            <div class="content-container">
+                <h2>Engineering Focus: Why Beta Titanium?</h2>
+                    <p>
+                        Beta and Near-Beta titanium alloys offer the highest strength-to-weight ratio and fracture toughness of any titanium class. 
+                        However, they are notoriously difficult to forge due to their narrow “processing windows.”
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Superior Deep Hardenability:</strong>Ideal for thick-section parts like landing gear beams where uniform properties are required throughout the component.
+                        </li>
+                        <li>
+                            <strong>High Fracture Toughness:</strong> Essential for components subjected to extreme cyclic loading and impact.
+                        </li>
+                        <li>
+                            <strong>Excellent Cold Formability: </strong>Providing versatility in secondary finishing operations at our <a href="titanium-machining" class="highlight-link">Titanium Machining</a> centers.
+                        </li>
+                    </ul>
+                
+            </div>
+        </section>
+
+        <section id="technical-authority" >
+            <div class="content-container">
+                <h2>Technical Authority: Alloy Performance & Applications</h2>
+                
+                <p>
+                    We focus on the “Near-Beta” alloys that define modern aerospace engineering. 
+                    These materials offer the best strength-to-weight ratio for components that must withstand extreme cyclic loading.
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Alloy Grade</th>
+                                <th scope="col">Tensile Strength (MPa)</th>
+                                <th scope="col">Primary Application</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Ti-5553</th>
+                                <td>1,250 – 1,350</td>
+                                <td>Heavy-lift landing gear, pylons, and wing attachments.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ti-10-2-3</th>
+                                <td>1,100 – 1,240</td>
+                                <td>Large airframe structural forgings and rotor hubs.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ti-15-3-3-3</th>
+                                <td>900 – 1,000</td>
+                                <td>High-strength aerospace fasteners and cold-formed tubing.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="tier-1.5-integration" >
+            <div class="content-container">
+                <h2>Tier-1.5 Integration: Optimizing for Final Machining</h2>
+                
+                <p>
+                   Because Beta alloys are notoriously difficult to finish, ForceBeyond bridges the gap between the forge and the CNC center. We deliver forgings that are “Machinist-Ready.”
+                </p>
+                <h3>Solution Treatment & Aging (STA)</h3>
+                <p>
+                    We perform precise in-house heat treatment to reach the specific Rockwell hardness (HRC) required for your application. This consistency reduces tool chatter and prevents “spring-back” when these parts reach our <a href="titanium-machining" class="highlight-link">Precision Machining Hub</a>.
+                </p>
+                <h3>Near-Net-Shape (NNS) Advantage</h3>
+                <p>
+                    By forging closer to the final dimensions, we reduce the volume of high-strength Beta material that must be removed via CNC. This significantly lowers your “Buy-to-Fly” ratio and protects your profit margins on expensive Ti-5553 projects.
+                </p>
+            </div>
+        </section>
+        <section id = "quality-assurance">
+            <div class="content-container">
+                <h2>Quality Assurance & Certification</h2>
+                <p>
+                    Every Beta forging undergoes rigorous non-destructive testing (NDT) to ensure it is free of alpha-inclusions or internal voids.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Ultrasonic Testing (UT):</strong>100% immersion UT to verify internal structural integrity.
+                    </li>
+                    <li>
+                        <strong>Fracture Toughness Verification:</strong>Ensuring the material maintains its “fail-safe” properties at peak strength.
+                    </li>
+                    <li>
+                        <strong>Full Traceability:</strong>AS9100-compliant documentation from the initial melt lot to the final forged dimensions.
+                    </li>
+                </ul>   
+            </div>
+        </section>
+
+        <section id="request-quote">
+            <div class="content-container">
+                <h2>Request a Quote for Beta Titanium Forging</h2>
+                
+                <p>
+                    <strong>Secure Your Aerospace Supply Chain with Direct Operational Oversight.</strong>                
+                </p>
+                <p>Due to the specialized nature of Beta Titanium alloys (Ti-5553, Ti-10-2-3), our engineering team conducts a mandatory thermal-mechanical review for every project to ensure AS9100 compliance.</p>
+                <p><strong>Please include the following in your RFQ:</strong></p>
+                <ul>
+                    <li>
+                        <strong>Technical Drawings:</strong>(STEP, IGES, or high-resolution PDF)
+                    </li>
+                    <li>
+                        <strong>Specific Alloy Grade:</strong>(e.g., Ti-5553, Ti-10-2-3, or Ti-15-3-3-3)
+                    </li>
+                    <li>
+                        <strong>Heat Treatment Requirements:</strong>(e.g., Solution Treat & Age – STA requirements)
+                    </li>
+                    <li>
+                        <strong>Critical-to-Quality (CTQ) Zones:</strong> Identify areas requiring specific fracture toughness or grain structure.
+                    </li>
+                    <li>
+                        <strong>Estimated Annual Usage (EAU):</strong>To help us secure raw billet stock from our co-owned inventory.
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</IndividualPageLayout>

@@ -1,0 +1,337 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Open Die Forging: Extreme Strength for Massive Components';
+const seoTitle = 'Open Die Forging Services | Heavy Components Up to 50,000+ lbs';
+const seoDescription = 'Custom open die forging services for massive, high-stress components weighing up to 50,000+ lbs. ForceBeyond refines grain structure and closes internal porosity to deliver defect-free step shafts, heavy discs, and forged blocks with zero custom tooling costs.';
+const faqs = [
+    {
+        q: "Does open die forging produce a finished part?",
+        a: "No. Open die forging produces a rough, oversized shape. Because the metal is not constrained by a custom mold, there is a material allowance left on the surface. The forging must undergo heavy CNC machining to reach its final print dimensions."
+    },
+    {
+        q: "What materials can be open die forged?",
+        a: "Almost any forgeable metal can be open die forged, including carbon steel, alloy steel, stainless steel, titanium, and nickel-based superalloys (like Inconel)."
+    },
+    {
+        q:"Why choose open die forging instead of casting for a large part?",
+        a: "While sand casting can produce large parts closer to net shape, castings inherently carry a risk of internal porosity, shrinkage, and a brittle grain structure. Open die forging mechanically works the metal to guarantee a dense, highly refined, defect-free internal structure, which is mandatory for parts subjected to high stress, heavy loads, or extreme pressures."
+    }
+];
+
+// Sources 
+const sources = [
+    { label: 'American Foundry Society: "Metal Casting"', url: 'https://www.afsinc.org' },
+    { label: 'Forging Industry Association: "Forging Industry"', url: 'https://www.forging.org' },
+    { label: 'efunda. “Sand Casting“', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'The Investment Casting Institute. “What is Investment Casting?“',url:'https://www.investmentcasting.org/what-is-investment-casting.html'},
+    { label: 'ASM International. “Inconel 718 Alloy“', url: 'https://www.asminternational.org/materials-resources/alloy-database/technical-bulletin/inconel-718-alloy' }
+];
+
+// Resources 
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/beta-titanium-forging#webpage",
+      "url": "https://www.forcebeyond.store/oscar/beta-titanium-forging",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Titanium alloy",
+          "sameAs": "https://en.wikipedia.org/wiki/Titanium_alloy"
+        },
+        {
+          "@type": "Thing",
+          "name": "Forging",
+          "sameAs": "https://en.wikipedia.org/wiki/Forging"
+        },
+        {
+          "@type": "Thing",
+          "name": "Beta titanium alloys",
+          "sameAs": "https://en.wikipedia.org/wiki/Beta_titanium_alloys"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/beta-titanium-forging#service",
+      "name": "High-Strength Beta Titanium Forging Services",
+      "serviceType": "Beta Titanium Forging Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Beta Titanium Forging",
+          "Ti-10V-2Fe-3Al & Beta-C (Grade 19) Alloys",
+          "Solution Treated and Aged (STA) Microstructures",
+          "High Yield Strength (>1200 MPa) Forging",
+          "Fracture Toughness & Fatigue Resistance Optimization",
+          "Aerospace Landing Gear & Fastener Production",
+          "Closed-Die Forging & Seamless Rolled Rings"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Beta Titanium Forging Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "STA Microstructure Optimization",
+              "description": "Advanced thermomechanical processing and closed-die forging of metastable Beta titanium alloys, tailored through strict Solution Treated and Aged heat treatment protocols to clear 1,200 MPa yield thresholds."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Flight-Critical High-Fatigue Component Forging",
+              "description": "Precision engineering of high-strength aerospace components including landing gear cylinders, structural bulkheads, and heavy fasteners featuring continuous macro-grain flow lines."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "End-to-End Tier-1.5 Metallurgical Validation",
+              "description": "Complete supply chain tracing from initial alloy melt through precision near-net-shape forging, heat treating, and multi-axis NDT inspection with detailed aerospace compliance documentation."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/beta-titanium-forging#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/titanium-aerospace-jet-engine-testing-hero.webp"
+    heroImageAlt="Titanium aerospace jet engine undergoing a high-performance ground test with active exhaust"
+    faqSectionTitle="Frequently Asked Questions: Open Die Forging"
+    faqItems={faqs}
+    ctaTitle="Request Quote For Open Die Forging"
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview" >
+            <div class="content-container">
+                
+                <h2>Open Die Forging: Extreme Strength for Massive Components</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                           ForceBeyond provides world-class open die forging (also known as free forging or smith forging) for massive, high-stress industrial applications. 
+                           By shaping heated metal between multiple flat dies that do not completely enclose the material, we can forge incredibly large and heavy components 
+                           with unparalleled structural integrity.
+                        </p>
+                        <p>
+                            Because open die forging does not require the creation of custom, part-specific molds, it is the most cost-effective forging method for low-volume 
+                            production, rapid prototyping, and parts that are simply too large for closed die presses. We supply heavy-duty forged blocks, cylinders, 
+                            step shafts, and hubs in a wide range of ferrous and non-ferrous alloys.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/custom-hot-forged-metal-components-industrial-parts-4k.webp"
+                                alt="Custom hot-forged and precision-machined metal components, including flanges, shafts, brackets, gears, and crankshaft parts, on a white background."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="technical-capabilities" >
+            <div class="content-container">
+                <h2>Technical Capabilities: Open Die Forged Shapes</h2>
+                    <p>
+                        Open die forging relies on the skill of the operator and the power of the press to hammer or press the metal into a rough shape, which is then fully machined to print. 
+                        ForceBeyond handles massive weight capacities and can forge a variety of geometries.
+                    </p>
+                    <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Forged Geometry</th>
+                                <th scope="col">Typical Applications</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Step Shafts & Spindles</th>
+                                <td>Power generation rotors, marine propeller shafts, and heavy industrial drive shafts.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Discs & Hubs</th>
+                                <td>Gear blanks, heavy-duty machinery hubs, and high-pressure pipe flanges.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Blocks & Rectangles</th>
+                                <td>Tool steel blanks, massive structural supports, and heavy equipment bases.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Cylinders & Sleeves</th>
+                                <td>High-pressure containment vessels, hydraulic cylinders, and extrusion press components.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Rings (Mandrel Forged)</th>
+                                <td>Pressure vessel connections and heavy industrial bearing races (for seamless options, see our Rolled Ring Forging capabilities).</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </section>
+
+        <section id="why-forcebeyond" >
+            <div class="content-container">
+                <h2>Why Partner with ForceBeyond for Open Die Forging?</h2>
+                
+                <p>
+                    When components are subjected to extreme industrial environments, internal structural flaws can lead to catastrophic failure. 
+                    Open die forging provides the ultimate metallurgical safeguard.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Massive Size Capabilities:</strong>Open die forging is not constrained by the size of a mold cavity. We can forge components weighing from a few dozen pounds to well over 50,000 pounds, with lengths extending to dozens of feet.
+                    </li>
+                    <li>
+                        <strong>Maximum Structural Integrity:</strong>The continuous hammering and pressing of the open die process breaks down the cast structure of the raw ingot. It consolidates the metal, closing any internal micro-shrinkage or voids, and refines the grain structure for isotropic strength across massive cross-sections.
+                    </li>
+                    <li>
+                        <strong>Zero Custom Tooling Costs:</strong>Because the dies are flat (or simple V-shapes) and do not contain the specific profile of your part, there are no expensive, custom die-sinking costs.
+                    </li>
+                    <li>
+                        <strong>Rapid Lead Times For Low Volumes:</strong>Without the need to wait weeks for custom tooling to be manufactured, open die forging allows for rapid turnaround times on prototypes, emergency replacement parts, and low-volume heavy industrial runs.
+                    </li>
+                </ul>
+                
+            </div>
+        </section>
+
+        <section id = "Tier-1.5-integration">
+            <div class="content-container">
+                <h2>Tier-1.5 Integration: Heavy Machining & Finishing</h2>
+                <p>
+                    Open die forging produces a rough shape with extra material allowance. ForceBeyond seamlessly transitions your massive forgings 
+                    from the press to our heavy-duty CNC machining centers to achieve precise final dimensions.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Heavy CNC Machining:</strong>Large-envelope vertical and horizontal lathes, boring mills, and heavy-duty 5-axis machining centers capable of handling massive tonnage.
+                    </li>
+                    <li>
+                        <strong>Deep Hole Drilling:</strong>Specialized capabilities for creating precise internal bores in long step shafts and cylinders.
+                    </li>
+                    <li>
+                        <strong>Advanced Heat Treatment:</strong>Deep-penetration normalizing, quenching, and tempering of large cross-sections to achieve targeted hardness and tensile properties throughout the entire part.
+                    </li>
+                    <li>
+                        <strong>Rigorous NDT:</strong>: Given the critical nature of heavy forgings, we provide comprehensive Ultrasonic Testing (UT) to guarantee zero internal defects, alongside fully traceable Material Test Reports (MTRs).
+                    </li>
+                </ul>   
+            </div>
+        </section>
+
+        <section id="certified-applications" >
+            <div class="content-container">
+                <h2>Certified Open Die Forging Applications</h2>
+                
+                <p>
+                    ForceBeyond provides massive, high-integrity open die forgings to the world’s heaviest industries:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Power Generation:</strong>Turbine shafts, generator rotors, and nuclear reactor components.
+                    </li>
+                    <li>
+                        <strong>Oil & Gas:</strong>Blowout preventers (BOPs), heavy drilling collars, and subsea manifold blocks.
+                    </li>
+                    <li>
+                        <strong>Mining & Heavy Machinery</strong>Excavator shafts, rock crusher components, and immense gear blanks.
+                    </li>
+                    <li>
+                        <strong>Shipbuilding & Marine</strong>Heavy-duty propeller shafts, rudder stocks, and submarine components.
+                    </li>
+                </ul>
+            </div>
+        </section>
+        
+    </div>
+</IndividualPageLayout>

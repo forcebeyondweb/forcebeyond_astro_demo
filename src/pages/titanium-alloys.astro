@@ -1,0 +1,248 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Titanium Alloys: Ti-6Al-4V, Ti-ELI & Commercially Pure Solutions';
+const seoTitle = 'Titanium Casting, Forging & CNC Machining | ForceBeyond';
+const seoDescription = 'Certified Ti-6Al-4V Grade 5, Ti-6Al-4V ELI, and Commercially Pure titanium manufacturing for aerospace, medical, and defense applications.';
+
+const faqs = [
+    {
+        q: "How does ForceBeyond prevent brittle alpha-case formation during titanium casting?",
+        a: "We utilize rammed-graphite molds and pour within specialized vacuum induction furnaces to eliminate exposure to atmospheric oxygen, nitrogen, and hydrogen at elevated temperatures."
+    },
+    {
+        q: "What is the difference between Ti-6Al-4V Grade 5 and Ti-6Al-4V ELI (Grade 23)?",
+        a: "Ti-6Al-4V ELI contains Extra Low Interstitials (reduced oxygen and iron content), granting higher fracture toughness and superior biocompatibility, making it the preferred choice for medical implants."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'ISO 13485:2016 Medical Devices Quality Management Systems', url: 'https://www.iso.org' },
+    { label: 'AS9100 Rev D Quality Management Systems - Aviation, Space & Defense', url: 'https://www.sae.org' },
+    { label: 'AMS 4928 / ASTM B367 Ti-6Al-4V Grade 5 Specifications', url: 'https://www.astm.org' },
+    { label: 'ASTM F136 / AMS 4930 Ti-6Al-4V ELI Grade 23 Specifications', url: 'https://www.astm.org' },
+    { label: 'ASTM B348 / ASTM B265 Commercially Pure Titanium Specifications', url: 'https://www.astm.org' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Page Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/titanium-alloys#webpage",
+      "url": "https://www.forcebeyond.store/oscar/titanium-alloys",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/titanium-alloys#service",
+      "name": "Titanium Alloy Component Manufacturing Services",
+      "serviceType": "High-Integrity Titanium Manufacturing",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Ti-6Al-4V Grade 5 Aerospace & Structural Hardware",
+          "Ti-6Al-4V ELI (Grade 23) Biocompatible Medical Implants",
+          "Commercially Pure (Grade 2) Corrosion-Resistant Equipment",
+          "Rammed-Graphite & Vacuum Induction Casting",
+          "Closed-Die Hot Forging & Grain Flow Alignment"
+        ]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Titanium Capabilities Catalog",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Aerospace & Defense Titanium Hardware",
+              "description": "Ti-6Al-4V Grade 5 structural brackets, airframe fittings, and landing gear components."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Medical Grade Titanium Implants",
+              "description": "Ti-6Al-4V ELI biocompatible bone screws, joint replacements, and surgical instrumentation."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Corrosion-Resistant Industrial Components",
+              "description": "Commercially Pure Grade 2 titanium for heat exchangers, chemical processing, and marine environments."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/titanium-alloys#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="High-strength precision-machined titanium alloy component for aerospace and medical application"
+    faqSectionTitle="Frequently Asked Questions"
+    faqItems={faqs}
+    ctaTitle="Elevate Performance with Precision Titanium Manufacturing"
+    ctaDescription="Partner with our certified engineering team for high-integrity titanium vacuum investment castings, forgings, and Swiss CNC machined components."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Titanium Alloys: Ti-6Al-4V, Ti-ELI & Commercially Pure Solutions</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond is an AS9100 and ISO 13485-aligned manufacturing provider of high-integrity titanium components. Renowned for their outstanding strength-to-weight ratio, low density (40% lighter than steel), superior corrosion resistance, and total biocompatibility, titanium alloys are critical across the aerospace, defense, medical implant, and deepwater marine sectors.
+                        </p>
+                        <p>
+                            From vacuum investment casting and heavy closed-die forging to micro-precision Swiss CNC turning, ForceBeyond manufactures Ti-6Al-4V Grade 5, Ti-6Al-4V ELI, and Commercially Pure (CP) titanium parts built for extreme performance.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/titanium-alloys-overview-4k.webp"
+                                alt="High-precision CNC machined Ti-6Al-4V titanium aerospace structural bracket."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="technical-capabilities">
+            <div class="content-container">
+                <h2>Titanium Technical Capabilities & Mechanical Profiles</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Titanium Grade</th>
+                                <th scope="col">Standard Specifications</th>
+                                <th scope="col">Tensile Strength (Min)</th>
+                                <th scope="col">Primary Material Performance & Uses</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Ti-6Al-4V (Grade 5)</th>
+                                <td>UNS R56400<br />AMS 4928 / ASTM B367</td>
+                                <td>895 MPa (130 ksi)</td>
+                                <td>The most widely used alpha-beta titanium alloy. Combines high mechanical strength, light weight, and high corrosion resistance. Used for Aerospace Brackets and airframe fittings.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ti-6Al-4V ELI (Grade 23)</th>
+                                <td>UNS R56401<br />ASTM F136 / AMS 4930</td>
+                                <td>860 MPa (125 ksi)</td>
+                                <td>"Extra Low Interstitials" version with reduced oxygen/iron content for maximum fracture toughness and biocompatibility. Essential for Medical Bone Screws & Joint Implants.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Commercially Pure (Grade 2)</th>
+                                <td>UNS R50400<br />ASTM B348 / ASTM B265</td>
+                                <td>345 MPa (50 ksi)</td>
+                                <td>Unalloyed, highly ductile titanium offering exceptional corrosion resistance in oxidizing and organic chemical environments. Used for heat exchangers and chemical piping.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="special-techniques">
+            <div class="content-container">
+                <h2>Special Techniques for Titanium Fabrication</h2>
+                <p>
+                    Because molten titanium reacts aggressively with atmospheric oxygen, nitrogen, and hydrogen at elevated temperatures, specialized manufacturing infrastructure is required:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Rammed-Graphite & Vacuum Casting:</strong> Poured in specialized vacuum induction furnaces to prevent the formation of brittle alpha-case surface layers.
+                    </li>
+                    <li>
+                        <strong>Precision Forging Grain Alignment:</strong> Closed-die hot forging reorients the alpha-beta grain flow, maximizing cyclic fatigue resistance for high-load structural pins and landing gear hardware.
+                    </li>
+                    <li>
+                        <strong>Chemical Passivation & Surface Treatment:</strong> Chemical pickling and passivation restore the natural, non-reactive titanium oxide skin, ensuring zero chemical reactivity in marine and medical environments.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

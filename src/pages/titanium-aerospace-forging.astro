@@ -1,0 +1,379 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Titanium Aerospace Forging: AS9100-Certified Mission Critical Components';
+const seoTitle = 'Titanium Aerospace Forging Services | Ti-6Al-4V Parts | ForceBeyond';
+const seoDescription = 'AS9100-certified precision titanium aerospace forging. We specialize in hot close-die forging for Ti-6Al-4V and Ti-6-2-4-2 alloys, delivering complex structural components and bulkheads. Supply chain risk management via our USA, South Korea, and Taiwan footprints.';
+const faqs = [
+    {
+        q: "Why is forged titanium preferred over machined-from-plate for airframes?",
+        a: "Forging creates a continuous, directional grain flow that follows the part’s geometry. This eliminates the “end-grain” exposure typical of machining from plate, resulting in up to a 25% increase in fatigue strength and significantly higher resistance to fracture in high-vibration aerospace environments."
+    },
+    {
+        q: "Can ForceBeyond meet AMS 4928 and MIL-T-9047 standards?",
+        a: "Yes. All titanium components produced through our co-owned aerospace foundries are fully compliant with <strong>AMS 4928, AMS 4911, and MIL-T-9047</strong>. We provide full metallurgical traceability and EN 10204 3.1 certification for every heat lot."
+    },
+    {
+        q: "How does the Tier-1.5 model reduce aerospace lead times?",
+        a: "Traditional aerospace supply chains are fragmented between a forge, a heat-treater, and a machine shop. ForceBeyond’s <strong>Tier-1.5</strong> model integrates these steps under a single AS9100 oversight system. By managing the “Forge-to-Finish” cycle in-house, we reduce average lead times from 40+ weeks to 14–18 weeks."  
+    },
+    {
+        q:" Do you offer Nondestructive Testing (NDT) for flight-critical parts?",
+        a: "Absolutely. Our co-owned manufacturing facilities are equipped for in-house Ultrasonic Testing (UT), Fluorescent Penetrant Inspection (FPI), and Radiographic Inspection to ensure zero-defect reliability for class-1 flight hardware."
+    },
+    {
+        q: "What is the maximum size for your seamless rolled rings?",
+        a: "Our aerospace lines can produce seamless rolled titanium rings up to 84 inches (2,133 mm) in outer diameter, ideal for jet engine cases, combustion liners, and large structural seals."
+    }
+];
+
+// Sources 
+const sources = [
+    { label: 'American Foundry Society: "Metal Casting"', url: 'https://www.afsinc.org' },
+    { label: 'Forging Industry Association: "Forging Industry"', url: 'https://www.forging.org' },
+    { label: 'efunda. “Sand Casting“', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'The Investment Casting Institute. “What is Investment Casting?“',url:'https://www.investmentcasting.org/what-is-investment-casting.html'},
+    { label: 'ASM International. “Inconel 718 Alloy“', url: 'https://www.asminternational.org/materials-resources/alloy-database/technical-bulletin/inconel-718-alloy' }
+];
+
+// Resources 
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/titanium-aerospace-forging#webpage",
+      "url": "https://www.forcebeyond.store/oscar/titanium-aerospace-forging",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Titanium",
+          "sameAs": "https://en.wikipedia.org/wiki/Titanium"
+        },
+        {
+          "@type": "Thing",
+          "name": "Forging",
+          "sameAs": "https://en.wikipedia.org/wiki/Forging"
+        },
+        {
+          "@type": "Thing",
+          "name": "Aerospace engineering",
+          "sameAs": "https://en.wikipedia.org/wiki/Aerospace_engineering"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/titanium-aerospace-forging#service",
+      "name": "Titanium Aerospace Forging Services",
+      "serviceType": "Titanium Forging Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Titanium Aerospace Forging",
+          "Ti-6Al-4V & Ti-6-2-4-2 Alloys",
+          "Hot Closed-Die Forging",
+          "Near-Net-Shape Titanium Manufacturing",
+          "AS9100 Rev D Quality Framework",
+          "Fuselage, Landing Gear & Engine Components"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Titanium Aerospace Forging Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Hot Closed-Die Titanium Forging",
+              "description": "High-tonnage closed-die configuration optimizing directional grain flow patterns along structural stress axes to prevent microstructural cracking under high fatigue."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Near-Net-Shape Optimization",
+              "description": "Advanced thermomechanical processing designed to significantly minimize buy-to-fly material waste ratios for critical fuselage and engine bulkheads."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Aerospace Non-Destructive Testing (NDT)",
+              "description": "Comprehensive quality verification tracking microstructural alpha-case contamination, ultrasonic integrity, and complete heat lot traceability."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/titanium-aerospace-forging#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/titanium-aerospace-jet-engine-testing-hero.webp"
+    heroImageAlt="Titanium aerospace jet engine undergoing a high-performance ground test with active exhaust"
+    faqSectionTitle="Frequently Asked Questions: Aerospace Titanium Forging"
+    faqItems={faqs}
+    ctaTitle=""
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview" >
+            <div class="content-container">
+                
+                <h2>Titanium Aerospace Forging: AS9100-Certified Mission Critical Components</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond provides high-performance <a href="/oscar/titanium-aerospace-forging" class = "highlight-link">Titanium Aerospace Forging</a> for flight-critical propulsion and structural systems. 
+                            Leveraging our co-owned, AS9100-certified foundries in the USA, South Korea, and Taiwan, 
+                            we specialize in <strong>AMS 4928 and MIL-T-9047</strong> compliant components. Our Tier-1.5 model achieves 
+                            a <strong>25% increase in fatigue strength</strong> over bar-stock machining by optimizing metallurgical grain flow in every forged part.
+                        </p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/Titanium-Jet-Engine-Blade-Turbine-Aircraft.webp"
+                                alt="Precision-machined titanium jet engine turbine blades for aerospace aircraft applications on a white background"
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="aerospace-component-specialization" >
+            <div class="content-container">
+                <h2>Aerospace Component Specialization</h2>
+                    <p>
+                        We manage the “Forge-to-Finish” cycle for the industry’s most demanding geometries. 
+                        Because we co-own and operate our facilities, we ensure total traceability from the 
+                        melt to the final 5-axis CNC inspection.
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Propulsion Systems:</strong>Jet engine compressor disks, Titanium Turbine Blades, and fan hubs.
+                        </li>
+                        <li>
+                            <strong>Structural Airframes:</strong> Wing spars, bulkheads, engine mounts, and pylon ribs.
+                        </li>
+                        <li>
+                            <strong>Actuation & Flight Control: </strong>Hydraulic cylinders, torque tubes, and specialized aerospace fasteners.
+                        </li>
+                    </ul>
+                
+            </div>
+        </section>
+
+        <section id="metallurgical-grain-flow-optimization" >
+            <div class="content-container">
+                <h2>Technical Authority: Metallurgical Grain Flow Optimization</h2>
+                
+                <p>
+                    Unlike standard machining, our forging process realigns the internal grain structure of 
+                    the titanium to follow the contours of the part. This results in superior mechanical properties:
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Fracture Toughness:</strong>Enhanced resistance to crack propagation in high-vibration environments.
+                    </li>
+                    <li>
+                        <strong>Fatigue Life:</strong>  Extended component lifespan by eliminating the “end-grain” weaknesses found in machined-from-plate parts.
+                    </li>
+                    <li>
+                        <strong>Yield Strength:</strong>Targeted grain refinement during the forging strike increases the material’s ability to withstand peak loads.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+        <section id="titanium-aerospace-standards" >
+            <div class="content-container">
+                <h2>Titanium Aerospace Standards & Specifications</h2>
+                
+                <p>
+                    Our co-owned factories operate under a unified Quality Management System (QMS) to meet the most stringent global aerospace standards.
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Alloy Grade</th>
+                                <th scope="col">Standard</th>
+                                <th scope="col">Primary Application</th>
+                                <th scope="col">Key Property</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Ti-6Al-4V</th>
+                                <td>AMS 4928</td>
+                                <td>Structural Airframes</td>
+                                <td>High strength-to-weight ratio.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ti-6Al-4V ELI</th>
+                                <td>ASTM F136</td>
+                                <td>Life-support / Medical</td>
+                                <td>High purity and damage tolerance.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ti-6Al-2Sn-4Zr-2Mo</th>
+                                <td>AMS 4975</td>
+                                <td>Engine Hot Sections</td>
+                                <td>Creep resistance at high temperatures.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ti-10V-2Fe-3Al</th>
+                                <td>AMS 4983</td>
+                                <td>Landing Gear</td>
+                                <td>Ultra-high fracture toughness.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="tier-1.5-integration" >
+            <div class="content-container">
+                <h2>The Tier-1.5 Integrated Advantage</h2>
+                
+                <p>
+                   ForceBeyond eliminates the “Hand-off Risk” between the forge and the machine shop. By interlinking our primary manufacturing processes, we provide a more resilient supply chain.
+                </p>
+
+                <h3>Integrated Finishing: <a href="aerospace-titanium-machining" class = "highlight-link">Aerospace Titanium Machining</a> </h3>
+                <p>
+                    To ensure flight-ready tolerances (as tight as ±0.005mm), all forgings are transitioned to our specialized aerospace machining centers. This ensures that the technical intent of the forging is preserved through the final finishing stage.
+                </p>
+                <h3>Design Alternative: <a href="titanium-aerospace-casting" class = "highlight-link"> Titanium Aerospace Casting</a></h3>
+                <p>
+                    For complex aerospace geometries such as turbine housings or bleed-air valves where forging dies are cost-prohibitive, our AS9100-certified casting hub provides a high-purity, near-net-shape alternative.
+                </p>
+            </div>
+        </section>
+        <section id = "logistics">
+            <div class="content-container">
+                <h2>Logistics & Compliance</h2>
+                <ul>
+                    <li>
+                        <strong>Certification:</strong>AS9100 Rev D, ISO 9001:2015, and ITAR compliance for defense-sensitive projects.
+                    </li>
+                    <li>
+                        <strong>Lead Times:</strong>14–18 weeks for integrated Forge-to-Finish cycles (60% faster than the industry average).
+                    </li>
+                    <li>
+                        <strong>Testing:</strong>In-house ultrasonic (UT), fluorescent penetrant (FPI), and radiographic inspection.
+                    </li>
+                </ul>   
+            </div>
+        </section>
+
+        <section id="request-quote">
+            <div class="content-container">
+                <h2>RFQ: Titanium Aerospace Forging</h2>
+                
+                <p>
+                    <strong>Optimize your “Buy-to-Fly” ratio with ForceBeyond’s operational oversight.</strong>                
+                </p>
+                <p>When requesting a quote for aerospace components, please provide:</p>
+                <ul>
+                    <li>
+                        <strong>Material Spec (e.g., AMS 4928)</strong>
+                    </li>
+                    <li>
+                        <strong>Nondestructive Testing (NDT) Requirements</strong>
+                    </li>
+                    <li>
+                        <strong>Critical Stress Axis Data</strong>(for grain flow optimization)
+                    </li>
+                    <li>
+                        <strong>Estimated Annual Usage (EAU)</strong>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</IndividualPageLayout>

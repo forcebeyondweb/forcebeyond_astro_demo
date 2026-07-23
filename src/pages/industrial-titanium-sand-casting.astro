@@ -1,0 +1,364 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Industrial Titanium Sand Casting: Large-Scale Corrosion Resistant Solutions';
+const seoTitle = 'Industrial Titanium Sand Casting | Heavy Pump & Valve Bodies';
+const seoDescription = 'High-capacity titanium sand casting for large-scale components up to 60 inches (1,500mm). Utilizing VIM (Vacuum Induction Melting) and vacuum-rammed graphite molds to eliminate alpha-case reaction in heavy-walled ASTM B367 components.';
+const faqs = [
+    {
+        q: "What is the lead time for large sand-cast components?",
+        a: "Due to the complexity of large-scale mold preparation and vacuum melting, lead times typically range from 14 to 18 weeks, including pattern making and NDT verification."
+    },
+    {
+        q: "Do large sand castings require HIP (Hot Isostatic Pressing)?",
+        a: "While HIP is always recommended for maximum integrity, many industrial pump and valve applications can meet performance specs without it, provided they pass 100% Radiographic (X-Ray) inspection."
+    },
+    {
+        q: "Can you handle the pattern equipment for legacy parts?",
+        a: "Yes. We can work from existing wood or plastic patterns, or our engineering team can reverse-engineer your legacy part using 3D scanning to create new high-durability pattern equipment."
+    }
+];
+
+// Sources 
+const sources = [
+    { label: 'American Foundry Society: "Metal Casting"', url: 'https://www.afsinc.org' },
+    { label: 'Forging Industry Association: "Forging Industry"', url: 'https://www.forging.org' },
+    { label: 'efunda. “Sand Casting“', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'The Investment Casting Institute. “What is Investment Casting?“',url:'https://www.investmentcasting.org/what-is-investment-casting.html'},
+    { label: 'ASM International. “Inconel 718 Alloy“', url: 'https://www.asminternational.org/materials-resources/alloy-database/technical-bulletin/inconel-718-alloy' }
+];
+
+// Resources 
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/industrial-titanium-sand-casting#webpage",
+      "url": "https://www.forcebeyond.store/oscar/industrial-titanium-sand-casting",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Titanium",
+          "sameAs": "https://en.wikipedia.org/wiki/Titanium"
+        },
+        {
+          "@type": "Thing",
+          "name": "Sand casting",
+          "sameAs": "https://en.wikipedia.org/wiki/Sand_casting"
+        },
+        {
+          "@type": "Thing",
+          "name": "Vacuum induction melting",
+          "sameAs": "https://en.wikipedia.org/wiki/Vacuum_induction_melting"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/industrial-titanium-sand-casting#service",
+      "name": "Industrial Titanium Sand Casting Services",
+      "serviceType": "Industrial Titanium Sand Casting Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Titanium Sand Casting",
+          "Vacuum Induction Melting (VIM)",
+          "ASTM B367 Grade C-2, C-5 & C-7 Alloys",
+          "Vacuum-Rammed Graphite Mold Production",
+          "Alpha-Case Contamination Mitigation",
+          "Large Envelope Component Casting",
+          "Heavy-Walled Pump & Valve Housings"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Titanium Sand Casting Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "VIM Large Envelope Sand Pours",
+              "description": "High-capacity titanium sand casting handling massive geometries up to 60 inches (1,500mm) using advanced Vacuum Induction Melting systems to ensure complete metallurgical integrity."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Alpha-Case Free Graphite Molding",
+              "description": "Utilization of proprietary vacuum-rammed graphite molds to eliminate reactions between molten titanium and oxygen, delivering zero interstitial alpha-case layer defects."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Heavy-Walled Fluid Handling Component Production",
+              "description": "Specialized casting for heavy-walled industrial pump bodies and valve housings exceeding 3.00 inches in thickness, engineered for highly corrosive chemical processing and marine environments."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/industrial-titanium-sand-casting#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/titanium-investment-casting-lost-wax-components-hero.webp"
+    heroImageAlt="Titanium investment casting process with precision cast components, ceramic shell mold, and molten metal in a modern foundry"
+    faqSectionTitle="FAQ: Industrial Titanium Sand Casting"
+    faqItems={faqs}
+    ctaTitle=""
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview" >
+            <div class="content-container">
+                
+                <h2>Industrial Titanium Sand Casting: Large-Scale Corrosion Resistant Solutions</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond provides high-capacity <a href="/oscar/industrial-titanium-sand-casting" class="highlight-link">Industrial Titanium Sand Casting</a> for large-scale, corrosion-critical 
+                            components. Specializing in <strong>ASTM B367</strong> grades, our co-owned facilities produce heavy-walled castings for 
+                            pump housings, valve bodies, and heat exchanger components. By utilizing advanced vacuum-rammed graphite 
+                            and sand molding techniques, we deliver titanium components up to <strong>60 inches (1,500mm)</strong> in diameter, 
+                            offering the ultimate protection for aggressive chemical and marine environments.
+                        </p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/titanium-casting-open-impeller-pump-component-4k.webp"
+                                alt="Precision titanium casting open impeller with curved vanes and machined edges for industrial pump applications on a white background."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="engineering-for-scale" >
+            <div class="content-container">
+                <h2>Engineering for Scale: The Sand Casting Process</h2>
+                    <p>
+                        While investment casting is limited by wax tree sizes, our sand casting process is designed for 
+                        the “Heavyweights” of the industrial sector. We utilize specialized molding media to minimize the 
+                        “Alpha-Case” reaction typically associated with large titanium pours.
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Vacuum-Rammed Molding:</strong>High-purity graphite or specialized sand is vacuum-packed to ensure mold stability during high-volume titanium pours.
+                        </li>
+                        <li>
+                            <strong>Large-Envelope Melting:</strong>Our VIM (Vacuum Induction Melting) furnaces are configured for large-batch pours, ensuring chemical homogeneity across heavy sections.
+                        </li>
+                        <li>
+                            <strong>Complex Coring: </strong>We utilize robust internal cores to create intricate flow paths for pump impellers and multi-port valve bodies that would be impossible to forge.
+                        </li>
+                    </ul>
+                
+            </div>
+        </section>
+
+        <section id="technical-benchmarks" >
+            <div class="content-container">
+                <h2>Technical Benchmarks: Sand Casting vs. Investment Casting</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Feature</th>
+                                <th scope="col">Industrial Sand Casting</th>
+                                <th scope="col">Precision Investment Casting</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Maximum Part Size</th>
+                                <td>Up to 60″ (1,500mm)</td>
+                                <td>Up to 24″ (600mm)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Typical Wall Thickness</th>
+                                <td>0.180″ – 3.00″+</td>
+                                <td>0.060″ – 0.500″</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Geometric Complexity</th>
+                                <td>Moderate to High</td>
+                                <td>Extreme</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Surface Finish</th>
+                                <td>250–500 RMS</td>
+                                <td>63–125 RMS</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ideal Application</th>
+                                <td>Pump/Valve Bodies</td>
+                                <td>Turbine Blades/Implants</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </section>
+
+
+        <section id="tier-1.5-advantage" >
+            <div class="content-container">
+                <h2>Multi-Process Optimization: The Tier-1.5 Advantage</h2>
+                
+                <p>
+                   ForceBeyond’s integrated network ensures that even the largest castings 
+                   meet the precision requirements of modern industrial systems.
+                </p>
+                <h3>
+                    Heavy Finishing: <a href="industrial-titanium-machining" class="highlight-link">Industrial Titanium Machining</a>
+                </h3>
+                <p>
+                    Large sand castings require significant “roughing” to reach final tolerances. Our co-owned machining centers are equipped with high-torque, 
+                    large-envelope CNC mills specifically calibrated for the scale of sand-cast components.
+                </p>
+                <h3>
+                    High-Integrity Upgrade: <a href="titanium-aerospace-casting" class="highlight-link"> Titanium Aerospace Casting</a>
+                </h3>
+                <p>
+                    If your industrial project requires the surface finish or thin-wall capabilities of aerospace hardware, 
+                    we can pivot your design to our <a href="titanium-investment-casting" class="highlight-link">Titanium Investment Casting</a> 
+                    for a higher-precision near-net-shape solution.
+                </p>
+
+            </div>
+        </section>
+
+        <section id="material-standards" >
+            <div class="content-container">
+                <h2>Materials & Corrosion Standards</h2>
+                
+                <p>
+                    We cast a wide range of titanium alloys designed to withstand the world’s most aggressive environments, 
+                    from desalination plants to offshore oil platforms.
+                </p>
+                
+                <ul>
+                    <li>
+                        <strong>CP Grade 2 (ASTM B367 Grade C-2):</strong>The workhorse of the chemical industry; offers excellent weldability and corrosion resistance.
+                    </li>
+                    <li>
+                        <strong>Ti-6Al-4V (ASTM B367 Grade C-5):</strong>For high-strength structural industrial components.
+                    </li>
+                    <li>
+                        <strong>Ti-Pd Grade 7 (ASTM B367 Grade C-7):</strong>Palladium-stabilized for extreme resistance to crevice corrosion in acidic media.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+
+
+        <section id="request-quote">
+            <div class="content-container">
+                <h2>Request an Industrial Casting Quote</h2>
+                
+                <p>
+                    <strong>Scale Your Production with Proven Corrosion-Resistant Technology.</strong>                
+                </p>
+                <p>Please provide the following for a technical quote:</p>
+                <ul>
+                    <li>
+                        <strong>Dimensional Drawings:</strong>(Including flange specs and wall thickness requirements)
+                    </li>
+                    <li>
+                        <strong>Chemical Environment: </strong>(To help us recommend the optimal Titanium Grade)
+                    </li>
+                    <li>
+                        <strong>Testing Requirements:</strong>(e.g., Hydrostatic pressure testing, X-Ray, or Dye Penetrant)
+                    </li>
+                    <li>
+                        <strong>Estimated Annual Usage (EAU):</strong>To optimize pattern costs and material purchasing.
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</IndividualPageLayout>

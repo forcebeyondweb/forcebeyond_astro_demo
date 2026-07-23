@@ -1,87 +1,361 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Sand Casting';
-const pageDescription = 'This page is under development. ForceBeyond provides custom metal component manufacturing solutions for industrial applications.';
+const pageTitle = 'Sand Casting: Large-Scale, Cost-Effective Metal Manufacturing';
+const seoTitle = 'Custom Sand Casting Services | Ductile Iron, Steel & Aluminum | ForceBeyond';
+const seoDescription = 'ForceBeyond provides custom sand casting services using green sand and resin/no-bake sand molding. Delivering heavy-duty ductile iron, steel, and A356 aluminum castings with complete Tier-1.5 CNC machining and NDT inspection.';
+
+const faqs = [
+    {
+        q: "How does sand casting differ from investment casting?",
+        a: "Sand casting uses a reusable pattern (usually wood or metal) to pack sand into a mold, which is then broken apart after the metal cools. It is highly cost-effective for large, heavy parts. Investment casting uses a ceramic shell built around a sacrificial wax pattern. It is much more expensive but yields exceptionally tight tolerances, very thin walls, and a beautiful surface finish."
+    },
+    {
+        q: "Why use Ductile Iron instead of standard Gray Iron?",
+        a: "Standard Gray Iron contains graphite in the shape of flakes, which makes the metal excellent at absorbing vibration but causes it to be somewhat brittle under impact. Ductile Iron is treated with magnesium to form the graphite into spheres (nodules). This gives Ductile Iron the high tensile strength, toughness, and impact resistance of steel, while maintaining the cost-effective castability of iron."
+    },
+    {
+        q: "Can you achieve a smooth surface finish with sand casting?",
+        a: "While standard green sand casting results in a somewhat rough, textured surface, ForceBeyond can utilize finer sand grains, specialized mold washes, and Resin (No-Bake) molding to significantly improve the as-cast surface finish. All critical mating surfaces will be precision CNC machined in-house."
+    },
+    {
+        q: "How does Sand Casting compare to Permanent Mold Casting?",
+        a: "The primary difference is the mold material. Sand casting uses expendable sand molds that must be broken apart for every single part, making it incredibly cost-effective for massive components or low-volume runs. Permanent mold casting (gravity die casting) uses reusable iron or steel molds. While permanent molds have much higher upfront tooling costs, they offer faster production cycle times, slightly tighter tolerances, and a denser grain structure for mid-to-high volume aluminum runs."
+    }
+];
+
+// Sources 
+const sources = [
+    { label: 'American Foundry Society (AFS): "Sand Casting Technology & Applications"', url: 'https://www.afsinc.org' },
+    { label: 'Ductile Iron Society (DIS)', url: 'https://www.ductile.org' },
+    { label: 'ASM International: "Casting Design and Metallurgy"', url: 'https://www.asminternational.org' }
+];
+
+// Resources 
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/sand-casting#webpage",
+      "url": "https://www.forcebeyond.store/oscar/sand-casting",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Sand casting",
+          "sameAs": "https://en.wikipedia.org/wiki/Sand_casting"
+        },
+        {
+          "@type": "Thing",
+          "name": "Ductile iron",
+          "sameAs": "https://en.wikipedia.org/wiki/Ductile_iron"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/sand-casting#service",
+      "name": "Large-Scale Sand Casting Manufacturing Services",
+      "serviceType": "Custom Sand Casting Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Large-Scale & Heavy-Duty Sand Casting",
+          "Automated Green Sand Molding Lines",
+          "Resin / No-Bake Sand Molding for Multi-Ton Components",
+          "Ferrous & Non-Ferrous Alloys (Ductile Iron, Gray Iron, Carbon Steel, A356 Aluminum)",
+          "Complex Internal Coring & Fluid Cavities",
+          "Heavy CNC Machining (VTLs & Horizontal Boring Mills)",
+          "Non-Destructive Testing (MPI, UT) & ISO 9001:2015 Integration"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Sand Casting Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Green Sand & Resin Sand Molding",
+              "description": "Scalable production of small-to-massive ferrous and non-ferrous components weighing from a few pounds up to multi-ton industrial castings."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Complex Internal Coring & Prototyping",
+              "description": "Custom sand coring for intricate internal fluid passages, volutes, and pump housings with rapid wood/3D-printed sand prototyping capabilities."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tier-1.5 Heavy CNC Machining & NDT Inspection",
+              "description": "Turnkey secondary processing including VTL turning, horizontal boring, heat treatment, stress relieving, shot blasting, and MPI/UT testing."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/sand-casting#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
 ---
 
-<Layout 
-    title={`${pageTitle} | ForceBeyond`}
-    description={pageDescription}
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"
+    faqSectionTitle="Frequently Asked Questions: Sand Casting"
+    faqItems={faqs}
+    ctaTitle="Request Quote For Sand Casting"
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
 >
-    <!-- Placeholder Page -->
-    <section class="relative w-full min-h-[calc(100vh-5rem)] bg-slate-50 pt-20 pb-24 px-6 sm:px-12">
-        <div class="w-full max-w-6xl mx-auto">
-            
-            <!-- Breadcrumb -->
-            <nav class="mb-10 text-sm text-slate-500">
-                <a href="/oscar/" class="hover:text-brand-blue transition">Home</a>
-                <span class="mx-2">/</span>
-                <span class="text-slate-700">{pageTitle}</span>
-            </nav>
 
-            <!-- Main Content -->
-            <div class="rounded-2xl border border-slate-200 bg-white p-8 sm:p-12 lg:p-16 shadow-sm">
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
                 
-                <p class="mb-4 text-xs font-semibold tracking-[0.22em] text-brand-blue uppercase">
-                    Page Under Development
-                </p>
+                <h2>Sand Casting: Large-Scale, Cost-Effective Metal Manufacturing</h2>
 
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 uppercase">
-                    {pageTitle}
-                </h1>
-
-                <div class="mt-6 h-1 w-16 bg-brand-blue rounded-full"></div>
-
-                <p class="mt-8 max-w-3xl text-lg sm:text-xl leading-8 text-slate-700 font-medium">
-                    This page is currently being prepared. ForceBeyond supports customers with precision casting, forging, CNC machining, quality control, and global supply chain coordination for high-demand industrial applications.
-                </p>
-
-                <div class="mt-10 grid gap-4 sm:grid-cols-3">
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Manufacturing
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Casting, forging, machining, and finishing support.
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond is a premier global supplier of high-quality sand cast components. As one of the oldest and most versatile metal manufacturing processes, sand casting remains the absolute standard for producing massive, heavy-duty components and complex geometries at an incredibly cost-effective price point.
+                        </p>
+                        <p>
+                            Operating under a strict ISO 9001:2015 quality management system, our high-capacity foundries utilize both automated green sand lines (for high-volume production) and precise resin/no-bake sand molding (for massive, low-volume parts). From lightweight aluminum engine blocks to heavy-duty ductile iron pump housings, we deliver fully machined, heat-treated, and coated castings tailored exactly to your engineering requirements.
                         </p>
                     </div>
-
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Quality
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Inspection, documentation, and traceability workflows.
-                        </p>
-                    </div>
-
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Supply Chain
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Multi-facility sourcing and delivery coordination.
-                        </p>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/custom-metal-sand-casting-parts-housings-flanges-4k.webp"
+                                alt="Custom metal sand casting parts, including pump housings, flanges, brackets, threaded fittings, and industrial components on a white background."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
                     </div>
                 </div>
 
-                <div class="mt-12 flex flex-col sm:flex-row gap-4">
-                    <a 
-                        href="/oscar/request-a-quote" 
-                        class="inline-flex items-center justify-center rounded-full bg-brand-green px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#5aaa14] shadow-sm"
-                    >
-                        Request Quote
-                    </a>
-
-                    <a 
-                        href="/oscar/#capabilities" 
-                        class="inline-flex items-center justify-center rounded-full border border-slate-300 px-8 py-3 text-sm font-semibold text-slate-700 transition hover:border-[#0363CE] hover:text-brand-blue"
-                    >
-                        View Capabilities
-                    </a>
-                </div>
             </div>
-        </div>
-    </section>
-</Layout>
+        </section>
+
+        <section id="technical-capabilities">
+            <div class="content-container">
+                <h2>Technical Capabilities: Sand Casting Materials</h2>
+                <p>
+                    The sand casting process is uniquely capable of pouring nearly any commercial alloy. ForceBeyond specializes in the heavy-duty ferrous metals and lightweight aluminum alloys most demanded by the industrial, automotive, and energy sectors.
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Material Category</th>
+                                <th scope="col">Common Grades Poured</th>
+                                <th scope="col">Key Features & Optimal Applications</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Ductile Iron</th>
+                                <td>ASTM A536 (60-40-18, 65-45-12, 80-55-06)</td>
+                                <td>Contains nodular graphite, providing the castability of iron with the tensile strength and toughness of steel. Ideal for heavy-duty automotive axles, gears, and suspension components.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Gray Iron</th>
+                                <td>ASTM A48 (Class 20, 30, 40)</td>
+                                <td>Excellent vibration dampening and thermal conductivity. Cost-effective and highly machinable. Used heavily for machine tool bases, engine blocks, and brake rotors.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Carbon & Alloy Steel</th>
+                                <td>WCB, 1020, 1045, 4140</td>
+                                <td>Massive strength and impact resistance. Mandatory for high-stress heavy machinery linkages, massive valve bodies, and structural mining equipment.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Aluminum Alloys</th>
+                                <td>A356-T6, 319, 355</td>
+                                <td>Excellent strength-to-weight ratio and corrosion resistance. Frequently used for aerospace components, lightweight automotive transmission housings, and complex marine impellers.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
+            </div>
+        </section>
+
+        <section id="why-partner">
+            <div class="content-container">
+                <h2>Why Partner with ForceBeyond for Sand Casting?</h2>
+                <p>
+                    When parts are incredibly large, have massive cross-sections, or require complex internal geometries, sand casting frequently outperforms forging and die casting.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Massive Size & Weight Capacity:</strong> Sand casting is not constrained by the physical size of a die casting machine or forging press. We can pour components weighing from just a few pounds up to several tons, making it the only viable process for massive industrial hardware.
+                    </li>
+                    <li>
+                        <strong>Low Tooling Costs:</strong> The patterns (tools) used to create the sand molds are typically made from wood, polyurethane, or aluminum. This makes sand casting tooling significantly cheaper and faster to produce than the hardened steel dies required for die casting or forging.
+                    </li>
+                    <li>
+                        <strong>Complex Internal Coring:</strong> By placing baked sand cores inside the main mold, we can cast highly intricate internal cavities, fluid passages, and volutes (such as those found in pump housings and engine blocks) that would be impossible to CNC machine.
+                    </li>
+                    <li>
+                        <strong>Rapid Prototyping to High-Volume:</strong> Using temporary wood patterns or 3D-printed sand molds, we can rapidly produce prototypes. Once the design is locked, we can transition the part to hard aluminum tooling on our automated green sand lines for high-volume, repeatable production.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="molding-process">
+            <div class="content-container">
+                <h2>The Sand Casting Process: Green Sand vs. Resin Sand</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond utilizes the most appropriate molding technology based on the size, surface finish, and volume requirements of your project.
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>Green Sand Molding:</strong> A mixture of sand, clay, and water (it is called "green" because it contains moisture, not because of its color). It is highly cost-effective, easily recyclable, and ideal for automated, high-volume production runs of small to medium-sized parts.
+                            </li>
+                            <li>
+                                <strong>Resin (No-Bake) Sand Molding:</strong> The sand is mixed with a chemical resin that hardens at room temperature. This creates an extremely rigid mold that yields tighter dimensional tolerances, a smoother surface finish, and the structural strength necessary to cast massive, multi-ton components.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/sand-cast-threaded-flange-mounting-housing-4k.webp"
+                                alt="Sand-cast metal threaded flange housing with three mounting holes and reinforced ribs on a white background."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="tier-1-5-integration">
+            <div class="content-container">
+                <h2>Tier-1.5 Integration: Cast, Machine & Finish Solutions</h2>
+                <p>
+                    Because sand castings have looser as-cast tolerances and rougher surface finishes than investment castings, secondary machining is almost always required. ForceBeyond operates a Tier-1.5 model, providing all necessary finishing under one roof.
+                </p>
+                <p>
+                    <strong>Our In-House Secondary Operations Include:</strong>
+                </p>
+                <ul>
+                    <li>
+                        <strong>Heavy CNC Machining:</strong> Large-envelope vertical turning lathes (VTLs) and horizontal boring mills to hit exact print tolerances on massive iron and steel castings.
+                    </li>
+                    <li>
+                        <strong>Advanced Heat Treatment:</strong> Stress relieving (crucial for large iron castings), Normalizing, Annealing, and the T6 heat treatment process (solution treating and artificial aging) to maximize the strength of A356 aluminum.
+                    </li>
+                    <li>
+                        <strong>Surface Preparation & Coating:</strong> Shot blasting to remove all molding sand, followed by rust-preventative coatings, powder coating, painting, or e-coating.
+                    </li>
+                    <li>
+                        <strong>Rigorous NDT:</strong> Magnetic Particle Inspection (MPI) and Ultrasonic Testing (UT) to guarantee the internal soundness of heavy structural parts.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="certified-applications">
+            <div class="content-container">
+                <h2>Certified Sand Casting Applications</h2>
+                <p>
+                    Our high-capacity foundry network supplies heavy-duty sand castings to:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Heavy Machinery & Agriculture:</strong> Tractor weights, excavator linkages, gearboxes, and massive structural frames.
+                    </li>
+                    <li>
+                        <strong>Pumps & Fluid Control:</strong> Massive WCB steel valve bodies, ductile iron pump volutes, and multi-stage impellers.
+                    </li>
+                    <li>
+                        <strong>Automotive & Commercial Vehicles:</strong> Engine blocks, cylinder heads, differential housings, and brake calipers.
+                    </li>
+                    <li>
+                        <strong>Energy & Power Generation:</strong> Wind turbine hubs, heavy-duty compressor housings, and gas turbine structural bases.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

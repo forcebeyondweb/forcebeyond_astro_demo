@@ -1,87 +1,247 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Agricultural';
-const pageDescription = 'This page is under development. ForceBeyond provides custom metal component manufacturing solutions for industrial applications.';
+const pageTitle = 'Agricultural Equipment Casting, Forging & Sub-Assembly';
+const seoTitle = 'Agricultural Equipment Casting, Forging & Sub-Assembly | ForceBeyond';
+const seoDescription = 'ForceBeyond supplies high-strength, cost-effective cast and forged agricultural components, coatings, and ready-to-assemble kitted hardware for OEMs.';
+
+const faqs = [
+    {
+        q: "What coatings are best for agricultural castings exposed to weather and fertilizers?",
+        a: "We recommend Electro-deposition Coating (E-Coating) or heavy-duty thermosetting Powder Coating, which provide high salt spray resistance and chemical protection against corrosive fertilizers."
+    },
+    {
+        q: "Can ForceBeyond provide pre-assembled hubs with pressed bearings?",
+        a: "Yes. Our assembly cells press bearings, install seals, apply torque-verified fasteners, and package complete hub modules ready for immediate machine mounting."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'SAE International: Agricultural Machinery Standards', url: 'https://www.sae.org' },
+    { label: 'ASTM International: Cast Iron and Forged Steel Specifications', url: 'https://www.astm.org' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Page Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/agricultural-equipment#webpage",
+      "url": "https://www.forcebeyond.store/oscar/agricultural-equipment",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/agricultural-equipment#service",
+      "name": "Agricultural Equipment Component Manufacturing",
+      "serviceType": "Agricultural Machinery OEM Manufacturing",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Automated Green Sand & Investment Casting",
+          "Closed-Die Precision Hot Forging for High Impact Components",
+          "Near-Net-Shape Casting & Cost Optimization",
+          "Protective E-Coating & UV-Resistant Powder Coating",
+          "Point-of-Use Kitting & Multi-Material Sub-Assembly"
+        ]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Agricultural Component Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Heavy Cast Machinery Hardware",
+              "description": "Ductile iron tractor frame brackets, gearbox housings, axle trumpets, and counterweights."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "High-Impact Forged Tillage & Harvesting Parts",
+              "description": "Forged plow points, tiller tines, combine cutter bars, and hitch components."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Kitting & Modular Sub-Assemblies",
+              "description": "Pre-assembled planetary gear kits, hub modules, and sealed bearing assemblies."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/agricultural-equipment#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
 ---
 
-<Layout 
-    title={`${pageTitle} | ForceBeyond`}
-    description={pageDescription}
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/agricultural-tractor-crop-spraying-green-farmland-hero.webp"
+    heroImageAlt="Red agricultural tractor spraying crops across a large green farmland field under a clear blue sky."
+    faqSectionTitle="Frequently Asked Questions"
+    faqItems={faqs}
+    ctaTitle="Optimize Your Agricultural OEM Manufacturing"
+    ctaDescription="Partner with ForceBeyond for value-engineered castings, high-impact forgings, and pre-assembled agricultural sub-components delivered right to your production line."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
 >
-    <!-- Placeholder Page -->
-    <section class="relative w-full min-h-[calc(100vh-5rem)] bg-slate-50 pt-20 pb-24 px-6 sm:px-12">
-        <div class="w-full max-w-6xl mx-auto">
-            
-            <!-- Breadcrumb -->
-            <nav class="mb-10 text-sm text-slate-500">
-                <a href="/oscar/" class="hover:text-brand-blue transition">Home</a>
-                <span class="mx-2">/</span>
-                <span class="text-slate-700">{pageTitle}</span>
-            </nav>
 
-            <!-- Main Content -->
-            <div class="rounded-2xl border border-slate-200 bg-white p-8 sm:p-12 lg:p-16 shadow-sm">
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
                 
-                <p class="mb-4 text-xs font-semibold tracking-[0.22em] text-brand-blue uppercase">
-                    Page Under Development
-                </p>
+                <h2>Agricultural Equipment Casting, Forging & Sub-Assembly</h2>
 
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 uppercase">
-                    {pageTitle}
-                </h1>
-
-                <div class="mt-6 h-1 w-16 bg-brand-blue rounded-full"></div>
-
-                <p class="mt-8 max-w-3xl text-lg sm:text-xl leading-8 text-slate-700 font-medium">
-                    This page is currently being prepared. ForceBeyond supports customers with precision casting, forging, CNC machining, quality control, and global supply chain coordination for high-demand industrial applications.
-                </p>
-
-                <div class="mt-10 grid gap-4 sm:grid-cols-3">
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Manufacturing
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Casting, forging, machining, and finishing support.
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond supplies high-strength, cost-effective cast and forged components for agricultural machinery OEMs. Farm machinery demands reliable performance in abrasive soil, high moisture, and heavy cyclic loads.
+                        </p>
+                        <p>
+                            By combining low-cost automated green sand casting, precision investment casting, and closed-die forging, ForceBeyond delivers fully machined, powder-coated, and pre-assembled agricultural hardware directly to assembly lines.
                         </p>
                     </div>
-
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Quality
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Inspection, documentation, and traceability workflows.
-                        </p>
-                    </div>
-
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Supply Chain
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Multi-facility sourcing and delivery coordination.
-                        </p>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/agricultural-equipment-overview-4k.webp"
+                                alt="agricultural-equipment-overview-4k."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
                     </div>
                 </div>
 
-                <div class="mt-12 flex flex-col sm:flex-row gap-4">
-                    <a 
-                        href="/oscar/request-a-quote" 
-                        class="inline-flex items-center justify-center rounded-full bg-brand-green px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#5aaa14] shadow-sm"
-                    >
-                        Request Quote
-                    </a>
+            </div>
+        </section>
 
-                    <a 
-                        href="/oscar/#capabilities" 
-                        class="inline-flex items-center justify-center rounded-full border border-slate-300 px-8 py-3 text-sm font-semibold text-slate-700 transition hover:border-[#0363CE] hover:text-brand-blue"
-                    >
-                        View Capabilities
-                    </a>
+        <section id="agricultural-matrix">
+            <div class="content-container">
+                <h2>Agricultural Capabilities & Alloys</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Manufacturing Process</th>
+                                <th scope="col">Primary Materials</th>
+                                <th scope="col">Key Components Produced</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Automated Sand Casting</th>
+                                <td>Ductile Iron (65-45-12), Gray Iron</td>
+                                <td>Heavy tractor frame brackets, gearbox housings, axle trumpets, and counterweights.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Precision Hot Forging</th>
+                                <td>AISI 1045, 4140 Alloy Steel</td>
+                                <td>High-impact plow points, tiller tines, combine cutter bars, and hitch components.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Aluminum Die Casting</th>
+                                <td>A380, A360 Aluminum Alloys</td>
+                                <td>Lightweight belt covers, seed metering housings, and tractor cab hardware.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Kitting & Sub-Assembly</th>
+                                <td>Multi-Material Integration</td>
+                                <td>Pre-assembled planetary gear kits, hub assemblies, and sealed bearing modules.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </div>
-    </section>
-</Layout>
+        </section>
+
+        <section id="cost-efficiency">
+            <div class="content-container">
+                <h2>Cost-Efficiency & Value Engineering</h2>
+                <p>
+                    Agricultural OEMs face strict cost targets. ForceBeyond optimizes manufacturing economics through:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Near-Net-Shape Casting:</strong> Reduces raw metal weight and minimizes secondary CNC machining time.
+                    </li>
+                    <li>
+                        <strong>In-House Finishing & Coating:</strong> E-coating and UV-resistant powder coating protect against soil corrosion and weather exposure.
+                    </li>
+                    <li>
+                        <strong>Point-of-Use Kitting:</strong> Delivering complete assembly kits under a single SKU to streamline factory line efficiency.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

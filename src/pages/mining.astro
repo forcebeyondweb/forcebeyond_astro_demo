@@ -1,87 +1,320 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Mining';
-const pageDescription = 'This page is under development. ForceBeyond provides custom metal component manufacturing solutions for industrial applications.';
+const pageTitle = 'Mining, Heavy Equipment & Agricultural Components';
+const seoTitle = 'Mining, Heavy Equipment & Agricultural Casting & Forging | ForceBeyond';
+const seoDescription = 'ForceBeyond supplies wear-resistant castings, forgings, and finished assemblies for mining, heavy excavation, and agricultural machinery OEMs.';
+
+const faqs = [
+    {
+        q: "How does ForceBeyond prevent premature wear on bucket teeth and liners?",
+        a: "We utilize high-alloy martensitic steel compositions combined with precision Quench & Tempering (Q&T) or induction case-hardening to maximize surface wear resistance while maintaining core toughness."
+    },
+    {
+        q: "Can ForceBeyond handle massive sand castings for heavy machinery?",
+        a: "Yes. Our high-capacity sand foundries can pour ductile iron and carbon steel castings weighing from a few pounds up to several tons."
+    },
+    {
+        q: "What coatings are best for agricultural castings exposed to weather and fertilizers?",
+        a: "We recommend Electro-deposition Coating (E-Coating) or heavy-duty thermosetting Powder Coating, which provide high salt spray resistance and chemical protection against corrosive fertilizers."
+    },
+    {
+        q: "Can ForceBeyond provide pre-assembled hubs with pressed bearings?",
+        a: "Yes. Our assembly cells press bearings, install seals, apply torque-verified fasteners, and package complete hub modules ready for immediate machine mounting."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'ASTM International: Heavy Equipment & Mining Material Specifications', url: 'https://www.astm.org' },
+    { label: 'SAE International: Agricultural & Construction Machinery Standards', url: 'https://www.sae.org' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Page Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/mining-heavy-equipment-agricultural#webpage",
+      "url": "https://www.forcebeyond.store/oscar/mining-heavy-equipment-agricultural",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/mining-heavy-equipment-agricultural#service",
+      "name": "Mining & Agricultural Heavy Component Manufacturing",
+      "serviceType": "Wear-Resistant & Heavy OEM Manufacturing",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Wear-Resistant Casting & Quenched & Tempered (Q&T) Forging",
+          "Automated Sand Casting for Heavy Structural Components",
+          "High-Manganese & Ni-Hard Abrasion-Resistant Alloys",
+          "Agricultural Equipment Kitting & Point-of-Use Sub-Assembly",
+          "E-Coating & UV-Resistant Powder Coating Protection"
+        ]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Heavy Equipment & Agricultural Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Excavation & Earthmoving Hardware",
+              "description": "Bucket teeth, track links, hydraulic cylinder mounts, and boom pins engineered for high mechanical impact."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Crushing & Screening Wear Components",
+              "description": "Jaw crusher plates, cone mantles, impactor hammers, and high-chrome slurry pump impellers."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Agricultural Sub-Assemblies & Hardware",
+              "description": "Tractor frame brackets, plow points, tiller tines, and pre-assembled hub modules."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/mining-heavy-equipment-agricultural#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
 ---
 
-<Layout 
-    title={`${pageTitle} | ForceBeyond`}
-    description={pageDescription}
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/heavy-duty-mining-dump-truck-open-pit-mine.webp"
+    heroImageAlt="Large yellow mining dump truck operating on a haul road inside a terraced open-pit mine."
+    faqSectionTitle="Frequently Asked Questions"
+    faqItems={faqs}
+    ctaTitle="Build Stronger, Longer-Lasting Heavy Machinery"
+    ctaDescription="Partner with our technical engineering team to manufacture high-wear, high-impact castings, forgings, and ready-to-install assemblies."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
 >
-    <!-- Placeholder Page -->
-    <section class="relative w-full min-h-[calc(100vh-5rem)] bg-slate-50 pt-20 pb-24 px-6 sm:px-12">
-        <div class="w-full max-w-6xl mx-auto">
-            
-            <!-- Breadcrumb -->
-            <nav class="mb-10 text-sm text-slate-500">
-                <a href="/oscar/" class="hover:text-brand-blue transition">Home</a>
-                <span class="mx-2">/</span>
-                <span class="text-slate-700">{pageTitle}</span>
-            </nav>
 
-            <!-- Main Content -->
-            <div class="rounded-2xl border border-slate-200 bg-white p-8 sm:p-12 lg:p-16 shadow-sm">
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
                 
-                <p class="mb-4 text-xs font-semibold tracking-[0.22em] text-brand-blue uppercase">
-                    Page Under Development
-                </p>
+                <h2>Mining & Heavy Equipment Casting, Forging & Finishing</h2>
 
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 uppercase">
-                    {pageTitle}
-                </h1>
-
-                <div class="mt-6 h-1 w-16 bg-brand-blue rounded-full"></div>
-
-                <p class="mt-8 max-w-3xl text-lg sm:text-xl leading-8 text-slate-700 font-medium">
-                    This page is currently being prepared. ForceBeyond supports customers with precision casting, forging, CNC machining, quality control, and global supply chain coordination for high-demand industrial applications.
-                </p>
-
-                <div class="mt-10 grid gap-4 sm:grid-cols-3">
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Manufacturing
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Casting, forging, machining, and finishing support.
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond produces heavy-duty, wear-resistant castings and forgings for the mining, excavation, construction, and material handling industries. Earthmoving equipment operates under continuous mechanical shock, heavy abrasion, and massive structural loads.
+                        </p>
+                        <p>
+                            Utilizing automated sand casting, heavy-tonnage hot forging, and 5-axis CNC machining, we manufacture high-strength carbon steels, low-alloy chromoly steels (4140/4340), and ductile irons. Our components are heat-treated (Quenched & Tempered) to deliver extreme surface hardness while maintaining a ductile, fracture-resistant core.
                         </p>
                     </div>
-
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Quality
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Inspection, documentation, and traceability workflows.
-                        </p>
-                    </div>
-
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Supply Chain
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Multi-facility sourcing and delivery coordination.
-                        </p>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/mining-overview-4k.webp"
+                                alt="Heavy-duty equipment for mining and heavy machinery applications."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
                     </div>
                 </div>
 
-                <div class="mt-12 flex flex-col sm:flex-row gap-4">
-                    <a 
-                        href="/oscar/request-a-quote" 
-                        class="inline-flex items-center justify-center rounded-full bg-brand-green px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#5aaa14] shadow-sm"
-                    >
-                        Request Quote
-                    </a>
+            </div>
+        </section>
 
-                    <a 
-                        href="/oscar/#capabilities" 
-                        class="inline-flex items-center justify-center rounded-full border border-slate-300 px-8 py-3 text-sm font-semibold text-slate-700 transition hover:border-[#0363CE] hover:text-brand-blue"
-                    >
-                        View Capabilities
-                    </a>
+        <section id="mining-matrix">
+            <div class="content-container">
+                <h2>High-Wear Material & Capabilities Matrix</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Material Grade</th>
+                                <th scope="col">Hardness / Strength Profile</th>
+                                <th scope="col">Target Mining & Excavation Application</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">AISI 4140 / 4340 Alloy Steel</th>
+                                <td>Q&T Hardened up to 55+ HRC</td>
+                                <td>High impact toughness and fatigue resistance for excavator drive shafts, pins, and linkages.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">High-Manganese Steel</th>
+                                <td>Work-hardens up to 500+ HBW</td>
+                                <td>Crusher liners, hammer mill teeth, and jaw plates that harden under continuous impact.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ductile Iron (A536 100-70-03)</th>
+                                <td>Tensile Strength: 100,000 psi</td>
+                                <td>Heavy-duty gearbox housings, planetary carriers, and track roller assemblies.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ni-Hard / High-Chrome Iron</th>
+                                <td>Abrasion Resistant (60+ HRC)</td>
+                                <td>Slurry pump impellers, suction liners, and gravel pumping volutes exposed to abrasive slurry.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </div>
-    </section>
-</Layout>
+        </section>
+
+        <section id="heavy-components">
+            <div class="content-container">
+                <h2>Certified Heavy Equipment Components</h2>
+                <ul>
+                    <li>
+                        <strong>Excavation & Earthmoving:</strong> Excavator bucket teeth, adapter adapters, track links, hydraulic cylinder mounts, and boom pins.
+                    </li>
+                    <li>
+                        <strong>Crushing & Screening:</strong> Jaw crusher plates, cone crusher mantles, impactor hammers, and sizing screens.
+                    </li>
+                    <li>
+                        <strong>Haulage & Drivetrain:</strong> Heavy truck axle housings, ring gears, wheel hubs, planetary gear carriers, and brake housings.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="agricultural-equipment">
+            <div class="content-container">
+                <h2>Agricultural Equipment Casting, Forging & Sub-Assembly</h2>
+                <p>
+                    ForceBeyond supplies high-strength, cost-effective cast and forged components for agricultural machinery OEMs. Farm machinery demands reliable performance in abrasive soil, high moisture, and heavy cyclic loads.
+                </p>
+                <p>
+                    By combining low-cost automated green sand casting, precision investment casting, and closed-die forging, ForceBeyond delivers fully machined, powder-coated, and pre-assembled agricultural hardware directly to assembly lines.
+                </p>
+                
+                <h3>Agricultural Capabilities & Alloys</h3>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Manufacturing Process</th>
+                                <th scope="col">Primary Materials</th>
+                                <th scope="col">Key Components Produced</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Automated Sand Casting</th>
+                                <td>Ductile Iron (65-45-12), Gray Iron</td>
+                                <td>Heavy tractor frame brackets, gearbox housings, axle trumpets, and counterweights.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Precision Hot Forging</th>
+                                <td>AISI 1045, 4140 Alloy Steel</td>
+                                <td>High-impact plow points, tiller tines, combine cutter bars, and hitch components.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Aluminum Die Casting</th>
+                                <td>A380, A360 Aluminum Alloys</td>
+                                <td>Lightweight belt covers, seed metering housings, and tractor cab hardware.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Kitting & Sub-Assembly</th>
+                                <td>Multi-Material Integration</td>
+                                <td>Pre-assembled planetary gear kits, hub assemblies, and sealed bearing modules.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="value-engineering">
+            <div class="content-container">
+                <h2>Cost-Efficiency & Value Engineering</h2>
+                <p>
+                    Agricultural OEMs face strict cost targets. ForceBeyond optimizes manufacturing economics through:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Near-Net-Shape Casting:</strong> Reduces raw metal weight and minimizes secondary CNC machining time.
+                    </li>
+                    <li>
+                        <strong>In-House Finishing & Coating:</strong> E-coating and UV-resistant powder coating protect against soil corrosion and weather exposure.
+                    </li>
+                    <li>
+                        <strong>Point-of-Use Kitting:</strong> Delivering complete assembly kits under a single SKU to streamline factory line efficiency.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

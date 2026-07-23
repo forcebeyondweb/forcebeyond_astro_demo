@@ -1,0 +1,254 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Superalloys & Exotic Metals Casting & Machining';
+const seoTitle = 'Superalloys & Exotic Metals Casting & Machining | ForceBeyond';
+const seoDescription = 'Precision vacuum investment casting, forging, and 5-axis CNC machining for Inconel 718, Inconel 625, Hastelloy, and Cobalt-Chrome.';
+
+const faqs = [
+    {
+        q: "Why is Vacuum Induction Melting (VIM) necessary for superalloys?",
+        a: "Casting inside high-vacuum chambers eliminates dissolved atmospheric gases and oxide inclusions, yielding exceptionally high-purity grain structures required for extreme temperature environments."
+    },
+    {
+        q: "How does Hot Isostatic Pressing (HIP) improve superalloy casting quality?",
+        a: "Subjecting superalloy investment castings to simultaneous high temperatures and extreme gas pressure (15,000+ psi) eliminates internal microporosity, increasing rotational fatigue life by up to 300%."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'AS9100 Rev D Quality Management Systems - Aviation, Space & Defense', url: 'https://www.sae.org' },
+    { label: 'AMS 5662 / 5383 Inconel 718 Specifications', url: 'https://www.sae.org' },
+    { label: 'AMS 5666 / ASTM B564 Inconel 625 Specifications', url: 'https://www.astm.org' },
+    { label: 'ASTM F75 Standard Specification for Cobalt-28 Chromium-6 Molybdenum Alloy Castings', url: 'https://www.astm.org' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Page Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/superalloys-exotic-metals#webpage",
+      "url": "https://www.forcebeyond.store/oscar/superalloys-exotic-metals",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/superalloys-exotic-metals#service",
+      "name": "Superalloy & Exotic Metal Precision Manufacturing",
+      "serviceType": "High-Temperature Precision Manufacturing",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Vacuum Induction Melting (VIM) Investment Casting",
+          "15,000+ PSI Hot Isostatic Pressing (HIP)",
+          "Inconel 718 & 625 Precision Components",
+          "Hastelloy X High Thermal Stability Hardware",
+          "Cobalt-Chrome (CoCrMo) Biocompatible & Wear Components"
+        ]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Superalloy Processing Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Inconel High-Temperature Components",
+              "description": "Precipitation-hardenable Inconel 718 and non-magnetic Inconel 625 for aerospace turbines, SMR nuclear, and marine hardware."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Hastelloy Thermal & Corrosion Solutions",
+              "description": "Hastelloy X precision parts offering thermal stability up to 2,200°F (1,200°C) for transition ducts and combustion cans."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cobalt-Chrome Precision Hardware",
+              "description": "ASTM F75 CoCrMo alloys for high-wear valve trim and orthopedic medical implants."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/superalloys-exotic-metals#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="Vacuum investment cast and 5-axis machined high-temperature superalloy component"
+    faqSectionTitle="Frequently Asked Questions"
+    faqItems={faqs}
+    ctaTitle="Conquer High-Temperature Manufacturing Challenges"
+    ctaDescription="Partner with our advanced metallurgy team for dense, defect-free vacuum investment castings and 5-axis CNC machined superalloy components."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Superalloys & Exotic Metals: Inconel, Hastelloy & Cobalt-Chrome</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond specializes in precision vacuum investment casting (VIM), heavy closed-die forging, and multi-axis CNC machining of high-temperature nickel, cobalt, and iron-based Superalloys and Exotic Metals. Engineered to maintain high mechanical strength, oxidation resistance, and structural integrity under severe thermal stress exceeding 1,200°F (650°C), superalloys are the foundation of modern aerospace, power generation, and advanced defense systems.
+                        </p>
+                        <p>
+                            Utilizing state-of-the-art Vacuum Induction Melting (VIM) foundries and 15,000+ psi Hot Isostatic Pressing (HIP) vessels, ForceBeyond produces dense, defect-free superalloy hardware with full AS9100 Rev D quality compliance.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/superalloys-exotic-metals-overview-4k.webp"
+                                alt="High-temperature Inconel turbine component precision-machined using 5-axis CNC technology."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="technical-specifications">
+            <div class="content-container">
+                <h2>Technical Specifications: High-Performance Superalloy Grades</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Alloy Grade</th>
+                                <th scope="col">Standard Specifications</th>
+                                <th scope="col">Yield Strength (0.2% Offset)</th>
+                                <th scope="col">Key Features & Optimal Applications</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Inconel 718</th>
+                                <td>UNS N07718<br />AMS 5662 / 5383</td>
+                                <td>1,100–1,300 MPa (160–190 ksi)</td>
+                                <td>Precipitation-hardenable nickel-chromium alloy with high creep-rupture strength up to 1,300°F (700°C). Used for HGP Turbine Buckets and rocket propulsion nozzles.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Inconel 625</th>
+                                <td>UNS N06625<br />AMS 5666 / ASTM B564</td>
+                                <td>415–600 MPa (60–87 ksi)</td>
+                                <td>Non-magnetic nickel-chromium-molybdenum alloy with superior corrosion resistance against hot acids and chloride pitting. Used for SMR Nuclear heat exchangers and marine hardware.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Hastelloy X</th>
+                                <td>UNS N06002<br />AMS 5754 / ASTM B572</td>
+                                <td>380–500 MPa (55–72 ksi)</td>
+                                <td>Exceptional oxidation resistance, high thermal stability, and formability in combustion atmospheres up to 2,200°F (1,200°C). Used for transition ducts and gas turbine combustion cans.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Cobalt-Chrome (CoCrMo)</th>
+                                <td>ASTM F75<br />UNS R30075</td>
+                                <td>550–850 MPa (80–123 ksi)</td>
+                                <td>Extreme wear resistance, high polishability, and outstanding biocompatibility. Ideal for orthopedic knee/hip implants and heavy-wear valve trim.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="advanced-processing">
+            <div class="content-container">
+                <h2>Advanced Processing for Hard-to-Machine Alloys</h2>
+                <p>
+                    Superalloys work-harden rapidly and generate extreme heat during machining, damaging conventional cutting tools. ForceBeyond overcomes these challenges through disciplined manufacturing strategies:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Vacuum Induction Melting (VIM):</strong> Casting inside high-vacuum chambers eliminates dissolved atmospheric gases and oxide inclusions, yielding high-purity grain structures.
+                    </li>
+                    <li>
+                        <strong>Hot Isostatic Pressing (HIP):</strong> Subjecting superalloy investment castings to simultaneous high temperatures and extreme gas pressure eliminates internal microporosity, increasing rotational fatigue life by up to 300%.
+                    </li>
+                    <li>
+                        <strong>High-Rigidity 5-Axis CNC Machining:</strong> Utilizing specialized ceramic and carbide tooling geometries, high-pressure through-spindle coolant (1,000+ psi), and rigid machine beds to cut complex 3D profiles without inducing thermal distortion.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

@@ -1,0 +1,364 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Aluminum Die Casting: High-Volume Precision Manufacturing';
+const seoTitle = 'Custom Aluminum Die Casting Services | Precision High-Volume Alloys';
+const seoDescription = 'ForceBeyond delivers custom aluminum die casting for A380, A360, B390, 413, 383, and A413 alloys. Featuring 180 to 2,000-ton cold-chamber presses, near-net-shape accuracy for parts up to 40+ lbs, and complete Tier-1.5 CNC machining and finishing.';
+
+const faqs = [
+    {
+        q: "What is the Aluminum Die Casting process?",
+        a: "Aluminum die casting is a manufacturing process that produces accurately dimensioned, sharply defined aluminum parts using reusable hardened steel molds (dies). Liquid aluminum alloy is injected into the die cavity under high pressure, rapidly solidified, and ejected, making it ideal for high-volume production."
+    },
+    {
+        q: "How does aluminum die casting compare to sand casting?",
+        a: "Aluminum die casting is significantly faster and more precise than sand casting. While sand casting requires a new sand mold to be created for every single part, die casting uses reusable steel dies to produce tens of thousands of highly accurate castings in quick succession."
+    },
+    {
+        q: "What surface finishes can be applied to aluminum die castings?",
+        a: "Because aluminum has excellent natural corrosion resistance, finishes are often applied for aesthetic or enhanced functional purposes. ForceBeyond offers comprehensive in-house finishing, including powder coating, e-coating, anodizing, chrome plating, and shot blasting."
+    }
+];
+
+// Sources 
+const sources = [
+    { label: 'North American Die Casting Association (NADCA)', url: 'https://www.diecasting.org' },
+    { label: 'American Foundry Society: "Metal Casting"', url: 'https://www.afsinc.org' },
+    { label: 'ASM International: "Aluminum and Aluminum Alloys"', url: 'https://www.asminternational.org' }
+];
+
+// Resources 
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/aluminum-die-casting#webpage",
+      "url": "https://www.forcebeyond.store/oscar/aluminum-die-casting",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Die casting",
+          "sameAs": "https://en.wikipedia.org/wiki/Die_casting"
+        },
+        {
+          "@type": "Thing",
+          "name": "Aluminum alloy",
+          "sameAs": "https://en.wikipedia.org/wiki/Aluminium_alloy"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/aluminum-die-casting#service",
+      "name": "High-Volume Precision Aluminum Die Casting Services",
+      "serviceType": "Custom Aluminum Die Casting Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "High-Volume Precision Aluminum Die Casting",
+          "Cold-Chamber Aluminum Die Casting Machines (180 to 2,000 Metric Tons)",
+          "Aluminum Alloy Grades (A380, A360, 413, 383, B390, A413)",
+          "Near-Net-Shape Accuracy & Thin Wall Casting",
+          "Monolithic Lightweight Component Design",
+          "Tier-1.5 Cast-to-Machine & Surface Finishing Integration",
+          "ISO 9001:2015 Quality Management Systems"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Aluminum Die Casting Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cold-Chamber High-Pressure Aluminum Injection",
+              "description": "Scalable production of lightweight, high-strength aluminum parts weighing up to 40+ lbs using 180 to 2,000-ton cold-chamber die casting machines."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Near-Net-Shape Monolithic Casting",
+              "description": "Custom engineering to produce complex, thin-walled monolithic parts that replace multi-component assemblies and reduce secondary machining requirements."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tier-1.5 Cast-to-Machine & Finishing",
+              "description": "Turnkey secondary operations under one quality umbrella, including 5-axis CNC machining, e-coating, anodizing, powder coating, and shot blasting."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/aluminum-die-casting#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"
+    faqSectionTitle="Frequently Asked Questions: Aluminum Die Casting"
+    faqItems={faqs}
+    ctaTitle="Request Quote For Aluminum Die Casting"
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Aluminum Die Casting: High-Volume Precision Manufacturing</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond is a premier aluminum die casting supplier providing superior-quality, mission-critical components for a wide range of industries including automotive, aerospace, energy, and medical devices. Utilizing advanced die casting machines ranging from 180 to 2,000 metric tons, we produce parts weighing from a few grams up to more than 40 pounds.
+                        </p>
+                        <p>
+                            Our global manufacturing network combines domestic engineering expertise with scalable production to ensure high-quality, high-speed delivery, and supply chain redundancy. With near-net-shape accuracy and a complete suite of secondary CNC machining and finishing operations, we deliver lightweight, high-strength parts that are assembly-ready.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/custom-aluminum-die-casting-parts-engine-housings-4k.webp"
+                                alt="Custom aluminum die-cast parts, including engine housings, cylinder components, brackets, covers, and precision automotive castings on a white background."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="technical-specifications">
+            <div class="content-container">
+                <h2>Technical Specifications: Aluminum Die Casting Alloys</h2>
+                <p>
+                    ForceBeyond ensures all aluminum die castings meet rigorous international quality standards. We offer a variety of alloys to match the precise mechanical, thermal, and dimensional stability requirements of your project.
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Material</th>
+                                <th scope="col">Tensile Strength (MPa)</th>
+                                <th scope="col">Thermal Conductivity (W/mK)</th>
+                                <th scope="col">Key Features & Applications</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Aluminum A380</th>
+                                <td>325</td>
+                                <td>96</td>
+                                <td>Best combination of mechanical and thermal properties. Widely used for engine brackets, electronic equipment chassis, and gearboxes.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Aluminum A360</th>
+                                <td>317</td>
+                                <td>113</td>
+                                <td>Excellent pressure tightness and fluidity. High corrosion resistance and high strength in elevated temperatures.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Aluminum 413</th>
+                                <td>295</td>
+                                <td>121</td>
+                                <td>Excellent fluidity, pressure tightness, and high resistance to hot cracking.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Aluminum 383</th>
+                                <td>310</td>
+                                <td>96</td>
+                                <td>Good corrosion resistance and highly intricate component capabilities. Lightweight with excellent dimension stability.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Aluminum B390</th>
+                                <td>317</td>
+                                <td>134</td>
+                                <td>High hardness and excellent wear resistance. Ideal for internal combustion engine pistons, brakes, and compressor cylinder bodies.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Aluminum A413</th>
+                                <td>290</td>
+                                <td>121</td>
+                                <td>Excellent pressure tightness. A prime choice for intricate hydraulic cylinders.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
+            </div>
+        </section>
+
+        <section id="why-partner">
+            <div class="content-container">
+                <h2>Why Partner with ForceBeyond for Aluminum Die Casting?</h2>
+                <p>
+                    A reliable supply of precision aluminum die castings requires a manufacturing partner with advanced capacity, diverse alloy expertise, and direct oversight.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Unmatched Production Speed:</strong> The complete cycle of aluminum die casting is the fastest process available for producing precision aluminum parts, significantly outpacing sand or permanent mold casting.
+                    </li>
+                    <li>
+                        <strong>Direct Operational Control:</strong> We eliminate the "broker gap." By closely managing our production facilities and Quality Management System (QMS), ForceBeyond ensures prioritized lead times and consistent quality across tens of thousands of cycles.
+                    </li>
+                    <li>
+                        <strong>Near-Net-Shape Accuracy:</strong> Our process achieves exceptionally tight tolerances, minimizing the need for secondary machining even on highly intricate designs with thin wall thicknesses.
+                    </li>
+                    <li>
+                        <strong>Monolithic Design Efficiency:</strong> Combine multiple functions into one single, lightweight, and high-strength component, creating a highly economical alternative to multi-part assemblies.
+                    </li>
+                </ul>
+                <div class="mt-8 mb-8 overflow-hidden rounded-lg shadow-lg aspect-video max-w-4xl mx-auto">
+                    <iframe 
+                        class="w-full h-full"
+                        src="https://www.youtube.com/embed/7e2cGc7_Uas?autoplay\u003d1\u0026rel\u003d0\u0026enablejsapi\u003d1\u0026wmode\u003dopaque" 
+                        title="ForceBeyond Hot-Chamber Zinc Die Casting Process Demonstration Video"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="advanced-capabilities">
+            <div class="content-container">
+                <h2>Advanced Capabilities: From Micro-Parts to 40+ lbs</h2>
+                <p>
+                    To meet the structural and volume requirements of modern manufacturing, ForceBeyond utilizes state-of-the-art cold-chamber die casting equipment. The process begins with hardened tool steel dies, crafted in at least two sections to permit the seamless ejection of complex geometries.
+                </p>
+                <p>
+                    High-temperature liquid aluminum alloy is injected into the die cavity under immense pressure, resulting in rapid solidification. This process ensures exceptional dimensional consistency and sharply defined, smooth, or textured surfaces, capable of producing parts ranging from miniature components to large structural housings exceeding 40 pounds.
+                </p>
+            </div>
+        </section>
+
+        <section id="tier-1-5-integration">
+            <div class="content-container">
+                <h2>Tier-1.5 Integration: Precision Cast-to-Machine & Finishing Solutions</h2>
+                <p>
+                    ForceBeyond provides a seamless transition from raw casting to a finished, assembly-ready component. Our Tier-1.5 model integrates our high-volume die casting foundries with advanced high-precision CNC machining centers and comprehensive surface finishing lines.
+                </p>
+                <p>
+                    By managing the entire value chain under our ISO 9001:2015 quality umbrella, we eliminate dimensional “hand-off” risks between vendors.
+                </p>
+                <p>
+                    <strong>Our In-House Secondary Operations Include:</strong>
+                </p>
+                <ul>
+                    <li>
+                        <strong>Precision Machining:</strong> CNC machining, milling, drilling, and tapping.
+                    </li>
+                    <li>
+                        <strong>Protective & Aesthetic Coatings:</strong> E-coating, anodizing, powder coating, painting, and chrome plating.
+                    </li>
+                    <li>
+                        <strong>Surface Preparation:</strong> Sanding, shot blasting, and bright finishing.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="certified-applications">
+            <div class="content-container">
+                <h2>Certified Aluminum Die Casting Applications</h2>
+                <p>
+                    Our specialized foundry network supports the world's most demanding sectors with lightweight, corrosion-resistant components:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Automotive & Transportation:</strong> Engine brackets, gearboxes, and structural vehicle components.
+                    </li>
+                    <li>
+                        <strong>Industrial Machinery & HVAC:</strong> Hydraulic cylinders, compressor bodies, and plumbing fixtures.
+                    </li>
+                    <li>
+                        <strong>Energy & Petrochemical:</strong> Power infrastructure hardware, submarine components, and mining equipment.
+                    </li>
+                    <li>
+                        <strong>Aerospace & Medical:</strong> Intricate, weight-critical parts requiring exceptional dimensional stability.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

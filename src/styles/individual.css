@@ -26,6 +26,19 @@
     .individual-content .page-lead {
         @apply mb-8 text-slate-700 text-lg sm:text-xl leading-relaxed;
     }
+    .individual-content .highlight-link {
+        color: #F97316 !important;      
+        font-weight: 600;              
+        text-decoration: none;         
+        transition: color 0.2s ease, text-decoration 0.2s ease; /* 丝滑的过渡动画 */
+    }
+
+    /* 鼠标悬停（Hover）与聚焦时的效果 */
+    .individual-content .highlight-link:hover,
+    .individual-content .highlight-link:focus {
+        color: #EA580C !important;     
+        text-decoration: underline;      
+    }
 
     /* Headings */
     .individual-content h2,
@@ -57,6 +70,12 @@
     .individual-content ol,
     .individual-content .content-list-ordered {
         @apply list-decimal pl-6 space-y-3 mt-4 text-base sm:text-lg leading-7 text-slate-600;
+    }
+
+    /* Add this rule to strip styling when requested */
+    .individual-content ul.no-bullets,
+    .individual-content .content-list-plain {
+        @apply list-none pl-0;
     }
 
     .individual-content li strong {
@@ -130,5 +149,20 @@
 
     .individual-content .content-callout {
         @apply mt-8 mb-8 border-l-4 border-[#0363CE] bg-[#F8FAFC] p-6 text-slate-700 leading-relaxed rounded-r-lg;
+    }
+    /* FAQ Section */
+    .layout-sections-wrapper :global(p a),
+    .layout-sections-wrapper :global(.highlight-link) {
+        color: #F97316 !important;   
+        font-weight: 600 !important; 
+        text-decoration: none !important;
+        transition: color 0.2s ease;
+    }
+
+    /* Hover effect for FAQ links */
+    .layout-sections-wrapper :global(p a:hover),
+    .layout-sections-wrapper :global(.highlight-link:hover) {
+        color: #EA580C !important;   
+        text-decoration: underline !important; 
     }
 }

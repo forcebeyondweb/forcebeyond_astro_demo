@@ -1,0 +1,339 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Near-Net-Shape (NNS) Titanium Machining: High-Efficiency Finishing';
+const seoTitle = 'Near-Net-Shape Titanium Machining | Optimize Buy-to-Fly Ratios';
+const seoDescription = 'Precision CNC finishing for near-net-shape titanium forgings and castings. ForceBeyond minimizes raw material waste, reducing buy-to-fly ratios down to 3.5:1 or lower for high-yield Ti-6Al-4V flight and industrial components.';
+const faqs = [
+    {
+        q: "Can you machine NNS blanks provided by other forges?",
+        a: "While we specialize in our own Tier-1.5 integrated production, we can machine customer-supplied NNS forgings. We typically perform a 3D scan of the as-forged blank to ensure our toolpaths align with your specific material distribution."
+    },
+    {
+        q: "Does NNS machining affect the surface integrity of the titanium?",
+        a: "No. Because we are taking lighter “finishing” cuts, we generate less heat than heavy roughing. This makes it easier to maintain required metallurgical properties and surface finishes (32 RMS or better)."
+    },
+    {
+        q:"What is the ROI on switching to an NNS Machining strategy?",
+        a:"Most clients see an ROI within the first 100 to 500 parts. The upfront tooling cost for NNS forging is offset by the massive savings in raw titanium and reduced CNC machine hours."
+    }
+];
+
+// Sources 
+const sources = [
+    { label: 'American Foundry Society: "Metal Casting"', url: 'https://www.afsinc.org' },
+    { label: 'Forging Industry Association: "Forging Industry"', url: 'https://www.forging.org' },
+    { label: 'efunda. “Sand Casting“', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'The Investment Casting Institute. “What is Investment Casting?“',url:'https://www.investmentcasting.org/what-is-investment-casting.html'},
+    { label: 'ASM International. “Inconel 718 Alloy“', url: 'https://www.asminternational.org/materials-resources/alloy-database/technical-bulletin/inconel-718-alloy' }
+];
+
+// Resources 
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/near-net-shape-titanium-machining#webpage",
+      "url": "https://www.forcebeyond.store/oscar/near-net-shape-titanium-machining",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Near net shape",
+          "sameAs": "https://en.wikipedia.org/wiki/Near_net_shape"
+        },
+        {
+          "@type": "Thing",
+          "name": "Titanium alloy",
+          "sameAs": "https://en.wikipedia.org/wiki/Titanium_alloy"
+        },
+        {
+          "@type": "Thing",
+          "name": "Machining",
+          "sameAs": "https://en.wikipedia.org/wiki/Machining"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/near-net-shape-titanium-machining#service",
+      "name": "Near-Net-Shape Titanium Machining Services",
+      "serviceType": "Near-Net-Shape Titanium Machining Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Near-Net-Shape (NNS) Machining",
+          "Buy-to-Fly Ratio Optimization",
+          "Post-Forging & Post-Casting CNC Finishing",
+          "Titanium Rough Skin Tooling Strategies",
+          "Tool Deflection Mitigation",
+          "5-Axis CNC Milling for Rough Envelopes",
+          "Tier-1.5 Supply Chain Integration"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Near-Net-Shape Titanium Machining Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Buy-to-Fly Ratio Optimization",
+              "description": "Precision finishing of titanium forgings and castings designed to drastically minimize raw material waste, often reducing the buy-to-fly ratio to 3.5:1 or lower for high-value structural components."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "5-Axis Casting & Forging Finishing",
+              "description": "Advanced multi-axis CNC machining specialized in envelope alignment and rough-skin removal for near-net-shape components up to 60 inches, guaranteeing final tolerances of ±0.005mm."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Integrated Tier-1.5 Manufacturing",
+              "description": "End-to-end supply chain solution directly linking foundry output with AS9100-certified finish machining to eliminate multi-vendor friction, transport costs, and lead times."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/near-net-shape-titanium-machining#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/aerospace-titanium-5-axis-machining-as9100-hero.webp"
+    heroImageAlt="Precision 5-axis machining of an aerospace titanium component in an AS9100-certified manufacturing environment"
+    faqSectionTitle="FAQ: Near-Net-Shape Titanium Machining"
+    faqItems={faqs}
+    ctaTitle=""
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview" >
+            <div class="content-container">
+                
+                <h2>Near-Net-Shape (NNS) Titanium Machining: High-Efficiency Finishing</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond provides specialized <a href="near-net-shape-titanium-machining" class = "highlight-link">Near-Net-Shape Titanium Machining</a> designed to maximize the economic 
+                            advantages of our NNS forging and investment casting programs. By utilizing high-speed 5-axis toolpaths 
+                            and specialized “skin-cut” strategies, we reduce secondary CNC cycle times by <strong>30% to 45%</strong>. Our Tier-1.5 
+                            integrated model ensures that the minimal machining allowance is precision-removed without inducing 
+                            surface stress, delivering a final “Buy-to-Fly” ratio as low as <strong>3.5:1</strong>.
+                        </p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/5-axis-cnc-machined-titanium-marine-impeller-4k.webp"
+                                alt="Precision 5-axis CNC-machined titanium impeller with complex curved blades for marine and industrial pump applications on a white background."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="nns-advantage" >
+            <div class="content-container">
+                <h2>Maximizing the NNS Advantage: Engineering for Speed</h2>
+                    <p>
+                        Machining a Near-Net-Shape (NNS) blank is fundamentally different from “hogging out” a solid block. 
+                        It requires advanced work-holding and in-machine probing to align the toolpath with the pre-existing geometry.
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Automated Part Probing:</strong>We utilize in-machine Renishaw probes to “locate” the NNS blank, ensuring the machining allowance (2mm–5mm) is distributed perfectly across all critical faces.
+                        <li>
+                            <strong>High-Speed “Skin” Machining:</strong>Because the bulk of the material is already removed, we focus on high-feed finishing paths that maintain a constant chip load and prevent tool deflection.
+                        </li>
+                        <li>
+                            <strong>Minimized Setup Times: </strong>Our co-owned facilities use synchronized fixturing that moves parts from the forge or foundry directly into the CNC center with zero realignment errors.
+                        </li>
+                    </ul>
+                
+            </div>
+        </section>
+
+        <section id="nns-vs-solid-machining" >
+            <div class="content-container">
+                <h2>Economic Impact: NNS vs. Solid Machining</h2>
+                
+                <p>
+                    In recent years, the most successful industrial projects are those that minimize raw material waste. ForceBeyond’s machining strategy is the final step in this optimization loop.
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Production Metric</th>
+                                <th scope="col">Machining from Solid</th>
+                                <th scope="col">NNS Integrated Machining</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Material Removed</th>
+                                <td>80% – 90%</td>
+                                <td>10% – 15%</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">CNC Cycle Time</th>
+                                <td>High (Heavy Roughing)</td>
+                                <td>Low (Precision Finishing)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Tool Wear Cost</th>
+                                <td>High</td>
+                                <td>Low (Light Finishing Cuts)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Final Tolerance</th>
+                                <td>±0.005mm</td>
+                                <td>±0.005mm (Equivalent)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Total Part Cost</th>
+                                <td>Baseline</td>
+                                <td>25% – 35% Reduction</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </section>
+
+
+        <section id="tier-1.5-integration" >
+            <div class="content-container">
+                <h2>Tier-1.5 Integration: The “Closed-Loop” Finishing Strategy</h2>
+                
+                <p>
+                    ForceBeyond eliminates the “Vendor Conflict” where a machine shop blames a forge for a part that “doesn’t clean up” during machining.
+                </p>
+                <h3>Integrated Finishing:<a href="near-net-shape-titanium-forging" class = "highlight-link">NNS Titanium Forging</a></h3>
+                <p>
+                    Because we own the forge-die design, we know exactly where the machining allowance is located. 
+                    This allows our CNC programmers to create “safe” toolpaths 
+                    that maximize speed without the risk of hitting “air” or crashing into excess flash.
+                </p>
+
+                <h3>Precision Alignment:<a href="titanium-investment-casting" class = "highlight-link">Titanium Investment Casting</a></h3>
+
+                <p>
+                    For complex cast geometries, our machining spoke utilizes 5-axis “Best Fit” algorithms. 
+                    We analyze the as-cast surface and shift the digital model to ensure every critical feature 
+                    has enough material for a perfect finish.
+                </p>
+                
+            </div>
+        </section>
+
+
+        <section id="request-quote">
+            <div class="content-container">
+                <h2>Request an NNS Machining Quote</h2>
+                
+                <p>
+                    <strong>Calculate Your Buy-to-Fly Savings with ForceBeyond.</strong>                
+                </p>
+                <p>To provide a comparative cost analysis, please provide:</p>
+                <ul>
+                    <li>
+                        <strong>Final Part Print:</strong>(The “Finished” dimensions)
+                    </li>
+                    <li>
+                        <strong>Blank Geometry:</strong>(Are you using a <a href="titanium-forging" class = "highlight-link">Forging</a> or <a href="titanium-casting" class = "highlight-link">Casting</a>?)
+                    </li>
+                    <li>
+                        <strong>Current Cycle Time:</strong>(If you are looking to optimize an existing “hog-out” project)
+                    </li>
+                    <li>
+                        <strong>Estimated Annual Usage (EAU):</strong>Essential for calculating amortized savings.
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</IndividualPageLayout>

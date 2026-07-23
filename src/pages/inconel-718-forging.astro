@@ -13,11 +13,11 @@ const seoDescription = 'Custom Inconel 718 forging services for aerospace, energ
 const faqs = [
     {
         q: "How does ForceBeyond manage Inconel 718 lead times?",
-        a: "By maintaining a strategic billet inventory in our USA and Asian hubs, we can often bypass the 40+ week mill delays, delivering custom forgings in 14-18 weeks."
+        a: "By maintaining a strategic billet inventory in our USA and Asian hubs, we can often bypass the 40+ week mill delays, delivering custom forgings in <strong>14-18 weeks</strong>."
     },
     {
         q: "What is the difference between AMS 5662 and AMS 5663?",
-        a: "AMS 5662 is for material in the solution-treated condition (easier to machine). AMS 5663 is for material that has been precipitation (age) hardened for maximum strength."
+        a: "<strong>AMS 5662</strong> is for material in the solution-treated condition (easier to machine). <strong>AMS 5663</strong> is for material that has been precipitation (age) hardened for maximum strength."
     }
 ];
 
@@ -30,10 +30,32 @@ const sources = [
 
 // Resources 
 const internalResources = [
-    { label: "Die Casting", url: "/die-casting" },
-    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
-    { label: "Inconel 718 Machining", url: "/inconel-718-machining" },
-    { label: "Precision CNC Machining and Secondary Operations", url: "/cnc-machining" }
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
 ];
 // Service / Product Schema
 const pageSchema = {
@@ -49,7 +71,7 @@ const pageSchema = {
         "url": "https://www.forcebeyond.store/oscar"
       },
       "description": seoDescription,
-      "serviceType": "Inconel 718 Vacuum Precision Casting",
+      "serviceType": "Inconel 718 Superalloy Forging",
       "areaServed": "United States, South Korea, Taiwan",
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -93,6 +115,13 @@ const pageSchema = {
     resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
     resourcesList={internalResources}
 >
+     <div class="individual-content ">
+        <p>
+            Inconel 718 forging is the process of shaping nickel-chromium superalloys under extreme heat and pressure to 
+            optimize grain flow and structural integrity for high-temperature environments. Common applications include turbine disks, 
+            compressor blades, rocket engine thrust chambers, downhole tool shafts, and high-pressure valve bodies.
+        </p>
+    </div>
     <div slot="full-width" class="individual-content">
 
         <section id="overview">
@@ -107,7 +136,7 @@ const pageSchema = {
                             ForceBeyond provides AS9100-certified forging solutions with optimized grain refinement from our co-owned global facilities.
                         </p>
                         <p>
-                            As a core pillar of our comprehensive Superalloy Forging Services, 
+                            As a core pillar of our comprehensive <a href="/oscar/superalloy-forging-services" class="highlight-link">Superalloy Forging Services</a>, 
                             ForceBeyond specializes in the precision manufacturing of <strong>Inconel 718 (UNS N07718)</strong> components. 
                             Engineered for mission-critical environments, our forged 718 provides a superior structural alternative to cast parts, 
                             offering the refined grain structure and fatigue resistance required for high-stress applications up to <strong>700°C (1,292°F)</strong>.
@@ -139,7 +168,7 @@ const pageSchema = {
                 
                 <p>
                     Traditional supply chains are fragmented, forcing you to manage separate forge and machine shops.
-                    ForceBeyond’s <strong>Tier-1.5 model</strong> integrates Inconel 718 Forging with our precision Inconel 718 Machining centers.
+                    ForceBeyond’s <strong>Tier-1.5 model</strong> integrates <a href="/oscar/inconel-718-forging" class="highlight-link">Inconel 718 Forging</a> with our precision <a href="/oscar/inconel-718-machining" class="highlight-link">Inconel 718 Machining</a> centers.
                 </p>
                 
                 <p>By taking total ownership of the metallurgical lifecycle, we ensure:</p>
@@ -159,7 +188,7 @@ const pageSchema = {
                 <p>
                     While our forging process optimizes grain flow for high-stress rotating components, 
                     parts with extremely complex internal cooling channels or non-symmetrical housings may be 
-                    better suited for our Inconel 718 Casting solutions utilizing Vacuum Induction Melting (VIM).
+                    better suited for our <a href="/oscar/inconel-718-casting" class="highlight-link">Inconel 718 Casting</a> solutions utilizing Vacuum Induction Melting (VIM).
                 </p>
             </div>
         </section>

@@ -1,0 +1,430 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Titanium Machining Services | AS9100 5-Axis CNC Finishing';
+const seoTitle = 'Titanium Forging Services | Closed-Die & Rolled Ring | ForceBeyond';
+const seoDescription = 'AS9100-certified precision titanium forging services specializing in Ti-6Al-4V, alpha-beta, and beta alloys. Delivering high-integrity closed-die and seamless rolled ring forgings from co-owned hubs in the USA, South Korea, and Taiwan for aerospace, defense, and subsea marine structures.';
+const faqs = [
+    {
+        q: "Why is titanium more difficult to machine than stainless steel?",
+        a: "Titanium has low thermal conductivity, meaning heat stays at the cutting edge. We solve this using high-pressure through-spindle coolant (up to 1,000 PSI) and specialized carbide coatings to ensure tool longevity and part accuracy."
+    },
+    {
+        q: "Do you offer secondary treatments like anodizing or passivating?",
+        a: "Yes. Our integrated hubs provide Type II and Type III anodizing, passivation, and ultrasonic cleaning as part of our “Ready-to-Assemble” delivery."
+    }
+];
+
+// Sources 
+const sources = [
+    { label: 'American Foundry Society: "Metal Casting"', url: 'https://www.afsinc.org' },
+    { label: 'Forging Industry Association: "Forging Industry"', url: 'https://www.forging.org' },
+    { label: 'efunda. “Sand Casting“', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'The Investment Casting Institute. “What is Investment Casting?“',url:'https://www.investmentcasting.org/what-is-investment-casting.html'},
+    { label: 'ASM International. “Inconel 718 Alloy“', url: 'https://www.asminternational.org/materials-resources/alloy-database/technical-bulletin/inconel-718-alloy' }
+];
+
+// Resources 
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/titanium-machining#webpage",
+      "url": "https://www.forcebeyond.store/oscar/titanium-machining",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Titanium",
+          "sameAs": "https://en.wikipedia.org/wiki/Titanium"
+        },
+        {
+          "@type": "Thing",
+          "name": "Machining",
+          "sameAs": "https://en.wikipedia.org/wiki/Machining"
+        },
+        {
+          "@type": "Thing",
+          "name": "Milling (machining)",
+          "sameAs": "https://en.wikipedia.org/wiki/Milling_(machining)"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/titanium-machining#service",
+      "name": "Precision Titanium Machining Services",
+      "serviceType": "Titanium Machining Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Precision Titanium Machining",
+          "Ti-6Al-4V, Grade 2, & Beta-C Alloys",
+          "5-Axis CNC Milling & Turning",
+          "AS9100 Rev D Quality Control Systems",
+          "High-Pressure Through-Tool Coolant Systems",
+          "Titanium Work-Hardening & Galling Mitigation",
+          "Aerospace, Defense, Marine & Medical Hardware"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Titanium Machining Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Rigid 5-Axis CNC Milling & Turning",
+              "description": "Multi-axis setups configured with maximum stiffness and optimized toolpath velocities to counteract high cutting forces and eliminate dimensional drift."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Advanced Coolant & Micro-Zone Thermal Management",
+              "description": "Deployment of ultra-high pressure through-tool coolant configurations to quickly dissipate intense heat from the cutting zone, safeguarding tools from rapid wear."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tier-1.5 End-to-End Component Finishing",
+              "description": "Complete supply chain consolidation merging raw castings and forgings with high-precision CNC milling, surface treatments, and exhaustive NDT inspection under one AS9100 quality umbrella."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/titanium-machining#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="Precision 5-axis machining of an aerospace titanium component in an AS9100-certified manufacturing environment"
+    faqSectionTitle="FAQ: Titanium Machining Procurement"
+    faqItems={faqs}
+    ctaTitle=""
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview" >
+            <div class="content-container">
+                
+                <h2>Titanium Machining Services | AS9100 5-Axis CNC Finishing</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond provides <strong>Tier-1.5 integrated machining solutions</strong>, specializing in the complex finishing of 
+                            titanium alloy components. By co-owning and operating 5-axis CNC centers alongside our 
+                            <a href="/oscar/titanium-casting" class="highlight-link">Titanium Casting</a> and <a href="/oscar/titanium-forging" class="highlight-link">Titanium Forging</a> hubs, we eliminate the “Multi-Vendor Gap.” We manage the entire 
+                            lifecycle—from initial melt to final micron-level tolerance—ensuring 100% metallurgical integrity and 
+                            AS9100 compliance.
+                        </p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/5-axis-machined-titanium-turbine-discs-aircraft-engines-4k.webp"
+                                alt="Three precision 5-axis machined titanium turbine discs and bladed components for aircraft jet engines on a white background."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="global-operation-and-logistics" >
+            <div class="content-container">
+                <h2>Global Machining Operations & Strategic Logistics Hubs</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">USA HQ</th>
+                                <th scope="col">Taiwan</th>
+                                <th scope="col">South Korea</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <td>Role: 5-Axis Finishing & Final QA</td>
+                                <td>Role: Integrated Forging/High-Volume CNC Machining</td>
+                                <td>Role: Integrated Forging/Machining</td>
+                            </tr>
+                            <tr>
+                                <td>Certification: ISO9001 / ITAR</td>
+                                <td>Certification: AS9100</td>
+                                <td>Certification: AS9100
+</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+        </section>
+
+        <section id="specifications-and-tolerances" >
+            <div class="content-container">
+                <h2>Technical Machining Specifications & Tolerances</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Parameter</th>
+                                <th scope="col">Specification / Capability</th>
+                                <th scope="col">Industry Application</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Equipment</th>
+                                <td>5-Axis Simultaneous Milling & Turn-Mill</td>
+                                <td>Complex Aero-Engine Blisks</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Precision Tolerance</th>
+                                <td>±0.0002 inches (0.005 mm)</td>
+                                <td>Medical Implants & Bearings</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Surface Finish</th>
+                                <td>Ra 0.4 µm to Ra 3.2 µm</td>
+                                <td>High-Cycle Fatigue Components</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Max Part Size</th>
+                                <td>Up to 1,500 mm (X-Axis)</td>
+                                <td>Structural Airframe Spars</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Secondary Ops</th>
+                                <td>Anodizing (Type II/III) & EDM</td>
+                                <td>Ready-to-Assemble Hardware</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+            </div>
+        </section>
+
+
+        <section id="applications" >
+            <div class="content-container">
+                <h2>Common Machined Components & Applications</h2>
+                <ul>
+                    <li>
+                        <strong>Aerospace Structures:</strong>Wing spars, bulkheads, and engine mounts from <strong>Ti-6Al-4V</strong>.
+                    </li>
+                    <li>
+                        <strong>Propulsion Hardware:</strong>Shrouded impellers and blisks (bladed disks) requiring 5-axis simultaneous paths.
+                    </li>
+                    <li>
+                        <strong>Medical Implants:</strong>Bone screws, dental plates, and joint replacements (<strong>Ti-6Al-4V ELI</strong>).
+                    </li>
+                    <li>
+                        <strong>Defense & Marine:</strong>Deep-sea pressure housings and non-magnetic valve manifolds.
+                    </li>
+                </ul>
+                
+            </div>
+        </section>
+
+
+        <section id="cast-to-Finish-integration" >
+            <div class="content-container">
+                <h2>The ForceBeyond Advantage: Cast-to-Finish Integration</h2>
+                <p>
+                    Unlike standalone machine shops, our Tier-1.5 model offers <strong>Single-Source Accountability</strong>:
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>Reduced Lead Times:</strong> By machining in the same network where we cast/forge, we save 4–6 weeks in transit and setup.
+                    </li>
+                    <li>
+                        <strong>DFM Expertise:</strong> Our engineers design the casting/forging to minimize the “Buy-to-Fly” ratio before the first chip is ever cut.
+                    </li>
+                    <li>
+                        <strong>Full Traceability:</strong> An unbroken chain of custody from the titanium sponge to the final inspected part.
+                    </li>
+                </ul>
+            </div>
+        </section>
+        <section id="tier-1.5-loop">
+            <div class="content-container">
+                <h2>
+                    Multi-Process Optimization: The Tier-1.5 Loop
+                </h2>
+                <p>
+                    The Machining Hub serves as the final quality gate for all ForceBeyond components. 
+                    By <strong>linking our CNC centers directly to our co-owned foundries</strong>, 
+                    we eliminate the supply-chain “Hand-off Risk” that typically occurs when moving parts between multiple vendors. 
+                    This integrated loop ensures that the technical intent of the original forging or casting is preserved through 
+                    the final micron of machining.
+                </p>
+                <h3>1.<a href="aerospace-titanium-machining" class="highlight-link">Aerospace Titanium Machining</a></h3>
+                <p>
+                    Specializing in flight-critical propulsion and structural airframe components. We focus on <strong>AMS 4911</strong> compliance, 
+                    5-axis precision, and ITAR-regulated data management for defense and commercial aviation.
+                </p>
+                <h3>2.<a href="aerospace-titanium-machining" class="highlight-link">Industrial Titanium Machining</a></h3>
+                <p>
+                    Designed for the “Heavyweights” of the energy and chemical sectors. 
+                    We provide large-envelope machining (up to 80″) for pump housings, valve bodies, 
+                    and desalination components, with a focus on <strong>ASTM B367</strong> seal integrity.
+                </p>
+                <h3>3.<a href="aerospace-titanium-machining" class="highlight-link">Near-Net-Shape (NNS) Titanium Machining</a></h3>
+                <p>
+                    The ultimate cost-optimization strategy. We use specialized probing and “skin-cut” toolpaths to 
+                    finish NNS forgings and castings, reducing your CNC cycle times by <strong>30% to 45%</strong> and minimizing material waste.
+                </p>
+            </div>  
+        </section>
+
+        <section id="near-net-shape-advantage">
+            <div class="content-container">
+                <h2>Integrated Manufacturing: The Near-Net-Shape Advantage</h2>
+                <p>As a Tier-1.5 provider, our machining strategy is dictated by the “Primary Process.” 
+                    We don’t just “cut metal”—we optimize the finish based on the source material.
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Starting Material</th>
+                                <th scope="col">Machining Strategy</th>
+                                <th scope="col">Key Benefit</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row"><a href="/oscar/titanium-forging" class="highlight-link">Titanium Forgings</a></th>
+                                <td>High-Volume Roughing</td>
+                                <td>Optimized grain flow preservation.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="/oscar/near-net-shape-titanium-forging" class="highlight-link">NNS Forged Blanks</a></th>
+                                <td>Precision High-Speed Finishing</td>
+                                <td>30% reduction in CNC cycle time.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="/oscar/investment-casting" class="highlight-link">Investment Castings</a></th>
+                                <td>Thin-Wall Stabilization</td>
+                                <td>±0.005″ tolerances on 1.5mm walls.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="/oscar/sand-casting" class="highlight-link">Sand Castings</a></th>
+                                <td>Heavy-Duty Facing & Boring</td>
+                                <td>Superior seal-surface integrity.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="request-quote">
+            <div class="content-container">
+                <h2>Request a Machining Quote</h2>
+                
+                <p>
+                    <strong>Transition from Raw Material to Flight-Ready Hardware.</strong>                
+                </p>
+                <p>Please provide the following for a Tier-1.5 technical review:</p>
+                <ul>
+                    <li>
+                        <strong>Final Part Prints:</strong> (Including GD&T requirements and surface finish specs)
+                    </li>
+                    <li>
+                        <strong>Material Source:</strong>  (Are you providing the material, or should we quote a <a href="/oscar/titanium-forging"class="highlight-link">Forged</a> or <a href="/oscar/titanium-casting"class="highlight-link">Cast</a> solution?)
+                    </li>
+                    <li>
+                        <strong>Lead Time Requirements: </strong>(Ask about our “Express-Track” for AOG support)
+                    </li>
+                    <li>
+                        <strong>Certification Needs: </strong>(e.g., AS9100, First Article Inspection – FAI, or Source Inspection)
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</IndividualPageLayout>

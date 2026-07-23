@@ -1,87 +1,278 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Data Center Power';
-const pageDescription = 'This page is under development. ForceBeyond provides custom metal component manufacturing solutions for industrial applications.';
+const pageTitle = 'Data Center Power: Mission-Critical Hot Gas Path (HGP) Components';
+const seoTitle = 'Data Center Power & Hot Gas Path Components | ForceBeyond';
+const seoDescription = 'ForceBeyond manufactures aerospace-grade Hot Gas Path (HGP) turbine components for data center microgrids, including blades, nozzles, and forged discs.';
+
+const faqs = [
+    {
+        q: "Why use AS9100-certified parts for data center power generation?",
+        a: "Data centers require \"Five 9s\" (99.999%) uptime. AS9100 certification enforces the same rigorous risk-based manufacturing, material traceability, and zero-defect controls used in commercial aviation—dramatically reducing the risk of catastrophic failure in on-site power microgrids."
+    },
+    {
+        q: "Can ForceBeyond supply precision HGP replacement components for GE and Siemens turbines?",
+        a: "Yes. ForceBeyond operates as a Tier-1.5 contract manufacturer specializing in high-precision, fully certified aftermarket and OEM-equivalent Hot Gas Path components that meet or exceed original engineering specifications, providing faster lead times for MRO operations."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'AS9100 Aerospace Quality Management Systems Standard', url: 'https://www.sae.org' },
+    { label: 'ASTM International: Standards for Vacuum Investment Casting & NDT Inspection', url: 'https://www.astm.org' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Page Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/data-center-power#webpage",
+      "url": "https://www.forcebeyond.store/oscar/data-center-power",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/data-center-power#service",
+      "name": "Hot Gas Path (HGP) Turbine Component Manufacturing",
+      "serviceType": "Aerospace-Grade Power Generation Components",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Vacuum Precision Casting (VIM) & Investment Casting",
+          "Directional Solidification (DS) Turbine Buckets",
+          "Seamless Rolled Ring Forging for Turbine Discs",
+          "AS9100 Rev D & ISO 9001:2015 Quality Systems",
+          "On-Site Data Center Microgrid Power Components"
+        ]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Hot Gas Path Component Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Turbine Nozzles & Vanes",
+              "description": "Vacuum investment cast Inconel and Hastelloy components with complex internal cooling passages."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Directionally Solidified Turbine Buckets",
+              "description": "DS vacuum cast blades in Inconel 718, Mar-M-247, and Inconel 738 for maximum thermal creep resistance."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Forged Turbine Discs & Rings",
+              "description": "Seamless rolled ring forgings providing high hoop strength and fatigue resistance."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/data-center-power#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
 ---
 
-<Layout 
-    title={`${pageTitle} | ForceBeyond`}
-    description={pageDescription}
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"
+    faqSectionTitle="Frequently Asked Questions: Data Center Power"
+    faqItems={faqs}
+    ctaTitle="Ready to Power Your Data Center Project?"
+    ctaDescription="Contact our engineering management team to learn how our Tier-1.5 model delivers rapid-turnaround, fully certified HGP turbine hardware."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
 >
-    <!-- Placeholder Page -->
-    <section class="relative w-full min-h-[calc(100vh-5rem)] bg-slate-50 pt-20 pb-24 px-6 sm:px-12">
-        <div class="w-full max-w-6xl mx-auto">
-            
-            <!-- Breadcrumb -->
-            <nav class="mb-10 text-sm text-slate-500">
-                <a href="/oscar/" class="hover:text-brand-blue transition">Home</a>
-                <span class="mx-2">/</span>
-                <span class="text-slate-700">{pageTitle}</span>
-            </nav>
 
-            <!-- Main Content -->
-            <div class="rounded-2xl border border-slate-200 bg-white p-8 sm:p-12 lg:p-16 shadow-sm">
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
                 
-                <p class="mb-4 text-xs font-semibold tracking-[0.22em] text-brand-blue uppercase">
-                    Page Under Development
-                </p>
+                <h2>Data Center Power: Mission-Critical Hot Gas Path (HGP) Components</h2>
 
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 uppercase">
-                    {pageTitle}
-                </h1>
-
-                <div class="mt-6 h-1 w-16 bg-brand-blue rounded-full"></div>
-
-                <p class="mt-8 max-w-3xl text-lg sm:text-xl leading-8 text-slate-700 font-medium">
-                    This page is currently being prepared. ForceBeyond supports customers with precision casting, forging, CNC machining, quality control, and global supply chain coordination for high-demand industrial applications.
-                </p>
-
-                <div class="mt-10 grid gap-4 sm:grid-cols-3">
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Manufacturing
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Casting, forging, machining, and finishing support.
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond is a premier Tier-1.5 contract manufacturer delivering aerospace-grade Hot Gas Path (HGP) components for on-site data center power generation. As AI factories and hyperscale facilities demand gigawatt-scale, "always-on" clean firm power, utility grid constraints have driven a massive shift toward dedicated, on-site microgrids and power islands.
+                        </p>
+                        <p>
+                            Utilizing Vacuum Precision Casting (VIM), seamless rolled ring forging, and 5-axis CNC finishing, ForceBeyond supplies high-reliability turbine blades, nozzles, vanes, and discs for industrial and aeroderivative gas turbines (including GE LM2500, Frame-series, and Siemens SGT-series engines). Operating under AS9100 Rev D and ISO 9001:2015 quality certifications, we provide the zero-defect reliability required to prevent catastrophic downtime in AI compute infrastructure.
                         </p>
                     </div>
-
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Quality
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Inspection, documentation, and traceability workflows.
-                        </p>
-                    </div>
-
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Supply Chain
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Multi-facility sourcing and delivery coordination.
-                        </p>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/data-center-power-overview-4k.webp"
+                                alt="High-precision turbine nozzles and hot gas path components for data center microgrid turbines."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
                     </div>
                 </div>
 
-                <div class="mt-12 flex flex-col sm:flex-row gap-4">
-                    <a 
-                        href="/oscar/request-a-quote" 
-                        class="inline-flex items-center justify-center rounded-full bg-brand-green px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#5aaa14] shadow-sm"
-                    >
-                        Request Quote
-                    </a>
+            </div>
+        </section>
 
-                    <a 
-                        href="/oscar/#capabilities" 
-                        class="inline-flex items-center justify-center rounded-full border border-slate-300 px-8 py-3 text-sm font-semibold text-slate-700 transition hover:border-[#0363CE] hover:text-brand-blue"
-                    >
-                        View Capabilities
-                    </a>
+        <section id="hgp-specialization">
+            <div class="content-container">
+                <h2>Hot Gas Path (HGP) Component Specialization</h2>
+                <p>
+                    Data center power generation requires 24/7 continuous baseload operation and rapid-ramping capabilities. ForceBeyond manufactures and machines critical HGP internals that withstand extreme thermal stress, hot corrosion, and high-cycle fatigue:
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Component Type</th>
+                                <th scope="col">Manufacturing Process</th>
+                                <th scope="col">Material Expertise</th>
+                                <th scope="col">Technical Advantage for Data Centers</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Turbine Nozzles & Vanes</th>
+                                <td>Vacuum Investment Casting</td>
+                                <td>Inconel 718, Inconel 625, Hastelloy X</td>
+                                <td>Form complex internal cooling passages essential for continuous high-efficiency operation under peak thermal loads.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Turbine Buckets (Blades)</th>
+                                <td>Directional Solidification (DS) & Vacuum Casting</td>
+                                <td>Inconel 718, Mar-M-247, Inconel 738</td>
+                                <td>Maximizes thermal creep resistance and grain structure stability in extreme temperature gas paths.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Turbine Discs & Rings</th>
+                                <td>Seamless Rolled Ring Forging</td>
+                                <td>Inconel 718 (AMS 5662 / 5663), 4140</td>
+                                <td>Provides continuous grain flow, superior hoop strength, and high fatigue resistance for high-speed rotating shafts.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Fuel Nozzles & Assemblies</th>
+                                <td>Multi-Axis CNC Machining</td>
+                                <td>Hastelloy X, 316L Stainless Steel</td>
+                                <td>Ultra-tight tolerance ($\pm 0.0005''$) machining ensures optimal fuel atomization for hydrogen-blend and natural gas microgrids.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </div>
-    </section>
-</Layout>
+        </section>
+
+        <section id="ai-revolution">
+            <div class="content-container">
+                <h2>Empowering the AI Revolution with On-Site Microgrids</h2>
+                <p>
+                    Hyperscalers cannot afford years-long delays waiting for public grid interconnects. ForceBeyond supports energy campus developers and MRO providers with rapid-turnaround, ready-to-install HGP hardware for:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Aeroderivative Gas Turbines:</strong> Rapid-start units (e.g., GE LM2500) utilized for peaking and continuous prime power.
+                    </li>
+                    <li>
+                        <strong>Heavy Industrial Gas Turbines:</strong> Reliable baseload power plants powering dedicated data center campuses.
+                    </li>
+                    <li>
+                        <strong>Hydrogen-Ready Microgrids:</strong> High-temperature superalloy components engineered to withstand hydrogen combustion environments.
+                    </li>
+                </ul>
+                <p class="mt-4">
+                    <strong>The Tier-1.5 Advantage:</strong> By consolidating vacuum investment casting, Hot Isostatic Pressing (HIP), 5-axis CNC machining, and pre-assembled nozzle/bucket kitting under one managed quality system, ForceBeyond delivers HGP components in weeks—not years—keeping data center energy projects on schedule.
+                </p>
+            </div>
+        </section>
+
+        <section id="as9100-certification">
+            <div class="content-container">
+                <h2>Why AS9100 Certification Matters for Data Center Procurement</h2>
+                <p>
+                    In an AI data center, a single "blade out" failure or unscheduled turbine outage can result in millions of dollars per hour in lost compute time. While AS9100 is an aerospace standard, it serves as the ultimate reliability insurance for energy procurement managers:
+                </p>
+                <ul>
+                    <li>
+                        <strong>100% Digital Traceability:</strong> Every bucket, blade, and disc has an unbroken material pedigree from raw superalloy melt to final CMM inspection map.
+                    </li>
+                    <li>
+                        <strong>Hot Isostatic Pressing (HIP):</strong> Applies 15,000+ psi argon gas pressure at elevated temperatures to collapse internal micro-porosity, increasing fatigue life by up to 300%.
+                    </li>
+                    <li>
+                        <strong>Comprehensive NDT Verification:</strong> 100% Radiographic Testing (X-Ray), Fluorescent Penetrant Inspection (FPI), and 3D CMM inspection verify internal structural soundness.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

@@ -1,0 +1,348 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Zinc Die Casting: High-Speed Precision Manufacturing';
+const seoTitle = 'Custom Zinc Die Casting Services & ZAMAK Alloy Parts | ForceBeyond';
+const seoDescription = 'ForceBeyond delivers custom zinc die casting using ZAMAK 2, ZAMAK 3, ZAMAK 5, and ZA 8 alloys. Featuring high-speed hot-chamber injection, ultra-long tool life, near-net-shape precision, and Tier-1.5 CNC machining and decorative chrome plating.';
+
+const faqs = [
+    {
+        q: "Why choose Zinc over Aluminum for die casting?",
+        a: "Zinc is chosen over aluminum when a part requires superior surface finish for plating, heavier weight/density for a premium feel, thinner wall sections, or extremely tight as-cast tolerances. Furthermore, zinc tooling lasts significantly longer than aluminum tooling due to its lower melting point."
+    },
+    {
+        q: "Can zinc die castings be easily plated?",
+        a: "Yes. Zinc (particularly ZAMAK 3 and ZA 8) is highly receptive to a wide variety of finishes. It is widely considered the best die-cast material for high-quality decorative chrome plating."
+    },
+    {
+        q: "Does zinc die casting require secondary machining?",
+        a: "Very rarely. The zinc die casting process achieves near-net-shape accuracy, and internal threads can often be cast directly into the part. However, ForceBeyond provides in-house CNC machining for features that require ultra-precise micro-tolerances."
+    }
+];
+
+// Sources 
+const sources = [
+    { label: 'International Zinc Association (IZA)', url: 'https://www.zinc.org' },
+    { label: 'North American Die Casting Association (NADCA)', url: 'https://www.diecasting.org' },
+    { label: 'ASM International: "Selection and Properties of Zinc Die Casting Alloys"', url: 'https://www.asminternational.org' }
+];
+
+// Resources 
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/zinc-die-casting#webpage",
+      "url": "https://www.forcebeyond.store/oscar/zinc-die-casting",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Die casting",
+          "sameAs": "https://en.wikipedia.org/wiki/Die_casting"
+        },
+        {
+          "@type": "Thing",
+          "name": "Zamak",
+          "sameAs": "https://en.wikipedia.org/wiki/Zamak"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/zinc-die-casting#service",
+      "name": "High-Speed Precision Zinc Die Casting Services",
+      "serviceType": "Custom Zinc Die Casting Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "High-Speed Precision Zinc Die Casting",
+          "Hot-Chamber Zinc Die Casting Technology",
+          "ZAMAK Alloys (ZAMAK 2, ZAMAK 3, ZAMAK 5, ZA 8)",
+          "Extended Tooling Life & Fast Production Cycles",
+          "Ultra-Thin Wall & Intricate Feature Casting",
+          "Premium Decorative Chrome Plating & Surface Finishing",
+          "Electromagnetic Shielding (EMI) Components",
+          "ISO 9001:2015 Tier-1.5 Manufacturing Integration"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Zinc Die Casting Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Hot-Chamber Precision Zinc Injection",
+              "description": "High-speed automated hot-chamber casting of ZAMAK alloys producing parts from a few grams up to over 100 pounds with extended die life."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Near-Net-Shape Decorative Component Casting",
+              "description": "Custom molding capable of casting ultra-thin walls, fine threads, and high-precision as-cast surfaces ideal for decorative plating."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tier-1.5 Turnkey Plating & Finishing Integration",
+              "description": "Seamless in-house secondary processing including 5-axis CNC machining, decorative chrome plating, e-coating, powder coating, and bright finishing."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/zinc-die-casting#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"
+    faqSectionTitle="Frequently Asked Questions: Zinc Die Casting"
+    faqItems={faqs}
+    ctaTitle="Request Quote For Zinc Die Casting"
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Zinc Die Casting: High-Speed Precision Manufacturing</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond is a premier supplier of high-quality, custom zinc die casting components[cite: 5]. Utilizing advanced hot-chamber die casting technology, we produce precision zinc parts weighing from just a few grams up to more than 100 pounds[cite: 5].
+                        </p>
+                        <p>
+                            Zinc alloys offer an exceptional combination of strength, toughness, rigidity, and cost-effective manufacturing[cite: 5]. By integrating our high-speed casting capabilities with comprehensive in-house CNC machining and premium surface finishing, ForceBeyond delivers near-net-shape, assembly-ready zinc components for industries including automotive, medical, machinery, aerospace, plumbing, and consumer electronics[cite: 5].
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/custom-zinc-die-casting-parts-housings-flanges-4k.webp"
+                                alt="Custom zinc die-cast parts, including precision housings, flanges, covers, and industrial mechanical components on a white background."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="technical-specifications">
+            <div class="content-container">
+                <h2>Technical Specifications: Zinc Die Casting Alloys (ZAMAK)</h2>
+                <p>
+                    ForceBeyond strictly adheres to international quality standards for all zinc castings[cite: 5]. We offer a full range of ZAMAK (Zinc, Aluminum, Magnesium, and Copper) alloys to meet the specific mechanical, thermal, and cosmetic requirements of your application[cite: 5].
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Material Grade</th>
+                                <th scope="col">Tensile Strength (MPa)</th>
+                                <th scope="col">Thermal Cond. (W/mK)</th>
+                                <th scope="col">Key Features & Optimal Applications</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">ZAMAK 2</th>
+                                <td>359</td>
+                                <td>105</td>
+                                <td>Highest strength and hardness levels after long-term aging. Superior creep performance compared to other Zamak alloys. Excellent vibration attenuation.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">ZAMAK 3</th>
+                                <td>283</td>
+                                <td>113</td>
+                                <td>The industry standard. Great balance of physical and mechanical properties. Excellent castability, long-term dimensional stability, and superior finishing characteristics.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">ZAMAK 5</th>
+                                <td>328</td>
+                                <td>109</td>
+                                <td>Higher copper content results in increased strength and hardness over Zamak 3 (though slightly less ductile). Readily machined, plated, and finished.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">ZA 8</th>
+                                <td>374</td>
+                                <td>115</td>
+                                <td>Highest strength of the hot-chamber zinc alloys. Excellent creep properties and hardness. Ideal for highly decorative applications requiring premium plating.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
+            </div>
+        </section>
+
+        <section id="why-partner">
+            <div class="content-container">
+                <h2>Why Partner with ForceBeyond for Zinc Die Casting?</h2>
+                <p>
+                    Zinc die casting is highly favored for its exceptional manufacturability[cite: 5]. Partnering with ForceBeyond ensures you maximize these inherent material benefits through our optimized production control[cite: 5].
+                </p>
+                <ul>
+                    <li>
+                        <strong>Exceptional Tool Life:</strong> Because zinc has a low melting point, thermal shock on the die steel is minimal[cite: 5]. Zinc die casting molds can often last up to 10 times longer than aluminum dies, significantly lowering long-term tooling costs[cite: 5].
+                    </li>
+                    <li>
+                        <strong>Precision Tolerances & Thin Walls:</strong> Zinc’s high fluidity allows for the casting of highly intricate shapes, extremely thin walls, and fine details (like textured surfaces, threads, or cast-in logos) without requiring further processing[cite: 5].
+                    </li>
+                    <li>
+                        <strong>Superior Decorative Finishing:</strong> Zinc alloys provide an exceptionally smooth as-cast surface[cite: 5]. This makes them the premier choice for components requiring high-end decorative finishes, such as chrome plating[cite: 5].
+                    </li>
+                    <li>
+                        <strong>Ultra-Fast Cycle Times:</strong> The zinc die casting cycle is one of the fastest metal manufacturing processes available, enabling high-volume production with maximum efficiency and low energy costs[cite: 5].
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="hot-chamber-process">
+            <div class="content-container">
+                <h2>The Hot-Chamber Zinc Die Casting Process</h2>
+                <p>
+                    Zinc die castings are produced using hot-chamber die casting machines[cite: 5]. Because zinc alloys melt at relatively low temperatures, the machine's injection mechanism can be submerged directly within the molten metal bath[cite: 5].
+                </p>
+                <p>
+                    To begin the cycle, hardened tool steel dies (a stationary half and a movable half) are clamped together under high pressure[cite: 5]. The machine’s submerged plunger forces the molten zinc rapidly into the mold cavity[cite: 5]. The metal solidifies almost instantly[cite: 5]. The die then opens, and the precision zinc casting is safely ejected[cite: 5]. This integrated system allows for incredibly rapid, continuous production cycles—far outpacing sand casting or permanent mold processes[cite: 5].
+                </p>
+                
+                <div class="mt-8 mb-8 overflow-hidden rounded-lg shadow-lg aspect-video max-w-4xl mx-auto">
+                    <iframe 
+                        class="w-full h-full"
+                        src="https://www.youtube.com/embed/7e2cGc7_Uas?autoplay\u003d1\u0026rel\u003d0\u0026enablejsapi\u003d1\u0026wmode\u003dopaque" 
+                        title="ForceBeyond Hot-Chamber Zinc Die Casting Process Demonstration Video"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <section id="tier-1-5-integration">
+            <div class="content-container">
+                <h2>Tier-1.5 Integration: Precision Cast-to-Machine & Finishing Solutions</h2>
+                <p>
+                    ForceBeyond eliminates dimensional hand-off risks by keeping the entire manufacturing process under one ISO 9001:2015 certified umbrella[cite: 5]. Because zinc is an excellent candidate for various coatings, our Tier-1.5 integration ensures your parts move seamlessly from casting to final finish[cite: 5].
+                </p>
+                <p>
+                    <strong>Our In-House Secondary Operations Include:</strong>[cite: 5]
+                </p>
+                <ul>
+                    <li>
+                        <strong>Precision Machining:</strong> High-precision CNC machining, 5-axis milling, drilling, and tapping for ultra-tight tolerances[cite: 5].
+                    </li>
+                    <li>
+                        <strong>Premium Plating & Coating:</strong> Chrome plating (highly popular for ZAMAK parts), e-coating, anodizing, powder coating, and painting[cite: 5].
+                    </li>
+                    <li>
+                        <strong>Surface Preparation:</strong> Sanding, shot blasting, and bright finishing[cite: 5].
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="certified-applications">
+            <div class="content-container">
+                <h2>Certified Zinc Die Casting Applications</h2>
+                <p>
+                    Thanks to zinc's natural corrosion resistance, high density, and superior finishing capabilities, ForceBeyond supplies mission-critical zinc components to:[cite: 5]
+                </p>
+                <ul>
+                    <li>
+                        <strong>Automotive & Transportation:</strong> Interior trim, seat belt mechanisms, mirror brackets, and complex mechanical housings[cite: 5].
+                    </li>
+                    <li>
+                        <strong>Consumer & Decorative Goods:</strong> High-end plumbing fixtures, hardware, locks, and electronic enclosures[cite: 5].
+                    </li>
+                    <li>
+                        <strong>Industrial Machinery & Medical:</strong> Heat sinks, sensor housings, and precision instrumentation requiring electromagnetic (EMI) shielding[cite: 5].
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

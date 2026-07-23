@@ -1,0 +1,309 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Manufacturing Process Visualizations: 3D Technical Animations';
+const seoTitle = '3D Manufacturing Process Visualizations & Animations | ForceBeyond';
+const seoDescription = 'Explore ForceBeyond’s interactive 3D technical animations demonstrating vacuum investment casting, closed-die forging, HIP, 5-axis CNC machining, and automated sand molding.';
+
+const faqs = [
+    {
+        q: "Why are 3D process animations helpful during the engineering RFQ stage?",
+        a: "Visualizing the manufacturing process allows engineering teams to identify potential DFM improvements—such as eliminating unnecessary machining passes, optimizing draft angles, or switching from solid bar stock machining to near-net investment casting to save material costs."
+    },
+    {
+        q: "Can ForceBeyond provide custom DFM simulation models for our specific part prints?",
+        a: "Yes. During the project feasibility and APQP stages, we run advanced solidifying, mold-flow, and forging deformation computer simulations to predict thermal behavior, eliminate potential porosity, and optimize grain flow before cutting hard production tooling."
+    },
+    {
+        q: "Are all manufacturing processes shown certified to aerospace and nuclear standards?",
+        a: "Yes. ForceBeyond operates co-owned facilities certified to AS9100 Rev D, ISO 9001:2015, and IATF 16949, adhering to strict NQA-1 and ASME Section III guidelines for safety-critical hardware."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'AS9100 Rev D Quality Management Systems - Aviation, Space & Defense', url: 'https://www.sae.org' },
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'IATF 16949 Automotive Quality Management System', url: 'https://www.iatfglobaloversight.org' },
+    { label: 'ASTM B808 Standard Practice for Hot Isostatic Pressing', url: 'https://www.astm.org' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Page Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/manufacturing-process-animations#webpage",
+      "url": "https://www.forcebeyond.store/oscar/manufacturing-process-animations",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/manufacturing-process-animations#service",
+      "name": "3D Manufacturing Process Visualizations & Engineering",
+      "serviceType": "Design for Manufacturability & Process Visualization",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Vacuum Investment Casting (VIM)",
+          "Closed-Die Hot Forging & Grain Flow Alignment",
+          "Hot Isostatic Pressing (HIP) Void Elimination",
+          "5-Axis Simultaneous CNC Milling & Turning",
+          "Automated Sand Molding (Green Sand vs. Resin No-Bake)",
+          "Design for Manufacturability (DFM) Simulations"
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/manufacturing-process-animations#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="3D technical manufacturing process visualization and CAD simulation"
+    faqSectionTitle="Frequently Asked Questions: Process Animations & DFM"
+    faqItems={faqs}
+    ctaTitle="Optimize Your Designs with ForceBeyond Engineering"
+    ctaDescription="Leverage our 3D process simulations, DFM analysis, and Tier-1.5 integrated manufacturing model to streamline production and cut component costs."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Quality and Global Operations"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Manufacturing Process Animations: 3D Technical Visualizations</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            Welcome to the ForceBeyond Interactive Media Center. Explore our high-definition 3D manufacturing process visualizations to see how engineered metal components transition from raw molten alloy to high-precision, assembly-ready hardware.
+                        </p>
+                        <p>
+                            Understanding the mechanical nuances of primary metal forming—such as fluid dynamics in investment casting, grain flow alignment in closed-die forging, or densification during Hot Isostatic Pressing (HIP)—helps design engineers optimize parts for manufacturability (DFM), reduce unit weight, and lower total production costs.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/manufacturing-process-animations-overview-4k.webp"
+                                alt="3D technical simulation of precision alloy casting and fluid flow dynamics."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="process-library">
+            <div class="content-container">
+                <h2>3D Process Library: Primary Forming & Secondary Processing</h2>
+                <p>
+                    Review our core manufacturing disciplines below to examine step-by-step technical execution, metallurgical benefits, and target component applications.
+                </p>
+
+                <div class="grid gap-8 mt-6">
+                    <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
+                        <h3>1. Vacuum Investment Casting (Lost-Wax Process)</h3>
+                        <div class="relative my-4 aspect-video overflow-hidden rounded-lg">
+                            <iframe
+                                class="w-full h-full border-0"
+                                src="https://www.youtube.com/embed/S4WuKJF_76c?autoplay\u003d0\u0026rel\u003d0\u0026enablejsapi\u003d1\u0026wmode\u003dopaque"
+                                title="Vacuum Investment Casting 3D Animation"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                            ></iframe>
+                        </div>
+                        <p>
+                            <strong>Process Overview:</strong> A precision wax pattern is injected, assembled onto a tree, and repeatedly dipped in a ceramic slurry to build a high-temperature shell. Once autoclaved to melt the wax, molten alloy is poured under high vacuum (VIM) into the rigid ceramic cavity.
+                        </p>
+                        <p>
+                            <strong>Key Takeaway:</strong> Vacuum pouring eliminates atmospheric gas entrapment, yielding exceptionally smooth surface finishes (125 RMS) and thin-wall geometric capabilities (≤ 1.5mm).
+                        </p>
+                        <p>
+                            <strong>Best For:</strong> Complex, organic shapes in high-temperature superalloys (Inconel 718, Hastelloy X, Titanium) for aerospace turbine vanes, medical implants, and valve bodies.
+                        </p>
+                    </div>
+
+                    <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
+                        <h3>2. Closed-Die Hot Forging & Grain Flow Alignment</h3>
+                        <div class="relative my-4 aspect-video overflow-hidden rounded-lg">
+                            <iframe
+                                class="w-full h-full border-0"
+                                src="https://www.youtube.com/embed/1543I_5XMJo?autoplay\u003d0\u0026rel\u003d0\u0026enablejsapi\u003d1\u0026wmode\u003dopaque"
+                                title="Closed-Die Hot Forging 3D Animation"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                            ></iframe>
+                        </div>
+                        <p>
+                            <strong>Process Overview:</strong> A heated metal billet is placed between custom-milled impression dies. High-tonnage hydraulic presses force the plasticized metal to fill the die cavity, reorienting the alloy's internal grain structure along the physical contours of the part.
+                        </p>
+                        <p>
+                            <strong>Key Takeaway:</strong> Continuous, unbroken directional grain flow lines preserve structural integrity for maximum impact toughness and fatigue resistance compared to machining from solid bar stock.
+                        </p>
+                        <p>
+                            <strong>Best For:</strong> Safety-critical, high-impact components like automotive axle shafts, mining bucket teeth, and aerospace landing gear linkages.
+                        </p>
+                    </div>
+
+                    <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
+                        <h3>3. Hot Isostatic Pressing (HIP) & Void Elimination</h3>
+                        <div class="relative my-4 aspect-video overflow-hidden rounded-lg">
+                            <iframe
+                                class="w-full h-full border-0"
+                                src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID_3"
+                                title="Hot Isostatic Pressing 3D Animation"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                            ></iframe>
+                        </div>
+                        <p>
+                            <strong>Process Overview:</strong> Cast or 3D-printed metal components are sealed inside a high-pressure vessel and subjected to elevated temperatures (1,700°F–2,200°F) and uniform, multidirectional argon gas pressure (15,000+ psi).
+                        </p>
+                        <p>
+                            <strong>Key Takeaway:</strong> Sub-microscopic collapse of internal shrinkage pores and gas voids. Under simultaneous heat and pressure, internal void walls diffusion-weld together, restoring 100% theoretical material density.
+                        </p>
+                        <p>
+                            <strong>Best For:</strong> Eliminating microporosity in SMR nuclear valve bodies, jet engine turbine blades, and cobalt-chrome orthopedic implants.
+                        </p>
+                    </div>
+
+                    <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
+                        <h3>4. 5-Axis Simultaneous CNC Milling & Live-Tool Turning</h3>
+                        <div class="relative my-4 aspect-video overflow-hidden rounded-lg">
+                            <iframe
+                                class="w-full h-full border-0"
+                                src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID_4"
+                                title="5-Axis CNC Machining 3D Animation"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                            ></iframe>
+                        </div>
+                        <p>
+                            <strong>Process Overview:</strong> Advanced multi-axis machining centers manipulate the cutting tool and workpiece across five linear and rotational axes simultaneously, accessing intricate features in a single, unified setup.
+                        </p>
+                        <p>
+                            <strong>Key Takeaway:</strong> "Done-in-One" machining eliminates manual re-fixturing errors, holding sub-micron dimensional tolerances (± 0.0002") and true position alignment across complex 3D profiles.
+                        </p>
+                        <p>
+                            <strong>Best For:</strong> Finishing near-net-shape castings, cutting high-density Duplex 2507 impellers, and machining micro-channel liquid cooling cold plates.
+                        </p>
+                    </div>
+
+                    <div class="p-6 bg-slate-50 rounded-lg border border-slate-200">
+                        <h3>5. Automated Sand Molding (Green Sand vs. Resin No-Bake)</h3>
+                        <div class="relative my-4 aspect-video overflow-hidden rounded-lg">
+                            <iframe
+                                class="w-full h-full border-0"
+                                src="https://www.youtube.com/embed/YOUR_YOUTUBE_VIDEO_ID_5"
+                                title="Automated Sand Molding 3D Animation"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                allowfullscreen
+                            ></iframe>
+                        </div>
+                        <p>
+                            <strong>Process Overview:</strong> Automated molding machines compress high-purity sand and binder around a reusable pattern. Internal sand cores are set to form hollow internal fluid passages before liquid iron or steel is poured.
+                        </p>
+                        <p>
+                            <strong>Key Takeaway:</strong> Compares the high-speed cycle times of automated Green Sand molding (ideal for high-volume automotive parts) with the structural rigidity of Chemically Bonded Resin Sand (ideal for multi-ton heavy machinery castings).
+                        </p>
+                        <p>
+                            <strong>Best For:</strong> Large-scale ductile iron engine blocks, pump volutes, agricultural frame brackets, and wind turbine hubs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tier-1-5-integration">
+            <div class="content-container">
+                <h2>The Tier-1.5 Integration Advantage</h2>
+                <p>
+                    In traditional manufacturing, managing separate vendors for casting, forging, heat treatment, and CNC machining creates severe quality gaps. ForceBeyond's Tier-1.5 Manufacturing Model unifies the entire post-forming value chain under a single ISO 9001:2015 and AS9100 Rev D quality umbrella:
+                </p>
+
+                <div class="p-4 bg-slate-100 rounded text-center font-mono text-sm my-6">
+                    [ 3D CAD Print ] ➔ [ Near-Net Forming ] ➔ [ Thermal HIP / Heat-Treat ] ➔ [ 5-Axis CNC Finish ] ➔ [ 100% NDT / CMM ]
+                </div>
+
+                <ul>
+                    <li>
+                        <strong>Design for Manufacturability (DFM):</strong> Our engineering team reviews your 3D CAD prints to optimize wall transitions, draft angles, and machining allowances before tooling is cut.
+                    </li>
+                    <li>
+                        <strong>Zero Dimensional Hand-Off Risk:</strong> We guarantee that raw castings and forgings fit perfectly into secondary CNC fixtures, eliminating vendor disputes over out-of-spec raw stock.
+                    </li>
+                    <li>
+                        <strong>Single-Source Quality Assurance:</strong> Every process shown in our visualizations is certified with complete EN 10204 3.1 Material Test Reports (MTRs), CMM dimensional maps, and Non-Destructive Testing (NDT) sign-offs.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

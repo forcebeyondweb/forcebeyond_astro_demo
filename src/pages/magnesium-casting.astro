@@ -1,0 +1,356 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Magnesium Die Casting: Ultra-Lightweight Precision Manufacturing';
+const seoTitle = 'Custom Magnesium Die Casting Services & AZ91D Alloys | ForceBeyond';
+const seoDescription = 'ForceBeyond provides custom magnesium die casting using AZ91D, AM60B, AM50A, and AS41B alloys. 33% lighter than aluminum with natural EMI shielding, extended tool life, and complete Tier-1.5 5-axis CNC machining and protective anodizing.';
+
+const faqs = [
+    {
+        q: "Why choose Magnesium over Aluminum for a die cast part?",
+        a: "You should choose magnesium when weight reduction is your primary goal (it is 33% lighter than aluminum), when you need superior machinability, or when your component requires thinner walls than aluminum can reliably fill. Magnesium also causes less wear on casting dies, lowering long-term tooling costs."
+    },
+    {
+        q: "Is galvanic corrosion a concern with magnesium parts?",
+        a: "Yes, when magnesium comes into direct contact with other metals (like steel or copper) in a wet environment, galvanic corrosion can occur. ForceBeyond mitigates this by applying specialized protective conversion coatings, e-coatings, or anodizing, and by advising on proper fastening hardware (such as aluminum or zinc-plated fasteners)."
+    },
+    {
+        q: "Is the magnesium die casting process safe?",
+        a: "Absolutely. While magnesium chips and dust can be flammable, modern magnesium die casting foundries use highly controlled, enclosed melting systems with inert cover gases (like sulfur hexafluoride or sulfur dioxide alternatives) that completely neutralize the risk of oxidation and flammability during production."
+    }
+];
+
+// Sources 
+const sources = [
+    { label: 'International Magnesium Association (IMA)', url: 'https://www.intlmag.org' },
+    { label: 'North American Die Casting Association (NADCA)', url: 'https://www.diecasting.org' },
+    { label: 'ASM International: "Properties and Selection: Nonferrous Alloys and Special-Purpose Materials"', url: 'https://www.asminternational.org' }
+];
+
+// Resources 
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/magnesium-die-casting#webpage",
+      "url": "https://www.forcebeyond.store/oscar/magnesium-die-casting",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Die casting",
+          "sameAs": "https://en.wikipedia.org/wiki/Die_casting"
+        },
+        {
+          "@type": "Thing",
+          "name": "Magnesium alloy",
+          "sameAs": "https://en.wikipedia.org/wiki/Magnesium_alloy"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/magnesium-die-casting#service",
+      "name": "Ultra-Lightweight Precision Magnesium Die Casting Services",
+      "serviceType": "Custom Magnesium Die Casting Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Ultra-Lightweight Magnesium Die Casting",
+          "Cold-Chamber & Hot-Chamber Magnesium Casting (180 to 2,000 Metric Tons)",
+          "Magnesium Alloy Grades (AZ91D, AM60B, AM50A, AS41B)",
+          "Inherent EMI/RFI Shielding & High Dimensional Stability",
+          "Extended Tooling Life via Low Latent Heat Transfer",
+          "Inert Cover Gas Protection & Environmental Control",
+          "Tier-1.5 Cast-to-Machine & Specialized Anti-Galvanic Anodizing"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Magnesium Die Casting Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "High-Precision Inert Gas Magnesium Injection",
+              "description": "Scalable production of ultra-lightweight structural magnesium parts using advanced hot/cold-chamber presses under protective inert cover gas systems."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Thin-Wall EMI Shielding Component Casting",
+              "description": "Custom molding achieving thin wall sections down to 1.0mm for portable medical and electronics enclosures requiring inherent electromagnetic shielding."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tier-1.5 Cast-to-Machine & Specialized Surface Treatment",
+              "description": "Turnkey secondary operations including ultra-fast 5-axis CNC machining, chromate conversion coatings, specialized anodizing, and powder coating."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/magnesium-die-casting#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"
+    faqSectionTitle="Frequently Asked Questions: Magnesium Die Casting"
+    faqItems={faqs}
+    ctaTitle="Request Quote For Magnesium Die Casting"
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Magnesium Die Casting: Ultra-Lightweight Precision Manufacturing</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond is a premier manufacturing partner specializing in superior-quality magnesium die casting components. As the lightest structural metal available—approximately 33% lighter than aluminum and 75% lighter than steel—magnesium offers an unparalleled strength-to-weight ratio for applications where weight reduction is mission-critical.
+                        </p>
+                        <p>
+                            Utilizing state-of-the-art cold-chamber and hot-chamber die casting presses ranging from 180 to 2,000 metric tons, we have the scalable capacity to produce high-precision magnesium components from a few grams up to large structural housings. Through our Tier-1.5 global manufacturing network, we deliver fully machined, coated, and assembly-ready magnesium parts that meet strict ISO 9001:2015 quality standards.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/magnesium-die-cast-engine-housing-automotive-4k.webp"
+                                alt="Precision magnesium die-cast automotive engine housing with reinforced ribs, machined openings, and mounting holes on a white background."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="technical-specifications">
+            <div class="content-container">
+                <h2>Technical Specifications: Magnesium Die Casting Alloys</h2>
+                <p>
+                    ForceBeyond ensures all magnesium castings meet rigorous international metallurgical standards. We utilize the industry's most trusted magnesium alloys to match the precise mechanical, thermal, and cosmetic requirements of your project.
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Material Grade</th>
+                                <th scope="col">Tensile Strength (MPa)</th>
+                                <th scope="col">Thermal Cond. (W/mK)</th>
+                                <th scope="col">Key Features & Optimal Applications</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">AZ91D</th>
+                                <td>230</td>
+                                <td>72</td>
+                                <td>The most widely used magnesium die casting alloy. Offers excellent castability, high strength, and good corrosion resistance. Ideal for electronic housings and powertrain components.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">AM60B</th>
+                                <td>220</td>
+                                <td>61</td>
+                                <td>Engineered for excellent ductility and energy-absorbing properties. Widely used in automotive safety components like steering wheels and seat frames.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">AM50A</th>
+                                <td>210</td>
+                                <td>65</td>
+                                <td>Similar to AM60B but offers even higher ductility and impact resistance at a slight trade-off to absolute strength.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">AS41B</th>
+                                <td>210</td>
+                                <td>68</td>
+                                <td>Features excellent creep resistance at elevated temperatures. A prime choice for high-temperature applications like air-cooled engine blocks or transmission cases.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
+            </div>
+        </section>
+
+        <section id="why-partner">
+            <div class="content-container">
+                <h2>Why Partner with ForceBeyond for Magnesium Die Casting?</h2>
+                <p>
+                    Procuring high-quality magnesium components requires a foundry with specialized safety, handling, and processing expertise. Partnering with ForceBeyond ensures you maximize the inherent benefits of the metal:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Extreme Weight Reduction:</strong> Magnesium is the ultimate choice for lightweighting, allowing engineers to drastically reduce assembly weight without sacrificing structural rigidity or durability.
+                    </li>
+                    <li>
+                        <strong>Inherent EMI/RFI Shielding:</strong> Unlike plastics or composites, magnesium naturally shields against electromagnetic interference (EMI) and radio frequency interference (RFI), making it highly desirable for medical devices and consumer electronics.
+                    </li>
+                    <li>
+                        <strong>High Dimensional Stability:</strong> Magnesium offers exceptional dimensional stability over time, making it ideal for complex, thin-walled net-shape castings (down to 1.0mm wall thickness in certain geometries).
+                    </li>
+                    <li>
+                        <strong>Extended Tooling Life:</strong> Because magnesium has a lower latent heat than aluminum, it transfers less heat to the die steel during the casting process. This significantly reduces thermal fatigue, extending the life of your expensive tooling.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>The Magnesium Die Casting Process</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            Depending on the specific alloy and part size, ForceBeyond utilizes both hot-chamber (for smaller, rapid-cycle parts) and cold-chamber (for larger structural parts) die casting technologies.
+                        </p>
+                        <p>
+                            Because magnesium is highly reactive in its molten state, our facilities utilize advanced inert cover gas systems to protect the metal from oxidation during melting and injection. 
+                            The molten magnesium is injected into hardened steel dies under extreme pressure, rapidly solidifying to capture intricate internal geometries and highly detailed surface textures.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/oem-vw-magnesium-engine-case-automotive-4k.webp"
+                                alt="OEM magnesium engine case with machined cylinder bores, mounting surfaces, and reinforced automotive housing features on a white background."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="tier-1-5-integration">
+            <div class="content-container">
+                <h2>Tier-1.5 Integration: Precision Cast-to-Machine & Finishing Solutions</h2>
+                <p>
+                    Magnesium requires specific post-processing and surface treatments to maximize its natural corrosion resistance. ForceBeyond operates a Tier-1.5 model, providing a seamless transition from raw casting to finished component under a single quality umbrella.
+                </p>
+                <p>
+                    <strong>Our In-House Secondary Operations Include:</strong>
+                </p>
+                <ul>
+                    <li>
+                        <strong>High-Speed Precision Machining:</strong> Magnesium is the easiest structural metal to machine. We utilize 5-axis CNC machining to achieve ultra-tight print tolerances rapidly, extending machine tool life and lowering secondary costs.
+                    </li>
+                    <li>
+                        <strong>Protective Surface Treatments:</strong> Chromate conversion coatings, phosphate treatments, and specialized anodizing designed specifically for magnesium to prevent galvanic corrosion.
+                    </li>
+                    <li>
+                        <strong>Aesthetic & Functional Coatings:</strong> Powder coating, e-coating, and painting for final assembly-ready finishes.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="certified-applications">
+            <div class="content-container">
+                <h2>Certified Magnesium Die Casting Applications</h2>
+                <p>
+                    Thanks to its unmatched weight-to-strength ratio and shielding properties, ForceBeyond supplies mission-critical magnesium components to the world's most demanding sectors:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Aerospace & Defense:</strong> Airframe components, drone (UAV) housings, and lightweight seating structures.
+                    </li>
+                    <li>
+                        <strong>Automotive & Transportation:</strong> Steering wheel armatures, seat frames, transfer cases, and lightweight structural brackets for EVs.
+                    </li>
+                    <li>
+                        <strong>Consumer Electronics:</strong> Laptop chassis, camera bodies, and ruggedized tablet enclosures.
+                    </li>
+                    <li>
+                        <strong>Medical Devices:</strong> Portable diagnostic equipment housings requiring strict EMI shielding and minimal weight.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

@@ -1,0 +1,262 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'About ForceBeyond';
+const seoTitle = 'About ForceBeyond | Tier-1.5 Engineered Components Manufacturer';
+const seoDescription = 'Learn about ForceBeyond, founded in 2006. We are a global Tier-1.5 partner offering precision castings, superalloy machining, and resilient supply chain solutions.';
+
+const faqs = [
+    {
+        q: "What is ForceBeyond's Tier-1.5 Co-Ownership Model?",
+        a: "Our Tier-1.5 model bridges the gap between traditional brokers and single Tier-1 suppliers. We hold equity stakes and maintain direct operational oversight across our global foundry network in North America, South Korea, and Taiwan. This allows us to provide global cost-competitiveness while maintaining domestic engineering accountability and strict quality control."
+    },
+    {
+        q: "How does ForceBeyond ensure supply chain redundancy?",
+        a: "We mitigate supply chain risks and single-source failures by offering built-in geographic redundancy. With manufacturing footprints in multiple strategic regions—including North America, South Korea, and Taiwan—we can seamlessly reallocate or shift production to maintain zero assembly line downtime."
+    },
+    {
+        q: "What industries and quality standards does ForceBeyond support?",
+        a: "We serve highly regulated sectors where failure is not an option, including Aerospace, Defense, Power Generation (SMR Nuclear), Medical Devices, and Heavy Automotive. Our network operates under stringent compliance frameworks including AS9100, ISO 9001:2015, and IATF 16949 with complete material traceability and PPAP documentation."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'AS9100 Aerospace Quality Management Standard', url: 'https://www.sae.org' },
+    { label: 'IATF 16949 Automotive Quality Management Standard', url: 'https://www.iatfglobaloversight.org' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Organization / About Page Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "AboutPage",
+      "@id": "https://www.forcebeyond.store/oscar/about#webpage",
+      "url": "https://www.forcebeyond.store/oscar/about",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.forcebeyond.store/oscar#organization",
+      "name": "ForceBeyond",
+      "url": "https://www.forcebeyond.store/oscar",
+      "foundingDate": "2006",
+      "description": "Premier global provider of high-precision castings, exotic alloy machining, and turnkey Tier-1.5 manufacturing solutions.",
+      "knowsAbout": [
+        "Precision Investment, Vacuum, Die, and Sand Casting",
+        "Exotic Superalloy Machining (Titanium, Inconel 718/625, Hastelloy)",
+        "Tier-1.5 Co-Ownership Manufacturing & Supply Chain Redundancy",
+        "Hot Isostatic Pressing (HIP) and Secondary Operations",
+        "AS9100, ISO 9001:2015, and IATF 16949 Quality Frameworks"
+      ],
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/about#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/forcebeyond-company-building.webp"
+    heroImageAlt="forcebeyond-company-building"
+    faqSectionTitle="Frequently Asked Questions About ForceBeyond"
+    faqItems={faqs}
+    ctaTitle="Ready to Streamline Your Manufacturing?"
+    ctaDescription="Whether you are looking to mitigate single-source supply chain risks or need to produce a complex superalloy component with uncompromising tolerances, ForceBeyond has the infrastructure and engineering expertise to deliver."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Your Tier-1.5 Partner for Engineered Components Since 2006</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            For two decades, ForceBeyond has engineered reliability into global supply chains. Founded in 2006, we have grown from a specialized component supplier into a premier global provider of high-precision castings, exotic alloy machining, and turnkey manufacturing solutions.
+                        </p>
+                        <p>
+                            Moving far past the limitations of traditional manufacturing brokers, we operate under a unique Tier-1.5 co-ownership model. By anchoring our operations in North America and integrating co-owned, strictly managed foundry networks across the USA, South Korea, and Taiwan, we offer global supply chain redundancy paired with domestic engineering accountability. From initial design optimization to final precision machining, ForceBeyond manages the entire lifecycle of your most critical components.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/iso9001-2015-pri.webp"
+                                alt="iso9001-2015-pri"
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="purpose-and-drive">
+            <div class="content-container">
+                <h2>Purpose & Drive</h2>
+                <ul>
+                    <li>
+                        <strong>Our Mission:</strong> To engineer resilience into global supply chains by delivering high-precision, mission-critical components that meet the world’s most stringent regulatory standards—on time, every time.
+                    </li>
+                    <li>
+                        <strong>Our Vision:</strong> To be the definitive Tier-1.5 manufacturing partner for advanced industries, blending global cost-competitiveness with domestic engineering accountability, and pioneering frictionless, redundant supply chains for an evolving global market.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="forcebeyond-advantage">
+            <div class="content-container">
+                <h2>The ForceBeyond Advantage</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Advantage Pillar</th>
+                                <th scope="col">Operational Approach</th>
+                                <th scope="col">Value Delivered to OEMs</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">1. The Co-Ownership Model</th>
+                                <td>Equity stakes and direct operational oversight across our global foundry network.</td>
+                                <td>Total quality control, priority production scheduling, and domestic IP protection paired with global cost-efficiency.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2. Radical Supply Chain Redundancy</th>
+                                <td>Built-in geographic redundancy across manufacturing footprints in North America, South Korea, and Taiwan.</td>
+                                <td>Mitigates geopolitical shifts and logistics bottlenecks with seamless production shifting for zero downtime.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3. Engineering-First Methodology</th>
+                                <td>Early-stage integration providing advanced Design for Manufacturing (DFM) feedback.</td>
+                                <td>Optimizes part geometries, refines alloy choices, reduces weight, eliminates scrap, and lowers TCO.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="core-manufacturing-capabilities">
+            <div class="content-container">
+                <h2>Core Manufacturing Capabilities</h2>
+                <p>
+                    Our facilities are engineered to handle extreme environments, tight tolerances, and highly regulated material specifications:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Precision Casting:</strong> Investment casting (lost wax), vacuum precision casting for exotic superalloys, high-pressure die casting, and robust sand casting.
+                    </li>
+                    <li>
+                        <strong>Exotic & Superalloy Expertise:</strong> Advanced metallurgy specializing in Titanium (Ti-6Al-4V), Inconel (718/625), Hastelloy, Cobalt-Chrome, and specialized stainless steels.
+                    </li>
+                    <li>
+                        <strong>Multi-Axis CNC Machining:</strong> Ultra-precise finishing, multi-axis milling, and turning to ensure net-shape accuracy on complex components.
+                    </li>
+                    <li>
+                        <strong>Secondary Operations:</strong> Comprehensive post-processing, including Hot Isostatic Pressing (HIP), specialized heat treatments, non-destructive testing (NDT), and sub-assembly.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="quality-and-compliance">
+            <div class="content-container">
+                <h2>Uncompromising Quality & Compliance</h2>
+                <p>
+                    At ForceBeyond, quality is not a checkbox—it is our absolute gatekeeper. We serve industries where component failure is not an option, including Aerospace, Defense, Power Generation (SMR Nuclear), Medical Devices, and Heavy Automotive.
+                </p>
+                <p>
+                    <strong>Our Quality Management Standard:</strong> ForceBeyond and our manufacturing network operate under stringent compliance frameworks, fully supporting AS9100, ISO 9001:2015, and IATF 16949 standards. Every project is backed by comprehensive material traceability, PPAP documentation, and robust inspection reports (CMM, X-Ray, FPI).
+                </p>
+            </div>
+        </section>
+
+        <section id="core-commitments">
+            <div class="content-container">
+                <h2>Our Core Commitments</h2>
+                <ul>
+                    <li>
+                        <strong>Technical Integrity:</strong> We do not guess; we validate. Every component is backed by rigorous metallurgy and strict adherence to international engineering standards.
+                    </li>
+                    <li>
+                        <strong>Geographic Continuity:</strong> We protect our partners from geopolitical and single-source vulnerabilities through strategic manufacturing redundancy.
+                    </li>
+                    <li>
+                        <strong>Transparency:</strong> From design for manufacturability (DFM) to final PPAP documentation, we operate as an open, integrated extension of your engineering team.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

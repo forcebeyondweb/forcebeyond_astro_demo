@@ -1,0 +1,267 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Aerospace & Defense Precision Components';
+const seoTitle = 'Aerospace & Defense Casting, Forging & CNC Machining | ForceBeyond';
+const seoDescription = 'ForceBeyond delivers AS9100-aligned, ITAR-compliant precision components for commercial aviation, military defense, and space exploration.';
+
+const faqs = [
+    {
+        q: "Is ForceBeyond ITAR registered for defense projects?",
+        a: "Yes. ForceBeyond manages ITAR-compliant defense projects within our USA-based manufacturing facilities to ensure strict ITAR compliance."
+    },
+    {
+        q: "How does ForceBeyond eliminate internal defects in aerospace castings?",
+        a: "Aerospace castings undergo Hot Isostatic Pressing (HIP) to eliminate internal micro-porosity, followed by 100% Radiographic Testing (RT) and Fluorescent Penetrant Inspection (FPI)."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'AS9100 Aerospace & Safety-Critical Quality Management Standard', url: 'https://www.sae.org' },
+    { label: 'ASTM International: Standards for Aerospace Casting & Forgings', url: 'https://www.astm.org' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Page Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/aerospace-defense#webpage",
+      "url": "https://www.forcebeyond.store/oscar/aerospace-defense",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/aerospace-defense#service",
+      "name": "Aerospace & Defense Precision Manufacturing",
+      "serviceType": "Aerospace Precision Components",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Vacuum Induction Melting (VIM) Precision Casting",
+          "Titanium & Inconel Closed-Die Forging",
+          "5-Axis CNC Machining for Flight Hardware",
+          "AS9100 Rev D & ITAR Compliance",
+          "AS9102 First Article Inspection (FAI)"
+        ]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Aerospace & Defense Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Turbine & Engine Systems",
+              "description": "Inconel 718 turbine disks, blisks, fuel nozzles, combustor fittings, and housing frames."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Structural Airframe & Landing Gear",
+              "description": "Titanium landing gear brackets, wing pins, structural hinges, and stabilizer fittings."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Flight Control & Actuation",
+              "description": "17-4 PH actuator housings, brake and latch components, and hydraulic manifolds."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/aerospace-defense#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/industry-aerospace-turbine-engine-v5.webp"
+    heroImageAlt="aerospcae-turbine-engine"
+    faqSectionTitle="Frequently Asked Questions"
+    faqItems={faqs}
+    ctaTitle="Ready to Elevate Your Aerospace Project?"
+    ctaDescription="Partner with our AS9100-aligned, ITAR-compliant team for high-integrity, precision-crafted flight hardware."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Aerospace & Defense Casting, Forging & CNC Machining</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond is an AS9100-aligned, ITAR-compliant Tier-1.5 supplier delivering mission-critical components for commercial aviation, military defense, and space exploration. In aerospace manufacturing, where safety-critical hardware must withstand extreme cyclic fatigue, vibration, and elevated thermal stress, ForceBeyond provides zero-defect solutions.
+                        </p>
+                        <p>
+                            Leveraging co-owned manufacturing facilities across the USA, South Korea, and Taiwan, we combine advanced VIM (Vacuum Induction Melting) precision investment casting, high-tonnage Titanium and Inconel closed-die forging, and 5-axis CNC machining.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/aerospace-defense-overview-4k.webp"
+                                alt="business airplane turbine engine"
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="capabilities">
+            <div class="content-container">
+                <h2>Aerospace Capabilities & Material Matrix</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Process Technology</th>
+                                <th scope="col">Materials Processed</th>
+                                <th scope="col">Industry Application</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Titanium Forging & Machining</th>
+                                <td>Ti-6Al-4V (Grade 5), Ti-6Al-4V ELI</td>
+                                <td>High strength-to-weight ratio; used for structural airframe brackets, landing gear, and fasteners.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Superalloy Investment Casting</th>
+                                <td>Inconel 718, Inconel 625, René 41, René 80</td>
+                                <td>Vacuum-cast superalloys maintaining structural integrity up to 1,800°F (980°C) for jet engine hot sections.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Precision Aluminum Machining</th>
+                                <td>7075-T6, 6061-T6, A356-T6 Aluminum</td>
+                                <td>High-speed 5-axis CNC milling for intricate avionics housings and flight control linkages.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Precipitation Hardening Stainless</th>
+                                <td>17-4 PH, 15-5 PH (Condition H900/H1150)</td>
+                                <td>High strength and excellent corrosion resistance for flight actuators and latch hardware.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="certified-hardware">
+            <div class="content-container">
+                <h2>Certified Aerospace Hardware</h2>
+                <p>
+                    Our tri-regional manufacturing network supplies flight-ready components:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Turbine & Engine Systems:</strong> Inconel 718 turbine disks, blisks, fuel nozzles, combustor fittings, and housing frames.
+                    </li>
+                    <li>
+                        <strong>Structural Airframe & Landing Gear:</strong> Titanium landing gear brackets, wing pins, structural hinges, and stabilizer fittings.
+                    </li>
+                    <li>
+                        <strong>Flight Control & Actuation:</strong> 17-4 PH actuator housings, brake and latch components, and hydraulic manifolds.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="quality-controls">
+            <div class="content-container">
+                <h2>Tri-Regional Geopolitical Resilience & Quality Controls</h2>
+                <p>
+                    ForceBeyond provides supply chain security through our US-managed, global manufacturing footprint:
+                </p>
+                <ul>
+                    <li>
+                        <strong>USA Operations:</strong> Engineering management, ITAR-compliant projects, and domestic quality oversight.
+                    </li>
+                    <li>
+                        <strong>South Korea & Taiwan Facilities:</strong> Heavy-tonnage AS9100 forging and 5-axis CNC machining operations.
+                    </li>
+                    <li>
+                        <strong>AS9102 First Article Inspection (FAI):</strong> Complete dimensional mapping and lot-traceability for every flight-critical assembly.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

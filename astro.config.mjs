@@ -1,7 +1,5 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-// 注释掉 Netlify 适配器，因为 HostGator 无法运行 Netlify 的后端 Serverless 函数
-// import netlify from '@astrojs/netlify';
 import react from '@astrojs/react';
 import sanity from '@sanity/astro';
 

@@ -1,0 +1,260 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Stainless Steel & Carbon Steel: Austenitic, Duplex & Alloy Grades';
+const seoTitle = 'Stainless Steel & Carbon Steel Machining & Casting | ForceBeyond';
+const seoDescription = 'Precision investment casting, sand casting, and CNC machining for 300/400 series stainless, Duplex 2205/2507, 17-4 PH, and alloy carbon steels.';
+
+const faqs = [
+    {
+        q: "How does ForceBeyond ensure maximum corrosion resistance in 300-series stainless steel?",
+        a: "We utilize solution annealing followed by rapid water quenching, which prevents chromium carbide precipitation at grain boundaries and locks in optimal corrosion resistance."
+    },
+    {
+        q: "What standards are followed for Duplex and Super Duplex steel heat treatments?",
+        a: "Our specialized heat treatment processes ensure a precise 50/50 ferrite/austenite phase balance while avoiding brittle Sigma phase formation, fully compliant with NACE MR0175 / ISO 15156 for oil & gas applications."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'NACE MR0175 / ISO 15156 Petroleum and natural gas industries — Materials for use in H2S-containing environments', url: 'https://www.iso.org' },
+    { label: 'ASTM A240 Standard Specification for Chromium and Chromium-Nickel Stainless Steel Plate, Sheet, and Strip', url: 'https://www.astm.org' },
+    { label: 'ASTM A564 Standard Specification for Hot-Rolled and Cold-Finished Age-Hardening Stainless Steel Bars and Shapes', url: 'https://www.astm.org' },
+    { label: 'ASTM A29 Standard Specification for Steel Bars, Carbon and Alloy, Hot-Wrought', url: 'https://www.astm.org' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Page Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/stainless-steel-carbon-steel#webpage",
+      "url": "https://www.forcebeyond.store/oscar/stainless-steel-carbon-steel",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/stainless-steel-carbon-steel#service",
+      "name": "Stainless & Carbon Steel Component Manufacturing",
+      "serviceType": "Steel Casting, Forging & Machining Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Austenitic Stainless Steel (304, 304L, 316, 316L)",
+          "Duplex & Super Duplex Steel (2205, 2507) for Subsea Oil & Gas",
+          "Precipitation-Hardening Alloys (17-4 PH, 15-5 PH)",
+          "Martensitic & Ferritic Steel (410, 416, 420, 440C)",
+          "High-Strength Forged Carbon & Alloy Steel (1045, 4140, 4340, 8620)"
+        ]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Steel Alloy Capabilities Catalog",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Sanitary & Corrosion-Resistant Stainless Components",
+              "description": "300-series austenitic stainless steel castings and machined parts for fluid control, food equipment, and marine hardware."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "High-Strength Duplex & PH Steel Parts",
+              "description": "Dual-phase Duplex 2205/2507 and age-hardened 17-4 PH components for subsea trees, pump shafts, and aerospace actuators."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Forged Heavy-Duty Carbon & Alloy Steel Hardware",
+              "description": "Deep-hardened AISI 4140, 4340, and 8620 steel forgings for heavy machinery gears, pins, and mining equipment."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/stainless-steel-carbon-steel#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="Precision investment cast and CNC machined stainless steel valve component"
+    faqSectionTitle="Frequently Asked Questions"
+    faqItems={faqs}
+    ctaTitle="Engineered Steel Solutions for Severe Environments"
+    ctaDescription="Partner with ForceBeyond for precision investment casting, sand casting, forging, and 5-axis CNC machining across all steel and carbon alloy families."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Stainless Steel & Carbon Steel: Austenitic, Duplex & Alloy Grades</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond manufactures a wide range of precision stainless steel, tool steel, and carbon steel components. Whether requiring the sanitary, non-magnetic properties of 316L, the high yield strength of precipitation-hardening 17-4 PH, the sour-gas corrosion resistance of Super Duplex 2507, or the impact wear resistance of 4140 chromoly steel, ForceBeyond delivers engineered metal solutions matching your exact mechanical requirements.
+                        </p>
+                        <p>
+                            Through our Tier-1.5 Manufacturing Model, we combine investment casting, sand casting, hot forging, heat treatment, and 5-axis CNC finishing under a unified quality system.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/stainless-steel-carbon-steel-overview-4k.webp"
+                                alt="Precision machined Duplex stainless steel pump housing component."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="capabilities-matrix">
+            <div class="content-container">
+                <h2>Steel Alloy Capabilities Matrix</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Steel Family</th>
+                                <th scope="col">Key Alloys Offered</th>
+                                <th scope="col">Yield Strength Range</th>
+                                <th scope="col">Performance Characteristics & Typical Applications</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Austenitic Stainless (300 Series)</th>
+                                <td>304, 304L, 316, 316L</td>
+                                <td>200–300 MPa (29–44 ksi)</td>
+                                <td>Outstanding general corrosion resistance and high ductility. Ideal for food/dairy equipment, sanitary Fluid Control Valves, and marine hardware.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Duplex & Super Duplex</th>
+                                <td>UNS S32205 (2205)<br />UNS S32750 (2507)</td>
+                                <td>450–550 MPa (65–80 ksi)</td>
+                                <td>Dual-phase (50/50 ferrite-austenite) structure providing twice the strength of 316L and immunity to chloride stress corrosion cracking. Essential for Oil & Gas subsea trees.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Precipitation-Hardening</th>
+                                <td>17-4 PH (UNS S17400)<br />15-5 PH (UNS S15500)</td>
+                                <td>750–1,200 MPa (110–175 ksi)</td>
+                                <td>Combines high tensile strength and hardness with 304-level corrosion resistance via aging cycles (H900–H1150). Used for pump shafts and aerospace actuators.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Martensitic / Ferritic (400 Series)</th>
+                                <td>410, 416, 420, 440C</td>
+                                <td>350–1,500+ MPa (50–220+ ksi)</td>
+                                <td>High carbon content allows heat treatment to extreme hardness levels. Used for surgical cutlery, valve stems, and wear plates.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">High-Strength Carbon & Alloy Steels</th>
+                                <td>AISI 1045, 4140, 4340, 8620</td>
+                                <td>400–1,400 MPa (58–200 ksi)</td>
+                                <td>High-tonnage forged integrity and deep hardenability (Carburized / Q&T). Used for heavy gears, excavator pins, and Mining Hardware.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="heat-treatment">
+            <div class="content-container">
+                <h2>Thermal Processing & Heat Treatment Control</h2>
+                <p>
+                    Controlling microstructural grain formation is essential when processing steel alloys:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Solution Annealing & Water Quenching:</strong> Rapid cooling prevents chromium carbide precipitation on 300-series stainless, locking in maximum corrosion resistance.
+                    </li>
+                    <li>
+                        <strong>Controlled Phase Balance in Duplex:</strong> Specialized heat treatment ensures a precise 50/50 ferrite/austenite phase balance, avoiding brittle Sigma phase formation (compliant with NACE MR0175 / ISO 15156).
+                    </li>
+                    <li>
+                        <strong>Precipitation Age Hardening:</strong> Thermal aging of 17-4 PH in Condition A to final H900, H1025, or H1150 tempers to balance tensile strength against impact toughness.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

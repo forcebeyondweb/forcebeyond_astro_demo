@@ -1,87 +1,248 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Medical';
-const pageDescription = 'This page is under development. ForceBeyond provides custom metal component manufacturing solutions for industrial applications.';
+const pageTitle = 'Medical Device Precision Casting & CNC Machining';
+const seoTitle = 'Medical Device Precision Casting & CNC Machining | ForceBeyond';
+const seoDescription = 'ForceBeyond supplies ISO 13485-aligned ultra-high precision castings, Swiss CNC turning, and micro-machining for medical device OEMs.';
+
+const faqs = [
+    {
+        q: "Are ForceBeyond’s medical implant materials biocompatible?",
+        a: "Yes. We pour and machine implant-grade materials compliant with ASTM F136 (Titanium ELI) and ASTM F75 (Cobalt-Chrome), accompanied by full 3.1 chemical and biocompatibility test reports."
+    },
+    {
+        q: "How does ForceBeyond inspect sub-micron medical parts?",
+        a: "We utilize non-contact 3D optical/vision measuring systems and micro-CMMs inside temperature-controlled metrology labs."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'ISO 13485:2016 Medical Devices Quality Management Systems', url: 'https://www.iso.org' },
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'ASTM International: Medical Device & Implant Material Standards', url: 'https://www.astm.org' },
+    { label: 'ASTM A967 Standard Specification for Chemical Passivation Treatments', url: 'https://www.astm.org' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Page Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/medical-device#webpage",
+      "url": "https://www.forcebeyond.store/oscar/medical-device",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/medical-device#service",
+      "name": "Medical Device Precision Component Manufacturing",
+      "serviceType": "Healthcare Precision Manufacturing",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "ISO 13485-Aligned Precision Manufacturing",
+          "Biocompatible Titanium & Cobalt-Chrome Implant Components",
+          "Swiss CNC Micro-Turning & Sub-Micron Tolerances",
+          "Electropolishing & ASTM A967 Citric/Nitric Passivation",
+          "Non-Contact Optical Measuring & Micro-CMM Inspection"
+        ]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Medical Device Manufacturing Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Orthopedic & Spinal Implants",
+              "description": "Biocompatible Titanium (Ti-6Al-4V ELI) and Cobalt-Chrome (CoCrMo) hip/knee implants and bone screws."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Surgical Instruments & Endoscopic Clamps",
+              "description": "Precision surgical-grade stainless steel instrument handles, scalpel blanks, and clamp assemblies."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "High-Performance Polymer Machining",
+              "description": "Micro-machined PEEK and Delrin insulators, surgical guides, and trial implants."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/medical-device#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
 ---
 
-<Layout 
-    title={`${pageTitle} | ForceBeyond`}
-    description={pageDescription}
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/robotic-surgery-system-modern-operating-room-hero.webp"
+    heroImageAlt="Wide view of a robotic surgical system, operating table, and surgical light inside a modern hospital operating room."
+    faqSectionTitle="Frequently Asked Questions"
+    faqItems={faqs}
+    ctaTitle="Advance Your Medical Device Manufacturing"
+    ctaDescription="Partner with our ISO 13485-aligned engineering team for biocompatible, sub-micron precision medical castings and micro-machined components."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
 >
-    <!-- Placeholder Page -->
-    <section class="relative w-full min-h-[calc(100vh-5rem)] bg-slate-50 pt-20 pb-24 px-6 sm:px-12">
-        <div class="w-full max-w-6xl mx-auto">
-            
-            <!-- Breadcrumb -->
-            <nav class="mb-10 text-sm text-slate-500">
-                <a href="/oscar/" class="hover:text-brand-blue transition">Home</a>
-                <span class="mx-2">/</span>
-                <span class="text-slate-700">{pageTitle}</span>
-            </nav>
 
-            <!-- Main Content -->
-            <div class="rounded-2xl border border-slate-200 bg-white p-8 sm:p-12 lg:p-16 shadow-sm">
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
                 
-                <p class="mb-4 text-xs font-semibold tracking-[0.22em] text-brand-blue uppercase">
-                    Page Under Development
-                </p>
+                <h2>Medical Device Precision Casting & CNC Machining</h2>
 
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 uppercase">
-                    {pageTitle}
-                </h1>
-
-                <div class="mt-6 h-1 w-16 bg-brand-blue rounded-full"></div>
-
-                <p class="mt-8 max-w-3xl text-lg sm:text-xl leading-8 text-slate-700 font-medium">
-                    This page is currently being prepared. ForceBeyond supports customers with precision casting, forging, CNC machining, quality control, and global supply chain coordination for high-demand industrial applications.
-                </p>
-
-                <div class="mt-10 grid gap-4 sm:grid-cols-3">
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Manufacturing
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Casting, forging, machining, and finishing support.
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond is an ISO 13485-aligned manufacturing partner specializing in ultra-high precision castings, Swiss-style CNC turning, and micro-machining for the medical device and healthcare sectors. Medical components require biocompatibility, sub-micron tolerances, and flawless surface integrity.
+                        </p>
+                        <p>
+                            Operating in climate-controlled manufacturing cells, ForceBeyond processes surgical-grade stainless steels (316LVM, 17-4 PH), Titanium (Ti-6Al-4V ELI), and Cobalt-Chrome alloys (CoCrMo).
                         </p>
                     </div>
-
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Quality
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Inspection, documentation, and traceability workflows.
-                        </p>
-                    </div>
-
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Supply Chain
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Multi-facility sourcing and delivery coordination.
-                        </p>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/medical-ct-scanner-diagnostic-imaging-room.webp"
+                                alt="High-resolution view of a modern medical CT scanner and patient table inside a clean diagnostic imaging room"
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
                     </div>
                 </div>
 
-                <div class="mt-12 flex flex-col sm:flex-row gap-4">
-                    <a 
-                        href="/oscar/request-a-quote" 
-                        class="inline-flex items-center justify-center rounded-full bg-brand-green px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#5aaa14] shadow-sm"
-                    >
-                        Request Quote
-                    </a>
+            </div>
+        </section>
 
-                    <a 
-                        href="/oscar/#capabilities" 
-                        class="inline-flex items-center justify-center rounded-full border border-slate-300 px-8 py-3 text-sm font-semibold text-slate-700 transition hover:border-[#0363CE] hover:text-brand-blue"
-                    >
-                        View Capabilities
-                    </a>
+        <section id="materials-matrix">
+            <div class="content-container">
+                <h2>Medical Materials & Process Matrix</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Alloy Family</th>
+                                <th scope="col">Material Standards</th>
+                                <th scope="col">Primary Medical Applications</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Titanium Alloys</th>
+                                <td>ASTM F136 (Ti-6Al-4V ELI)</td>
+                                <td>Lightweight, biocompatible, non-magnetic material for orthopedic hip/knee implants and spinal bone screws.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Cobalt-Chrome</th>
+                                <td>ASTM F75 CoCrMo Alloy</td>
+                                <td>Exceptional wear resistance and polishability for orthopedic knee joint castings and dental prostheses.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Medical Stainless</th>
+                                <td>316LVM, 17-4 PH, 440C</td>
+                                <td>Surgical instrument handles, scalpel blanks, endoscopic clamps, and diagnostic equipment frames.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">High-Performance Polymers</th>
+                                <td>PEEK, Delrin</td>
+                                <td>Micro-machined insulators, surgical guides, and trial implants.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </div>
-    </section>
-</Layout>
+        </section>
+
+        <section id="micro-machining-finishing">
+            <div class="content-container">
+                <h2>Micro-Machining, Passivation & Sterile Finishing</h2>
+                <p>
+                    Medical components demand rigorous post-processing:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Swiss CNC Micro-Turning:</strong> Holds sub-micron tolerances (&plusmn;0.0001&rdquo;) on long, thin orthopedic screws and pins.
+                    </li>
+                    <li>
+                        <strong>Electropolishing:</strong> Micro-smooths stainless and Cobalt-Chrome surfaces, eliminating micro-burrs and creating a mirror-like finish.
+                    </li>
+                    <li>
+                        <strong>Citric/Nitric Passivation (ASTM A967):</strong> Dissolves free iron particles to prevent corrosion and maintain a sterile surface.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

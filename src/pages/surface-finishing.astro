@@ -1,0 +1,336 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Surface Finishing & Protective Coating Services';
+const seoTitle = 'Custom Surface Finishing & Protective Coating Services | ForceBeyond';
+const seoDescription = 'ForceBeyond delivers comprehensive surface finishing services for custom castings, forgings, and CNC components, including passivation, electropolishing, Type II/III anodizing, and ENP.';
+
+const faqs = [
+    {
+        q: "What is the difference between Passivation and Electropolishing for stainless steel?",
+        a: "Passivation is a chemical bath (citric or nitric acid) that dissolves free iron from the surface without changing the part's physical dimensions or surface roughness. It focuses purely on restoring corrosion resistance. Electropolishing is an electrochemical process (the opposite of electroplating) that actually removes a microscopic layer of metal (typically 0.0001” to 0.0005”). It levels the surface micro-profile, removing burrs and creating a ultra-smooth, bright, mirror-like finish ideal for sterile sanitary and medical hardware."
+    },
+    {
+        q: "Why is Electroless Nickel Plating preferred over Electroplated Nickel for complex castings?",
+        a: "Traditional electroplating relies on electrical current, which causes the plating to build up thickly on outside corners while leaving deep cavities, internal threads, and blind holes under-plated. Electroless Nickel Plating uses a autocatalytic chemical reaction without electrical current, depositing an exact, uniform layer of nickel-phosphorus across every surface of the part, regardless of geometry."
+    },
+    {
+        q: "Does Type III Hardcoat Anodizing affect part dimensions?",
+        a: "Yes. Hardcoat anodizing grows the oxide layer into the aluminum material while simultaneously building up on the surface. Typically, 50% of the coating thickness penetrates into the metal and 50% builds up on the surface. For a standard 0.002” (50 micron) hardcoat coating, the surface of the part will increase in dimension by approximately 0.001” per side. Our CNC engineering team accounts for this exact growth during the machining phase prior to anodizing."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'ASTM International: Chemical Passivation, Anodizing & Salt Spray Standards', url: 'https://www.astm.org' },
+    { label: 'AMS / MIL Specifications for Anodizing and Plating Standards', url: 'https://www.quickseries.com' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/surface-finishing-protective-coating#webpage",
+      "url": "https://www.forcebeyond.store/oscar/surface-finishing-protective-coating",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Surface finishing",
+          "sameAs": "https://en.wikipedia.org/wiki/Surface_finishing"
+        },
+        {
+          "@type": "Thing",
+          "name": "Anodizing",
+          "sameAs": "https://en.wikipedia.org/wiki/Anodizing"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/surface-finishing-protective-coating#service",
+      "name": "Surface Finishing & Protective Coating Services",
+      "serviceType": "Metal Surface Treatment & Post-Processing",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Stainless Steel Chemical Passivation (ASTM A967)",
+          "Electropolishing for Medical & Sanitary Components",
+          "Type II & Type III Hardcoat Anodizing (MIL-A-8625)",
+          "Electroless Nickel Plating (ENP) & Chem Film",
+          "E-Coating, Powder Coating & Pre-Treatment Blasting"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Surface Finishing Options",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Chemical Treatments & Passivation",
+              "description": "Citric/nitric passivation and electropolishing engineered to prevent corrosion and deliver micro-smooth surface profiles."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Anodizing & Conversion Coatings",
+              "description": "Type II, Type III Hardcoat Anodizing, and Chem Film treatments providing wear resistance and corrosion protection."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Plating & Applied Barrier Coatings",
+              "description": "Electroless Nickel Plating (ENP), E-coating, and powder coating for extreme environmental endurance."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/surface-finishing-protective-coating#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"
+    faqSectionTitle="Frequently Asked Questions: Surface Finishing"
+    faqItems={faqs}
+    ctaTitle=""
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Surface Finishing & Protective Coating Services</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond provides a comprehensive suite of advanced surface finishing and protective coating services for custom metal castings, forgings, and high-precision CNC machined components. A metal component's performance is heavily defined by its surface integrity. Whether operating in subsea saltwater, harsh chemical processing environments, or high-purity medical applications, proper surface preparation and protective coatings are essential to prevent corrosion, eliminate surface contamination, reduce friction, and extend operational lifespans.
+                        </p>
+                        <p>
+                            Operating under a strict ISO 9001:2015 quality management system, ForceBeyond manages all surface finishing operations in-house or through certified tier-one finishing partners. From automated chemical passivation of stainless steel to hardcoat anodizing of aerospace aluminum, we deliver fully finished, aesthetic, and assembly-ready components compliant with strict ASTM, AMS, MIL, and ISO specifications.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/surface-finishing-protective-coating-overview-4k.webp"
+                                alt="High-precision passivated and anodized metal components undergoing quality inspection for surface finishing."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="technical-capabilities">
+            <div class="content-container">
+                <h2>Technical Capabilities: Surface Finishing & Coating Options</h2>
+                <p>
+                    ForceBeyond offers tailored surface engineering solutions categorized into three primary disciplines: Chemical Treatments, Conversion Coatings & Plating, and Applied Barrier Coatings.
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Finishing Discipline</th>
+                                <th scope="col">Process / Technology</th>
+                                <th scope="col">Applicable Materials</th>
+                                <th scope="col">Primary Engineering Benefits</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row" rowspan="2">Chemical Treatments</th>
+                                <td>Citric / Nitric Passivation (ASTM A967)</td>
+                                <td>Stainless Steel (304, 316, 17-4 PH, Duplex)</td>
+                                <td>Removes free iron embedded during machining, accelerating the formation of the natural protective chromium-oxide layer to prevent rusting.</td>
+                            </tr>
+                            <tr>
+                                <td>Electropolishing</td>
+                                <td>Stainless Steel & Cobalt-Chrome</td>
+                                <td>Micro-smooths the surface electrochemically, removing microscopic burrs and peak-and-valley profiles for sterile, mirror-like finishes in medical/sanitary parts.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" rowspan="2">Anodizing & Conversion</th>
+                                <td>Type II & Type III Hardcoat Anodizing (MIL-A-8625)</td>
+                                <td>Aluminum Alloys (A356, 6061, 7075)</td>
+                                <td>Converts the aluminum surface into a dense, wear-resistant aluminum-oxide ceramic layer. Type III delivers extreme abrasion resistance and electrical insulation.</td>
+                            </tr>
+                            <tr>
+                                <td>Chromate Conversion (Chem Film)</td>
+                                <td>Aluminum & Magnesium</td>
+                                <td>Creates a thin, corrosion-resistant protective film while preserving electrical conductivity and acting as an optimal paint primer base.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row" rowspan="3">Plating & Barrier Coatings</th>
+                                <td>Electroless Nickel Plating (ENP)</td>
+                                <td>Steel, Copper, Brass, Cast Iron</td>
+                                <td>Deposits a uniform nickel-phosphorus alloy layer without electrical current, providing exceptional wear, hardness, and corrosion resistance inside blind holes.</td>
+                            </tr>
+                            <tr>
+                                <td>E-Coating (Electro-Deposition)</td>
+                                <td>Carbon Steel, Ductile Iron, Aluminum</td>
+                                <td>An immersion coating process utilizing electrical current to apply a uniform, highly corrosion-resistant organic epoxy barrier over complex geometries.</td>
+                            </tr>
+                            <tr>
+                                <td>Powder Coating & Industrial Painting</td>
+                                <td>All Ferrous & Non-Ferrous Metals</td>
+                                <td>Applies a durable, thick polymer powder baked in an oven to yield extreme chip resistance, weatherability, and custom aesthetic colors.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
+            </div>
+        </section>
+
+        <section id="surface-preparation">
+            <div class="content-container">
+                <h2>Surface Preparation & Pre-Treatment Operations</h2>
+                <p>
+                    A protective coating or finish is only as reliable as the surface pre-treatment beneath it. ForceBeyond integrates rigorous pre-finishing steps to ensure 100% coating adhesion and surface purity:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Abrasive Media Blasting (Shot / Bead Blasting):</strong> Uses glass beads, ceramic media, or aluminum oxide to clean scale from heat-treated parts, remove casting sand residue, and produce a uniform matte surface texture (ideal for hiding cosmetic tool marks).
+                    </li>
+                    <li>
+                        <strong>Vibratory Deburring & Tumbling:</strong> Mechanical tumbling with ceramic or plastic media to smooth sharp edges, remove micro-burrs left from CNC milling, and radiate corners.
+                    </li>
+                    <li>
+                        <strong>Ultrasonic Aqueous Degreasing:</strong> Removes heavy cutting oils, coolants, and microscopic particulate matter prior to chemical passivation or plating lines.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="tier-1-5-integration">
+            <div class="content-container">
+                <h2>Tier-1.5 Integration: Cast, Machine, Finish & Pack</h2>
+                <p>
+                    Managing separate subcontractors for casting, CNC machining, and electroplating leads to high scrap rates and shipping delays. ForceBeyond’s Tier-1.5 Manufacturing Model integrates surface finishing directly into the component production cycle:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Near-Net Forming & Machining:</strong> The part is cast/forged and precision CNC machined to final print specifications.
+                    </li>
+                    <li>
+                        <strong>In-Line Inspection:</strong> Pre-coating CMM dimensional verification to account for plating thickness allowances.
+                    </li>
+                    <li>
+                        <strong>Surface Processing:</strong> The component undergoes automated pre-cleaning, chemical finishing (e.g., passivation or hardcoat anodizing), and post-treatment sealing.
+                    </li>
+                    <li>
+                        <strong>Final Quality Certification:</strong> 100% visual inspection, coating thickness verification (ASTM B499), salt spray corrosion testing (ASTM B117 compliance), and final protective packaging.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="certified-applications">
+            <div class="content-container">
+                <h2>Certified Surface Finishing Applications</h2>
+                <p>
+                    Our specialized finishing lines supply certified surface-engineered components to:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Fluid & Flow Control:</strong> E-coated cast iron valve bodies, passivated 316L pump impellers, and electroless nickel-plated steel manifolds.
+                    </li>
+                    <li>
+                        <strong>Aerospace & Defense:</strong> Type III hard-anodized aluminum brackets, chem-filmed avionics housings, and passivated 17-4 PH structural actuators.
+                    </li>
+                    <li>
+                        <strong>Medical & Food Processing:</strong> Electropolished stainless surgical guides, mirror-finished 316L FDA sanitary fittings, and biocompatible titanium implants.
+                    </li>
+                    <li>
+                        <strong>Automotive & Industrial:</strong> Powder-coated suspension brackets, zinc-plated high-tensile fasteners, and black oxide-treated gear blanks.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

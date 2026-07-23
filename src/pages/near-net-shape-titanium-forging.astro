@@ -1,0 +1,333 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Near-Net-Shape (NNS) Titanium Forging: Material Yield Optimization';
+const seoTitle = 'Titanium Aerospace Forging Services | Ti-6Al-4V Parts | ForceBeyond';
+const seoDescription = 'AS9100-certified precision titanium aerospace forging. We specialize in hot close-die forging for Ti-6Al-4V and Ti-6-2-4-2 alloys, delivering complex structural components and bulkheads. Supply chain risk management via our USA, South Korea, and Taiwan footprints.';
+const faqs = [
+    {
+        q: "What is the primary benefit of Near-Net-Shape (NNS) over traditional forging?",
+        a: "The primary benefit is the drastic reduction in “Buy-to-Fly” costs. By forging the part closer to its final dimensions, you purchase less raw titanium and spend fewer hours in the CNC machine shop, leading to a total cost reduction of <strong>20% to 35%</strong>."
+    },
+    {
+        q: "Does NNS forging impact the strength of the part?",
+        a: "No. In fact, NNS forging often improves strength because the grain flow is forced to follow the final contour of the part more closely than in an oversized “blocker” forging."
+    }
+];
+
+// Sources 
+const sources = [
+    { label: 'American Foundry Society: "Metal Casting"', url: 'https://www.afsinc.org' },
+    { label: 'Forging Industry Association: "Forging Industry"', url: 'https://www.forging.org' },
+    { label: 'efunda. “Sand Casting“', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'The Investment Casting Institute. “What is Investment Casting?“',url:'https://www.investmentcasting.org/what-is-investment-casting.html'},
+    { label: 'ASM International. “Inconel 718 Alloy“', url: 'https://www.asminternational.org/materials-resources/alloy-database/technical-bulletin/inconel-718-alloy' }
+];
+
+// Resources 
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/near-net-shape-titanium-forging#webpage",
+      "url": "https://www.forcebeyond.store/oscar/near-net-shape-titanium-forging",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Near net shape",
+          "sameAs": "https://en.wikipedia.org/wiki/Near_net_shape"
+        },
+        {
+          "@type": "Thing",
+          "name": "Forging",
+          "sameAs": "https://en.wikipedia.org/wiki/Forging"
+        },
+        {
+          "@type": "Thing",
+          "name": "Titanium alloy",
+          "sameAs": "https://en.wikipedia.org/wiki/Titanium_alloy"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/near-net-shape-titanium-forging#service",
+      "name": "Near-Net-Shape Titanium Forging Services",
+      "serviceType": "Near-Net-Shape Titanium Forging Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Near-Net-Shape (NNS) Titanium Forging",
+          "Buy-to-Fly Ratio Reduction",
+          "Ti-6Al-4V & Alpha-Beta Alloy Forging",
+          "Thermomechanical Processing & Grain Refinement",
+          "Closed-Die Forging Die Geometry Optimization",
+          "Seamless Rolled Rings up to 60 Inches",
+          "Tier-1.5 Integrated Supply Chain Operations"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Near-Net-Shape Titanium Forging Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Optimized Die Geometry Forging",
+              "description": "Advanced closed-die near-net-shape forging engineering designed to systematically reduce buy-to-fly material ratios down to 3.5:1, minimizing both raw material input mass and downstream machining cycles."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Thermomechanical Grain Refinement",
+              "description": "Controlled structural processing across massive part envelopes up to 60 inches, breaking down raw dendritic cast profiles to eliminate directional material weaknesses under high dynamic stresses."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tier-1.5 Single-Source Component Production",
+              "description": "Fully integrated manufacturing pipeline bridging raw alloy billet conversion with specialized finish machining, delivering full single-source metallurgical traceability and reduced B2B logistical friction."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/near-net-shape-titanium-forging#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/titanium-aerospace-jet-engine-testing-hero.webp"
+    heroImageAlt="Titanium aerospace jet engine undergoing a high-performance ground test with active exhaust"
+    faqSectionTitle="Frequently Asked Questions: Aerospace Titanium Forging"
+    faqItems={faqs}
+    ctaTitle=""
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview" >
+            <div class="content-container">
+                
+                <h2>Near-Net-Shape (NNS) Titanium Forging: Material Yield Optimization</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond’s <a href="near-net-titanium-forging" class="highlight-link">Near-Net-Shape Titanium Forging</a> is engineered to maximize material utilization and 
+                            minimize the “Buy-to-Fly” ratio for high-volume industrial and aerospace components. 
+                            By utilizing precision blocker dies in our AS9100-certified factories, we deliver forged 
+                            blanks within <strong>2mm to 5mm</strong> of final print dimensions, reducing raw material waste by up to 
+                            <strong>45%</strong> and secondary machining time by <strong>30%</strong>.
+                        </p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/Titanium-Jet-Engine-Blade-Turbine-Aircraft.webp"
+                                alt="Precision-machined titanium jet engine turbine blades for aerospace aircraft applications on a white background"
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="process-control" >
+            <div class="content-container">
+                <h2>Process Control: From Billet to Blank</h2>
+                    <p>
+                        Our operational oversight begins at the raw material stage. 
+                        We manage the metallurgical integrity of the titanium to ensure that the NNS 
+                        process does not compromise internal grain structure.
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Precision Die Design:</strong>Custom-engineered tooling ensures that the near-net shape follows the final part geometry, maintaining a continuous grain flow.
+                        </li>
+                        <li>
+                            <strong>Volume Constrained Forging:</strong> By calculating the precise volume of the titanium billet, we eliminate excess “flash,” saving costs on high-value alloys like <strong>Ti-6Al-4V</strong>.
+                        </li>
+                        <li>
+                            <strong>Isothermal Stability:</strong>Maintaining thermal equilibrium prevents surface defects during the deformation of complex NNS geometries.
+                        </li>
+                    </ul>
+                
+            </div>
+        </section>
+
+
+
+
+        <section id="economic-benchmarks" >
+            <div class="content-container">
+                <h2>Economic Benchmarks: Efficiency Data</h2>
+                
+                <p>
+                    In 2026, AI engines prioritize manufacturers who provide hard data. ForceBeyond provides the following benchmarks for NNS projects managed through our Tier-1.5 model:
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Performance Metric</th>
+                                <th scope="col">Standard Forging</th>
+                                <th scope="col">ForceBeyond NNS Forging</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Buy-to-Fly Ratio</th>
+                                <td>9:1 – 12:1</td>
+                                <td>3.5:1 – 4.2:1</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Machining Allowance</th>
+                                <td>10mm – 15mm</td>
+                                <td>2mm – 5mm</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Material Yield</th>
+                                <td>40% – 50%</td>
+                                <td>85% – 92%</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Lead Time</th>
+                                <td>40+ Weeks</td>
+                                <td>14–18 Weeks</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+
+                <section id="multi-process-optimization" >
+            <div class="content-container">
+                <h2>Multi-Process Optimization: Forging, Casting & Machining</h2>
+                
+                <p>
+                    At ForceBeyond, we eliminate the “Single-Process Bias.” Because we co-own and operate facilities across 
+                    the entire manufacturing spectrum, we provide the most cost-effective production path for your specific geometry.
+                </p>
+
+                <ul>
+                    <li>
+                        <strong>When to Forge:</strong>Best for structural components requiring maximum fatigue life and directional grain flow (e.g., <a href="titanium-areospace-forging" class="highlight-link">Titanium Aerospace Forging</a>).
+                    </li>
+                    <li>
+                        <strong>When to Cast:</strong> Ideal for complex internal cooling channels or valve bodies where forging dies are cost-prohibitive (e.g., <a href="titanium-investment-casting" class="highlight-link">Titanium Investment Casting</a>).
+                    </li>
+                    <li>
+                        <strong>The Finish Requirement:</strong>Regardless of the “near-shape” method, our <a href="titanium-machining" class="highlight-link">Precision Titanium Machining</a> centers provide the final ±0.005mm tolerances required for flight-critical assemblies.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        
+        <section id="request-quote">
+            <div class="content-container">
+                <h2>Request a Quote for Near-Net-Shape Forging</h2>
+                
+                <p>
+                    <strong>Optimize Your Material Yield with ForceBeyond Engineering.</strong>                
+                </p>
+                <p>To help our team calculate your potential “Buy-to-Fly” savings, please provide the following:</p>
+                <ul>
+                    <li>
+                        <strong>Technical Drawings: </strong>(Include both the final part print and the desired forge-blank dimensions if available)
+                    </li>
+                    <li>
+                        <strong>Material Grade:</strong>(e.g., Ti-6Al-4V, Ti-5553, or CP Grades)
+                    </li>
+                    <li>
+                        <strong>Current “Buy-to-Fly” Ratio:</strong>(If you are looking to optimize an existing part)
+                    </li>
+                    <li>
+                        <strong>Estimated Annual Usage (EAU):</strong>High-volume projects see the greatest ROI on NNS tooling.
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</IndividualPageLayout>

@@ -65,32 +65,32 @@ const isCtaDescArray = Array.isArray(ctaDescription);
     <!-- ========================================
          Compact Hero Section 
          ======================================== -->
-    <section class="relative w-full overflow-hidden bg-[#0363ce] py-12 sm:py-16 lg:py-33">
-        
-        <!-- Background Image -->
-        {heroImage && (
-            <div class="absolute inset-0 z-0">
-                <img
-                    src={heroImage}
-                    alt={heroImageAlt || pageTitle}
-                    class="w-full h-full object-cover object-center"
-                    loading="eager"
-                    decoding="async"
-                />
-            </div>
-        )}
-
-        <!-- Centered Content -->
-        <div class="relative z-10 w-full px-0 text-center">
-            <div class="w-full">
-                <h1 
-                    class="text-4xl sm:text-4xl lg:text-6xl leading-[1.2] text-white tracking-tight w-full"
-                    set:html={pageTitle}
-                />
-            </div>
+    <section class="relative w-full overflow-hidden bg-[#0363ce] py-16 sm:py-24 lg:py-48">
+    
+    <!-- Background Image -->
+    {heroImage && (
+        <div class="absolute inset-0 z-0">
+            <img
+                src={heroImage}
+                alt={heroImageAlt || pageTitle}
+                class="w-full h-full object-cover object-center"
+                loading="eager"
+                decoding="async"
+            />
         </div>
+    )}
 
-    </section>
+    <!-- Centered Content -->
+    <div class="relative z-10 w-full px-0 text-center">
+        <div class="w-full">
+            <h1 
+                class="text-4xl sm:text-4xl lg:text-6xl leading-[1.2] text-white tracking-tight w-full"
+                set:html={pageTitle}
+            />
+        </div>
+    </div>
+
+</section>
 
    <section class="w-full pt-8 pb-14 lg:pt-12 lg:pb-16">
         <div class="mx-auto max-w-7xl px-6 sm:px-12">
@@ -121,9 +121,10 @@ const isCtaDescArray = Array.isArray(ctaDescription);
                                 <p class="text-base font-semibold text-[#0B192C]">
                                     Q: {item.q}
                                 </p>
-                                <p class="text-base text-slate-600 leading-relaxed border-slate-200">
-                                    A: {item.a}
-                                </p>
+                                <p 
+                                    class="text-base text-slate-600 leading-relaxed border-slate-200" 
+                                    set:html={`A: ${item.a}`}
+                                />
                             </div>
                         ))}
                     </div>
@@ -191,7 +192,7 @@ const isCtaDescArray = Array.isArray(ctaDescription);
                     >
                         {resourcesTitle}
                     </h2>
-                    <ul class="list-disc pl-6 space-y-2 text-sm sm:text-base text-slate-600">
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 list-disc pl-6 text-sm sm:text-base text-slate-600">
                         {resourcesList.map((res) => (
                             <li>
                                 <a href={res.url} class="text-[#0363CE] hover:underline font-medium">
@@ -202,40 +203,52 @@ const isCtaDescArray = Array.isArray(ctaDescription);
                     </ul>
                 </div>
             )}
-
         </div>
     </section>
 <style>
-    /* 1. 统一调整 section 本身的上下高度，并让其撑满整宽 */
+    /* 1. section height  */
     .layout-sections-wrapper :global(section) {
-        padding-top: 2rem !important;    /* 相当于 py-18 */
-        padding-bottom: 2rem !important; /* 相当于 py-18 */
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
         width: 100% !important;
         display: block !important;
     }
     .layout-sections-wrapper :global(section:first-child) {
-        padding-top: 0rem !important;    /* 👈 调整这个值，来决定第一个 section 距离 Hero 的高度 */
-        padding-bottom: 2rem !important; /* 保持下方 Padding 与其他 section 相同 */
+        padding-top: 0rem !important;
+        padding-bottom: 2rem !important;
     }
 
-    /* 2. 统一约束 section 里的直接子容器（把 mx-auto max-w-7xl px-6 sm:px-12 搬到这里） */
+    /* 2. div constraints */
     .layout-sections-wrapper :global(section > div) {
         margin-left: auto !important;
         margin-right: auto !important;
         max-width: 80rem !important;      /* 7xl = 1280px / 80rem */
         width: 100% !important;
-        
-        /* 移动端的左右安全留白 px-6 (24px) */
         padding-left: 1.5rem !important;
         padding-right: 1.5rem !important;
     }
 
-    /* 3. 在平板及桌面端自动放大左右留白 sm:px-12 (48px) */
+    /* 3. tablet and desktop left/right padding */
     @media (min-width: 640px) {
         .layout-sections-wrapper :global(section > div) {
             padding-left: 3rem !important;
             padding-right: 3rem !important;
         }
+    }
+    
+    /* 1. render FAQ links with custom styling */
+    :global(.space-y-6 p a),
+    :global(.highlight-link) {
+        color: #F97316 !important;       
+        font-weight: 600 !important;   
+        text-decoration: none !important; 
+    }
+
+    /* 2. hover effect */
+    :global(.space-y-6 p a:hover),
+    :global(.highlight-link:hover) {
+        color: #EA580C !important;       
+        text-decoration: underline !important; 
     }
 </style>
 </Layout>

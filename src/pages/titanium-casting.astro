@@ -1,0 +1,430 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Titanium Casting Supplier: AS9100-Certified Co-Owned Foundry Network';
+const seoTitle = 'Titanium Casting Services | Vacuum Investment & Sand Casting | ForceBeyond';
+const seoDescription = 'AS9100-certified titanium casting services specializing in Ti-6Al-4V and commercially pure grades. We utilize vacuum induction investment casting and advanced sand casting across our USA, South Korea, and Taiwan hubs to produce high-density, near-net-shape components.';
+const faqs = [
+    {
+        q: "Is cast titanium as strong as forged titanium?",
+        a: "When processed with Hot Isostatic Pressing (HIP), the mechanical properties of cast Ti-6Al-4V approach 95% of forged values. A significant advantage is that cast properties are “Isotropic,” meaning strength is equal in all directions."
+    },
+    {
+        q: "What is the “Alpha-Case” and how do you prevent it?",
+        a: "Alpha-Case is a brittle, oxygen-enriched surface layer that forms when molten titanium reacts with air. We prevent this by using <strong>Vacuum Induction Melting (VIM)</strong>, ensuring the entire melt and pour happen in a controlled vacuum."
+    },
+    {
+        q: "What is the typical lead time for a titanium casting project?",
+        a: "For integrated “Cast-to-Finish” projects, our typical lead time is 14–18 weeks. This includes wax pattern tooling, VIM casting, HIP processing, and final AS9100 quality verification."
+    }
+];
+
+// Sources 
+const sources = [
+    { label: 'American Foundry Society: "Metal Casting"', url: 'https://www.afsinc.org' },
+    { label: 'Forging Industry Association: "Forging Industry"', url: 'https://www.forging.org' },
+    { label: 'efunda. “Sand Casting“', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'The Investment Casting Institute. “What is Investment Casting?“',url:'https://www.investmentcasting.org/what-is-investment-casting.html'},
+    { label: 'ASM International. “Inconel 718 Alloy“', url: 'https://www.asminternational.org/materials-resources/alloy-database/technical-bulletin/inconel-718-alloy' }
+];
+
+// Resources 
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/titanium-casting#webpage",
+      "url": "https://www.forcebeyond.store/oscar/titanium-casting",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Titanium",
+          "sameAs": "https://en.wikipedia.org/wiki/Titanium"
+        },
+        {
+          "@type": "Thing",
+          "name": "Casting",
+          "sameAs": "https://en.wikipedia.org/wiki/Casting"
+        },
+        {
+          "@type": "Thing",
+          "name": "Investment casting",
+          "sameAs": "https://en.wikipedia.org/wiki/Investment_casting"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/titanium-casting#service",
+      "name": "Precision Titanium Casting Services",
+      "serviceType": "Titanium Casting Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Precision Titanium Casting",
+          "Vacuum Induction Investment Casting",
+          "Industrial Titanium Sand Casting",
+          "Ti-6Al-4V & Commercially Pure Titanium",
+          "Alpha-Case Layer Mitigation (10^-4 Torr Vacuum)",
+          "AS9100 Rev D Quality Management",
+          "Aerospace, Defense, and Deep-Sea Components"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Titanium Casting Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Vacuum Induction Investment Casting",
+              "description": "High-density lost-wax process executing mold pours under deep vacuum parameters down to 10^-4 torr to avoid interstitial gas pick-up and eliminate alpha-case brittleness."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Industrial Titanium Sand Casting",
+              "description": "Advanced rammed-graphite and specialized sand molding designed for larger structural housings, fluid handling pump components, and high-strength industrial structures."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tier-1.5 Post-Cast Finish Machining",
+              "description": "Turnkey supply chain configuration moving raw titanium castings directly into multi-axis CNC cells for final dimensional modifications, coupled with X-ray, dye penetrant, and NDT validation."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/titanium-casting#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/precision-cnc-machining-tools-metal-components-hero.webp"
+    heroImageAlt="High-precision CNC machining tools cutting metal components with coolant in a modern manufacturing facility"
+    faqSectionTitle="FAQ: Titanium Casting Procurement"
+    faqItems={faqs}
+    ctaTitle=""
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview" >
+            <div class="content-container">
+                
+                <h2>Titanium Casting Supplier: AS9100-Certified Co-Owned Foundry Network</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond is a <strong>Tier-1.5 global manufacturer</strong> that <strong>co-owns and operates</strong> an advanced network of titanium 
+                            casting foundries. Unlike traditional brokers or distributors, we provide direct operational oversight 
+                            of the metallurgical processes required for flight-critical and corrosion-critical components. 
+                            By integrating <strong>Vacuum Induction Melting (VIM)</strong> with our in-house <a href="/oscar/titanium-machining" class="highlight-link">Titanium Machining</a> hubs, 
+                            we offer a seamless “Cast-to-Finish” solution.
+                        </p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/titanium-casting-shrouded-impeller-4k.webp"
+                                alt="Precision titanium casting shrouded impeller with curved internal vanes and machined surfaces on a fully white background"
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="direct-operational-control" >
+            <div class="content-container">
+                <h2>The ForceBeyond Advantage: Direct Operational Control</h2>
+                    <p>
+                        We eliminate the “Broker Gap” by maintaining equity and management roles in our production facilities. 
+                        This ensures that US-led engineering standards are applied directly to the shop floor.
+                    </p>
+                    <h3>
+                        Foundry Operations & Strategic Logistics Hubs
+                    </h3>
+                    <p>
+                        ForceBeyond ensures supply chain resilience by maintaining direct operational oversight across three strategic regions:
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Delaware (USA):</strong>Corporate Headquarters, Engineering Oversight, and final <strong>AS9100 Quality Verification</strong>.
+                        </li>
+                        <li>
+                            <strong>South Korea (Co-Owned VIM Foundry):</strong> High-tonnage Vacuum Induction Melting hub specialized in Ti-6Al-4V and large-scale industrial castings.
+                        </li>
+                        <li>
+                            <strong>Taiwan (Co-Owned Facility):</strong>Precision investment casting(Lost Wax) and  integrated 5-axis <a href="/oscar/titanium-machining" class = "highlight-link">Titanium Machining</a>Titanium Machining centers.
+                        </li>
+                    </ul>
+                
+            </div>
+        </section>
+
+        <section id="VIM-HIP-Protocol" >
+            <div class="content-container">
+                <h2>Technical Excellence: VIM + HIP Protocol</h2>
+                
+                <p>
+                    To ensure our castings meet or exceed the performance of wrought alloys, our <strong>co-owned and operated facilities</strong> utilize a 
+                    strict metallurgical sequence to eliminate porosity and atmospheric contamination:
+                </p>
+                <h3>Vacuum Induction Melting (VIM): Eliminating Contamination</h3>
+                <p>
+                    Titanium is highly reactive. Casting in a total vacuum environment (10<sup>-4</sup> torr) prevents the formation 
+                    of the brittle “Alpha-Case” layer, ensuring maximum material purity and ductility.
+                </p>
+                <h3>
+                    Hot Isostatic Pressing (HIP): Ensuring Internal Soundness
+                </h3>
+                <p>
+                    Every aerospace-grade casting is subjected to 15,000 PSI at 1,700°F (927°C). This process collapses internal micro-voids, 
+                    providing isotropic properties that reach 95% of forged titanium strength.
+                </p>
+                <h3>
+                    Core Components & Applications
+                </h3>
+                <p>
+                    Our co-owned foundries produce high-integrity components for mission-critical environments. 
+                    If you are sourcing these specific parts, 
+                    our Tier-1.5 model offers significant cost and lead-time advantages:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Aerospace</strong>:Shrouded Impellers, Structural Brackets, Compressor Housings, and Engine Blades.
+                    </li>
+                    <li>
+                        <strong>Power Generation</strong>:Turbine Parts, Pump Impellers, and SMR (Small Modular Reactor) components.
+                    </li>
+                    <li>
+                        <strong>Chemical Processing</strong>:Large-bore Valve Bodies, Pump Casings, and Corrosion-Resistant Fittings.
+                    <li>
+                        <strong>Medical</strong>:Orthopedic Implants and Surgical Tooling components (Ti-6Al-4V ELI).
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+        <section id="casting-matrix" >
+            <div class="content-container">
+                <h2>Titanium Alloy Casting Matrix</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Titanium Grade</th>
+                                <th scope="col">Industrial Standard</th>
+                                <th scope="col">Key Advantage</th>
+                                <th scope="col">Typical Application</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Ti-6Al-4V (Grade 5)	</th>
+                                <td>AMS 4991 / ASTM B367</td>
+                                <td>High Strength-to-Weight</td>
+                                <th scope="row">Aerospace Brackets, Propulsion</th>
+                            </tr>
+                            <tr>
+                                <th scope="row">CP Grade 2</th>
+                                <td>ASTM B367</td>
+                                <td>Exceptional Corrosion Resistance</td>
+                                <th scope="row">Chemical Valves, Marine Hardware</th>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ti-6Al-4V ELI (Gr 23)</th>
+                                <td>ASTM F136</td>
+                                <td>Biocompatibility & Toughness</td>
+                                <th scope="row">Medical Implants, Cryogenics</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="integrated-manufacturing-silos" >
+            <div class="content-container">
+                <h2>Integrated Manufacturing Silos</h2>
+                <h3>
+                    <a href="/oscar/titanium-investment-casting" class="highlight-link">Titanium Investment Casting (Lost Wax)</a>
+                </h3>
+                <p>
+                   Optimized for complex, near-net-shape geometries with wall thicknesses as low as <strong>0.060 inches (1.5 mm)</strong>. 
+                   Our co-owned facilities specialize in the high-precision “Lost Wax” method for intricate aerospace 
+                   and medical components.
+                </p>
+                <h3>
+                    <a href="/oscar/industrial-titanium-sand-casting" class="highlight-link">Industrial Titanium Sand Casting</a>
+                </h3>
+                <p>
+                    Large-scale solutions for the power generation and chemical sectors. We support oversized components such as pump housings and large-bore 
+                    valve bodies up to <strong>500 kg</strong> while maintaining excellent corrosion resistance.
+                </p>
+                <h3>
+                    <a href="/oscar/aerospace-titanium-casting" class="highlight-link">Aerospace Titanium Casting</a>
+                </h3>
+                <p>
+                    Mission-critical hardware with full AS9100 traceability. All flight-critical parts undergo rigorous NDT (Non-Destructive Testing) and HIP 
+                    processing to ensure they meet the highest safety standards in the industry.
+                </p>
+            </div>
+        </section>
+
+        <section id="why-forcebeyond">
+            <div class="content-container">
+                <h2>
+                    Tier-1.5 Comparison: Why Engineers Choose ForceBeyond
+                </h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Feature</th>
+                                <th scope="col">Small Machine Shop</th>
+                                <th scope="col">Large Broker/Distributor</th>
+                                <th scope="col">ForceBeyond (Tier-1.5)</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Ownership</th>
+                                <td>Local</td>
+                                <td>None (Middleman)</td>
+                                <td>Co-Owned Factories</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Process Control</th>
+                                <td>Machining Only</td>
+                                <td>Paperwork Only</td>
+                                <td>Melt, Forge & Machine</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Compliance</th>
+                                <td>Varies</td>
+                                <td>Third-Party Dependent</td>
+                                <td>In-House AS9100 Oversight</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Lead Times</th>
+                                <td>Limited by backlogs</td>
+                                <td>40–50 weeks</td>
+                                <td><strong>14–18 weeks (Integrated)</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="request-quote">
+            <div class="content-container">
+                <h2>Request a Quote for Titanium Casting</h2>
+                
+                <p>
+                    <strong>Optimize Your High-Complexity Components with Tier-1.5 Oversight.</strong>                
+                </p>
+                <p>Partner with ForceBeyond for high-complexity components managed by our co-owned global foundries.</p>
+                <p>Please include the following for a precise technical review:</p>
+                <ul>
+                    <li>
+                        <strong>Technical Drawings:</strong> (PDF, STEP, or IGES files)
+                    </li>
+                    <li>
+                        <strong>Material Specification:</strong> (e.g., Ti-6Al-4V Grade 5 or CP Titanium)
+                    </li>
+                    <li>
+                        <strong>Inspection Requirements: </strong>(e.g., X-Ray, FPI, or HIP certification)
+                    </li>
+                    <li>
+                        <strong>Estimated Annual Usage (EAU):</strong> To optimize tooling and unit costs.
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</IndividualPageLayout>

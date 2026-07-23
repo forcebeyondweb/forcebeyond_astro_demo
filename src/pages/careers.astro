@@ -1,87 +1,272 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Careers';
-const pageDescription = 'This page is under development. ForceBeyond provides custom metal component manufacturing solutions for industrial applications.';
+const pageTitle = 'Careers at ForceBeyond';
+const seoTitle = 'Careers at ForceBeyond | Advanced Manufacturing & Engineering Jobs';
+const seoDescription = 'Join ForceBeyond. Explore career opportunities in manufacturing engineering, AS9100 quality assurance, global supply chain, and 5-axis CNC programming.';
+
+const faqs = [
+    {
+        q: "Does ForceBeyond offer remote or hybrid work options?",
+        a: "Yes. Depending on the position, engineering, technical sales, and administrative roles offer flexible hybrid or remote working arrangements, supported by periodic visits to our engineering office in Delaware or client sites."
+    },
+    {
+        q: "What industries will I be working with at ForceBeyond?",
+        a: "Our team works directly with engineers and buyers in commercial aerospace, SMR nuclear energy, AI data center power, subsea oil & gas, medical devices, automotive, and heavy equipment manufacturing."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'AS9100 / AS9102 Aerospace Quality Management and FAI Standards', url: 'https://www.sae.org' },
+    { label: 'U.S. Department of State: International Traffic in Arms Regulations (ITAR)', url: 'https://www.pmddtc.state.gov' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Page Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/careers#webpage",
+      "url": "https://www.forcebeyond.store/oscar/careers",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://www.forcebeyond.store/oscar#organization",
+      "name": "ForceBeyond",
+      "url": "https://www.forcebeyond.store/oscar",
+      "knowsAbout": [
+        "Advanced Contract Manufacturing & Engineering",
+        "AS9100 Rev D & ISO 9001:2015 Quality Assurance",
+        "Design for Manufacturability (DFM) & CAD/CAM Systems",
+        "Global Supply Chain Management & ITAR Compliance",
+        "Multi-Axis CNC Programming & Superalloy Machining"
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/careers#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
 ---
 
-<Layout 
-    title={`${pageTitle} | ForceBeyond`}
-    description={pageDescription}
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"
+    faqSectionTitle="Frequently Asked Questions: Careers"
+    faqItems={faqs}
+    ctaTitle="Ready to Take the Next Step in Your Career?"
+    ctaDescription="Email your resume, cover letter, and engineering portfolio directly to our talent acquisition team to start the conversation."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
 >
-    <!-- Placeholder Page -->
-    <section class="relative w-full min-h-[calc(100vh-5rem)] bg-slate-50 pt-20 pb-24 px-6 sm:px-12">
-        <div class="w-full max-w-6xl mx-auto">
-            
-            <!-- Breadcrumb -->
-            <nav class="mb-10 text-sm text-slate-500">
-                <a href="/oscar/" class="hover:text-brand-blue transition">Home</a>
-                <span class="mx-2">/</span>
-                <span class="text-slate-700">{pageTitle}</span>
-            </nav>
 
-            <!-- Main Content -->
-            <div class="rounded-2xl border border-slate-200 bg-white p-8 sm:p-12 lg:p-16 shadow-sm">
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
                 
-                <p class="mb-4 text-xs font-semibold tracking-[0.22em] text-brand-blue uppercase">
-                    Page Under Development
-                </p>
+                <h2>Careers at ForceBeyond: Shape the Future of Advanced Manufacturing</h2>
 
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 uppercase">
-                    {pageTitle}
-                </h1>
-
-                <div class="mt-6 h-1 w-16 bg-brand-blue rounded-full"></div>
-
-                <p class="mt-8 max-w-3xl text-lg sm:text-xl leading-8 text-slate-700 font-medium">
-                    This page is currently being prepared. ForceBeyond supports customers with precision casting, forging, CNC machining, quality control, and global supply chain coordination for high-demand industrial applications.
-                </p>
-
-                <div class="mt-10 grid gap-4 sm:grid-cols-3">
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Manufacturing
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Casting, forging, machining, and finishing support.
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            Join a global team of engineers, metallurgists, supply chain strategists, and quality specialists at ForceBeyond. As a premier Tier-1.5 contract manufacturer, we deliver safety-critical castings, forgings, superalloys, and precision 5-axis CNC machined components to the world’s most demanding industries—from commercial aerospace and SMR nuclear energy to AI data center microgrids and subsea petroleum exploration.
+                        </p>
+                        <p>
+                            Whether you are an experienced manufacturing engineer, a certified AS9100 quality auditor, or a global logistics coordinator, ForceBeyond offers an environment driven by technical excellence, continuous innovation, and career advancement.
                         </p>
                     </div>
-
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Quality
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Inspection, documentation, and traceability workflows.
-                        </p>
-                    </div>
-
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Supply Chain
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Multi-facility sourcing and delivery coordination.
-                        </p>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/careers-forcebeyond-overview-4k.webp"
+                                alt="Engineers collaborating on precision component design and manufacturing plans."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
                     </div>
                 </div>
 
-                <div class="mt-12 flex flex-col sm:flex-row gap-4">
-                    <a 
-                        href="/oscar/request-a-quote" 
-                        class="inline-flex items-center justify-center rounded-full bg-brand-green px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#5aaa14] shadow-sm"
-                    >
-                        Request Quote
-                    </a>
-
-                    <a 
-                        href="/oscar/#capabilities" 
-                        class="inline-flex items-center justify-center rounded-full border border-slate-300 px-8 py-3 text-sm font-semibold text-slate-700 transition hover:border-[#0363CE] hover:text-brand-blue"
-                    >
-                        View Capabilities
-                    </a>
-                </div>
             </div>
-        </div>
-    </section>
-</Layout>
+        </section>
+
+        <section id="why-build-your-career">
+            <div class="content-container">
+                <h2>Why Build Your Career with ForceBeyond?</h2>
+                <p>
+                    At ForceBeyond, we don't just supply metal components; we solve complex engineering and metallurgical challenges for Fortune 500 OEMs.
+                </p>
+                <ul>
+                    <li>
+                        <strong>High-Impact Projects:</strong> Work directly on mission-critical technologies powering the future—including aerospace turbine components, Small Modular Reactors (SMRs), hyperscale AI cooling infrastructure, and electric transportation.
+                    </li>
+                    <li>
+                        <strong>Global Dual-Shore Network:</strong> Experience a dynamic corporate environment that bridges domestic US engineering management in Delaware with world-class, co-owned manufacturing facilities across the USA, South Korea, and Taiwan.
+                    </li>
+                    <li>
+                        <strong>Culture of Innovation & Learning:</strong> We invest in our people. From advanced CAD/CAM software training and Lean Six Sigma certifications to tuition reimbursement, we support your professional growth.
+                    </li>
+                    <li>
+                        <strong>Competitive Compensation & Benefits:</strong> We offer industry-leading salaries, comprehensive health/dental/vision coverage, matching 401(k) plans, generous paid time off (PTO), and performance-based annual bonuses.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="open-positions">
+            <div class="content-container">
+                <h2>Open Positions & Career Opportunities</h2>
+                <p>
+                    Explore our current open positions across engineering, quality assurance, procurement, and operations.
+                </p>
+
+                <h3>1. Senior Quality Assurance / AS9100 Quality Engineer</h3>
+                <p>
+                    <strong>Location:</strong> Wilmington, DE (Hybrid / Travel)<br />
+                    <strong>Department:</strong> Quality Assurance & Regulatory Compliance<br />
+                    <strong>Experience Level:</strong> 5+ Years
+                </p>
+                <p>
+                    <strong>Role Summary:</strong> Lead ISO 9001:2015 and AS9100 Rev D audit compliance across our domestic and overseas facilities. Manage First Article Inspection (FAI per AS9102) packages, review Non-Destructive Testing (NDT) data, oversee CMM metrology reports, and lead root-cause corrective action (RCCA / 8D) processes.
+                </p>
+                <p>
+                    <strong>Key Qualifications:</strong> B.S. in Mechanical/Materials Engineering or equivalent; ASQ CQE/CQA certification preferred; hands-on experience with metals testing (ASTM, AMS, NACE).
+                </p>
+
+                <hr class="my-8" />
+
+                <h3>2. Manufacturing & DFM Application Engineer</h3>
+                <p>
+                    <strong>Location:</strong> Wilmington, DE / Remote Options<br />
+                    <strong>Department:</strong> Engineering & Technical Sales<br />
+                    <strong>Experience Level:</strong> 3–7 Years
+                </p>
+                <p>
+                    <strong>Role Summary:</strong> Act as the primary technical bridge between customer engineering teams and our foundries/machine shops. Review 3D CAD models (STEP/IGES) and prints for Design for Manufacturability (DFM) across investment casting, closed-die forging, Hot Isostatic Pressing (HIP), and 5-axis CNC machining.
+                </p>
+                <p>
+                    <strong>Key Qualifications:</strong> B.S. in Mechanical or Industrial Engineering; expertise in SolidWorks/Creo, GD&T (ASME Y14.5), and solidifying/forming simulation software.
+                </p>
+
+                <hr class="my-8" />
+
+                <h3>3. Global Supply Chain & Logistics Specialist</h3>
+                <p>
+                    <strong>Location:</strong> Wilmington, DE<br />
+                    <strong>Department:</strong> Supply Chain Operations<br />
+                    <strong>Experience Level:</strong> 3+ Years
+                </p>
+                <p>
+                    <strong>Role Summary:</strong> Manage international freight forwarding, customs clearance, inventory warehousing, and Just-In-Time (JIT) / Kanban delivery schedules for Tier-1 automotive, aerospace, and industrial OEM customers.
+                </p>
+                <p>
+                    <strong>Key Qualifications:</strong> Degree in Supply Chain Management or Business; strong background in global import/export regulations, ITAR compliance, and ERP/CRM systems.
+                </p>
+
+                <hr class="my-8" />
+
+                <h3>4. Precision CNC Machinist & 5-Axis Programmer</h3>
+                <p>
+                    <strong>Location:</strong> Partner Facility / On-Site Operations<br />
+                    <strong>Department:</strong> CNC Machining & Secondary Finishing<br />
+                    <strong>Experience Level:</strong> 5+ Years
+                </p>
+                <p>
+                    <strong>Role Summary:</strong> Program, set up, and operate multi-axis CNC mills and live-tooling lathes machining tight-tolerance ($\pm 0.0002''$) superalloys (Inconel 718, Titanium Ti-6Al-4V, Duplex 2507) and precision castings.
+                </p>
+                <p>
+                    <strong>Key Qualifications:</strong> Mastercam/UG-NX proficiency, deep knowledge of cutting insert geometries for hard metals, and proficiency with CMM and hand metrology tools.
+                </p>
+            </div>
+        </section>
+
+        <section id="values-and-diversity">
+            <div class="content-container">
+                <h2>Our Values & Diversity Statement</h2>
+                <p>
+                    ForceBeyond is an Equal Opportunity Employer (EOE). We celebrate diversity and are committed to creating an inclusive, safe, and collaborative workplace for all employees, regardless of race, color, religion, sex, national origin, age, disability, veteran status, or sexual orientation.
+                </p>
+                <p>
+                    <strong>Equal Opportunity & ITAR Compliance Note:</strong> Due to the nature of our aerospace and defense projects, certain positions may require US Citizenship or Permanent Resident (Green Card) status to comply with International Traffic in Arms Regulations (ITAR) and Export Administration Regulations (EAR).
+                </p>
+            </div>
+        </section>
+
+        <section id="how-to-apply">
+            <div class="content-container">
+                <h2>How to Apply</h2>
+                <p>
+                    Ready to take the next step in your engineering or manufacturing career?
+                </p>
+                <ul>
+                    <li>
+                        <strong>Submit Your Resume:</strong> Email your resume, cover letter, and engineering portfolio (if applicable) to <a href="mailto:careers@forcebeyond.com">careers@forcebeyond.com</a>.
+                    </li>
+                    <li>
+                        <strong>Include the Job Title:</strong> Please state the exact Position Title in the subject line of your email (e.g., "Application: Senior Quality Engineer - [Your Name]").
+                    </li>
+                    <li>
+                        <strong>General Inquiries:</strong> Don't see an open position that fits your exact profile? We are always looking for top-tier manufacturing talent. Send your open application to <a href="mailto:careers@forcebeyond.com">careers@forcebeyond.com</a>, and our talent team will review your qualifications for future opportunities.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

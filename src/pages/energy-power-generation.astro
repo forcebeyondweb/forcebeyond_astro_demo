@@ -1,0 +1,247 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Power Generation Casting, Forging & CNC Machining Solutions';
+const seoTitle = 'Power Generation Casting, Forging & CNC Machining | ForceBeyond';
+const seoDescription = 'ForceBeyond delivers engineered casting, forging, and CNC machining solutions for traditional, nuclear, and renewable energy infrastructure.';
+
+const faqs = [
+    {
+        q: "Can ForceBeyond supply components for Nuclear SMR applications?",
+        a: "Yes. Our co-owned manufacturing facilities produce heavy forged Inconel 625 and 718 reactor components with full ASME Section III material traceability and 100% Ultrasonic Testing (UT)."
+    },
+    {
+        q: "What surface protection is provided for offshore wind turbine castings?",
+        a: "We offer multi-layer marine protective coatings, including heavy-build E-coating, thermal spray aluminum (TSA), and specialized epoxy painting tested to ASTM B117 salt spray standards."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'ASME Section III Rules for Construction of Nuclear Facility Components', url: 'https://www.asme.org' },
+    { label: 'ASTM International: Energy & Power Generation Materials Specifications', url: 'https://www.astm.org' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Page Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/power-generation#webpage",
+      "url": "https://www.forcebeyond.store/oscar/power-generation",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/power-generation#service",
+      "name": "Power Generation Manufacturing Solutions",
+      "serviceType": "Energy Sector Precision Components",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Heavy-Tonnage Superalloy Ring & Shaft Forging",
+          "Vacuum Investment Casting for Gas & Steam Turbines",
+          "Large-Envelope CNC Machining & VTL Capabilities",
+          "ASME Section III & ASTM Material Compliance",
+          "Nuclear SMR, Offshore Wind & Renewable Energy Infrastructure"
+        ]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Power Generation Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Nuclear & SMR Power Components",
+              "description": "Forged steam generator tubesheets, reactor internal supports, and sub-sea fluid fittings in Inconel 718/625."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Gas & Steam Turbine Hardware",
+              "description": "Vacuum investment cast turbine blades, vanes, combustion liners, and high-pressure valve bodies."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Wind & Hydroelectric Infrastructure",
+              "description": "Massive sand-cast wind turbine rotor hubs, main frames, and hydro-turbine runner blades."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/power-generation#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="High-performance power generation forged and machined components"
+    faqSectionTitle="Frequently Asked Questions"
+    faqItems={faqs}
+    ctaTitle="Ready to Elevate Your Power Generation Infrastructure?"
+    ctaDescription="Partner with our technical management team to engineer creep-resistant, high-integrity components built for continuous power duty cycles."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Power Generation Casting, Forging & CNC Machining Solutions</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond is a leading manufacturing supplier for the traditional, nuclear, and renewable energy sectors. Power generation infrastructure demands structural longevity, resistance to thermal creep, and pressure-vessel integrity under continuous duty cycles.
+                        </p>
+                        <p>
+                            From heavy-tonnage forged Inconel rotor components for nuclear Small Modular Reactors (SMRs) to massive ductile iron hubs for offshore wind turbines, ForceBeyond delivers engineered components that comply with strict ASME Section III, ASTM, and ISO mandates.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/power-generation-overview-4k.webp"
+                                alt="Heavy-duty forged and machined energy sector component designed for extreme thermal loads."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="material-matrix">
+            <div class="content-container">
+                <h2>Thermal & Structural Material Matrix</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Energy Sector</th>
+                                <th scope="col">Material Focus</th>
+                                <th scope="col">Key Components Manufactured</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Nuclear & SMR Power</th>
+                                <td>Inconel 718/625, Super Duplex 2507</td>
+                                <td>Forged steam generator tubesheets, reactor internal supports, and sub-sea fluid fittings.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Gas & Steam Turbines</th>
+                                <td>Nickel Superalloys, 12-Chrome Steels</td>
+                                <td>Vacuum investment cast turbine blades, vanes, combustion liners, and high-pressure steam valve bodies.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Wind & Hydroelectric</th>
+                                <td>Ductile Iron (ASTM A536), Stainless Steel</td>
+                                <td>Massive sand-cast wind turbine rotor hubs, main frames, and hydro-turbine runner blades/impellers.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Solar & Power Grid</th>
+                                <td>Aluminum Alloys, Galvanized Steel</td>
+                                <td>Die-cast inverter enclosures, heavy electrical connectors, and structural mounting hardware.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="forging-and-machining">
+            <div class="content-container">
+                <h2>High-Tonnage Forging & Heavy CNC Machining</h2>
+                <p>
+                    Large power generation hardware requires high manufacturing capacity:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Heavy Forging Infrastructure:</strong> High-tonnage presses capable of forging dense, creep-resistant superalloy rings and shafts up to several tons.
+                    </li>
+                    <li>
+                        <strong>Large-Envelope Machining:</strong> Vertical Turning Lathes (VTL) and horizontal boring mills capable of finishing large industrial castings up to 80 inches (2,000mm) in diameter.
+                    </li>
+                    <li>
+                        <strong>Creep & Rupture Testing:</strong> Material verification ensures long-term metallurgical stability at operating temperatures exceeding 1,200°F (650°C).
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

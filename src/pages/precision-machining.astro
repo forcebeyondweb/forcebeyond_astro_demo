@@ -1,0 +1,417 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Precision CNC Machining: 5-Axis Milling, Turning & Secondary Operations';
+const seoTitle = 'Custom CNC Machining Services | 5-Axis Milling & Turning | ForceBeyond';
+const seoDescription = 'ForceBeyond provides high-precision CNC machining services including 5-axis milling, turning, and multi-tasking. Specializing in hard-to-machine superalloys, titanium, and stainless steels with Tier-1.5 integration.';
+
+const faqs = [
+    {
+        q: "What is the advantage of 5-Axis CNC milling?",
+        a: "Traditional 3-axis milling requires a part to be manually un-clamped, rotated, and re-fixtured to machine different sides, which introduces dimensional errors. A 5-axis machine can manipulate the cutting tool and the part across five different axes simultaneously. This allows us to machine highly complex shapes (like aerospace impellers) in a single setup, guaranteeing vastly superior alignment, tighter tolerances, and faster cycle times."
+    },
+    {
+        q: "Why is machining Inconel 718 or Titanium so difficult?",
+        a: "These aerospace superalloys have extremely high strength, poor thermal conductivity (meaning the heat stays in the cutting tool rather than leaving with the metal chip), and they work-harden rapidly as they are cut. Machining them requires immense machine rigidity, highly specialized carbide or ceramic inserts, precise feed rates, and high-pressure coolant systems to prevent catastrophic tool failure."
+    },
+    {
+        q: "Do you machine parts from solid billet, or only castings/forgings?",
+        a: "We do both. For lower volume runs or parts with simple geometries, we frequently CNC machine directly from solid bar stock or billet. For mid-to-high volume runs or highly complex geometries, we leverage our Tier-1.5 model to cast or forge a near-net shape first, and then utilize our CNC centers to machine the final critical tolerances."
+    }
+];
+
+// Sources 
+const sources = [
+    { label: 'NTMA: National Tooling and Machining Association', url: 'https://www.ntma.org' },
+    { label: 'SME: Society of Manufacturing Engineers - Advanced CNC Machining', url: 'https://www.sme.org' },
+    { label: 'ASM International: "Machining of Superalloys and Titanium"', url: 'https://www.asminternational.org' }
+];
+
+// Resources 
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/cnc-machining#webpage",
+      "url": "https://www.forcebeyond.store/oscar/cnc-machining",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Milling (machining)",
+          "sameAs": "https://en.wikipedia.org/wiki/Milling_(machining)"
+        },
+        {
+          "@type": "Thing",
+          "name": "Numerical control",
+          "sameAs": "https://en.wikipedia.org/wiki/Numerical_control"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/cnc-machining#service",
+      "name": "High-Precision CNC Machining & Finishing Services",
+      "serviceType": "Custom CNC Machining Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "5-Axis CNC Milling & Precision Turning",
+          "Swiss Machining & Mill-Turn Operations",
+          "Hard-to-Machine Alloys (Inconel 718, Titanium, Stainless Steel)",
+          "Near-Net-Shape Casting and Forging Finishing",
+          "Thermal Processing & Surface Coatings (Anodizing, Plating, Passivation)",
+          "Sub-Assembly, Helicoil Insertion, & Specialized Packaging",
+          "ISO 9001:2015 Quality Management & Zero-Defect Inspection"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Precision CNC Machining Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "5-Axis Milling & Swiss Turning",
+              "description": "High-accuracy multi-axis milling and high-volume Swiss turning capable of achieving tolerances down to ± 0.0001”."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Superalloy & Hard Metal Machining",
+              "description": "Expert high-precision machining of Inconel, Titanium, Duplex Stainless Steel, and hard-to-machine aerospace alloys."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tier-1.5 Cast/Forge Finishing & Secondary Operations",
+              "description": "Complete turnaround from near-net shape castings/forgings to fully machined, heat-treated, and coated assembly-ready parts."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/cnc-machining#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/high-precision-cnc-machining-metal-components-4k.webp"
+    heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"
+    faqSectionTitle="Frequently Asked Questions: Precision CNC Machining"
+    faqItems={faqs}
+    ctaTitle="Request Quote For Precision CNC Machining"
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Precision CNC Machining: 5-Axis Milling, Turning & Secondary Operations</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond is a premier global provider of high-precision CNC machining and secondary finishing services. Operating advanced machining centers equipped with 5-axis milling, heavy turning, and multi-tasking capabilities, we transform complex engineering prints into highly accurate, assembly-ready components.
+                        </p>
+                        <p>
+                            Operating under a strict ISO 9001:2015 quality management system, our dual-shore manufacturing network delivers mission-critical machined parts for the aerospace, medical, automotive, and energy sectors. Whether machining from solid billet or finishing near-net-shape castings and forgings, we guarantee ultra-tight tolerances, exceptional surface finishes, and zero-defect quality control.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/high-precision-cnc-machining-metal-components-4k-squared.webp"
+                                alt="High-precision 5-axis CNC machining setup cutting intricate metal component with tight tolerances."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="technical-capabilities">
+            <div class="content-container">
+                <h2>Advanced Machining Capabilities & Tolerances</h2>
+                <p>
+                    ForceBeyond’s CNC machining infrastructure is engineered to handle everything from micro-precision medical components to massive, heavy-duty industrial shafts. We utilize rigid machine setups, advanced workholding, and specialized carbide tooling to achieve strict dimensional accuracy.
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Machining Process</th>
+                                <th scope="col">Core Capabilities</th>
+                                <th scope="col">Typical Tolerances</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">5-Axis CNC Milling</th>
+                                <td>Complex geometries, undercut features, and simultaneous multi-face machining without re-fixturing.</td>
+                                <td>± 0.0002” (0.005 mm)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Precision CNC Turning</th>
+                                <td>High-speed turning, boring, grooving, and threading for cylindrical and concentric components.</td>
+                                <td>± 0.0001” (0.0025 mm)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Mill-Turn / Swiss Machining</th>
+                                <td>Live tooling capabilities for high-volume, complex cylindrical parts requiring simultaneous milling and turning.</td>
+                                <td>± 0.0002” (0.005 mm)</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Wire EDM & Grinding</th>
+                                <td>Electrical Discharge Machining and precision surface/cylindrical grinding for ultra-hard metals and micro-features.</td>
+                                <td>± 0.00005” (0.001 mm)</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
+            </div>
+        </section>
+
+        <section id="hard-to-machine-alloys">
+            <div class="content-container">
+                <h2>Expertise in Hard-to-Machine Alloys</h2>
+                <p>
+                    While we frequently machine standard aluminum, brass, and carbon steels, ForceBeyond specializes in the extreme-precision machining of high-temperature and work-hardening alloys.
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Material Category</th>
+                                <th scope="col">Core Alloys Machined</th>
+                                <th scope="col">Machinability Focus & Applications</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Superalloys</th>
+                                <td>Inconel 718, Inconel 625, Hastelloy</td>
+                                <td>Notoriously difficult due to rapid work-hardening and high shear strength. Requires rigid setups and low cutting speeds. Ideal for aerospace turbines.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Titanium</th>
+                                <td>Ti-6Al-4V (Grade 5)</td>
+                                <td>Highly abrasive to cutting tools with poor thermal conductivity. Requires high-pressure coolant. Critical for aerospace and medical implants.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Stainless & Duplex</th>
+                                <td>17-4 PH, 316L, 2205, 2507</td>
+                                <td>Prone to work-hardening and gummy chips. Demands specialized tooling geometries. Used heavily in oil & gas and fluid control valves.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Copper & Brass</th>
+                                <td>ECO BRASS (C69300), C11000</td>
+                                <td>Highly machinable, allowing for rapid cycle times and brilliant surface finishes. Used for electronic components and lead-free plumbing.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="tier-1-5-advantage">
+            <div class="content-container">
+                <h2>Tier-1.5 Integration: The "Cast & Forge to Machine" Advantage</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond’s most significant value proposition is our Tier-1.5 Manufacturing Model. By housing world-class casting, forging, and CNC machining under a single quality umbrella, we eliminate the risks associated with a fragmented supply chain.
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>Zero Dimensional Hand-Off Risk:</strong> When a separate foundry and machine shop blame each other for an out-of-spec part, the customer loses. By managing the transition from raw casting/forging directly into our CNC fixtures, we guarantee final dimensional accuracy.
+                            </li>
+                            <li>
+                                <strong>Optimized Near-Net Tooling:</strong> Our CNC engineers work directly with our foundry engineers to design castings and forgings with the exact optimal material allowance for machining, drastically reducing cycle times and material waste.
+                            </li>
+                            <li>
+                                <strong>Single-Source Traceability:</strong> From the initial melt of the alloy to the final CNC-machined thread, ForceBeyond provides unified, end-to-end Material Test Reports (MTRs) and inspection data.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/5-axis-cnc-machining-precision-metal-component.webp"
+                                alt="Close-up of a 5-axis CNC machine milling a complex high-precision metal component inside an advanced machining center"
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="secondary-operations">
+            <div class="content-container">
+                <h2>Comprehensive Secondary Operations & Surface Finishing</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            Precision machining is rarely the final step. ForceBeyond provides a complete suite of in-house secondary operations and protective surface finishes to ensure your component is fully assembly-ready.
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>Thermal Processing:</strong> Solution annealing, stress relieving, case hardening, and age hardening (e.g., H900 for 17-4 PH).
+                            </li>
+                            <li>
+                                <strong>Protective & Aesthetic Coatings:</strong> Anodizing (Type II & III for Aluminum), Zinc and Chrome Plating, Black Oxide, Powder Coating, and E-Coating.
+                            </li>
+                            <li>
+                                <strong>Specialized Treatments:</strong> Chemical Passivation and Electropolishing for sanitary stainless steel and medical components.
+                            </li>
+                            <li>
+                                <strong>Sub-Assembly & Packaging:</strong> Inserting helicoils, pressing bearings, custom kitting, and specialized packaging for global logistics.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/precision-cnc-milling-aluminum-component.webp"
+                                alt="Close-up of a CNC milling machine cutting a complex aluminum component with a precision end mill inside a modern machining center."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="certified-applications">
+            <div class="content-container">
+                <h2>Certified Precision Machining Applications</h2>
+                <p>
+                    Our advanced machining centers supply defect-free components to:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Aerospace & Defense:</strong> Inconel 718 turbine components, Titanium landing gear brackets, and complex fuel manifolds.
+                    </li>
+                    <li>
+                        <strong>Medical & Healthcare:</strong> Surgical instruments, bone plates, and MRI-compatible stainless steel hardware.
+                    </li>
+                    <li>
+                        <strong>Oil, Gas & Energy:</strong> High-pressure subsea valve bodies, Duplex steel pump impellers, and heavy-duty drilling shafts.
+                    </li>
+                    <li>
+                        <strong>Automotive & Industrial:</strong> Precision gear blanks, complex hydraulic manifolds, and heavy-equipment linkages.
+                    </li>
+                </ul>
+
+                <div class="grid gap-6 md:grid-cols-3 mt-8">
+                    <div class="overflow-hidden rounded-lg shadow-md bg-slate-50 h-64">
+                        <img
+                            src="/oscar/media/precision-cnc-milling-aluminum-mold-tooling.webp"
+                            alt="CNC milling machine finishing a complex aluminum mold tool with precision contours inside a modern machining center."
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                        />
+                    </div>
+                   <div class="overflow-hidden rounded-lg shadow-md bg-slate-50 h-64">
+                        <img
+                            src="/oscar/media/precision-cnc-machining-aluminum-housing.webp"
+                            alt="Close-up of a CNC cutting tool machining threaded features on a precision aluminum housing component."
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                        />
+                    </div>
+                    <div class="overflow-hidden rounded-lg shadow-md bg-slate-50 h-64">
+                        <img
+                            src="/oscar/media/precision-machined-metal-pump-housing-component.webp"
+                            alt="Close-up of a precision-machined metal pump housing with finished bores, mounting holes, and complex industrial geometry."
+                            class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                        />
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

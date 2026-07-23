@@ -1,0 +1,218 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Design for Manufacturability (DFM) Guidelines';
+const seoTitle = 'Design for Manufacturability (DFM) Guides | ForceBeyond';
+const seoDescription = 'Comprehensive DFM engineering guidelines for investment casting, sand casting, forging, and 5-axis CNC machining.';
+
+const faqs = [
+    {
+        q: "Why is early DFM analysis critical before tool production?",
+        a: "Optimizing component design before tooling is cut is the single most effective way to eliminate manufacturing defects, shorten lead times, and lower overall unit production costs."
+    },
+    {
+        q: "What design verification tools does ForceBeyond use during DFM reviews?",
+        a: "Our engineering team utilizes mold-flow solidification simulations, forging deformation modeling, and 5-axis CNC toolpath verifications to ensure parts are fully optimized for production."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'Investment Casting Institute (ICI) Design Guide Standards', url: 'https://www.investmentcasting.org' },
+    { label: 'Forging Industry Association (FIA) Forging Design Guidelines', url: 'https://www.forging.org' },
+    { label: 'ASME Y14.5 Geometric Dimensioning and Tolerancing (GD&T)', url: 'https://www.asme.org' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Page Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/manufacturing-design-guides-dfm#webpage",
+      "url": "https://www.forcebeyond.store/oscar/manufacturing-design-guides-dfm",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/manufacturing-design-guides-dfm#service",
+      "name": "Design for Manufacturability (DFM) & Engineering Services",
+      "serviceType": "Technical Engineering & DFM Review Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Design for Manufacturability (DFM) Analysis",
+          "Investment Casting DFM Guidelines",
+          "Closed-Die Forging DFM Guidelines",
+          "5-Axis CNC Machining DFM Guidelines",
+          "Mold-Flow Solidification & Forging Deformation Modeling"
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/manufacturing-design-guides-dfm#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="3D CAD model undergoing Design for Manufacturability (DFM) engineering analysis"
+    faqSectionTitle="Frequently Asked Questions"
+    faqItems={faqs}
+    ctaTitle="Optimize Your CAD Design for Seamless Manufacturing"
+    ctaDescription="Partner with ForceBeyond's engineering team for early DFM reviews, mold-flow simulations, and toolpath verification to ensure zero-defect production."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Design for Manufacturability (DFM) Guidelines</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            At ForceBeyond, optimizing your component design before tooling is cut is the single most effective way to eliminate manufacturing defects, shorten lead times, and lower unit production costs.
+                        </p>
+                        <p>
+                            Our Design for Manufacturability (DFM) guidelines help design engineers tailor 3D CAD models for near-net-shape primary forming processes and secondary 5-axis CNC machining.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/manufacturing-design-guides-dfm-overview-4k.webp"
+                                alt="Engineers reviewing CAD model and DFM guidelines for casting and CNC machining."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="investment-casting-dfm">
+            <div class="content-container">
+                <h2>1. Investment Casting DFM Guidelines</h2>
+                <ul>
+                    <li>
+                        <strong>Wall Thickness Uniformity:</strong> Maintain consistent wall thicknesses to prevent localized thermal shrinkage sinks. Recommended minimum wall thickness is 0.060” (1.5mm) for carbon/stainless steel and 0.080” (2.0mm) for superalloys.
+                    </li>
+                    <li>
+                        <strong>Draft Angles:</strong> Provide a minimum draft angle of 0.5° to 1.0° on internal cores and outer vertical walls to facilitate smooth wax pattern extraction without distorting the ceramic mold.
+                    </li>
+                    <li>
+                        <strong>Fillet Radii:</strong> Avoid sharp internal corners (R=0). Internal fillet radii should be at least 50% to 75% of the adjacent wall thickness to reduce stress concentrations and liquid turbulence during pouring.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="closed-die-forging-dfm">
+            <div class="content-container">
+                <h2>2. Closed-Die Forging DFM Guidelines</h2>
+                <ul>
+                    <li>
+                        <strong>Parting Line Location:</strong> Place the parting line along a central geometric plane to ensure balanced die filling and allow clean flash removal.
+                    </li>
+                    <li>
+                        <strong>Forging Draft Angles:</strong> External walls require a 5° to 7° draft angle; internal cavity walls require a 7° to 10° draft angle to prevent parts from sticking inside heavy impression dies.
+                    </li>
+                    <li>
+                        <strong>Web & Rib Ratios:</strong> Avoid tall, thin ribs with narrow webs. Maintain a rib-height-to-rib-thickness ratio below 4:1 to ensure smooth plastic metal flow under press loads.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="cnc-machining-dfm">
+            <div class="content-container">
+                <h2>3. Secondary CNC Machining DFM Guidelines</h2>
+                <ul>
+                    <li>
+                        <strong>Standardize Tool Radius Sizes:</strong> Design internal pocket radii to match standard end mill diameters, leaving a radius slightly larger than the cutter (e.g., use a 0.260” radius for a 0.250” tool) to prevent tool chatter.
+                    </li>
+                    <li>
+                        <strong>Minimizing Tool Re-Fixturing:</strong> Design parts for multi-axis or 5-axis CNC machining so that mounting datum faces, holes, and sealing grooves can be finished in a single setup ("Done-in-One").
+                    </li>
+                    <li>
+                        <strong>Proper Machining Allowances:</strong> Leave an optimal material allowance of 0.030” to 0.060” (0.75mm to 1.5mm) on critical cast or forged surfaces meant for finish machining—preventing unnecessary cutter wear while removing as-cast surface skins.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="collaborative-dfm">
+            <div class="content-container">
+                <h2>Collaborative DFM & Feasibility Reviews</h2>
+                <p>
+                    ForceBeyond’s engineering team provides full Simultaneous Engineering and DFM Reviews during the early CAD development phase. By running mold-flow solidification simulations, forging deformation modeling, and 5-axis toolpath verifications, we help you launch fully manufacturable components on time and within budget.
+                </p>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

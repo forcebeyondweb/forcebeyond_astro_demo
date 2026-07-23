@@ -1,0 +1,271 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Inconel 625 Machining Services: Precision CNC for Corrosion-Resistant Alloys';
+const seoTitle = 'AS9100 Inconel 625 CNC Machining | USA, South Korea, Taiwan | ForceBeyond';
+const seoDescription = 'AS9100-certified Inconel 625 machining by ForceBeyond. Precision 5-axis CNC milling & turning for nuclear, marine & chemical sectors. ±0.005mm tolerances.';
+const faqs = [
+    {
+        q: "Where are ForceBeyond’s engineering oversight and Inconel 625 machining centers located?",
+        a: "Our dedicated engineering and project management teams are based at our corporate headquarters in New Castle, Delaware, USA. To optimize production costs and eliminate supply chain bottlenecks, our AS9100-certified CNC machining and precision finishing facilities are strategically located across our co-owned hubs in the USA, South Korea, and Taiwan."
+    },
+    {
+        q: "Does ForceBeyond provide single-source manufacturing for Inconel 625 castings, forgings, and machining?",
+        a: "Yes. As a Tier-1.5 partner, ForceBeyond provides a fully integrated, single-source supply chain. We manage the entire component lifecycle by combining our in-house Inconel 625 Forging and Inconel 625 Casting foundries directly with our 5-axis CNC machining centers. This process is fully overseen by our Delaware team to relieve internal stresses via proof-machining before final precision finishing."
+    },
+    {
+        q: "What quality assurance and compliance standards do you provide for nuclear-grade Inconel 625 components?",
+        a: "All ForceBeyond production facilities operate under a unified AS9100 Rev D and ISO 9001:2015 quality framework. For high-reliability sectors like Nuclear SMR and subsea marine applications, we provide full Heat Lot Traceability and Certified Material Test Reports (CMTRs) complying with NACE MR0175, verified by Positive Material ID (PMI) spectrographic analysis and Nadcap-aligned FPI testing."  
+    },
+    {
+        q:"What specific tolerances and surface finishes can ForceBeyond hold on complex Inconel 625 geometries?",
+        a: "Our high-torque CNC turning and 5-axis milling centers routinely hold tight dimensional tolerances down to ±0.005mm on complex parts, such as valve bodies and forged flanges. Additionally, we utilize Surface Profilometry (ISO 4287) to guarantee a Ra 0.8 surface finish required for critical metal-to-metal sealing faces."
+    },
+    {
+        q: "How do your machining facilities combat the 'gummy' nature and work-hardening of Inconel 625?",
+        a: "We combat low thermal conductivity and work-hardening by utilizing high-torque spindles, rigid workholding, and high-pressure coolant. During roughing, we use SiAlON and whisker-reinforced ceramic tooling at cutting speeds up to 1,000 SFM. To prevent work-hardening caused by tool rubbing, we enforce strict climb-milling (thick-to-thin) toolpaths, maintain continuous feed rates, and never allow the cutting tool to dwell in the cut."
+    }
+];
+
+// Sources 
+const sources = [
+    { label: 'American Foundry Society: "Metal Casting"', url: 'https://www.afsinc.org' },
+    { label: 'Forging Industry Association: "Forging Industry"', url: 'https://www.forging.org' },
+    { label: 'efunda. “Sand Casting“', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'The Investment Casting Institute. “What is Investment Casting?“',url:'https://www.investmentcasting.org/what-is-investment-casting.html'},
+    { label: 'ASM International. “Inconel 718 Alloy“', url: 'https://www.asminternational.org/materials-resources/alloy-database/technical-bulletin/inconel-718-alloy' }
+];
+
+// Resources 
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+// Service / Product Schema
+// Ensure 'faqs' array exists in your frontmatter
+const pageSchema = {
+
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/inconel-625-5-axis-cnc-machining-impeller-hero.webp"
+    heroImageAlt="5-axis CNC machining of an Inconel 625 impeller in a precision high-tech machining center"
+    faqSectionTitle="FAQ: Sourcing Inconel 625 Machining"
+    faqItems={faqs}
+    ctaTitle="Request an Inconel 625 Machining Quote"
+    ctaDescription="As your Tier-1.5 manufacturing partner, ForceBeyond delivers fully machined, print-ready Inconel 625 components with uncompromising quality.Our Delaware-based engineering team is ready to review your project. We provide comprehensive Design for Manufacturability (DFM) feedback, cycle-time estimates, and globally optimized pricing from our USA, South Korea, and Taiwan facilities.Typical engineering review and response time: 24 to 48 hours."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+    <div class="individual-content">
+    <p>
+        <strong>Inconel 625 Machining Key Facts:</strong> Inconel 625 (UNS N06625) is a highly ductile, corrosion-resistant nickel 
+        superalloy machined using precision 5-axis CNC milling, high-positive rake turning, and high-pressure coolant toolpaths to 
+        overcome work-hardening and built-up edge (BUE). Managed by our engineering team in New Castle, Delaware, ForceBeyond’s 
+        AS9100-certified facilities in the USA, South Korea, and Taiwan provide Tier-1.5 integration across casting, forging, and 
+        finish machining—delivering strict tolerances down to ±0.005mm and Ra 0.8 surface finishes for mission-critical nuclear SMR, 
+        subsea marine, and chemical applications.
+    </p>
+</div>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview" >
+            <div class="content-container">
+                
+                <h2>Inconel 625 Machining Services: Precision CNC for Corrosion-Resistant Alloys</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                           High-precision 5-axis CNC milling, turning, and drilling for Inconel 625 (UNS N06625). 
+                           ForceBeyond provides specialized machining solutions optimized for the “gummy” nature of 625, 
+                           serving mission-critical Nuclear, Marine, and Chemical sectors from our co-owned USA, South Korea, and Taiwan 
+                           facilities.As a high-expertise capability within 
+                        </p>
+
+                        <p>
+                            As a high-expertise capability within our <a href="/oscar/superalloy-machining-services" class="highlight-link">Superalloy Machining Services</a>, 
+                            ForceBeyond specializes in the precision manufacturing of <strong>Inconel 625</strong>. As a Tier-1.5 partner, 
+                            we integrate our machining centers with our <a href="/oscar/inconel-625-forging" class="highlight-link">Inconel 625 Forging</a> and <a href="/oscar/inconel-625-casting" class="highlight-link">Inconel 625 Casting</a> foundries. 
+                            While Inconel 718 is machined for pure tensile strength, Inconel 625 is machined for extreme 
+                            environmental resilience—requiring entirely different tooling geometries to handle its high ductility 
+                            and work-hardening tendencies.
+                        </p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/machined-inconel-625-forged-flange-nuclear-subsea-4k.webp"
+                                alt="Two precision-machined Inconel 625 forged flanges for nuclear and subsea applications."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="machining-challenges" >
+            <div class="content-container">
+                <h2>Overcoming the Challenges of Machining 625</h2>
+                    <p>
+                        Inconel 625 is characterized by exceptional toughness and ductility. This creates a unique set of machining challenges compared to other nickel-chromium superalloys:
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>Built-Up Edge (BUE): </strong>  The material’s “gummy” nature causes it to weld itself to the cutting tool insert, leading to poor surface finishes and sudden tool failure.
+                        </li>
+                        <li>
+                            <strong>Stringy Chip formation: </strong>  High ductility prevents chips from breaking cleanly. Continuous, stringy chips can wrap around the spindle, damaging the workpiece and halting automated production.
+                        </li>
+                        <li>
+                            <strong>Rapid Work-Hardening:</strong> If a tool dwells or rubs against 625 for even a millisecond, the surface instantly hardens, making subsequent passes nearly impossible.
+                        </li>
+                    </ul>
+                
+            </div>
+        </section>
+
+        <section id="tooling-strategies" >
+            <div class="content-container">
+                <h2>ForceBeyond’s Tooling & Chip Control Strategies</h2>
+                
+                <p>
+                    To achieve tight tolerances (± 0.005mm) on complex 625 components, 
+                    our global engineering teams deploy aggressive strategies to counteract the alloy’s high ductility.
+                </p>
+
+                <p>
+                    <strong>Table: Optimized CNC Machining Parameters for Inconel 625</strong>
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Machining Operation</th>
+                                <th scope="col">Tooling Strategy & Material</th>
+                                <th scope="col">Cutting Speed (SFM)</th>
+                                <th scope="col">Feed Rate (IPR/IPT)</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Rough Turning</th>
+                                <td>Positive Rake Carbide (PVD Coated)	</td>
+                                <td>120 – 180 SFM</td>
+                                <td>0.010 – 0.015 IPR</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Finish Turning</th>
+                                <td>High-Positive PVD Carbide</td>
+                                <td>150 – 200 SFM</td>
+                                <td>0.004 – 0.008 IPR</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Rough Milling</th>
+                                <td>Trochoidal Milling (Solid Carbide)</td>
+                                <td>100 – 140 SFM</td>
+                                <td>0.003 – 0.006 IPT</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Drilling</th>
+                                <td>Solid Carbide (Through-Coolant)</td>
+                                <td>40 – 60 SFM</td>
+                                <td>0.001 – 0.003 IPR</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3>Advanced Execution for Nuclear & Marine Parts</h3>
+                <ul>
+                    <li>
+                        <strong>High-Pressure Coolant (HPC):</strong>We utilize 1,000+ psi of coolant directly at the cutting zone. This forces the ductile 625 chips to break and clear the area, preventing spindle wrapping.                       
+                    </li>
+                    <li>
+                        <strong>Positive Tool Geometries:</strong> Using sharp, high-positive rake angles reduces cutting forces and prevents the material from smearing or creating a built-up edge.
+                    </li>
+                    <li>
+                        <strong>Climb Milling:</strong>Ensuring the cutter bites into the material rather than rubbing against it, completely mitigating work-hardening on critical sealing faces.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+        <section id="quality-assurance" >
+            <div class="content-container">
+                <h2>Quality Assurance & Nuclear Compliance</h2>
+                
+                <p>
+                    Inconel 625 is often used in Small Modular Reactors (SMRs) and subsea applications where failure is not an option. Our QA protocols go beyond standard machining checks.
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Inspection Method</th>
+                                <th scope="col">Purpose for Inconel 625</th>
+                                <th scope="col">Standard Compliance</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">CMM Verification</th>
+                                <td>Ensuring dimensional integrity for complex valve bodies.</td>
+                                <td>± 0.005mm accuracy</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">FPI (NDT)</th>
+                                <td>Detecting surface-breaking defects post-machining.</td>
+                                <td>ASTM E1417 / Nadcap</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Surface Profilometry</th>
+                                <td>Ensuring Ra 0.8 surface finish for metal-to-metal seals.</td>
+                                <td>ISO 4287</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+</IndividualPageLayout>

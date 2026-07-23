@@ -1,0 +1,211 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Quality & Global Supply Chain: Risk Management & Reliability';
+const seoTitle = 'Quality & Global Supply Chain Management | ForceBeyond';
+const seoDescription = 'ForceBeyond delivers uncompromised quality and geopolitical risk mitigation for Tier-1 procurement through our global foundry network and AS9100-certified QMS.';
+
+const faqs = [
+    {
+        q: "How does ForceBeyond’s Tier-1.5 model actually reduce supply chain risk?",
+        a: "In a traditional supply chain, a raw casting is shipped from a foundry to an independent machine shop, and then to a plating vendor. If a dimension is out of tolerance, vendors blame each other, causing massive delays. Our Tier-1.5 model consolidates primary casting/forging, Hot Isostatic Pressing (HIP), and 5-axis CNC machining under one ForceBeyond corporate entity. We take 100% accountability for the finished part, eliminating vendor hand-off risks entirely."
+    },
+    {
+        q: "Does ForceBeyond manage international freight and customs?",
+        a: "Yes. We act as your single domestic point of contact. Our logistics team manages 100% of the international freight forwarding, ocean/air logistics, customs clearance, and import duties, providing you with a frictionless, landed-cost delivery to your dock."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'AS9100 Rev D Quality Management Systems - Aviation, Space & Defense', url: 'https://www.sae.org' },
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'IATF 16949 Automotive Quality Management System', url: 'https://www.iatfglobaloversight.org' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Page Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/quality-global-supply-chain#webpage",
+      "url": "https://www.forcebeyond.store/oscar/quality-global-supply-chain",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/quality-global-supply-chain#service",
+      "name": "Quality & Global Supply Chain Management",
+      "serviceType": "Turnkey Manufacturing & Supply Chain Risk Mitigation",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "AS9100 Rev D, ISO 9001:2015, and IATF 16949 Certifications",
+          "Tier-1.5 Integrated Manufacturing Model",
+          "Radiographic Testing (X-Ray), FPI, & 3D CMM Metrology",
+          "Tri-Regional Supply Chain Footprint (USA, South Korea, Taiwan)",
+          "Global Freight Forwarding, Customs Clearance, & Landed Delivery"
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/quality-global-supply-chain#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="Global supply chain management and quality control inspection"
+    faqSectionTitle="Frequently Asked Questions: Global Supply Chain"
+    faqItems={faqs}
+    ctaTitle="Mitigate Supply Chain Risk with ForceBeyond"
+    ctaDescription="Leverage our AS9100-certified Tier-1.5 manufacturing model and tri-regional footprint for guaranteed quality and frictionless component delivery."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Quality and Global Operations"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Quality & Global Supply Chain: Risk Management & Reliability</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            For Tier-1 and Tier-2 procurement managers sourcing mission-critical metal components, supply chain friction and quality escapes are the greatest threats to production schedules. At ForceBeyond, we engineer risk out of the procurement process.
+                        </p>
+                        <p>
+                            By operating a unified, AS9100-certified Quality Management System across our highly resilient USA, South Korea, and Taiwan manufacturing network, we provide total single-source accountability. Our Tier-1.5 Manufacturing Model consolidates raw casting, heavy forging, secondary CNC machining, and sub-assembly. This single-source approach eliminates the severe lead-time delays, dimensional vendor disputes, and tariff vulnerabilities inherent in fragmented global supply chains.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/quality-global-supply-chain-overview-4k.webp"
+                                alt="Quality inspection and global logistics operations for critical metal components."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="quality-assurance">
+            <div class="content-container">
+                <h2>1. Quality Assurance & Certifications</h2>
+                <p>
+                    Compliance is our baseline. Our global facilities operate under strict regulatory frameworks to guarantee zero-defect manufacturing for aerospace, nuclear energy, automotive, and medical OEMs.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Core Certifications:</strong> AS9100 Rev D, ISO 9001:2015, IATF 16949.
+                    </li>
+                    <li>
+                        <strong>Special Processes:</strong> Nadcap-compliant Heat Treatment and Surface Plating.
+                    </li>
+                </ul>
+                <p>
+                    <a href="/quality-assurance-certifications" class="text-blue-600 hover:underline font-semibold">Explore further: Quality Assurance & Certifications</a>
+                </p>
+            </div>
+        </section>
+
+        <section id="testing-inspection">
+            <div class="content-container">
+                <h2>2. Testing & Inspection Capabilities</h2>
+                <p>
+                    Validating structural integrity requires world-class metrology and testing infrastructure. We perform comprehensive non-destructive and destructive testing in-house to verify internal metallurgical soundness and sub-micron dimensional accuracy.
+                </p>
+                <ul>
+                    <li>
+                        <strong>In-House Capabilities:</strong> Radiographic Testing (X-Ray), Fluorescent Penetrant Inspection (FPI), 3D CMM Metrology, and Metallographic Testing.
+                    </li>
+                </ul>
+                <p>
+                    <a href="/testing-inspection-capabilities" class="text-blue-600 hover:underline font-semibold">Explore further: Testing & Inspection Capabilities</a>
+                </p>
+            </div>
+        </section>
+
+        <section id="global-footprint">
+            <div class="content-container">
+                <h2>3. Global Footprint & Logistics</h2>
+                <p>
+                    We protect our OEM partners from geopolitical volatility, port delays, and tariff impacts through a strategically diversified, tri-regional manufacturing footprint.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Global Locations:</strong> United States (HQ/Defense), South Korea (Heavy Forging/Aerospace), Taiwan (Vacuum Casting/CNC Machining).
+                    </li>
+                </ul>
+                <p>
+                    <a href="/global-footprint-logistics" class="text-blue-600 hover:underline font-semibold">Explore further: Global Footprint & Logistics</a>
+                </p>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

@@ -1,0 +1,350 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Stainless Steel Machining: High-Precision 300, 400 & 17-4 PH Solutions';
+const seoTitle = 'Custom Stainless Steel CNC Machining Services | ForceBeyond';
+const seoDescription = 'ForceBeyond delivers high-precision CNC machining for austenitic (304/316), martensitic (400 series), and precipitation-hardening (17-4 PH) stainless steel components with integrated casting, passivation, and finishing.';
+
+const faqs = [
+    {
+        q: "Which stainless steel grade is the easiest to machine?",
+        a: "AISI 416 is widely considered the easiest stainless steel to machine. It is a free-machining martensitic grade with added sulfur, allowing for high cutting speeds, short broken chips, and long tool life. However, if high corrosion resistance is required, 304 and 316 are preferred despite being more difficult to machine."
+    },
+    {
+        q: "Why is chemical passivation necessary after CNC machining stainless steel?",
+        a: "During cutting, grinding, or milling, microscopic particles of free iron from the CNC machine's steel cutting tools can become pressed into the surface of the stainless steel part. If left untreated, these free iron particles will rust when exposed to moisture. Passivation dissolves this free iron and allows the stainless steel to reform its natural, invisible, corrosion-resistant chromium-oxide skin."
+    },
+    {
+        q: "Can ForceBeyond machine 17-4 PH stainless steel in both annealed and hardened conditions?",
+        a: "Yes. We typically perform rough machining on 17-4 PH in Condition A (solution annealed), which is softer and easier on cutting tools. We then perform the required thermal age-hardening process (such as H900 or H1150) in-house, followed by a final, high-precision finish machining pass to hit exact print tolerances without worrying about heat-treat distortion."
+    }
+];
+
+// Sources 
+const sources = [
+    { label: 'Specialty Steel Industry of North America (SSINA)', url: 'https://www.ssina.com' },
+    { label: 'ASM International: "Machining of Stainless Steels"', url: 'https://www.asminternational.org' },
+    { label: 'ASTM International: ASTM A967 Standard Specification for Chemical Passivation Treatments', url: 'https://www.astm.org' }
+];
+
+// Resources 
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/stainless-steel-machining#webpage",
+      "url": "https://www.forcebeyond.store/oscar/stainless-steel-machining",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Stainless steel",
+          "sameAs": "https://en.wikipedia.org/wiki/Stainless_steel"
+        },
+        {
+          "@type": "Thing",
+          "name": "Machining",
+          "sameAs": "https://en.wikipedia.org/wiki/Machining"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/stainless-steel-machining#service",
+      "name": "High-Precision Stainless Steel Machining Services",
+      "serviceType": "Custom Stainless Steel CNC Machining",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "5-Axis CNC Milling & Swiss Turning of Stainless Steels",
+          "300 Series (304, 304L, 316, 316L) Austenitic Stainless Steel Machining",
+          "400 Series Martensitic & Ferritic Stainless Steel Machining",
+          "17-4 PH & 15-5 PH Precipitation Hardening Alloys",
+          "ASTM A967 Chemical Passivation & Electropolishing",
+          "Tier-1.5 Cast-to-Machine Stainless Solutions",
+          "Precision Metrology, CMM Inspection & NDT Testing"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Stainless Steel Machining Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Multi-Axis Milling & Precision Turning",
+              "description": "High-accuracy multi-axis CNC milling and Swiss-style turning tailored for austenitic, martensitic, ferritic, and precipitation-hardening alloys."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cast-to-Machine Near-Net Solutions",
+              "description": "Integrated investment casting to secondary CNC machining pipeline that cuts material waste and total unit cost up to 60%."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Passivation, Electropolishing & Heat Treatment",
+              "description": "Certified in-house ASTM A967 chemical passivation, electropolishing, and precipitation hardening (H900, H1150)."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/stainless-steel-machining#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"
+    faqSectionTitle="Frequently Asked Questions: Stainless Steel Machining"
+    faqItems={faqs}
+    ctaTitle="Request Quote For Stainless Steel Machining"
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Stainless Steel Machining: High-Precision 300, 400 & 17-4 PH Solutions</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond is a premier global provider of precision CNC machining services for stainless steel components. Offering an optimal balance of corrosion resistance, mechanical strength, and aesthetic appeal, stainless steel is the material of choice across the medical, food processing, fluid control, and aerospace industries.
+                        </p>
+                        <p>
+                            Utilizing advanced 5-axis CNC mills, multi-tasking lathes, and Swiss-style turning centers, ForceBeyond machines all major series of stainless steel—including austenitic (304/316), martensitic (410/440C), and precipitation-hardening (17-4 PH) alloys. Through specialized tooling geometries, rigid workholding, and automated chemical passivation, we deliver fully finished, ultra-tight tolerance stainless steel parts ready for immediate assembly.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/precision-cnc-turning-stainless-steel-shaft.webp"
+                                alt="Close-up of a CNC lathe turning a stainless steel shaft with sparks during high-precision metal machining."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="technical-capabilities">
+            <div class="content-container">
+                <h2>Technical Capabilities: Stainless Steel Alloy Grades</h2>
+                <p>
+                    ForceBeyond routinely machines bar stock, plate, forgings, and investment castings across the entire stainless steel family. We tailor our speeds, feeds, and coolant delivery to match the specific ductility and work-hardening characteristics of each alloy group.
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Alloy Series</th>
+                                <th scope="col">Common Grades</th>
+                                <th scope="col">Typical Yield Strength</th>
+                                <th scope="col">Key Features & Optimal Applications</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Austenitic (300 Series)</th>
+                                <td>304, 304L, 316, 316L</td>
+                                <td>30,000 – 35,000 psi</td>
+                                <td>Superior general corrosion resistance. Highly ductile but prone to gummy chips and work-hardening. Widely used for food/dairy equipment, medical housings, and marine hardware.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Precipitation-Hardening</th>
+                                <td>17-4 PH, 15-5 PH</td>
+                                <td>100,000 – 185,000 psi (Post-Heat)</td>
+                                <td>Exceptional combination of high strength, hardness, and 304-level corrosion resistance. Machined in Condition A and aged to H900 or H1150 for aerospace and pump shafts.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Martensitic (400 Series)</th>
+                                <td>410, 416, 420, 440C</td>
+                                <td>40,000 – 100,000+ psi</td>
+                                <td>High carbon content allows heat treatment to extreme hardness levels. Highly machinable (especially 416). Used for surgical cutlery, valve stems, and wear-resistant shafts.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ferritic (400 Series)</th>
+                                <td>430, 409</td>
+                                <td>35,000 – 45,000 psi</td>
+                                <td>Non-heat-treatable, magnetic stainless with good oxidation resistance. Machined extensively for automotive exhaust components and trim.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
+                <p class="mt-4 text-sm text-gray-600">
+                    <em>(Note: For harsh subsea, chemical, or chloride environments requiring extreme resistance to stress corrosion cracking, explore our dedicated Duplex & Super Duplex Stainless Steel Machining capabilities).</em>
+                </p>
+            </div>
+        </section>
+
+        <section id="engineering-expertise">
+            <div class="content-container">
+                <h2>Engineering Expertise: Precision Machining Strategies</h2>
+                <p>
+                    While stainless steel is widely used, machining it requires strict technical discipline to prevent poor surface finishes, rapid tool wear, and dimensional distortion.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Controlling Work-Hardening:</strong> Austenitic grades like 304 and 316 work-harden quickly under tool pressure. ForceBeyond’s CNC programmers maintain sharp tool edges and positive feed rates, ensuring the cutting tool continuously cuts below the work-hardened surface layer.
+                    </li>
+                    <li>
+                        <strong>Managing Thermal Expansion:</strong> Stainless steel has a relatively high coefficient of thermal expansion combined with poor thermal conductivity. We utilize high-pressure, through-spindle coolant to instantly carry heat away from the workpiece, maintaining strict thermal stability for micron-level tolerances.
+                    </li>
+                    <li>
+                        <strong>Chip Control & Chip Breakers:</strong> Austenitic stainless tends to form long, stringy chips that can mar surface finishes or wrap around spindles. We employ specialized carbide inserts with aggressive chip-breaker geometries to ensure clean chip evacuation.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="tier-1-5-advantage">
+            <div class="content-container">
+                <h2>Tier-1.5 Integration: Cast-to-Machine Stainless Solutions</h2>
+                <p>
+                    Machining complex, organic shapes (like valve bodies, pump impellers, or sanitary fittings) from a solid block of 316L stainless steel generates massive material waste and high tool costs. ForceBeyond operates on a Tier-1.5 Manufacturing Model:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Near-Net Investment Casting:</strong> Our high-precision lost-wax foundry pours a dense 304, 316, or 17-4 PH casting that matches your part's complex geometry.
+                    </li>
+                    <li>
+                        <strong>In-House Secondary Machining:</strong> The casting moves straight into our high-speed CNC machining centers, where we machine only the critical mounting faces, threads, and bearing bores to final print tolerances.
+                    </li>
+                    <li>
+                        <strong>Passivation & Electropolishing:</strong> We perform chemical passivation or electropolishing to restore the metal's natural protective chromium-oxide layer, ensuring a sterile, corrosion-resistant surface.
+                    </li>
+                </ul>
+                <p class="mt-4 font-semibold text-primary">
+                    This integrated approach cuts total unit production costs by up to 60% compared to machining from solid bar stock.
+                </p>
+            </div>
+        </section>
+
+        <section id="secondary-operations">
+            <div class="content-container">
+                <h2>Certified Secondary Operations & Surface Finishing</h2>
+                <p>
+                    ForceBeyond provides complete, end-to-end processing for all stainless steel components:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Passivation (ASTM A967 / AMS 2700):</strong> Chemical citric or nitric acid baths that remove free iron contaminants embedded during machining, maximizing rust resistance.
+                    </li>
+                    <li>
+                        <strong>Electropolishing:</strong> An electrochemical process that removes a microscopic layer of metal, creating a brilliant, ultra-smooth, mirror-like finish ideal for sanitary and medical applications.
+                    </li>
+                    <li>
+                        <strong>Precision Heat Treatment:</strong> Solution annealing for 300-series, hardening/tempering for 400-series, and precipitation age-hardening (H900, H1150) for 17-4 PH.
+                    </li>
+                    <li>
+                        <strong>Rigorous Metrology & NDT:</strong> 100% CMM inspection, Liquid Penetrant Inspection (LPI) for surface integrity, and full Material Test Reports (MTRs).
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="certified-applications">
+            <div class="content-container">
+                <h2>Certified Stainless Steel Applications</h2>
+                <p>
+                    Our advanced machining centers supply precision stainless steel components to:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Medical & Surgical:</strong> Surgical instrument handles, orthopedic alignment guides, and diagnostic equipment housings.
+                    </li>
+                    <li>
+                        <strong>Food, Beverage & Dairy:</strong> FDA-compliant sanitary valve fittings, fluid mixing shafts, and metering pump housings.
+                    </li>
+                    <li>
+                        <strong>Aerospace & Defense:</strong> 17-4 PH structural actuators, fuel system fittings, and high-strength fasteners.
+                    </li>
+                    <li>
+                        <strong>Fluid & Flow Control:</strong> High-pressure ball valve stems, pump impellers, and stainless pipe manifolds.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

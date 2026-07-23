@@ -1,0 +1,361 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle ='Duplex & Super Duplex Stainless Steel Casting: Extreme Corrosion & Strength';
+const seoTitle = 'Duplex & Super Duplex Casting | 2205, 2507 & Zeron 100';
+const seoDescription = 'Custom Duplex and Super Duplex investment casting compliant with ASTM A890 and NACE MR0175. ForceBeyond delivers VIM-melted Grade 4A (2205) and Grade 5A (2507) castings with PREN > 40, zero Sigma phase, and twice the yield strength of 316L.';
+const faqs = [
+    {
+        q: "What makes a Duplex stainless steel different from a 'Super' Duplex?",
+        a: "The difference lies in the alloy composition and its resulting Pitting Resistance Equivalent Number (PREN). Standard Duplex (like 2205) generally has a PREN of around 35. Super Duplex (like 2507) contains higher levels of chromium, molybdenum, and nitrogen, pushing its PREN above 40, making it vastly superior for surviving in highly aggressive, warm chloride environments like subsea drilling."
+    },
+    {
+        q: "Why use Duplex instead of standard 316L Stainless Steel?",
+        a: "If 316L is exposed to warm seawater or tensile stress in a chloride environment, it is highly susceptible to localized pitting and Stress Corrosion Cracking (SCC). Duplex completely mitigates SCC. Furthermore, because Duplex has twice the yield strength of 316L, you can design parts with much thinner walls, saving weight and material costs."
+    },
+    {
+        q: "Are Duplex stainless steels difficult to machine?",
+        a: "Yes. Because of their high strength and tendency to work-harden rapidly, Duplex alloys require rigid machine setups, specialized carbide tooling, and slow, heavy cuts. This is why ForceBeyond’s investment casting process is so valuable—it creates the part incredibly close to its final shape, minimizing the amount of this expensive secondary machining."
+    }
+];
+
+// Sources 
+const sources = [
+    { label: 'American Foundry Society: "Metal Casting"', url: 'https://www.afsinc.org' },
+    { label: 'Forging Industry Association: "Forging Industry"', url: 'https://www.forging.org' },
+    { label: 'efunda. “Sand Casting“', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'The Investment Casting Institute. “What is Investment Casting?“',url:'https://www.investmentcasting.org/what-is-investment-casting.html'},
+    { label: 'ASM International. “Inconel 718 Alloy“', url: 'https://www.asminternational.org/materials-resources/alloy-database/technical-bulletin/inconel-718-alloy' }
+];
+
+// Resources 
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/beta-titanium-forging#webpage",
+      "url": "https://www.forcebeyond.store/oscar/beta-titanium-forging",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Titanium alloy",
+          "sameAs": "https://en.wikipedia.org/wiki/Titanium_alloy"
+        },
+        {
+          "@type": "Thing",
+          "name": "Forging",
+          "sameAs": "https://en.wikipedia.org/wiki/Forging"
+        },
+        {
+          "@type": "Thing",
+          "name": "Beta titanium alloys",
+          "sameAs": "https://en.wikipedia.org/wiki/Beta_titanium_alloys"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/beta-titanium-forging#service",
+      "name": "High-Strength Beta Titanium Forging Services",
+      "serviceType": "Beta Titanium Forging Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Beta Titanium Forging",
+          "Ti-10V-2Fe-3Al & Beta-C (Grade 19) Alloys",
+          "Solution Treated and Aged (STA) Microstructures",
+          "High Yield Strength (>1200 MPa) Forging",
+          "Fracture Toughness & Fatigue Resistance Optimization",
+          "Aerospace Landing Gear & Fastener Production",
+          "Closed-Die Forging & Seamless Rolled Rings"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Beta Titanium Forging Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "STA Microstructure Optimization",
+              "description": "Advanced thermomechanical processing and closed-die forging of metastable Beta titanium alloys, tailored through strict Solution Treated and Aged heat treatment protocols to clear 1,200 MPa yield thresholds."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Flight-Critical High-Fatigue Component Forging",
+              "description": "Precision engineering of high-strength aerospace components including landing gear cylinders, structural bulkheads, and heavy fasteners featuring continuous macro-grain flow lines."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "End-to-End Tier-1.5 Metallurgical Validation",
+              "description": "Complete supply chain tracing from initial alloy melt through precision near-net-shape forging, heat treating, and multi-axis NDT inspection with detailed aerospace compliance documentation."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/beta-titanium-forging#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/stainless-steel-investment-casting-components-hero.webp"
+    heroImageAlt="Titanium investment casting hero image showing a finished precision cast component, ceramic shell tree, and molten metal pouring in a modern foundry"
+    faqSectionTitle="Frequently Asked Questions: Duplex Stainless Casting"
+    faqItems={faqs}
+    ctaTitle="Request Quote For Duplex Stainless Casting"
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview" >
+            <div class="content-container">
+                
+                <h2>Duplex & Super Duplex Stainless Steel Casting: Extreme Corrosion & Strength</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                           ForceBeyond is a premier global supplier of high-precision Duplex and Super Duplex stainless steel investment castings. 
+                           Engineered for the world’s harshest environments, Duplex alloys provide a unique two-phase microstructure that delivers 
+                           twice the mechanical strength of standard austenitic stainless steels, combined with unparalleled resistance to localized 
+                           corrosion and stress corrosion cracking.
+                        </p>
+                        <p>
+                           Operating under a strict ISO 9001:2015 quality management system, our specialized foundry network manufactures mission-critical fluid control, marine, and petrochemical components. 
+                           Through advanced vacuum induction melting (VIM) and precise thermal processing, we deliver fully machined, defect-free Duplex castings that meet rigorous international standards, 
+                           including ASTM A890 and NACE MR0175.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/duplex-stainless-steel-submersible-pump-housing-4k.webp"
+                                alt="Precision stainless steel investment-cast parts with machined flanges, threaded ports, mounting holes, and industrial housing features on a white background."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="technical-capabilities" >
+            <div class="content-container">
+                <h2>Technical Specifications: Duplex & Super Duplex Alloys</h2>
+                    <p>
+                        Duplex stainless steels are characterized by a microstructure consisting of roughly 50% austenite and 50% ferrite. 
+                        This dual structure is what provides their massive yield strength and exceptional resistance to chloride-induced stress corrosion cracking (SCC). 
+                        ForceBeyond tightly controls the Pitting Resistance Equivalent Number (PREN) to guarantee performance in aggressive media.
+                    </p>
+                    <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Alloy Grade</th>
+                                <th scope="col">Common Designation</th>
+                                <th scope="col">Typical Yield Strength</th>
+                                <th scope="col">PREN (Pitting Resistance)</th>
+                                <th scope="col">Key Features & Applications</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Grade 4A (2205)</th>
+                                <td>Standard Duplex</td>
+                                <td>65,000 psi (450 MPa)</td>
+                                <td>~35</td>
+                                <td>The industry standard for Duplex. Excellent resistance to general corrosion and SCC. Ideal for oil & gas flowlines, desalination plants, and chemical processing valves.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Grade 5A (2507)</th>
+                                <td>Super Duplex</td>
+                                <td>75,000 psi (515 MPa)</td>
+                                <td>>40</td>
+                                <td>Formulated with high chromium, molybdenum, and nitrogen. Exceptional resistance to pitting and crevice corrosion. Mandatory for subsea hardware and highly aggressive chloride environments.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Grade 6A (Zeron 100)</th>
+                                <td>Super Duplex</td>
+                                <td>65,000 psi (450 MPa)</td>
+                                <td>>40</td>
+                                <td>Contains added copper and tungsten for enhanced resistance to strong mineral acids (like sulfuric acid). Used heavily in aggressive chemical and mining slurry applications.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Grade 1B (CD4MCuN)</th>
+                                <td>Standard Duplex</td>
+                                <td>70,000 psi (485 MPa)</td>
+                                <td>~30</td>
+                                <td>One of the original cast Duplex grades, highly valued for its excellent abrasion and erosion-corrosion resistance in heavy-duty pump impellers.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
+            </div>
+        </section>
+
+        <section id="why-forcebeyond" >
+            <div class="content-container">
+                
+                <h2>Why Partner with ForceBeyond for Duplex Casting?</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                           Casting and machining Duplex stainless steels is a highly complex metallurgical process. If the cooling rates or heat treatments are incorrect, 
+                           harmful intermetallic phases (like Sigma phase) will form, catastrophically destroying the metal's corrosion resistance and toughness.
+                        </p>
+                        <ul>
+                            <li>
+                                <strong>Strict Thermal & Metallurgical Control:</strong>ForceBeyond utilizes advanced melting practices and strictly controlled solution annealing and rapid water-quenching processes. This guarantees the correct 50/50 austenite-ferrite balance and completely suppresses the precipitation of brittle Sigma phase.
+                            </li>
+                            <li>
+                                <strong>VIM (Vacuum Induction Melting) Expertise:</strong>For the highest grade Super Duplex alloys, we utilize VIM technology to precisely control the nitrogen levels and prevent oxidation, ensuring a highly pure, defect-free internal grain structure.
+                            </li>
+                            <li>
+                                <strong>Near-Net-Shape Accuracy:</strong>Because Duplex alloys are incredibly strong and work-harden rapidly, CNC machining them from solid block is extremely slow, tool-intensive, and expensive. Investment casting achieves complex internal geometries (like pump volutes) directly from the mold, drastically reducing required machining time.
+                            </li>
+                            <li>
+                                <strong>Weight Reduction (Lightweighting):</strong>Because Duplex has twice the yield strength of standard 316 stainless, engineers can design components with significantly thinner walls, reducing overall assembly weight and lowering raw material costs.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/duplex-stainless-steel-submersible-pump-housing-4k.webp"
+                                alt="Precision stainless steel investment-cast parts with machined flanges, threaded ports, mounting holes, and industrial housing features on a white background."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            
+        </section>
+
+        <section id = "Tier-1.5-integration">
+            <div class="content-container">
+                <h2>Tier-1.5 Integration: Precision Cast-to-Machine Solutions</h2>
+                <p>
+                    Duplex and Super Duplex alloys are notoriously difficult to machine. ForceBeyond operates on a Tier-1.5 model, 
+                    keeping both the complex casting and the specialized CNC machining under one quality umbrella to eliminate dimensional hand-off risks.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Heavy & Precision CNC Machining:</strong>Rigid 5-axis milling and turning centers utilizing specialized carbide tooling designed specifically for high-strength, work-hardening alloys.
+                    </li>
+                    <li>
+                        <strong>Critical Thermal Processing:</strong>In-house solution annealing and rapid quenching to lock in the required two-phase microstructure.
+                    </li>
+                    <li>
+                        <strong>Rigorous NDT & Certification:</strong>We provide fully traceable Material Test Reports (MTRs), 100% Radiographic Testing (X-Ray), Liquid Penetrant Inspection (LPI), and specific corrosion testing (such as ASTM G48) to certify compliance with NACE MR0175/ISO 15156 for sour gas service.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="certified-applications" >
+            <div class="content-container">
+                <h2>Certified Duplex & Super Duplex Applications</h2>
+                
+                <p>
+                    ForceBeyond supplies high-integrity Duplex and Super Duplex castings to the world’s most punishing industries:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Oil & Gas (Upstream & Downstream):</strong>Subsea manifolds, high-pressure ball valves, blowout preventers (BOPs), and components exposed to sour gas (H2S).
+                    </li>
+                    <li>
+                        <strong>Marine & Offshore:</strong>Saltwater cooling pumps, desalination plant hardware, and propeller hubs requiring massive strength and zero pitting.
+                    </li>
+                    <li>
+                        <strong>Chemical Processing:</strong>Heavy-duty pump impellers, mixing agitators, and pipe fittings handling highly acidic or chloride-rich media.
+                    </li>
+                    <li>
+                        <strong>Pulp & Paper:</strong>Bleaching plant equipment and digester valves requiring high resistance to erosion-corrosion.
+                    </li>
+                    
+                </ul>
+            </div>
+        </section>
+    </div>
+</IndividualPageLayout>

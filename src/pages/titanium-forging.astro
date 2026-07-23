@@ -1,0 +1,408 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Titanium Forging Services: AS9100-Certified Co-Owned Factories';
+const seoTitle = 'Titanium Forging Services | Closed-Die & Rolled Ring | ForceBeyond';
+const seoDescription = 'AS9100-certified precision titanium forging services specializing in Ti-6Al-4V, alpha-beta, and beta alloys. Delivering high-integrity closed-die and seamless rolled ring forgings from co-owned hubs in the USA, South Korea, and Taiwan for aerospace, defense, and subsea marine structures.';
+const faqs = [
+    {
+        q: "How does ForceBeyond manage quality across three countries?",
+        a: "We don’t just “source”—we co-own and operate the facilities. Our US-led engineering team maintains a consistent Quality Management System (QMS) across our AS9100-certified factories in the USA, S. Korea, and Taiwan."
+    },
+    {
+        q: "Does ForceBeyond hold the AS9100 certification?",
+        a: "ForceBeyond is the management and engineering entity. The manufacturing facilities we co-own and operate are the entities that hold the AS9100 certifications, ensuring that all hardware production is fully compliant with aerospace standards."
+    }
+];
+
+// Sources 
+const sources = [
+    { label: 'American Foundry Society: "Metal Casting"', url: 'https://www.afsinc.org' },
+    { label: 'Forging Industry Association: "Forging Industry"', url: 'https://www.forging.org' },
+    { label: 'efunda. “Sand Casting“', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'The Investment Casting Institute. “What is Investment Casting?“',url:'https://www.investmentcasting.org/what-is-investment-casting.html'},
+    { label: 'ASM International. “Inconel 718 Alloy“', url: 'https://www.asminternational.org/materials-resources/alloy-database/technical-bulletin/inconel-718-alloy' }
+];
+
+// Resources 
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/titanium-forging-services#webpage",
+      "url": "https://www.forcebeyond.store/oscar/titanium-forging-services",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Titanium",
+          "sameAs": "https://en.wikipedia.org/wiki/Titanium"
+        },
+        {
+          "@type": "Thing",
+          "name": "Forging",
+          "sameAs": "https://en.wikipedia.org/wiki/Forging"
+        },
+        {
+          "@type": "Thing",
+          "name": "Aerospace manufacturing",
+          "sameAs": "https://en.wikipedia.org/wiki/Aerospace_manufacturing"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/titanium-forging-services#service",
+      "name": "Industrial Titanium Forging Services",
+      "serviceType": "Titanium Forging Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Industrial Titanium Forging",
+          "Ti-6Al-4V, Alpha-Beta & Beta Alloys",
+          "Hot Closed-Die Forging",
+          "Seamless Rolled Ring Forging",
+          "Near-Net-Shape Forging Processes",
+          "AS9100 Rev D Certified Quality System",
+          "Aerospace, Defense, Marine & Medical Applications"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Titanium Forging Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Closed-Die & Near-Net-Shape Hot Forging",
+              "description": "High-tonnage closed-die manufacturing optimizing grain flow structures for high strength-to-weight ratio components while minimizing raw material waste."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Seamless Rolled Ring Forging",
+              "description": "Advanced radial-axial ring rolling to create high-fatigue, zero-defect seamless titanium rings used in aerospace engines, defense housings, and marine applications."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tier-1.5 Procurement Integration",
+              "description": "Consolidated manufacturing pipeline combining heavy titanium raw forgings with custom in-house CNC machining and complete microstructural/NDT validation."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/titanium-forging-services#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/aerospace-titanium-5-axis-machining-as9100-hero.webp"
+    heroImageAlt="Precision 5-axis machining of an aerospace titanium component in an AS9100-certified manufacturing environment"
+    faqSectionTitle="Frequently Asked Questions"
+    faqItems={faqs}
+    ctaTitle=""
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview" >
+            <div class="content-container">
+                
+                <h2>Titanium Forging Services: Global Scale, US Operational Oversight</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond is a Tier-1.5 manufacturing partner specializing in high-integrity <strong>Titanium Forging</strong> for 
+                            aerospace, defense, and medical sectors. We <strong>co-own and operate</strong> an AS9100-certified manufacturing 
+                            network across the USA, South Korea, and Taiwan. By integrating direct operational control with 
+                            in-house 5-axis CNC machining, we deliver mission-critical Ti-6Al-4V and Beta-alloy components 
+                            with unmatched metallurgical traceability.
+                        </p>
+                    </div>
+
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/Titanium-Jet-Engine-Blade-Turbine-Aircraft.webp"
+                                alt="Precision-machined titanium jet engine turbine blades for aerospace aircraft applications on a white background"
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="co-owned-operation" >
+            <div class="content-container">
+                <h2>The ForceBeyond Advantage: Co-Owned Operational Control</h2>
+                    <p>
+                        Unlike brokers or traditional contract manufacturers, ForceBeyond is deeply embedded in the production cycle. 
+                        Our leadership and engineering teams manage the operations of our co-owned facilities to ensure AS9100 
+                        compliance and process optimization
+                    </p>
+                    <ul>
+                        <li>
+                            <strong>USA (Foundry & Plant):</strong>Co-owned domestic manufacturing, ITAR-compliant projects, and final quality verification.
+                        </li>
+                        <li>
+                            <strong>South Korea (Co-Owned Facility):</strong> AS9100-certified high-tonnage forging and advanced VIM melting under ForceBeyond operational management.
+                        </li>
+                        <li>
+                            <strong>Taiwan (Co-Owned Facility):</strong>Precision investment casting and advanced <a href="/oscar/titanium-machining" class = "highlight-link">Titanium Machining</a>Titanium Machining centers managed by our integrated technical team.
+                        </li>
+                    </ul>
+                
+            </div>
+        </section>
+
+        <section id="special-capabilities" >
+            <div class="content-container">
+                <h2>Specialized Titanium Forging Capabilities</h2>
+                
+                <p>
+                    Our facilities utilize advanced thermal-mechanical processing (TMP) to 
+                    reach ultra-high tensile strengths (above 1,200 MPa) and optimized fatigue resistance.
+                </p>
+
+                <ul>
+                    <li>
+                        <a href="/osacr/titanium-aerospace-forging" class = "highlight-link">Titanium Aerospace Forging</a>: Seamless rolled rings (up to 84″) and structural airframe components meeting AMS 4928 and MIL-T-9047.
+                    </li>
+                    <li>
+                        <a href="/osacr/beta-titanium-forging" class = "highlight-link">High-Strength Beta Titanium Forging</a>: Specializing in Ti-5553 and Ti-10-2-3 utilizing Isothermal Forging to eliminate “die chilling” and ensure microstructural homogeneity.
+                    </li>
+                    <li>
+                        <a href="/osacr/near-net-shape-titanium-forging" class = "highlight-link">Near-Net-Shape (NNS) Forging</a>: Precision blocker dies that reduce material waste by up to 45% and achieve “Buy-to-Fly” ratios as low as 3.5:1.
+                    </li>
+                </ul>
+                <h3>Common Forged Components & Applications</h3>
+                <ul>
+                    <li>
+                        <strong>Jet Engine Turbine Blades:</strong>Optimized grain flow for high-cycle fatigue resistance.
+                    </li>
+                    <li>
+                        <strong>Landing Gear Actuators:</strong>High-strength Beta titanium for structural loads.
+                    </li>
+                    <li>
+                        <strong>Structural Airframe Brackets:</strong>Near-Net-Shape (NNS) designs to reduce “Buy-to-Fly” ratios.
+                    </li>
+                    <li>
+                        <strong>Compressor Disks:</strong>High-temperature stability using Ti-6242 alloys.
+                    </li>
+                    <li>
+                        <strong>Exhaust Rings & Seamless Rolled Rings:</strong>Up to 84″ O.D. for propulsion systems.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+        <section id="alloy-parameters" >
+            <div class="content-container">
+                <h2>ForceBeyond Process Parameters for High-Performance Alloys</h2>
+                
+                <p>
+                    Our operational oversight ensures that every heat-lot is processed within the optimal beta-transus window to prevent 
+                    grain coarsening and maintain structural integrity.
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Alloy Grade</th>
+                                <th scope="col">Beta Transus (Typical)</th>
+                                <th scope="col">ForceBeyond Forging Window</th>
+                                <th scope="col">Microstructural Goal</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Ti-6Al-4V</th>
+                                <td>1820°F (995°C)</td>
+                                <td>1650°F – 1750°F</td>
+                                <th scope="row">Equiaxed Alpha + Transformed Beta</th>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ti-5553</th>
+                                <td>1470°F (800°C)</td>
+                                <td>1400°F – 1550°F</td>
+                                <th scope="row">Fine Widmanstätten Structure</th>
+                            </tr>
+                            <tr>
+                                <th scope="row">Inconel 718</th>
+                                <td>N/A</td>
+                                <td>1750°F – 2050°F</td>
+                                <th scope="row">Delta Phase Precipitation Control</th>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="optimized-but-to-fly-ratio" >
+            <div class="content-container">
+                <h2>Economic Impact: Optimizing the “Buy-to-Fly” Ratio</h2>
+                
+                <p>
+                   In traditional titanium aerospace manufacturing, “Buy-to-Fly” ratios often exceed 10:1. ForceBeyond’s <a href="/oscar/near-net-shape-titanium-forging" class="highlight-link">Near-Net-Shape (NNS) Forging </a>
+                   process, managed through our co-owned facilities, achieves a benchmark ratio of <strong>3.5:1 to 4.2:1</strong>3.5:1 to 4.2:1 for structural airframe components.
+                </p>
+            </div>
+        </section>
+
+        <section id="why-forcebeyond">
+            <div class="content-container">
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Feature</th>
+                                <th scope="col">Small Machine Shop</th>
+                                <th scope="col">Large Broker/Distributor</th>
+                                <th scope="col">ForceBeyond (Tier-1.5)</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Ownership</th>
+                                <td>Local</td>
+                                <td>None (Middleman)</td>
+                                <td>Co-Owned Factories</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Process Control</th>
+                                <td>Machining Only</td>
+                                <td>Paperwork Only</td>
+                                <td>Melt, Forge & Machine</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Compliance</th>
+                                <td>Varies</td>
+                                <td>Third-Party Dependent</td>
+                                <td>In-House AS9100 Oversight</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Lead Times</th>
+                                <td>Limited by backlogs</td>
+                                <td>40–50 weeks</td>
+                                <td><strong>14–18 weeks (Integrated)</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="request-quote">
+            <div class="content-container">
+                <h2>Request a Quote for Titanium Forging</h2>
+                
+                <p>
+                    <strong>Partner with a Tier-1.5 Leader for Your Mission-Critical Components.</strong>                
+                </p>
+                <p>Ready to optimize your supply chain with our co-owned tri-regional manufacturing? 
+                    Provide your project details below, and our engineering team will conduct a thorough 
+                    <strong>Design for Manufacturing (DFM)</strong> review.</p>
+                <p><strong>Please include the following for a precise quote:</strong></p>
+                <ul>
+                    <li>
+                        <strong>Technical Drawings:</strong> (PDF, STEP, or IGES files)
+                    </li>
+                    <li>
+                        <strong>Material Specification:</strong> (e.g., Ti-6Al-4V Grade 5, Ti-5553, etc.)
+                    </li>
+                    <li>
+                        <strong>Certification Requirements: </strong>(AS9100, ITAR, or specific AMS standards)
+                    </li>
+                    <li>
+                        <strong>Production Volume: </strong> (Prototype vs. Full Production Run)
+                    </li>
+                    <li>
+                        <strong>Estimated Annual Usage (EAU):</strong> To help us optimize your “Buy-to-Fly” cost-savings.
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+</IndividualPageLayout>

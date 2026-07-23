@@ -1,0 +1,354 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Carbon & Low-Alloy Steel Casting: High-Strength, Cost-Effective Precision';
+const seoTitle = 'Custom Carbon & Low-Alloy Steel Casting Services | ForceBeyond';
+const seoDescription = 'ForceBeyond delivers custom carbon and low-alloy steel castings using investment casting and sand casting. Offering WCB, 1020, 1045, 4140, and 8620 alloys with Tier-1.5 Q&T heat treatment, CNC machining, and NDT inspection.';
+
+const faqs = [
+    {
+        q: "Is carbon steel cast using the Investment Casting (lost-wax) or Sand Casting process?",
+        a: "Both! The process depends on your part's size, volume, and required tolerances. We use Investment Casting for smaller, highly complex steel parts where tight tolerances, smooth surface finishes, and reduced CNC machining are required. We use Sand Casting for massive, heavy components where lower tooling costs and sheer size are the primary factors."
+    },
+    {
+        q: "What is the difference between a Carbon Steel and a Low-Alloy Steel?",
+        a: "Carbon steel (like 1020 or 1045) primarily relies on its carbon content to dictate its strength and hardness. Low-alloy steels (like 4140 or 8620) have additional elements mixed in—such as Chromium, Molybdenum, and Nickel. These additions dramatically increase the metal's ability to be heat-treated (hardenability), resulting in far superior toughness, fatigue resistance, and wear resistance in extreme applications."
+    },
+    {
+        q: "Can cast carbon steel parts be welded?",
+        a: "Yes, lower-carbon cast steels (like WCB and AISI 1020) have excellent weldability and are frequently welded into larger assemblies. Higher carbon steels and certain low alloys require pre-heating and specific welding procedures to prevent cracking."
+    }
+];
+
+// Sources 
+const sources = [
+    { label: 'Steel Founders\' Society of America (SFSA)', url: 'https://www.sfsa.org' },
+    { label: 'American Foundry Society (AFS): "Steel Casting Technology"', url: 'https://www.afsinc.org' },
+    { label: 'ASM International: "Properties and Selection: Irons, Steels, and High-Performance Alloys"', url: 'https://www.asminternational.org' }
+];
+
+// Resources 
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/carbon-steel-casting#webpage",
+      "url": "https://www.forcebeyond.store/oscar/carbon-steel-casting",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Steel casting",
+          "sameAs": "https://en.wikipedia.org/wiki/Steel_casting"
+        },
+        {
+          "@type": "Thing",
+          "name": "Carbon steel",
+          "sameAs": "https://en.wikipedia.org/wiki/Carbon_steel"
+        },
+        {
+          "@type": "Thing",
+          "name": "Alloy steel",
+          "sameAs": "https://en.wikipedia.org/wiki/Alloy_steel"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/carbon-steel-casting#service",
+      "name": "High-Precision Carbon & Low-Alloy Steel Casting Services",
+      "serviceType": "Custom Steel Casting Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Carbon & Low-Alloy Steel Casting",
+          "Investment Casting (Lost-Wax) & Sand Casting Processes",
+          "Steel Alloys (WCB/WCC, AISI 1020, AISI 1045, AISI 4140, AISI 8620)",
+          "Advanced Heat Treatment (Normalizing, Quench & Tempering, Carburizing)",
+          "Near-Net-Shape Precision & Complex Internal Coring",
+          "Tier-1.5 5-Axis CNC Machining & Protective Plating/Coating",
+          "Non-Destructive Testing (MPI, Radiographic X-Ray)"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Carbon & Low-Alloy Steel Casting Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Near-Net-Shape Investment & Sand Steel Casting",
+              "description": "Custom molding of carbon and low-alloy steel parts from intricate lost-wax components to massive structural sand castings."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Precision Thermal Processing & Heat Treatment",
+              "description": "In-house normalizing, annealing, quench and tempering (Q&T), and carburizing case hardening for high fatigue strength and wear resistance."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Tier-1.5 Machining, Coating & NDT Testing",
+              "description": "Complete turnaround under one roof including 5-axis CNC machining, zinc plating, e-coating, powder coating, and MPI/X-Ray defect inspection."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/carbon-steel-casting#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"
+    faqSectionTitle="Frequently Asked Questions: Carbon & Alloy Steel Casting"
+    faqItems={faqs}
+    ctaTitle="Request Quote For Steel Casting"
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Carbon & Low-Alloy Steel Casting: High-Strength, Cost-Effective Precision</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond is a premier global supplier of high-precision carbon and low-alloy steel castings. Offering the ultimate balance of structural integrity, mechanical toughness, and cost-efficiency, carbon and alloy steels are the backbone of modern industrial manufacturing.
+                        </p>
+                        <p>
+                            Operating under a strict ISO 9001:2015 quality management system, our foundry network produces mission-critical steel castings for the automotive, heavy machinery, agricultural, and oil & gas sectors. By utilizing the advanced investment casting (lost-wax) process for high-precision components—and high-capacity sand casting for massive structural parts—we deliver fully machined, heat-treated, and coated steel components tailored exactly to your engineering prints.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/custom-carbon-steel-casting-parts-gears-housings-4k.webp"
+                                alt="Custom carbon steel casting parts, including gears, valve bodies, housings, flanges, and industrial mechanical components on a white background."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="technical-specifications">
+            <div class="content-container">
+                <h2>Technical Specifications: Carbon & Low-Alloy Steel Grades</h2>
+                <p>
+                    ForceBeyond pours a comprehensive range of carbon and low-alloy steels. By carefully controlling the carbon content and adding specific alloying elements (like Chromium, Molybdenum, and Nickel), we can precisely dial in the required tensile strength, hardness, and wear resistance.
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Material Grade</th>
+                                <th scope="col">Classification</th>
+                                <th scope="col">Typical Yield Strength</th>
+                                <th scope="col">Key Features & Optimal Applications</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">WCB / WCC</th>
+                                <td>Mild Carbon Steel</td>
+                                <td>36,000 psi (250 MPa)</td>
+                                <td>The industry standard for cast steel valves. Excellent weldability, ductility, and pressure-tightness. Ideal for industrial fluid control and general brackets.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">AISI 1020</th>
+                                <td>Low Carbon Steel</td>
+                                <td>42,000 psi (290 MPa)</td>
+                                <td>Excellent weldability and formability. Often used for heavy-duty structural components, motor housings, and mounting bases.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">AISI 1045</th>
+                                <td>Medium Carbon Steel</td>
+                                <td>65,000 psi (450 MPa)</td>
+                                <td>A higher carbon content allows this grade to be heat-treated for much higher strength and hardness. Ideal for heavy machinery linkages, gears, and structural supports.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">AISI 4140</th>
+                                <td>Low-Alloy (Chromoly)</td>
+                                <td>95,000+ psi (Q&T)</td>
+                                <td>Contains chromium and molybdenum. Offers incredibly high fatigue strength, toughness, and abrasion resistance. Mandatory for high-stress axles, crankshafts, and heavy-duty gears.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">AISI 8620</th>
+                                <td>Low-Alloy</td>
+                                <td>55,000+ psi (Core)</td>
+                                <td>A nickel-chromium-molybdenum alloy engineered specifically for case hardening. Provides a highly wear-resistant outer surface with a tough, ductile core. Excellent for pinions and ring gears.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
+            </div>
+        </section>
+
+        <section id="why-partner">
+            <div class="content-container">
+                <h2>Why Partner with ForceBeyond for Steel Casting?</h2>
+                <p>
+                    While carbon steel is highly machinable, milling complex geometries from solid steel blocks generates massive material waste and tool wear. ForceBeyond’s casting capabilities provide a vastly superior manufacturing alternative.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Near-Net-Shape Precision (Investment Casting):</strong> For intricate carbon and alloy steel parts, we utilize the lost-wax investment casting process. This allows us to cast complex internal coring and tight tolerances (ISO 8062 CT5-CT7), drastically reducing expensive secondary CNC machining.
+                    </li>
+                    <li>
+                        <strong>Massive Scalability (Sand Casting):</strong> For exceptionally large or heavy carbon steel components (such as heavy equipment counterweights or massive pipe fittings) that do not require the ultra-smooth finish of investment casting, our automated sand casting lines provide rapid, low-cost production.
+                    </li>
+                    <li>
+                        <strong>Unmatched Metallurgical Control:</strong> Carbon and alloy steels require precise chemical compositions to respond correctly to heat treatments. Our foundries utilize advanced spectrographic analysis on every melt to guarantee the metal chemistry matches your strict specifications.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+
+        <section id="tier-1-5-integration">
+    <div class="content-container">
+        <h2>Tier-1.5 Integration: Cast, Machine & Heat-Treat Solutions</h2>
+        
+        <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+            <div>
+                <p>
+                    Unlike stainless steel, carbon and low-alloy steels rely heavily on post-cast thermal processing to achieve their final mechanical properties, and they require protective coatings to prevent rust[cite: 9]. ForceBeyond operates a Tier-1.5 model, providing all secondary operations under one roof[cite: 9].
+                </p>
+                <p>
+                    <strong>Our In-House Secondary Operations Include:</strong>[cite: 9]
+                </p>
+                <ul>
+                    <li>
+                        <strong>Advanced Heat Treatment:</strong> We perform precision Normalizing, Annealing, and Quench & Tempering (Q&T) to lock in the exact hardness and tensile strength required by your application[cite: 9]. We also offer specialized Case Hardening (Carburizing) for alloys like 8620[cite: 9].
+                    </li>
+                    <li>
+                        <strong>Precision CNC Machining:</strong> 5-axis milling, turning, and boring of critical datum features, bearing journals, and threaded holes[cite: 9].
+                    </li>
+                    <li>
+                        <strong>Surface Protection & Coating:</strong> Because carbon steel oxidizes (rusts), we offer comprehensive in-house coating solutions, including Zinc Plating, Black Oxide, Powder Coating, E-Coating, and specialized rust-preventative oil dipping[cite: 9].
+                    </li>
+                    <li>
+                        <strong>Rigorous NDT:</strong> Magnetic Particle Inspection (MPI) and Radiographic Testing (X-Ray) to guarantee zero internal voids or surface cracks in high-stress components[cite: 9].
+                    </li>
+                </ul>
+            </div>
+
+            <div class="relative">
+                <div class="overflow-hidden">
+                    <img
+                        src="/oscar/media/bulk-carbon-steel-cast-components-industrial-production-4k.webp"
+                        alt="Bulk carbon steel cast components with keyed bores and precision-machined profiles for industrial manufacturing on a white background."
+                        class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+        <section id="certified-applications">
+            <div class="content-container">
+                <h2>Certified Steel Casting Applications</h2>
+                <p>
+                    Our specialized foundry network supplies high-strength, economical steel castings to:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Heavy Machinery & Construction:</strong> Excavator bucket teeth, track links, hydraulic cylinder mounts, and crane rigging hardware.
+                    </li>
+                    <li>
+                        <strong>Automotive & Transportation:</strong> Steering knuckles, differential housings, transmission gears, and heavy-duty towing hitches.
+                    </li>
+                    <li>
+                        <strong>Oil, Gas & Fluid Control:</strong> WCB valve bodies, high-pressure flanges, and drilling rig structural components.
+                    </li>
+                    <li>
+                        <strong>Agricultural Equipment:</strong> Plow points, tractor linkages, and heavy-duty gearbox housings.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

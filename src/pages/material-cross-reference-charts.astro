@@ -1,0 +1,315 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'International Material Cross-Reference Charts';
+const seoTitle = 'International Material Cross-Reference Charts | ForceBeyond';
+const seoDescription = 'Comprehensive international metal alloy cross-reference guide matching UNS, AISI, ASTM, DIN, EN, JIS, and BS standards.';
+
+const faqs = [
+    {
+        q: "Why is international material cross-referencing important for global manufacturing?",
+        a: "Cross-referencing national material standards ensures structural equivalence, chemical consistency, and mechanical reliability when sourcing engineered castings, forgings, and machined components globally."
+    },
+    {
+        q: "How does ForceBeyond verify that international equivalents match US material specifications?",
+        a: "Every raw melt and component undergoes Positive Material Identification (PMI) testing and comes with EN 10204 3.1 Certified Material Test Reports (MTRs) to guarantee chemical and mechanical equivalence."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'ASTM International: Standards for Ferrous & Non-Ferrous Alloys', url: 'https://www.astm.org' },
+    { label: 'EN / DIN European Standards for Metallic Materials', url: 'https://www.din.de' },
+    { label: 'JIS Japanese Industrial Standards Committee', url: 'https://www.jisc.go.jp' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Page Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/material-cross-reference-charts#webpage",
+      "url": "https://www.forcebeyond.store/oscar/material-cross-reference-charts",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/material-cross-reference-charts#service",
+      "name": "International Material Standardization & Equivalence Validation",
+      "serviceType": "Technical Metallurgical Cross-Reference Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "International Metal Alloy Cross-Referencing",
+          "US Standards (UNS, AISI, ASTM, AMS)",
+          "European Standards (EN, DIN, W.Nr.)",
+          "Japanese Standards (JIS)",
+          "Material Equivalence Verification & MTR Traceability"
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/material-cross-reference-charts#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="International metal alloy specification cross-reference chart and precision components"
+    faqSectionTitle="Frequently Asked Questions"
+    faqItems={faqs}
+    ctaTitle="Ensure Structural Equivalence Across Global Markets"
+    ctaDescription="Consult with our engineering team to verify international material equivalents and match exact alloy specifications for your global manufacturing programs."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>International Material Cross-Reference Charts</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            When sourcing engineered metal castings, forgings, and machined components internationally, cross-referencing national material standards is essential to maintain structural equivalence.
+                        </p>
+                        <p>
+                            ForceBeyond provides this technical cross-reference guide to help design and procurement engineers match US standards (UNS, AISI, ASTM, AMS) with international equivalents (DIN/EN Europe, JIS Japan, BS United Kingdom).
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/material-cross-reference-charts-overview-4k.webp"
+                                alt="Technical metal alloy specifications and cross-reference documentation."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="stainless-duplex">
+            <div class="content-container">
+                <h2>1. Stainless Steel & Duplex Alloy Equivalents</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">US Standard (UNS / AISI)</th>
+                                <th scope="col">ASTM / AMS Spec</th>
+                                <th scope="col">EN / DIN Standard (Europe)</th>
+                                <th scope="col">W.Nr. (Germany)</th>
+                                <th scope="col">JIS Standard (Japan)</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">AISI 304 (UNS S30400)</th>
+                                <td>ASTM A240 / A351 CF8</td>
+                                <td>X5CrNi18-10</td>
+                                <td>1.4301 / 1.4308</td>
+                                <td>SUS 304 / SCS 13A</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">AISI 316L (UNS S31603)</th>
+                                <td>ASTM A240 / A351 CF3M</td>
+                                <td>X2CrNiMo17-12-2</td>
+                                <td>1.4404 / 1.4409</td>
+                                <td>SUS 316L / SCS 14A</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">17-4 PH (UNS S17400)</th>
+                                <td>ASTM A564 / AMS 5643</td>
+                                <td>X5CrNiCuNb16-4</td>
+                                <td>1.4542 / 1.4548</td>
+                                <td>SUS 630</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Duplex 2205 (UNS S32205)</th>
+                                <td>ASTM A182 / A890 4A</td>
+                                <td>X2CrNiMoN22-5-3</td>
+                                <td>1.4462</td>
+                                <td>SUS 329J3L</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Super Duplex 2507 (UNS S32750)</th>
+                                <td>ASTM A182 / A890 5A</td>
+                                <td>X2CrNiMoN25-7-4</td>
+                                <td>1.4410</td>
+                                <td>SUS 329J4L</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="superalloys-titanium">
+            <div class="content-container">
+                <h2>2. Nickel Superalloy & Titanium Equivalents</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">US Standard (UNS / Grade)</th>
+                                <th scope="col">AMS / ASTM Spec</th>
+                                <th scope="col">EN / DIN Standard (Europe)</th>
+                                <th scope="col">W.Nr. (Germany)</th>
+                                <th scope="col">JIS Standard (Japan)</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Inconel 718 (UNS N07718)</th>
+                                <td>AMS 5662 / AMS 5383</td>
+                                <td>NiCr19Fe19Nb5Mo3</td>
+                                <td>2.4668</td>
+                                <td>NCF 718</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Inconel 625 (UNS N06625)</th>
+                                <td>AMS 5666 / ASTM B564</td>
+                                <td>NiCr22Mo9Nb</td>
+                                <td>2.4856</td>
+                                <td>NCF 625</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Hastelloy X (UNS N06002)</th>
+                                <td>AMS 5754 / ASTM B572</td>
+                                <td>NiCr22Fe18Mo</td>
+                                <td>2.4665</td>
+                                <td>NCF 002</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ti-6Al-4V (Grade 5)</th>
+                                <td>AMS 4928 / ASTM B348</td>
+                                <td>TiAl6V4</td>
+                                <td>3.3715</td>
+                                <td>TAB 6400</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="iron-aluminum">
+            <div class="content-container">
+                <h2>3. Ductile Iron & Aluminum Alloy Equivalents</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Material Category</th>
+                                <th scope="col">US Standard (ASTM / AA)</th>
+                                <th scope="col">EN / DIN Standard (Europe)</th>
+                                <th scope="col">W.Nr. (Germany)</th>
+                                <th scope="col">JIS Standard (Japan)</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Ductile Iron 65-45-12</th>
+                                <td>ASTM A536 65-45-12</td>
+                                <td>EN-GJS-450-10</td>
+                                <td>0.7045</td>
+                                <td>FCD 450-10</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ductile Iron 80-55-06</th>
+                                <td>ASTM A536 80-55-06</td>
+                                <td>EN-GJS-500-7</td>
+                                <td>0.7050</td>
+                                <td>FCD 500-7</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Cast Aluminum A356</th>
+                                <td>ASTM B26 A356.0</td>
+                                <td>EN AC-Al Si7Mg0.3</td>
+                                <td>3.2371</td>
+                                <td>AC4C</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Die Cast Aluminum A380</th>
+                                <td>ASTM B85 A380.0</td>
+                                <td>EN AC-Al Si8Cu3</td>
+                                <td>3.2163</td>
+                                <td>ADC 10</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

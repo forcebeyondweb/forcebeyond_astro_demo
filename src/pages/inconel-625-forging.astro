@@ -11,7 +11,7 @@ const faqs = [
     },
     {
         q: "How does ForceBeyond manage the global supply of 625?",
-        a: "We maintain a strategic billet inventory across our US and Asian hubs. This “Tri-Regional” presence allows us to bypass mill backlogs and deliver forged 625 components in 12–16 weeks, compared to the industry average of 40+ weeks."
+        a: "We maintain a strategic billet inventory across our US and Asian hubs. This “Tri-Regional” presence allows us to bypass mill backlogs and deliver forged 625 components in <strong>12–16 weeks</strong>, compared to the industry average of 40+ weeks."
     }
 ];
 
@@ -24,10 +24,32 @@ const sources = [
 
 // Resources 
 const internalResources = [
-    { label: "Die Casting", url: "/die-casting" },
-    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
-    { label: "Inconel 718 Machining", url: "/inconel-718-machining" },
-    { label: "Precision CNC Machining and Secondary Operations", url: "/cnc-machining" }
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
 ];
 // Service / Product Schema
 const pageSchema = {
@@ -106,10 +128,10 @@ const pageSchema = {
                             utilizing our co-owned global factories to ensure zero-defect integrity.
                         </p>
                         <p>
-                            As a specialized component of our Superalloy Forging Services, 
-                            ForceBeyond provides precision-engineered Inconel 625 (UNS N06625) forgings. 
+                            As a specialized component of our <a href="/oscar/superalloy-forging-services" class="highlight-link">Superalloy Forging Services</a>, 
+                            ForceBeyond provides precision-engineered <strong>Inconel 625 (UNS N06625)</strong> forgings. 
                             While Inconel 718 is chosen for high-load tensile strength, Inconel 625 is the premier choice for 
-                            extreme corrosion resistance and thermal stability up to 980°C (1,800°F). 
+                            extreme corrosion resistance and thermal stability up to <strong>980°C (1,800°F)</strong>. 
                             Our forging process refines the grain structure, significantly enhancing the alloy’s resistance 
                             to fatigue and stress-corrosion cracking compared to standard cast components.
                         </p>
@@ -135,7 +157,7 @@ const pageSchema = {
                 <h2>Tier-1.5 Integration: Forging for Severe Environments</h2>
                 
                 <p>
-                    ForceBeyond provides a seamless transition from raw Inconel 625 Forging to precision Inconel 625 Machining. 
+                    ForceBeyond provides a seamless transition from raw <strong>Inconel 625 Forging</strong> to precision <a href="/oscar/inconel-625-machining" class="highlight-link">Inconel 625 Machining</a>. 
                     Unlike 718, which is forged for peak strength, 
                     Inconel 625 is forged to maximize its resistance to pitting, crevice corrosion, and chloride-ion stress corrosion cracking.
                 </p>
@@ -148,7 +170,7 @@ const pageSchema = {
 
                 <p>
                     While our forging process provides maximum structural density and fatigue life, components with highly 
-                    complex internal passages or thin-walled housings may be better suited for our Inconel 625 Casting solutions.
+                    complex internal passages or thin-walled housings may be better suited for our <a href="/oscar/inconel-625-casting" class="highlight-link">Inconel 625 Casting</a> solutions.
                 </p>
             </div>
         </section>
@@ -160,7 +182,7 @@ const pageSchema = {
                 
                 <p>
                     Inconel 625 is a nickel-chromium-molybdenum alloy with an addition of niobium. 
-                    While Inconel 718 is chosen for high-load strength, Inconel 625 is the premier choice for extreme corrosion resistance. 
+                    While Inconel 718 is chosen for high-load strength, <strong>Inconel 625 is the premier choice for extreme corrosion resistance</strong>. 
                     Our forging process refines the grain structure, 
                     significantly enhancing the alloy’s resistance to fatigue and stress-corrosion cracking compared to standard cast components.
                 </p>
@@ -171,7 +193,7 @@ const pageSchema = {
                         <strong>Extreme Corrosion Resistance:</strong> Exceptional protection against pitting, crevice corrosion, and intergranular attack in seawater and acidic environments.
                     </li>
                     <li>
-                        <strong>Thermal Stability:</strong> Maintains high toughness and oxidation resistance from cryogenic temperatures up to 980°C (1,800°F).
+                        <strong>Thermal Stability:</strong> Maintains high toughness and oxidation resistance from cryogenic temperatures up to <strong>980°C (1,800°F)</strong>.
                     </li>
                     <li>
                         <strong>Non-Magnetic Integrity:</strong> Ideal for specialized electronic and subsea sensor housings where magnetic interference must be zero.
@@ -286,7 +308,7 @@ const pageSchema = {
             <div class="content-container">
                 <h2>Quality Assurance & NDT Suite</h2>
                 <p>
-                    Every Inconel 625 forging is subjected to our proprietary Tier-1.5 Quality Protocol:
+                    Every Inconel 625 forging is subjected to our proprietary <strong>Tier-1.5 Quality Protocol</strong>:
                 </p>
                 <ul>
                     <li>

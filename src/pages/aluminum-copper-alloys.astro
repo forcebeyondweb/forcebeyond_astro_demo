@@ -1,0 +1,250 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Aluminum & Copper Alloys: Lightweight, High-Conductivity Solutions';
+const seoTitle = 'Aluminum & Copper Alloy Die Casting, Forging & CNC | ForceBeyond';
+const seoDescription = 'Precision high-pressure die casting, sand casting, and CNC machining for A356, A380 aluminum, high-conductivity copper, and lead-free ECO BRASS®.';
+
+const faqs = [
+    {
+        q: "What mechanical improvements does T6 heat treatment provide for cast aluminum?",
+        a: "T6 heat treatment combines solution heat treatment, rapid water quenching, and artificial aging to increase A356 tensile strength from 23 ksi (as-cast) up to 33+ ksi."
+    },
+    {
+        q: "How does ForceBeyond ensure leak-free integrity for cooling distribution manifolds and valve bodies?",
+        a: "All liquid cooling distribution manifolds and valve bodies undergo 100% pneumatic helium leak detection (ASTM E515) to guarantee zero-leak operation under pressure."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'US Safe Drinking Water Act (SDWA) / NSF/ANSI 61 Compliance', url: 'https://www.nsf.org' },
+    { label: 'ASTM B26 Standard Specification for Aluminum-Alloy Sand Castings', url: 'https://www.astm.org' },
+    { label: 'ASTM B85 Standard Specification for Aluminum-Alloy Die Castings', url: 'https://www.astm.org' },
+    { label: 'ASTM E515 Standard Practice for Leaks Using Bubble Emission Techniques', url: 'https://www.astm.org' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Page Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/aluminum-copper-alloys#webpage",
+      "url": "https://www.forcebeyond.store/oscar/aluminum-copper-alloys",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/aluminum-copper-alloys#service",
+      "name": "Aluminum & Copper Alloy Component Manufacturing",
+      "serviceType": "Non-Ferrous Die Casting, Forging & Machining",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Cast Aluminum Alloys (A356-T6, A380, A360, A413)",
+          "Wrought Structural Aluminum Alloys (6061-T6, 7075-T6, 2024)",
+          "High-Conductivity Oxygen-Free Copper (C11000, C10200)",
+          "Lead-Free Brass & Bronze (ECO BRASS® C69300, C83600)",
+          "100% Helium Leak Testing (ASTM E515) & T6 Thermal Aging"
+        ]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Non-Ferrous Capabilities Catalog",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cast & Wrought Aluminum Components",
+              "description": "Lightweight A356-T6, A380, and 6061-T6 aluminum die castings and CNC machined parts for EV enclosures, data centers, and aerospace cold plates."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "High-Conductivity Copper Hardware",
+              "description": "Forged C11000/C10200 copper busbars, transformer lugs, and EV battery connectors offering ≥100% IACS electrical conductivity."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Lead-Free ECO BRASS® Plumbing & Valve Components",
+              "description": "NSF/ANSI 61 compliant lead-free brass and bronze fittings for commercial plumbing and sanitary fluid control."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/aluminum-copper-alloys#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="High-conductivity copper and aluminum precision die cast and CNC machined components"
+    faqSectionTitle="Frequently Asked Questions"
+    faqItems={faqs}
+    ctaTitle="Optimize Performance with Engineered Non-Ferrous Alloys"
+    ctaDescription="Partner with ForceBeyond for high-pressure aluminum die casting, copper forging, and precision CNC machining tailored to your thermal and electrical requirements."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Aluminum & Copper Alloys: Lightweight, High-Conductivity Solutions</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond provides advanced manufacturing solutions for non-ferrous Aluminum and Copper Alloys. From lightweight, structural aluminum sand and die castings to high-conductivity copper forgings and lead-free ECO BRASS® machining, we support OEMs seeking thermal management, high electrical conductivity, weight reduction, and corrosion resistance.
+                        </p>
+                        <p>
+                            Utilizing automated high-pressure die casting, investment casting, and multi-axis CNC machining, ForceBeyond supplies certified components to the automotive, electrical infrastructure, hyperscale data center, and HVAC sectors.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/aluminum-copper-alloys-overview-4k.webp"
+                                alt="High-pressure die-cast aluminum power enclosure and precision forged copper busbar component."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="specifications">
+            <div class="content-container">
+                <h2>Aluminum & Copper Alloy Specifications</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Alloy Family</th>
+                                <th scope="col">Material Grades Offered</th>
+                                <th scope="col">Thermal / Electrical Properties</th>
+                                <th scope="col">Key Features & Optimal Applications</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Cast Aluminum Alloys</th>
+                                <td>A356-T6, A380, A360, A413</td>
+                                <td>Thermal Conductivity:<br />90–160 W/m·K</td>
+                                <td>High strength-to-weight ratio, excellent pressure tightness, and smooth surface finishes. Used for Data Center Power Enclosures and automotive engine housings.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Wrought Aluminum Alloys</th>
+                                <td>6061-T6, 7075-T6, 2024</td>
+                                <td>Thermal Conductivity:<br />130–170 W/m·K</td>
+                                <td>High yield strength and excellent machinability for structural aerospace brackets and liquid cold plate manifolds.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">High-Conductivity Copper</th>
+                                <td>Oxygen-Free C11000<br />C10200 Copper</td>
+                                <td>Electrical Conductivity:<br />≥100% IACS</td>
+                                <td>Unmatched electrical and thermal transport properties (k ≥ 390 W/m·K). Used for heavy electrical busbars, transformer lugs, and EV battery connectors.</td>
+                            <tr>
+                                <th scope="row">Lead-Free Brass & Bronze</th>
+                                <td>ECO BRASS® (C69300)<br />C83600 Bronze</td>
+                                <td>Corrosion Resistant<br />Safe Drinking Water Compliant</td>
+                                <td>100% compliant with US Safe Drinking Water Act and NSF/ANSI 61. Used for commercial plumbing fittings and sanitary valve bodies.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="manufacturing-capabilities">
+            <div class="content-container">
+                <h2>Manufacturing Capabilities for Non-Ferrous Alloys</h2>
+                <ul>
+                    <li>
+                        <strong>T6 Heat Treatment for Cast Aluminum:</strong> Combines solution heat treatment, rapid water quenching, and artificial aging to increase A356 tensile strength from 23 ksi (as-cast) up to 33+ ksi.
+                    </li>
+                    <li>
+                        <strong>High-Conductivity Copper Forging:</strong> Hot forging eliminates internal voids in copper busbars while preserving maximum IACS electrical conductivity for high-amperage data center switchgear.
+                    </li>
+                    <li>
+                        <strong>100% Pressure Decay Leak Testing:</strong> Liquid cooling distribution manifolds and valve bodies undergo pneumatic helium leak detection (ASTM E515) to guarantee zero-leak operation.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

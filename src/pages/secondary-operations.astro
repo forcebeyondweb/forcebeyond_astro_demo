@@ -1,0 +1,368 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Secondary Operations: Precision Machining, Thermal Processing & Finishing';
+const seoTitle = 'Secondary CNC Machining, Heat Treatment & Finishing | ForceBeyond';
+const seoDescription = 'ForceBeyond provides complete secondary operations for castings and forgings, including precision CNC machining, heat treatment, Hot Isostatic Pressing (HIP), and surface finishing.';
+
+const faqs = [
+    {
+        q: "What is the difference between standard Heat Treatment and Hot Isostatic Pressing (HIP)?",
+        a: "Heat Treatment uses temperature alone (in air, vacuum, or gas) to alter a metal's internal microstructure, changing its hardness, tensile strength, or ductility. Hot Isostatic Pressing (HIP) applies extreme heat AND high-pressure argon gas (15,000+ psi) simultaneously. HIP does not just change hardness; its primary job is to physically squeeze internal micro-porosity and shrinkage voids closed, giving cast parts the density and fatigue life of a forging."
+    },
+    {
+        q: "Why is CNC machining considered a \"secondary operation\" for castings and forgings?",
+        a: "In metal manufacturing, forming processes like casting or forging are the \"primary operations\" used to create the basic near-net shape. CNC machining is a \"secondary operation\" used to refine critical features that molds or dies cannot form with sufficient accuracy—such as tight-tolerance bearing seats, O-ring sealing grooves, and internal screw threads."
+    },
+    {
+        q: "How does ForceBeyond's Tier-1.5 model reduce manufacturing costs?",
+        a: "By performing casting/forging, heat treatment, CNC machining, and coating under one managed workflow, we eliminate multiple vendor markups, reduce shipping costs between facilities, and drastically cut scrap rates by ensuring the primary casting is optimized specifically for the secondary CNC fixture."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'ASTM International: Metallurgical Heat Treatment & Passivation Standards', url: 'https://www.astm.org' },
+    { label: 'ASM International: Handbook of Heat Treating and Surface Engineering', url: 'https://www.asminternational.org' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/secondary-operations-precision-machining#webpage",
+      "url": "https://www.forcebeyond.store/oscar/secondary-operations-precision-machining",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Heat treating",
+          "sameAs": "https://en.wikipedia.org/wiki/Heat_treating"
+        },
+        {
+          "@type": "Thing",
+          "name": "Hot isostatic pressing",
+          "sameAs": "https://en.wikipedia.org/wiki/Hot_isostatic_pressing"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/secondary-operations-precision-machining#service",
+      "name": "Secondary Operations: Precision Machining, Thermal Processing & Finishing Services",
+      "serviceType": "Casting and Forging Post-Processing Services",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Secondary Precision CNC Machining for Castings and Forgings",
+          "Thermal Processing & Vacuum Heat Treatment (T6, Solution Anneal, Age Hardening)",
+          "Hot Isostatic Pressing (HIP) for Micro-Porosity Elimination",
+          "Chemical Passivation, Electropolishing & Type II/III Anodizing",
+          "Non-Destructive Testing (RT, FPI, UT NDT Inspection)"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Secondary Post-Processing Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Secondary CNC Machining & Micro-Grinding",
+              "description": "5-axis milling, live-tool turning, and precision grinding to achieve micron-level print tolerances on near-net castings and forgings."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Heat Treatment & Hot Isostatic Pressing (HIP)",
+              "description": "Controlled thermal hardening cycles and 15,000+ psi HIP processing to eliminate porosity and maximize component strength."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Surface Finishing, Coatings & NDT Testing",
+              "description": "Passivation, electropolishing, anodizing, e-coating, and complete X-ray/FPI non-destructive testing for mission-critical parts."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/secondary-operations-precision-machining#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"
+    faqSectionTitle="Frequently Asked Questions: Secondary Operations"
+    faqItems={faqs}
+    ctaTitle="Request Quote For Secondary Operations & Finishing Services"
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Secondary Operations: Precision Machining, Thermal Processing & Finishing</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond provides a complete suite of advanced secondary operations and post-processing services for custom castings, forgings, and machined components. While primary casting and forging processes create the near-net shape of a part, high-performance applications require secondary processing to achieve exact print tolerances, eliminate internal defects, optimize mechanical hardness, and prevent environmental corrosion.
+                        </p>
+                        <p>
+                            Operating under a strict ISO 9001:2015 quality management system, ForceBeyond manages the entire post-forming value chain. Through our Tier-1.5 Manufacturing Model, we eliminate supply chain fragmentation and dimensional "hand-off" risks by integrating precision CNC machining, specialized heat treatment, Hot Isostatic Pressing (HIP), and advanced surface finishing under a single unified quality umbrella.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/secondary-operations-precision-machining-overview-4k.webp"
+                                alt="Secondary precision CNC machining and thermal post-processing on high-performance industrial castings."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="tier-1-5-advantage">
+            <div class="content-container">
+                <h2>The Tier-1.5 Advantage: Complete Component Finishing</h2>
+                <p>
+                    In traditional manufacturing, managing separate vendors for casting, CNC machining, thermal processing, and plating creates severe quality and schedule risks. When a part arrives out of specification, separate suppliers often blame one another.
+                </p>
+                <p class="mt-4">
+                    ForceBeyond’s integrated secondary operations eliminate this complexity:
+                </p>
+                <ul class="mt-4 space-y-3">
+                    <li>
+                        <strong>Single-Source Accountability:</strong> From raw melt to final packaged component, ForceBeyond takes 100% ownership of quality, dimensions, and delivery schedules.
+                    </li>
+                    <li>
+                        <strong>Unified Quality Control:</strong> All secondary operations are governed by unified inspection plans, including CMM metrology, Non-Destructive Testing (NDT), and positive material identification (PMI).
+                    </li>
+                    <li>
+                        <strong>Reduced Lead Times:</strong> Eliminating inter-vendor shipping and administrative hand-offs cuts overall production lead times by weeks.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="capabilities-table">
+            <div class="content-container">
+                <h2>Core Secondary Operations Capabilities</h2>
+                <p>
+                    Our secondary operations are organized into four specialized disciplines, engineered to transform raw castings and forgings into mission-critical, assembly-ready parts:
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Secondary Operation</th>
+                                <th scope="col">Primary Purpose</th>
+                                <th scope="col">Core Capabilities & Technologies</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Precision CNC Machining</th>
+                                <td>Achieves exact dimensional tolerances, true positions, and threaded features.</td>
+                                <td>5-axis CNC milling, multi-axis turning, Swiss-style machining, wire EDM, and micro-grinding.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Heat Treatment</th>
+                                <td>Alters the metallurgical grain structure to optimize hardness, strength, and ductility.</td>
+                                <td>Solution annealing, quenching, tempering, T6 artificial aging, stress relieving, and precipitation hardening (e.g., H900).</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Hot Isostatic Pressing (HIP)</th>
+                                <td>Eliminates internal micro-porosity and shrinkage voids in high-stress castings.</td>
+                                <td>Simultaneous extreme heat and 15,000+ psi argon gas pressure to achieve near-forged mechanical fatigue density.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Surface Finishing & Coating</th>
+                                <td>Protects against corrosion, wear, and chemicals while improving visual appearance.</td>
+                                <td>Chemical passivation, electropolishing, anodizing (Type II & III), e-coating, powder coating, and chrome plating.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
+            </div>
+        </section>
+
+        <section id="precision-cnc-machining">
+            <div class="content-container">
+                <h2>1. Precision CNC Machining</h2>
+                <p>
+                    While investment casting, die casting, and forging produce exceptional near-net-shape geometries, secondary CNC machining is essential for features requiring sub-micron accuracy, ultra-smooth sealing faces, concentric bearing journals, and threaded holes.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Material Expertise:</strong> Specialized in high-speed, rigid machining of hard-to-cut metals, including Inconel 718, Titanium (Ti-6Al-4V), Duplex 2205/2507, 17-4 PH Stainless, and ECO BRASS®.
+                    </li>
+                    <li>
+                        <strong>Capabilities:</strong> Multi-axis 5-axis CNC milling, live-tool turning, Swiss turning for micro-components, and precision surface/cylindrical grinding.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="thermal-processing">
+            <div class="content-container">
+                <h2>2. Thermal Processing & Heat Treatment</h2>
+                <p>
+                    Post-forming heat treatment is critical to relieving internal stresses, increasing yield strength, or softening work-hardened alloys for subsequent machining passes. ForceBeyond strictly controls furnace atmospheres and ramp rates to prevent scaling or oxidation.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Key Thermal Cycles:</strong> Solution Annealing (for stainless and superalloys), Quench & Tempering (for alloy steel), T6 Heat Treatment (for A356 aluminum), and Precipitation Age Hardening (for 17-4 PH and Inconel 718).
+                    </li>
+                    <li>
+                        <strong>Atmospheric Control:</strong> Vacuum heat treating, inert gas atmospheres, and specialized induction hardening.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="hot-isostatic-pressing">
+            <div class="content-container">
+                <h2>3. Hot Isostatic Pressing (HIP)</h2>
+                <p>
+                    For mission-critical castings subjected to extreme pressure, rotational stress, or cyclic fatigue, internal microporosity is a primary failure point. Hot Isostatic Pressing (HIP) subjects cast parts to simultaneous elevated temperatures and intense, uniform gas pressure (typically argon at 15,000+ psi).
+                </p>
+                <ul>
+                    <li>
+                        <strong>Metallurgical Healing:</strong> The combined heat and pressure cause internal microscopic voids and shrinkage pores to collapse and diffusion-weld closed.
+                    </li>
+                    <li>
+                        <strong>Result:</strong> Transforms investment and sand castings into fully dense components with mechanical properties and fatigue life that rival wrought forgings. Critical for aerospace turbine castings and nuclear hardware.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="surface-finishing">
+            <div class="content-container">
+                <h2>4. Surface Finishing & Protective Coatings</h2>
+                <p>
+                    Extending the operational lifespan of a metal component requires protective surface treatments engineered for its specific working environment—whether marine saltwater, high-temperature exhaust, or sterile medical fluids.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Chemical Treatments:</strong> Citric and Nitric Passivation (ASTM A967) for stainless steel, and Electropolishing for ultra-clean sanitary/medical applications.
+                    </li>
+                    <li>
+                        <strong>Anodizing & Plating:</strong> Type II & III Hardcoat Anodizing for aluminum/magnesium, Chrome Plating for zinc/brass, and Electroless Nickel Plating.
+                    </li>
+                    <li>
+                        <strong>Barrier Coatings:</strong> Electro-deposition Coating (E-Coating), industrial liquid painting, and durable Powder Coating.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="ndt-testing">
+            <div class="content-container">
+                <h2>Non-Destructive Testing (NDT) & Quality Certification</h2>
+                <p>
+                    To verify that all secondary operations meet international aerospace, medical, and industrial standards, ForceBeyond integrates rigorous Non-Destructive Testing (NDT) directly into our secondary workflow:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Radiographic Testing (RT):</strong> X-ray inspection (ASTM E192/E1030) to verify zero internal shrinkage or porosity before and after HIP.
+                    </li>
+                    <li>
+                        <strong>Fluorescent Penetrant Inspection (FPI):</strong> Liquid penetrant testing (ASTM E1417) to detect surface-breaking cracks or pores on machined and cast surfaces.
+                    </li>
+                    <li>
+                        <strong>Ultrasonic Testing (UT):</strong> High-frequency sound wave inspection (ASTM A388) to verify internal soundness across thick-section forgings and shafts.
+                    </li>
+                    <li>
+                        <strong>Full Documentation:</strong> Every shipment is accompanied by complete documentation, including Material Test Reports (MTRs), dimensional CMM reports, and heat-treat charts.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

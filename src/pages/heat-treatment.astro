@@ -1,0 +1,350 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Thermal Processing & Heat Treatment Services';
+const seoTitle = 'Precision Thermal Processing & Heat Treatment Services | ForceBeyond';
+const seoDescription = 'ForceBeyond delivers high-precision heat treatment services for custom castings, forgings, and machined parts, including vacuum treating, T6 aluminum aging, and solution annealing.';
+
+const faqs = [
+    {
+        q: "What is the difference between Solution Annealing and Age Hardening?",
+        a: "Solution Annealing heats the metal to a high temperature to dissolve all alloying elements into a homogenous solid solution, then rapidly quenches it to freeze those elements in place—resulting in a soft, ductile, and highly corrosion-resistant state (e.g., 17-4 PH Condition A). Age Hardening takes that solution-treated metal and re-heats it to a lower, controlled temperature for several hours. This causes microscopic particles (precipitates) to form within the grain structure, dramatically increasing the metal's hardness and yield strength (e.g., 17-4 PH Condition H900)."
+    },
+    {
+        q: "Why is T6 heat treatment so important for A356 Aluminum castings?",
+        a: "Raw as-cast A356 aluminum has moderate strength. The T6 heat treatment process consists of solution heat treating, rapid water quenching, and artificial aging. This thermal sequence increases the ultimate tensile strength of A356 from around 23 ksi (as-cast) up to 33+ ksi, while boosting yield strength and fatigue resistance—making it strong enough for structural aerospace and high-pressure pump applications."
+    },
+    {
+        q: "How does ForceBeyond prevent parts from warping during heat treatment?",
+        a: "Thermal distortion is prevented through intelligent engineering. We utilize stress-relieving passes prior to final heat treatment, custom ceramic or steel racking fixtures to support long/thin parts during heating, controlled ramp rates, and computerized quench agitation. Any critical tight-tolerance features are machined in-house after final heat treatment."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'ASM International: Handbook of Thermal Processing & Heat Treatment', url: 'https://www.asminternational.org' },
+    { label: 'ASTM International: Mechanical Testing and Metallurgical Heat Treat Standards', url: 'https://www.astm.org' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/thermal-processing-heat-treatment#webpage",
+      "url": "https://www.forcebeyond.store/oscar/thermal-processing-heat-treatment",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Heat treating",
+          "sameAs": "https://en.wikipedia.org/wiki/Heat_treating"
+        },
+        {
+          "@type": "Thing",
+          "name": "Annealing (metallurgy)",
+          "sameAs": "https://en.wikipedia.org/wiki/Annealing_(metallurgy)"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/thermal-processing-heat-treatment#service",
+      "name": "Thermal Processing & Heat Treatment Services",
+      "serviceType": "Metallurgical Heat Treatment & Post-Processing",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Solution Annealing & Quenching (Inconel, Stainless, Titanium)",
+          "Precipitation Age Hardening (17-4 PH H900/H1150, Inconel 718)",
+          "T6 Heat Treatment for A356 Aluminum Castings",
+          "Quench & Tempering (Q&T) & Stress Relieving",
+          "Vacuum Heat Treating & Carburizing/Nitriding Case Hardening"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Heat Treatment Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Solution Annealing & Age Hardening",
+              "description": "High-temperature solution treatment and precision precipitation aging to optimize corrosion resistance and tensile strength."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "T6 Aluminum Thermal Processing",
+              "description": "Two-step solution heat treatment, rapid quenching, and artificial aging engineered specifically for structural aluminum castings."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Vacuum Heat Treating & Case Hardening",
+              "description": "Oxygen-free vacuum thermal processing, stress relieving, carburizing, and nitriding for high-wear steel and superalloy components."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/thermal-processing-heat-treatment#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"
+    faqSectionTitle="Frequently Asked Questions: Heat Treatment"
+    faqItems={faqs}
+    ctaTitle=""
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Thermal Processing & Heat Treatment Services</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond provides comprehensive, high-precision thermal processing and heat treatment services for custom castings, forgings, and machined components. Heat treatment is a critical secondary operation that utilizes precisely controlled heating and cooling cycles to alter a metal's internal microstructure—optimizing its mechanical hardness, tensile strength, ductility, and fatigue resistance without changing the part's physical shape.
+                        </p>
+                        <p>
+                            Operating under a strict ISO 9001:2015 quality management system, our state-of-the-art thermal processing facilities handle everything from stress relieving large iron castings to vacuum precipitation hardening aerospace superalloys. By strictly managing furnace atmospheres, ramp rates, hold times, and quench media, we ensure lot-to-lot consistency, zero surface decarburization, and full compliance with strict AMS, ASTM, and Military specifications.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/thermal-processing-heat-treatment-overview-4k.webp"
+                                alt="High-precision industrial heat treatment furnace processing high-performance aerospace and industrial metal components."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="technical-capabilities">
+            <div class="content-container">
+                <h2>Technical Capabilities: Core Heat Treatment Cycles</h2>
+                <p>
+                    ForceBeyond tailors thermal processing profiles to match the specific alloy composition and mechanical requirements of your engineering print.
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Heat Treatment Process</th>
+                                <th scope="col">Primary Metallurgical Objective</th>
+                                <th scope="col">Target Alloys & Materials</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Solution Annealing & Quenching</th>
+                                <td>Dissolves precipitates into a solid solution and cools rapidly to lock in maximum corrosion resistance and ductility.</td>
+                                <td>300-Series Stainless Steel, Duplex/Super Duplex, Inconel 718/625, and Titanium alloys.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Precipitation Age Hardening</th>
+                                <td>Re-heats solution-treated metal to intermediate temperatures, precipitating intermetallic phase particles to dramatically increase hardness and tensile strength.</td>
+                                <td>17-4 PH Stainless (H900, H1150), Inconel 718 (AMS 5662/5664), and Maraging Steels.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">T6 Heat Treatment</th>
+                                <td>A two-step process combining solution heat treatment, rapid water quenching, and artificial aging to maximize strength in cast aluminum.</td>
+                                <td>A356 Aluminum, 319, and 355 Cast Alloys (widely used for pump impellers and automotive parts).</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Quench & Tempering (Q&T)</th>
+                                <td>Austenitizes steel, quenches it rapidly to form hard martensite, and tempers it to a target hardness to balance strength and impact toughness.</td>
+                                <td>Carbon & Low-Alloy Steels (4140, 4340, 8620) and Martensitic Stainless (410, 420, 440C).</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Stress Relieving & Normalizing</th>
+                                <td>Relieves internal residual stresses caused by heavy casting, forging, or welding without drastically altering final hardness.</td>
+                                <td>Gray/Ductile Iron castings, heavy carbon steel forgings, and complex welded structures.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Case Hardening (Carburizing/Nitriding)</th>
+                                <td>Diffuses carbon or nitrogen into the surface layer of steel, creating a wear-resistant outer "case" with a ductile, shock-absorbing core.</td>
+                                <td>Low-carbon alloy steels (8620, 9310) used for gears, pinions, and high-wear automotive shafts.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
+            </div>
+        </section>
+
+        <section id="atmosphere-controls">
+            <div class="content-container">
+                <h2>Advanced Atmosphere & Environmental Controls</h2>
+                <p>
+                    To prevent oxidation, scaling, or surface decarburization (loss of carbon) during high-temperature thermal processing, ForceBeyond utilizes advanced, environment-controlled furnace systems:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Vacuum Heat Treating:</strong> Heated inside a high-vacuum chamber, completely eliminating oxygen exposure. Essential for reactive metals like Titanium, Inconel, and aerospace stainless steels requiring bright, scale-free surface finishes.
+                    </li>
+                    <li>
+                        <strong>Inert Gas Atmosphere (Argon / Nitrogen):</strong> Uses high-purity inert gas cover to protect metal surfaces during high-temperature annealing and cooling cycles.
+                    </li>
+                    <li>
+                        <strong>Precision Quenching Systems:</strong> Computerized liquid quench tanks utilizing specialized polymer, oil, water, or forced argon gas systems to achieve precise cooling rates without causing thermal shock or part warping.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="tier-1-5-integration">
+            <div class="content-container">
+                <h2>Tier-1.5 Integration: Cast, Heat-Treat & Machine</h2>
+                <p>
+                    Heat treatment can cause slight dimensional movement or distortion as internal stresses are released. ForceBeyond’s Tier-1.5 Manufacturing Model addresses this through intelligent processing sequences:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Near-Net-Shape Forming:</strong> We pour the casting or forge the billet to near-net geometry.
+                    </li>
+                    <li>
+                        <strong>Rough Machining & Stress Relief:</strong> The part undergoes rough machining, leaving a precise material allowance, followed by stress relieving or solution annealing.
+                    </li>
+                    <li>
+                        <strong>Final Thermal Processing:</strong> The component is heat-treated (e.g., Q&T or T6) to lock in its final mechanical strength and hardness.
+                    </li>
+                    <li>
+                        <strong>Finish CNC Machining:</strong> Our high-precision 5-axis CNC centers machine the critical datum faces, bearing seats, and threaded holes to their final, ultra-tight tolerances—completely eliminating the risk of heat-treat distortion affecting final assembly.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="quality-control">
+            <div class="content-container">
+                <h2>Quality Control & Process Certification</h2>
+                <p>
+                    Every heat treatment batch processed by ForceBeyond is rigorously tested and documented to guarantee compliance with international standards:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Hardness Testing:</strong> Rockwell (HRC/HRB), Brinell (HBW), and Micro-Vickers testing to verify case depth and core hardness across cross-sections.
+                    </li>
+                    <li>
+                        <strong>Tensile & Impact Testing:</strong> Room-temperature and elevated-temperature tensile testing (ASTM E8/E21) and Charpy V-notch impact testing.
+                    </li>
+                    <li>
+                        <strong>Metallographic Analysis:</strong> Microstructural examination to verify grain size, phase balance (e.g., 50/50 austenite-ferrite ratio in Duplex steel), and absence of harmful intermetallic precipitates (like Sigma phase).
+                    </li>
+                    <li>
+                        <strong>Full Certification:</strong> Complete MTRs, furnace charts, and certified test reports accompanying every shipment.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="certified-applications">
+            <div class="content-container">
+                <h2>Certified Thermal Processing Applications</h2>
+                <p>
+                    ForceBeyond provides certified heat treatment services for mission-critical components across:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Aerospace & Defense:</strong> Inconel 718 turbine components (AMS 5383), 17-4 PH structural actuators, and Titanium airframe brackets.
+                    </li>
+                    <li>
+                        <strong>Energy & Oil/Gas:</strong> Duplex 2205/2507 subsea valve bodies, NACE MR0175-compliant fittings, and 4140 drill collars.
+                    </li>
+                    <li>
+                        <strong>Automotive & Heavy Industry:</strong> 8620 carburized gears, A356-T6 aluminum transmission cases, and ductile iron suspension components.
+                    </li>
+                    <li>
+                        <strong>Medical & Sanitary:</strong> Solution-annealed 316L fittings and passivated 440C surgical tool blanks.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

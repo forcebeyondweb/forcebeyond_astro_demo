@@ -1,0 +1,342 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Assembly & Kitting Services: Streamlined Supply Chain Solutions';
+const seoTitle = 'Assembly & Kitting Services | ForceBeyond';
+const seoDescription = 'ForceBeyond delivers sub-assembly, mechanical integration, and custom kitting services for custom castings, forgings, and high-precision CNC machined components.';
+
+const faqs = [
+    {
+        q: "How does ForceBeyond ensure that hardware inserts (like Helicoils) don't back out during transit or operation?",
+        a: "We utilize automated torque-and-depth controlled installation equipment combined with thread-locking compounds (such as Loctite®) or locking-style inserts depending on your engineering print requirements. Every installed insert is visually and dimensionally verified before final packaging."
+    },
+    {
+        q: "Can ForceBeyond source third-party standard hardware for custom assembly kits?",
+        a: "Yes. We handle complete Bill of Materials (BOM) procurement. ForceBeyond sources, inspects, and inventories all required secondary hardware—including commercial fasteners, O-rings, seals, bearings, and electrical connectors—integrating them seamlessly into your finished assembly or kit."
+    },
+    {
+        q: "What is the main difference between Sub-Assembly and Kitting?",
+        a: "Sub-Assembly involves physically joining multiple components together (e.g., pressing bearings into a cast housing and bolting on a cover) so you receive a functional mechanical unit. Kitting involves taking multiple loose parts (which may or may not be joined together) and organizing them inside a single, custom-packaged kit tray so your assembly line workers have every required piece in one place for rapid final installation."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'ASTM International: Pressure Testing and Leak Testing Standards', url: 'https://www.astm.org' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Service / Product Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/assembly-kitting-services#webpage",
+      "url": "https://www.forcebeyond.store/oscar/assembly-kitting-services",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      },
+      "about": [
+        {
+          "@type": "Thing",
+          "name": "Kitting",
+          "sameAs": "https://en.wikipedia.org/wiki/Kitting"
+        },
+        {
+          "@type": "Thing",
+          "name": "Assembly line",
+          "sameAs": "https://en.wikipedia.org/wiki/Assembly_line"
+        }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/assembly-kitting-services#service",
+      "name": "Assembly & Kitting Services",
+      "serviceType": "Sub-Assembly & Point-of-Use Kitting Solutions",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "Sub-Assembly and Mechanical Integration",
+          "Hardware Insertion & Press-Fitting (Helicoil®, PEM®)",
+          "Sealing, Gasket Integration & Leak Testing",
+          "Custom Point-of-Use Kitting & Custom Foam Trays",
+          "Single SKU Ordering & Kanban / JIT Delivery"
+        ]
+      },
+      "areaServed": [
+        { "@type": "Country", "name": "United States" },
+        { "@type": "Country", "name": "South Korea" },
+        { "@type": "Country", "name": "Taiwan" }
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Assembly & Kitting Options",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Sub-Assembly & Mechanical Joining",
+              "description": "Hardware insertion, press-fitting, torque-controlled fastening, and functional leak testing."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Custom Kitting & Point-of-Use Packaging",
+              "description": "Custom thermoformed/foam trays, single SKU ordering, and JIT delivery tailored for production line efficiency."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "End-of-Line Quality & Pressure Testing",
+              "description": "100% pneumatic, hydrostatic, and functional mechanical testing before shipment."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/assembly-kitting-services#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"
+    faqSectionTitle="Frequently Asked Questions: Assembly & Kitting"
+    faqItems={faqs}
+    ctaTitle=""
+    ctaDescription=""
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
+                
+                <h2>Assembly & Kitting Services: Streamlined Supply Chain Solutions</h2>
+
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond provides comprehensive sub-assembly, mechanical integration, and custom kitting services for precision castings, forgings, and machined components. In modern manufacturing, receiving individual loose parts creates significant administrative friction, inventory holding costs, and assembly line bottlenecks. ForceBeyond solves this by delivering complete, factory-tested sub-assemblies and point-of-use kits directly to your production floor.
+                        </p>
+                        <p>
+                            <strong>The ForceBeyond Standard:</strong> Operating under a strict ISO 9001:2015 quality management system, our integrated assembly cells combine core casting, forging, and 5-axis CNC machining capabilities with end-of-line assembly—acting as a true Tier-1.5 partner to reduce your vendor base and lower total acquisition costs.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/assembly-kitting-services-overview-4k.webp"
+                                alt="Technicians performing precision sub-assembly and kitting operations for industrial metal components."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="assembly-capabilities">
+            <div class="content-container">
+                <h2>Integrated Assembly & Sub-Assembly Capabilities</h2>
+                <p>
+                    ForceBeyond’s dedicated assembly technicians perform both manual precision bench assembly and semi-automated mechanical joining for multi-component systems.
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Assembly Discipline</th>
+                                <th scope="col">Core Capabilities & Operations</th>
+                                <th scope="col">Target Applications</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Hardware Insertion & Press-Fitting</th>
+                                <td>Automated installation of Helicoil® inserts, PEM® fasteners, bushings, dowel pins, bearings, and press-fit sleeves.</td>
+                                <td>Machined aerospace brackets, automotive gearboxes, and electronic sensor enclosures.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Mechanical Joining & Fastening</th>
+                                <td>Torque-controlled bolting, precision riveting, adhesive bonding, and structural thread-locking application.</td>
+                                <td>Multi-piece fluid control valves, pump housing assemblies, and structural linkages.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Sealing & Gasket Integration</th>
+                                <td>Precision installation of O-rings, custom die-cut gaskets, liquid thread sealants, and vulcanized rubber seals.</td>
+                                <td>High-pressure hydraulic manifolds, subsea valve bodies, and pneumatic actuators.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Functional & Pressure Testing</th>
+                                <td>100% pneumatic leak testing, hydrostatic pressure verification, and functional mechanical actuation testing.</td>
+                                <td>Fluid & gas control assemblies, pump volutes, and medical fluid distribution systems.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div> 
+            </div>
+        </section>
+
+        <section id="custom-kitting">
+            <div class="content-container">
+                <h2>Custom Mechanical Kitting & Point-of-Use Delivery</h2>
+                <p>
+                    For OEMs looking to streamline their internal assembly lines, ForceBeyond offers tailored Custom Kitting Solutions. Instead of receiving separate shipments of cast housings, machined covers, fasteners, and O-rings from multiple vendors, we package every required component into a single, organized kit.
+                </p>
+                <ul>
+                    <li>
+                        <strong>Custom-Molded Trays & Foam Inserts:</strong> Components are organized sequentially in custom thermoformed or foam-cut trays, preventing metal-to-metal contact, surface scratches, and transit damage.
+                    </li>
+                    <li>
+                        <strong>Single Stock-Keeping Unit (SKU) Ordering:</strong> Reduce purchase order management and inventory tracking by ordering an entire multi-part assembly kit under a single ForceBeyond part number.
+                    </li>
+                    <li>
+                        <strong>Kanban & Just-In-Time (JIT) Delivery:</strong> We align our kitting schedules directly with your production line requirements, reducing your warehouse footprint and safety stock holding costs.
+                    </li>
+                    <li>
+                        <strong>Barcoding & RFID Tracking:</strong> Customized labeling, serialized part tracking, QR codes, and custom lot identification for complete supply chain transparency.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="tier-1-5-integration">
+            <div class="content-container">
+                <h2>Tier-1.5 Integration: The "Cast-to-Assembly" Advantage</h2>
+                <p>
+                    Managing individual suppliers for raw castings, secondary machining, heat treatment, hardware purchasing, and final assembly introduces severe supply chain risks. ForceBeyond’s Tier-1.5 Model unifies the entire value chain under one quality umbrella:
+                </p>
+                <blockquote class="my-4 italic">
+                    Raw Casting / Forging &rarr; Precision CNC Machining &rarr; Surface Finishing &rarr; Hardware & Sub-Assembly &rarr; Pressure Testing &rarr; Kitting
+                </blockquote>
+                <ul>
+                    <li>
+                        <strong>Zero Mating-Part Mismatch:</strong> Because we control the dimensions of both the cast housing and the internal machined mating parts, we guarantee 100% fit and function during sub-assembly.
+                    </li>
+                    <li>
+                        <strong>Simplified Quality Audits:</strong> Instead of auditing separate foundries, machine shops, platers, and assembly houses, you manage a single certified partner with end-to-end traceability.
+                    </li>
+                    <li>
+                        <strong>Lower Total Cost of Ownership (TCO):</strong> Eliminates multiple vendor freight costs, individual part handling fees, and scrap overhead.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="quality-control">
+            <div class="content-container">
+                <h2>Quality Control & Testing Protocol</h2>
+                <p>
+                    Every assembled component and kit processed by ForceBeyond undergoes rigorous end-of-line verification to ensure zero defects arrive at your plant:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Torque Verification:</strong> Calibrated electric torque drivers with continuous data-logging to verify fastener tightness against engineering prints.
+                    </li>
+                    <li>
+                        <strong>Leak & Pressure Testing:</strong> Hydrostatic testing up to 10,000+ psi and helium/air decay leak testing (ASTM E515) for fluid-tight integrity.
+                    </li>
+                    <li>
+                        <strong>Go/No-Go Gauge Inspection:</strong> 100% dimensional verification of critical mounting features on pre-assembled modules.
+                    </li>
+                    <li>
+                        <strong>Visual & Completeness Audits:</strong> Automated optical inspection (AOI) or manual checklist verification to guarantee zero missing hardware in kitted trays.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="certified-applications">
+            <div class="content-container">
+                <h2>Certified Assembly & Kitting Applications</h2>
+                <p>
+                    Our specialized assembly cells deliver complete, ready-to-install modules across key global industries:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Fluid & Flow Control:</strong> Fully assembled ball valves with integrated seats, stems, O-rings, actuators, and 100% pressure-tested certifications.
+                    </li>
+                    <li>
+                        <strong>Aerospace & Defense:</strong> Pre-bushed structural brackets with Helicoil inserts, serialized tags, and custom protective foam kitting.
+                    </li>
+                    <li>
+                        <strong>Automotive & Heavy Equipment:</strong> Assembled gear housing modules with pressed bearings, seals, and torque-verified cover plates.
+                    </li>
+                    <li>
+                        <strong>Medical & Diagnostic:</strong> Electropolished sub-assemblies delivered in cleanroom-compatible, sealed blister packaging.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>

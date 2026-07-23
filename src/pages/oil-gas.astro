@@ -1,87 +1,268 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Oil & Gas';
-const pageDescription = 'This page is under development. ForceBeyond provides custom metal component manufacturing solutions for industrial applications.';
+const pageTitle = 'Oil & Gas Casting, Forging & CNC Machining Services';
+const seoTitle = 'Oil & Gas Casting, Forging & CNC Machining Services | ForceBeyond';
+const seoDescription = 'ForceBeyond delivers NACE-compliant, high-pressure casting, forging, and 5-axis CNC machining services for upstream, midstream, and downstream oil & gas applications.';
+
+const faqs = [
+    {
+        q: "Are ForceBeyond’s Duplex and Inconel components NACE compliant?",
+        a: "Yes. All Duplex, Super Duplex, and Inconel components destined for sour gas service are heat-treated and certified to NACE MR0175 / ISO 15156 standards to prevent hydrogen embrittlement."
+    },
+    {
+        q: "Can ForceBeyond supply 3.1 Material Test Reports (MTRs)?",
+        a: "Yes. Every shipment includes certified EN 10204 3.1 MTRs detailing exact heat numbers, spectrographic chemistry, tensile strength, and impact test data."
+    }
+];
+
+// Sources
+const sources = [
+    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
+    { label: 'NACE MR0175 / ISO 15156 Petroleum and Natural Gas Industries Materials Standards', url: 'https://www.amppp.org' },
+    { label: 'API Standards for Oilfield Equipment and Pressure Containment', url: 'https://www.api.org' },
+    { label: 'ASTM International: Non-Destructive Testing (NDT) Specifications', url: 'https://www.astm.org' }
+];
+
+// Resources
+const internalResources = [
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/oscar/die-casting" },
+    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+
+    // Investment Casting Resources
+    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+
+    // Forging Resources
+    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
+    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
+    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/oscar/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+
+    // Sand Casting & Steel Casting Resources
+    { label: "Sand Casting", url: "/oscar/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+];
+
+// Page Schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/oscar/oil-and-gas#webpage",
+      "url": "https://www.forcebeyond.store/oscar/oil-and-gas",
+      "name": seoTitle,
+      "description": seoDescription,
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "https://www.forcebeyond.store/oscar#website",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar"
+      }
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.forcebeyond.store/oscar/oil-and-gas#service",
+      "name": "Oil & Gas Precision Manufacturing Services",
+      "serviceType": "Petrochemical & Subsea Component Manufacturing",
+      "description": seoDescription,
+      "provider": {
+        "@type": "Organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "name": "ForceBeyond",
+        "url": "https://www.forcebeyond.store/oscar",
+        "knowsAbout": [
+          "NACE MR0175 / ISO 15156 & API Compliance",
+          "Vacuum Investment Casting & Heavy-Tonnage Forging",
+          "5-Axis CNC Machining for Super Duplex & Inconel",
+          "Hot Isostatic Pressing (HIP) & NDT Verification",
+          "Subsea Manifold Fittings & Pressure Containment Equipment"
+        ]
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Oil & Gas Manufacturing Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Pressure Containment Equipment",
+              "description": "High-pressure frac valve bodies, choke & kill manifolds, BOP housings, and flange adaptors."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Drilling & Downhole Components",
+              "description": "Perforating gun bodies, drill collars, mud pump fluid ends, suction/discharge covers, and crossheads."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Pumps & Turbines",
+              "description": "Heavy-duty slurry pump volutes, multi-stage impellers, and drive shafts."
+            }
+          }
+        ]
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.store/oscar/oil-and-gas#faq",
+      "mainEntity": faqs.map(f => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": f.a
+        }
+      }))
+    }
+  ]
+};
 ---
 
-<Layout 
-    title={`${pageTitle} | ForceBeyond`}
-    description={pageDescription}
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/oscar/media/industry-oil-gas-plant.webp"
+    heroImageAlt="Oil and gas refinery with processing towers, pipelines, and storage tanks illuminated at sunset."
+    faqSectionTitle="Frequently Asked Questions"
+    faqItems={faqs}
+    ctaTitle="Need High-Integrity Petroleum Components?"
+    ctaDescription="Contact our technical engineering team today to review your drawings and ensure full NACE and API compliance for your oilfield applications."
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesList={internalResources}
 >
-    <!-- Placeholder Page -->
-    <section class="relative w-full min-h-[calc(100vh-5rem)] bg-slate-50 pt-20 pb-24 px-6 sm:px-12">
-        <div class="w-full max-w-6xl mx-auto">
-            
-            <!-- Breadcrumb -->
-            <nav class="mb-10 text-sm text-slate-500">
-                <a href="/oscar/" class="hover:text-brand-blue transition">Home</a>
-                <span class="mx-2">/</span>
-                <span class="text-slate-700">{pageTitle}</span>
-            </nav>
 
-            <!-- Main Content -->
-            <div class="rounded-2xl border border-slate-200 bg-white p-8 sm:p-12 lg:p-16 shadow-sm">
+    <div slot="full-width" class="individual-content">
+
+        <section id="overview">
+            <div class="content-container">
                 
-                <p class="mb-4 text-xs font-semibold tracking-[0.22em] text-brand-blue uppercase">
-                    Page Under Development
-                </p>
+                <h2>Oil & Gas Casting, Forging & CNC Machining Services</h2>
 
-                <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-slate-900 uppercase">
-                    {pageTitle}
-                </h1>
-
-                <div class="mt-6 h-1 w-16 bg-brand-blue rounded-full"></div>
-
-                <p class="mt-8 max-w-3xl text-lg sm:text-xl leading-8 text-slate-700 font-medium">
-                    This page is currently being prepared. ForceBeyond supports customers with precision casting, forging, CNC machining, quality control, and global supply chain coordination for high-demand industrial applications.
-                </p>
-
-                <div class="mt-10 grid gap-4 sm:grid-cols-3">
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Manufacturing
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Casting, forging, machining, and finishing support.
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            ForceBeyond is an established Tier-1.5 engineering partner delivering ultra-high-integrity components for upstream drilling, midstream transport, and downstream refining applications. Operating in environments characterized by extreme hydraulic pressures, sour gas (H2S), and corrosive chloride exposure, our components are engineered to withstand severe fatigue and environmental stress corrosion cracking (SCC).
+                        </p>
+                        <p>
+                            Complying with NACE MR0175/ISO 15156, API, and ASME standards, ForceBeyond supplies high-pressure valve bodies, mud pump fluid ends, drill bits, and subsea manifold fittings. We specialize in vacuum investment casting, heavy-tonnage forging, and 5-axis CNC machining of Super Duplex stainless steels, Inconel superalloys, and high-strength alloy steels.
                         </p>
                     </div>
-
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Quality
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Inspection, documentation, and traceability workflows.
-                        </p>
-                    </div>
-
-                    <div class="rounded-xl border border-slate-200 bg-slate-50 p-5">
-                        <h3 class="text-sm font-black uppercase tracking-wide text-slate-900">
-                            Supply Chain
-                        </h3>
-                        <p class="mt-2 text-sm leading-6 text-slate-600">
-                            Multi-facility sourcing and delivery coordination.
-                        </p>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/offshore-oil-gas-processing-platform-industrial-equipment-hero.webp"
+                                alt="High-pressure forged subsea valve body engineered for sour gas and marine environments."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
                     </div>
                 </div>
 
-                <div class="mt-12 flex flex-col sm:flex-row gap-4">
-                    <a 
-                        href="/oscar/request-a-quote" 
-                        class="inline-flex items-center justify-center rounded-full bg-brand-green px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#5aaa14] shadow-sm"
-                    >
-                        Request Quote
-                    </a>
+            </div>
+        </section>
 
-                    <a 
-                        href="/oscar/#capabilities" 
-                        class="inline-flex items-center justify-center rounded-full border border-slate-300 px-8 py-3 text-sm font-semibold text-slate-700 transition hover:border-[#0363CE] hover:text-brand-blue"
-                    >
-                        View Capabilities
-                    </a>
+        <section id="material-matrix">
+            <div class="content-container">
+                <h2>Technical Material Matrix for Oil & Gas</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Alloy Category</th>
+                                <th scope="col">Key Grades Offered</th>
+                                <th scope="col">Core Performance Attributes</th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th scope="row">Duplex & Super Duplex</th>
+                                <td>UNS S32205 (2205), UNS S32750 (2507)</td>
+                                <td>Twice the yield strength of 316L; immune to chloride pitting and stress corrosion in harsh marine/subsea environments.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Nickel-Based Superalloys</th>
+                                <td>Inconel 718 (AMS 5662/5663), Inconel 625</td>
+                                <td>Retains 1,000+ MPa yield strength at extreme temperatures; superior resistance to sour gas (H2S) and hot acids.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">High-Strength Steel Forgings</th>
+                                <td>AISI 4140, 4340, 8620 (Q&T Hardened)</td>
+                                <td>High-tonnage forged integrity for heavy structural impact, high-pressure containment, and deep downhole drilling.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Cast Carbon Steels</th>
+                                <td>ASTM A216 WCB, WCC</td>
+                                <td>Industry standard for pressure-containing valve bodies, pipe fittings, and general fluid control manifolds.</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </div>
-    </section>
-</Layout>
+        </section>
+
+        <section id="certified-equipment">
+            <div class="content-container">
+                <h2>Certified Subsea & Surface Equipment Components</h2>
+                <p>
+                    ForceBeyond manufactures mission-critical petroleum components:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Pressure Containment:</strong> High-pressure frac valve bodies, choke & kill manifolds, blowout preventer (BOP) housings, and flange adaptors.
+                    </li>
+                    <li>
+                        <strong>Drilling & Downhole:</strong> Perforating gun bodies, drill collars, mud pump fluid ends, suction/discharge covers, and crossheads.
+                    </li>
+                    <li>
+                        <strong>Pumps & Turbines:</strong> Heavy-duty slurry pump volutes, multi-stage impellers, and drive shafts.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="structural-density">
+            <div class="content-container">
+                <h2>Structural Density & NDT Verification</h2>
+                <p>
+                    Subsea hardware requires zero internal porosity. ForceBeyond integrates Hot Isostatic Pressing (HIP) and non-destructive testing directly into production:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Radiographic Testing (RT - ASTM E192):</strong> 100% X-ray inspection to verify zero internal shrinkage voids in cast valve bodies.
+                    </li>
+                    <li>
+                        <strong>Liquid Penetrant Testing (LPI - ASTM E1417):</strong> Verifies zero surface cracks on high-stress sealing flanges.
+                    </li>
+                    <li>
+                        <strong>Hydrostatic Pressure Testing:</strong> Pressure testing up to 10,000+ psi to guarantee pressure-tight integrity.
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+    </div>
+</IndividualPageLayout>
