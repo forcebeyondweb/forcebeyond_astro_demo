@@ -18,10 +18,13 @@ const faqs = [
 
 // Sources
 const sources = [
-    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
-    { label: 'IATF 16949 Automotive Quality Management Standard', url: 'https://www.iatfglobaloversight.org' },
-    { label: 'ASTM International: Automotive & Transportation Material Standards', url: 'https://www.astm.org' },
-    { label: 'AIAG Production Part Approval Process (PPAP) Manual', url: 'https://www.aiag.org' }
+    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
+    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
+    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
+    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
+    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
+    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
 ];
 
 // Resources
@@ -60,8 +63,8 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/oscar/automotive-transportation#webpage",
-      "url": "https://www.forcebeyond.store/oscar/automotive-transportation",
+      "@id": "https://www.forcebeyond.store/oscar/automotive#webpage",
+      "url": "https://www.forcebeyond.store/oscar/automotive",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
@@ -73,7 +76,7 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/oscar/automotive-transportation#service",
+      "@id": "https://www.forcebeyond.store/oscar/automotive#service",
       "name": "Automotive & Transportation Component Manufacturing",
       "serviceType": "Transportation Precision Manufacturing",
       "description": seoDescription,
@@ -123,7 +126,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/oscar/automotive-transportation#faq",
+      "@id": "https://www.forcebeyond.store/oscar/automotive#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,

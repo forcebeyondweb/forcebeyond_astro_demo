@@ -1,6 +1,7 @@
 ---
 import Layout from './Layout.astro';
 import '../styles/individual.css';
+
 export interface FaqItem {
     q: string;
     a: string;
@@ -45,7 +46,7 @@ const {
     // CTA 
     ctaTitle = 'Request an Inconel 718 Technical Consultation',
     ctaDescription = 'Direct access to our engineering team. Feasibility reviews delivered within 48 hours.',
-    ctaButtonUrl = '/contact',
+    ctaButtonUrl = '/oscar/request-a-quote',
 
     // Resources & Sources 
     sourcesTitle = 'Sources',
@@ -65,34 +66,30 @@ const isCtaDescArray = Array.isArray(ctaDescription);
     <!-- ========================================
          Compact Hero Section 
          ======================================== -->
-    <section class="relative w-full overflow-hidden bg-[#0363ce] py-16 sm:py-24 lg:py-48">
-    
-    <!-- Background Image -->
-    {heroImage && (
-        <div class="absolute inset-0 z-0">
-            <img
-                src={heroImage}
-                alt={heroImageAlt || pageTitle}
-                class="w-full h-full object-cover object-center"
-                loading="eager"
-                decoding="async"
-            />
+    <section class="relative w-full overflow-hidden bg-slate-100 py-16 sm:py-24 lg:py-48">
+        <!-- Background Image -->
+        {heroImage && (
+            <div class="absolute inset-0 z-0">
+                <img
+                    src={heroImage}
+                    alt={heroImageAlt || pageTitle}
+                    class="w-full h-full object-cover object-center"
+                    loading="eager"
+                    decoding="async"
+                />
+            </div>
+        )}
+        <!-- Centered Content -->
+        <div class="relative z-10 w-full px-0 text-center">
+            <div class="w-full">
+                <h1 class="text-4xl sm:text-4xl lg:text-6xl leading-[1.2] text-white tracking-tight w-full">
+                    {pageTitle}
+                </h1>
+            </div>
         </div>
-    )}
+    </section>
 
-    <!-- Centered Content -->
-    <div class="relative z-10 w-full px-0 text-center">
-        <div class="w-full">
-            <h1 
-                class="text-4xl sm:text-4xl lg:text-6xl leading-[1.2] text-white tracking-tight w-full"
-                set:html={pageTitle}
-            />
-        </div>
-    </div>
-
-</section>
-
-   <section class="w-full pt-8 pb-14 lg:pt-12 lg:pb-16">
+    <section class="w-full pt-8 pb-14 lg:pt-12 lg:pb-16">
         <div class="mx-auto max-w-7xl px-6 sm:px-12">
             <div class="individual-content">
                 <slot />
@@ -104,14 +101,12 @@ const isCtaDescArray = Array.isArray(ctaDescription);
         <slot name="full-width" />
     </div>
 
-    <section class="w-full bg-white  border-slate-200 py-14 lg:py-4 text-slate-800">
+    <section class="w-full bg-white border-slate-200 py-14 lg:py-4 text-slate-800">
         <div class="w-full max-w-7xl mx-auto px-6 sm:px-12 space-y-12">
 
             {faqItems && faqItems.length > 0 && (
                 <div class="space-y-6">
-                    <h2 
-                        class="text-3xl sm:text-4xl lg:text-4xl font-normal leading-tight text-black mt-10 mb-5"
-                    >
+                    <h2 class="text-3xl sm:text-4xl lg:text-4xl font-normal leading-tight text-black mt-10 mb-5">
                         {faqSectionTitle}
                     </h2>
 
@@ -131,10 +126,8 @@ const isCtaDescArray = Array.isArray(ctaDescription);
                 </div>
             )}
 
-            <div class="py-8 text-center  border-slate-100 my-10">
-                <h2 
-                    class="text-3xl sm:text-4xl lg:text-4xl font-normal leading-tight text-black mt-10 mb-5"
-                >
+            <div class="py-8 text-center border-slate-100 my-10">
+                <h2 class="text-3xl sm:text-4xl lg:text-4xl font-normal leading-tight text-black mt-10 mb-5">
                     {ctaTitle}
                 </h2>
 
@@ -154,7 +147,7 @@ const isCtaDescArray = Array.isArray(ctaDescription);
 
                 <div class="flex justify-center">
                     <a
-                        href="/oscar/request-a-quote"
+                        href={ctaButtonUrl}
                         class="inline-flex items-center justify-center rounded-full bg-brand-green px-8 py-3.5 text-base font-semibold text-white shadow-md transition hover:bg-[#5aaa14] hover:shadow-lg"
                     >
                         Request Quote
@@ -164,9 +157,7 @@ const isCtaDescArray = Array.isArray(ctaDescription);
 
             {sourcesList && sourcesList.length > 0 && (
                 <div class="space-y-4">
-                    <h2 
-                        class="text-3xl sm:text-4xl lg:text-4xl font-normal leading-tight text-black mt-10 mb-5"
-                    >
+                    <h2 class="text-3xl sm:text-4xl lg:text-4xl font-normal leading-tight text-black mt-10 mb-5">
                         {sourcesTitle}
                     </h2>
                     <ul class="list-disc pl-6 space-y-2 text-sm sm:text-base text-slate-600">
@@ -187,12 +178,10 @@ const isCtaDescArray = Array.isArray(ctaDescription);
 
             {resourcesList && resourcesList.length > 0 && (
                 <div class="space-y-4 pt-4">
-                    <h2 
-                        class="text-3xl sm:text-4xl lg:text-4xl font-normal leading-tight text-black mt-10 mb-5"
-                    >
+                    <h2 class="text-3xl sm:text-4xl lg:text-4xl font-normal leading-tight text-black mt-10 mb-5">
                         {resourcesTitle}
                     </h2>
-                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2 list-disc pl-6 text-sm sm:text-base text-slate-600">
+                    <ul class="grid grid-cols-1 md:grid-xl-2 gap-x-8 gap-y-2 list-disc pl-6 text-sm sm:text-base text-slate-600">
                         {resourcesList.map((res) => (
                             <li>
                                 <a href={res.url} class="text-[#0363CE] hover:underline font-medium">
@@ -205,50 +194,4 @@ const isCtaDescArray = Array.isArray(ctaDescription);
             )}
         </div>
     </section>
-<style>
-    /* 1. section height  */
-    .layout-sections-wrapper :global(section) {
-        padding-top: 2rem !important;
-        padding-bottom: 2rem !important;
-        width: 100% !important;
-        display: block !important;
-    }
-    .layout-sections-wrapper :global(section:first-child) {
-        padding-top: 0rem !important;
-        padding-bottom: 2rem !important;
-    }
-
-    /* 2. div constraints */
-    .layout-sections-wrapper :global(section > div) {
-        margin-left: auto !important;
-        margin-right: auto !important;
-        max-width: 80rem !important;      /* 7xl = 1280px / 80rem */
-        width: 100% !important;
-        padding-left: 1.5rem !important;
-        padding-right: 1.5rem !important;
-    }
-
-    /* 3. tablet and desktop left/right padding */
-    @media (min-width: 640px) {
-        .layout-sections-wrapper :global(section > div) {
-            padding-left: 3rem !important;
-            padding-right: 3rem !important;
-        }
-    }
-    
-    /* 1. render FAQ links with custom styling */
-    :global(.space-y-6 p a),
-    :global(.highlight-link) {
-        color: #F97316 !important;       
-        font-weight: 600 !important;   
-        text-decoration: none !important; 
-    }
-
-    /* 2. hover effect */
-    :global(.space-y-6 p a:hover),
-    :global(.highlight-link:hover) {
-        color: #EA580C !important;       
-        text-decoration: underline !important; 
-    }
-</style>
 </Layout>

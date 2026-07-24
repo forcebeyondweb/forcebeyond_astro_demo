@@ -1,6 +1,9 @@
-@import "./global.css";
+@reference "tailwindcss";
 
 @layer components {
+    /* ==========================================================================
+       Individual Content Base Styles
+       ========================================================================== */
     .individual-content {
         color: #475569;
         font-size: 1rem;
@@ -26,17 +29,24 @@
     .individual-content .page-lead {
         @apply mb-8 text-slate-700 text-lg sm:text-xl leading-relaxed;
     }
-    .individual-content .highlight-link {
-        color: #F97316 !important;      
+
+    /* Links & Highlights */
+    .individual-content .highlight-link,
+    .layout-sections-wrapper p a,
+    .layout-sections-wrapper .highlight-link,
+    .space-y-6 p a {
+        color: #F97316;      
         font-weight: 600;              
         text-decoration: none;         
-        transition: color 0.2s ease, text-decoration 0.2s ease; /* 丝滑的过渡动画 */
+        transition: color 0.2s ease, text-decoration 0.2s ease; 
     }
 
-    /* 鼠标悬停（Hover）与聚焦时的效果 */
     .individual-content .highlight-link:hover,
-    .individual-content .highlight-link:focus {
-        color: #EA580C !important;     
+    .individual-content .highlight-link:focus,
+    .layout-sections-wrapper p a:hover,
+    .layout-sections-wrapper .highlight-link:hover,
+    .space-y-6 p a:hover {
+        color: #EA580C;     
         text-decoration: underline;      
     }
 
@@ -72,7 +82,6 @@
         @apply list-decimal pl-6 space-y-3 mt-4 text-base sm:text-lg leading-7 text-slate-600;
     }
 
-    /* Add this rule to strip styling when requested */
     .individual-content ul.no-bullets,
     .individual-content .content-list-plain {
         @apply list-none pl-0;
@@ -81,6 +90,7 @@
     .individual-content li strong {
         @apply text-slate-800 font-semibold;
     }
+
     /* Tables */
     .individual-content .content-table-wrapper {
         @apply w-full overflow-x-auto border-y border-slate-200 bg-white mt-8 mb-10;
@@ -101,7 +111,6 @@
 
     /* Mobile table optimization */
     @media (max-width: 640px) {
-
         .individual-content table,
         .individual-content .content-table {
             table-layout: fixed;
@@ -113,7 +122,6 @@
             overflow-wrap: anywhere;
             padding: 0.75rem 0.5rem;
         }
-
     }
 
     .individual-content caption .caption-subtitle {
@@ -132,7 +140,6 @@
         @apply border-t border-slate-200 transition-colors;
     }
 
-
     .individual-content tbody th[scope="row"] {
         @apply px-6 py-4 font-semibold text-black;
     }
@@ -141,7 +148,7 @@
         @apply px-6 py-4 text-slate-600;
     }
 
-    /* Links & Callouts */
+    /* Standard Links & Callouts */
     .individual-content a,
     .individual-content .content-link {
         @apply font-semibold text-[#0363CE] underline decoration-blue-500/30 underline-offset-4 transition hover:text-blue-700;
@@ -150,19 +157,35 @@
     .individual-content .content-callout {
         @apply mt-8 mb-8 border-l-4 border-[#0363CE] bg-[#F8FAFC] p-6 text-slate-700 leading-relaxed rounded-r-lg;
     }
-    /* FAQ Section */
-    .layout-sections-wrapper :global(p a),
-    .layout-sections-wrapper :global(.highlight-link) {
-        color: #F97316 !important;   
-        font-weight: 600 !important; 
-        text-decoration: none !important;
-        transition: color 0.2s ease;
+
+    /* ==========================================================================
+       Layout Sections Wrapper Constraints (Transferred from Layout Component)
+       ========================================================================== */
+    .layout-sections-wrapper section {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+        width: 100%;
+        display: block;
     }
 
-    /* Hover effect for FAQ links */
-    .layout-sections-wrapper :global(p a:hover),
-    .layout-sections-wrapper :global(.highlight-link:hover) {
-        color: #EA580C !important;   
-        text-decoration: underline !important; 
+    .layout-sections-wrapper section:first-child {
+        padding-top: 0rem;
+        padding-bottom: 2rem;
+    }
+
+    .layout-sections-wrapper section > div {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 80rem; /* 7xl = 1280px / 80rem */
+        width: 100%;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+        .layout-sections-wrapper section > div {
+            padding-left: 3rem;
+            padding-right: 3rem;
+        }
     }
 }

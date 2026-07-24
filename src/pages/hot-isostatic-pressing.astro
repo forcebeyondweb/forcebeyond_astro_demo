@@ -22,9 +22,13 @@ const faqs = [
 
 // Sources
 const sources = [
-    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
-    { label: 'ASTM International: Standards for Hot Isostatic Pressing & NDT Radiography', url: 'https://www.astm.org' },
-    { label: 'ASM International: Handbook of Hot Isostatic Pressing (HIP) Technology', url: 'https://www.asminternational.org' }
+    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
+    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
+    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
+    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
+    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
+    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
 ];
 
 // Resources
@@ -63,8 +67,8 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/oscar/hot-isostatic-pressing-hip#webpage",
-      "url": "https://www.forcebeyond.store/oscar/hot-isostatic-pressing-hip",
+      "@id": "https://www.forcebeyond.store/oscar/hot-isostatic-pressingp#webpage",
+      "url": "https://www.forcebeyond.store/oscar/hot-isostatic-pressing",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
@@ -88,7 +92,7 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/oscar/hot-isostatic-pressing-hip#service",
+      "@id": "https://www.forcebeyond.store/oscar/hot-isostatic-pressing#service",
       "name": "Hot Isostatic Pressing (HIP) Services",
       "serviceType": "Metal Component Densification & Porosity Elimination",
       "description": seoDescription,
@@ -143,7 +147,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/oscar/hot-isostatic-pressing-hip#faq",
+      "@id": "https://www.forcebeyond.store/oscar/hot-isostatic-pressing#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,
@@ -180,14 +184,27 @@ const pageSchema = {
             <div class="content-container">
                 
                 <h2>Hot Isostatic Pressing (HIP) Services: Densification & Defect Elimination</h2>
-
- 
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
                         <p>
                             ForceBeyond provides state-of-the-art Hot Isostatic Pressing (HIP) services to eliminate internal porosity, increase material density, and dramatically enhance the fatigue life of high-performance metal components. By subjecting custom investment castings, sand castings, 3D-printed metal parts (Additive Manufacturing), and powdered metals to simultaneous high temperatures and uniform high-pressure inert gas, the HIP process physically collapses and diffusion-welds internal voids closed.
                         </p>
                         <p>
                             Operating under a strict ISO 9001:2015 quality management system, ForceBeyond provides certified HIP processing for mission-critical components in the aerospace, medical, energy, and defense sectors. Whether processing Inconel superalloy turbine blades or biocompatible Titanium orthopedic implants, our advanced HIP technology guarantees 100% internal theoretical density and near-forged mechanical properties.
                         </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/hot-isostatic-pressing-process-high-pressure-vessel-diagram.webp"
+                                alt="Hot isostatic pressing process diagram showing uniform heat and pressure applied to a metal component inside a high-pressure vessel."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
+ 
+                        
 
             </div>
         </section>

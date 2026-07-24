@@ -19,13 +19,15 @@ const faqs = [
     }
 ];
 
-// Sources 
+// Sources
 const sources = [
-    { label: 'American Foundry Society: "Metal Casting"', url: 'https://www.afsinc.org' },
-    { label: 'Forging Industry Association: "Forging Industry"', url: 'https://www.forging.org' },
-    { label: 'efunda. “Sand Casting“', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'The Investment Casting Institute. “What is Investment Casting?“',url:'https://www.investmentcasting.org/what-is-investment-casting.html'},
-    { label: 'ASM International. “Inconel 718 Alloy“', url: 'https://www.asminternational.org/materials-resources/alloy-database/technical-bulletin/inconel-718-alloy' }
+    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
+    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
+    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
+    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
+    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
+    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
 ];
 
 // Resources 
@@ -57,14 +59,14 @@ const internalResources = [
     { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
     { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
 ];
-// Service / Product Schema
+// Service / Product Schema (GEO-Optimized)
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/oscar/beta-titanium-forging#webpage",
-      "url": "https://www.forcebeyond.store/oscar/beta-titanium-forging",
+      "@id": "https://www.forcebeyond.store/oscar/forging#webpage",
+      "url": "https://www.forcebeyond.store/oscar/forging",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
@@ -76,73 +78,101 @@ const pageSchema = {
       "about": [
         {
           "@type": "Thing",
-          "name": "Titanium alloy",
-          "sameAs": "https://en.wikipedia.org/wiki/Titanium_alloy"
-        },
-        {
-          "@type": "Thing",
           "name": "Forging",
           "sameAs": "https://en.wikipedia.org/wiki/Forging"
         },
         {
           "@type": "Thing",
-          "name": "Beta titanium alloys",
-          "sameAs": "https://en.wikipedia.org/wiki/Beta_titanium_alloys"
+          "name": "Metallurgy",
+          "sameAs": "https://en.wikipedia.org/wiki/Metallurgy"
+        },
+        {
+          "@type": "Thing",
+          "name": "Titanium alloy",
+          "sameAs": "https://en.wikipedia.org/wiki/Titanium_alloy"
         }
       ]
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/oscar/beta-titanium-forging#service",
-      "name": "High-Strength Beta Titanium Forging Services",
-      "serviceType": "Beta Titanium Forging Services",
+      "@id": "https://www.forcebeyond.store/oscar/forging#service",
+      "name": "Precision Custom Metal Forging Services",
+      "serviceType": "Closed-Die, Open-Die & Seamless Rolled Ring Forging",
       "description": seoDescription,
       "provider": {
         "@type": "Organization",
-        "id": "https://www.forcebeyond.store/oscar#organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
         "name": "ForceBeyond",
         "url": "https://www.forcebeyond.store/oscar",
+        "logo": "https://www.forcebeyond.store/oscar/media/logo.png",
         "knowsAbout": [
-          "Beta Titanium Forging",
-          "Ti-10V-2Fe-3Al & Beta-C (Grade 19) Alloys",
-          "Solution Treated and Aged (STA) Microstructures",
-          "High Yield Strength (>1200 MPa) Forging",
-          "Fracture Toughness & Fatigue Resistance Optimization",
-          "Aerospace Landing Gear & Fastener Production",
-          "Closed-Die Forging & Seamless Rolled Rings"
-        ]
+          "Near-Net-Shape Closed Die Forging",
+          "Open Die Hydraulic Press Forging",
+          "Seamless Rolled Ring Forging (Up to 3,500mm OD)",
+          "Titanium (Ti-6Al-4V) & Superalloy (Inconel 718/625) Forging",
+          "Optimized Grain Flow & Continuous Macro-Structure",
+          "ISO 9001:2015 & AS9100 Rev D Quality Management",
+          "Full NDT Testing (100% Ultrasonic, MPI, FPI)"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "New Castle",
+          "addressRegion": "DE",
+          "addressCountry": "US"
+        }
       },
       "areaServed": [
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "South Korea" },
-        { "@type": "Country", "name": "Taiwan" }
+        {
+          "@type": "Country",
+          "name": "United States",
+          "identifier": "US"
+        },
+        {
+          "@type": "Country",
+          "name": "South Korea",
+          "identifier": "KR"
+        },
+        {
+          "@type": "Country",
+          "name": "Taiwan",
+          "identifier": "TW"
+        },
+        {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": 39.6621,
+            "longitude": -75.5663
+          },
+          "geoRadius": "Global Supply Network"
+        }
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Beta Titanium Forging Capabilities",
+        "name": "Custom Forging Capabilities",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "STA Microstructure Optimization",
-              "description": "Advanced thermomechanical processing and closed-die forging of metastable Beta titanium alloys, tailored through strict Solution Treated and Aged heat treatment protocols to clear 1,200 MPa yield thresholds."
+              "name": "Closed Die Forging",
+              "description": "High-volume near-net-shape closed die forging reducing material waste and secondary machining for titanium, superalloy, and stainless steel parts."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Flight-Critical High-Fatigue Component Forging",
-              "description": "Precision engineering of high-strength aerospace components including landing gear cylinders, structural bulkheads, and heavy fasteners featuring continuous macro-grain flow lines."
+              "name": "Seamless Rolled Ring Forging",
+              "description": "Custom seamless rolled rings up to 3,500mm OD with circumferential grain flow engineered for high-pressure turbine casings and flanges."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "End-to-End Tier-1.5 Metallurgical Validation",
-              "description": "Complete supply chain tracing from initial alloy melt through precision near-net-shape forging, heat treating, and multi-axis NDT inspection with detailed aerospace compliance documentation."
+              "name": "Tier-1.5 Forged-to-Machine Finishing",
+              "description": "Integrated solution including thermal heat processing, precision 5-axis CNC machining, and 100% NDT inspection (Ultrasonic, MPI, FPI)."
             }
           }
         ]
@@ -150,7 +180,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/oscar/beta-titanium-forging#faq",
+      "@id": "https://www.forcebeyond.store/oscar/forging#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,
@@ -205,8 +235,8 @@ const pageSchema = {
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
-                                src="/oscar/media/custom-hot-forged-metal-components-industrial-parts-4k.webp"
-                                alt="Custom hot-forged and precision-machined metal components, including flanges, shafts, brackets, gears, and crankshaft parts, on a white background."
+                                src="/oscar/media/hydraulic-forging-press-hot-metal-billet-industrial.webp"
+                                alt="Hot metal billet positioned beneath a hydraulic forging press for precision shaping in an industrial forge."
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
                         </div>

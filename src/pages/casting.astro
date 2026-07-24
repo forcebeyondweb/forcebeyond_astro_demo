@@ -22,10 +22,13 @@ const faqs = [
 
 // Sources
 const sources = [
-    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
-    { label: 'AS9100 Aerospace Quality Management Systems Standard', url: 'https://www.sae.org' },
-    { label: 'IATF 16949 Automotive Quality Management System', url: 'https://www.iatfglobaloversight.org' },
-    { label: 'ASTM International: Standards for Investment Casting & Non-Destructive Testing (NDT)', url: 'https://www.astm.org' }
+    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
+    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
+    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
+    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
+    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
+    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
 ];
 
 // Resources
@@ -64,8 +67,8 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/oscar/custom-metal-casting#webpage",
-      "url": "https://www.forcebeyond.store/oscar/custom-metal-casting",
+      "@id": "https://www.forcebeyond.store/oscar/casting#webpage",
+      "url": "https://www.forcebeyond.store/oscar/casting",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
@@ -77,7 +80,7 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/oscar/custom-metal-casting#service",
+      "@id": "https://www.forcebeyond.store/oscar/casting#service",
       "name": "Custom Metal Casting Services",
       "serviceType": "Precision Contract Metal Casting",
       "description": seoDescription,
@@ -127,7 +130,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/oscar/custom-metal-casting#faq",
+      "@id": "https://www.forcebeyond.store/oscar/casting#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,

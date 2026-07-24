@@ -1,6 +1,4 @@
-
-@import "./global.css";
-
+@reference "tailwindcss";
 @layer components {
     /* Hero Section */
     .home-hero {
@@ -89,17 +87,17 @@
         @apply grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-5 lg:gap-6;
     }
 
-    /* 基础卡片容器 */
+
     .home-supply-card {
         @apply relative flex items-center justify-center p-3 sm:p-5 lg:p-6 text-center rounded-xl aspect-[4/3] min-h-[120px] sm:min-h-[170px] lg:min-h-[200px] shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden;
     }
 
-    /* 卡片背景图片 */
+
     .home-supply-img {
         @apply absolute inset-0 h-full w-full object-cover transition-transform duration-700 ease-out;
     }
 
-    /* 卡片文字标签 */
+
     .home-supply-label {
         @apply font-black text-xs sm:text-base lg:text-lg text-white tracking-[0.08em] transition-all duration-300 block relative z-10 [text-shadow:0_2px_8px_rgba(0,0,0,0.55)];
     }

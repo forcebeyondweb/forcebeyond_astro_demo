@@ -20,11 +20,15 @@ const faqs = [
     }
 ];
 
-// Sources 
+// Sources
 const sources = [
-    { label: 'International Magnesium Association (IMA)', url: 'https://www.intlmag.org' },
-    { label: 'North American Die Casting Association (NADCA)', url: 'https://www.diecasting.org' },
-    { label: 'ASM International: "Properties and Selection: Nonferrous Alloys and Special-Purpose Materials"', url: 'https://www.asminternational.org' }
+    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
+    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
+    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
+    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
+    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
+    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
 ];
 
 // Resources 
@@ -63,8 +67,8 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/oscar/magnesium-die-casting#webpage",
-      "url": "https://www.forcebeyond.store/oscar/magnesium-die-casting",
+      "@id": "https://www.forcebeyond.store/oscar/magnesium-casting#webpage",
+      "url": "https://www.forcebeyond.store/oscar/magnesium-casting",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
@@ -88,7 +92,7 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/oscar/magnesium-die-casting#service",
+      "@id": "https://www.forcebeyond.store/oscar/magnesium-casting#service",
       "name": "Ultra-Lightweight Precision Magnesium Die Casting Services",
       "serviceType": "Custom Magnesium Die Casting Services",
       "description": seoDescription,
@@ -145,7 +149,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/oscar/magnesium-die-casting#faq",
+      "@id": "https://www.forcebeyond.store/oscar/magnesium-casting#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,

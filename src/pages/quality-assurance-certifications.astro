@@ -18,10 +18,13 @@ const faqs = [
 
 // Sources
 const sources = [
-    { label: 'AS9100 Rev D Quality Management Systems - Aviation, Space & Defense', url: 'https://www.sae.org' },
-    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
-    { label: 'IATF 16949 Automotive Quality Management System', url: 'https://www.iatfglobaloversight.org' },
-    { label: 'Nadcap Accreditation Program for Special Processes', url: 'https://www.pmi.pwc.ca' }
+    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
+    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
+    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
+    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
+    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
+    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
 ];
 
 // Resources
@@ -113,8 +116,8 @@ const pageSchema = {
     description={seoDescription}
     schema={pageSchema}
     pageTitle={pageTitle}
-    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
-    heroImageAlt="Quality assurance inspection and CMM dimensional mapping"
+    heroImage="/oscar/media/precision-cmm-inspection-machined-metal-component-hero.webp"
+    heroImageAlt="CMM inspection probe measuring a precision-machined metal component for dimensional accuracy and manufacturing quality control."
     faqSectionTitle="Frequently Asked Questions: Quality Assurance"
     faqItems={faqs}
     ctaTitle="Partner with an AS9100-Certified Quality Leader"
@@ -144,8 +147,8 @@ const pageSchema = {
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
-                                src="/oscar/media/quality-assurance-certifications-overview-4k.webp"
-                                alt="Quality assurance engineer using precision metrology equipment to inspect metal components."
+                                src="/oscar/media/cmm-probe-quality-inspection-precision-machined-component.webp"
+                                alt="CMM touch probe inspecting a precision-machined metal component for dimensional accuracy and manufacturing quality control."
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
                         </div>
@@ -221,9 +224,22 @@ const pageSchema = {
         <section id="tier-1-5-quality-umbrella">
             <div class="content-container">
                 <h2>The Tier-1.5 Quality Umbrella</h2>
-                <p>
-                    In fragmented supply chains, defects often occur during vendor hand-offs (e.g., a foundry shipping an out-of-tolerance casting to a third-party machine shop). By executing casting, forging, Hot Isostatic Pressing (HIP), and 5-axis CNC machining under a single, unified quality umbrella, ForceBeyond eliminates dimensional disputes, reduces administrative friction, and assumes 100% accountability for the final component.
-                </p>
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            In fragmented supply chains, defects often occur during vendor hand-offs (e.g., a foundry shipping an out-of-tolerance casting to a third-party machine shop). By executing casting, forging, Hot Isostatic Pressing (HIP), and 5-axis CNC machining under a single, unified quality umbrella, ForceBeyond eliminates dimensional disputes, reduces administrative friction, and assumes 100% accountability for the final component.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/oscar/media/precision-micrometer-inspection-machined-metal-component.webp"
+                                alt="Quality inspector using a digital micrometer to measure a precision-machined metal component for dimensional accuracy and manufacturing compliance."
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 

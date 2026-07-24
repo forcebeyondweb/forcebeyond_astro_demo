@@ -18,11 +18,13 @@ const faqs = [
 
 // Sources
 const sources = [
-    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
-    { label: 'NACE MR0175 / ISO 15156 Petroleum and natural gas industries — Materials for use in H2S-containing environments', url: 'https://www.iso.org' },
-    { label: 'ASTM A240 Standard Specification for Chromium and Chromium-Nickel Stainless Steel Plate, Sheet, and Strip', url: 'https://www.astm.org' },
-    { label: 'ASTM A564 Standard Specification for Hot-Rolled and Cold-Finished Age-Hardening Stainless Steel Bars and Shapes', url: 'https://www.astm.org' },
-    { label: 'ASTM A29 Standard Specification for Steel Bars, Carbon and Alloy, Hot-Wrought', url: 'https://www.astm.org' }
+    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
+    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
+    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
+    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
+    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
+    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
 ];
 
 // Resources
@@ -61,8 +63,8 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/oscar/stainless-steel-carbon-steel#webpage",
-      "url": "https://www.forcebeyond.store/oscar/stainless-steel-carbon-steel",
+      "@id": "https://www.forcebeyond.store/oscar/stainless-carbon-steel#webpage",
+      "url": "https://www.forcebeyond.store/oscar/stainless-carbon-steel",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
@@ -74,7 +76,7 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/oscar/stainless-steel-carbon-steel#service",
+      "@id": "https://www.forcebeyond.store/oscar/stainless-carbon-steel#service",
       "name": "Stainless & Carbon Steel Component Manufacturing",
       "serviceType": "Steel Casting, Forging & Machining Services",
       "description": seoDescription,
@@ -124,7 +126,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/oscar/stainless-steel-carbon-steel#faq",
+      "@id": "https://www.forcebeyond.store/oscar/stainless-carbon-steel#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,
@@ -143,8 +145,8 @@ const pageSchema = {
     description={seoDescription}
     schema={pageSchema}
     pageTitle={pageTitle}
-    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
-    heroImageAlt="Precision investment cast and CNC machined stainless steel valve component"
+    heroImage="/oscar/media/precision-cnc-machining-metal-manufacturing-workshop-hero.webp"
+    heroImageAlt="Precision CNC milling machine cutting a metal component in a modern manufacturing workshop with automated equipment and digital controls."
     faqSectionTitle="Frequently Asked Questions"
     faqItems={faqs}
     ctaTitle="Engineered Steel Solutions for Severe Environments"
@@ -161,27 +163,12 @@ const pageSchema = {
             <div class="content-container">
                 
                 <h2>Stainless Steel & Carbon Steel: Austenitic, Duplex & Alloy Grades</h2>
-
-                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
-                    <div>
                         <p>
                             ForceBeyond manufactures a wide range of precision stainless steel, tool steel, and carbon steel components. Whether requiring the sanitary, non-magnetic properties of 316L, the high yield strength of precipitation-hardening 17-4 PH, the sour-gas corrosion resistance of Super Duplex 2507, or the impact wear resistance of 4140 chromoly steel, ForceBeyond delivers engineered metal solutions matching your exact mechanical requirements.
                         </p>
                         <p>
                             Through our Tier-1.5 Manufacturing Model, we combine investment casting, sand casting, hot forging, heat treatment, and 5-axis CNC finishing under a unified quality system.
                         </p>
-                    </div>
-                    <div class="relative">
-                        <div class="overflow-hidden">
-                            <img
-                                src="/oscar/media/stainless-steel-carbon-steel-overview-4k.webp"
-                                alt="Precision machined Duplex stainless steel pump housing component."
-                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                            />
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </section>
 

@@ -18,9 +18,13 @@ const faqs = [
 
 // Sources
 const sources = [
-    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
-    { label: 'ASME Section III Rules for Construction of Nuclear Facility Components', url: 'https://www.asme.org' },
-    { label: 'ASTM International: Energy & Power Generation Materials Specifications', url: 'https://www.astm.org' }
+    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
+    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
+    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
+    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
+    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
+    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
 ];
 
 // Resources
@@ -59,8 +63,8 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/oscar/power-generation#webpage",
-      "url": "https://www.forcebeyond.store/oscar/power-generation",
+      "@id": "https://www.forcebeyond.store/oscar/energy-power-generation#webpage",
+      "url": "https://www.forcebeyond.store/oscar/energy-power-generation",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
@@ -72,7 +76,7 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/oscar/power-generation#service",
+      "@id": "https://www.forcebeyond.store/oscar/energy-power-generation#service",
       "name": "Power Generation Manufacturing Solutions",
       "serviceType": "Energy Sector Precision Components",
       "description": seoDescription,
@@ -122,7 +126,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/oscar/power-generation#faq",
+      "@id": "https://www.forcebeyond.store/oscar/energy-power-generation#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,
@@ -141,7 +145,7 @@ const pageSchema = {
     description={seoDescription}
     schema={pageSchema}
     pageTitle={pageTitle}
-    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImage="/oscar/media/combined-cycle-power-generation-plant-grid-infrastructure-hero.webp"
     heroImageAlt="High-performance power generation forged and machined components"
     faqSectionTitle="Frequently Asked Questions"
     faqItems={faqs}
@@ -172,8 +176,8 @@ const pageSchema = {
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
-                                src="/oscar/media/power-generation-overview-4k.webp"
-                                alt="Heavy-duty forged and machined energy sector component designed for extreme thermal loads."
+                                src="/oscar/media/nuclear-power-plant-cooling-towers-energy-generation.webp"
+                                alt="Nuclear power plant with illuminated cooling towers, steam plumes, and electrical transmission infrastructure at night."
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
                         </div>

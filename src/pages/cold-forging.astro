@@ -19,15 +19,16 @@ const faqs = [
     }
 ];
 
-// Sources 
+// Sources
 const sources = [
-    { label: 'American Foundry Society: "Metal Casting"', url: 'https://www.afsinc.org' },
-    { label: 'Forging Industry Association: "Forging Industry"', url: 'https://www.forging.org' },
-    { label: 'efunda. “Sand Casting“', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'The Investment Casting Institute. “What is Investment Casting?“',url:'https://www.investmentcasting.org/what-is-investment-casting.html'},
-    { label: 'ASM International. “Inconel 718 Alloy“', url: 'https://www.asminternational.org/materials-resources/alloy-database/technical-bulletin/inconel-718-alloy' }
+    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
+    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
+    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
+    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
+    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
+    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
 ];
-
 // Resources 
 const internalResources = [
     // Die Casting Resources
@@ -57,14 +58,14 @@ const internalResources = [
     { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
     { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
 ];
-// Service / Product Schema
+// Service / Product Schema (GEO-Optimized)
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/oscar/beta-titanium-forging#webpage",
-      "url": "https://www.forcebeyond.store/oscar/beta-titanium-forging",
+      "@id": "https://www.forcebeyond.store/oscar/cold-forging#webpage",
+      "url": "https://www.forcebeyond.store/oscar/cold-forging",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
@@ -76,73 +77,101 @@ const pageSchema = {
       "about": [
         {
           "@type": "Thing",
-          "name": "Titanium alloy",
-          "sameAs": "https://en.wikipedia.org/wiki/Titanium_alloy"
+          "name": "Cold forging",
+          "sameAs": "https://en.wikipedia.org/wiki/Forging#Cold_forging"
         },
         {
           "@type": "Thing",
-          "name": "Forging",
-          "sameAs": "https://en.wikipedia.org/wiki/Forging"
+          "name": "Work hardening",
+          "sameAs": "https://en.wikipedia.org/wiki/Work_hardening"
         },
         {
           "@type": "Thing",
-          "name": "Beta titanium alloys",
-          "sameAs": "https://en.wikipedia.org/wiki/Beta_titanium_alloys"
+          "name": "Extrusion",
+          "sameAs": "https://en.wikipedia.org/wiki/Extrusion"
         }
       ]
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/oscar/beta-titanium-forging#service",
-      "name": "High-Strength Beta Titanium Forging Services",
-      "serviceType": "Beta Titanium Forging Services",
+      "@id": "https://www.forcebeyond.store/oscar/cold-forging#service",
+      "name": "High-Volume Precision Cold Forging & Cold Heading Services",
+      "serviceType": "Net-Shape Cold Forging & Extrusion",
       "description": seoDescription,
       "provider": {
         "@type": "Organization",
-        "id": "https://www.forcebeyond.store/oscar#organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
         "name": "ForceBeyond",
         "url": "https://www.forcebeyond.store/oscar",
+        "logo": "https://www.forcebeyond.store/oscar/media/logo.png",
         "knowsAbout": [
-          "Beta Titanium Forging",
-          "Ti-10V-2Fe-3Al & Beta-C (Grade 19) Alloys",
-          "Solution Treated and Aged (STA) Microstructures",
-          "High Yield Strength (>1200 MPa) Forging",
-          "Fracture Toughness & Fatigue Resistance Optimization",
-          "Aerospace Landing Gear & Fastener Production",
-          "Closed-Die Forging & Seamless Rolled Rings"
-        ]
+          "High-Volume Precision Cold Forging & Heading",
+          "Strain Hardening / Work Hardening Mechanical Enhancement",
+          "Forward Extrusion, Backward Extrusion & Upsetting",
+          "Near-Net and True Net-Shape Fastener & Shaft Production",
+          "Carbon Steel (1008, 1018), Aluminum (6061, 7075), Copper & Brass Cold Forming",
+          "Secondary Thread Rolling & Micro-Machining",
+          "ISO 9001:2015 Quality Management System"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "New Castle",
+          "addressRegion": "DE",
+          "addressCountry": "US"
+        }
       },
       "areaServed": [
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "South Korea" },
-        { "@type": "Country", "name": "Taiwan" }
+        {
+          "@type": "Country",
+          "name": "United States",
+          "identifier": "US"
+        },
+        {
+          "@type": "Country",
+          "name": "South Korea",
+          "identifier": "KR"
+        },
+        {
+          "@type": "Country",
+          "name": "Taiwan",
+          "identifier": "TW"
+        },
+        {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": 39.6621,
+            "longitude": -75.5663
+          },
+          "geoRadius": "Global Supply Network"
+        }
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Beta Titanium Forging Capabilities",
+        "name": "Cold Forging Capabilities",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "STA Microstructure Optimization",
-              "description": "Advanced thermomechanical processing and closed-die forging of metastable Beta titanium alloys, tailored through strict Solution Treated and Aged heat treatment protocols to clear 1,200 MPa yield thresholds."
+              "name": "High-Speed Cold Heading & Upsetting",
+              "description": "Economical high-volume manufacturing of custom bolts, pins, studs, and fasteners leveraging strain hardening for increased yield strength."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Flight-Critical High-Fatigue Component Forging",
-              "description": "Precision engineering of high-strength aerospace components including landing gear cylinders, structural bulkheads, and heavy fasteners featuring continuous macro-grain flow lines."
+              "name": "Forward & Backward Extrusion",
+              "description": "Precision room-temperature extrusion for hollow cup-shaped parts, solid shafts, and electronic copper heat sinks with smooth surface finishes."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "End-to-End Tier-1.5 Metallurgical Validation",
-              "description": "Complete supply chain tracing from initial alloy melt through precision near-net-shape forging, heat treating, and multi-axis NDT inspection with detailed aerospace compliance documentation."
+              "name": "Tier-1.5 Component Finishing",
+              "description": "Assembly-ready finishing including thread rolling, CNC micro-machining, and surface plating (zinc, nickel, anodizing)."
             }
           }
         ]
@@ -150,7 +179,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/oscar/beta-titanium-forging#faq",
+      "@id": "https://www.forcebeyond.store/oscar/cold-forging#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,

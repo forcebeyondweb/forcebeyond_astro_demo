@@ -18,12 +18,13 @@ const faqs = [
 
 // Sources
 const sources = [
-    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
-    { label: 'AS9100 Rev D Quality Management Systems - Aviation, Space & Defense', url: 'https://www.sae.org' },
-    { label: 'IATF 16949 Automotive Quality Management Standard', url: 'https://www.iatfglobaloversight.org' },
-    { label: 'EN 10204 Metallic Products - Types of Inspection Documents', url: 'https://www.iso.org' },
-    { label: 'ASTM E192 Standard Reference Radiographs for Investment Steel Castings', url: 'https://www.astm.org' },
-    { label: 'ASTM E1417 Standard Practice for Liquid Penetrant Testing', url: 'https://www.astm.org' }
+    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
+    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
+    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
+    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
+    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
+    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
 ];
 
 // Resources
@@ -162,27 +163,12 @@ const pageSchema = {
             <div class="content-container">
                 
                 <h2>Materials & Technical Specifications: Engineered Metal Alloys</h2>
-
-                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
-                    <div>
                         <p>
                             At ForceBeyond, material selection dictates component performance. Operating under strict ISO 9001:2015, AS9100 Rev D, and IATF 16949 quality systems, we pour, forge, and machine a broad spectrum of high-performance metals engineered to withstand severe thermal stress, extreme mechanical fatigue, and aggressive chemical environments.
                         </p>
                         <p>
                             Whether your application demands low-density structural titanium for aerospace airframes, high-nickel superalloys for SMR nuclear reactor loops, or corrosion-resistant duplex stainless steel for subsea petroleum extraction, ForceBeyond provides complete metallurgical validation from raw melt to final CMM inspection.
                         </p>
-                    </div>
-                    <div class="relative">
-                        <div class="overflow-hidden">
-                            <img
-                                src="/oscar/media/materials-technical-specs-overview-4k.webp"
-                                alt="Engineered metal alloy billet and precision-machined component."
-                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                            />
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </section>
 
@@ -205,25 +191,41 @@ const pageSchema = {
 
                         <tbody>
                             <tr>
-                                <th scope="row">Superalloys & Exotic Metals</th>
+                                <th scope="row">
+                                    <a href="/oscar/superalloys-exotic-metals" class="highlight-link">
+                                        Superalloys & Exotic Metals
+                                    </a>
+                                </th>
                                 <td>Inconel 718/625, Hastelloy X, CoCrMo</td>
                                 <td>Extreme thermal creep resistance up to 1,800°F (980°C); immunity to hot corrosion and oxidation.</td>
                                 <td>Aerospace Turbines, SMR Nuclear, Medical Implants.</td>
                             </tr>
                             <tr>
-                                <th scope="row">Titanium Alloys</th>
+                                <th scope="row">
+                                    <a href="/oscar/titanium-alloys" class="highlight-link">
+                                        Titanium Alloys
+                                    </a>
+                                </th>
                                 <td>Ti-6Al-4V (Grade 5), Ti-6Al-4V ELI, Grade 2</td>
                                 <td>High strength-to-weight ratio, excellent fatigue resistance, and non-magnetic biocompatibility.</td>
                                 <td>Flight Actuators, Deepwater Drilling, Surgical Tools.</td>
                             </tr>
                             <tr>
-                                <th scope="row">Stainless & Carbon Steel</th>
+                                <th scope="row">
+                                    <a href="/oscar/stainless-carbon-steel" class="highlight-link">
+                                        Stainless & Carbon Steel
+                                    </a>
+                                </th>
                                 <td>304/316L, 17-4 PH, Duplex 2205/2507, 4140</td>
                                 <td>Superior pitting/crevice corrosion resistance, high tensile strength, and excellent wear resistance.</td>
                                 <td>Oil & Gas, Fluid Control, Mining Teeth.</td>
                             </tr>
                             <tr>
-                                <th scope="row">Aluminum & Copper Alloys</th>
+                                <th scope="row">
+                                    <a href="/oscar/aluminum-copper-alloys" class="highlight-link">
+                                        Aluminum & Copper Alloys
+                                    </a>
+                                </th>
                                 <td>A356-T6, A380, ECO BRASS®, C11000 Copper</td>
                                 <td>Exceptional thermal/electrical conductivity, low density, and high pressure-tight castability.</td>
                                 <td>Data Center Power, EV Automotive, Busbars.</td>

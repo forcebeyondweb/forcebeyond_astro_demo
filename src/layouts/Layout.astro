@@ -23,12 +23,7 @@ const {
         <link rel="icon" href="/oscar/media/webfavicon_0.png" />
         <title>{title}</title>
 
-        <!-- ================================
-            Global Font System
-            Change fonts here only
-            ================================ -->
-
-        <!-- Google Font: Inter -->
+        <!-- Google Font: Inter & Merriweather -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
@@ -48,13 +43,9 @@ const {
         max-width: 100%;
     }
 
-    
-    
-
     /* Active navigation state */
     .nav-link-active {
         color: #0363ce !important;
-        
     }
 
     .dropdown-item-active {
@@ -64,7 +55,6 @@ const {
 
     .mobile-nav-active {
         color: #0363ce !important;
-        
         background-color: #f8fafc;
     }
     header span.text-xs,
@@ -100,8 +90,7 @@ const {
     </head>
     <body class="bg-white text-slate-800 antialiased selection:bg-blue-600 selection:text-white flex flex-col min-h-screen">
         
-        <!-- 全局悬浮导航栏 Header (全宽充满，跨页面常驻) -->
-        <!-- 全局悬浮导航栏 Header -->
+        <!-- Header -->
 <header class="sticky top-[-9px] z-50 w-full border-b border-slate-200 bg-white px-6 sm:px-12 shrink-0">
     <div class="flex h-20 w-full items-center justify-between">
         
@@ -120,17 +109,16 @@ const {
         <nav class="hidden desktop:flex items-center gap-5 h-full text-[16px] tracking-wide text-slate-900">
     
             <!-- Home -->
-            <a href="/oscar/#" class="py-8 hover:text-brand-blue transition">
+            <a href="/oscar/" class="py-8 hover:text-brand-blue transition">
                 Home
             </a>
             
             <!-- About Us Dropdown -->
             <div class="relative group flex items-center h-full">
-                <a class="inline-flex items-center gap-1 py-8 hover:text-brand-blue transition cursor-pointer">
+                <button type="button" aria-haspopup="true" aria-expanded="false" class="inline-flex items-center gap-1 py-8 hover:text-brand-blue transition cursor-pointer text-slate-900 font-normal border-none bg-transparent p-0">
                     About Us
-                    <span class="text-xs">▾</span>
-                </a>
-
+                    <span class="text-xs" aria-hidden="true">▾</span>
+                </button>
 
                 <div class="invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 absolute left-0 top-full z-50">
                     <div class="relative min-w-[200px] bg-white border border-slate-200 shadow-2xl">
@@ -150,11 +138,11 @@ const {
                 </div>
             </div>
             
-            <!--Capabilities  Dropdown -->
+            <!-- Capabilities Dropdown -->
             <div class="relative group flex items-center h-full">
-                <a class="inline-flex items-center gap-1 py-8 hover:text-brand-blue transition">
+                <a href="/oscar/capabilities" class="inline-flex items-center gap-1 py-8 hover:text-brand-blue transition">
                     Capabilities
-                    <span class="text-xs">▾</span>
+                    <span class="text-xs" aria-hidden="true">▾</span>
                 </a>
 
                 <div class="invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 absolute left-0 top-full z-50">
@@ -165,7 +153,7 @@ const {
                             <li class="relative group/submenu">
                                 <a href="/oscar/forging" class="flex items-stretch justify-between px-5 py-2.5 font-semibold transition hover:bg-brand-blue hover:text-white">
                                     <span>Forging</span>
-                                    <span class="text-xs">▶</span>
+                                    <span class="text-xs" aria-hidden="true">▶</span>
                                 </a>
                                 <div class="invisible opacity-0 translate-x-2 group-hover/submenu:visible group-hover/submenu:opacity-100 group-hover/submenu:translate-x-0 transition-all duration-200 absolute left-full top-[-9px] z-50">
                                     <div class="min-w-[240px] bg-white border border-slate-200 shadow-2xl">
@@ -174,7 +162,7 @@ const {
                                             <li class="relative group/subsub">
                                                 <a href="/oscar/superalloy-forging-services" class="flex items-center justify-between px-6 py-2.5 font-semibold hover:bg-slate-50 hover:text-brand-blue transition">
                                                     <span>Superalloy Forging</span>
-                                                    <span class="text-xs">▶</span>
+                                                    <span class="text-xs" aria-hidden="true">▶</span>
                                                 </a>
                                                 <div class="invisible opacity-0 translate-x-2 group-hover/subsub:visible group-hover/subsub:opacity-100 group-hover/subsub:translate-x-0 transition-all duration-200 absolute left-full top-[-9px] z-50">
                                                     <div class="min-w-[200px] bg-white border border-slate-200 shadow-2xl py-2 text-sm text-slate-700">
@@ -187,7 +175,7 @@ const {
                                             <li class="relative group/subsub">
                                                 <a href="/oscar/titanium-forging" class="flex items-center justify-between px-6 py-2.5 font-semibold hover:bg-slate-50 hover:text-brand-blue transition">
                                                     <span>Titanium Forging</span>
-                                                    <span class="text-xs">▶</span>
+                                                    <span class="text-xs" aria-hidden="true">▶</span>
                                                 </a>
                                                 <div class="invisible opacity-0 translate-x-2 group-hover/subsub:visible group-hover/subsub:opacity-100 group-hover/subsub:translate-x-0 transition-all duration-200 absolute left-full top-[-9px] z-50">
                                                     <div class="min-w-[190px] bg-white border border-slate-200 shadow-2xl py-2 text-sm text-slate-700">
@@ -211,7 +199,7 @@ const {
                             <li class="relative group/submenu">
                                 <a href="/oscar/casting" class="flex items-center justify-between px-5 py-2.5 font-semibold transition hover:bg-brand-blue hover:text-white">
                                     <span>Casting</span>
-                                    <span class="text-xs">▶</span>
+                                    <span class="text-xs" aria-hidden="true">▶</span>
                                 </a>
                                 <div class="invisible opacity-0 translate-x-2 group-hover/submenu:visible group-hover/submenu:opacity-100 group-hover/submenu:translate-x-0 transition-all duration-200 absolute left-full top-[-9px] z-50">
                                     <div class="min-w-[220px] bg-white border border-slate-200 shadow-2xl">
@@ -220,7 +208,7 @@ const {
                                             <li class="relative group/subsub">
                                                 <a href="/oscar/superalloy-casting-services" class="flex items-center justify-between px-6 py-2.5 font-semibold hover:bg-slate-50 hover:text-brand-blue transition">
                                                     <span>Superalloy Casting</span>
-                                                    <span class="text-xs">▶</span>
+                                                    <span class="text-xs" aria-hidden="true">▶</span>
                                                 </a>
                                                 <div class="invisible opacity-0 translate-x-2 group-hover/subsub:visible group-hover/subsub:opacity-100 group-hover/subsub:translate-x-0 transition-all duration-200 absolute left-full top-[-9px] z-50">
                                                     <div class="min-w-[200px] bg-white border border-slate-200 shadow-2xl py-2 text-sm text-slate-700">
@@ -234,7 +222,7 @@ const {
                                             <li class="relative group/subsub">
                                                 <a href="/oscar/titanium-casting" class="flex items-center justify-between px-6 py-2.5 font-semibold hover:bg-slate-50 hover:text-brand-blue transition">
                                                     <span>Titanium Casting</span>
-                                                    <span class="text-xs">▶</span>
+                                                    <span class="text-xs" aria-hidden="true">▶</span>
                                                 </a>
                                                 <div class="invisible opacity-0 translate-x-2 group-hover/subsub:visible group-hover/subsub:opacity-100 group-hover/subsub:translate-x-0 transition-all duration-200 absolute left-full top-[-9px] z-50">
                                                     <div class="min-w-[200px] bg-white border border-slate-200 shadow-2xl py-2 text-sm text-slate-700">
@@ -248,7 +236,7 @@ const {
                                             <li class="relative group/subsub">
                                                 <a href="/oscar/investment-casting" class="flex items-center justify-between px-6 py-2.5 font-semibold hover:bg-slate-50 hover:text-brand-blue transition">
                                                     <span>Investment Casting</span>
-                                                    <span class="text-xs">▶</span>
+                                                    <span class="text-xs" aria-hidden="true">▶</span>
                                                 </a>
                                                 <div class="invisible opacity-0 translate-x-2 group-hover/subsub:visible group-hover/subsub:opacity-100 group-hover/subsub:translate-x-0 transition-all duration-200 absolute left-full top-[-9px] z-50">
                                                     <div class="min-w-[220px] bg-white border border-slate-200 shadow-2xl py-2 text-sm text-slate-700">
@@ -261,7 +249,7 @@ const {
                                             <li class="relative group/subsub">
                                                 <a href="/oscar/die-casting" class="flex items-center justify-between px-6 py-2.5 font-semibold hover:bg-slate-50 hover:text-brand-blue transition">
                                                     <span>Die Casting</span>
-                                                    <span class="text-xs">▶</span>
+                                                    <span class="text-xs" aria-hidden="true">▶</span>
                                                 </a>
                                                 <div class="invisible opacity-0 translate-x-2 group-hover/subsub:visible group-hover/subsub:opacity-100 group-hover/subsub:translate-x-0 transition-all duration-200 absolute left-full top-[-9px] z-50">
                                                     <div class="min-w-[200px] bg-white border border-slate-200 shadow-2xl py-2 text-sm text-slate-700">
@@ -284,7 +272,7 @@ const {
                             <li class="relative group/submenu">
                                 <a href="/oscar/precision-machining" class="flex items-center justify-between px-5 py-2.5 font-semibold transition hover:bg-brand-blue hover:text-white">
                                     <span>Precision Machining</span>
-                                    <span class="text-xs">▶</span>
+                                    <span class="text-xs" aria-hidden="true">▶</span>
                                 </a>
                                 <div class="invisible opacity-0 translate-x-2 group-hover/submenu:visible group-hover/submenu:opacity-100 group-hover/submenu:translate-x-0 transition-all duration-200 absolute left-full top-[-9px] z-50">
                                     <div class="min-w-[340px] bg-white border border-slate-200 shadow-2xl">
@@ -293,7 +281,7 @@ const {
                                             <li class="relative group/subsub">
                                                 <a href="/oscar/superalloy-machining-services" class="flex items-center justify-between px-6 py-2.5 font-semibold hover:bg-slate-50 hover:text-brand-blue transition">
                                                     <span>Superalloy Machining</span>
-                                                    <span class="text-xs">▶</span>
+                                                    <span class="text-xs" aria-hidden="true">▶</span>
                                                 </a>
                                                 <div class="invisible opacity-0 translate-x-2 group-hover/subsub:visible group-hover/subsub:opacity-100 group-hover/subsub:translate-x-0 transition-all duration-200 absolute left-full top-[-9px] z-50">
                                                     <div class="min-w-[220px] bg-white border border-slate-200 shadow-2xl py-2 text-sm text-slate-700">
@@ -306,7 +294,7 @@ const {
                                             <li class="relative group/subsub">
                                                 <a href="/oscar/titanium-machining" class="flex items-center justify-between px-6 py-2.5 font-semibold hover:bg-slate-50 hover:text-brand-blue transition">
                                                     <span>Titanium Machining</span>
-                                                    <span class="text-xs">▶</span>
+                                                    <span class="text-xs" aria-hidden="true">▶</span>
                                                 </a>
                                                 <div class="invisible opacity-0 translate-x-2 group-hover/subsub:visible group-hover/subsub:opacity-100 group-hover/subsub:translate-x-0 transition-all duration-200 absolute left-full top-[-9px] z-50">
                                                     <div class="min-w-[280px] bg-white border border-slate-200 shadow-2xl py-2 text-sm text-slate-700">
@@ -329,7 +317,7 @@ const {
                             <li class="relative group/submenu">
                                 <a href="/oscar/secondary-operations" class="flex items-center justify-between px-5 py-2.5 font-semibold transition hover:bg-brand-blue hover:text-white">
                                     <span>Secondary Operations</span>
-                                    <span class="text-xs">▶</span>
+                                    <span class="text-xs" aria-hidden="true">▶</span>
                                 </a>
                                 <div class="invisible opacity-0 translate-x-2 group-hover/submenu:visible group-hover/submenu:opacity-100 group-hover/submenu:translate-x-0 transition-all duration-200 absolute left-full top-[-9px] z-50">
                                     <div class="min-w-[300px] bg-white border border-slate-200 shadow-2xl">
@@ -352,12 +340,11 @@ const {
                 </div>
             </div>
 
-
             <!-- Industries Dropdown -->
             <div class="relative group flex items-center h-full">
-                <a class="inline-flex items-center gap-1 py-8 hover:text-brand-blue transition cursor-pointer">
+                <a href="/oscar/industries" class="inline-flex items-center gap-1 py-8 hover:text-brand-blue transition cursor-pointer">
                     Industries
-                    <span class="text-xs">▾</span>
+                    <span class="text-xs" aria-hidden="true">▾</span>
                 </a>
 
                 <div class="invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 absolute left-0 top-full z-50">
@@ -368,7 +355,7 @@ const {
                             <li class="relative group/submenu">
                                 <a href="/oscar/energy-power-generation" class="flex items-center justify-between px-5 py-2.5 font-semibold transition hover:bg-brand-blue hover:text-white">
                                     <span>Energy & Power Generation</span>
-                                    <span class="text-xs">▶</span>
+                                    <span class="text-xs" aria-hidden="true">▶</span>
                                 </a>
                                 <div class="invisible opacity-0 translate-x-2 group-hover/submenu:visible group-hover/submenu:opacity-100 group-hover/submenu:translate-x-0 transition-all duration-200 absolute left-full top-[-9px] z-50">
                                     <div class="min-w-[240px] bg-white border border-slate-200 shadow-2xl">
@@ -445,7 +432,7 @@ const {
             <div class="relative group flex items-center h-full">
                 <a href="/oscar/materials-technical-specs" class="inline-flex items-center gap-1 py-8 hover:text-brand-blue transition cursor-pointer">
                     Materials & Technical Specs
-                    <span class="text-xs">▾</span>
+                    <span class="text-xs" aria-hidden="true">▾</span>
                 </a>
 
                 <div class="invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 absolute left-0 top-full z-50">
@@ -485,22 +472,17 @@ const {
                     </div>
                 </div>
             </div>
+
             <!-- Quality Control -->
-           <div class="relative group flex items-center h-full">
+            <div class="relative group flex items-center h-full">
                 <a href="/oscar/quality-global-supply-chain" class="inline-flex items-center gap-1 py-8 hover:text-brand-blue transition cursor-pointer">
                     Quality & Global Supply Chain
-                    <span class="text-xs">▾</span>
+                    <span class="text-xs" aria-hidden="true">▾</span>
                 </a>
 
                 <div class="invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 absolute left-0 top-full z-50">
-                    <div class="relative min-w-[20
-                    0px] bg-white border border-slate-200 shadow-2xl">
+                    <div class="relative min-w-[200px] bg-white border border-slate-200 shadow-2xl">
                         <ul class="py-2 text-sm text-slate-700">
-                            <li>
-                                <a href="/oscar/global-footprint-logistics" class="block px-5 py-2.5 font-semibold hover:bg-brand-blue hover:text-white transition">
-                                    Global Footprint & Logistics
-                                </a>
-                            </li>
                             <li>
                                 <a href="/oscar/quality-assurance-certifications" class="block px-5 py-2.5 font-semibold hover:bg-brand-blue hover:text-white transition">
                                     Quality Assurance & Certifications
@@ -509,6 +491,11 @@ const {
                             <li>
                                 <a href="/oscar/testing-inspection-capabilities" class="block px-5 py-2.5 font-semibold hover:bg-brand-blue hover:text-white transition">
                                     Testing & Inspection Capabilities
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/oscar/global-footprint-logistics" class="block px-5 py-2.5 font-semibold hover:bg-brand-blue hover:text-white transition">
+                                    Global Footprint & Logistics
                                 </a>
                             </li>
                         </ul>
@@ -545,359 +532,357 @@ const {
             </button>
         </div>
     </div>
-    <!-- Mobile Menu -->
-    <!-- Mobile Fullscreen Menu - Simple Nested Dropdown -->
+
+    <!-- Mobile Navigation Menu -->
     <div id="mobile-menu" class="hidden fixed inset-0 z-[80] bg-white desktop:hidden overflow-y-auto">
-    
-    <!-- Top brand strip -->
-    <div class="h-1.5 w-full bg-brand-blue"></div>
+        <div class="h-1.5 w-full bg-brand-blue"></div>
 
-    <!-- Mobile menu header -->
-    <div class="flex h-20 items-center justify-between border-b border-slate-200 px-6">
-        <a href="/oscar/" class="flex items-center">
-            <img 
-                src="/oscar/media/forcebeyond-logo.webp" 
-                alt="ForceBeyond Logo" 
-                class="h-10 w-auto object-contain"
-                loading="eager"
-                decoding="async"
-            />
-        </a>
-
-        <button 
-            id="mobile-menu-close"
-            class="inline-flex items-center justify-center text-slate-900 hover:text-brand-blue transition"
-            aria-label="Close mobile menu"
-            type="button"
-        >
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-            </svg>
-        </button>
-    </div>
-
-    <!-- Mobile navigation content -->
-    <nav class="flex flex-col text-slate-900 text-sm">
-        
-        <!-- Home -->
-        <a href="/oscar/#hero" class="mobile-menu-link border-b border-slate-100 px-6 py-4 font-semibold hover:text-brand-blue transition">
-            Home
-        </a>
-
-        <details class="group border-b border-slate-100">
-    <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-4 font-semibold hover:text-brand-blue transition">
-        <span>About Us</span>
-        <span class="text-xs transition-transform group-open:rotate-180">▾</span>
-    </summary>
-    <div class="bg-slate-50 border-t border-slate-100">
-        <a href="/oscar/about-forcebeyond" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue">About ForceBeyond</a>
-        <a href="/oscar/news-and-case-studies" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue">News & Case Studies</a>
-    </div>
-</details>
-
-        <!--Capabilities -->
-        <details class="group border-b border-slate-100">
-            <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-4 font-semibold hover:text-brand-blue transition">
-                <span>Capabilities</span>
-                <span class="text-xs transition-transform group-open:rotate-180">▾</span>
-            </summary>
-
-            <div class="bg-slate-50 border-t border-slate-100">
-
-                <!-- Forging Tier -->
-                <details class="group/cap border-b border-slate-200/70">
-                    <summary class="flex cursor-pointer list-none items-center justify-between py-3 pl-10 pr-6 font-semibold text-slate-700 hover:text-brand-blue">
-                        <span onclick="window.location.href='/oscar/forging'; event.stopPropagation();">Forging</span>
-                        <span class="text-xs transition-transform group-open/cap:rotate-180">▾</span>
-                    </summary>
-                    <div class="bg-white">
-                        <!-- Superalloy Forging Subtier -->
-                        <details class="group/subcap border-b border-slate-100">
-                            <summary class="flex cursor-pointer list-none items-center justify-between py-2 pl-14 pr-6 text-slate-600 hover:text-brand-blue">
-                                <span onclick="window.location.href='/oscar/superalloy-forging'; event.stopPropagation();">Superalloy Forging</span>
-                                <span class="text-xs transition-transform group-open/subcap:rotate-180">▾</span>
-                            </summary>
-                            <div class="bg-slate-50/50 py-1">
-                                <a href="/oscar/inconel-718-forging" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Inconel 718 Forging</a>
-                                <a href="/oscar/inconel-625-forging" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Inconel 625 Forging</a>
-                            </div>
-                        </details>
-                        <!-- Titanium Forging Subtier -->
-                        <details class="group/subcap border-b border-slate-100">
-                            <summary class="flex cursor-pointer list-none items-center justify-between py-2 pl-14 pr-6 text-slate-600 hover:text-brand-blue">
-                                <span onclick="window.location.href='/oscar/titanium-forging'; event.stopPropagation();">Titanium Forging</span>
-                                <span class="text-xs transition-transform group-open/subcap:rotate-180">▾</span>
-                            </summary>
-                            <div class="bg-slate-50/50 py-1">
-                                <a href="/oscar/titanium-aerospace-forging" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Titanium Aerospace Forging</a>
-                                <a href="/oscar/beta-titanium-forging" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Beta Titanium Forging</a>
-                                <a href="/oscar/near-net-shape-titanium-forging" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Near-Net-Shape Titanium Forging</a>
-                            </div>
-                        </details>
-                        <a href="/oscar/open-die-forging" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Open Die Forging</a>
-                        <a href="/oscar/closed-die-forging" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Closed Die Forging</a>
-                        <a href="/oscar/rolled-ring-forging" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Rolled Ring Forging</a>
-                        <a href="/oscar/c69300-brass-forging" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">ECO Brass C69300 Forging</a>
-                        <a href="/oscar/cold-forging" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Cold Forging</a>
-                        
-
-
-                    </div>
-                </details>
-
-                <!-- Casting Tier -->
-                <details class="group/cap border-b border-slate-200/70">
-                    <summary class="flex cursor-pointer list-none items-center justify-between py-3 pl-10 pr-6 font-semibold text-slate-700 hover:text-brand-blue">
-                        <span onclick="window.location.href='/oscar/casting'; event.stopPropagation();">Casting</span>
-                        <span class="text-xs transition-transform group-open/cap:rotate-180">▾</span>
-                    </summary>
-                    <div class="bg-white">
-                        <!-- Superalloy Casting Subtier -->
-                        <details class="group/subcap border-b border-slate-100">
-                            <summary class="flex cursor-pointer list-none items-center justify-between py-2 pl-14 pr-6 text-slate-600 hover:text-brand-blue">
-                                <span onclick="window.location.href='/oscar/superalloy-casting'; event.stopPropagation();">Superalloy Casting</span>
-                                <span class="text-xs transition-transform group-open/subcap:rotate-180">▾</span>
-                            </summary>
-                            <div class="bg-slate-50/50 py-1">
-                                <a href="/oscar/inconel-vacuum-precision-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Inconel Vacuum Precision Casting</a>
-                                <a href="/oscar/inconel-718-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Inconel 718 Casting</a>
-                                <a href="/oscar/inconel-625-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Inconel 625 Casting</a>
-                            </div>
-                        </details>
-                        <!-- Titanium Casting Subtier -->
-                        <details class="group/subcap border-b border-slate-100">
-                            <summary class="flex cursor-pointer list-none items-center justify-between py-2 pl-14 pr-6 text-slate-600 hover:text-brand-blue">
-                                <span onclick="window.location.href='/oscar/titanium-casting'; event.stopPropagation();">Titanium Casting</span>
-                                <span class="text-xs transition-transform group-open/subcap:rotate-180">▾</span>
-                            </summary>
-                            <div class="bg-slate-50/50 py-1">
-                                <a href="/oscar/titanium-aerospace-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Titanium Aerospace Casting</a>
-                                <a href="/oscar/titanium-investment-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Titanium Investment Casting</a>
-                                <a href="/oscar/industrial-titanium-sand-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Industrial Titanium Casting</a>
-                            </div>
-                        </details>
-                        <!-- Investment Casting Subtier -->
-                        <details class="group/subcap border-b border-slate-100">
-                            <summary class="flex cursor-pointer list-none items-center justify-between py-2 pl-14 pr-6 text-slate-600 hover:text-brand-blue">
-                                <span onclick="window.location.href='/oscar/investment-casting'; event.stopPropagation();">Investment Casting</span>
-                                <span class="text-xs transition-transform group-open/subcap:rotate-180">▾</span>
-                            </summary>
-                            <div class="bg-slate-50/50 py-1">
-                                <a href="/oscar/stainless-steel-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Stainless Steel Casting</a>
-                                <a href="/oscar/duplex-stainless-steel-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Duplex & Super Duplex Stainless Steel Casting</a>
-                            </div>
-                        </details>
-                        <!-- Die Casting Subtier -->
-                        <details class="group/subcap border-b border-slate-100">
-                            <summary class="flex cursor-pointer list-none items-center justify-between py-2 pl-14 pr-6 text-slate-600 hover:text-brand-blue">
-                                <span onclick="window.location.href='/oscar/die-casting'; event.stopPropagation();">Die Casting</span>
-                                <span class="text-xs transition-transform group-open/subcap:rotate-180">▾</span>
-                            </summary>
-                            <div class="bg-slate-50/50 py-1">
-                                <a href="/oscar/aluminum-die-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Aluminum Die Casting</a>
-                                <a href="/oscar/zinc-die-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Zinc Die Casting</a>
-                                <a href="/oscar/a356-t6-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">A356-T6 Casting</a>
-                                <a href="/oscar/magnesium-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Magnesium Casting</a>
-                            </div>
-                        </details>
-                        <a href="/oscar/carbon-steel-casting" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Carbon & Low Alloy Steel Casting</a>
-                        <a href="/oscar/sand-casting" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Sand Casting</a>
-                    </div>
-                </details>
-
-                <!-- Precision Machining Tier -->
-                <details class="group/cap border-b border-slate-200/70">
-                    <summary class="flex cursor-pointer list-none items-center justify-between py-3 pl-10 pr-6 font-semibold text-slate-700 hover:text-brand-blue">
-                        <span onclick="window.location.href='/oscar/precision-machining'; event.stopPropagation();">Precision Machining</span>
-                        <span class="text-xs transition-transform group-open/cap:rotate-180">▾</span>
-                    </summary>
-                    <div class="bg-white">
-                        <!-- Superalloy Machining Subtier -->
-                        <details class="group/subcap border-b border-slate-100">
-                            <summary class="flex cursor-pointer list-none items-center justify-between py-2 pl-14 pr-6 text-slate-600 hover:text-brand-blue">
-                                <span onclick="window.location.href='/oscar/superalloy-machining'; event.stopPropagation();">Superalloy Machining</span>
-                                <span class="text-xs transition-transform group-open/subcap:rotate-180">▾</span>
-                            </summary>
-                            <div class="bg-slate-50/50 py-1">
-                                <a href="/oscar/inconel-718-machining" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Inconel 718 Machining</a>
-                                <a href="/oscar/inconel-625-machining" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Inconel 625 Machining</a>
-                            </div>
-                        </details>
-                        <!-- Titanium Machining Subtier -->
-                        <details class="group/subcap border-b border-slate-100">
-                            <summary class="flex cursor-pointer list-none items-center justify-between py-2 pl-14 pr-6 text-slate-600 hover:text-brand-blue">
-                                <span onclick="window.location.href='/oscar/titanium-machining'; event.stopPropagation();">Titanium Machining</span>
-                                <span class="text-xs transition-transform group-open/subcap:rotate-180">▾</span>
-                            </summary>
-                            <div class="bg-slate-50/50 py-1">
-                                <a href="/oscar/aerospace-titanium-machining" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Aerospace Titanium Machining</a>
-                                <a href="/oscar/industrial-titanium-machining" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Industrial Titanium Machining</a>
-                                <a href="/oscar/near-net-shape-titanium-machining" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Near-Net-Shape Titanium Machining</a>
-                            </div>
-                        </details>
-                        <a href="/oscar/stainless-steel-machining" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Stainless Steel Machining</a>
-                        <a href="/oscar/duplex-machining" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Duplex & Super Duplex Stainless Steel Machining</a>
-                        <a href="/oscar/high-precision-machining" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">High-Precision Component Machining</a>
-                        <a href="/oscar/multi-axis-cnc" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Multi-Axis CNC Milling & Turning</a>
-                        
-                        
-                    </div>
-                </details>
-
-                <!-- Secondary Operations & Assembly Tier -->
-                <details class="group/cap">
-                    <summary class="flex cursor-pointer list-none items-center justify-between py-3 pl-10 pr-6 font-semibold text-slate-700 hover:text-brand-blue">
-                        <span onclick="window.location.href='/oscar/secondary-operations'; event.stopPropagation();">Secondary Operations</span>
-                        <span class="text-xs transition-transform group-open/cap:rotate-180">▾</span>
-                    </summary>
-                    <div class="bg-white">
-                        <a href="/oscar/surface-finishing" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Surface Finishing & Coating</a>
-                        <a href="/oscar/heat-treatment" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Heat Treatment</a>
-                        <a href="/oscar/hot-isostatic-pressing" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Hot Isostatic Pressing</a>
-
-                    </div>
-                </details>
-                
-                <!-- Assmebly and Kitting -->
-                <details class="group/cap">
-                    <summary class="flex cursor-pointer list-none items-center justify-between py-3 pl-10 pr-6 font-semibold text-slate-700 hover:text-brand-blue">
-                        <span onclick="window.location.href='/oscar/assembly-and-kitting'; event.stopPropagation();">Assembly & Kitting</span>
-                    </summary>
-                </details>
-                 
-            </div>
-        </details>
-
-        <!-- Industries -->
-        <details class="group border-b border-slate-100">
-            <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-4 font-semibold hover:text-brand-blue transition">
-                <span>Industries</span>
-                <span class="text-xs transition-transform group-open:rotate-180">▾</span>
-            </summary>
-            <div class="bg-slate-50 border-t border-slate-100">
-                
-                <!-- 1. Energy & Power Generation -->
-                <details class="group/ind border-b border-slate-200/70">
-                    <summary class="flex cursor-pointer list-none items-center justify-between py-3 pl-10 pr-6 font-semibold text-slate-700 hover:text-brand-blue">
-                        <span onclick="window.location.href='/oscar/energy-power-generation'; event.stopPropagation();">Energy & Power Generation</span>
-                        <span class="text-xs transition-transform group-open/ind:rotate-180">▾</span>
-                    </summary>
-                    <div class="bg-white py-1">
-                        <a href="/oscar/data-center-power" class="mobile-menu-link block py-2 pl-14 pr-6 text-slate-600 hover:text-brand-blue">
-                            Data Center Power
-                        </a>
-                        <a href="/oscar/nuclear-smr" class="mobile-menu-link block py-2 pl-14 pr-6 text-slate-600 hover:text-brand-blue">
-                            Nuclear & SMR Components
-                        </a>
-                    </div>
-                </details>
-
-                <!-- 2. Space & Defence -->
-                <a href="/oscar/space-defence" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
-                    Space & Defence
-                </a>
-
-                <!-- 3. Oil & Gas -->
-                <a href="/oscar/oil-gas" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
-                    Oil & Gas
-                </a>
-
-                <!-- 4. Mining & Heavy Equipment -->
-                <a href="/oscar/mining" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
-                    Mining & Heavy Equipment
-                </a>
-
-                <!-- 5. Automotive -->
-                <a href="/oscar/automotive" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
-                    Automotive
-                </a>
-
-                <!-- 6. HVAC, Fluid & Flow Control -->
-                <a href="/oscar/hvac-flow" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
-                    HVAC, Fluid & Flow Control
-                </a>
-
-                <!-- 7. Medical & Healthcare -->
-                <a href="/oscar/medical" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
-                    Medical & Healthcare
-                </a>
-
-                <!-- 8. Agricultural Equipment -->
-                <a href="/oscar/agricultural" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue">
-                    Agricultural Equipment
-                </a>
-
-            </div>
-        </details>
-       <details class="group border-b border-slate-100">
-            <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-4 font-semibold hover:text-brand-blue transition">
-                <span onclick="window.location.href='/oscar/materials-technical-specs'; event.stopPropagation();">Materials & Technical Specs</span>
-                <span class="text-xs transition-transform group-open:rotate-180">▾</span>
-            </summary>
-            <div class="bg-slate-50 border-t border-slate-100">
-                <a href="/oscar/superalloys-exotic-metals" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
-                    Superalloys & Exotic Metals
-                </a>
-                <a href="/oscar/titanium-alloys" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
-                    Titanium Alloys
-                </a>
-                <a href="/oscar/stainless-carbon-steel" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
-                    Stainless Steel & Carbon Steel
-                </a>
-                <a href="/oscar/aluminum-copper-alloys" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
-                    Aluminum & Copper Alloys
-                </a>
-                <a href="/oscar/material-cross-reference-charts" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
-                    Material Cross-Reference Charts
-                </a>
-                <a href="/oscar/manufacturing-design-guides" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue">
-                    Manufacturing Design Guides
-                </a>
-            </div>
-        </details>
-
-        <!-- Mobile Quality & Global Supply Chain Dropdown -->
-        <details class="group border-b border-slate-100">
-            <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-4 font-semibold hover:text-brand-blue transition">
-                <span onclick="window.location.href='/oscar/quality-global-supply-chain'; event.stopPropagation();">Quality & Global Supply Chain</span>
-                <span class="text-xs transition-transform group-open:rotate-180">▾</span>
-            </summary>
-            <div class="bg-slate-50 border-t border-slate-100">
-                <a href="/oscar/global-footprint-logistics" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
-                    Global Footprint & Logistics
-                </a>
-                <a href="/oscar/quality-assurance-certifications" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
-                    Quality Assurance & Certifications
-                </a>
-                <a href="/oscar/testing-inspection-capabilities" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue">
-                    Testing & Inspection Capabilities
-                </a>
-            </div>
-        </details>
-
-        <a href="/oscar/contact-us" class="mobile-menu-link border-b border-slate-100 px-6 py-4 font-semibold hover:text-brand-blue transition">
-            Contact Us
-        </a>
-
-        <div class="px-6 py-6">
-            <a 
-                href="/oscar/request-a-quote" 
-                class="mobile-menu-link inline-flex w-full items-center justify-center rounded-full bg-brand-green px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#5aaa14] shadow-sm"
-            >
-                Request Quote
+        <div class="flex h-20 items-center justify-between border-b border-slate-200 px-6">
+            <a href="/oscar/" class="flex items-center">
+                <img 
+                    src="/oscar/media/forcebeyond-logo.webp" 
+                    alt="ForceBeyond Logo" 
+                    class="h-10 w-auto object-contain"
+                    loading="eager"
+                    decoding="async"
+                />
             </a>
+
+            <button 
+                id="mobile-menu-close"
+                class="inline-flex items-center justify-center text-slate-900 hover:text-brand-blue transition"
+                aria-label="Close mobile menu"
+                type="button"
+            >
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+            </button>
         </div>
 
-    </nav>
-</div>
+        <nav class="flex flex-col text-slate-900 text-sm">
+            <a href="/oscar/" class="mobile-menu-link border-b border-slate-100 px-6 py-4 font-semibold hover:text-brand-blue transition">
+                Home
+            </a>
+
+            <!-- About Us -->
+            <details class="group border-b border-slate-100">
+                <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-4 font-semibold hover:text-brand-blue transition">
+                    <span>About Us</span>
+                    <span class="text-xs transition-transform group-open:rotate-180" aria-hidden="true">▾</span>
+                </summary>
+                <div class="bg-slate-50 border-t border-slate-100">
+                    <a href="/oscar/about-forcebeyond" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue">About ForceBeyond</a>
+                    <a href="/oscar/news-and-case-studies" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue">News & Case Studies</a>
+                </div>
+            </details>
+
+            <!-- Capabilities -->
+            <details class="group border-b border-slate-100">
+                <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-4 font-semibold hover:text-brand-blue transition">
+                    <span>Capabilities</span>
+                    <span class="text-xs transition-transform group-open:rotate-180" aria-hidden="true">▾</span>
+                </summary>
+
+                <div class="bg-slate-50 border-t border-slate-100">
+
+                    <!-- Forging Tier -->
+                    <details class="group/cap border-b border-slate-200/70">
+                        <summary class="flex cursor-pointer list-none items-center justify-between py-3 pl-10 pr-6 font-semibold text-slate-700 hover:text-brand-blue">
+                            <span>Forging</span>
+                            <span class="text-xs transition-transform group-open/cap:rotate-180" aria-hidden="true">▾</span>
+                        </summary>
+                        <div class="bg-white">
+                            <a href="/oscar/forging" class="mobile-menu-link block py-2.5 pl-14 pr-6 font-semibold text-brand-blue border-b border-slate-100">Overview: Forging</a>
+                            
+                            <!-- Superalloy Forging Subtier -->
+                            <details class="group/subcap border-b border-slate-100">
+                                <summary class="flex cursor-pointer list-none items-center justify-between py-2 pl-14 pr-6 text-slate-600 hover:text-brand-blue">
+                                    <span>Superalloy Forging</span>
+                                    <span class="text-xs transition-transform group-open/subcap:rotate-180" aria-hidden="true">▾</span>
+                                </summary>
+                                <div class="bg-slate-50/50 py-1">
+                                    <a href="/oscar/superalloy-forging-services" class="mobile-menu-link block py-2 pl-20 pr-6 font-semibold text-brand-blue">Overview: Superalloy Forging</a>
+                                    <a href="/oscar/inconel-718-forging" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Inconel 718 Forging</a>
+                                    <a href="/oscar/inconel-625-forging" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Inconel 625 Forging</a>
+                                </div>
+                            </details>
+
+                            <!-- Titanium Forging Subtier -->
+                            <details class="group/subcap border-b border-slate-100">
+                                <summary class="flex cursor-pointer list-none items-center justify-between py-2 pl-14 pr-6 text-slate-600 hover:text-brand-blue">
+                                    <span>Titanium Forging</span>
+                                    <span class="text-xs transition-transform group-open/subcap:rotate-180" aria-hidden="true">▾</span>
+                                </summary>
+                                <div class="bg-slate-50/50 py-1">
+                                    <a href="/oscar/titanium-forging" class="mobile-menu-link block py-2 pl-20 pr-6 font-semibold text-brand-blue">Overview: Titanium Forging</a>
+                                    <a href="/oscar/titanium-aerospace-forging" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Titanium Aerospace Forging</a>
+                                    <a href="/oscar/beta-titanium-forging" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Beta Titanium Forging</a>
+                                    <a href="/oscar/near-net-shape-titanium-forging" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Near-Net-Shape Titanium Forging</a>
+                                </div>
+                            </details>
+                            <a href="/oscar/open-die-forging" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Open Die Forging</a>
+                            <a href="/oscar/closed-die-forging" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Closed Die Forging</a>
+                            <a href="/oscar/rolled-ring-forging" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Rolled Ring Forging</a>
+                            <a href="/oscar/c69300-brass-forging" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">ECO Brass C69300 Forging</a>
+                            <a href="/oscar/cold-forging" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Cold Forging</a>
+                        </div>
+                    </details>
+
+                    <!-- Casting Tier -->
+                    <details class="group/cap border-b border-slate-200/70">
+                        <summary class="flex cursor-pointer list-none items-center justify-between py-3 pl-10 pr-6 font-semibold text-slate-700 hover:text-brand-blue">
+                            <span>Casting</span>
+                            <span class="text-xs transition-transform group-open/cap:rotate-180" aria-hidden="true">▾</span>
+                        </summary>
+                        <div class="bg-white">
+                            <a href="/oscar/casting" class="mobile-menu-link block py-2.5 pl-14 pr-6 font-semibold text-brand-blue border-b border-slate-100">Overview: Casting</a>
+
+                            <!-- Superalloy Casting Subtier -->
+                            <details class="group/subcap border-b border-slate-100">
+                                <summary class="flex cursor-pointer list-none items-center justify-between py-2 pl-14 pr-6 text-slate-600 hover:text-brand-blue">
+                                    <span>Superalloy Casting</span>
+                                    <span class="text-xs transition-transform group-open/subcap:rotate-180" aria-hidden="true">▾</span>
+                                </summary>
+                                <div class="bg-slate-50/50 py-1">
+                                    <a href="/oscar/superalloy-casting-services" class="mobile-menu-link block py-2 pl-20 pr-6 font-semibold text-brand-blue">Overview: Superalloy Casting</a>
+                                    <a href="/oscar/inconel-vacuum-precision-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Inconel Vacuum Precision Casting</a>
+                                    <a href="/oscar/inconel-718-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Inconel 718 Casting</a>
+                                    <a href="/oscar/inconel-625-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Inconel 625 Casting</a>
+                                </div>
+                            </details>
+
+                            <!-- Titanium Casting Subtier -->
+                            <details class="group/subcap border-b border-slate-100">
+                                <summary class="flex cursor-pointer list-none items-center justify-between py-2 pl-14 pr-6 text-slate-600 hover:text-brand-blue">
+                                    <span>Titanium Casting</span>
+                                    <span class="text-xs transition-transform group-open/subcap:rotate-180" aria-hidden="true">▾</span>
+                                </summary>
+                                <div class="bg-slate-50/50 py-1">
+                                    <a href="/oscar/titanium-casting" class="mobile-menu-link block py-2 pl-20 pr-6 font-semibold text-brand-blue">Overview: Titanium Casting</a>
+                                    <a href="/oscar/titanium-aerospace-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Titanium Aerospace Casting</a>
+                                    <a href="/oscar/titanium-investment-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Titanium Investment Casting</a>
+                                    <a href="/oscar/industrial-titanium-sand-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Industrial Titanium Casting</a>
+                                </div>
+                            </details>
+
+                            <!-- Investment Casting Subtier -->
+                            <details class="group/subcap border-b border-slate-100">
+                                <summary class="flex cursor-pointer list-none items-center justify-between py-2 pl-14 pr-6 text-slate-600 hover:text-brand-blue">
+                                    <span>Investment Casting</span>
+                                    <span class="text-xs transition-transform group-open/subcap:rotate-180" aria-hidden="true">▾</span>
+                                </summary>
+                                <div class="bg-slate-50/50 py-1">
+                                    <a href="/oscar/investment-casting" class="mobile-menu-link block py-2 pl-20 pr-6 font-semibold text-brand-blue">Overview: Investment Casting</a>
+                                    <a href="/oscar/stainless-steel-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Stainless Steel Casting</a>
+                                    <a href="/oscar/duplex-stainless-steel-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Duplex & Super Duplex Stainless Steel Casting</a>
+                                </div>
+                            </details>
+
+                            <!-- Die Casting Subtier -->
+                            <details class="group/subcap border-b border-slate-100">
+                                <summary class="flex cursor-pointer list-none items-center justify-between py-2 pl-14 pr-6 text-slate-600 hover:text-brand-blue">
+                                    <span>Die Casting</span>
+                                    <span class="text-xs transition-transform group-open/subcap:rotate-180" aria-hidden="true">▾</span>
+                                </summary>
+                                <div class="bg-slate-50/50 py-1">
+                                    <a href="/oscar/die-casting" class="mobile-menu-link block py-2 pl-20 pr-6 font-semibold text-brand-blue">Overview: Die Casting</a>
+                                    <a href="/oscar/aluminum-die-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Aluminum Die Casting</a>
+                                    <a href="/oscar/zinc-die-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Zinc Die Casting</a>
+                                    <a href="/oscar/a356-t6-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">A356-T6 Casting</a>
+                                    <a href="/oscar/magnesium-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Magnesium Casting</a>
+                                </div>
+                            </details>
+                            <a href="/oscar/carbon-steel-casting" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Carbon & Low Alloy Steel Casting</a>
+                            <a href="/oscar/sand-casting" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Sand Casting</a>
+                        </div>
+                    </details>
+
+                    <!-- Precision Machining Tier -->
+                    <details class="group/cap border-b border-slate-200/70">
+                        <summary class="flex cursor-pointer list-none items-center justify-between py-3 pl-10 pr-6 font-semibold text-slate-700 hover:text-brand-blue">
+                            <span>Precision Machining</span>
+                            <span class="text-xs transition-transform group-open/cap:rotate-180" aria-hidden="true">▾</span>
+                        </summary>
+                        <div class="bg-white">
+                            <a href="/oscar/precision-machining" class="mobile-menu-link block py-2.5 pl-14 pr-6 font-semibold text-brand-blue border-b border-slate-100">Overview: Precision Machining</a>
+
+                            <!-- Superalloy Machining Subtier -->
+                            <details class="group/subcap border-b border-slate-100">
+                                <summary class="flex cursor-pointer list-none items-center justify-between py-2 pl-14 pr-6 text-slate-600 hover:text-brand-blue">
+                                    <span>Superalloy Machining</span>
+                                    <span class="text-xs transition-transform group-open/subcap:rotate-180" aria-hidden="true">▾</span>
+                                </summary>
+                                <div class="bg-slate-50/50 py-1">
+                                    <a href="/oscar/superalloy-machining-services" class="mobile-menu-link block py-2 pl-20 pr-6 font-semibold text-brand-blue">Overview: Superalloy Machining</a>
+                                    <a href="/oscar/inconel-718-machining" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Inconel 718 Machining</a>
+                                    <a href="/oscar/inconel-625-machining" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Inconel 625 Machining</a>
+                                </div>
+                            </details>
+
+                            <!-- Titanium Machining Subtier -->
+                            <details class="group/subcap border-b border-slate-100">
+                                <summary class="flex cursor-pointer list-none items-center justify-between py-2 pl-14 pr-6 text-slate-600 hover:text-brand-blue">
+                                    <span>Titanium Machining</span>
+                                    <span class="text-xs transition-transform group-open/subcap:rotate-180" aria-hidden="true">▾</span>
+                                </summary>
+                                <div class="bg-slate-50/50 py-1">
+                                    <a href="/oscar/titanium-machining" class="mobile-menu-link block py-2 pl-20 pr-6 font-semibold text-brand-blue">Overview: Titanium Machining</a>
+                                    <a href="/oscar/aerospace-titanium-machining" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Aerospace Titanium Machining</a>
+                                    <a href="/oscar/industrial-titanium-machining" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Industrial Titanium Machining</a>
+                                    <a href="/oscar/near-net-shape-titanium-machining" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Near-Net-Shape Titanium Machining</a>
+                                </div>
+                            </details>
+                            <a href="/oscar/stainless-steel-machining" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Stainless Steel Machining</a>
+                            <a href="/oscar/duplex-machining" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Duplex & Super Duplex Stainless Steel Machining</a>
+                            <a href="/oscar/high-precision-machining" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">High-Precision Component Machining</a>
+                            <a href="/oscar/multi-axis-cnc" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Multi-Axis CNC Milling & Turning</a>
+                        </div>
+                    </details>
+
+                    <!-- Secondary Operations Tier -->
+                    <details class="group/cap">
+                        <summary class="flex cursor-pointer list-none items-center justify-between py-3 pl-10 pr-6 font-semibold text-slate-700 hover:text-brand-blue">
+                            <span>Secondary Operations</span>
+                            <span class="text-xs transition-transform group-open/cap:rotate-180" aria-hidden="true">▾</span>
+                        </summary>
+                        <div class="bg-white">
+                            <a href="/oscar/secondary-operations" class="mobile-menu-link block py-2.5 pl-14 pr-6 font-semibold text-brand-blue border-b border-slate-100">Overview: Secondary Operations</a>
+                            <a href="/oscar/surface-finishing" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Surface Finishing & Coating</a>
+                            <a href="/oscar/heat-treatment" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Heat Treatment</a>
+                            <a href="/oscar/hot-isostatic-pressing" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Hot Isostatic Pressing</a>
+                        </div>
+                    </details>
+                    
+                    <!-- Assembly and Kitting -->
+                    <div class="border-t border-slate-200/70">
+                        <a href="/oscar/assembly-and-kitting" class="mobile-menu-link block py-3 pl-10 pr-6 font-semibold text-slate-700 hover:text-brand-blue">
+                            Assembly & Kitting
+                        </a>
+                    </div>
+                </div>
+            </details>
+
+            <!-- Industries -->
+            <details class="group border-b border-slate-100">
+                <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-4 font-semibold hover:text-brand-blue transition">
+                    <span>Industries</span>
+                    <span class="text-xs transition-transform group-open:rotate-180" aria-hidden="true">▾</span>
+                </summary>
+                <div class="bg-slate-50 border-t border-slate-100">
+                    
+                    <!-- 1. Energy & Power Generation -->
+                    <details class="group/ind border-b border-slate-200/70">
+                        <summary class="flex cursor-pointer list-none items-center justify-between py-3 pl-10 pr-6 font-semibold text-slate-700 hover:text-brand-blue">
+                            <span>Energy & Power Generation</span>
+                            <span class="text-xs transition-transform group-open/ind:rotate-180" aria-hidden="true">▾</span>
+                        </summary>
+                        <div class="bg-white py-1">
+                            <a href="/oscar/energy-power-generation" class="mobile-menu-link block py-2 pl-14 pr-6 font-semibold text-brand-blue">Overview: Energy & Power</a>
+                            <a href="/oscar/data-center-power" class="mobile-menu-link block py-2 pl-14 pr-6 text-slate-600 hover:text-brand-blue">
+                                Data Center Power
+                            </a>
+                            <a href="/oscar/nuclear-smr" class="mobile-menu-link block py-2 pl-14 pr-6 text-slate-600 hover:text-brand-blue">
+                                Nuclear & SMR Components
+                            </a>
+                        </div>
+                    </details>
+
+                    <a href="/oscar/space-defence" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
+                        Space & Defence
+                    </a>
+                    <a href="/oscar/oil-gas" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
+                        Oil & Gas
+                    </a>
+                    <a href="/oscar/mining" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
+                        Mining & Heavy Equipment
+                    </a>
+                    <a href="/oscar/automotive" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
+                        Automotive
+                    </a>
+                    <a href="/oscar/hvac-flow" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
+                        HVAC, Fluid & Flow Control
+                    </a>
+                    <a href="/oscar/medical" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
+                        Medical & Healthcare
+                    </a>
+                    <a href="/oscar/agricultural" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue">
+                        Agricultural Equipment
+                    </a>
+                </div>
+            </details>
+
+            <!-- Materials & Technical Specs -->
+            <details class="group border-b border-slate-100">
+                <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-4 font-semibold hover:text-brand-blue transition">
+                    <span>Materials & Technical Specs</span>
+                    <span class="text-xs transition-transform group-open:rotate-180" aria-hidden="true">▾</span>
+                </summary>
+                <div class="bg-slate-50 border-t border-slate-100">
+                    <a href="/oscar/materials-technical-specs" class="mobile-menu-link block py-3 pl-10 pr-6 font-semibold text-brand-blue border-b border-slate-200/70">Overview: Materials & Specs</a>
+                    <a href="/oscar/superalloys-exotic-metals" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
+                        Superalloys & Exotic Metals
+                    </a>
+                    <a href="/oscar/titanium-alloys" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
+                        Titanium Alloys
+                    </a>
+                    <a href="/oscar/stainless-carbon-steel" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
+                        Stainless Steel & Carbon Steel
+                    </a>
+                    <a href="/oscar/aluminum-copper-alloys" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
+                        Aluminum & Copper Alloys
+                    </a>
+                    <a href="/oscar/material-cross-reference-charts" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
+                        Material Cross-Reference Charts
+                    </a>
+                    <a href="/oscar/manufacturing-design-guides" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue">
+                        Manufacturing Design Guides
+                    </a>
+                </div>
+            </details>
+
+            <!-- Quality & Global Supply Chain -->
+            <details class="group border-b border-slate-100">
+                <summary class="flex cursor-pointer list-none items-center justify-between px-6 py-4 font-semibold hover:text-brand-blue transition">
+                    <span>Quality & Global Supply Chain</span>
+                    <span class="text-xs transition-transform group-open:rotate-180" aria-hidden="true">▾</span>
+                </summary>
+                <div class="bg-slate-50 border-t border-slate-100">
+                    <a href="/oscar/quality-global-supply-chain" class="mobile-menu-link block py-3 pl-10 pr-6 font-semibold text-brand-blue border-b border-slate-200/70">Overview: Quality & Supply Chain</a>
+                    <a href="/oscar/quality-assurance-certifications" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
+                        Quality Assurance & Certifications
+                    </a>
+                    <a href="/oscar/testing-inspection-capabilities" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue border-b border-slate-200/70">
+                        Testing & Inspection Capabilities
+                    </a>
+                    <a href="/oscar/global-footprint-logistics" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue">
+                        Global Footprint & Logistics
+                    </a>
+                </div>
+            </details>
+
+            <a href="/oscar/contact-us" class="mobile-menu-link border-b border-slate-100 px-6 py-4 font-semibold hover:text-brand-blue transition">
+                Contact Us
+            </a>
+
+            <div class="px-6 py-6">
+                <a 
+                    href="/oscar/request-a-quote" 
+                    class="mobile-menu-link inline-flex w-full items-center justify-center rounded-full bg-brand-green px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#5aaa14] shadow-sm"
+                >
+                    Request Quote
+                </a>
+            </div>
+
+        </nav>
+    </div>
 </header>
 
-        <!-- 页面主体内容承载区 (铺满全屏) -->
-        <main class="w-full flex-grow">
-            <slot />
-        </main>
+<main class="w-full flex-grow">
+    <slot />
+</main>
 
-        <!-- 全局 Footer -->
+<!-- Footer -->
 <footer class="w-full bg-[#1f2f45] text-slate-200 py-12 px-8 sm:px-16 border-t border-slate-600/40 text-sm shrink-0">
     <div class="w-full max-w-7xl mx-auto space-y-8">
         
@@ -966,13 +951,6 @@ const {
                 </h4>
 
                 <ul class="space-y-3 flex flex-col text-slate-200 leading-6">
-                    <a href="/oscar/FAQ" class="hover:text-amber-400 transition">
-                        Frequently Asked Questions (FAQ)
-                    </a>
-
-                    <a href="/oscar/blog" class="hover:text-amber-400 transition">
-                        Knowledge Base & Technical Blog
-                    </a>
 
                     <a href="/oscar/manufacturing-process-animations" class="hover:text-amber-400 transition">
                         Manufacturing Process Animations
@@ -1002,6 +980,7 @@ const {
         </div>
     </div>
 </footer>
+
 <script>
     function initMobileMenu() {
         const openButton = document.getElementById('mobile-menu-button');
@@ -1029,7 +1008,6 @@ const {
         });
     }
 
-
     function initActiveNavigation() {
         const header = document.querySelector('header');
         if (!header) return;
@@ -1047,7 +1025,6 @@ const {
 
                 if (linkPath === currentPath) return true;
 
-                // Home page compatibility: /oscar and /oscar/
                 if ((currentPath === '/oscar' || currentPath === '/oscar/') && linkPath === '/oscar') {
                     return true;
                 }
@@ -1063,7 +1040,6 @@ const {
             return currentPath === cleanRoot || currentPath.startsWith(cleanRoot + '/');
         };
 
-        // Exact active state for every real page link
         header.querySelectorAll('a[href]').forEach((link) => {
             const href = link.getAttribute('href') || '';
             
@@ -1082,7 +1058,6 @@ const {
             }
         });
 
-        // Active state for top-level desktop dropdown labels
         const desktopGroups = [
             { label: 'About Us', root: '/oscar/about-us' },
             { label: 'Industries', root: '/oscar/industries' },
@@ -1094,7 +1069,7 @@ const {
         desktopGroups.forEach(({ label, root }) => {
             if (!isInsideGroup(root)) return;
 
-            header.querySelectorAll('nav.hidden a').forEach((link) => {
+            header.querySelectorAll('nav.hidden a, nav.hidden button').forEach((link) => {
                 const linkText = (link.childNodes[0]?.textContent || link.textContent || '').trim();
                 if (linkText === label) {
                     link.classList.add('nav-link-active');
@@ -1102,7 +1077,6 @@ const {
             });
         });
 
-        // Active state for mobile dropdown summaries
         const mobileGroups = [
             { label: 'About Us', root: '/oscar/about-us' },
             { label: 'Industries', root: '/oscar/industries' },

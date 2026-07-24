@@ -18,10 +18,13 @@ const faqs = [
 
 // Sources
 const sources = [
-    { label: 'ISO 9001:2015 Quality Management Systems Requirements', url: 'https://www.iso.org' },
-    { label: 'Investment Casting Institute (ICI) Design Guide Standards', url: 'https://www.investmentcasting.org' },
-    { label: 'Forging Industry Association (FIA) Forging Design Guidelines', url: 'https://www.forging.org' },
-    { label: 'ASME Y14.5 Geometric Dimensioning and Tolerancing (GD&T)', url: 'https://www.asme.org' }
+    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
+    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
+    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
+    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
+    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
+    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
 ];
 
 // Resources
@@ -60,8 +63,8 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/oscar/manufacturing-design-guides-dfm#webpage",
-      "url": "https://www.forcebeyond.store/oscar/manufacturing-design-guides-dfm",
+      "@id": "https://www.forcebeyond.store/oscar/manufacturing-design-guides#webpage",
+      "url": "https://www.forcebeyond.store/oscar/manufacturing-design-guides",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
@@ -73,7 +76,7 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/oscar/manufacturing-design-guides-dfm#service",
+      "@id": "https://www.forcebeyond.store/oscar/manufacturing-design-guides#service",
       "name": "Design for Manufacturability (DFM) & Engineering Services",
       "serviceType": "Technical Engineering & DFM Review Services",
       "description": seoDescription,
@@ -93,7 +96,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/oscar/manufacturing-design-guides-dfm#faq",
+      "@id": "https://www.forcebeyond.store/oscar/manufacturing-design-guides#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,
@@ -112,8 +115,8 @@ const pageSchema = {
     description={seoDescription}
     schema={pageSchema}
     pageTitle={pageTitle}
-    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
-    heroImageAlt="3D CAD model undergoing Design for Manufacturability (DFM) engineering analysis"
+    heroImage="/oscar/media/precision-cnc-machining-metal-manufacturing-workshop-hero.webp"
+    heroImageAlt="Precision CNC milling machine cutting a metal component in a modern manufacturing workshop with automated equipment and digital controls."
     faqSectionTitle="Frequently Asked Questions"
     faqItems={faqs}
     ctaTitle="Optimize Your CAD Design for Seamless Manufacturing"
@@ -130,27 +133,12 @@ const pageSchema = {
             <div class="content-container">
                 
                 <h2>Design for Manufacturability (DFM) Guidelines</h2>
-
-                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
-                    <div>
                         <p>
                             At ForceBeyond, optimizing your component design before tooling is cut is the single most effective way to eliminate manufacturing defects, shorten lead times, and lower unit production costs.
                         </p>
                         <p>
                             Our Design for Manufacturability (DFM) guidelines help design engineers tailor 3D CAD models for near-net-shape primary forming processes and secondary 5-axis CNC machining.
                         </p>
-                    </div>
-                    <div class="relative">
-                        <div class="overflow-hidden">
-                            <img
-                                src="/oscar/media/manufacturing-design-guides-dfm-overview-4k.webp"
-                                alt="Engineers reviewing CAD model and DFM guidelines for casting and CNC machining."
-                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
-                            />
-                        </div>
-                    </div>
-                </div>
-
             </div>
         </section>
 

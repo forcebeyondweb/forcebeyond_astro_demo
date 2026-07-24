@@ -19,13 +19,15 @@ const faqs = [
     }
 ];
 
-// Sources 
+// Sources
 const sources = [
-    { label: 'American Foundry Society: "Metal Casting"', url: 'https://www.afsinc.org' },
-    { label: 'Forging Industry Association: "Forging Industry"', url: 'https://www.forging.org' },
-    { label: 'efunda. “Sand Casting“', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'The Investment Casting Institute. “What is Investment Casting?“',url:'https://www.investmentcasting.org/what-is-investment-casting.html'},
-    { label: 'ASM International. “Inconel 718 Alloy“', url: 'https://www.asminternational.org/materials-resources/alloy-database/technical-bulletin/inconel-718-alloy' }
+    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
+    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
+    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
+    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
+    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
+    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
 ];
 
 // Resources 
@@ -57,14 +59,14 @@ const internalResources = [
     { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
     { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
 ];
-// Service / Product Schema
+// Service / Product Schema (GEO-Optimized)
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/oscar/beta-titanium-forging#webpage",
-      "url": "https://www.forcebeyond.store/oscar/beta-titanium-forging",
+      "@id": "https://www.forcebeyond.store/oscar/stainless-steel-casting#webpage",
+      "url": "https://www.forcebeyond.store/oscar/stainless-steel-casting",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
@@ -76,73 +78,99 @@ const pageSchema = {
       "about": [
         {
           "@type": "Thing",
-          "name": "Titanium alloy",
-          "sameAs": "https://en.wikipedia.org/wiki/Titanium_alloy"
+          "name": "Stainless steel",
+          "sameAs": "https://en.wikipedia.org/wiki/Stainless_steel"
         },
         {
           "@type": "Thing",
-          "name": "Forging",
-          "sameAs": "https://en.wikipedia.org/wiki/Forging"
+          "name": "Investment casting",
+          "sameAs": "https://en.wikipedia.org/wiki/Investment_casting"
         },
         {
           "@type": "Thing",
-          "name": "Beta titanium alloys",
-          "sameAs": "https://en.wikipedia.org/wiki/Beta_titanium_alloys"
+          "name": "Corrosion engineering",
+          "sameAs": "https://en.wikipedia.org/wiki/Corrosion_engineering"
         }
       ]
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/oscar/beta-titanium-forging#service",
-      "name": "High-Strength Beta Titanium Forging Services",
-      "serviceType": "Beta Titanium Forging Services",
+      "@id": "https://www.forcebeyond.store/oscar/stainless-steel-casting#service",
+      "name": "Custom Stainless Steel Investment Casting Services",
+      "serviceType": "Stainless Steel Investment Casting & Precision Manufacturing",
       "description": seoDescription,
       "provider": {
         "@type": "Organization",
-        "id": "https://www.forcebeyond.store/oscar#organization",
+        "@id": "https://www.forcebeyond.store/oscar#organization",
         "name": "ForceBeyond",
         "url": "https://www.forcebeyond.store/oscar",
+        "logo": "https://www.forcebeyond.store/oscar/media/logo.png",
         "knowsAbout": [
-          "Beta Titanium Forging",
-          "Ti-10V-2Fe-3Al & Beta-C (Grade 19) Alloys",
-          "Solution Treated and Aged (STA) Microstructures",
-          "High Yield Strength (>1200 MPa) Forging",
-          "Fracture Toughness & Fatigue Resistance Optimization",
-          "Aerospace Landing Gear & Fastener Production",
-          "Closed-Die Forging & Seamless Rolled Rings"
-        ]
+          "Stainless Steel Investment Casting",
+          "304, 316, 17-4 PH, and 410 Alloy Casting",
+          "ISO 8062 CT5–CT7 Precision Casting",
+          "Chemical Passivation & Electropolishing",
+          "Precipitation Hardening Heat Treatments",
+          "Radiographic & Fluorescent Penetrant Inspection",
+          "ISO 9001:2015 Quality Management"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "US"
+        }
       },
       "areaServed": [
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "South Korea" },
-        { "@type": "Country", "name": "Taiwan" }
+        {
+          "@type": "Country",
+          "name": "United States",
+          "identifier": "US"
+        },
+        {
+          "@type": "Country",
+          "name": "South Korea",
+          "identifier": "KR"
+        },
+        {
+          "@type": "Country",
+          "name": "Taiwan",
+          "identifier": "TW"
+        },
+        {
+          "@type": "GeoCircle",
+          "geoMidpoint": {
+            "@type": "GeoCoordinates",
+            "latitude": 37.0902,
+            "longitude": -95.7129
+          },
+          "geoRadius": "Global Supply Network"
+        }
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Beta Titanium Forging Capabilities",
+        "name": "Stainless Steel Casting Capabilities",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "STA Microstructure Optimization",
-              "description": "Advanced thermomechanical processing and closed-die forging of metastable Beta titanium alloys, tailored through strict Solution Treated and Aged heat treatment protocols to clear 1,200 MPa yield thresholds."
+              "name": "Austenitic & Martensitic Lost-Wax Casting",
+              "description": "Lost-wax investment casting for 304, 316, and 410 grade alloys producing near-net geometries with ISO 8062 CT5–CT7 tolerances."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Flight-Critical High-Fatigue Component Forging",
-              "description": "Precision engineering of high-strength aerospace components including landing gear cylinders, structural bulkheads, and heavy fasteners featuring continuous macro-grain flow lines."
+              "name": "17-4 PH Precipitation Hardening Casting",
+              "description": "High-strength stainless steel casting treated via specialized thermal age-hardening protocols (H900, H1150) achieving tensile strengths up to 150,000+ psi."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "End-to-End Tier-1.5 Metallurgical Validation",
-              "description": "Complete supply chain tracing from initial alloy melt through precision near-net-shape forging, heat treating, and multi-axis NDT inspection with detailed aerospace compliance documentation."
+              "name": "Cast-to-Machine Tier-1.5 Finishing",
+              "description": "Integrated precision 5-axis CNC machining, electropolishing, chemical passivation, and 100% NDT inspection across North America, South Korea, and Taiwan facilities."
             }
           }
         ]
@@ -150,7 +178,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/oscar/beta-titanium-forging#faq",
+      "@id": "https://www.forcebeyond.store/oscar/stainless-steel-casting#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,
