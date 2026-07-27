@@ -34,31 +34,31 @@ const sources = [
 // Resources 
 const internalResources = [
     // Die Casting Resources
-    { label: "Die Casting Overview", url: "/oscar/die-casting" },
-    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
-    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+    { label: "Die Casting Overview", url: "die-casting" },
+    { label: "Aluminum Die Casting", url: "aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "a356-t6-casting" },
+    { label: "Magnesium Casting", url: "magnesium-casting" },
 
     // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+    { label: "Investment Casting Overview", url: "investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "duplex-stainless-steel-casting" },
 
     // Forging Resources
-    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
-    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
-    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
-    { label: "Cold Forging", url: "/oscar/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+    { label: "Forging Capabilities Overview", url: "forging" },
+    { label: "Open Die Forging", url: "open-die-forging" },
+    { label: "Closed Die Forging", url: "closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "rolled-ring-forging" },
+    { label: "Cold Forging", url: "cold-forging" },
+    { label: "Superalloy Forging Services", url: "superalloy-forging-services" },
 
     // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "/oscar/sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+    { label: "Sand Casting", url: "sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "carbon-steel-casting" }
 ];
 
 // Service / Product Schema
@@ -67,8 +67,8 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/oscar/aluminum-die-casting#webpage",
-      "url": "https://www.forcebeyond.store/oscar/aluminum-die-casting",
+      "@id": "https://www.forcebeyond.storealuminum-die-casting#webpage",
+      "url": "https://www.forcebeyond.storealuminum-die-casting",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
@@ -92,7 +92,7 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/oscar/aluminum-die-casting#service",
+      "@id": "https://www.forcebeyond.storealuminum-die-casting#service",
       "name": "High-Volume Precision Aluminum Die Casting Services",
       "serviceType": "Custom Aluminum Die Casting Services",
       "description": seoDescription,
@@ -149,7 +149,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/oscar/aluminum-die-casting#faq",
+      "@id": "https://www.forcebeyond.storealuminum-die-casting#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,
@@ -168,7 +168,7 @@ const pageSchema = {
     description={seoDescription}
     schema={pageSchema}
     pageTitle={pageTitle}
-    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImage="media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"
     faqSectionTitle="Frequently Asked Questions: Aluminum Die Casting"
     faqItems={faqs}
@@ -199,7 +199,7 @@ const pageSchema = {
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
-                                src="/oscar/media/custom-aluminum-die-casting-parts-engine-housings-4k.webp"
+                                src="media/custom-aluminum-die-casting-parts-engine-housings-4k.webp"
                                 alt="Custom aluminum die-cast parts, including engine housings, cylinder components, brackets, covers, and precision automotive castings on a white background."
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />

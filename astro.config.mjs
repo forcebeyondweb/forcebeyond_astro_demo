@@ -13,7 +13,7 @@ const dataset = env.PUBLIC_SANITY_DATASET;
 // https://astro.build/config
 export default defineConfig({
     // 1. 核心关键：设置 base 路径为你在 HostGator 建的子文件夹名
-    base: '/oscar',
+    base: '/',
 
     // 2. 核心关键：强制指定输出为纯静态 HTML 文件（SSG 模式）
     output: 'static',

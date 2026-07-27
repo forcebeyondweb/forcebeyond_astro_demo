@@ -41,31 +41,31 @@ const sources = [
 // Resources 
 const internalResources = [
     // Die Casting Resources
-    { label: "Die Casting Overview", url: "/oscar/die-casting" },
-    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
-    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+    { label: "Die Casting Overview", url: "die-casting" },
+    { label: "Aluminum Die Casting", url: "aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "a356-t6-casting" },
+    { label: "Magnesium Casting", url: "magnesium-casting" },
 
     // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+    { label: "Investment Casting Overview", url: "investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "duplex-stainless-steel-casting" },
 
     // Forging Resources
-    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
-    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
-    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
-    { label: "Cold Forging", url: "/oscar/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+    { label: "Forging Capabilities Overview", url: "forging" },
+    { label: "Open Die Forging", url: "open-die-forging" },
+    { label: "Closed Die Forging", url: "closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "rolled-ring-forging" },
+    { label: "Cold Forging", url: "cold-forging" },
+    { label: "Superalloy Forging Services", url: "superalloy-forging-services" },
 
     // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "/oscar/sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+    { label: "Sand Casting", url: "sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "carbon-steel-casting" }
 ];
 // Service / Product Schema (GEO-Optimized)
 const pageSchema = {
@@ -73,8 +73,8 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/oscar/inconel-625-machining#webpage",
-      "url": "https://www.forcebeyond.store/oscar/inconel-625-machining",
+      "@id": "https://www.forcebeyond.storeinconel-625-machining#webpage",
+      "url": "https://www.forcebeyond.storeinconel-625-machining",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
@@ -103,7 +103,7 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/oscar/inconel-625-machining#service",
+      "@id": "https://www.forcebeyond.storeinconel-625-machining#service",
       "name": "Inconel 625 CNC Machining Services",
       "serviceType": "Precision 5-Axis CNC Milling & Turning for Nickel Superalloys",
       "description": seoDescription,
@@ -112,7 +112,7 @@ const pageSchema = {
         "@id": "https://www.forcebeyond.store/oscar#organization",
         "name": "ForceBeyond",
         "url": "https://www.forcebeyond.store/oscar",
-        "logo": "https://www.forcebeyond.store/oscar/media/logo.png",
+        "logo": "https://www.forcebeyond.storemedia/logo.png",
         "knowsAbout": [
           "Inconel 625 Machining (UNS N06625)",
           "5-Axis CNC Milling & Turning",
@@ -188,7 +188,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/oscar/inconel-625-machining#faq",
+      "@id": "https://www.forcebeyond.storeinconel-625-machining#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,
@@ -207,7 +207,7 @@ const pageSchema = {
     description={seoDescription}
     schema={pageSchema}
     pageTitle={pageTitle}
-    heroImage="/oscar/media/inconel-625-5-axis-cnc-machining-impeller-hero.webp"
+    heroImage="media/inconel-625-5-axis-cnc-machining-impeller-hero.webp"
     heroImageAlt="5-axis CNC machining of an Inconel 625 impeller in a precision high-tech machining center"
     faqSectionTitle="FAQ: Sourcing Inconel 625 Machining"
     faqItems={faqs}
@@ -246,9 +246,9 @@ const pageSchema = {
                         </p>
 
                         <p>
-                            As a high-expertise capability within our <a href="/oscar/superalloy-machining-services" class="highlight-link">Superalloy Machining Services</a>, 
+                            As a high-expertise capability within our <a href="superalloy-machining-services" class="highlight-link">Superalloy Machining Services</a>, 
                             ForceBeyond specializes in the precision manufacturing of <strong>Inconel 625</strong>. As a Tier-1.5 partner, 
-                            we integrate our machining centers with our <a href="/oscar/inconel-625-forging" class="highlight-link">Inconel 625 Forging</a> and <a href="/oscar/inconel-625-casting" class="highlight-link">Inconel 625 Casting</a> foundries. 
+                            we integrate our machining centers with our <a href="inconel-625-forging" class="highlight-link">Inconel 625 Forging</a> and <a href="inconel-625-casting" class="highlight-link">Inconel 625 Casting</a> foundries. 
                             While Inconel 718 is machined for pure tensile strength, Inconel 625 is machined for extreme 
                             environmental resilience—requiring entirely different tooling geometries to handle its high ductility 
                             and work-hardening tendencies.
@@ -258,7 +258,7 @@ const pageSchema = {
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
-                                src="/oscar/media/machined-inconel-625-forged-flange-nuclear-subsea-4k.webp"
+                                src="media/machined-inconel-625-forged-flange-nuclear-subsea-4k.webp"
                                 alt="Two precision-machined Inconel 625 forged flanges for nuclear and subsea applications."
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
