@@ -34,31 +34,31 @@ const sources = [
 // Resources 
 const internalResources = [
     // Die Casting Resources
-    { label: "Die Casting Overview", url: "/oscar/die-casting" },
-    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
-    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+    { label: "Die Casting Overview", url: "/die-casting" },
+    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/magnesium-casting" },
 
     // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+    { label: "Investment Casting Overview", url: "/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting" },
 
     // Forging Resources
-    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
-    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
-    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
-    { label: "Cold Forging", url: "/oscar/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+    { label: "Forging Capabilities Overview", url: "/forging" },
+    { label: "Open Die Forging", url: "/open-die-forging" },
+    { label: "Closed Die Forging", url: "/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
 
     // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "/oscar/sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+    { label: "Sand Casting", url: "/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
 ];
 
 // Service / Product Schema
@@ -67,15 +67,15 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/oscar/multi-axis-cnc#webpage",
-      "url": "https://www.forcebeyond.store/oscar/multi-axis-cnc",
+      "@id": "https://www.forcebeyond.store/multi-axis-cnc#webpage",
+      "url": "https://www.forcebeyond.store/multi-axis-cnc",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store/oscar#website",
+        "@id": "https://www.forcebeyond.store#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar"
+        "url": "https://www.forcebeyond.store"
       },
       "about": [
         {
@@ -92,15 +92,15 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/oscar/multi-axis-cnc#service",
+      "@id": "https://www.forcebeyond.store/multi-axis-cnc#service",
       "name": "Multi-Axis CNC Milling & Turning Services",
       "serviceType": "Simultaneous 5-Axis Milling & Live-Tooling Turning",
       "description": seoDescription,
       "provider": {
         "@type": "Organization",
-        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "@id": "https://www.forcebeyond.store#organization",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar",
+        "url": "https://www.forcebeyond.store",
         "knowsAbout": [
           "Simultaneous 5-Axis CNC Milling for Sweeping Contours",
           "3+2 Positional 5-Axis Milling for Deep Cavities",
@@ -149,7 +149,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/oscar/multi-axis-cnc#faq",
+      "@id": "https://www.forcebeyond.store/multi-axis-cnc#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,
@@ -168,7 +168,7 @@ const pageSchema = {
     description={seoDescription}
     schema={pageSchema}
     pageTitle={pageTitle}
-    heroImage="/oscar/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"
     faqSectionTitle="Frequently Asked Questions: Multi-Axis Machining"
     faqItems={faqs}
@@ -199,7 +199,7 @@ const pageSchema = {
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
-                                src="/oscar/media/5-axis-cnc-machining-jet-engine-turbine-impeller.webp"
+                                src="/media/5-axis-cnc-machining-jet-engine-turbine-impeller.webp"
                                 alt="Five-axis CNC machining center cutting a high-precision jet engine turbine impeller with complex curved blades."
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
@@ -280,7 +280,7 @@ const pageSchema = {
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
-                                src="/oscar/media/5-axis-CNC-milling-machine-work-metal-processing-impeller.webp"
+                                src="/media/5-axis-CNC-milling-machine-work-metal-processing-impeller.webp"
                                 alt="5-axis-CNC-milling-machine-work-metal-processing-impeller"
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />

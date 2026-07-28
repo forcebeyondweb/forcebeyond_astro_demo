@@ -11,7 +11,7 @@ const faqs = [
     },
     {
         q: "Can you machine titanium components from solid plate?",
-        a: "While we specialize in finishing <a href='/oscar/titanium-forging' class = 'highlight-link'>Forgings</a> and <a href='/oscar/titanium-casting' class = 'highlight-link'>Castings</a>, we also provide “Hog-out” machining from solid plate or bar stock for rapid prototyping and AOG (Aircraft on Ground) support."
+        a: "While we specialize in finishing <a href='/titanium-forging' class = 'highlight-link'>Forgings</a> and <a href='/titanium-casting' class = 'highlight-link'>Castings</a>, we also provide “Hog-out” machining from solid plate or bar stock for rapid prototyping and AOG (Aircraft on Ground) support."
     }
 ];
 
@@ -30,31 +30,31 @@ const sources = [
 // Resources 
 const internalResources = [
     // Die Casting Resources
-    { label: "Die Casting Overview", url: "/oscar/die-casting" },
-    { label: "Aluminum Die Casting", url: "/oscar/aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "/oscar/zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "/oscar/a356-t6-casting" },
-    { label: "Magnesium Casting", url: "/oscar/magnesium-casting" },
+    { label: "Die Casting Overview", url: "/die-casting" },
+    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/magnesium-casting" },
 
     // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "/oscar/investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "/oscar/inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "/oscar/titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "/oscar/stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/oscar/duplex-stainless-steel-casting" },
+    { label: "Investment Casting Overview", url: "/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting" },
 
     // Forging Resources
-    { label: "Forging Capabilities Overview", url: "/oscar/forging" },
-    { label: "Open Die Forging", url: "/oscar/open-die-forging" },
-    { label: "Closed Die Forging", url: "/oscar/closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "/oscar/rolled-ring-forging" },
-    { label: "Cold Forging", url: "/oscar/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/oscar/superalloy-forging-services" },
+    { label: "Forging Capabilities Overview", url: "/forging" },
+    { label: "Open Die Forging", url: "/open-die-forging" },
+    { label: "Closed Die Forging", url: "/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
 
     // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "/oscar/sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "/oscar/industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "/oscar/carbon-steel-casting" }
+    { label: "Sand Casting", url: "/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
 ];
 // Service / Product Schema
 const pageSchema = {
@@ -62,15 +62,15 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/oscar/aerospace-titanium-machining#webpage",
-      "url": "https://www.forcebeyond.store/oscar/aerospace-titanium-machining",
+      "@id": "https://www.forcebeyond.store/aerospace-titanium-machining#webpage",
+      "url": "https://www.forcebeyond.store/aerospace-titanium-machining",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store/oscar#website",
+        "@id": "https://www.forcebeyond.store#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar"
+        "url": "https://www.forcebeyond.store"
       },
       "about": [
         {
@@ -92,15 +92,15 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/oscar/aerospace-titanium-machining#service",
+      "@id": "https://www.forcebeyond.store/aerospace-titanium-machining#service",
       "name": "Precision Aerospace Titanium Machining Services",
       "serviceType": "Aerospace Titanium Machining Services",
       "description": seoDescription,
       "provider": {
         "@type": "Organization",
-        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "@id": "https://www.forcebeyond.store#organization",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar",
+        "url": "https://www.forcebeyond.store",
         "knowsAbout": [
           "Aerospace Titanium Machining",
           "Ti-6Al-4V & Beta-C Machining",
@@ -149,7 +149,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/oscar/aerospace-titanium-machining#faq",
+      "@id": "https://www.forcebeyond.store/aerospace-titanium-machining#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,
@@ -168,7 +168,7 @@ const pageSchema = {
     description={seoDescription}
     schema={pageSchema}
     pageTitle={pageTitle}
-    heroImage="/oscar/media/aerospace-titanium-5-axis-machining-as9100-hero.webp"
+    heroImage="/media/aerospace-titanium-5-axis-machining-as9100-hero.webp"
     heroImageAlt="Precision 5-axis machining of an aerospace titanium component in an AS9100-certified manufacturing environment"
     faqSectionTitle="FAQ: Aerospace Titanium Machining"
     faqItems={faqs}
@@ -190,7 +190,7 @@ const pageSchema = {
                 <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
                     <div>
                         <p>
-                            ForceBeyond provides high-integrity <a href="/oscar/aerospace-titanium-machining" class = "highlight-link">Aerospace Titanium Machining</a> for flight-critical propulsion and 
+                            ForceBeyond provides high-integrity <a href="/aerospace-titanium-machining" class = "highlight-link">Aerospace Titanium Machining</a> for flight-critical propulsion and 
                             structural airframe components. Specialized in difficult-to-machine alloys like <strong>Ti-6Al-4V</strong> and <strong>Ti-5553</strong>, 
                             our AS9100-certified facilities utilize high-torque 5-axis CNC platforms to achieve tolerances as tight 
                             as <strong>±0.005mm</strong>. By integrating our machining centers with our co-owned forging and casting foundries, 
@@ -202,7 +202,7 @@ const pageSchema = {
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
-                                src="/oscar/media/5-axis-machined-titanium-turbine-discs-aircraft-engines-4k.webp"
+                                src="/media/5-axis-machined-titanium-turbine-discs-aircraft-engines-4k.webp"
                                 alt="Three precision 5-axis machined titanium turbine discs and bladed components for aircraft jet engines on a white background."
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
@@ -225,10 +225,10 @@ const pageSchema = {
                             <strong>Propulsion Components:</strong>5-axis milling of <strong>Titanium Turbine Blades</strong>, blisks, and compressor housings.
                         </li>
                         <li>
-                            <strong>Structural Airframes:</strong> High-speed machining of bulkheads, wing spars, and pylon connectors from <a href="/oscar/near-net-shape-forgingNear-Net-Shape" class="highlight-link">Near-Net-Shape Forgings</a>.
+                            <strong>Structural Airframes:</strong> High-speed machining of bulkheads, wing spars, and pylon connectors from <a href="/near-net-shape-forgingNear-Net-Shape" class="highlight-link">Near-Net-Shape Forgings</a>.
                         </li>
                         <li>
-                            <strong>Landing Gear Hardware: </strong>Heavy-duty turning and boring of fracture-critical beams and torque from <a href = "/oscar/high-strength-beta-titanium" class = "highlight-link">High-Strength Beta Titanium</a>.
+                            <strong>Landing Gear Hardware: </strong>Heavy-duty turning and boring of fracture-critical beams and torque from <a href = "/high-strength-beta-titanium" class = "highlight-link">High-Strength Beta Titanium</a>.
                         </li>
                     </ul>
                 
