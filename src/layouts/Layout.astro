@@ -10,7 +10,7 @@ const {
     title = 'Industrial Solutions',
     description = 'Reliable industrial solutions built for performance.'
 } = Astro.props;
-
+const currentYear = new Date().getFullYear();
 ---
 
 <!doctype html>
@@ -965,7 +965,7 @@ const {
 
         <div class="pt-6 border-t border-slate-600/40 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
             <p class="text-slate-400 text-xs">
-                &copy; 2026 ForceBeyond. All rights reserved.
+                &copy; 2006–{currentYear} ForceBeyond. All rights reserved.
             </p>
             
             <div class="flex gap-6 text-xs text-slate-400">

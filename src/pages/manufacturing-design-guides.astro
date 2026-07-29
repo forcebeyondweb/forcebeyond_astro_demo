@@ -1,108 +1,227 @@
 ---
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Design for Manufacturability (DFM) Guidelines';
-const seoTitle = 'Design for Manufacturability (DFM) Guides | ForceBeyond';
-const seoDescription = 'Comprehensive DFM engineering guidelines for investment casting, sand casting, forging, and 5-axis CNC machining.';
+const pageTitle = 'Design for Manufacturability Guidelines for Casting, Forging & CNC';
+const seoTitle = 'Design for Manufacturability Guides | Casting, Forging & CNC';
+const seoDescription = 'Explore practical DFM guidelines for investment casting, sand casting, die casting, forging, and CNC machining, including wall thickness, draft, radii, tolerances, machining allowance, datum strategy, inspection, and RFQ preparation.';
+
+const canonicalUrl = 'https://www.forcebeyond.store/manufacturing-design-guides/';
+const socialImage = 'https://www.forcebeyond.store/media/precision-cnc-machining-metal-manufacturing-workshop-hero.webp';
 
 const faqs = [
     {
-        q: "Why is early DFM analysis critical before tool production?",
-        a: "Optimizing component design before tooling is cut is the single most effective way to eliminate manufacturing defects, shorten lead times, and lower overall unit production costs."
+        q: "Why should DFM review happen before tooling is released?",
+        a: "Early DFM review can identify geometry, tolerance, material, tooling, process, inspection, and assembly risks before changes become expensive. It may reduce revisions, rework, trial iterations, and lead-time risk, but it cannot guarantee defect-free production or a fixed cost reduction."
     },
     {
-        q: "What design verification tools does ForceBeyond use during DFM reviews?",
-        a: "Our engineering team utilizes mold-flow solidification simulations, forging deformation modeling, and 5-axis CNC toolpath verifications to ensure parts are fully optimized for production."
+        q: "Which files and requirements are needed for a DFM review?",
+        a: "Provide a 3D CAD model, 2D drawing, material and condition, expected quantity, critical tolerances, GD&T, surface finish, heat treatment, coating, inspection, testing, assembly, packaging, and delivery requirements. Identifying critical-to-function features is especially important."
+    },
+    {
+        q: "Are the dimensions and draft angles in these guides mandatory?",
+        a: "No. The values on this page are starting points for discussion. Final wall thickness, draft, radii, machining allowance, tolerance, and tooling requirements depend on alloy, component size, geometry, process route, equipment, volume, quality requirements, and supplier-specific capability."
+    },
+    {
+        q: "What engineering tools may be used during DFM review?",
+        a: "Depending on project scope, DFM review may use CAD section analysis, tolerance-stack review, casting fill and solidification simulation, forging process modeling, CNC toolpath and collision simulation, fixture review, inspection planning, and prototype or first-article validation."
     }
 ];
 
-// Sources
 const sources = [
-    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
-    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
-    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
-    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
-    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
-    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
+    { label: 'Investment Casting Institute - Investment Casting Design Resources', url: 'https://www.investmentcasting.org/what-is.html' },
+    { label: 'American Foundry Society - Metalcasting Design Resources', url: 'https://www.afsinc.org/' },
+    { label: 'Forging Industry Association - Forging Design Resources', url: 'https://www.forging.org/' },
+    { label: 'North American Die Casting Association - Product Design Resources', url: 'https://www.diecasting.org/' },
+    { label: 'ASME - Geometric Dimensioning and Tolerancing Standards', url: 'https://www.asme.org/codes-standards' },
+    { label: 'NIST - Manufacturing and Dimensional Metrology', url: 'https://www.nist.gov/topics/manufacturing' }
 ];
 
-// Resources
 const internalResources = [
-    // Die Casting Resources
-    { label: "Die Casting Overview", url: "/die-casting" },
+    // Materials and Technical
+    { label: "Materials & Technical Specifications", url: "/materials-technical-specs" },
+    { label: "Material Cross-Reference Charts", url: "/material-cross-reference-charts" },
+    { label: "Superalloys & Exotic Metals", url: "/superalloys-exotic-metals" },
+    { label: "Titanium Alloys", url: "/titanium-alloys" },
+    { label: "Stainless Steel & Carbon Steel", url: "/stainless-carbon-steel" },
+    { label: "Aluminum & Copper Alloys", url: "/aluminum-copper-alloys" },
+
+    // Casting
+    { label: "Casting Capabilities", url: "/casting" },
+    { label: "Investment Casting", url: "/investment-casting" },
+    { label: "Die Casting", url: "/die-casting" },
+    { label: "Sand Casting", url: "/sand-casting" },
     { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "/zinc-die-casting" },
     { label: "A356-T6 Casting", url: "/a356-t6-casting" },
-    { label: "Magnesium Casting", url: "/magnesium-casting" },
 
-    // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "/investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "/titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting" },
-
-    // Forging Resources
-    { label: "Forging Capabilities Overview", url: "/forging" },
+    // Forging
+    { label: "Forging Capabilities", url: "/forging" },
     { label: "Open Die Forging", url: "/open-die-forging" },
     { label: "Closed Die Forging", url: "/closed-die-forging" },
     { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
     { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
 
-    // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "/sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
+    // Machining and Secondary Operations
+    { label: "Precision Machining", url: "/precision-machining" },
+    { label: "High-Precision Component Machining", url: "/high-precision-machining" },
+    { label: "Multi-Axis CNC Milling & Turning", url: "/multi-axis-cnc" },
+    { label: "Secondary Operations", url: "/secondary-operations" },
+    { label: "Heat Treatment", url: "/heat-treatment" },
+    { label: "Surface Finishing & Coating", url: "/surface-finishing" },
+    { label: "Testing & Inspection Capabilities", url: "/testing-inspection-capabilities" },
+    { label: "Quality Assurance & Certifications", url: "/quality-assurance-certifications" },
+    { label: "Assembly & Kitting", url: "/assembly-and-kitting" }
 ];
 
-// Page Schema
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/manufacturing-design-guides#webpage",
-      "url": "https://www.forcebeyond.store/manufacturing-design-guides",
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
+        "@id": "https://www.forcebeyond.store/#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
-      }
+        "url": "https://www.forcebeyond.store/"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": socialImage
+      },
+      "breadcrumb": {
+        "@id": `${canonicalUrl}#breadcrumb`
+      },
+      "about": [
+        { "@type": "Thing", "name": "Design for manufacturability" },
+        { "@type": "Thing", "name": "Casting design guidelines" },
+        { "@type": "Thing", "name": "Forging design guidelines" },
+        { "@type": "Thing", "name": "CNC machining design guidelines" },
+        { "@type": "Thing", "name": "GD&T and tolerance planning" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.forcebeyond.store/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Materials & Technical Specifications",
+          "item": "https://www.forcebeyond.store/materials-technical-specs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Manufacturing Design Guides",
+          "item": canonicalUrl
+        }
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": `${canonicalUrl}#collection`,
+      "name": "Manufacturing Design Guides",
+      "url": canonicalUrl,
+      "description": seoDescription,
+      "hasPart": [
+        {
+          "@type": "WebPage",
+          "name": "Investment Casting",
+          "url": "https://www.forcebeyond.store/investment-casting/"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Die Casting",
+          "url": "https://www.forcebeyond.store/die-casting/"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Forging",
+          "url": "https://www.forcebeyond.store/forging/"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Precision Machining",
+          "url": "https://www.forcebeyond.store/precision-machining/"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Multi-Axis CNC Machining",
+          "url": "https://www.forcebeyond.store/multi-axis-cnc/"
+        }
+      ]
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/manufacturing-design-guides#service",
-      "name": "Design for Manufacturability (DFM) & Engineering Services",
-      "serviceType": "Technical Engineering & DFM Review Services",
+      "@id": `${canonicalUrl}#service`,
+      "name": "Design for Manufacturability Review",
+      "serviceType": "DFM Review for Casting, Forging, CNC Machining and Secondary Operations",
       "description": seoDescription,
+      "url": canonicalUrl,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
-        "knowsAbout": [
-          "Design for Manufacturability (DFM) Analysis",
-          "Investment Casting DFM Guidelines",
-          "Closed-Die Forging DFM Guidelines",
-          "5-Axis CNC Machining DFM Guidelines",
-          "Mold-Flow Solidification & Forging Deformation Modeling"
+        "@id": "https://www.forcebeyond.store/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "DFM and Engineering Review Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Casting DFM Review",
+              "description": "Review of wall thickness, transitions, draft, radii, gating access, cores, solidification risk, tolerances, machining allowance, and inspection."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Forging DFM Review",
+              "description": "Review of parting line, draft, ribs, webs, grain flow, preform strategy, flash, trim, machining allowance, heat treatment, and testing."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "CNC Machining DFM Review",
+              "description": "Review of tool access, internal radii, feature depth, setup count, datum strategy, tolerance, GD&T, surface finish, deburring, and inspection."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Integrated Process and Quality Planning",
+              "description": "Review of process sequence, heat treatment, finishing, NDT, metrology, assembly, packaging, and production documentation."
+            }
+          }
         ]
       }
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/manufacturing-design-guides#faq",
-      "mainEntity": faqs.map(f => ({
+      "@id": `${canonicalUrl}#faq`,
+      "mainEntity": faqs.map((faq) => ({
         "@type": "Question",
-        "name": f.q,
+        "name": faq.q,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": f.a
+          "text": faq.a
         }
       }))
     }
@@ -113,91 +232,222 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
     pageTitle={pageTitle}
     heroImage="/media/precision-cnc-machining-metal-manufacturing-workshop-hero.webp"
-    heroImageAlt="Precision CNC milling machine cutting a metal component in a modern manufacturing workshop with automated equipment and digital controls."
-    faqSectionTitle="Frequently Asked Questions"
+    heroImageAlt="Engineering review of a precision metal component for manufacturability"
+    heroImageWidth={1920}
+    heroImageHeight={1080}
+    socialImage={socialImage}
+    socialImageAlt="Design for manufacturability guidelines for casting, forging, and CNC machining"
+    faqSectionTitle="Frequently Asked Questions: Design for Manufacturability"
     faqItems={faqs}
-    ctaTitle="Optimize Your CAD Design for Seamless Manufacturing"
-    ctaDescription="Partner with ForceBeyond's engineering team for early DFM reviews, mold-flow simulations, and toolpath verification to ensure zero-defect production."
-    sourcesTitle="Sources"
+    ctaTitle="Request a Design for Manufacturability Review"
+    ctaDescription="Send your 3D model, drawing, material, quantity, critical tolerances, GD&T, finish, heat treatment, inspection, assembly, packaging, and delivery requirements for a process-specific DFM review."
+    ctaButtonText="Request a DFM Review"
+    sourcesTitle="Technical References"
     sourcesList={sources}
-    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesTitle="Related DFM, Materials, Manufacturing and Quality Resources"
     resourcesList={internalResources}
 >
-
     <div slot="full-width" class="individual-content">
 
         <section id="overview">
             <div class="content-container">
-                
-                <h2>Design for Manufacturability (DFM) Guidelines</h2>
-                        <p>
-                            At ForceBeyond, optimizing your component design before tooling is cut is the single most effective way to eliminate manufacturing defects, shorten lead times, and lower unit production costs.
-                        </p>
-                        <p>
-                            Our Design for Manufacturability (DFM) guidelines help design engineers tailor 3D CAD models for near-net-shape primary forming processes and secondary 5-axis CNC machining.
-                        </p>
+                <h2>Design for Manufacturability for Metal Components</h2>
+                <p>
+                    Design for Manufacturability aligns component function with the selected material, manufacturing process, tooling, tolerance, inspection, finishing, assembly, and production volume. Early review can identify avoidable complexity and process risk before tooling, fixtures, and inspection plans are finalized.
+                </p>
+                <p>
+                    These guidelines provide practical starting points for
+                    <a href="/investment-casting" class="highlight-link">investment casting</a>,
+                    <a href="/die-casting" class="highlight-link">die casting</a>,
+                    <a href="/sand-casting" class="highlight-link">sand casting</a>,
+                    <a href="/forging" class="highlight-link">forging</a>,
+                    and
+                    <a href="/precision-machining" class="highlight-link">precision CNC machining</a>.
+                    Final dimensions and process rules should be confirmed against alloy, geometry, equipment, quantity, quality level, and supplier-specific capability.
+                </p>
+            </div>
+        </section>
+
+        <section id="dfm-inputs">
+            <div class="content-container">
+                <h2>Information Needed for an Effective DFM Review</h2>
+                <ul>
+                    <li><strong>3D CAD and 2D drawing:</strong> include nominal geometry, dimensions, GD&T, notes, and revision status.</li>
+                    <li><strong>Material definition:</strong> specify alloy, product form, condition, heat treatment, and governing standard.</li>
+                    <li><strong>Critical features:</strong> identify sealing surfaces, bearing fits, datums, fatigue-sensitive regions, flow paths, and assembly interfaces.</li>
+                    <li><strong>Production requirements:</strong> provide annual volume, lot size, prototype quantity, target launch, and expected program life.</li>
+                    <li><strong>Quality requirements:</strong> define inspection, NDT, documentation, traceability, capability, and first-article expectations.</li>
+                    <li><strong>Post-processing:</strong> include machining, heat treatment, coating, cleaning, assembly, packaging, and shipping constraints.</li>
+                </ul>
             </div>
         </section>
 
         <section id="investment-casting-dfm">
             <div class="content-container">
-                <h2>1. Investment Casting DFM Guidelines</h2>
+                <h2>Investment Casting DFM Guidelines</h2>
                 <ul>
-                    <li>
-                        <strong>Wall Thickness Uniformity:</strong> Maintain consistent wall thicknesses to prevent localized thermal shrinkage sinks. Recommended minimum wall thickness is 0.060” (1.5mm) for carbon/stainless steel and 0.080” (2.0mm) for superalloys.
-                    </li>
-                    <li>
-                        <strong>Draft Angles:</strong> Provide a minimum draft angle of 0.5° to 1.0° on internal cores and outer vertical walls to facilitate smooth wax pattern extraction without distorting the ceramic mold.
-                    </li>
-                    <li>
-                        <strong>Fillet Radii:</strong> Avoid sharp internal corners (R=0). Internal fillet radii should be at least 50% to 75% of the adjacent wall thickness to reduce stress concentrations and liquid turbulence during pouring.
-                    </li>
+                    <li><strong>Wall thickness:</strong> use consistent walls where practical and avoid abrupt heavy-to-thin transitions. Minimum feasible thickness depends on alloy, flow length, local geometry, shell system, and part size.</li>
+                    <li><strong>Fillets and radii:</strong> replace sharp internal corners with generous transitions to improve fill, reduce stress concentration, and support shell strength.</li>
+                    <li><strong>Draft:</strong> wax-pattern tooling may require draft depending on tooling direction, geometry, surface, and pattern-removal method.</li>
+                    <li><strong>Core design:</strong> review ceramic cores, soluble cores, core prints, access, support, dimensional movement, and removal.</li>
+                    <li><strong>Machining stock:</strong> add process-specific allowance to datums, bores, sealing surfaces, threads, and other critical features.</li>
+                    <li><strong>Inspection access:</strong> design critical sections and internal geometry with radiography, penetrant inspection, dimensional inspection, and sectioning needs in mind.</li>
                 </ul>
             </div>
         </section>
 
-        <section id="closed-die-forging-dfm">
+        <section id="sand-casting-dfm">
             <div class="content-container">
-                <h2>2. Closed-Die Forging DFM Guidelines</h2>
+                <h2>Sand Casting DFM Guidelines</h2>
                 <ul>
-                    <li>
-                        <strong>Parting Line Location:</strong> Place the parting line along a central geometric plane to ensure balanced die filling and allow clean flash removal.
-                    </li>
-                    <li>
-                        <strong>Forging Draft Angles:</strong> External walls require a 5° to 7° draft angle; internal cavity walls require a 7° to 10° draft angle to prevent parts from sticking inside heavy impression dies.
-                    </li>
-                    <li>
-                        <strong>Web & Rib Ratios:</strong> Avoid tall, thin ribs with narrow webs. Maintain a rib-height-to-rib-thickness ratio below 4:1 to ensure smooth plastic metal flow under press loads.
-                    </li>
+                    <li><strong>Parting line:</strong> select a practical parting plane that simplifies molding, core placement, flash removal, and dimensional control.</li>
+                    <li><strong>Draft allowance:</strong> provide draft on pattern surfaces according to depth, molding process, material, and pattern type.</li>
+                    <li><strong>Section transitions:</strong> use gradual changes and radii to reduce hot spots, shrinkage risk, and local stress.</li>
+                    <li><strong>Core prints:</strong> provide adequate support and location for sand cores while considering gas escape and cleaning.</li>
+                    <li><strong>Machining allowance:</strong> account for casting size, alloy, mold process, heat treatment, distortion, and surface condition.</li>
+                    <li><strong>Datum planning:</strong> establish stable locating features for rough and finish machining of variable near-net surfaces.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="die-casting-dfm">
+            <div class="content-container">
+                <h2>Die Casting DFM Guidelines</h2>
+                <ul>
+                    <li><strong>Uniform walls:</strong> maintain practical wall consistency to support filling, cooling, ejection, and dimensional stability.</li>
+                    <li><strong>Draft and ejection:</strong> provide suitable draft and ejector-pin locations based on alloy, surface finish, cavity depth, and die construction.</li>
+                    <li><strong>Ribs and bosses:</strong> use ribs for stiffness rather than unnecessarily thick sections, and tie bosses into surrounding walls with fillets.</li>
+                    <li><strong>Parting line and slides:</strong> minimize side actions where possible, but use slides or cores when function justifies added tooling complexity.</li>
+                    <li><strong>Overflows and gates:</strong> preserve areas needed for gate, runner, overflow, vent, and trim design.</li>
+                    <li><strong>Pressure integrity:</strong> coordinate wall thickness, local machining, sealing faces, porosity risk, impregnation policy, and leak-testing requirements.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="forging-dfm">
+            <div class="content-container">
+                <h2>Closed-Die Forging DFM Guidelines</h2>
+                <ul>
+                    <li><strong>Parting line:</strong> locate the parting line to support die fill, grain flow, flash trimming, die life, and dimensional control.</li>
+                    <li><strong>Draft:</strong> external and internal draft depend on alloy, forging temperature, depth, press type, lubrication, and ejector strategy.</li>
+                    <li><strong>Ribs and webs:</strong> avoid unnecessarily tall, thin features that restrict flow or increase die stress.</li>
+                    <li><strong>Fillets and radii:</strong> use generous internal fillets and external radii to improve metal flow and reduce laps, folds, and die stress.</li>
+                    <li><strong>Preform strategy:</strong> distribute volume before final impression forging to improve fill and reduce excess flash.</li>
+                    <li><strong>Machining allowance:</strong> include stock for scale removal, heat-treatment distortion, datum establishment, and finish machining.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="open-die-ring-dfm">
+            <div class="content-container">
+                <h2>Open-Die and Rolled-Ring Forging DFM Guidelines</h2>
+                <ul>
+                    <li><strong>Starting stock and reduction:</strong> review ingot, billet, or pierced preform size relative to final geometry and property requirements.</li>
+                    <li><strong>Section ratio:</strong> avoid extreme transitions that complicate deformation, heat retention, and ultrasonic inspection.</li>
+                    <li><strong>Grain-flow objective:</strong> align forging direction with primary loading and final component geometry where practical.</li>
+                    <li><strong>Machining envelope:</strong> provide adequate stock for cleanup, testing, heat treatment, distortion, and datum creation.</li>
+                    <li><strong>Test material:</strong> plan prolongations, coupons, sacrificial zones, or test rings when required by specification.</li>
                 </ul>
             </div>
         </section>
 
         <section id="cnc-machining-dfm">
             <div class="content-container">
-                <h2>3. Secondary CNC Machining DFM Guidelines</h2>
+                <h2>CNC Machining DFM Guidelines</h2>
                 <ul>
-                    <li>
-                        <strong>Standardize Tool Radius Sizes:</strong> Design internal pocket radii to match standard end mill diameters, leaving a radius slightly larger than the cutter (e.g., use a 0.260” radius for a 0.250” tool) to prevent tool chatter.
-                    </li>
-                    <li>
-                        <strong>Minimizing Tool Re-Fixturing:</strong> Design parts for multi-axis or 5-axis CNC machining so that mounting datum faces, holes, and sealing grooves can be finished in a single setup ("Done-in-One").
-                    </li>
-                    <li>
-                        <strong>Proper Machining Allowances:</strong> Leave an optimal material allowance of 0.030” to 0.060” (0.75mm to 1.5mm) on critical cast or forged surfaces meant for finish machining—preventing unnecessary cutter wear while removing as-cast surface skins.
-                    </li>
+                    <li><strong>Internal radii:</strong> use radii compatible with practical cutter sizes and allow clearance beyond the exact tool radius where possible.</li>
+                    <li><strong>Feature depth:</strong> limit unnecessarily deep pockets, slots, and holes that require long, flexible tools.</li>
+                    <li><strong>Tool access:</strong> review undercuts, compound angles, internal passages, and intersecting features for available cutter and holder clearance.</li>
+                    <li><strong>Setup reduction:</strong> group related datums and critical features so they can be machined in fewer setups where practical.</li>
+                    <li><strong>Thin walls:</strong> allow for clamping, deflection, residual stress, and balanced stock removal.</li>
+                    <li><strong>Deburring:</strong> specify edge breaks, chamfers, radii, and burr limits at intersecting holes and inaccessible features.</li>
                 </ul>
             </div>
         </section>
 
-        <section id="collaborative-dfm">
+        <section id="multi-axis-dfm">
             <div class="content-container">
-                <h2>Collaborative DFM & Feasibility Reviews</h2>
+                <h2>Multi-Axis CNC DFM Guidelines</h2>
+                <ul>
+                    <li><strong>Machine reach:</strong> verify rotary travel, spindle access, holder clearance, and collision risk.</li>
+                    <li><strong>Workholding:</strong> preserve gripping, locating, and support surfaces that do not obstruct critical features.</li>
+                    <li><strong>Datum relationships:</strong> use
+                        <a href="/multi-axis-cnc" class="highlight-link">multi-axis machining</a>
+                        where fewer setups support position, profile, runout, or orientation requirements.
+                    </li>
+                    <li><strong>Surface continuity:</strong> identify blend zones, cusp-height requirements, polishing allowances, and cosmetic surfaces.</li>
+                    <li><strong>Simulation:</strong> validate toolpath, machine kinematics, stock condition, and fixture clearance before production.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="tolerances-gdt">
+            <div class="content-container">
+                <h2>Tolerance, GD&T and Datum Strategy</h2>
+                <ul>
+                    <li><strong>Apply tolerances by function:</strong> avoid assigning tight tolerances to noncritical features.</li>
+                    <li><strong>Use stable datums:</strong> align design, manufacturing, assembly, and inspection reference systems.</li>
+                    <li><strong>Separate as-formed and machined requirements:</strong> clearly identify which surfaces remain cast or forged and which require machining.</li>
+                    <li><strong>Account for process capability:</strong> match tolerance to feature size, material, equipment, volume, and inspection method.</li>
+                    <li><strong>Consider measurement uncertainty:</strong> ensure the proposed inspection method is capable relative to the tolerance.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="machining-allowance">
+            <div class="content-container">
+                <h2>Machining Allowance for Castings and Forgings</h2>
                 <p>
-                    ForceBeyond’s engineering team provides full Simultaneous Engineering and DFM Reviews during the early CAD development phase. By running mold-flow solidification simulations, forging deformation modeling, and 5-axis toolpath verifications, we help you launch fully manufacturable components on time and within budget.
+                    Machining allowance should be assigned by feature rather than using one universal value across the component.
+                </p>
+                <ul>
+                    <li><strong>Process variation:</strong> consider casting or forging tolerance, stock variation, scale, surface reaction, and distortion.</li>
+                    <li><strong>Heat treatment:</strong> allow for dimensional movement before final machining.</li>
+                    <li><strong>Datum establishment:</strong> preserve enough stock to create stable reference surfaces.</li>
+                    <li><strong>Defect exposure:</strong> avoid unnecessary deep cleanup cuts that may intersect internal casting discontinuities.</li>
+                    <li><strong>Cost balance:</strong> excessive stock increases material removal, tool wear, cycle time, and distortion risk.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="inspection-dfm">
+            <div class="content-container">
+                <h2>Designing for Inspection and Quality Control</h2>
+                <ul>
+                    <li><strong>Probe access:</strong> ensure CMM, gauges, borescopes, optical systems, and surface instruments can reach critical features.</li>
+                    <li><strong>NDT access:</strong> consider radiographic orientation, ultrasonic coupling, penetrant cleaning, and magnetic-particle applicability.</li>
+                    <li><strong>Test surfaces:</strong> identify hardness locations, tensile coupons, pressure ports, leak-test connections, and metallographic sampling.</li>
+                    <li><strong>Capability planning:</strong> identify critical characteristics requiring control plans, SPC, capability studies, or enhanced sampling.</li>
+                    <li><strong>Documentation:</strong> define first-article, material, heat-treatment, NDT, inspection, and traceability requirements before quoting.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="integrated-dfm">
+            <div class="content-container">
+                <h2>Integrated DFM Review Across the Manufacturing Route</h2>
+                <p>
+                    The strongest DFM review considers the complete process rather than optimizing each operation in isolation.
+                </p>
+                <ol>
+                    <li><strong>Select material and product form:</strong> compare cast, forged, wrought, and near-net options.</li>
+                    <li><strong>Define the primary forming process:</strong> evaluate tooling, volume, geometry, mechanical properties, and lead time.</li>
+                    <li><strong>Plan heat treatment and distortion control:</strong> coordinate rough machining, thermal processing, straightening, and final machining.</li>
+                    <li><strong>Plan secondary operations:</strong> include coating, cleaning, joining, assembly, and packaging.</li>
+                    <li><strong>Confirm inspection strategy:</strong> match dimensional and NDT methods to critical requirements and acceptance criteria.</li>
+                </ol>
+                <p>
+                    Review
+                    <a href="/testing-inspection-capabilities" class="highlight-link">testing and inspection capabilities</a>,
+                    <a href="/secondary-operations" class="highlight-link">secondary operations</a>,
+                    and
+                    <a href="/quality-assurance-certifications" class="highlight-link">quality assurance and certifications</a>
+                    when preparing the final production package.
                 </p>
             </div>
         </section>

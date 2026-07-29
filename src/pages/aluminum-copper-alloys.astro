@@ -1,124 +1,204 @@
 ---
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Aluminum & Copper Alloys: Lightweight, High-Conductivity Solutions';
-const seoTitle = 'Aluminum & Copper Alloy Die Casting, Forging & CNC | ForceBeyond';
-const seoDescription = 'Precision high-pressure die casting, sand casting, and CNC machining for A356, A380 aluminum, high-conductivity copper, and lead-free ECO BRASS®.';
+const pageTitle = 'Aluminum & Copper Alloys for Casting, Forging and Machining';
+const seoTitle = 'Aluminum & Copper Alloys | A356, A380, 6061 & Copper';
+const seoDescription = 'Explore ForceBeyond manufacturing support for aluminum, copper, brass, and bronze alloys through die casting, sand casting, forging, CNC machining, heat treatment, finishing, leak testing, inspection, and material documentation.';
+
+const canonicalUrl = 'https://www.forcebeyond.store/aluminum-copper-alloys/';
+const socialImage = 'https://www.forcebeyond.store/media/precision-cnc-machining-metal-manufacturing-workshop-hero.webp';
 
 const faqs = [
     {
-        q: "What mechanical improvements does T6 heat treatment provide for cast aluminum?",
-        a: "T6 heat treatment combines solution heat treatment, rapid water quenching, and artificial aging to increase A356 tensile strength from 23 ksi (as-cast) up to 33+ ksi."
+        q: "What does T6 heat treatment do for cast aluminum?",
+        a: "T6 heat treatment typically combines solution heat treatment, quenching, and artificial aging to increase strength and hardness in heat-treatable aluminum alloys such as A356. Final properties depend on chemistry, casting quality, section thickness, solution cycle, quench rate, aging cycle, and the governing material specification."
     },
     {
-        q: "How does ForceBeyond ensure leak-free integrity for cooling distribution manifolds and valve bodies?",
-        a: "All liquid cooling distribution manifolds and valve bodies undergo 100% pneumatic helium leak detection (ASTM E515) to guarantee zero-leak operation under pressure."
+        q: "How are aluminum manifolds and valve bodies checked for leakage?",
+        a: "Leak verification may use pressure decay, air-under-water, helium, hydrostatic, pneumatic, or application-specific test methods. The required test pressure, leak rate, medium, dwell time, and acceptance criteria should be defined by the drawing, purchase order, and service conditions. Not every component requires helium testing."
+    },
+    {
+        q: "What is the difference between cast and wrought aluminum alloys?",
+        a: "Cast alloys are formulated for fluidity, mold filling, solidification, and near-net-shape manufacturing. Wrought alloys are processed as plate, bar, extrusion, sheet, or forgings and are often selected for structural properties, machinability, or forming. Similar alloy numbers should not be treated as interchangeable across product forms."
+    },
+    {
+        q: "What information is needed for an aluminum or copper alloy quote?",
+        a: "Provide a 2D drawing and, when available, a 3D CAD model, along with alloy grade, governing specification, product form, quantity, thermal or electrical requirements, heat treatment, machining, coating, leak testing, inspection, documentation, and delivery expectations."
     }
 ];
 
-// Sources
 const sources = [
-    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
-    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
-    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
-    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
-    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
-    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
+    { label: 'ASM International - Aluminum, Copper and Nonferrous Alloy Resources', url: 'https://www.asminternational.org/' },
+    { label: 'ASTM International - Aluminum and Copper Alloy Standards', url: 'https://www.astm.org/' },
+    { label: 'The Aluminum Association - Aluminum Alloy Resources', url: 'https://www.aluminum.org/' },
+    { label: 'Copper Development Association - Copper and Brass Resources', url: 'https://www.copper.org/' },
+    { label: 'NIST - Materials and Manufacturing', url: 'https://www.nist.gov/topics/materials' },
+    { label: 'North American Die Casting Association - Die Casting Resources', url: 'https://www.diecasting.org/' }
 ];
 
-// Resources
 const internalResources = [
-    // Die Casting Resources
-    { label: "Die Casting Overview", url: "/die-casting" },
+    // Materials Hub
+    { label: "Materials & Technical Specifications", url: "/materials-technical-specs" },
+    { label: "Superalloys & Exotic Metals", url: "/superalloys-exotic-metals" },
+    { label: "Titanium Alloys", url: "/titanium-alloys" },
+    { label: "Stainless Steel & Carbon Steel", url: "/stainless-carbon-steel" },
+    { label: "Material Cross-Reference Charts", url: "/material-cross-reference-charts" },
+    { label: "Manufacturing Design Guides", url: "/manufacturing-design-guides" },
+
+    // Aluminum and Nonferrous Manufacturing
     { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "/zinc-die-casting" },
     { label: "A356-T6 Casting", url: "/a356-t6-casting" },
-    { label: "Magnesium Casting", url: "/magnesium-casting" },
-
-    // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "/investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "/titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting" },
-
-    // Forging Resources
-    { label: "Forging Capabilities Overview", url: "/forging" },
-    { label: "Open Die Forging", url: "/open-die-forging" },
-    { label: "Closed Die Forging", url: "/closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
-    { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
-
-    // Sand Casting & Steel Casting Resources
+    { label: "Die Casting", url: "/die-casting" },
     { label: "Sand Casting", url: "/sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
+    { label: "Casting Capabilities", url: "/casting" },
+    { label: "Forging Capabilities", url: "/forging" },
+    { label: "Cold Forging", url: "/cold-forging" },
+    { label: "Precision Machining", url: "/precision-machining" },
+    { label: "High-Precision Component Machining", url: "/high-precision-machining" },
+    { label: "Multi-Axis CNC Milling & Turning", url: "/multi-axis-cnc" },
+
+    // Secondary Operations and Quality
+    { label: "Heat Treatment", url: "/heat-treatment" },
+    { label: "Secondary Operations", url: "/secondary-operations" },
+    { label: "Surface Finishing & Coating", url: "/surface-finishing" },
+    { label: "Testing & Inspection Capabilities", url: "/testing-inspection-capabilities" },
+    { label: "Quality Assurance & Certifications", url: "/quality-assurance-certifications" },
+    { label: "Assembly & Kitting", url: "/assembly-and-kitting" },
+
+    // Industries
+    { label: "Data Center Power", url: "/data-center-power" },
+    { label: "Automotive", url: "/automotive" },
+    { label: "HVAC, Fluid & Flow Control", url: "/hvac-flow" },
+    { label: "Energy & Power Generation", url: "/energy-power-generation" },
+    { label: "Aerospace", url: "/aerospace" }
 ];
 
-// Page Schema
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/aluminum-copper-alloys#webpage",
-      "url": "https://www.forcebeyond.store/aluminum-copper-alloys",
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
+        "@id": "https://www.forcebeyond.store/#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
-      }
+        "url": "https://www.forcebeyond.store/"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": socialImage
+      },
+      "breadcrumb": {
+        "@id": `${canonicalUrl}#breadcrumb`
+      },
+      "about": [
+        { "@type": "Thing", "name": "Aluminum alloys" },
+        { "@type": "Thing", "name": "Copper alloys" },
+        { "@type": "Thing", "name": "Brass" },
+        { "@type": "Thing", "name": "Bronze" },
+        { "@type": "Thing", "name": "Nonferrous metal manufacturing" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.forcebeyond.store/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Materials & Technical Specifications",
+          "item": "https://www.forcebeyond.store/materials-technical-specs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Aluminum & Copper Alloys",
+          "item": canonicalUrl
+        }
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": `${canonicalUrl}#collection`,
+      "name": "Aluminum, Copper, Brass and Bronze Resources",
+      "url": canonicalUrl,
+      "description": seoDescription,
+      "hasPart": [
+        {
+          "@type": "WebPage",
+          "name": "Aluminum Die Casting",
+          "url": "https://www.forcebeyond.store/aluminum-die-casting/"
+        },
+        {
+          "@type": "WebPage",
+          "name": "A356-T6 Casting",
+          "url": "https://www.forcebeyond.store/a356-t6-casting/"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Precision Machining",
+          "url": "https://www.forcebeyond.store/precision-machining/"
+        }
+      ]
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/aluminum-copper-alloys#service",
-      "name": "Aluminum & Copper Alloy Component Manufacturing",
-      "serviceType": "Non-Ferrous Die Casting, Forging & Machining",
+      "@id": `${canonicalUrl}#service`,
+      "name": "Aluminum and Copper Alloy Manufacturing Support",
+      "serviceType": "Casting, Forging, Heat Treatment and CNC Machining of Nonferrous Alloys",
       "description": seoDescription,
+      "url": canonicalUrl,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
-        "knowsAbout": [
-          "Cast Aluminum Alloys (A356-T6, A380, A360, A413)",
-          "Wrought Structural Aluminum Alloys (6061-T6, 7075-T6, 2024)",
-          "High-Conductivity Oxygen-Free Copper (C11000, C10200)",
-          "Lead-Free Brass & Bronze (ECO BRASS® C69300, C83600)",
-          "100% Helium Leak Testing (ASTM E515) & T6 Thermal Aging"
-        ]
+        "@id": "https://www.forcebeyond.store/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Non-Ferrous Capabilities Catalog",
+        "name": "Aluminum and Copper Alloy Manufacturing Capabilities",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Cast & Wrought Aluminum Components",
-              "description": "Lightweight A356-T6, A380, and 6061-T6 aluminum die castings and CNC machined parts for EV enclosures, data centers, and aerospace cold plates."
+              "name": "Cast Aluminum Components",
+              "description": "Die casting, sand casting, heat treatment, machining, finishing, and inspection support for A356, A380, A360, A413, and related cast aluminum alloys."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "High-Conductivity Copper Hardware",
-              "description": "Forged C11000/C10200 copper busbars, transformer lugs, and EV battery connectors offering ≥100% IACS electrical conductivity."
+              "name": "Wrought Aluminum Components",
+              "description": "Forging, extrusion-based machining, billet machining, heat treatment, anodizing, and inspection for 6061, 7075, 2024, and related wrought alloys."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Lead-Free ECO BRASS® Plumbing & Valve Components",
-              "description": "NSF/ANSI 61 compliant lead-free brass and bronze fittings for commercial plumbing and sanitary fluid control."
+              "name": "Copper and Brass Components",
+              "description": "Forging, machining, joining, finishing, and testing support for copper, brass, bronze, and lead-free copper-alloy components."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Thermal, Electrical and Leak-Test Verification",
+              "description": "Project-specific conductivity verification, pressure or leak testing, dimensional inspection, material documentation, and quality records."
             }
           }
         ]
@@ -126,13 +206,13 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/aluminum-copper-alloys#faq",
-      "mainEntity": faqs.map(f => ({
+      "@id": `${canonicalUrl}#faq`,
+      "mainEntity": faqs.map((faq) => ({
         "@type": "Question",
-        "name": f.q,
+        "name": faq.q,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": f.a
+          "text": faq.a
         }
       }))
     }
@@ -143,72 +223,147 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
     pageTitle={pageTitle}
     heroImage="/media/precision-cnc-machining-metal-manufacturing-workshop-hero.webp"
-    heroImageAlt="Precision CNC milling machine cutting a metal component in a modern manufacturing workshop with automated equipment and digital controls."
-    faqSectionTitle="Frequently Asked Questions"
+    heroImageAlt="Precision manufacturing and CNC machining of aluminum and copper alloy components"
+    heroImageWidth={1920}
+    heroImageHeight={1080}
+    socialImage={socialImage}
+    socialImageAlt="Aluminum and copper alloys for casting, forging, and machining"
+    faqSectionTitle="Frequently Asked Questions: Aluminum & Copper Alloys"
     faqItems={faqs}
-    ctaTitle="Optimize Performance with Engineered Non-Ferrous Alloys"
-    ctaDescription="Partner with ForceBeyond for high-pressure aluminum die casting, copper forging, and precision CNC machining tailored to your thermal and electrical requirements."
-    sourcesTitle="Sources"
+    ctaTitle="Review an Aluminum or Copper Alloy Program"
+    ctaDescription="Send your drawing, alloy grade, governing specification, thermal or electrical requirements, quantity, casting or forging route, heat treatment, machining, finishing, testing, inspection, and documentation requirements for an engineering review."
+    ctaButtonText="Request a Nonferrous Material Review"
+    sourcesTitle="Technical References"
     sourcesList={sources}
-    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesTitle="Related Aluminum, Copper, Manufacturing and Quality Resources"
     resourcesList={internalResources}
 >
-
     <div slot="full-width" class="individual-content">
 
         <section id="overview">
             <div class="content-container">
-                
-                <h2>Aluminum & Copper Alloys: Lightweight, High-Conductivity Solutions</h2>
-                        <p>
-                            ForceBeyond provides advanced manufacturing solutions for non-ferrous Aluminum and Copper Alloys. From lightweight, structural aluminum sand and die castings to high-conductivity copper forgings and lead-free ECO BRASS® machining, we support OEMs seeking thermal management, high electrical conductivity, weight reduction, and corrosion resistance.
-                        </p>
-                        <p>
-                            Utilizing automated high-pressure die casting, investment casting, and multi-axis CNC machining, ForceBeyond supplies certified components to the automotive, electrical infrastructure, hyperscale data center, and HVAC sectors.
-                        </p>
+                <h2>Aluminum, Copper, Brass and Bronze for Engineered Components</h2>
+                <p>
+                    Aluminum and copper alloys are selected for combinations of low density, strength, thermal conductivity, electrical conductivity, corrosion resistance, castability, formability, and machinability. ForceBeyond supports nonferrous components across
+                    <a href="/die-casting" class="highlight-link">die casting</a>,
+                    <a href="/sand-casting" class="highlight-link">sand casting</a>,
+                    <a href="/forging" class="highlight-link">forging</a>,
+                    <a href="/precision-machining" class="highlight-link">precision machining</a>,
+                    heat treatment, finishing, inspection, and assembly.
+                </p>
+                <p>
+                    This page serves as the material-family guide for A356, A380, 6061, 7075, copper, brass, bronze, and application-specific nonferrous grades. Final material and process selection should be tied to the product form, service temperature, loading, conductivity, corrosion environment, joining method, inspection, and governing specification.
+                </p>
             </div>
         </section>
 
-        <section id="specifications">
+        <section id="alloy-families">
             <div class="content-container">
-                <h2>Aluminum & Copper Alloy Specifications</h2>
+                <h2>Aluminum and Copper Alloy Families</h2>
+                <p>
+                    Published mechanical, thermal, and electrical values vary by chemistry, product form, heat treatment, temper, section size, and test method. The following table is intended for initial material selection rather than final design allowables.
+                </p>
+
                 <div class="content-table-wrapper">
                     <table>
                         <thead>
                             <tr>
-                                <th scope="col">Alloy Family</th>
-                                <th scope="col">Material Grades Offered</th>
-                                <th scope="col">Thermal / Electrical Properties</th>
-                                <th scope="col">Key Features & Optimal Applications</th>
+                                <th scope="col">Material Family</th>
+                                <th scope="col">Representative Grades</th>
+                                <th scope="col">Typical Selection Factors</th>
+                                <th scope="col">Representative Applications</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <tr>
                                 <th scope="row">Cast Aluminum Alloys</th>
-                                <td>A356-T6, A380, A360, A413</td>
-                                <td>Thermal Conductivity:<br />90–160 W/m·K</td>
-                                <td>High strength-to-weight ratio, excellent pressure tightness, and smooth surface finishes. Used for Data Center Power Enclosures and automotive engine housings.</td>
+                                <td>A356, A380, A360, A413 and specification-controlled equivalents</td>
+                                <td>Castability, pressure tightness, heat-treatment response, strength, corrosion resistance, wall thickness, and surface finish.</td>
+                                <td>Housings, manifolds, enclosures, automotive components, pump bodies, covers, brackets, and thermal-management parts.</td>
                             </tr>
                             <tr>
                                 <th scope="row">Wrought Aluminum Alloys</th>
-                                <td>6061-T6, 7075-T6, 2024</td>
-                                <td>Thermal Conductivity:<br />130–170 W/m·K</td>
-                                <td>High yield strength and excellent machinability for structural aerospace brackets and liquid cold plate manifolds.</td>
+                                <td>6061, 7075, 2024 and application-specific plate, bar, extrusion, or forging grades</td>
+                                <td>Strength, fatigue, machinability, corrosion, anodizing response, formability, weldability, and product-form availability.</td>
+                                <td>Aerospace brackets, structural components, cold plates, frames, fixtures, housings, and machined manifolds.</td>
                             </tr>
                             <tr>
                                 <th scope="row">High-Conductivity Copper</th>
-                                <td>Oxygen-Free C11000<br />C10200 Copper</td>
-                                <td>Electrical Conductivity:<br />≥100% IACS</td>
-                                <td>Unmatched electrical and thermal transport properties (k ≥ 390 W/m·K). Used for heavy electrical busbars, transformer lugs, and EV battery connectors.</td>
+                                <td>C11000, C10200 and specification-controlled copper grades</td>
+                                <td>Electrical conductivity, thermal conductivity, oxygen content, anneal condition, formability, joining, and surface protection.</td>
+                                <td>Busbars, lugs, terminals, heat spreaders, electrodes, power connectors, and transformer hardware.</td>
+                            </tr>
                             <tr>
-                                <th scope="row">Lead-Free Brass & Bronze</th>
-                                <td>ECO BRASS® (C69300)<br />C83600 Bronze</td>
-                                <td>Corrosion Resistant<br />Safe Drinking Water Compliant</td>
-                                <td>100% compliant with US Safe Drinking Water Act and NSF/ANSI 61. Used for commercial plumbing fittings and sanitary valve bodies.</td>
+                                <th scope="row">Brass and Lead-Free Copper Alloys</th>
+                                <td>C69300 and application-specific brass or lead-free copper alloys</td>
+                                <td>Machinability, dezincification resistance, corrosion, pressure tightness, regulatory requirements, joining, and cost.</td>
+                                <td>Valves, fittings, plumbing components, fluid-control hardware, connectors, and machined bodies.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Bronze Alloys</th>
+                                <td>C83600 and application-specific tin, aluminum, silicon, or bearing bronzes</td>
+                                <td>Wear, galling resistance, corrosion, bearing behavior, castability, strength, and lubricity.</td>
+                                <td>Bushings, bearings, valve bodies, pump components, wear plates, marine hardware, and industrial fittings.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    Review the broader
+                    <a href="/materials-technical-specs" class="highlight-link">materials and technical specifications</a>
+                    hub for cross-family alloy selection and manufacturing compatibility.
+                </p>
+            </div>
+        </section>
+
+        <section id="grade-comparison">
+            <div class="content-container">
+                <h2>Comparing A356, A380, 6061 and Copper Alloys</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Selection Factor</th>
+                                <th scope="col">A356</th>
+                                <th scope="col">A380</th>
+                                <th scope="col">6061</th>
+                                <th scope="col">High-Conductivity Copper</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Typical Product Form</th>
+                                <td>Sand, permanent-mold, or investment casting depending on specification and geometry.</td>
+                                <td>High-pressure die casting.</td>
+                                <td>Plate, bar, extrusion, tube, and forgings.</td>
+                                <td>Bar, plate, strip, rod, forgings, stampings, and machined forms.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Primary Strength</th>
+                                <td>Heat-treatable cast alloy with useful strength, corrosion resistance, and pressure-component potential.</td>
+                                <td>Good die-castability, dimensional repeatability, and suitability for high-volume complex shapes.</td>
+                                <td>Balanced strength, machinability, corrosion resistance, weldability, and broad availability.</td>
+                                <td>High electrical and thermal conductivity.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Typical Limitations</th>
+                                <td>Properties depend strongly on casting quality, porosity, section size, and heat treatment.</td>
+                                <td>Heat-treatment options and ductility may be more limited than selected wrought or heat-treatable casting alloys.</td>
+                                <td>Requires more machining than a near-net casting for complex shapes.</td>
+                                <td>High density, softness in some conditions, burr formation, and conductivity loss from alloying or cold work.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Representative Applications</th>
+                                <td>Pump housings, manifolds, structural castings, wheels, brackets, and aerospace-related hardware.</td>
+                                <td>Automotive housings, electronic enclosures, brackets, covers, and high-volume industrial parts.</td>
+                                <td>Cold plates, manifolds, frames, brackets, structural parts, and precision-machined components.</td>
+                                <td>Busbars, lugs, terminals, heat exchangers, power connectors, and electrical hardware.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -216,19 +371,127 @@ const pageSchema = {
             </div>
         </section>
 
-        <section id="manufacturing-capabilities">
+        <section id="manufacturing-route">
             <div class="content-container">
-                <h2>Manufacturing Capabilities for Non-Ferrous Alloys</h2>
+                <h2>Selecting a Nonferrous Manufacturing Route</h2>
+                <p>
+                    The best process depends on geometry, volume, alloy, product form, tooling budget, mechanical requirements, conductivity, and inspection.
+                </p>
                 <ul>
-                    <li>
-                        <strong>T6 Heat Treatment for Cast Aluminum:</strong> Combines solution heat treatment, rapid water quenching, and artificial aging to increase A356 tensile strength from 23 ksi (as-cast) up to 33+ ksi.
-                    </li>
-                    <li>
-                        <strong>High-Conductivity Copper Forging:</strong> Hot forging eliminates internal voids in copper busbars while preserving maximum IACS electrical conductivity for high-amperage data center switchgear.
-                    </li>
-                    <li>
-                        <strong>100% Pressure Decay Leak Testing:</strong> Liquid cooling distribution manifolds and valve bodies undergo pneumatic helium leak detection (ASTM E515) to guarantee zero-leak operation.
-                    </li>
+                    <li><strong><a href="/aluminum-die-casting" class="highlight-link">Aluminum die casting:</a></strong> high-volume, complex, thin-wall, near-net components with repeatable geometry.</li>
+                    <li><strong><a href="/a356-t6-casting" class="highlight-link">A356 casting:</a></strong> heat-treatable cast components requiring strength, pressure integrity, or larger geometry.</li>
+                    <li><strong><a href="/sand-casting" class="highlight-link">Sand casting:</a></strong> larger, lower-volume, or complex components with flexible tooling and alloy options.</li>
+                    <li><strong><a href="/forging" class="highlight-link">Aluminum or copper forging:</a></strong> components requiring grain flow, fatigue resistance, strength, conductivity, or pressure performance.</li>
+                    <li><strong><a href="/precision-machining" class="highlight-link">Billet and wrought-part machining:</a></strong> prototypes, low volume, precise fluid passages, cold plates, busbars, and structural parts.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="heat-treatment">
+            <div class="content-container">
+                <h2>Aluminum Heat Treatment and Temper Control</h2>
+                <p>
+                    Heat treatment affects strength, hardness, ductility, residual stress, distortion, conductivity, and dimensional stability.
+                </p>
+                <ul>
+                    <li><strong>Solution heat treatment:</strong> dissolves strengthening constituents in heat-treatable aluminum alloys.</li>
+                    <li><strong>Quenching:</strong> retains a supersaturated structure but can introduce residual stress and distortion.</li>
+                    <li><strong>Artificial aging:</strong> develops precipitation strengthening in T5, T6, or other specified tempers.</li>
+                    <li><strong>Stress relief:</strong> stretching, compression, thermal processing, or machining sequence may be used to control distortion.</li>
+                    <li><strong>Verification:</strong> hardness, conductivity, tensile testing, dimensional inspection, or other checks may be required by specification.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="conductivity">
+            <div class="content-container">
+                <h2>Electrical and Thermal Conductivity Considerations</h2>
+                <p>
+                    Conductivity depends on alloy chemistry, temper, purity, cold work, heat treatment, joining, plating, surface condition, and test method.
+                </p>
+                <ul>
+                    <li><strong>Copper purity:</strong> higher-purity grades generally support higher electrical and thermal conductivity.</li>
+                    <li><strong>Alloying tradeoffs:</strong> brass, bronze, and precipitation-strengthened copper alloys sacrifice some conductivity for strength, wear, or corrosion performance.</li>
+                    <li><strong>Joint design:</strong> contact area, flatness, surface finish, fastener load, plating, and oxidation influence electrical resistance.</li>
+                    <li><strong>Thermal interfaces:</strong> flatness, roughness, thermal interface material, clamping, and wall thickness affect heat transfer.</li>
+                    <li><strong>Verification:</strong> conductivity, resistance, temperature rise, or thermal testing may be specified for critical applications.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="casting-quality">
+            <div class="content-container">
+                <h2>Pressure Tightness, Porosity and Leak Testing</h2>
+                <p>
+                    Pressure-containing aluminum and copper-alloy components require coordinated design, casting, machining, cleaning, and testing.
+                </p>
+                <ul>
+                    <li><strong>Gating and feeding:</strong> control fill, shrinkage, entrained gas, oxide films, and local hot spots.</li>
+                    <li><strong>Machining allowance:</strong> avoid opening internal porosity near sealing surfaces and ports.</li>
+                    <li><strong>Impregnation or sealing:</strong> may be considered where allowed by the specification and application.</li>
+                    <li><strong>Leak-test method:</strong> pressure decay, bubble, helium, hydrostatic, pneumatic, or other methods selected according to required sensitivity.</li>
+                    <li><strong>Acceptance criteria:</strong> test pressure, medium, dwell time, allowable leak rate, and reporting should be defined before production.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="machining">
+            <div class="content-container">
+                <h2>Machining Aluminum, Copper, Brass and Bronze</h2>
+                <ul>
+                    <li><strong>Aluminum:</strong> manage chip evacuation, built-up edge, thin-wall distortion, burrs, and surface finish.</li>
+                    <li><strong>Copper:</strong> control gummy chip formation, burrs, heat, tool adhesion, and distortion on soft or high-conductivity grades.</li>
+                    <li><strong>Brass:</strong> machinability varies widely with alloy composition, lead content, and regulatory requirements.</li>
+                    <li><strong>Bronze:</strong> tool selection depends on tin, aluminum, silicon, bearing, or other bronze family.</li>
+                    <li><strong><a href="/multi-axis-cnc" class="highlight-link">Multi-axis machining:</a></strong> reduce setups and improve access on manifolds, cold plates, housings, busbars, and complex fluid components.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="finishing">
+            <div class="content-container">
+                <h2>Surface Finishing and Corrosion Protection</h2>
+                <ul>
+                    <li><strong><a href="/surface-finishing" class="highlight-link">Anodizing:</a></strong> used on suitable aluminum alloys for corrosion protection, wear, color, or electrical insulation.</li>
+                    <li><strong>Conversion coating:</strong> supports corrosion protection, paint adhesion, or electrical grounding requirements.</li>
+                    <li><strong>Plating:</strong> tin, nickel, silver, or other systems may be used on copper alloys for solderability, corrosion, contact resistance, or wear.</li>
+                    <li><strong>Passivation and cleaning:</strong> remove contamination and prepare copper, brass, or bronze surfaces for service.</li>
+                    <li><strong>Galvanic design:</strong> account for dissimilar metals, fasteners, moisture, coating damage, and drainage.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="inspection">
+            <div class="content-container">
+                <h2>Material Verification, Testing and Documentation</h2>
+                <ul>
+                    <li><strong>Material documentation:</strong> mill or material test reports, heat or lot traceability, temper, and certificates of conformity.</li>
+                    <li><strong>Chemistry and conductivity:</strong> XRF, OES, IACS conductivity, resistance, hardness, or project-specific verification.</li>
+                    <li><strong>Mechanical testing:</strong> tensile, yield, elongation, hardness, bend, fatigue, or other project-specific tests.</li>
+                    <li><strong>Non-destructive testing:</strong> penetrant, radiographic, ultrasonic, or conductivity-based inspection where applicable.</li>
+                    <li><strong>Dimensional inspection:</strong> CMM, gauges, optical systems, surface-finish checks, and first-article reporting.</li>
+                    <li><strong>Leak and pressure testing:</strong> project-specific hydrostatic, pneumatic, pressure-decay, or helium methods.</li>
+                </ul>
+                <p>
+                    Review our
+                    <a href="/testing-inspection-capabilities" class="highlight-link">testing and inspection capabilities</a>
+                    and
+                    <a href="/quality-assurance-certifications" class="highlight-link">quality assurance and certifications</a>
+                    for additional information.
+                </p>
+            </div>
+        </section>
+
+        <section id="industry-applications">
+            <div class="content-container">
+                <h2>Aluminum and Copper Alloy Applications by Industry</h2>
+                <ul>
+                    <li><strong><a href="/data-center-power" class="highlight-link">Data center power:</a></strong> busbars, lugs, liquid-cooling manifolds, cold plates, enclosures, and thermal-management hardware.</li>
+                    <li><strong><a href="/automotive" class="highlight-link">Automotive and electric vehicles:</a></strong> housings, brackets, structural castings, battery components, connectors, heat sinks, and power-distribution hardware.</li>
+                    <li><strong><a href="/hvac-flow" class="highlight-link">HVAC and fluid control:</a></strong> valve bodies, manifolds, pump housings, fittings, heat exchangers, and refrigeration components.</li>
+                    <li><strong><a href="/energy-power-generation" class="highlight-link">Energy and power generation:</a></strong> electrical connectors, grounding hardware, heat-transfer components, busbars, and equipment housings.</li>
+                    <li><strong><a href="/aerospace" class="highlight-link">Aerospace:</a></strong> lightweight brackets, housings, cold plates, structural components, heat sinks, and electrical hardware.</li>
+                    <li><strong>Industrial electrical equipment:</strong> transformer lugs, terminals, switchgear components, electrodes, conductive contacts, and machined copper hardware.</li>
                 </ul>
             </div>
         </section>

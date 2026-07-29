@@ -1,124 +1,204 @@
 ---
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Superalloys & Exotic Metals Casting & Machining';
-const seoTitle = 'Superalloys & Exotic Metals Casting & Machining | ForceBeyond';
-const seoDescription = 'Precision vacuum investment casting, forging, and 5-axis CNC machining for Inconel 718, Inconel 625, Hastelloy, and Cobalt-Chrome.';
+const pageTitle = 'Superalloys & Exotic Metals for Casting, Forging and Machining';
+const seoTitle = 'Superalloys & Exotic Metals | Inconel, Hastelloy & Cobalt';
+const seoDescription = 'Explore ForceBeyond manufacturing support for Inconel, Hastelloy, cobalt alloys, and other superalloys through vacuum casting, forging, heat treatment, HIP, CNC machining, inspection, and material documentation.';
+
+const canonicalUrl = 'https://www.forcebeyond.store/superalloys-exotic-metals/';
+const socialImage = 'https://www.forcebeyond.store/media/precision-cnc-machining-metal-manufacturing-workshop-hero.webp';
 
 const faqs = [
     {
-        q: "Why is Vacuum Induction Melting (VIM) necessary for superalloys?",
-        a: "Casting inside high-vacuum chambers eliminates dissolved atmospheric gases and oxide inclusions, yielding exceptionally high-purity grain structures required for extreme temperature environments."
+        q: "Why is vacuum melting used for some superalloys?",
+        a: "Vacuum melting can help control reactive elements, dissolved gases, oxidation, contamination, and chemistry during production of selected nickel- and cobalt-based alloys. The required melting route depends on alloy specification, product form, cleanliness requirements, and the downstream casting, forging, or remelting process."
     },
     {
-        q: "How does Hot Isostatic Pressing (HIP) improve superalloy casting quality?",
-        a: "Subjecting superalloy investment castings to simultaneous high temperatures and extreme gas pressure (15,000+ psi) eliminates internal microporosity, increasing rotational fatigue life by up to 300%."
+        q: "How does hot isostatic pressing improve superalloy components?",
+        a: "Hot isostatic pressing applies elevated temperature and isostatic gas pressure to reduce internal porosity and improve material uniformity in suitable castings or powder-based components. The resulting benefit depends on alloy, initial defect population, HIP cycle, heat treatment, geometry, and acceptance criteria. HIP does not guarantee elimination of every defect."
+    },
+    {
+        q: "Which manufacturing processes are used for Inconel and Hastelloy components?",
+        a: "Depending on geometry, volume, properties, and specification, superalloy components may be produced by investment casting, vacuum casting, open- or closed-die forging, rolled-ring forging, billet machining, powder metallurgy, additive manufacturing, and combinations of heat treatment, HIP, machining, finishing, and inspection."
+    },
+    {
+        q: "What information is needed for a superalloy manufacturing quote?",
+        a: "Provide a 2D drawing and, when available, a 3D CAD model, along with alloy grade, governing specification, product form, quantity, service temperature, corrosion environment, mechanical requirements, heat treatment, HIP, machining, NDT, documentation, and delivery expectations."
     }
 ];
 
-// Sources
 const sources = [
-    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
-    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
-    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
-    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
-    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
-    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
+    { label: 'ASM International - Superalloys and High-Temperature Materials', url: 'https://www.asminternational.org/' },
+    { label: 'ASTM International - Nickel and Cobalt Alloy Standards', url: 'https://www.astm.org/' },
+    { label: 'SAE International - Aerospace Materials Specifications', url: 'https://www.sae.org/standards' },
+    { label: 'Nickel Institute - Nickel Alloy Resources', url: 'https://nickelinstitute.org/' },
+    { label: 'NIST - Materials and Manufacturing', url: 'https://www.nist.gov/topics/materials' },
+    { label: 'Investment Casting Institute - Investment Casting Process', url: 'https://www.investmentcasting.org/what-is.html' }
 ];
 
-// Resources
 const internalResources = [
-    // Die Casting Resources
-    { label: "Die Casting Overview", url: "/die-casting" },
-    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "/zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "/a356-t6-casting" },
-    { label: "Magnesium Casting", url: "/magnesium-casting" },
+    // Materials Hub
+    { label: "Materials & Technical Specifications", url: "/materials-technical-specs" },
+    { label: "Titanium Alloys", url: "/titanium-alloys" },
+    { label: "Stainless Steel & Carbon Steel", url: "/stainless-carbon-steel" },
+    { label: "Aluminum & Copper Alloys", url: "/aluminum-copper-alloys" },
+    { label: "Material Cross-Reference Charts", url: "/material-cross-reference-charts" },
+    { label: "Manufacturing Design Guides", url: "/manufacturing-design-guides" },
 
-    // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "/investment-casting" },
+    // Superalloy Manufacturing
     { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "/titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting" },
-
-    // Forging Resources
-    { label: "Forging Capabilities Overview", url: "/forging" },
+    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
+    { label: "Superalloy Machining Services", url: "/superalloy-machining-services" },
+    { label: "Investment Casting", url: "/investment-casting" },
+    { label: "Forging Capabilities", url: "/forging" },
     { label: "Open Die Forging", url: "/open-die-forging" },
     { label: "Closed Die Forging", url: "/closed-die-forging" },
     { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
-    { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
+    { label: "Precision Machining", url: "/precision-machining" },
+    { label: "Multi-Axis CNC Milling & Turning", url: "/multi-axis-cnc" },
 
-    // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "/sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
+    // Secondary Operations and Quality
+    { label: "Heat Treatment", url: "/heat-treatment" },
+    { label: "Secondary Operations", url: "/secondary-operations" },
+    { label: "Surface Finishing & Coating", url: "/surface-finishing" },
+    { label: "Testing & Inspection Capabilities", url: "/testing-inspection-capabilities" },
+    { label: "Quality Assurance & Certifications", url: "/quality-assurance-certifications" },
+    { label: "Assembly & Kitting", url: "/assembly-and-kitting" },
+
+    // Industries
+    { label: "Aerospace", url: "/aerospace" },
+    { label: "Nuclear & SMR", url: "/nuclear-smr" },
+    { label: "Energy & Power Generation", url: "/energy-power-generation" },
+    { label: "Oil & Gas", url: "/oil-gas" },
+    { label: "Medical & Healthcare", url: "/medical" }
 ];
 
-// Page Schema
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/superalloys-exotic-metals#webpage",
-      "url": "https://www.forcebeyond.store/superalloys-exotic-metals",
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
+        "@id": "https://www.forcebeyond.store/#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
-      }
+        "url": "https://www.forcebeyond.store/"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": socialImage
+      },
+      "breadcrumb": {
+        "@id": `${canonicalUrl}#breadcrumb`
+      },
+      "about": [
+        { "@type": "Thing", "name": "Superalloys" },
+        { "@type": "Thing", "name": "Nickel-based superalloys" },
+        { "@type": "Thing", "name": "Cobalt-based alloys" },
+        { "@type": "Thing", "name": "Inconel 718" },
+        { "@type": "Thing", "name": "Hastelloy alloys" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.forcebeyond.store/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Materials & Technical Specifications",
+          "item": "https://www.forcebeyond.store/materials-technical-specs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Superalloys & Exotic Metals",
+          "item": canonicalUrl
+        }
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": `${canonicalUrl}#collection`,
+      "name": "Superalloys and Exotic Metals",
+      "url": canonicalUrl,
+      "description": seoDescription,
+      "hasPart": [
+        {
+          "@type": "WebPage",
+          "name": "Inconel Vacuum Precision Casting",
+          "url": "https://www.forcebeyond.store/inconel-vacuum-precision-casting/"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Superalloy Forging Services",
+          "url": "https://www.forcebeyond.store/superalloy-forging-services/"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Superalloy Machining Services",
+          "url": "https://www.forcebeyond.store/superalloy-machining-services/"
+        }
+      ]
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/superalloys-exotic-metals#service",
-      "name": "Superalloy & Exotic Metal Precision Manufacturing",
-      "serviceType": "High-Temperature Precision Manufacturing",
+      "@id": `${canonicalUrl}#service`,
+      "name": "Superalloy and Exotic Metal Manufacturing Support",
+      "serviceType": "Casting, Forging, Heat Treatment and CNC Machining of High-Performance Alloys",
       "description": seoDescription,
+      "url": canonicalUrl,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
-        "knowsAbout": [
-          "Vacuum Induction Melting (VIM) Investment Casting",
-          "15,000+ PSI Hot Isostatic Pressing (HIP)",
-          "Inconel 718 & 625 Precision Components",
-          "Hastelloy X High Thermal Stability Hardware",
-          "Cobalt-Chrome (CoCrMo) Biocompatible & Wear Components"
-        ]
+        "@id": "https://www.forcebeyond.store/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Superalloy Processing Capabilities",
+        "name": "Superalloy Manufacturing Capabilities",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Inconel High-Temperature Components",
-              "description": "Precipitation-hardenable Inconel 718 and non-magnetic Inconel 625 for aerospace turbines, SMR nuclear, and marine hardware."
+              "name": "Nickel-Based Superalloy Casting",
+              "description": "Vacuum and investment casting support for Inconel, Hastelloy, and application-specific nickel alloys."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Hastelloy Thermal & Corrosion Solutions",
-              "description": "Hastelloy X precision parts offering thermal stability up to 2,200°F (1,200°C) for transition ducts and combustion cans."
+              "name": "Superalloy Forging",
+              "description": "Open-die, closed-die, and rolled-ring forging support for nickel- and cobalt-based high-performance alloys."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Cobalt-Chrome Precision Hardware",
-              "description": "ASTM F75 CoCrMo alloys for high-wear valve trim and orthopedic medical implants."
+              "name": "Superalloy CNC Machining",
+              "description": "Multi-axis machining, turning, drilling, EDM, grinding, and finishing of difficult-to-machine nickel and cobalt alloys."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Heat Treatment, HIP and Inspection",
+              "description": "Project-specific heat treatment, hot isostatic pressing, NDT, dimensional inspection, material testing, and documentation."
             }
           }
         ]
@@ -126,13 +206,13 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/superalloys-exotic-metals#faq",
-      "mainEntity": faqs.map(f => ({
+      "@id": `${canonicalUrl}#faq`,
+      "mainEntity": faqs.map((faq) => ({
         "@type": "Question",
-        "name": f.q,
+        "name": faq.q,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": f.a
+          "text": faq.a
         }
       }))
     }
@@ -143,96 +223,224 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
     pageTitle={pageTitle}
     heroImage="/media/precision-cnc-machining-metal-manufacturing-workshop-hero.webp"
-    heroImageAlt="Precision CNC milling machine cutting a metal component in a modern manufacturing workshop with automated equipment and digital controls."
-    faqSectionTitle="Frequently Asked Questions"
+    heroImageAlt="Precision machining and manufacturing of high-performance superalloy components"
+    heroImageWidth={1920}
+    heroImageHeight={1080}
+    socialImage={socialImage}
+    socialImageAlt="Superalloys and exotic metals for casting, forging, and machining"
+    faqSectionTitle="Frequently Asked Questions: Superalloys & Exotic Metals"
     faqItems={faqs}
-    ctaTitle="Conquer High-Temperature Manufacturing Challenges"
-    ctaDescription="Partner with our advanced metallurgy team for dense, defect-free vacuum investment castings and 5-axis CNC machined superalloy components."
-    sourcesTitle="Sources"
+    ctaTitle="Review a Superalloy Manufacturing Program"
+    ctaDescription="Send your drawing, alloy specification, service temperature, corrosion environment, quantity, casting or forging route, heat treatment, HIP, machining, inspection, and documentation requirements for an engineering review."
+    ctaButtonText="Request a Superalloy Review"
+    sourcesTitle="Technical References"
     sourcesList={sources}
-    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesTitle="Related Superalloy Materials, Manufacturing and Quality Resources"
     resourcesList={internalResources}
 >
-
     <div slot="full-width" class="individual-content">
 
         <section id="overview">
             <div class="content-container">
-                
-                <h2>Superalloys & Exotic Metals: Inconel, Hastelloy & Cobalt-Chrome</h2>
-                        <p>
-                            ForceBeyond specializes in precision vacuum investment casting (VIM), heavy closed-die forging, and multi-axis CNC machining of high-temperature nickel, cobalt, and iron-based Superalloys and Exotic Metals. Engineered to maintain high mechanical strength, oxidation resistance, and structural integrity under severe thermal stress exceeding 1,200°F (650°C), superalloys are the foundation of modern aerospace, power generation, and advanced defense systems.
-                        </p>
-                        <p>
-                            Utilizing state-of-the-art Vacuum Induction Melting (VIM) foundries and 15,000+ psi Hot Isostatic Pressing (HIP) vessels, ForceBeyond produces dense, defect-free superalloy hardware with full AS9100 Rev D quality compliance.
-                        </p>
+                <h2>Superalloys and Exotic Metals for Severe-Service Components</h2>
+                <p>
+                    Superalloys are engineered for combinations of elevated-temperature strength, creep resistance, oxidation resistance, fatigue performance, corrosion resistance, and structural stability. ForceBeyond supports nickel-based, cobalt-based, and selected iron-based high-performance alloys across
+                    <a href="/investment-casting" class="highlight-link">investment casting</a>,
+                    <a href="/forging" class="highlight-link">forging</a>,
+                    <a href="/superalloy-machining-services" class="highlight-link">precision machining</a>,
+                    heat treatment, HIP, inspection, and assembly.
+                </p>
+                <p>
+                    This page serves as the material-family guide for Inconel, Hastelloy, cobalt-chromium, and related alloys. Final alloy and process selection should be tied to the governing specification, product form, service temperature, corrosion environment, mechanical loading, heat treatment, and inspection requirements.
+                </p>
             </div>
         </section>
 
-        <section id="technical-specifications">
+        <section id="alloy-families">
             <div class="content-container">
-                <h2>Technical Specifications: High-Performance Superalloy Grades</h2>
+                <h2>Superalloy Families and Representative Grades</h2>
+                <p>
+                    Mechanical properties vary by chemistry, product form, heat treatment, section size, manufacturing route, and test method. The following table is intended for initial material selection rather than final design allowables.
+                </p>
+
                 <div class="content-table-wrapper">
                     <table>
                         <thead>
                             <tr>
-                                <th scope="col">Alloy Grade</th>
-                                <th scope="col">Standard Specifications</th>
-                                <th scope="col">Yield Strength (0.2% Offset)</th>
-                                <th scope="col">Key Features & Optimal Applications</th>
+                                <th scope="col">Alloy Family</th>
+                                <th scope="col">Representative Grades</th>
+                                <th scope="col">Typical Selection Factors</th>
+                                <th scope="col">Representative Applications</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <tr>
-                                <th scope="row">Inconel 718</th>
-                                <td>UNS N07718<br />AMS 5662 / 5383</td>
-                                <td>1,100–1,300 MPa (160–190 ksi)</td>
-                                <td>Precipitation-hardenable nickel-chromium alloy with high creep-rupture strength up to 1,300°F (700°C). Used for HGP Turbine Buckets and rocket propulsion nozzles.</td>
+                                <th scope="row">Precipitation-Hardened Nickel Alloys</th>
+                                <td>Inconel 718 and related specification-controlled grades</td>
+                                <td>High strength, fatigue, creep resistance, weldability, and stable properties through moderate-to-high service temperatures.</td>
+                                <td>Turbine hardware, rotating components, rocket and propulsion hardware, fasteners, shafts, rings, and energy equipment.</td>
                             </tr>
                             <tr>
-                                <th scope="row">Inconel 625</th>
-                                <td>UNS N06625<br />AMS 5666 / ASTM B564</td>
-                                <td>415–600 MPa (60–87 ksi)</td>
-                                <td>Non-magnetic nickel-chromium-molybdenum alloy with superior corrosion resistance against hot acids and chloride pitting. Used for SMR Nuclear heat exchangers and marine hardware.</td>
+                                <th scope="row">Solid-Solution Nickel Alloys</th>
+                                <td>Inconel 625, Hastelloy C-family alloys, and related grades</td>
+                                <td>Corrosion resistance, chloride resistance, weldability, oxidation resistance, and useful strength without precipitation aging.</td>
+                                <td>Marine hardware, chemical equipment, valves, heat exchangers, bellows, piping components, and nuclear-related hardware.</td>
                             </tr>
                             <tr>
-                                <th scope="row">Hastelloy X</th>
-                                <td>UNS N06002<br />AMS 5754 / ASTM B572</td>
-                                <td>380–500 MPa (55–72 ksi)</td>
-                                <td>Exceptional oxidation resistance, high thermal stability, and formability in combustion atmospheres up to 2,200°F (1,200°C). Used for transition ducts and gas turbine combustion cans.</td>
+                                <th scope="row">High-Temperature Nickel Alloys</th>
+                                <td>Hastelloy X and application-specific combustion or turbine alloys</td>
+                                <td>Oxidation resistance, thermal fatigue, fabricability, weldability, and high-temperature stability.</td>
+                                <td>Combustion liners, transition ducts, furnace hardware, gas-turbine components, and hot-section structures.</td>
                             </tr>
                             <tr>
-                                <th scope="row">Cobalt-Chrome (CoCrMo)</th>
-                                <td>ASTM F75<br />UNS R30075</td>
-                                <td>550–850 MPa (80–123 ksi)</td>
-                                <td>Extreme wear resistance, high polishability, and outstanding biocompatibility. Ideal for orthopedic knee/hip implants and heavy-wear valve trim.</td>
+                                <th scope="row">Cobalt-Based Alloys</th>
+                                <td>CoCrMo, wear-resistant cobalt alloys, and application-specific cobalt grades</td>
+                                <td>Wear resistance, hot hardness, corrosion resistance, galling resistance, and selected medical or valve applications.</td>
+                                <td>Valve trim, wear surfaces, cutting or forming tools, turbine hardware, and medical components where the exact grade is approved.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Iron-Nickel and Specialty Alloys</th>
+                                <td>Application-specific iron-nickel superalloys and controlled-expansion alloys</td>
+                                <td>Thermal expansion, oxidation, magnetic response, high-temperature strength, or specialized environmental performance.</td>
+                                <td>Instrumentation, seals, aerospace structures, energy equipment, tooling, and precision assemblies.</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+
+                <p>
+                    Review the broader
+                    <a href="/materials-technical-specs" class="highlight-link">materials and technical specifications</a>
+                    hub for cross-family material selection and process compatibility.
+                </p>
             </div>
         </section>
 
-        <section id="advanced-processing">
+        <section id="manufacturing-route">
             <div class="content-container">
-                <h2>Advanced Processing for Hard-to-Machine Alloys</h2>
+                <h2>Selecting the Manufacturing Route</h2>
                 <p>
-                    Superalloys work-harden rapidly and generate extreme heat during machining, damaging conventional cutting tools. ForceBeyond overcomes these challenges through disciplined manufacturing strategies:
+                    The correct production route depends on geometry, alloy, volume, mechanical-property requirements, section size, tooling budget, and inspection level.
                 </p>
                 <ul>
-                    <li>
-                        <strong>Vacuum Induction Melting (VIM):</strong> Casting inside high-vacuum chambers eliminates dissolved atmospheric gases and oxide inclusions, yielding high-purity grain structures.
-                    </li>
-                    <li>
-                        <strong>Hot Isostatic Pressing (HIP):</strong> Subjecting superalloy investment castings to simultaneous high temperatures and extreme gas pressure eliminates internal microporosity, increasing rotational fatigue life by up to 300%.
-                    </li>
-                    <li>
-                        <strong>High-Rigidity 5-Axis CNC Machining:</strong> Utilizing specialized ceramic and carbide tooling geometries, high-pressure through-spindle coolant (1,000+ psi), and rigid machine beds to cut complex 3D profiles without inducing thermal distortion.
-                    </li>
+                    <li><strong><a href="/inconel-vacuum-precision-casting" class="highlight-link">Vacuum investment casting:</a></strong> complex near-net geometries, internal passages, thin sections, and reduced machining on difficult alloys.</li>
+                    <li><strong><a href="/superalloy-forging-services" class="highlight-link">Superalloy forging:</a></strong> components requiring controlled grain flow, fatigue performance, impact resistance, or pressure-containing properties.</li>
+                    <li><strong><a href="/superalloy-machining-services" class="highlight-link">Billet and forged-part machining:</a></strong> prototypes, low volume, simple shapes, and applications requiring wrought material properties.</li>
+                    <li><strong>Hybrid routes:</strong> casting or forging followed by heat treatment, HIP, machining, coating, inspection, and assembly.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="vacuum-processing">
+            <div class="content-container">
+                <h2>Vacuum Melting and Casting Considerations</h2>
+                <p>
+                    Some superalloys contain reactive or tightly controlled elements that benefit from vacuum melting and controlled-atmosphere processing.
+                </p>
+                <ul>
+                    <li><strong>Chemistry control:</strong> manage volatile or reactive elements and reduce contamination during melting.</li>
+                    <li><strong>Gas and oxide control:</strong> limit dissolved gases, oxidation, inclusions, and melt-surface reactions.</li>
+                    <li><strong>Ceramic compatibility:</strong> select shell, crucible, and pouring practices appropriate to the alloy and temperature.</li>
+                    <li><strong>Solidification control:</strong> manage feeding, hot tearing, shrinkage, grain structure, and local section changes.</li>
+                    <li><strong>Post-cast processing:</strong> coordinate heat treatment, HIP, straightening, machining, and NDT according to specification.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="hip">
+            <div class="content-container">
+                <h2>Hot Isostatic Pressing for Superalloy Components</h2>
+                <p>
+                    HIP combines elevated temperature and isostatic gas pressure to reduce internal porosity and improve material uniformity in suitable cast or powder-based components.
+                </p>
+                <ul>
+                    <li><strong>Porosity reduction:</strong> can close certain internal voids that are not connected to the surface.</li>
+                    <li><strong>Property consistency:</strong> may improve fatigue, ductility, and scatter when porosity is a controlling defect mechanism.</li>
+                    <li><strong>Heat-treatment integration:</strong> HIP and subsequent heat treatment must be coordinated with alloy specification and target microstructure.</li>
+                    <li><strong>Limitations:</strong> HIP does not correct all inclusions, surface-connected defects, chemistry problems, cracks, or dimensional issues.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="forging">
+            <div class="content-container">
+                <h2>Superalloy Forging Considerations</h2>
+                <ul>
+                    <li><strong>Forgeability window:</strong> temperature, strain rate, reduction, and reheating must be controlled to avoid cracking or undesirable grain structure.</li>
+                    <li><strong>Grain flow:</strong> forging can align material flow with part geometry and improve fatigue or impact performance.</li>
+                    <li><strong>Heat treatment:</strong> solution treatment, stabilization, aging, or stress relief should follow the alloy and product specification.</li>
+                    <li><strong>Inspection:</strong> ultrasonic testing, penetrant inspection, dimensional inspection, and mechanical testing may be required.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="machining">
+            <div class="content-container">
+                <h2>Machining Nickel and Cobalt Superalloys</h2>
+                <p>
+                    Superalloys often combine high strength, work hardening, low thermal conductivity, abrasiveness, and strong adhesion to cutting tools.
+                </p>
+                <ul>
+                    <li><strong>Rigid setups:</strong> control deflection, vibration, chatter, and feature position.</li>
+                    <li><strong>Positive cutting action:</strong> avoid rubbing and maintain stable feed below the work-hardened layer.</li>
+                    <li><strong>Heat management:</strong> select suitable coolant delivery, tool materials, coatings, and cutting parameters.</li>
+                    <li><strong>Tool-life monitoring:</strong> track edge wear, notch wear, chipping, surface finish, and dimensional drift.</li>
+                    <li><strong><a href="/multi-axis-cnc" class="highlight-link">Multi-axis machining:</a></strong> improve access, reduce setups, and use shorter tools on complex components.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="heat-treatment">
+            <div class="content-container">
+                <h2>Heat Treatment and Microstructure Control</h2>
+                <p>
+                    Heat treatment controls precipitation, grain structure, residual stress, hardness, strength, creep response, and dimensional stability.
+                </p>
+                <ul>
+                    <li><strong>Solution treatment:</strong> dissolve selected phases and prepare the alloy for controlled cooling or aging.</li>
+                    <li><strong>Precipitation aging:</strong> develop strengthening phases in alloys such as Inconel 718.</li>
+                    <li><strong>Stress relief:</strong> reduce residual stress before or between machining operations where appropriate.</li>
+                    <li><strong>Furnace control:</strong> temperature uniformity, atmosphere, load support, transfer time, and quench conditions affect final results.</li>
+                    <li><strong>Verification:</strong> hardness, microstructure, mechanical testing, dimensional inspection, or customer-specific checks may be required.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="inspection">
+            <div class="content-container">
+                <h2>Material Verification, NDT and Quality Documentation</h2>
+                <ul>
+                    <li><strong>Material documentation:</strong> mill or material test reports, heat and lot traceability, and certificates of conformity.</li>
+                    <li><strong>Positive material identification:</strong> XRF, OES, or project-specific chemistry verification where required.</li>
+                    <li><strong>Surface NDT:</strong> penetrant inspection or other methods appropriate to alloy and component requirements.</li>
+                    <li><strong>Volumetric NDT:</strong> radiography or ultrasonic inspection based on product form, geometry, defect risk, and specification.</li>
+                    <li><strong>Mechanical and metallurgical testing:</strong> tensile, hardness, creep, impact, grain size, microstructure, or other project-specific evaluation.</li>
+                    <li><strong>Dimensional inspection:</strong> CMM, gauges, optical systems, surface-finish checks, and first-article reporting.</li>
+                </ul>
+                <p>
+                    Review our
+                    <a href="/testing-inspection-capabilities" class="highlight-link">testing and inspection capabilities</a>
+                    and
+                    <a href="/quality-assurance-certifications" class="highlight-link">quality assurance and certifications</a>
+                    for additional information.
+                </p>
+            </div>
+        </section>
+
+        <section id="industry-applications">
+            <div class="content-container">
+                <h2>Superalloy Applications by Industry</h2>
+                <ul>
+                    <li><strong><a href="/aerospace" class="highlight-link">Aerospace:</a></strong> turbine hardware, hot-section components, rotating parts, fasteners, brackets, housings, and propulsion components.</li>
+                    <li><strong><a href="/energy-power-generation" class="highlight-link">Energy and power generation:</a></strong> turbine components, combustion hardware, valves, pump parts, heat-resistant fasteners, and transition structures.</li>
+                    <li><strong><a href="/nuclear-smr" class="highlight-link">Nuclear and SMR:</a></strong> corrosion-resistant hardware, heat-transfer components, valves, fasteners, and pressure-system parts where the alloy and specification permit.</li>
+                    <li><strong><a href="/oil-gas" class="highlight-link">Oil and gas:</a></strong> downhole components, valve trim, pump hardware, sour-service parts, and corrosion-resistant fittings.</li>
+                    <li><strong><a href="/medical" class="highlight-link">Medical and healthcare:</a></strong> cobalt-chromium and nickel-alloy components where the exact grade, process, and regulatory requirements are approved.</li>
                 </ul>
             </div>
         </section>

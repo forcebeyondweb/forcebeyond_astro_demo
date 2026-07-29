@@ -1,124 +1,206 @@
 ---
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Materials & Alloy Technical Specifications';
-const seoTitle = 'Materials & Alloy Technical Specifications | ForceBeyond';
-const seoDescription = 'Technical specifications, mechanical properties, and manufacturing capabilities for superalloys, titanium, stainless steel, and non-ferrous metals.';
+const pageTitle = 'Materials & Technical Specifications for Engineered Metal Components';
+const seoTitle = 'Materials & Technical Specifications | Metals & Alloy Guide';
+const seoDescription = 'Explore ForceBeyond material and alloy specifications for superalloys, titanium, stainless steel, carbon steel, aluminum, copper, and other engineered metals, with guidance on properties, standards, manufacturing compatibility, testing, and material selection.';
+
+const canonicalUrl = 'https://www.forcebeyond.store/materials-technical-specs/';
+const socialImage = 'https://www.forcebeyond.store/media/precision-cnc-machining-metal-manufacturing-workshop-hero.webp';
 
 const faqs = [
     {
-        q: "What certifications are provided with ForceBeyond's materials?",
-        a: "Every material processed receives Certified Material Test Reports (MTRs) with full EN 10204 3.1 certification tracing chemical composition, tensile strength, yield strength, and elongation back to the original heat lot."
+        q: "What material documentation can be provided with manufactured components?",
+        a: "Material documentation may include mill test reports, material test reports, certificates of conformity, chemistry results, mechanical-property results, heat-treatment records, and lot traceability. The exact documentation package depends on the material form, supplier, governing specification, purchase order, and customer requirements."
     },
     {
-        q: "How does ForceBeyond prevent alloy mix-ups during manufacturing?",
-        a: "We utilize Positive Material Identification (PMI) via X-ray fluorescence (XRF) and optical emission spectrometry (OES) to ensure zero alloy mix-ups across all processing stages."
+        q: "How are alloy mix-ups prevented during manufacturing?",
+        a: "Material-control plans may include supplier documentation review, heat and lot identification, segregated storage, traveler and routing controls, positive material identification using XRF or OES where appropriate, and final documentation review. The required verification level depends on alloy risk, industry, specification, and customer requirements."
+    },
+    {
+        q: "How should engineers select a metal alloy for a component?",
+        a: "Material selection should consider strength, fatigue, corrosion, temperature, wear, density, conductivity, weldability, machinability, castability, forgeability, availability, cost, inspection, and applicable industry standards. The manufacturing route and final service environment should be evaluated together rather than selecting an alloy from nominal properties alone."
+    },
+    {
+        q: "Are the material properties on this page guaranteed values?",
+        a: "No. Published values are general engineering guidance unless a specific standard, condition, product form, heat treatment, test method, and minimum requirement are stated. Final design values should come from the governing material specification, certified supplier data, and project-specific testing."
     }
 ];
 
-// Sources
 const sources = [
-    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
-    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
-    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
-    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
-    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
-    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
+    { label: 'ASTM International - Materials Standards', url: 'https://www.astm.org/' },
+    { label: 'ASM International - Materials Information', url: 'https://www.asminternational.org/' },
+    { label: 'NIST - Materials and Manufacturing', url: 'https://www.nist.gov/topics/materials' },
+    { label: 'SAE International - Aerospace and Materials Standards', url: 'https://www.sae.org/standards' },
+    { label: 'ISO - Materials and Technical Standards', url: 'https://www.iso.org/' },
+    { label: 'ASME - Codes and Material Standards', url: 'https://www.asme.org/codes-standards' }
 ];
 
-// Resources
-// Resources
 const internalResources = [
-    // Die Casting Resources
-    { label: "Die Casting Overview", url: "/die-casting" },
-    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "/zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "/a356-t6-casting" },
-    { label: "Magnesium Casting", url: "/magnesium-casting" },
+    // Material Families
+    { label: "Superalloys & Exotic Metals", url: "/superalloys-exotic-metals" },
+    { label: "Titanium Alloys", url: "/titanium-alloys" },
+    { label: "Stainless Steel & Carbon Steel", url: "/stainless-carbon-steel" },
+    { label: "Aluminum & Copper Alloys", url: "/aluminum-copper-alloys" },
+    { label: "Material Cross-Reference Charts", url: "/material-cross-reference-charts" },
+    { label: "Manufacturing Design Guides", url: "/manufacturing-design-guides" },
 
-    // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "/investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "/titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting" },
-
-    // Forging Resources
-    { label: "Forging Capabilities Overview", url: "/forging" },
-    { label: "Open Die Forging", url: "/open-die-forging" },
-    { label: "Closed Die Forging", url: "/closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
-    { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
-
-    // Sand Casting & Steel Casting Resources
+    // Manufacturing Processes
+    { label: "Casting Capabilities", url: "/casting" },
+    { label: "Investment Casting", url: "/investment-casting" },
+    { label: "Die Casting", url: "/die-casting" },
     { label: "Sand Casting", url: "/sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
+    { label: "Forging Capabilities", url: "/forging" },
+    { label: "Precision Machining", url: "/precision-machining" },
+    { label: "High-Precision Component Machining", url: "/high-precision-machining" },
+    { label: "Multi-Axis CNC Milling & Turning", url: "/multi-axis-cnc" },
+
+    // Secondary Operations and Quality
+    { label: "Heat Treatment", url: "/heat-treatment" },
+    { label: "Surface Finishing & Coating", url: "/surface-finishing" },
+    { label: "Testing & Inspection Capabilities", url: "/testing-inspection-capabilities" },
+    { label: "Quality Assurance & Certifications", url: "/quality-assurance-certifications" },
+    { label: "Assembly & Kitting", url: "/assembly-and-kitting" }
 ];
-// Page Schema
+
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/materials-technical-specs#webpage",
-      "url": "https://www.forcebeyond.store/materials-technical-specs",
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
+        "@id": "https://www.forcebeyond.store/#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
-      }
+        "url": "https://www.forcebeyond.store/"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": socialImage
+      },
+      "breadcrumb": {
+        "@id": `${canonicalUrl}#breadcrumb`
+      },
+      "about": [
+        { "@type": "Thing", "name": "Engineering materials" },
+        { "@type": "Thing", "name": "Metal alloys" },
+        { "@type": "Thing", "name": "Material specifications" },
+        { "@type": "Thing", "name": "Metallurgical testing" },
+        { "@type": "Thing", "name": "Material selection" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.forcebeyond.store/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Materials & Technical Specifications",
+          "item": canonicalUrl
+        }
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": `${canonicalUrl}#collection`,
+      "name": "Materials and Alloy Technical Specifications",
+      "url": canonicalUrl,
+      "description": seoDescription,
+      "isPartOf": {
+        "@id": `${canonicalUrl}#webpage`
+      },
+      "hasPart": [
+        {
+          "@type": "WebPage",
+          "name": "Superalloys & Exotic Metals",
+          "url": "https://www.forcebeyond.store/superalloys-exotic-metals/"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Titanium Alloys",
+          "url": "https://www.forcebeyond.store/titanium-alloys/"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Stainless Steel & Carbon Steel",
+          "url": "https://www.forcebeyond.store/stainless-carbon-steel/"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Aluminum & Copper Alloys",
+          "url": "https://www.forcebeyond.store/aluminum-copper-alloys/"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Material Cross-Reference Charts",
+          "url": "https://www.forcebeyond.store/material-cross-reference-charts/"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Manufacturing Design Guides",
+          "url": "https://www.forcebeyond.store/manufacturing-design-guides/"
+        }
+      ]
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/materials-technical-specs#service",
-      "name": "Engineered Metal Alloy Material Selection & Validation",
-      "serviceType": "Metallurgical Verification & Precision Alloy Processing",
+      "@id": `${canonicalUrl}#service`,
+      "name": "Material Selection and Technical Specification Support",
+      "serviceType": "Engineering Material Selection, Specification Review and Manufacturing Compatibility",
       "description": seoDescription,
+      "url": canonicalUrl,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
-        "knowsAbout": [
-          "Superalloys & Exotic Metals (Inconel, Hastelloy, CoCrMo)",
-          "Titanium Alloys (Ti-6Al-4V, Ti-6Al-4V ELI, Grade 2)",
-          "Stainless & Carbon Steels (304/316L, 17-4 PH, Duplex 2205/2507, 4140)",
-          "Non-Ferrous Aluminum & Copper Alloys (A356-T6, A380, ECO BRASS®)",
-          "EN 10204 3.1 Material Test Reports & NDT Quality Verification"
-        ]
+        "@id": "https://www.forcebeyond.store/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Material Portfolio & Technical Services",
+        "name": "Material and Technical Support",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Superalloys & High-Temperature Alloys",
-              "description": "Inconel 718/625, Hastelloy X, and CoCrMo for extreme thermal creep up to 1,800°F (980°C)."
+              "name": "Material Family Selection",
+              "description": "Guidance across superalloys, titanium, stainless steel, carbon steel, aluminum, copper, and other engineered metals."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Titanium Alloy Components",
-              "description": "Lightweight, biocompatible Ti-6Al-4V and Ti-6Al-4V ELI for aerospace and medical applications."
+              "name": "Specification and Cross-Reference Review",
+              "description": "Review of UNS, ASTM, AMS, SAE, ASME, EN, DIN, JIS, and customer-specific material designations where applicable."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Stainless Steel & Duplex Alloys",
-              "description": "Corrosion-resistant 304/316L, 17-4 PH, and Duplex 2205/2507 for subsea, industrial, and fluid handling."
+              "name": "Manufacturing Process Compatibility",
+              "description": "Evaluation of alloy compatibility with casting, forging, machining, heat treatment, joining, finishing, and inspection."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Material Verification and Documentation",
+              "description": "Project-specific material test reports, PMI, chemistry, mechanical testing, heat-treatment records, and traceability support."
             }
           }
         ]
@@ -126,13 +208,13 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/materials-technical-specs#faq",
-      "mainEntity": faqs.map(f => ({
+      "@id": `${canonicalUrl}#faq`,
+      "mainEntity": faqs.map((faq) => ({
         "@type": "Question",
-        "name": f.q,
+        "name": faq.q,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": f.a
+          "text": faq.a
         }
       }))
     }
@@ -143,52 +225,57 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
     pageTitle={pageTitle}
     heroImage="/media/precision-cnc-machining-metal-manufacturing-workshop-hero.webp"
-    heroImageAlt="Precision CNC milling machine cutting a metal component in a modern manufacturing workshop with automated equipment and digital controls."
-    faqSectionTitle="Frequently Asked Questions"
+    heroImageAlt="Precision metal manufacturing and CNC machining for engineered alloy components"
+    heroImageWidth={1920}
+    heroImageHeight={1080}
+    socialImage={socialImage}
+    socialImageAlt="Materials and alloy technical specifications for engineered metal components"
+    faqSectionTitle="Frequently Asked Questions: Materials & Technical Specifications"
     faqItems={faqs}
-    ctaTitle="Select the Optimal Alloy for Your Component"
-    ctaDescription="Partner with our metallurgical team for complete alloy validation, raw melt tracing, and precision material testing tailored to your application."
-    sourcesTitle="Sources"
+    ctaTitle="Review Material Requirements for Your Component"
+    ctaDescription="Send your drawing, material specification, service environment, manufacturing process, testing, documentation, and delivery requirements for an engineering review."
+    ctaButtonText="Request a Material Review"
+    sourcesTitle="Technical References"
     sourcesList={sources}
-    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesTitle="Material Families, Manufacturing Processes and Quality Resources"
     resourcesList={internalResources}
 >
-
     <div slot="full-width" class="individual-content">
 
         <section id="overview">
             <div class="content-container">
-                
-                <h2>Materials & Technical Specifications: Engineered Metal Alloys</h2>
-                        <p>
-                            At ForceBeyond, material selection dictates component performance. Operating under strict ISO 9001:2015, AS9100 Rev D, and IATF 16949 quality systems, we pour, forge, and machine a broad spectrum of high-performance metals engineered to withstand severe thermal stress, extreme mechanical fatigue, and aggressive chemical environments.
-                        </p>
-                        <p>
-                            Whether your application demands low-density structural titanium for aerospace airframes, high-nickel superalloys for SMR nuclear reactor loops, or corrosion-resistant duplex stainless steel for subsea petroleum extraction, ForceBeyond provides complete metallurgical validation from raw melt to final CMM inspection.
-                        </p>
+                <h2>Materials and Alloy Technical Specifications</h2>
+                <p>
+                    Material selection affects component strength, fatigue life, corrosion resistance, temperature capability, weight, conductivity, wear, manufacturability, inspection, and total cost. ForceBeyond supports engineered metal components across casting, forging, machining, heat treatment, finishing, inspection, assembly, and global production programs.
+                </p>
+                <p>
+                    This page serves as the central materials hub for detailed alloy families, cross-reference charts, manufacturing design guidance, and process compatibility. Final material requirements should always be tied to the governing drawing, specification, product form, heat treatment, test method, and service environment.
+                </p>
             </div>
         </section>
 
-        <section id="alloy-portfolio">
+        <section id="material-families">
             <div class="content-container">
-                <h2>Complete Material Portfolio & Engineering Guides</h2>
+                <h2>Explore Material Families and Alloy Guides</h2>
                 <p>
-                    Explore our detailed alloy specifications, mechanical properties, and process compatibility across our four core material families:
+                    Use the material-family pages below for alloy-specific chemistry, properties, standards, applications, and manufacturing considerations.
                 </p>
+
                 <div class="content-table-wrapper">
                     <table>
                         <thead>
                             <tr>
-                                <th scope="col">Alloy Category</th>
-                                <th scope="col">Key Material Grades</th>
-                                <th scope="col">Primary Performance Attributes</th>
-                                <th scope="col">Industry Applications</th>
+                                <th scope="col">Material Family</th>
+                                <th scope="col">Representative Grades</th>
+                                <th scope="col">Typical Selection Factors</th>
+                                <th scope="col">Related Manufacturing Processes</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <tr>
                                 <th scope="row">
@@ -196,9 +283,14 @@ const pageSchema = {
                                         Superalloys & Exotic Metals
                                     </a>
                                 </th>
-                                <td>Inconel 718/625, Hastelloy X, CoCrMo</td>
-                                <td>Extreme thermal creep resistance up to 1,800°F (980°C); immunity to hot corrosion and oxidation.</td>
-                                <td>Aerospace Turbines, SMR Nuclear, Medical Implants.</td>
+                                <td>Inconel 718, Inconel 625, Hastelloy, cobalt alloys, and application-specific nickel alloys</td>
+                                <td>High-temperature strength, oxidation resistance, corrosion resistance, creep, fatigue, and difficult-machining behavior.</td>
+                                <td>
+                                    <a href="/superalloy-forging-services" class="highlight-link">Forging</a>,
+                                    <a href="/inconel-vacuum-precision-casting" class="highlight-link">vacuum casting</a>,
+                                    and
+                                    <a href="/superalloy-machining-services" class="highlight-link">precision machining</a>.
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">
@@ -206,19 +298,30 @@ const pageSchema = {
                                         Titanium Alloys
                                     </a>
                                 </th>
-                                <td>Ti-6Al-4V (Grade 5), Ti-6Al-4V ELI, Grade 2</td>
-                                <td>High strength-to-weight ratio, excellent fatigue resistance, and non-magnetic biocompatibility.</td>
-                                <td>Flight Actuators, Deepwater Drilling, Surgical Tools.</td>
+                                <td>Ti-6Al-4V, Ti-6Al-4V ELI, commercially pure titanium, and application-specific grades</td>
+                                <td>Strength-to-weight ratio, corrosion resistance, fatigue, biocompatibility, temperature, and oxygen control.</td>
+                                <td>
+                                    <a href="/titanium-investment-casting" class="highlight-link">Investment casting</a>,
+                                    <a href="/titanium-aerospace-forging" class="highlight-link">forging</a>,
+                                    and
+                                    <a href="/titanium-machining" class="highlight-link">machining</a>.
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">
                                     <a href="/stainless-carbon-steel" class="highlight-link">
-                                        Stainless & Carbon Steel
+                                        Stainless Steel & Carbon Steel
                                     </a>
                                 </th>
-                                <td>304/316L, 17-4 PH, Duplex 2205/2507, 4140</td>
-                                <td>Superior pitting/crevice corrosion resistance, high tensile strength, and excellent wear resistance.</td>
-                                <td>Oil & Gas, Fluid Control, Mining Teeth.</td>
+                                <td>304, 316, 17-4 PH, duplex 2205, super duplex 2507, 4140, and other alloy steels</td>
+                                <td>Corrosion, strength, wear, hardness, weldability, heat treatment, sour service, and pressure requirements.</td>
+                                <td>
+                                    <a href="/stainless-steel-casting" class="highlight-link">Casting</a>,
+                                    <a href="/forging" class="highlight-link">forging</a>,
+                                    <a href="/stainless-steel-machining" class="highlight-link">machining</a>,
+                                    and
+                                    <a href="/duplex-machining" class="highlight-link">duplex machining</a>.
+                                </td>
                             </tr>
                             <tr>
                                 <th scope="row">
@@ -226,9 +329,14 @@ const pageSchema = {
                                         Aluminum & Copper Alloys
                                     </a>
                                 </th>
-                                <td>A356-T6, A380, ECO BRASS®, C11000 Copper</td>
-                                <td>Exceptional thermal/electrical conductivity, low density, and high pressure-tight castability.</td>
-                                <td>Data Center Power, EV Automotive, Busbars.</td>
+                                <td>A356, A380, 6061, copper, brass, and application-specific nonferrous grades</td>
+                                <td>Density, conductivity, corrosion, castability, heat treatment, pressure tightness, and electrical performance.</td>
+                                <td>
+                                    <a href="/aluminum-die-casting" class="highlight-link">Die casting</a>,
+                                    <a href="/a356-t6-casting" class="highlight-link">A356 casting</a>,
+                                    <a href="/precision-machining" class="highlight-link">machining</a>,
+                                    and finishing.
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -236,25 +344,149 @@ const pageSchema = {
             </div>
         </section>
 
-        <section id="metallurgical-integrity">
+        <section id="material-selection">
             <div class="content-container">
-                <h2>Integrated Metallurgical Integrity & Quality Verification</h2>
+                <h2>Engineering Factors for Material Selection</h2>
                 <p>
-                    Managing raw metal stock requires strict quality governance. Every material processed under ForceBeyond’s Tier-1.5 Manufacturing Model undergoes comprehensive laboratory verification:
+                    A technically sound alloy choice balances service requirements with manufacturing and supply-chain constraints.
                 </p>
                 <ul>
-                    <li>
-                        <strong>Certified Material Test Reports (MTRs):</strong> Full EN 10204 3.1 certification tracing chemical composition, tensile strength, yield strength, and elongation back to the original heat lot.
-                    </li>
-                    <li>
-                        <strong>Positive Material Identification (PMI):</strong> X-ray fluorescence (XRF) and optical emission spectrometry (OES) ensure zero alloy mix-ups.
-                    </li>
-                    <li>
-                        <strong>Phase Balance & Grain Structure Verification:</strong> Microstructural analysis to verify phase ratios (e.g., 50/50 ferrite-austenite in Duplex 2205) and freedom from harmful intermetallic precipitates.
-                    </li>
-                    <li>
-                        <strong>Non-Destructive Testing (NDT):</strong> 100% Radiographic Testing (X-Ray per ASTM E192) and Fluorescent Penetrant Inspection (FPI per ASTM E1417) following Hot Isostatic Pressing (HIP).
-                    </li>
+                    <li><strong>Mechanical loading:</strong> yield strength, tensile strength, fatigue, impact, fracture toughness, and creep.</li>
+                    <li><strong>Environment:</strong> corrosion, chlorides, acids, oxidation, hydrogen, sour service, marine exposure, and cleaning chemicals.</li>
+                    <li><strong>Temperature:</strong> cryogenic toughness, elevated-temperature strength, thermal fatigue, and oxidation resistance.</li>
+                    <li><strong>Physical properties:</strong> density, thermal conductivity, electrical conductivity, magnetic response, and thermal expansion.</li>
+                    <li><strong>Manufacturability:</strong> castability, forgeability, machinability, weldability, heat treatment, coating, and inspection.</li>
+                    <li><strong>Commercial considerations:</strong> availability, lead time, minimum order quantity, product form, scrap value, and total manufacturing cost.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="specifications-standards">
+            <div class="content-container">
+                <h2>Material Specifications, Standards and Cross-References</h2>
+                <p>
+                    The same alloy family may be identified differently across UNS, ASTM, AMS, SAE, ASME, EN, DIN, JIS, and customer specifications. Similar designations are not automatically interchangeable.
+                </p>
+                <ul>
+                    <li><strong>Confirm product form:</strong> cast, wrought, forged, plate, bar, tube, powder, or additive-manufactured material.</li>
+                    <li><strong>Confirm condition:</strong> annealed, solution treated, aged, quenched and tempered, cold worked, or stress relieved.</li>
+                    <li><strong>Compare chemistry and properties:</strong> verify limits, minimums, testing, and acceptance criteria.</li>
+                    <li><strong>Review supplementary requirements:</strong> NDT, corrosion testing, grain size, cleanliness, ferrite, hardness, or impact testing.</li>
+                </ul>
+                <p>
+                    Use our
+                    <a href="/material-cross-reference-charts" class="highlight-link">material cross-reference charts</a>
+                    as an initial guide, then confirm the governing specification before release.
+                </p>
+            </div>
+        </section>
+
+        <section id="process-compatibility">
+            <div class="content-container">
+                <h2>Material Compatibility with Manufacturing Processes</h2>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Manufacturing Process</th>
+                                <th scope="col">Material Considerations</th>
+                                <th scope="col">Design and Quality Considerations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <a href="/casting" class="highlight-link">Casting</a>
+                                </th>
+                                <td>Fluidity, shrinkage, oxidation, hot tearing, feeding, solidification, and melt cleanliness.</td>
+                                <td>Wall transitions, radii, gating, risers, porosity, NDT, heat treatment, and machining allowance.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <a href="/forging" class="highlight-link">Forging</a>
+                                </th>
+                                <td>Forgeability, flow stress, temperature window, grain flow, reduction ratio, and heat treatment.</td>
+                                <td>Draft, parting line, flash, machining stock, distortion, ultrasonic testing, and mechanical properties.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <a href="/precision-machining" class="highlight-link">Precision Machining</a>
+                                </th>
+                                <td>Hardness, work hardening, thermal conductivity, chip control, abrasiveness, and residual stress.</td>
+                                <td>Tool access, fixturing, tolerance, GD&T, surface finish, heat treatment, and inspection.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <a href="/heat-treatment" class="highlight-link">Heat Treatment</a>
+                                </th>
+                                <td>Phase transformation, precipitation hardening, solution treatment, quench response, and tempering.</td>
+                                <td>Distortion, furnace uniformity, atmosphere, quench control, hardness, and property verification.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <a href="/surface-finishing" class="highlight-link">Surface Finishing</a>
+                                </th>
+                                <td>Passivation, anodizing, conversion coating, plating, paint adhesion, oxidation, and galvanic compatibility.</td>
+                                <td>Masking, thickness, dimensional impact, corrosion testing, cosmetic class, and cleanliness.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="material-verification">
+            <div class="content-container">
+                <h2>Material Verification, Traceability and Documentation</h2>
+                <p>
+                    The required material-control plan should be based on industry, alloy risk, component criticality, service environment, and purchase-order requirements.
+                </p>
+                <ul>
+                    <li><strong>Material documentation:</strong> mill certificates, material test reports, certificates of conformity, and supplier records.</li>
+                    <li><strong>Positive material identification:</strong> XRF, OES, or other appropriate methods where alloy verification is required.</li>
+                    <li><strong>Chemistry and mechanical testing:</strong> tensile, yield, elongation, hardness, impact, or other project-specific testing.</li>
+                    <li><strong>Metallurgical evaluation:</strong> microstructure, ferrite, grain size, intermetallic phases, decarburization, or cleanliness where specified.</li>
+                    <li><strong>Heat and lot traceability:</strong> identification and documentation controls through manufacturing, inspection, and shipment.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="testing-inspection">
+            <div class="content-container">
+                <h2>Testing and Inspection by Material and Application</h2>
+                <p>
+                    Inspection should be selected according to defect risk, material family, product form, geometry, and governing specification.
+                </p>
+                <ul>
+                    <li><strong>Dimensional inspection:</strong> CMM, gauges, optical systems, surface-finish measurement, and first-article reporting.</li>
+                    <li><strong>Surface NDT:</strong> penetrant or magnetic-particle testing where compatible with the alloy and application.</li>
+                    <li><strong>Volumetric NDT:</strong> radiography or ultrasonic testing for project-specific internal-discontinuity requirements.</li>
+                    <li><strong>Corrosion testing:</strong> pitting, intergranular corrosion, salt-spray, or customer-specific exposure testing where required.</li>
+                    <li><strong>Pressure and leak testing:</strong> hydrostatic, pneumatic, helium, or other application-specific methods.</li>
+                </ul>
+                <p>
+                    Review our
+                    <a href="/testing-inspection-capabilities" class="highlight-link">testing and inspection capabilities</a>
+                    and
+                    <a href="/quality-assurance-certifications" class="highlight-link">quality assurance and certifications</a>
+                    for additional information.
+                </p>
+            </div>
+        </section>
+
+        <section id="design-resources">
+            <div class="content-container">
+                <h2>Material and Manufacturing Design Resources</h2>
+                <p>
+                    Use the following resources to connect material selection with manufacturability and final component requirements.
+                </p>
+                <ul>
+                    <li><strong><a href="/material-cross-reference-charts" class="highlight-link">Material cross-reference charts:</a></strong> compare international and industry alloy designations.</li>
+                    <li><strong><a href="/manufacturing-design-guides" class="highlight-link">Manufacturing design guides:</a></strong> review casting, forging, machining, tolerance, and finishing considerations.</li>
+                    <li><strong><a href="/precision-machining" class="highlight-link">Precision machining:</a></strong> evaluate material-specific machining strategies and process selection.</li>
+                    <li><strong><a href="/casting" class="highlight-link">Casting capabilities:</a></strong> review investment, die, sand, and specialty casting routes.</li>
+                    <li><strong><a href="/forging" class="highlight-link">Forging capabilities:</a></strong> review open-die, closed-die, rolled-ring, and specialty forging processes.</li>
                 </ul>
             </div>
         </section>

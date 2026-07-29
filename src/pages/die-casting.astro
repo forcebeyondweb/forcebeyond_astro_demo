@@ -1,127 +1,144 @@
 ---
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Die Casting: High-Volume Precision Manufacturing';
-const seoTitle = 'Custom Die Casting Services & Precision Non-Ferrous Parts | ForceBeyond';
-const seoDescription = 'ForceBeyond delivers high-volume precision die casting for aluminum, zinc (ZAMAK), magnesium, and copper alloys. Featuring 180 to 2,000-ton presses, ultra-thin wall capabilities down to 0.040", and fully integrated Tier-1.5 CNC machining and finishing.';
+const pageTitle = 'Die Casting Services for High-Volume Precision Metal Components';
+const seoTitle = 'Die Casting Services | Aluminum, Zinc & Magnesium Parts';
+const seoDescription = 'ForceBeyond provides custom die casting services for aluminum, zinc, and magnesium components, including tooling, high-pressure casting, machining, surface finishing, inspection, assembly, and high-volume production support.';
+
+const canonicalUrl = 'https://www.forcebeyond.store/die-casting/';
+const socialImage = 'https://www.forcebeyond.store/media/custom-aluminum-die-casting-parts-housings-components-4k.webp';
 
 const faqs = [
     {
-        q: "What is the difference between Hot-Chamber and Cold-Chamber die casting?",
-        a: "Hot-chamber machines contain the metal melting pot within the machine itself and are used for alloys with lower melting points, like Zinc (ZAMAK). Cold-chamber machines require the molten metal to be ladled into the machine from a separate furnace and are used for higher-melting-point alloys like Aluminum, preventing damage to the machine's pumping system."
+        q: "What is the difference between hot-chamber and cold-chamber die casting?",
+        a: "Hot-chamber die casting keeps the injection system in contact with molten metal and is commonly used for lower-melting-point alloys such as zinc. Cold-chamber die casting transfers molten metal from a separate furnace into the shot chamber and is commonly used for aluminum and other alloys that would attack or overheat a hot-chamber injection system. Final process selection depends on alloy, part size, tooling, cycle time, and production requirements."
     },
     {
-        q: "Why choose die casting over sand casting?",
-        a: "Die casting is significantly faster, produces smoother surface finishes, allows for much thinner walls, and holds tighter dimensional tolerances than sand casting. While tooling costs are higher, the rapid cycle times make die casting far more economical for mid-to-high-volume production."
+        q: "Why choose die casting instead of sand casting?",
+        a: "Die casting generally provides faster production cycles, thinner walls, smoother as-cast surfaces, and tighter repeatability than sand casting. Sand casting is often more suitable for larger parts, lower production volumes, or projects that cannot justify permanent tooling. The most economical choice depends on annual volume, geometry, alloy, tooling budget, tolerance, and finishing requirements."
     },
     {
-        q: "Which die casting alloy is best for plating and decorative finishes?",
-        a: "Zinc alloys, particularly ZAMAK 3 and ZA 8, offer excellent finishing characteristics. They are highly receptive to plating, painting, and chromate treatments, making them ideal for visible or decorative components."
+        q: "Which die casting alloys are suitable for decorative finishes?",
+        a: "Zinc alloys such as ZAMAK 3, ZAMAK 5, and ZA-8 are frequently selected for plated or decorative parts because they cast fine details and accept many finishing systems well. Aluminum can also be anodized, painted, powder coated, plated with suitable pretreatment, or conversion coated. Finish selection should consider alloy chemistry, cosmetic class, corrosion exposure, masking, and dimensional impact."
+    },
+    {
+        q: "What information is needed for a die casting quote?",
+        a: "Provide a 2D drawing and, when available, a 3D CAD model, along with alloy preference, annual and batch quantity, critical tolerances, wall thickness, cosmetic requirements, machining, coating, pressure-tightness, inspection, assembly, packaging, and delivery expectations. Clearly identify critical-to-quality features and expected production life."
     }
 ];
 
-// Sources
 const sources = [
-    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
-    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
-    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
-    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
-    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
-    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
+    { label: 'North American Die Casting Association - Die Casting Resources', url: 'https://www.diecasting.org/' },
+    { label: 'American Foundry Society - Metalcasting', url: 'https://www.afsinc.org/about-metalcasting' },
+    { label: 'ASTM International - Nonferrous Alloy and Coating Standards', url: 'https://www.astm.org/' },
+    { label: 'Aluminum Association - Aluminum Alloy Information', url: 'https://www.aluminum.org/' },
+    { label: 'International Zinc Association - Zinc Alloy Resources', url: 'https://www.zinc.org/' },
+    { label: 'NIST - Manufacturing', url: 'https://www.nist.gov/topics/manufacturing' }
 ];
 
-// Resources 
 const internalResources = [
-    // Die Casting Resources
-    { label: "Die Casting Overview", url: "/die-casting" },
+    // Die Casting
     { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
     { label: "Zinc Die Casting", url: "/zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "/a356-t6-casting" },
     { label: "Magnesium Casting", url: "/magnesium-casting" },
+    { label: "A356-T6 Casting", url: "/a356-t6-casting" },
 
-    // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "/investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "/titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting" },
-
-    // Forging Resources
-    { label: "Forging Capabilities Overview", url: "/forging" },
-    { label: "Open Die Forging", url: "/open-die-forging" },
-    { label: "Closed Die Forging", url: "/closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
-    { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
-
-    // Sand Casting & Steel Casting Resources
+    // Related Casting Processes
+    { label: "Casting Capabilities", url: "/casting" },
+    { label: "Investment Casting", url: "/investment-casting" },
     { label: "Sand Casting", url: "/sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
+    { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" },
+
+    // Machining and Secondary Operations
+    { label: "Precision Machining", url: "/precision-machining" },
+    { label: "Multi-Axis CNC Milling & Turning", url: "/multi-axis-cnc" },
+    { label: "Secondary Operations", url: "/secondary-operations" },
+    { label: "Surface Finishing & Coating", url: "/surface-finishing" },
+    { label: "Heat Treatment", url: "/heat-treatment" },
+    { label: "Assembly & Kitting", url: "/assembly-and-kitting" },
+
+    // Quality and Technical
+    { label: "Testing & Inspection Capabilities", url: "/testing-inspection-capabilities" },
+    { label: "Quality Assurance & Certifications", url: "/quality-assurance-certifications" },
+    { label: "Materials & Technical Specifications", url: "/materials-technical-specs" },
+    { label: "Manufacturing Design Guides", url: "/manufacturing-design-guides" },
+
+    // Industries
+    { label: "Automotive", url: "/automotive" },
+    { label: "HVAC, Fluid & Flow Control", url: "/hvac-flow" },
+    { label: "Energy & Power Generation", url: "/energy-power-generation" },
+    { label: "Space & Defence", url: "/space-defence" }
 ];
 
-// Service / Product Schema
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/die-casting#webpage",
-      "url": "https://www.forcebeyond.store/die-casting",
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
+        "@id": "https://www.forcebeyond.store/#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
+        "url": "https://www.forcebeyond.store/"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": socialImage
+      },
+      "breadcrumb": {
+        "@id": `${canonicalUrl}#breadcrumb`
       },
       "about": [
+        { "@type": "Thing", "name": "Die casting" },
+        { "@type": "Thing", "name": "High-pressure die casting" },
+        { "@type": "Thing", "name": "Aluminum die casting" },
+        { "@type": "Thing", "name": "Zinc die casting" },
+        { "@type": "Thing", "name": "Magnesium die casting" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
         {
-          "@type": "Thing",
-          "name": "Die casting",
-          "sameAs": "https://en.wikipedia.org/wiki/Die_casting"
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.forcebeyond.store/"
         },
         {
-          "@type": "Thing",
-          "name": "Aluminum alloy",
-          "sameAs": "https://en.wikipedia.org/wiki/Aluminium_alloy"
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Casting",
+          "item": "https://www.forcebeyond.store/casting/"
         },
         {
-          "@type": "Thing",
-          "name": "Zamak",
-          "sameAs": "https://en.wikipedia.org/wiki/Zamak"
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Die Casting",
+          "item": canonicalUrl
         }
       ]
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/die-casting#service",
-      "name": "High-Volume Precision Die Casting Services",
-      "serviceType": "Custom Die Casting Services",
+      "@id": `${canonicalUrl}#service`,
+      "name": "Custom Die Casting Services",
+      "serviceType": "High-Pressure Nonferrous Die Casting and Precision Manufacturing",
       "description": seoDescription,
+      "url": canonicalUrl,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
-        "knowsAbout": [
-          "High-Volume Precision Die Casting",
-          "Hot-Chamber & Cold-Chamber Die Casting",
-          "Aluminum Alloys (A380, A360, B390, 413, 383, A413)",
-          "Zinc Alloys (ZAMAK 2, ZAMAK 3, ZAMAK 5, ZA 8)",
-          "Magnesium & Copper Alloy Casting",
-          "Ultra-Thin Wall Capabilities down to 0.040 inches",
-          "180 to 2,000 Metric Ton Press Operations",
-          "Tier-1.5 Cast-to-Machine & Surface Coating Integration"
-        ]
+        "@id": "https://www.forcebeyond.store/#organization"
       },
-      "areaServed": [
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "South Korea" },
-        { "@type": "Country", "name": "Taiwan" }
-      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Die Casting Capabilities",
@@ -130,24 +147,32 @@ const pageSchema = {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "High-Pressure Non-Ferrous Die Casting",
-              "description": "Scalable production of monolithic aluminum, zinc, magnesium, and copper alloy parts using 180 to 2,000-ton high-pressure injection presses."
+              "name": "Aluminum Die Casting",
+              "description": "High-pressure aluminum die casting for housings, brackets, heat-management components, structural parts, and industrial hardware."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Ultra-Thin Wall & Monolithic Component Engineering",
-              "description": "Custom mold design and injection process control achieving thin wall dimensions down to 0.040 inches, combining multiple multi-part stampings or weldments into single high-strength castings."
+              "name": "Zinc Die Casting",
+              "description": "Hot-chamber zinc die casting for detailed, dimensionally stable components requiring thin walls, fine features, and decorative finishes."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Tier-1.5 Cast-to-Machine & Surface Finishing Integration",
-              "description": "Complete turnkey manufacturing integrating precision 5-axis CNC machining, protective e-coating, anodizing, powder coating, and chrome plating."
+              "name": "Magnesium Die Casting",
+              "description": "Lightweight magnesium die casting for weight-sensitive housings, frames, brackets, and transportation or electronics applications."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Machined and Finished Die Castings",
+              "description": "Integrated CNC machining, trimming, deburring, coating, inspection, pressure testing, assembly, and kitting for die-cast components."
             }
           }
         ]
@@ -155,13 +180,13 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/die-casting#faq",
-      "mainEntity": faqs.map(f => ({
+      "@id": `${canonicalUrl}#faq`,
+      "mainEntity": faqs.map((faq) => ({
         "@type": "Question",
-        "name": f.q,
+        "name": faq.q,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": f.a
+          "text": faq.a
         }
       }))
     }
@@ -172,196 +197,248 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
     pageTitle={pageTitle}
     heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
-    heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"
+    heroImageAlt="High-pressure die casting production for aluminum and zinc metal components"
+    heroImageWidth={1920}
+    heroImageHeight={1080}
+    socialImage={socialImage}
+    socialImageAlt="Custom aluminum, zinc, and magnesium die casting services"
     faqSectionTitle="Frequently Asked Questions: Die Casting"
     faqItems={faqs}
-    ctaTitle="Request Quote For Die Casting"
-    ctaDescription=""
-    sourcesTitle="Sources"
+    ctaTitle="Request a Die Casting Quote"
+    ctaDescription="Send your drawing, CAD model, alloy, annual volume, wall thickness, tolerance, cosmetic, machining, coating, testing, and delivery requirements for an engineering review."
+    ctaButtonText="Request a Die Casting Quote"
+    sourcesTitle="Technical References"
     sourcesList={sources}
-    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesTitle="Related Die Casting, Machining, Finishing and Quality Resources"
     resourcesList={internalResources}
 >
-
     <div slot="full-width" class="individual-content">
 
         <section id="overview">
             <div class="content-container">
-                
-                <h2>Die Casting: High-Volume Precision Manufacturing</h2>
+                <h2>Custom Die Casting for High-Volume Metal Components</h2>
 
                 <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
                     <div>
                         <p>
-                            ForceBeyond provides superior-quality custom die casting parts and components for a wide range of global industries, including automotive, aerospace, energy, medical devices, and petrochemicals. Utilizing advanced die casting presses ranging from 180 to 2,000 metric tons, we have the scalable capacity to produce non-ferrous metal parts weighing from a few grams up to more than 100 pounds.
+                            ForceBeyond provides custom <strong>die casting services</strong> for high-volume aluminum, zinc, and magnesium components. High-pressure die casting injects molten nonferrous metal into a hardened steel die to produce repeatable parts with detailed features, thin sections, smooth surfaces, and short cycle times.
                         </p>
                         <p>
-                            We specialize in precision casting for aluminum, zinc, magnesium, and copper alloys. Our end-to-end manufacturing network combines engineering expertise with high-speed production, delivering monolithic, high-strength parts that are fully machined, coated, and ready for final assembly.
+                            Programs may include
+                            <a href="/aluminum-die-casting" class="highlight-link">aluminum die casting</a>,
+                            <a href="/zinc-die-casting" class="highlight-link">zinc die casting</a>,
+                            and
+                            <a href="/magnesium-casting" class="highlight-link">magnesium casting</a>.
+                            ForceBeyond coordinates tooling, casting, trimming,
+                            <a href="/precision-machining" class="highlight-link">precision machining</a>,
+                            surface finishing, inspection, assembly, and logistics through an integrated manufacturing network.
                         </p>
                     </div>
+
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
-                                src="/media/custom-aluminum-die-casting-parts-housings-components-4k.webp"
-                                alt="Custom aluminum die-cast parts, including housings, brackets, engine components, heat sinks, and precision industrial castings on a white background."
+                                src="/media/precision-aluminum-die-cast-automotive-housing-component.webp"
+                                alt="Precision aluminum die-cast automotive housing with machined mounting holes, internal channels, and structural ribs on a white background."
+                                width="1200"
+                                height="900"
+                                loading="lazy"
+                                decoding="async"
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <section id="technical-specifications">
+        <section id="process-selection">
             <div class="content-container">
-                <h2>Technical Specifications: Die Casting Alloys</h2>
+                <h2>When to Choose Die Casting</h2>
                 <p>
-                    ForceBeyond ensures all die-cast components meet rigorous dimensional and material standards. We offer a diverse portfolio of aluminum and zinc (ZAMAK) alloys to match the precise mechanical, thermal, and finishing requirements of your application.
+                    Die casting is typically selected when the projected production volume can justify permanent tooling and the design benefits from repeatability, thin walls, integrated features, short cycle times, and reduced secondary processing.
                 </p>
+                <ul>
+                    <li><strong>Medium- to high-volume production:</strong> tooling investment is distributed across larger production quantities.</li>
+                    <li><strong>Thin-wall components:</strong> high-pressure filling can support thinner sections than many gravity-casting processes.</li>
+                    <li><strong>Complex integrated geometry:</strong> ribs, bosses, mounting features, heat-sink fins, and lettering can be formed in the die.</li>
+                    <li><strong>Repeatable dimensions:</strong> permanent steel tooling supports consistent geometry over long production runs.</li>
+                    <li><strong>Part consolidation:</strong> multiple stampings, fasteners, or machined pieces may sometimes be redesigned as one casting.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="process-comparison">
+            <div class="content-container">
+                <h2>Die Casting vs. Sand Casting and Investment Casting</h2>
+                <p>
+                    The best casting process depends on annual volume, alloy, size, wall thickness, dimensional requirements, tooling budget, surface finish, and design complexity.
+                </p>
+
                 <div class="content-table-wrapper">
                     <table>
                         <thead>
                             <tr>
-                                <th scope="col">Material Grade</th>
-                                <th scope="col">Tensile Strength (MPa)</th>
-                                <th scope="col">Thermal Cond. (W/mK)</th>
-                                <th scope="col">Key Features & Optimal Applications</th>
+                                <th scope="col">Selection Factor</th>
+                                <th scope="col">Die Casting</th>
+                                <th scope="col">Sand Casting</th>
+                                <th scope="col">Investment Casting</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <tr>
-                                <th scope="row">Aluminum A380</th>
-                                <td>325</td>
-                                <td>96</td>
-                                <td>Best balance of mechanical and thermal properties. High resistance to hot cracking. Ideal for engine brackets and gearboxes.</td>
+                                <th scope="row">Production Volume</th>
+                                <td>Best suited to medium- and high-volume production.</td>
+                                <td>Suitable for low to medium volumes and large components.</td>
+                                <td>Suitable for low to medium volumes and complex precision parts.</td>
                             </tr>
                             <tr>
-                                <th scope="row">Aluminum A360</th>
-                                <td>317</td>
-                                <td>113</td>
-                                <td>Excellent pressure tightness and fluidity. High strength in elevated temperatures.</td>
+                                <th scope="row">Tooling Cost</th>
+                                <td>Higher permanent-tooling investment.</td>
+                                <td>Generally lower tooling cost.</td>
+                                <td>Moderate to high pattern and tooling cost depending on volume.</td>
                             </tr>
                             <tr>
-                                <th scope="row">Aluminum B390</th>
-                                <td>317</td>
-                                <td>134</td>
-                                <td>Exceptional hardness and wear resistance. Ideal for combustion engine pistons and compressor bodies.</td>
+                                <th scope="row">Wall Thickness</th>
+                                <td>Can support thin sections on suitable alloys and geometries.</td>
+                                <td>Usually requires thicker sections.</td>
+                                <td>Can support thin and complex sections with broader alloy flexibility.</td>
                             </tr>
                             <tr>
-                                <th scope="row">ZAMAK 2</th>
-                                <td>359</td>
-                                <td>105</td>
-                                <td>Excellent damping capacity and vibration attenuation. High strength and hardness after long-term aging.</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">ZAMAK 3</th>
-                                <td>283</td>
-                                <td>113</td>
-                                <td>Great balance of physical/mechanical properties. Excellent castability and dimensional stability. Superior plating characteristics.</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">ZAMAK 5</th>
-                                <td>328</td>
-                                <td>109</td>
-                                <td>Higher copper content for increased strength. More readily plated, finished, and machined than Zamak 3.</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">ZA 8</th>
-                                <td>374</td>
-                                <td>115</td>
-                                <td>Excellent creep properties, strength, and hardness. Ideal for decorative applications requiring premium finishing.</td>
+                                <th scope="row">Alloy Range</th>
+                                <td>Primarily aluminum, zinc, magnesium, and selected copper-based alloys.</td>
+                                <td>Broad ferrous and nonferrous alloy range.</td>
+                                <td>Broad ferrous, nonferrous, titanium, and superalloy range.</td>
                             </tr>
                         </tbody>
                     </table>
-                </div> 
-                <p class="mt-4">
-                    <em>(Note: We also cast Aluminum 413, 383, A413, and various Magnesium/Copper alloys based on project requirements).</em>
-                </p>
+                </div>
             </div>
         </section>
 
-        <section id="why-partner">
+        <section id="alloy-capabilities">
             <div class="content-container">
-                <h2>Why Partner with ForceBeyond for Die Casting?</h2>
+                <h2>Die Casting Alloys and Material Selection</h2>
                 <p>
-                    A reliable supply of precision non-ferrous castings requires a manufacturing partner with advanced technological capacity and rigorous quality oversight.
+                    Alloy selection should consider strength, corrosion resistance, thermal conductivity, electrical properties, castability, wall thickness, finishing, pressure tightness, weight, and cost. Published values vary by material condition and test method, so the table below focuses on practical selection rather than fixed guaranteed properties.
                 </p>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Alloy Family</th>
+                                <th scope="col">Representative Grades</th>
+                                <th scope="col">Typical Characteristics and Applications</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">
+                                    <a href="/aluminum-die-casting" class="highlight-link">Aluminum Die Casting</a>
+                                </th>
+                                <td>A380, A360, 383, 413, A413, B390 and application-specific grades</td>
+                                <td>Good strength-to-weight ratio, corrosion resistance, thermal performance, and dimensional stability for housings, brackets, heat sinks, gear cases, and automotive components.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <a href="/zinc-die-casting" class="highlight-link">Zinc Die Casting</a>
+                                </th>
+                                <td>ZAMAK 2, ZAMAK 3, ZAMAK 5, ZA-8 and related grades</td>
+                                <td>Excellent detail reproduction, thin-wall capability, dimensional stability, plating response, and mechanical performance for hardware, enclosures, fittings, and decorative parts.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <a href="/magnesium-casting" class="highlight-link">Magnesium Die Casting</a>
+                                </th>
+                                <td>Application-specific magnesium die casting grades</td>
+                                <td>Low density and useful stiffness for lightweight housings, frames, brackets, electronics, transportation, and handheld equipment.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Copper-Based Die Casting</th>
+                                <td>Application-specific copper and brass alloys</td>
+                                <td>Selected where wear, strength, thermal, electrical, or corrosion properties justify higher casting temperatures and tooling demands.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="design-guidelines">
+            <div class="content-container">
+                <h2>Die Casting Design Guidelines</h2>
                 <ul>
-                    <li>
-                        <strong>Extreme Production Speed:</strong> The complete cycle of modern die casting is the fastest process available for producing precision non-ferrous metal parts, easily outperforming sand or permanent mold casting for high-volume runs.
-                    </li>
-                    <li>
-                        <strong>Ultra-Thin Wall Capabilities:</strong> Our advanced process control allows for exceptionally thin wall thicknesses (down to 0.040 inches for small castings), significantly reducing part weight while maintaining structural integrity.
-                    </li>
-                    <li>
-                        <strong>Near-Net-Shape Accuracy:</strong> Our high-pressure injection process achieves remarkably tight tolerances and smoother as-cast surfaces, minimizing the need for secondary machining.
-                    </li>
-                    <li>
-                        <strong>Monolithic Design Efficiency:</strong> Combine multiple components into a single, cohesive part. This dramatically lowers assembly costs and creates an efficient, economical alternative to multi-part stamping or welding.
-                    </li>
+                    <li><strong>Uniform walls:</strong> maintain practical wall consistency to support filling, cooling, dimensional control, and cycle time.</li>
+                    <li><strong>Draft:</strong> provide sufficient draft for ejection, especially on deeper walls and textured surfaces.</li>
+                    <li><strong>Fillets and radii:</strong> avoid sharp internal corners that increase stress and restrict metal flow.</li>
+                    <li><strong>Ribs and bosses:</strong> use balanced proportions to improve stiffness without creating excessive local mass.</li>
+                    <li><strong>Parting line and slides:</strong> review undercuts, side actions, ejector locations, gates, vents, overflows, and trim access before tooling release.</li>
+                    <li><strong>Machining allowance:</strong> add stock only where final sealing, bearing, threading, or datum features require machining.</li>
                 </ul>
             </div>
         </section>
 
         <section id="die-casting-process">
             <div class="content-container">
-                <h2>The Die Casting Process: From Tooling to Ejection</h2>
-                <p>
-                    Die casting is characterized by forcing molten non-ferrous metal into a highly precise mold cavity under immense pressure. The process relies on custom-engineered, hardened tool steel dies. These dies are machined in at least two sections (a stationary fixed half and a movable syringe half) to allow for the seamless ejection of complex geometries.
-                </p>
-                <p>
-                    Depending on the alloy being cast, ForceBeyond utilizes advanced hot-chamber (for zinc and low-melting-point alloys) or cold-chamber (for aluminum and high-melting-point alloys) machines. Once the molten metal is injected, it rapidly solidifies, capturing intricate details, movable slides, and internal coring before the die opens and the part is safely ejected.
-                </p>
+                <h2>High-Pressure Die Casting Process</h2>
+                <ol>
+                    <li><strong>Tooling and die preparation:</strong> hardened steel dies are manufactured with cavities, cores, slides, cooling channels, gates, vents, and ejector systems.</li>
+                    <li><strong>Metal preparation:</strong> alloy chemistry, temperature, cleanliness, and melt handling are controlled before injection.</li>
+                    <li><strong>Injection:</strong> molten metal is injected into the die under pressure using a hot-chamber or cold-chamber machine.</li>
+                    <li><strong>Solidification:</strong> pressure is maintained while the casting cools and solidifies in the die.</li>
+                    <li><strong>Ejection and trimming:</strong> the die opens, ejector pins release the casting, and runners, gates, and flash are removed.</li>
+                    <li><strong>Secondary processing:</strong> parts may proceed through deburring, machining, coating, pressure testing, inspection, assembly, and packaging.</li>
+                </ol>
             </div>
         </section>
 
-        <section id="tier-1-5-integration">
+        <section id="tooling-production">
             <div class="content-container">
-                <h2>Tier-1.5 Integration: Precision Cast-to-Machine & Finishing Solutions</h2>
+                <h2>Die Casting Tooling and Production Planning</h2>
                 <p>
-                    ForceBeyond provides a seamless transition from raw casting to a finished, assembly-ready component. By integrating our high-volume die casting foundries with advanced secondary processing, we eliminate the dimensional “hand-off” risks typically associated with using multiple vendors.
-                </p>
-                <p>
-                    <strong>Our In-House Secondary Operations Include:</strong>
+                    Tool design has a major effect on casting quality, cycle time, maintenance, and production life. Engineering review should address:
                 </p>
                 <ul>
-                    <li>
-                        <strong>Precision CNC Machining:</strong> High-tolerance 5-axis milling, drilling, and tapping to achieve final print dimensions.
-                    </li>
-                    <li>
-                        <strong>Protective & Aesthetic Coatings:</strong> E-coating, anodizing, powder coating, painting, and high-quality chrome plating (ideal for ZAMAK alloys).
-                    </li>
-                    <li>
-                        <strong>Surface Preparation:</strong> Sanding, shot blasting, and bright finishing for superior corrosion resistance and cosmetics.
-                    </li>
+                    <li><strong>Gate and runner design:</strong> filling sequence, air evacuation, and metal velocity.</li>
+                    <li><strong>Thermal balance:</strong> cooling channels, local hot spots, die temperature, and cycle stability.</li>
+                    <li><strong>Tool steel and coatings:</strong> selection based on alloy, shot count, erosion, soldering, and thermal fatigue.</li>
+                    <li><strong>Maintenance strategy:</strong> inserts, replaceable cores, preventive maintenance, shot tracking, and spare components.</li>
+                    <li><strong>Capacity planning:</strong> press size, projected annual volume, cavities, automation, trimming, and downstream operations.</li>
                 </ul>
             </div>
         </section>
 
-        <section id="certified-applications">
+        <section id="integrated-finishing">
             <div class="content-container">
-                <h2>Certified Die Casting Applications</h2>
+                <h2>Die Casting, Machining and Secondary Operations</h2>
                 <p>
-                    Our specialized foundry network supports the world's most demanding sectors with lightweight, corrosion-resistant, and highly complex components:
+                    Many die-cast components require additional operations before they are ready for assembly.
                 </p>
                 <ul>
-                    <li>
-                        <strong>Automotive & Transportation:</strong> Engine brackets, transmission housings, and structural vehicle components.
-                    </li>
-                    <li>
-                        <strong>Industrial Machinery & HVAC:</strong> Hydraulic cylinders, compressor bodies, and complex plumbing/watering fixtures.
-                    </li>
-                    <li>
-                        <strong>Energy & Heavy Industry:</strong> Power infrastructure hardware, petrochemical components, and mining equipment.
-                    </li>
-                    <li>
-                        <strong>Aerospace & Medical:</strong> Intricate, weight-critical parts requiring exceptional dimensional stability and vibration damping.
-                    </li>
+                    <li><strong><a href="/precision-machining" class="highlight-link">Precision machining:</a></strong> milling, turning, drilling, tapping, reaming, and finishing of bores, sealing surfaces, threads, and mounting datums.</li>
+                    <li><strong><a href="/surface-finishing" class="highlight-link">Surface finishing and coating:</a></strong> anodizing, conversion coating, plating, E-coating, powder coating, painting, polishing, and cosmetic finishing.</li>
+                    <li><strong><a href="/testing-inspection-capabilities" class="highlight-link">Inspection and testing:</a></strong> dimensional inspection, CMM reporting, leak testing, pressure testing, porosity evaluation, and coating verification as required.</li>
+                    <li><strong><a href="/assembly-and-kitting" class="highlight-link">Assembly and kitting:</a></strong> inserts, bearings, seals, hardware, sub-assembly, labeling, and protective packaging.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="industry-applications">
+            <div class="content-container">
+                <h2>Die Casting Applications by Industry</h2>
+                <ul>
+                    <li><strong><a href="/automotive" class="highlight-link">Automotive and transportation:</a></strong> transmission housings, brackets, covers, structural components, heat-management parts, and lightweight assemblies.</li>
+                    <li><strong><a href="/hvac-flow" class="highlight-link">HVAC, fluid and flow control:</a></strong> compressor housings, valve components, manifolds, pump parts, fittings, and control hardware.</li>
+                    <li><strong><a href="/energy-power-generation" class="highlight-link">Energy and power generation:</a></strong> electrical housings, cooling components, brackets, covers, and industrial equipment hardware.</li>
+                    <li><strong><a href="/space-defence" class="highlight-link">Aerospace and defense:</a></strong> lightweight housings, brackets, enclosures, and noncritical support components where die casting is permitted by design requirements.</li>
+                    <li><strong><a href="/medical" class="highlight-link">Medical and healthcare:</a></strong> equipment housings, structural frames, handles, enclosures, and device-support components.</li>
+                    <li><strong><a href="/mining" class="highlight-link">Industrial and heavy equipment:</a></strong> controls, housings, covers, brackets, handles, and high-volume equipment components.</li>
                 </ul>
             </div>
         </section>

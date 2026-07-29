@@ -1,108 +1,187 @@
 ---
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Testing & Inspection Capabilities: NDT, Metrology & Destructive Testing';
-const seoTitle = 'Testing & Inspection Capabilities (NDT, CMM) | ForceBeyond';
-const seoDescription = 'Advanced metrology and metallurgical testing services. In-house CMM, X-Ray (RT), Fluorescent Penetrant (FPI), and destructive testing for high-integrity metal parts.';
+const pageTitle = 'Testing & Inspection Capabilities for Metal Components';
+const seoTitle = 'Testing & Inspection | NDT, CMM & Metallurgical Testing';
+const seoDescription = 'ForceBeyond supports metal-component programs with dimensional inspection, CMM, optical scanning, radiography, penetrant, ultrasonic, magnetic-particle, hardness, tensile, metallography, leak testing, and project-specific quality documentation.';
+
+const canonicalUrl = 'https://www.forcebeyond.store/testing-inspection-capabilities/';
+const socialImage = 'https://www.forcebeyond.store/media/precision-cmm-inspection-machined-metal-component-hero.webp';
 
 const faqs = [
     {
-        q: "Can ForceBeyond provide 100% NDT inspection on production runs?",
-        a: "Yes. Depending on your engineering print and industry requirements (such as ASME Section III for nuclear or AMS standards for aerospace), we can perform 100% Radiographic Testing (X-Ray), 100% Fluorescent Penetrant Inspection (FPI), or 100% Hydrostatic Leak Testing on all production parts before shipment."
+        q: "Can ForceBeyond support 100% NDT inspection on production parts?",
+        a: "Full-lot inspection may be supported when required by the drawing, specification, purchase order, or risk assessment. The method, coverage, acceptance criteria, personnel qualification, equipment, sampling plan, and reporting requirements should be defined before production. Not every component requires 100% NDT."
     },
     {
-        q: "How do you measure complex internal geometries on castings that standard calipers cannot reach?",
-        a: "For complex, organic shapes—such as pump volutes, internal cooling channels in turbine blades, or deep valve body cavities—we utilize 3D Coordinate Measuring Machines (CMM) equipped with articulating probes, as well as non-contact 3D blue-light laser scanners to map internal surfaces directly against your original 3D CAD model."
+        q: "How are complex internal geometries inspected?",
+        a: "Depending on geometry and required accuracy, internal features may be evaluated using articulating CMM probes, borescopes, computed radiography, conventional or phased-array ultrasonic methods, industrial CT, sectioning, flow testing, or specially designed gauges. Standard optical scanning generally measures visible external surfaces unless line-of-sight access is available."
+    },
+    {
+        q: "How is the correct inspection method selected?",
+        a: "Method selection depends on material, product form, expected defect type, defect orientation, section thickness, geometry, surface condition, required sensitivity, acceptance criteria, production volume, and governing standard. Engineering and quality teams should define the inspection plan during contract and feasibility review."
+    },
+    {
+        q: "What information is needed for a testing and inspection quote?",
+        a: "Provide the drawing, material and product form, manufacturing route, quantity, critical characteristics, governing test standards, acceptance criteria, inspection frequency, reporting format, personnel qualification, calibration, traceability, and required documentation."
     }
 ];
 
-// Sources
 const sources = [
-    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
-    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
-    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
-    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
-    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
-    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
+    { label: 'ASTM International - Non-Destructive Testing Standards', url: 'https://www.astm.org/' },
+    { label: 'ASNT - Nondestructive Testing Personnel Qualification Resources', url: 'https://www.asnt.org/' },
+    { label: 'ISO - Geometrical Product Specifications and Inspection Standards', url: 'https://www.iso.org/' },
+    { label: 'ASME - NDE and Pressure Equipment Standards', url: 'https://www.asme.org/codes-standards' },
+    { label: 'NIST - Dimensional Metrology and Manufacturing', url: 'https://www.nist.gov/topics/manufacturing' },
+    { label: 'ASM International - Mechanical Testing and Metallography Resources', url: 'https://www.asminternational.org/' }
 ];
 
-// Resources
 const internalResources = [
-    // Die Casting Resources
-    { label: "Die Casting Overview", url: "/die-casting" },
-    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "/zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "/a356-t6-casting" },
-    { label: "Magnesium Casting", url: "/magnesium-casting" },
+    // Quality and Supply Chain
+    { label: "Quality Assurance & Certifications", url: "/quality-assurance-certifications" },
+    { label: "Quality & Global Supply Chain", url: "/quality-global-supply-chain" },
+    { label: "Global Footprint & Logistics", url: "/global-footprint-logistics" },
 
-    // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "/investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "/titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting" },
+    // Manufacturing
+    { label: "Casting Capabilities", url: "/casting" },
+    { label: "Investment Casting", url: "/investment-casting" },
+    { label: "Forging Capabilities", url: "/forging" },
+    { label: "Precision Machining", url: "/precision-machining" },
+    { label: "High-Precision Component Machining", url: "/high-precision-machining" },
+    { label: "Multi-Axis CNC Milling & Turning", url: "/multi-axis-cnc" },
 
-    // Forging Resources
-    { label: "Forging Capabilities Overview", url: "/forging" },
-    { label: "Open Die Forging", url: "/open-die-forging" },
-    { label: "Closed Die Forging", url: "/closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
-    { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
+    // Secondary Operations
+    { label: "Heat Treatment", url: "/heat-treatment" },
+    { label: "Surface Finishing & Coating", url: "/surface-finishing" },
+    { label: "Secondary Operations", url: "/secondary-operations" },
+    { label: "Assembly & Kitting", url: "/assembly-and-kitting" },
 
-    // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "/sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
+    // Materials and Technical
+    { label: "Materials & Technical Specifications", url: "/materials-technical-specs" },
+    { label: "Material Cross-Reference Charts", url: "/material-cross-reference-charts" },
+    { label: "Manufacturing Design Guides", url: "/manufacturing-design-guides" },
+    { label: "Superalloys & Exotic Metals", url: "/superalloys-exotic-metals" },
+    { label: "Titanium Alloys", url: "/titanium-alloys" },
+    { label: "Stainless Steel & Carbon Steel", url: "/stainless-carbon-steel" },
+    { label: "Aluminum & Copper Alloys", url: "/aluminum-copper-alloys" }
 ];
 
-// Page Schema
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/testing-inspection-capabilities#webpage",
-      "url": "https://www.forcebeyond.store/testing-inspection-capabilities",
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
+        "@id": "https://www.forcebeyond.store/#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
-      }
+        "url": "https://www.forcebeyond.store/"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": socialImage
+      },
+      "breadcrumb": {
+        "@id": `${canonicalUrl}#breadcrumb`
+      },
+      "about": [
+        { "@type": "Thing", "name": "Non-destructive testing" },
+        { "@type": "Thing", "name": "Dimensional metrology" },
+        { "@type": "Thing", "name": "Coordinate measuring machines" },
+        { "@type": "Thing", "name": "Mechanical testing" },
+        { "@type": "Thing", "name": "Metallography" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.forcebeyond.store/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Quality & Global Supply Chain",
+          "item": "https://www.forcebeyond.store/quality-global-supply-chain/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Testing & Inspection Capabilities",
+          "item": canonicalUrl
+        }
+      ]
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/testing-inspection-capabilities#service",
-      "name": "Testing & Metrology Inspection Services",
-      "serviceType": "Non-Destructive & Metallurgical Inspection Services",
+      "@id": `${canonicalUrl}#service`,
+      "name": "Testing and Inspection Support for Metal Components",
+      "serviceType": "NDT, Dimensional Metrology, Mechanical Testing and Metallurgical Evaluation",
       "description": seoDescription,
+      "url": canonicalUrl,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
-        "knowsAbout": [
-          "Non-Destructive Testing (X-Ray RT, FPI, UT, MPI)",
-          "3D CMM & Optical Laser Scanning Metrology",
-          "Mechanical Tensile & Charpy Impact Testing",
-          "Hardness Verification (Rockwell, Brinell, Micro-Vickers)",
-          "Metallographic Microstructural Analysis"
+        "@id": "https://www.forcebeyond.store/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Testing and Inspection Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Non-Destructive Testing",
+              "description": "Project-specific radiographic, penetrant, ultrasonic, magnetic-particle, visual, and leak-testing support."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Dimensional Inspection and Metrology",
+              "description": "CMM, optical scanning, gauges, profilometry, first-article inspection, and GD&T verification."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mechanical and Destructive Testing",
+              "description": "Tensile, hardness, impact, bend, compression, fatigue, and application-specific test support."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Metallurgical and Material Evaluation",
+              "description": "Chemistry, PMI, microstructure, grain size, ferrite, alpha case, case depth, cleanliness, and failure-analysis support."
+            }
+          }
         ]
       }
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/testing-inspection-capabilities#faq",
-      "mainEntity": faqs.map(f => ({
+      "@id": `${canonicalUrl}#faq`,
+      "mainEntity": faqs.map((faq) => ({
         "@type": "Question",
-        "name": f.q,
+        "name": faq.q,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": f.a
+          "text": faq.a
         }
       }))
     }
@@ -113,76 +192,111 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
     pageTitle={pageTitle}
     heroImage="/media/precision-cmm-inspection-machined-metal-component-hero.webp"
-    heroImageAlt="CMM inspection probe measuring a precision-machined metal component for dimensional accuracy and manufacturing quality control."
+    heroImageAlt="CMM inspection of a precision-machined metal component"
+    heroImageWidth={1920}
+    heroImageHeight={1080}
+    socialImage={socialImage}
+    socialImageAlt="Testing and inspection capabilities including NDT, CMM, and metallurgical testing"
     faqSectionTitle="Frequently Asked Questions: Testing & Inspection"
     faqItems={faqs}
-    ctaTitle="Ensure Structural Integrity with Advanced Testing"
-    ctaDescription="Partner with ForceBeyond for certified Level II/III NDT inspection, sub-micron CMM metrology, and complete metallurgical verification on your critical metal components."
-    sourcesTitle="Sources"
+    ctaTitle="Define a Testing and Inspection Plan"
+    ctaDescription="Send your drawing, material, product form, manufacturing route, quantity, critical characteristics, standards, acceptance criteria, inspection frequency, and reporting requirements for a quality review."
+    ctaButtonText="Request an Inspection Review"
+    sourcesTitle="Testing, Inspection and Metrology References"
     sourcesList={sources}
-    resourcesTitle="Our Internal Resources for Quality and Global Operations"
+    resourcesTitle="Related Quality, Manufacturing, Materials and Technical Resources"
     resourcesList={internalResources}
 >
-
     <div slot="full-width" class="individual-content">
 
         <section id="overview">
             <div class="content-container">
-                
-                <h2>Testing & Inspection Capabilities: NDT, Metrology & Destructive Testing</h2>
+                <h2>NDT, Dimensional Metrology and Metallurgical Testing</h2>
+                <p>
+                    Testing and inspection plans should be selected according to material, product form, manufacturing route, expected defect mechanisms, dimensional requirements, service risk, governing standards, and customer acceptance criteria.
+                </p>
+                <p>
+                    ForceBeyond coordinates dimensional inspection,
+                    <a href="#non-destructive-testing" class="highlight-link">non-destructive testing</a>,
+                    mechanical testing, metallography, material verification, functional testing, and documentation for
+                    <a href="/casting" class="highlight-link">castings</a>,
+                    <a href="/forging" class="highlight-link">forgings</a>,
+                    and
+                    <a href="/precision-machining" class="highlight-link">machined components</a>.
+                    Capability location, personnel qualification, accreditation, and reporting scope should be confirmed for each program.
+                </p>
+            </div>
+        </section>
 
-                        <p>
-                            Validating the structural integrity and sub-micron dimensional accuracy of high-performance metal components requires world-class metrology and testing infrastructure. ForceBeyond equips our quality labs with advanced Non-Destructive Testing (NDT), 3D coordinate metrology, and destructive metallurgical testing to certify that every casting, forging, and machined part meets exact engineering specifications.
-                        </p>
-                </div>
-
+        <section id="inspection-planning">
+            <div class="content-container">
+                <h2>How Inspection Methods Are Selected</h2>
+                <ul>
+                    <li><strong>Material:</strong> ferromagnetic, conductive, nonconductive, porous, anisotropic, or highly attenuative materials affect method suitability.</li>
+                    <li><strong>Product form:</strong> castings, forgings, weldments, plate, bar, tubing, and machined components have different defect risks.</li>
+                    <li><strong>Discontinuity type:</strong> surface cracks, subsurface cracks, shrinkage, porosity, inclusions, laps, lack of fusion, and dimensional variation require different methods.</li>
+                    <li><strong>Geometry and thickness:</strong> access, orientation, section size, curvature, and internal features affect sensitivity and coverage.</li>
+                    <li><strong>Acceptance criteria:</strong> technique, calibration, reference standards, image quality, indication evaluation, and disposition should be defined.</li>
+                    <li><strong>Production volume:</strong> inspection frequency may be 100%, sampling-based, first-article, periodic, or risk-based.</li>
+                </ul>
             </div>
         </section>
 
         <section id="non-destructive-testing">
             <div class="content-container">
-                <h2>Non-Destructive Testing (NDT)</h2>
-                <p>
-                    For safety-critical components subject to extreme pressure or cyclic fatigue, verifying internal soundness is mandatory. Our certified Level II and Level III NDT technicians perform comprehensive evaluations without altering the part:
-                </p>
+                <h2>Non-Destructive Testing Methods</h2>
+
                 <div class="content-table-wrapper">
                     <table>
                         <thead>
                             <tr>
-                                <th scope="col">Testing Method</th>
-                                <th scope="col">ASTM Standard</th>
-                                <th scope="col">Primary Defect Detection Target</th>
-                                <th scope="col">Target Applications</th>
+                                <th scope="col">NDT Method</th>
+                                <th scope="col">Representative Standards</th>
+                                <th scope="col">Typical Detection Capability</th>
+                                <th scope="col">Important Limitations</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <tr>
-                                <th scope="row">Radiographic Testing (X-Ray)</th>
-                                <td>ASTM E192</td>
-                                <td>Detects internal shrinkage voids, gas porosity, and inclusions deep within solid metal.</td>
-                                <td>Nuclear valve bodies, aerospace superalloy turbine blades.</td>
+                                <th scope="row">Radiographic Testing</th>
+                                <td>ASTM and ASME standards selected by product form and application</td>
+                                <td>Volumetric discontinuities such as shrinkage, porosity, inclusions, and selected cracks depending on orientation.</td>
+                                <td>Sensitivity depends on thickness, geometry, technique, image quality, defect orientation, and acceptance criteria.</td>
                             </tr>
                             <tr>
-                                <th scope="row">Fluorescent Penetrant (FPI)</th>
-                                <td>ASTM E1417</td>
-                                <td>High-sensitivity fluorescent dye reveals minute surface-breaking cracks, cold shuts, or micro-porosity.</td>
-                                <td>High-pressure sealing flanges, titanium medical implants.</td>
+                                <th scope="row">Liquid Penetrant Testing</th>
+                                <td>ASTM E1417/E1417M and application-specific requirements</td>
+                                <td>Surface-breaking discontinuities in nonporous metallic and nonmetallic materials.</td>
+                                <td>Cannot detect fully subsurface defects; surface preparation and cleaning are critical.</td>
                             </tr>
                             <tr>
-                                <th scope="row">Ultrasonic Testing (UT)</th>
-                                <td>ASTM A388</td>
-                                <td>Uses high-frequency sound waves to evaluate internal structural soundness across thick profiles.</td>
-                                <td>Heavy-tonnage forgings, steam generator tubesheets.</td>
+                                <th scope="row">Ultrasonic Testing</th>
+                                <td>ASTM A388/A388M for selected forgings and other product-specific standards</td>
+                                <td>Internal reflectors, laminations, inclusions, voids, and selected crack-like discontinuities.</td>
+                                <td>Material structure, surface condition, geometry, attenuation, orientation, and calibration affect results.</td>
                             </tr>
                             <tr>
-                                <th scope="row">Magnetic Particle (MPI)</th>
-                                <td>ASTM E1444</td>
-                                <td>Detects surface and shallow subsurface discontinuities in ferromagnetic materials.</td>
-                                <td>Carbon steel gears, forged suspension linkages.</td>
+                                <th scope="row">Magnetic Particle Testing</th>
+                                <td>ASTM E1444/E1444M and application-specific requirements</td>
+                                <td>Surface and near-surface discontinuities in ferromagnetic materials.</td>
+                                <td>Not suitable for austenitic stainless, aluminum, titanium, copper, and other nonferromagnetic materials.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Visual Testing</th>
+                                <td>Project-specific visual criteria and referenced standards</td>
+                                <td>Surface condition, workmanship, damage, mismatch, cracks, corrosion, contamination, and assembly issues.</td>
+                                <td>Requires suitable access, lighting, magnification, surface condition, and trained personnel.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Leak Testing</th>
+                                <td>Application-specific pressure, bubble, tracer-gas, or mass-spectrometer methods</td>
+                                <td>Through-leakage in pressure boundaries, seals, manifolds, valve bodies, and fluid passages.</td>
+                                <td>Method sensitivity, test medium, pressure, dwell time, temperature, cleanliness, and allowable leak rate must be defined.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -190,71 +304,215 @@ const pageSchema = {
             </div>
         </section>
 
+        <section id="ndt-personnel">
+            <div class="content-container">
+                <h2>NDT Personnel Qualification and Procedure Control</h2>
+                <ul>
+                    <li><strong>Written practice:</strong> personnel qualification should follow the employer’s written practice and applicable customer or industry requirements.</li>
+                    <li><strong>Personnel level:</strong> Level I, Level II, and Level III responsibilities differ by method, interpretation, procedure approval, and program oversight.</li>
+                    <li><strong>Procedure qualification:</strong> technique, equipment, calibration, consumables, sensitivity, coverage, and acceptance should be documented.</li>
+                    <li><strong>Equipment control:</strong> calibration, performance checks, maintenance, reference standards, and system verification should be maintained.</li>
+                    <li><strong>Reporting:</strong> records should identify part, lot, method, procedure, personnel, equipment, results, disposition, and traceability.</li>
+                </ul>
+            </div>
+        </section>
+
         <section id="dimensional-metrology">
             <div class="content-container">
-                <h2>Dimensional Metrology & Laser Scanning</h2>
+                <h2>Dimensional Metrology and GD&T Verification</h2>
+
                 <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
                     <div>
-                        <p>
-                            Achieving the tight tolerances required by AI data center cold plates or aerospace actuators requires uncompromised measurement capabilities. Our temperature-controlled metrology labs utilize:
-                        </p>
                         <ul>
-                            <li>
-                                <strong>Coordinate Measuring Machines (CMM):</strong> Automated, multi-axis probe measurements verifying true position, flatness, concentricity, and complex GD&T profiles down to sub-micron accuracy.
-                            </li>
-                            <li>
-                                <strong>3D Optical & Laser Scanning:</strong> Non-contact blue-light scanners compare the physical part's surface topology directly against the native 3D CAD model, generating full-color deviation heat maps.
-                            </li>
-                            <li>
-                                <strong>Surface Roughness Profilometers:</strong> Verifying precise surface finish requirements for fluid sealing faces and medical instruments.
-                            </li>
+                            <li><strong>Coordinate measuring machines:</strong> evaluate size, position, profile, flatness, perpendicularity, runout, concentric relationships, and datum structures.</li>
+                            <li><strong>Optical and structured-light scanning:</strong> capture visible surface geometry and compare point clouds or meshes against CAD.</li>
+                            <li><strong>Vision systems:</strong> measure edges, profiles, small features, and two-dimensional geometry where suitable.</li>
+                            <li><strong>Surface metrology:</strong> profilometers and related instruments evaluate roughness, waviness, and surface texture.</li>
+                            <li><strong>Functional gauges:</strong> verify fit, thread, location, profile, or assembly function in production environments.</li>
+                            <li><strong>Manual metrology:</strong> micrometers, calipers, bore gauges, height gauges, indicators, and specialized instruments support appropriate features.</li>
                         </ul>
                     </div>
+
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
                                 src="/media/cmm-metrology-inspection-precision-machined-component.webp"
-                                alt="Coordinate measuring machine inspecting a precision-machined metal component for dimensional accuracy and manufacturing quality control."
+                                alt="Coordinate measuring machine inspecting a precision-machined component"
+                                width="1200"
+                                height="900"
+                                loading="lazy"
+                                decoding="async"
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
                         </div>
                     </div>
                 </div>
-               
             </div>
         </section>
 
-        <section id="destructive-testing">
+        <section id="complex-geometry">
             <div class="content-container">
-                <h2>Destructive & Metallurgical Testing</h2>
+                <h2>Inspection of Complex Internal and Freeform Geometry</h2>
+                <ul>
+                    <li><strong>Articulating probes:</strong> access angled bores, pockets, ports, and internal features within probe-reach limits.</li>
+                    <li><strong>Borescopes:</strong> visually inspect internal passages, surfaces, debris, damage, and workmanship.</li>
+                    <li><strong>Industrial CT:</strong> evaluate selected internal geometry and discontinuities where part size, density, resolution, and equipment permit.</li>
+                    <li><strong>Computed radiography:</strong> inspect internal features and volumetric discontinuities using qualified radiographic techniques.</li>
+                    <li><strong>Sectioning:</strong> destructive evaluation may be used for process development, validation, or failure analysis.</li>
+                    <li><strong>Flow and pressure testing:</strong> indirectly verify passage continuity, restriction, or leakage where geometry cannot be directly measured.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="measurement-quality">
+            <div class="content-container">
+                <h2>Calibration, Measurement Uncertainty and Environment</h2>
+                <ul>
+                    <li><strong>Calibration status:</strong> verify instrument identification, calibration interval, traceability, and acceptance status.</li>
+                    <li><strong>Measurement uncertainty:</strong> ensure the method is suitable relative to the tolerance and decision rule.</li>
+                    <li><strong>Temperature effects:</strong> consider part stabilization, material expansion, equipment compensation, and environmental variation.</li>
+                    <li><strong>Fixturing:</strong> support the component without introducing distortion or constraining the measured condition improperly.</li>
+                    <li><strong>Gauge studies:</strong> evaluate repeatability, reproducibility, bias, linearity, or stability where required.</li>
+                    <li><strong>Data integrity:</strong> control programs, revisions, alignment methods, filters, reports, and electronic records.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="mechanical-testing">
+            <div class="content-container">
+                <h2>Mechanical and Destructive Testing</h2>
+
                 <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
                     <div>
-                        <p>
-                            To guarantee that our thermal processing and heat treatments (such as T6 or Quench & Temper) have successfully optimized the alloy, we perform rigorous destructive testing on sacrificial lot samples:
-                        </p>
                         <ul>
-                            <li>
-                                <strong>Mechanical Testing:</strong> Universal tensile testing (ASTM E8) to measure yield strength and elongation; Charpy V-notch impact testing (ASTM E23) for low-temperature toughness.
-                            </li>
-                            <li>
-                                <strong>Hardness Verification:</strong> Rockwell (HRC/HRB), Brinell (HBW), and Micro-Vickers testing for case-depth validation.
-                            </li>
-                            <li>
-                                <strong>Microstructural Analysis:</strong> High-magnification metallography to verify grain size, check for alpha-case in titanium, and confirm optimal phase balances (e.g., 50/50 ferrite-austenite in Duplex 2205).
-                            </li>
+                            <li><strong>Tensile testing:</strong> evaluate tensile strength, yield strength, elongation, reduction of area, and stress-strain behavior.</li>
+                            <li><strong>Impact testing:</strong> assess absorbed energy and notch toughness at specified temperatures.</li>
+                            <li><strong>Hardness testing:</strong> Rockwell, Brinell, Vickers, microhardness, or portable methods selected by material and requirement.</li>
+                            <li><strong>Bend and compression testing:</strong> assess ductility, integrity, load response, or application-specific performance.</li>
+                            <li><strong>Fatigue and creep testing:</strong> support project-specific cyclic or elevated-temperature evaluation where required.</li>
+                            <li><strong>Proof and load testing:</strong> verify component or assembly performance under defined conditions.</li>
                         </ul>
                     </div>
+
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
                                 src="/media/destructive-tensile-testing-metal-specimen-laboratory.webp"
-                                alt="Universal testing machine performing destructive tensile testing on a metal specimen to measure strength and material performance."
+                                alt="Universal testing machine performing tensile testing on a metal specimen"
+                                width="1200"
+                                height="900"
+                                loading="lazy"
+                                decoding="async"
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
                         </div>
                     </div>
                 </div>
-                
+            </div>
+        </section>
+
+        <section id="metallography">
+            <div class="content-container">
+                <h2>Metallography and Microstructural Evaluation</h2>
+                <ul>
+                    <li><strong>Sample preparation:</strong> sectioning, mounting, grinding, polishing, and etching should preserve the feature being evaluated.</li>
+                    <li><strong>Grain size:</strong> assess grain structure according to material, process, and governing method.</li>
+                    <li><strong>Phase evaluation:</strong> examine ferrite, austenite, martensite, precipitates, intermetallics, or other relevant phases.</li>
+                    <li><strong>Alpha case:</strong> evaluate oxygen-enriched surface layers in titanium where required.</li>
+                    <li><strong>Case depth and decarburization:</strong> verify carburized, nitrided, induction-hardened, or thermally affected layers.</li>
+                    <li><strong>Defect analysis:</strong> characterize inclusions, porosity, cracks, laps, segregation, contamination, or heat-treatment anomalies.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="material-verification">
+            <div class="content-container">
+                <h2>Material Identification and Chemical Verification</h2>
+                <ul>
+                    <li><strong>Positive material identification:</strong> XRF, OES, or other techniques selected according to alloy and required elements.</li>
+                    <li><strong>Laboratory chemistry:</strong> confirm elemental composition using suitable analytical methods when specification-level results are required.</li>
+                    <li><strong>Carbon and sulfur analysis:</strong> use appropriate combustion methods where light elements are critical.</li>
+                    <li><strong>Interstitial analysis:</strong> oxygen, nitrogen, and hydrogen testing may be important for titanium and other reactive alloys.</li>
+                    <li><strong>Traceability review:</strong> reconcile test results with heat, lot, MTR, process traveler, and shipment records.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="functional-testing">
+            <div class="content-container">
+                <h2>Pressure, Leak, Flow and Functional Testing</h2>
+                <ul>
+                    <li><strong>Hydrostatic testing:</strong> verify pressure containment using a liquid medium under defined conditions.</li>
+                    <li><strong>Pneumatic testing:</strong> use gas pressure where appropriate, with suitable safety controls and acceptance criteria.</li>
+                    <li><strong>Pressure-decay testing:</strong> monitor pressure change over time to evaluate leakage.</li>
+                    <li><strong>Tracer-gas testing:</strong> use helium or other gases for higher-sensitivity leak detection where required.</li>
+                    <li><strong>Flow testing:</strong> evaluate restriction, pressure drop, balance, passage continuity, or flow performance.</li>
+                    <li><strong>Fit and assembly testing:</strong> confirm mating interfaces, torque, motion, electrical continuity, or application-specific function.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="inspection-frequency">
+            <div class="content-container">
+                <h2>Inspection Frequency and Sampling Strategy</h2>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Inspection Approach</th>
+                                <th scope="col">Typical Use</th>
+                                <th scope="col">Key Considerations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">100% Inspection</th>
+                                <td>Safety-critical characteristics, regulatory requirements, unstable processes, or specified full-lot coverage.</td>
+                                <td>Cycle time, false calls, method capability, operator consistency, automation, and cost.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Sampling Inspection</th>
+                                <td>Stable production processes with defined acceptance plans and lower-risk characteristics.</td>
+                                <td>Lot definition, sample size, acceptance number, switching rules, and process history.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">First Article Inspection</th>
+                                <td>New part, drawing change, source change, tooling change, process change, or production restart.</td>
+                                <td>Characteristic accountability, documentation, process representation, and approval scope.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">In-Process Inspection</th>
+                                <td>Control of features before subsequent operations make correction or access difficult.</td>
+                                <td>Reaction plan, process offsets, tool wear, fixture condition, and data feedback.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Periodic Audit</th>
+                                <td>Ongoing verification of lower-frequency characteristics, documentation, or process compliance.</td>
+                                <td>Audit interval, trend review, escalation triggers, and change history.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="reporting">
+            <div class="content-container">
+                <h2>Inspection Reports and Quality Documentation</h2>
+                <ul>
+                    <li><strong>Dimensional reports:</strong> characteristic, nominal, tolerance, result, method, equipment, and disposition.</li>
+                    <li><strong>NDT reports:</strong> method, procedure, technique, coverage, sensitivity, personnel, results, and acceptance criteria.</li>
+                    <li><strong>Material reports:</strong> chemistry, mechanical properties, heat treatment, heat or lot, and material certification.</li>
+                    <li><strong>First article or PPAP:</strong> ballooned drawing, accountability, process records, capability, and approval evidence.</li>
+                    <li><strong>Nonconformance records:</strong> discrepancy, containment, disposition, concession, corrective action, and verification.</li>
+                    <li><strong>Electronic data:</strong> CMM output, scan files, radiographic images, photographs, certificates, and customer-specific formats.</li>
+                </ul>
+                <p>
+                    Review
+                    <a href="/quality-assurance-certifications" class="highlight-link">quality assurance and certifications</a>
+                    for broader documentation, traceability, and compliance information.
+                </p>
             </div>
         </section>
 

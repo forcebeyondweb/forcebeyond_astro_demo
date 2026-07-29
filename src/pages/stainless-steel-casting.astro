@@ -1,150 +1,146 @@
 ---
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle ='Stainless Steel Casting: Corrosion-Resistant Precision Manufacturing';
-const seoTitle = 'Stainless Steel Investment Casting | 304, 316, 17-4 PH & 410';
-const seoDescription = 'Custom lost-wax stainless steel investment casting for corrosion-resistant components up to 200 lbs. ForceBeyond pours 304, 316, and 17-4 PH (up to 150,000+ psi tensile) with ISO 8062 CT5–CT7 near-net precision.';
+const pageTitle = 'Stainless Steel Casting Services for Precision Metal Components';
+const seoTitle = 'Stainless Steel Casting Services | Investment Cast Parts';
+const seoDescription = 'ForceBeyond provides stainless steel casting services for complex investment-cast components, including 304, 316, 17-4 PH, 410, duplex grades, machining, heat treatment, passivation, electropolishing, and inspection.';
+
+const canonicalUrl = 'https://www.forcebeyond.store/stainless-steel-casting/';
+const socialImage = 'https://www.forcebeyond.store/media/stainless-steel-investment-casting-components-hero.webp';
+
 const faqs = [
     {
-        q: "What is the difference between 304 and 316 stainless steel?",
-        a: "While both are highly corrosion-resistant austenitic steels, 316 stainless steel contains the addition of Molybdenum. This element provides drastically improved resistance to pitting and crevice corrosion in chloride environments (like saltwater or de-icing salts). If your part will be exposed to the ocean or harsh industrial chemicals, 316 is the mandatory choice."
+        q: "What is the difference between 304 and 316 stainless steel castings?",
+        a: "Both 304 and 316 are corrosion-resistant austenitic stainless steels, but 316 contains molybdenum, which generally improves resistance to pitting and crevice corrosion in chloride-bearing environments. 304 is widely used for general industrial and sanitary applications, while 316 or 316L is often preferred for marine, chemical-processing, and higher-corrosion service. Final alloy selection should consider the actual environment, temperature, fabrication route, and governing specification."
     },
     {
-        q: "Why do stainless steel castings need to be passivated?",
-        a: "During casting and CNC machining, free iron particles can become embedded in the surface of the stainless steel, which can lead to localized rusting. Passivation is a chemical bath (usually nitric or citric acid) that dissolves this free iron and accelerates the formation of the alloy's natural, invisible chromium-oxide layer, which is what actually prevents the part from rusting."
+        q: "Why are stainless steel castings passivated?",
+        a: "Passivation removes free iron and other surface contaminants that may be introduced during casting, blasting, grinding, or machining. A properly controlled passivation process helps support the formation of the chromium-rich passive layer that gives stainless steel its corrosion resistance. The required chemistry, cleaning method, and verification should follow the applicable drawing or specification."
     },
     {
-        q: "Can you cast 17-4 PH stainless steel?",
-        a: "Yes. 17-4 PH (Precipitation Hardening) is one of our specialties. It is highly valued because it provides the corrosion resistance of 304 stainless but can be heat-treated to achieve the massive mechanical strength and hardness of a martensitic steel, making it ideal for aerospace parts and high-stress pump shafts."
+        q: "Can ForceBeyond produce 17-4 PH stainless steel castings?",
+        a: "Yes. ForceBeyond supports 17-4 PH precipitation-hardening stainless steel castings and coordinates solution treatment, aging conditions such as H900 or H1150 where specified, machining, finishing, and inspection. Mechanical properties depend on composition, casting quality, heat-treatment condition, section size, and applicable material standard."
+    },
+    {
+        q: "What information is needed for a stainless steel casting quote?",
+        a: "Provide a 2D drawing and, when available, a 3D CAD model, along with alloy grade, annual and batch quantity, critical tolerances, wall thickness, surface finish, heat treatment, machining, passivation, electropolishing, NDT, documentation, and delivery requirements. Clearly identify pressure-containing, sealing, hygienic, or corrosion-critical features."
     }
 ];
 
-// Sources
 const sources = [
-    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
-    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
-    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
-    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
-    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
-    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
+    { label: 'Investment Casting Institute - What Is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
+    { label: 'American Foundry Society - Metalcasting', url: 'https://www.afsinc.org/about-metalcasting' },
+    { label: 'ASTM International - Stainless Steel and Passivation Standards', url: 'https://www.astm.org/' },
+    { label: 'ASM International - Stainless Steel and Heat Treatment Information', url: 'https://www.asminternational.org/' },
+    { label: 'Nickel Institute - Stainless Steel Resources', url: 'https://nickelinstitute.org/' },
+    { label: 'NIST - Manufacturing', url: 'https://www.nist.gov/topics/manufacturing' }
 ];
 
-// Resources 
 const internalResources = [
-    // Die Casting Resources
-    { label: "Die Casting Overview", url: "/die-casting" },
-    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "/zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "/a356-t6-casting" },
-    { label: "Magnesium Casting", url: "/magnesium-casting" },
-
-    // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "/investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "/titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
+    // Stainless and Investment Casting
+    { label: "Investment Casting", url: "/investment-casting" },
     { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting" },
-
-    // Forging Resources
-    { label: "Forging Capabilities Overview", url: "/forging" },
-    { label: "Open Die Forging", url: "/open-die-forging" },
-    { label: "Closed Die Forging", url: "/closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
-    { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
-
-    // Sand Casting & Steel Casting Resources
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" },
+    { label: "Casting Capabilities", url: "/casting" },
     { label: "Sand Casting", url: "/sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
+
+    // Related Materials
+    { label: "Superalloy Casting Services", url: "/superalloy-casting-services" },
+    { label: "Titanium Investment Casting", url: "/titanium-investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
+
+    // Machining and Secondary Operations
+    { label: "Precision Machining", url: "/precision-machining" },
+    { label: "Stainless Steel Machining", url: "/stainless-steel-machining" },
+    { label: "Duplex Stainless Steel Machining", url: "/duplex-machining" },
+    { label: "Multi-Axis CNC Milling & Turning", url: "/multi-axis-cnc" },
+    { label: "Secondary Operations", url: "/secondary-operations" },
+    { label: "Heat Treatment", url: "/heat-treatment" },
+    { label: "Surface Finishing & Coating", url: "/surface-finishing" },
+    { label: "Assembly & Kitting", url: "/assembly-and-kitting" },
+
+    // Quality and Technical
+    { label: "Testing & Inspection Capabilities", url: "/testing-inspection-capabilities" },
+    { label: "Quality Assurance & Certifications", url: "/quality-assurance-certifications" },
+    { label: "Stainless Steel & Carbon Steel Materials", url: "/stainless-carbon-steel" },
+    { label: "Materials & Technical Specifications", url: "/materials-technical-specs" },
+    { label: "Manufacturing Design Guides", url: "/manufacturing-design-guides" }
 ];
-// Service / Product Schema (GEO-Optimized)
+
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/stainless-steel-casting#webpage",
-      "url": "https://www.forcebeyond.store/stainless-steel-casting",
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
+        "@id": "https://www.forcebeyond.store/#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
+        "url": "https://www.forcebeyond.store/"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": socialImage
+      },
+      "breadcrumb": {
+        "@id": `${canonicalUrl}#breadcrumb`
       },
       "about": [
+        { "@type": "Thing", "name": "Stainless steel casting" },
+        { "@type": "Thing", "name": "Stainless steel investment casting" },
+        { "@type": "Thing", "name": "17-4 PH stainless steel" },
+        { "@type": "Thing", "name": "Passivation" },
+        { "@type": "Thing", "name": "Electropolishing" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
         {
-          "@type": "Thing",
-          "name": "Stainless steel",
-          "sameAs": "https://en.wikipedia.org/wiki/Stainless_steel"
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.forcebeyond.store/"
         },
         {
-          "@type": "Thing",
-          "name": "Investment casting",
-          "sameAs": "https://en.wikipedia.org/wiki/Investment_casting"
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Casting",
+          "item": "https://www.forcebeyond.store/casting/"
         },
         {
-          "@type": "Thing",
-          "name": "Corrosion engineering",
-          "sameAs": "https://en.wikipedia.org/wiki/Corrosion_engineering"
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Investment Casting",
+          "item": "https://www.forcebeyond.store/investment-casting/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Stainless Steel Casting",
+          "item": canonicalUrl
         }
       ]
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/stainless-steel-casting#service",
-      "name": "Custom Stainless Steel Investment Casting Services",
-      "serviceType": "Stainless Steel Investment Casting & Precision Manufacturing",
+      "@id": `${canonicalUrl}#service`,
+      "name": "Stainless Steel Casting Services",
+      "serviceType": "Stainless Steel Investment Casting and Precision Manufacturing",
       "description": seoDescription,
+      "url": canonicalUrl,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
-        "logo": "https://www.forcebeyond.store/media/logo.png",
-        "knowsAbout": [
-          "Stainless Steel Investment Casting",
-          "304, 316, 17-4 PH, and 410 Alloy Casting",
-          "ISO 8062 CT5–CT7 Precision Casting",
-          "Chemical Passivation & Electropolishing",
-          "Precipitation Hardening Heat Treatments",
-          "Radiographic & Fluorescent Penetrant Inspection",
-          "ISO 9001:2015 Quality Management"
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressCountry": "US"
-        }
+        "@id": "https://www.forcebeyond.store/#organization"
       },
-      "areaServed": [
-        {
-          "@type": "Country",
-          "name": "United States",
-          "identifier": "US"
-        },
-        {
-          "@type": "Country",
-          "name": "South Korea",
-          "identifier": "KR"
-        },
-        {
-          "@type": "Country",
-          "name": "Taiwan",
-          "identifier": "TW"
-        },
-        {
-          "@type": "GeoCircle",
-          "geoMidpoint": {
-            "@type": "GeoCoordinates",
-            "latitude": 37.0902,
-            "longitude": -95.7129
-          },
-          "geoRadius": "Global Supply Network"
-        }
-      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Stainless Steel Casting Capabilities",
@@ -153,24 +149,32 @@ const pageSchema = {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Austenitic & Martensitic Lost-Wax Casting",
-              "description": "Lost-wax investment casting for 304, 316, and 410 grade alloys producing near-net geometries with ISO 8062 CT5–CT7 tolerances."
+              "name": "Austenitic Stainless Steel Casting",
+              "description": "Investment casting of 304, 304L, 316, and 316L stainless steel components for corrosion-resistant industrial and sanitary applications."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "17-4 PH Precipitation Hardening Casting",
-              "description": "High-strength stainless steel casting treated via specialized thermal age-hardening protocols (H900, H1150) achieving tensile strengths up to 150,000+ psi."
+              "name": "17-4 PH Stainless Steel Casting",
+              "description": "Precipitation-hardening stainless steel casting with coordinated solution treatment, aging, machining, finishing, and inspection."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Cast-to-Machine Tier-1.5 Finishing",
-              "description": "Integrated precision 5-axis CNC machining, electropolishing, chemical passivation, and 100% NDT inspection across North America, South Korea, and Taiwan facilities."
+              "name": "Martensitic Stainless Steel Casting",
+              "description": "Casting of 410 and application-specific martensitic stainless grades for strength, hardness, wear, and valve or machinery components."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Machined and Finished Stainless Steel Castings",
+              "description": "Integrated CNC machining, heat treatment, passivation, electropolishing, NDT, assembly, and kitting for stainless steel cast components."
             }
           }
         ]
@@ -178,13 +182,13 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/stainless-steel-casting#faq",
-      "mainEntity": faqs.map(f => ({
+      "@id": `${canonicalUrl}#faq`,
+      "mainEntity": faqs.map((faq) => ({
         "@type": "Question",
-        "name": f.q,
+        "name": faq.q,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": f.a
+          "text": faq.a
         }
       }))
     }
@@ -195,183 +199,187 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
     pageTitle={pageTitle}
     heroImage="/media/stainless-steel-investment-casting-components-hero.webp"
-    heroImageAlt="Titanium investment casting hero image showing a finished precision cast component, ceramic shell tree, and molten metal pouring in a modern foundry"
+    heroImageAlt="Stainless steel investment casting components, ceramic shell patterns, and molten metal pouring"
+    heroImageWidth={1920}
+    heroImageHeight={1080}
+    socialImage={socialImage}
+    socialImageAlt="Stainless steel casting services for precision investment-cast components"
     faqSectionTitle="Frequently Asked Questions: Stainless Steel Casting"
     faqItems={faqs}
-    ctaTitle="Request Quote For Stainless Steel Casting"
-    ctaDescription=""
-    sourcesTitle="Sources"
+    ctaTitle="Request a Stainless Steel Casting Quote"
+    ctaDescription="Send your drawing, CAD model, alloy grade, quantity, tolerance, heat-treatment, machining, finishing, inspection, and delivery requirements for an engineering review."
+    ctaButtonText="Request a Stainless Steel Casting Quote"
+    sourcesTitle="Technical References"
     sourcesList={sources}
-    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesTitle="Related Stainless Steel Casting, Machining, Quality and Materials Resources"
     resourcesList={internalResources}
 >
-
     <div slot="full-width" class="individual-content">
 
-        <section id="overview" >
+        <section id="overview">
             <div class="content-container">
-                
-                <h2>Stainless Steel Casting: Corrosion-Resistant Precision Manufacturing</h2>
+                <h2>Custom Stainless Steel Casting for Corrosion-Resistant Components</h2>
 
                 <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
                     <div>
                         <p>
-                           ForceBeyond is a premier global supplier of high-precision stainless steel investment castings. 
-                           By utilizing the advanced lost-wax casting process, we manufacture highly intricate, near-net-shape stainless steel components 
-                           that deliver exceptional corrosion resistance, heat tolerance, and structural durability.
+                            ForceBeyond provides custom <strong>stainless steel casting services</strong> for complex, corrosion-resistant metal components. Using
+                            <a href="/investment-casting" class="highlight-link">lost-wax investment casting</a>,
+                            stainless steel parts can be produced with detailed geometry, controlled wall sections, smooth as-cast surfaces, and reduced machining compared with machining the entire component from billet.
                         </p>
                         <p>
-                            Operating under a strict ISO 9001:2015 quality management system, our global foundry network provides scalable manufacturing solutions for the world’s 
-                            most demanding environments. From sanitary food processing fittings to high-pressure marine valves, we produce fully machined, passivated, 
-                            and assembly-ready stainless steel parts weighing from a fraction of an ounce up to 200 pounds.
+                            Programs may include 304, 316, 17-4 PH, 410, duplex, and application-specific stainless grades. ForceBeyond coordinates casting,
+                            <a href="/stainless-steel-machining" class="highlight-link">stainless steel machining</a>,
+                            heat treatment, passivation, electropolishing, inspection, assembly, and logistics through an integrated manufacturing network.
                         </p>
                     </div>
+
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
                                 src="/media/precision-stainless-steel-investment-casting-parts-4k.webp"
-                                alt="Precision stainless steel investment-cast parts with machined flanges, threaded ports, mounting holes, and industrial housing features on a white background."
+                                alt="Precision stainless steel cast valve bodies, fittings, flanges, and industrial housings"
+                                width="1200"
+                                height="900"
+                                loading="lazy"
+                                decoding="async"
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <section id="technical-capabilities" >
+        <section id="process-selection">
             <div class="content-container">
-                <h2>Technical Specifications: Stainless Steel Alloys</h2>
-                    <p>
-                        ForceBeyond pours a comprehensive range of austenitic, martensitic, and precipitation-hardening (PH) stainless steel alloys. 
-                        We ensure strict metallurgical control to maximize the specific chemical and mechanical properties required by your application.
-                    </p>
-                    <div class="content-table-wrapper">
+                <h2>When to Choose Stainless Steel Investment Casting</h2>
+                <p>
+                    Stainless steel investment casting is often selected when corrosion resistance, geometric complexity, near-net-shape efficiency, surface finish, and production repeatability are more important than the lowest possible tooling cost.
+                </p>
+                <ul>
+                    <li><strong>Complex fluid geometry:</strong> valve bodies, pump components, impellers, manifolds, fittings, and internal passages.</li>
+                    <li><strong>Corrosion resistance:</strong> components exposed to water, chemicals, food-processing environments, marine service, or repeated cleaning.</li>
+                    <li><strong>Reduced machining:</strong> near-net geometry can limit stock removal on work-hardening stainless alloys.</li>
+                    <li><strong>Part consolidation:</strong> multiple welded or machined components may sometimes be redesigned as one casting.</li>
+                    <li><strong>Surface requirements:</strong> smooth as-cast surfaces can support polishing, passivation, electropolishing, and sanitary finishing.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="alloy-capabilities">
+            <div class="content-container">
+                <h2>Stainless Steel Casting Grades and Alloy Selection</h2>
+                <p>
+                    Mechanical properties vary with the applicable cast-alloy specification, heat-treatment condition, section size, casting quality, and testing method. The values below should be treated as general guidance rather than guaranteed properties.
+                </p>
+
+                <div class="content-table-wrapper">
                     <table>
                         <thead>
                             <tr>
-                                <th scope="col">Alloy Grade</th>
-                                <th scope="col">Typical Tensile Strength</th>
-                                <th scope="col">Typical Yield Strength</th>
-                                <th scope="col">Key Features & Optimal Applications</th>
+                                <th scope="col">Stainless Steel Category</th>
+                                <th scope="col">Representative Grades</th>
+                                <th scope="col">Typical Characteristics and Applications</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <tr>
-                                <th scope="row">304 / 304L</th>
-                                <td>75,000 psi (515 MPa)</td>
-                                <td>30,000 psi (205 MPa)</td>
-                                <td>The standard "18/8" stainless. Excellent general corrosion resistance and weldability. Ideal for food & dairy equipment, medical instruments, and commercial plumbing.</td>
+                                <th scope="row">Austenitic Stainless Steel</th>
+                                <td>304, 304L, 316, 316L and cast equivalents where specified</td>
+                                <td>General corrosion resistance, toughness, weldability, and suitability for valves, pumps, sanitary hardware, food-processing equipment, and marine components.</td>
                             </tr>
                             <tr>
-                                <th scope="row">316 / 316L</th>
-                                <td>70,000 psi (485 MPa)</td>
-                                <td>25,000 psi (170 MPa)</td>
-                                <td>Contains molybdenum for superior resistance to chloride pitting. The premier choice for marine hardware, chemical processing, and wastewater fluid control.</td>
+                                <th scope="row">Precipitation-Hardening Stainless Steel</th>
+                                <td>17-4 PH and application-specific PH grades</td>
+                                <td>High strength combined with useful corrosion resistance after controlled solution treatment and aging. Used in aerospace brackets, shafts, valve parts, pump components, and industrial hardware.</td>
                             </tr>
                             <tr>
-                                <th scope="row">17-4 PH</th>
-                                <td>Up to 150,000+ psi (Condition H900)</td>
-                                <td>Up to 130,000+ psi</td>
-                                <td>A precipitation-hardening alloy offering an exceptional combination of high strength, hardness, and corrosion resistance. Used heavily in aerospace, pump shafts, and oil & gas valves.</td>
+                                <th scope="row">Martensitic Stainless Steel</th>
+                                <td>410 and other application-specific martensitic grades</td>
+                                <td>Heat-treatable strength, hardness, and wear resistance for valve trim, turbine-related hardware, cutlery, pump components, and machinery parts.</td>
                             </tr>
                             <tr>
-                                <th scope="row">410 / 416</th>
-                                <td>70,000+ psi (Annealed)</td>
-                                <td>40,000+ psi</td>
-                                <td>Martensitic stainless steels that can be heat-treated for high hardness and wear resistance. Ideal for industrial cutlery, hand tools, and highly stressed valve parts.</td>
+                                <th scope="row">
+                                    <a href="/duplex-stainless-steel-casting" class="highlight-link">Duplex and Super Duplex Stainless Steel</a>
+                                </th>
+                                <td>2205, 2507 and related grades</td>
+                                <td>Improved resistance to chloride stress-corrosion cracking and pitting for oil-and-gas, marine, desalination, pump, and valve applications.</td>
                             </tr>
                             <tr>
-                                <th scope="row">430</th>
-                                <td>65,000 psi (450 MPa)</td>
-                                <td>30,000 psi (205 MPa)</td>
-                                <td>Ferritic stainless with good corrosion resistance and oxidation resistance at elevated temperatures. Often used in decorative applications and automotive trim.</td>
+                                <th scope="row">Ferritic Stainless Steel</th>
+                                <td>Application-specific ferritic grades</td>
+                                <td>Useful oxidation and atmospheric corrosion resistance for selected industrial, appliance, automotive, and decorative applications.</td>
                             </tr>
                         </tbody>
                     </table>
-                </div> 
-                <p>
-                    (Note: For applications requiring extreme resistance to stress corrosion cracking and pitting in harsh chloride environments, 
-                    explore our dedicated Duplex and Super Duplex Stainless Steel Casting capabilities).
-                </p>
+                </div>
             </div>
         </section>
 
-        <section id="why-forcebeyond" >
+        <section id="design-guidelines">
             <div class="content-container">
-                <h2>Why Partner with ForceBeyond for Stainless Steel Casting?</h2>
-                
+                <h2>Stainless Steel Casting Design Guidelines</h2>
                 <p>
-                    Machining stainless steel from solid billet is notoriously difficult, tool-intensive, and wasteful. 
-                    Investment casting provides the ultimate solution for complex stainless components.
-                <ul>
-                    <li>
-                        <strong>Intricate Internal Geometries:</strong>The lost-wax process allows for the creation of complex internal coring, undercuts, and intersecting fluid channels that are impossible or cost-prohibitive to machine from solid steel.
-                    <li>
-                        <strong>Near-Net-Shape Accuracy:</strong>We achieve extremely tight dimensional tolerances (ISO 8062 CT5 to CT7), drastically reducing the need for secondary CNC machining on work-hardening materials like 304 and 316 stainless.
-                    </li>
-                    <li>
-                        <strong>Superior Surface Finish:</strong>:The fine ceramic shells used in our foundries yield exceptionally smooth as-cast surfaces (125 RMS or better). This significantly reduces the time and cost required for manual polishing in sanitary or decorative applications.
-                    </li>
-                    <li>
-                        <strong>Optimized Material Yield:</strong>Stainless steel and PH alloys are expensive. Investment casting pours metal directly into your final part shape, virtually eliminating material waste and lowering per-part costs on high-volume runs.
-                    </li>
-                </ul>
-                
-            </div>
-        </section>
-
-        <section id = "Tier-1.5-integration">
-            <div class="content-container">
-                <h2>Tier-1.5 Integration: Cast-to-Machine Solutions</h2>
-                <p>
-                    Because stainless steel applications often require strict hygiene or high-pressure sealing, the final finish and dimensional accuracy are critical. 
-                    ForceBeyond’s Tier-1.5 model integrates precision casting with comprehensive secondary processing.
+                    Early manufacturability review can reduce shrinkage risk, distortion, excessive machining, and tooling changes.
                 </p>
                 <ul>
-                    <li>
-                        <strong>High-Precision CNC Machining:</strong>5-axis milling, turning, and threading of critical sealing faces and mounting datums.
-                    </li>
-                    <li>
-                        <strong>Passivation & Electropolishing:</strong>We utilize advanced chemical passivation to restore the crucial protective chromium-oxide layer after casting and machining. For medical and sanitary parts, we offer premium electropolishing for ultra-smooth, sterile surfaces.
-                    </li>
-                    <li>
-                        <strong>Advanced Heat Treatment:</strong>Solution annealing to maximize corrosion resistance, and specific precipitation age-hardening (e.g., H900, H1150) for 17-4 PH components to lock in required tensile strength.
-                    </li>
-                    <li>
-                        <strong>Rigorous NDT:</strong>100% Radiographic Testing (X-Ray) and Fluorescent Penetrant Inspection (FPI) to guarantee zero internal or surface defects in high-pressure fluid control parts.
-                    </li>
+                    <li><strong>Wall transitions:</strong> avoid abrupt changes in section thickness that can create hot spots or feeding problems.</li>
+                    <li><strong>Fillets and radii:</strong> practical radii support metal flow, shell integrity, stress distribution, and finishing access.</li>
+                    <li><strong>Machining allowance:</strong> add controlled stock only to functional surfaces that require final machining.</li>
+                    <li><strong>Passivation and electropolishing:</strong> account for surface condition, dimensional impact, cleanliness, and masking requirements.</li>
+                    <li><strong>Corrosion-critical features:</strong> identify crevices, stagnant zones, weld interfaces, and sealing surfaces during design review.</li>
                 </ul>
             </div>
         </section>
 
-        <section id="certified-applications" >
+        <section id="advantages">
             <div class="content-container">
-                <h2>Certified Stainless Steel Applications</h2>
-                
-                <p>
-                    Our specialized foundry network supplies corrosion-resistant stainless castings to:
-                </p>
+                <h2>Advantages of Stainless Steel Investment Casting</h2>
                 <ul>
-                    <li>
-                        <strong>Fluid & Flow Control:</strong>High-pressure ball valves, gate valves, pump impellers, and heavy-duty pipe fittings.
-                    </li>
-                    <li>
-                        <strong>Medical & Healthcare:</strong>Surgical instruments, MRI-compatible hardware, and orthopedic device components.
-                    </li>
-                    <li>
-                        <strong>Food & Beverage / Dairy:</strong>Sanitary fittings, mixing impellers, and bottling machinery parts that require strict FDA-compliant finishes.
-                    </li>
-                    <li>
-                        <strong>Marine & Offshore:</strong>Saltwater-resistant cleats, shackles, propeller hubs, and subsea sensor housings (utilizing 316L and 17-4 PH).
-                    </li>
+                    <li><strong>Complex near-net geometry:</strong> detailed shapes, bosses, ribs, undercuts, and fluid passages can be formed with reduced machining.</li>
+                    <li><strong>Material efficiency:</strong> near-net casting can reduce scrap when compared with extensive machining from stainless billet.</li>
+                    <li><strong>Surface finish:</strong> smooth ceramic-shell surfaces can support polishing, passivation, and sanitary finishing.</li>
+                    <li><strong>Alloy flexibility:</strong> multiple stainless families can be selected according to corrosion, strength, wear, temperature, and cost requirements.</li>
+                    <li><strong>Part consolidation:</strong> cast geometry may replace welded fabrications or multi-part machined assemblies in suitable designs.</li>
                 </ul>
             </div>
         </section>
+
+        <section id="integrated-finishing">
+            <div class="content-container">
+                <h2>Stainless Steel Casting, Machining and Finishing</h2>
+                <p>
+                    Many stainless steel castings require coordinated secondary operations before delivery.
+                </p>
+                <ul>
+                    <li><strong><a href="/precision-machining" class="highlight-link">Precision CNC machining:</a></strong> milling, turning, drilling, threading, grinding, and finishing of bores, datums, sealing faces, journals, and mounting features.</li>
+                    <li><strong><a href="/heat-treatment" class="highlight-link">Heat treatment:</a></strong> solution treatment, stress relief, quench and temper, or precipitation aging according to alloy and specification.</li>
+                    <li><strong><a href="/surface-finishing" class="highlight-link">Passivation and electropolishing:</a></strong> removal of free iron and surface conditioning for corrosion resistance, cleanliness, and appearance.</li>
+                    <li><strong><a href="/testing-inspection-capabilities" class="highlight-link">Inspection and NDT:</a></strong> dimensional inspection, penetrant testing, radiography, material verification, and project-specific documentation.</li>
+                    <li><strong><a href="/assembly-and-kitting" class="highlight-link">Assembly and kitting:</a></strong> inserts, bearings, seals, hardware, sub-assembly, labeling, and protective packaging.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="industry-applications">
+            <div class="content-container">
+                <h2>Stainless Steel Casting Applications by Industry</h2>
+                <ul>
+                    <li><strong><a href="/hvac-flow" class="highlight-link">Fluid and flow control:</a></strong> valve bodies, pump housings, impellers, strainers, fittings, manifolds, and pressure-containing components.</li>
+                    <li><strong><a href="/medical" class="highlight-link">Medical and healthcare:</a></strong> instrument components, housings, surgical hardware, and corrosion-resistant parts requiring controlled finishes.</li>
+                    <li><strong><a href="/oil-gas" class="highlight-link">Oil and gas:</a></strong> valves, pump components, fittings, and duplex or nickel-bearing stainless parts for corrosive service.</li>
+                    <li><strong><a href="/energy-power-generation" class="highlight-link">Energy and power generation:</a></strong> turbine-related hardware, valve components, pump parts, and heat- or corrosion-resistant castings.</li>
+                    <li><strong><a href="/space-defence" class="highlight-link">Aerospace and defense:</a></strong> brackets, housings, valve hardware, and precipitation-hardening stainless components.</li>
+                    <li><strong><a href="/automotive" class="highlight-link">Automotive and industrial equipment:</a></strong> brackets, levers, housings, exhaust-related components, and corrosion-resistant machinery parts.</li>
+                </ul>
+            </div>
+        </section>
+
     </div>
 </IndividualPageLayout>

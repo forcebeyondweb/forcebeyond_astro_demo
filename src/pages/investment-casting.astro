@@ -1,150 +1,141 @@
 ---
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle ='Investment Casting (Lost-Wax Process): High-Precision, Near-Net-Shape Manufacturing';
-const seoTitle = 'Investment Casting Services | Precision Lost-Wax Components';
-const seoDescription = 'Custom investment casting (lost-wax process) for intricate near-net-shape metal parts. ForceBeyond utilizes vacuum-cast Inconel 718, titanium, and stainless steel to deliver complex internal coring, 125 RMS finishes, and thin walls down to 0.040".';
+const pageTitle = 'Investment Casting Services: Precision Lost-Wax Metal Components';
+const seoTitle = 'Investment Casting Services | Precision Lost-Wax Metal Parts';
+const seoDescription = 'ForceBeyond provides investment casting services for complex, near-net-shape metal components, including stainless steel, Inconel, titanium, carbon steel, vacuum casting, machining, heat treatment, HIP, and inspection.';
+
+const canonicalUrl = 'https://www.forcebeyond.store/investment-casting/';
+const socialImage = 'https://www.forcebeyond.store/media/titanium-investment-casting-lost-wax-process-hero.webp';
+
 const faqs = [
     {
-        q: "How does investment casting compare to sand casting?",
-        a: "Sand casting uses a reusable wood or metal pattern to pack sand into a two-part mold, making it great for massive, heavy parts. However, the surface finish is rough, and tolerances are loose. Investment casting uses a ceramic shell to achieve incredibly smooth finishes, ultra-tight tolerances, and thin walls, making it the better choice for smaller, highly precise, or complex parts."
+        q: "How does investment casting compare with sand casting?",
+        a: "Investment casting generally provides finer surface finishes, tighter dimensional control, thinner walls, and greater geometric detail than sand casting. Sand casting is often more economical for larger parts, simpler shapes, and lower tooling budgets. Final process selection depends on alloy, geometry, part size, production volume, tolerance, surface finish, and cost targets."
     },
     {
-        q: "What is the typical minimum wall thickness for an investment casting?",
-        a: "Depending on the alloy and the geometry of the part, investment casting can reliably produce wall thicknesses as thin as 0.040 inches (1.0 mm), though standard designs usually target 0.060 inches to 0.125 inches."
+        q: "What wall thickness can investment casting achieve?",
+        a: "Wall thickness depends on alloy fluidity, part size, flow length, geometry, local section transitions, and foundry process capability. Small features may approach approximately 0.040 in (1.0 mm), while more conservative designs often use 0.060 to 0.125 in or greater. Minimum wall thickness should be confirmed during manufacturability review."
     },
     {
-        q: "Does ForceBeyond offer rapid prototyping for investment cast parts?",
-        a: "Yes. We can utilize 3D-printed wax or SLA patterns to create a ceramic shell and pour rapid prototype castings. This allows your engineering team to physically test the actual cast alloy before committing to the cost of hard aluminum tooling."
+        q: "Can ForceBeyond support prototype investment castings?",
+        a: "Yes. Prototype programs may use 3D-printed patterns, printed wax, or SLA patterns to produce ceramic shells without committing immediately to hard production tooling. This approach can support design validation, alloy testing, fit checks, and low-volume development before production tooling is released."
+    },
+    {
+        q: "What information is needed for an investment casting quote?",
+        a: "Provide a 2D drawing and, when available, a 3D CAD model, along with material grade, annual and batch quantity, critical tolerances, wall-thickness requirements, surface finish, heat treatment, HIP, machining, inspection, certification, and delivery requirements. Clearly identify critical-to-quality features and any customer or industry specifications."
     }
 ];
 
-// Sources
 const sources = [
-    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
-    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
-    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
-    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
-    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
-    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
+    { label: 'Investment Casting Institute - What Is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
+    { label: 'American Foundry Society - Metalcasting', url: 'https://www.afsinc.org/about-metalcasting' },
+    { label: 'ASTM International - Standards and Publications', url: 'https://www.astm.org/' },
+    { label: 'ASM International - Materials Information', url: 'https://www.asminternational.org/' },
+    { label: 'ISO - Casting Tolerances and Geometrical Product Specifications', url: 'https://www.iso.org/committee/54924.html' },
+    { label: 'NIST - Manufacturing', url: 'https://www.nist.gov/topics/manufacturing' }
 ];
 
-// Resources 
 const internalResources = [
-    // Die Casting Resources
-    { label: "Die Casting Overview", url: "/die-casting" },
-    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "/zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "/a356-t6-casting" },
-    { label: "Magnesium Casting", url: "/magnesium-casting" },
-
-    // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "/investment-casting" },
+    // Investment Casting
     { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
     { label: "Titanium Investment Casting", url: "/titanium-investment-casting" },
     { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
     { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting" },
+    { label: "Superalloy Casting Services", url: "/superalloy-casting-services" },
+    { label: "Inconel 718 Casting", url: "/inconel-718-casting" },
+    { label: "Inconel 625 Casting", url: "/inconel-625-casting" },
+    { label: "Titanium Casting", url: "/titanium-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" },
 
-    // Forging Resources
-    { label: "Forging Capabilities Overview", url: "/forging" },
-    { label: "Open Die Forging", url: "/open-die-forging" },
-    { label: "Closed Die Forging", url: "/closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
-    { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
-
-    // Sand Casting & Steel Casting Resources
+    // Casting Comparison
+    { label: "Casting Capabilities", url: "/casting" },
     { label: "Sand Casting", url: "/sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
+    { label: "Die Casting", url: "/die-casting" },
+
+    // Machining and Secondary Operations
+    { label: "Precision Machining", url: "/precision-machining" },
+    { label: "Multi-Axis CNC Milling & Turning", url: "/multi-axis-cnc" },
+    { label: "Secondary Operations", url: "/secondary-operations" },
+    { label: "Heat Treatment", url: "/heat-treatment" },
+    { label: "Hot Isostatic Pressing", url: "/hot-isostatic-pressing" },
+    { label: "Surface Finishing & Coating", url: "/surface-finishing" },
+    { label: "Assembly & Kitting", url: "/assembly-and-kitting" },
+
+    // Quality and Technical
+    { label: "Testing & Inspection Capabilities", url: "/testing-inspection-capabilities" },
+    { label: "Quality Assurance & Certifications", url: "/quality-assurance-certifications" },
+    { label: "Materials & Technical Specifications", url: "/materials-technical-specs" },
+    { label: "Manufacturing Design Guides", url: "/manufacturing-design-guides" }
 ];
-// Service / Product Schema (GEO-Optimized)
+
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/investment-casting#webpage",
-      "url": "https://www.forcebeyond.store/investment-casting",
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
+        "@id": "https://www.forcebeyond.store/#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
+        "url": "https://www.forcebeyond.store/"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": socialImage
+      },
+      "breadcrumb": {
+        "@id": `${canonicalUrl}#breadcrumb`
       },
       "about": [
+        { "@type": "Thing", "name": "Investment casting" },
+        { "@type": "Thing", "name": "Lost-wax casting" },
+        { "@type": "Thing", "name": "Vacuum induction melting" },
+        { "@type": "Thing", "name": "Near-net-shape manufacturing" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
         {
-          "@type": "Thing",
-          "name": "Investment casting",
-          "sameAs": "https://en.wikipedia.org/wiki/Investment_casting"
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.forcebeyond.store/"
         },
         {
-          "@type": "Thing",
-          "name": "Vacuum induction melting",
-          "sameAs": "https://en.wikipedia.org/wiki/Vacuum_induction_melting"
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Casting",
+          "item": "https://www.forcebeyond.store/casting/"
         },
         {
-          "@type": "Thing",
-          "name": "Aerospace manufacturing",
-          "sameAs": "https://en.wikipedia.org/wiki/Aerospace_manufacturing"
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Investment Casting",
+          "item": canonicalUrl
         }
       ]
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/investment-casting#service",
-      "name": "Precision Investment Casting Services",
-      "serviceType": "Precision Investment Casting (Lost-Wax Process) & VIM Manufacturing",
+      "@id": `${canonicalUrl}#service`,
+      "name": "Investment Casting Services",
+      "serviceType": "Precision Lost-Wax Casting and Vacuum Casting",
       "description": seoDescription,
+      "url": canonicalUrl,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
-        "logo": "https://www.forcebeyond.store/media/logo.png",
-        "knowsAbout": [
-          "Precision Investment Casting (Lost-Wax Process)",
-          "Vacuum Induction Melting (VIM) Superalloy Casting",
-          "Inconel 718, Titanium & Stainless Steel Pours",
-          "Thin-Wall Castings Down to 0.040 Inches",
-          "ISO 8062 CT5–CT7 Precision Near-Net Geometries",
-          "Hot Isostatic Pressing (HIP) Micro-Porosity Elimination",
-          "ISO 9001:2015 Quality Management System"
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressCountry": "US"
-        }
+        "@id": "https://www.forcebeyond.store/#organization"
       },
-      "areaServed": [
-        {
-          "@type": "Country",
-          "name": "United States",
-          "identifier": "US"
-        },
-        {
-          "@type": "Country",
-          "name": "South Korea",
-          "identifier": "KR"
-        },
-        {
-          "@type": "Country",
-          "name": "Taiwan",
-          "identifier": "TW"
-        },
-        {
-          "@type": "GeoCircle",
-          "geoMidpoint": {
-            "@type": "GeoCoordinates",
-            "latitude": 37.0902,
-            "longitude": -95.7129
-          },
-          "geoRadius": "Global Supply Network"
-        }
-      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
         "name": "Investment Casting Capabilities",
@@ -154,23 +145,31 @@ const pageSchema = {
             "itemOffered": {
               "@type": "Service",
               "name": "Lost-Wax Investment Casting",
-              "description": "Near-net-shape lost-wax investment casting of complex, thin-walled ferrous and non-ferrous components with 125 RMS surface finishes."
+              "description": "Precision investment casting for complex ferrous and non-ferrous components requiring near-net geometry, fine details, and controlled surface finish."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Vacuum Induction Melting (VIM) Superalloys & Titanium",
-              "description": "Deep-vacuum precision casting of Inconel 718, Hastelloy, and Ti-6Al-4V Grade 5 alloys for high-stress aerospace and medical components."
+              "name": "Vacuum Investment Casting",
+              "description": "Vacuum processing for reactive and high-performance alloys such as titanium and nickel-based superalloys where appropriate."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Cast-to-Machine Tier-1.5 Finishing",
-              "description": "Integrated 5-axis CNC machining, Hot Isostatic Pressing (HIP), electropolishing, and 100% NDT (Radiographic & FPI) inspection across dual-shore manufacturing facilities."
+              "name": "Investment Casting Machining and Finishing",
+              "description": "Coordinated CNC machining, heat treatment, HIP, surface finishing, inspection, assembly, and kitting for investment-cast components."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Prototype Investment Casting",
+              "description": "Prototype and development casting using printed wax or SLA patterns for design validation and low-volume production."
             }
           }
         ]
@@ -178,13 +177,13 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/investment-casting#faq",
-      "mainEntity": faqs.map(f => ({
+      "@id": `${canonicalUrl}#faq`,
+      "mainEntity": faqs.map((faq) => ({
         "@type": "Question",
-        "name": f.q,
+        "name": faq.q,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": f.a
+          "text": faq.a
         }
       }))
     }
@@ -195,172 +194,256 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
     pageTitle={pageTitle}
     heroImage="/media/titanium-investment-casting-lost-wax-process-hero.webp"
-    heroImageAlt="Titanium investment casting hero image showing a finished precision cast component, ceramic shell tree, and molten metal pouring in a modern foundry"
+    heroImageAlt="Investment casting process with wax patterns and ceramic shell preparation"
+    heroImageWidth={1920}
+    heroImageHeight={1080}
+    socialImage={socialImage}
+    socialImageAlt="Investment casting services for precision lost-wax metal components"
     faqSectionTitle="Frequently Asked Questions: Investment Casting"
     faqItems={faqs}
-    ctaTitle="Request Quote For Investment Casting"
-    ctaDescription=""
-    sourcesTitle="Sources"
+    ctaTitle="Request an Investment Casting Quote"
+    ctaDescription="Send your drawing, CAD model, material grade, quantity, tolerance, wall-thickness, machining, heat-treatment, inspection, and delivery requirements for an engineering review."
+    ctaButtonText="Request an Investment Casting Quote"
+    sourcesTitle="Technical References"
     sourcesList={sources}
-    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesTitle="Related Investment Casting, Machining, Quality and Materials Resources"
     resourcesList={internalResources}
 >
-
     <div slot="full-width" class="individual-content">
 
-        <section id="overview" >
+        <section id="overview">
             <div class="content-container">
-                
-                <h2>Investment Casting (Lost-Wax Process): High-Precision, Near-Net-Shape Manufacturing</h2>
+                <h2>Custom Investment Casting for Complex Metal Components</h2>
 
                 <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
                     <div>
                         <p>
-                           ForceBeyond is a premier global supplier of high-precision investment casting components. Also known as the lost-wax process, investment 
-                           casting is the ultimate manufacturing solution for producing highly intricate, near-net-shape metal parts with exceptional surface 
-                           finishes and tight dimensional tolerances.
+                            ForceBeyond provides custom <strong>investment casting services</strong> for complex, near-net-shape metal components. Also known as the lost-wax process, investment casting uses a sacrificial pattern and ceramic shell to reproduce detailed geometry, thin sections, smooth surfaces, and features that may be difficult or uneconomical to machine from solid stock.
                         </p>
                         <p>
-                            Operating under a strict ISO 9001:2015 quality management system, our dual-shore manufacturing network delivers mission-critical 
-                            investment castings to the aerospace, medical, energy, and fluid control sectors. Whether you require standard carbon steel 
-                            brackets or vacuum-cast Inconel 718 turbine blades, 
-                            ForceBeyond has the scalable capacity to produce complex castings weighing from a fraction of an ounce up to over 200 pounds.
+                            Programs may include stainless steel, carbon and low-alloy steel, nickel-based superalloys, and
+                            <a href="/titanium-investment-casting" class="highlight-link">titanium investment casting</a>.
+                            ForceBeyond coordinates casting, heat treatment,
+                            <a href="/precision-machining" class="highlight-link">precision machining</a>,
+                            HIP, surface finishing, inspection, assembly, and logistics through an integrated manufacturing network.
                         </p>
                     </div>
+
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
-                                src="/media/custom-investment-casting-parts-valves-fittings-housings-4k.webp"
-                                alt="Custom investment-cast metal parts, including valve bodies, threaded fittings, flanges, housings, and industrial pipe components, on a white background."
+                                src="/media/precision-investment-cast-stainless-steel-valve-components.webp"
+                                alt="Precision investment-cast stainless steel valve and fitting components with machined threads and internal bores on a white background"
+                                width="1200"
+                                height="900"
+                                loading="lazy"
+                                decoding="async"
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <section id="technical-capabilities" >
+        <section id="process-selection">
             <div class="content-container">
-                <h2>Technical Capabilities: Investment Casting Materials</h2>
-                    <p>
-                        The investment casting process is highly versatile, allowing for the pouring of almost any ferrous or non-ferrous alloy. 
-                        ForceBeyond specializes in high-performance metallurgy, 
-                        utilizing both standard air-melt and advanced Vacuum Induction Melting (VIM) technologies.
-                    </p>
-                    <div class="content-table-wrapper">
+                <h2>When to Choose Investment Casting</h2>
+                <p>
+                    Investment casting is often selected when part complexity, alloy cost, surface finish, dimensional control, and reduced machining are more important than the lowest possible tooling cost.
+                </p>
+                <ul>
+                    <li><strong>Complex geometry:</strong> contours, ribs, bosses, internal passages, fine details, and reduced draft requirements.</li>
+                    <li><strong>Thin or variable sections:</strong> designs requiring controlled wall transitions and geometry that would be difficult to form by sand casting.</li>
+                    <li><strong>High-cost alloys:</strong> near-net shapes can reduce material waste when using titanium, Inconel, and other expensive alloys.</li>
+                    <li><strong>Surface and appearance:</strong> smooth as-cast surfaces can reduce polishing, grinding, and machining requirements.</li>
+                    <li><strong>Consolidated parts:</strong> multiple machined or fabricated pieces may sometimes be redesigned as one casting.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="process-comparison">
+            <div class="content-container">
+                <h2>Investment Casting vs. Sand Casting</h2>
+                <p>
+                    The table below provides typical process guidelines. Final capability depends on alloy, geometry, part size, foundry process, tooling, production volume, and drawing requirements.
+                </p>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Selection Factor</th>
+                                <th scope="col">Investment Casting</th>
+                                <th scope="col">Sand Casting</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Surface Finish</th>
+                                <td>Typically smoother; approximately 63–125 RMS may be achievable on suitable geometries.</td>
+                                <td>Typically rougher; often approximately 250–500 RMS depending on molding process and alloy.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Dimensional Control</th>
+                                <td>Typical linear tolerance may approach ±0.005 in/in, subject to geometry and foundry capability.</td>
+                                <td>Broader tolerances are common, especially on larger parts and complex mold joints.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Wall Thickness</th>
+                                <td>Small features may approach about 0.040 in (1.0 mm), subject to alloy and flow length.</td>
+                                <td>Generally requires thicker sections, especially on large or long-flow geometries.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Part Size and Tooling</th>
+                                <td>Best suited to small and medium complex components where precision offsets tooling cost.</td>
+                                <td>Often preferred for larger parts, simpler geometry, and lower tooling investment.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="alloy-capabilities">
+            <div class="content-container">
+                <h2>Investment Casting Materials and Alloy Capabilities</h2>
+                <p>
+                    The investment casting process supports a broad range of ferrous and non-ferrous alloys. Material selection should consider mechanical properties, corrosion resistance, temperature, weldability, machinability, heat treatment, and applicable specifications.
+                </p>
+
+                <div class="content-table-wrapper">
                     <table>
                         <thead>
                             <tr>
                                 <th scope="col">Material Category</th>
-                                <th scope="col">Core Alloys Poured</th>
-                                <th scope="col">Key Features & Optimal Applications</th>
+                                <th scope="col">Representative Alloys</th>
+                                <th scope="col">Typical Applications and Considerations</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <tr>
-                                <th scope="row">Stainless & Duplex Steel</th>
-                                <td>304, 316L, 17-4 PH, 2205 Duplex</td>
-                                <td>Superior corrosion resistance and hygiene. Ideal for medical instruments, marine hardware, and high-pressure fluid valves.</td>
+                                <th scope="row">
+                                    <a href="/stainless-steel-casting" class="highlight-link">Stainless Steel Investment Casting</a>
+                                </th>
+                                <td>304, 316L, 17-4 PH and application-specific stainless grades</td>
+                                <td>Corrosion-resistant valves, pumps, instruments, sanitary hardware, marine components, and industrial fittings.</td>
                             </tr>
                             <tr>
-                                <th scope="row">Superalloys (VIM)</th>
-                                <td>Inconel 718, Inconel 625, Hastelloy</td>
-                                <td>Extreme heat and fatigue resistance. Critical for aerospace engine components and industrial gas turbines.</td>
+                                <th scope="row">
+                                    <a href="/superalloy-casting-services" class="highlight-link">Nickel-Based Superalloy Casting</a>
+                                </th>
+                                <td>
+                                    <a href="/inconel-718-casting" class="highlight-link">Inconel 718</a>,
+                                    <a href="/inconel-625-casting" class="highlight-link">Inconel 625</a>,
+                                    and project-specific high-temperature alloys
+                                </td>
+                                <td>Hot-section, corrosion-resistant, and fatigue-critical components for aerospace, energy, and industrial systems.</td>
                             </tr>
                             <tr>
-                                <th scope="row">Titanium</th>
-                                <td>Ti-6Al-4V (Grade 5)</td>
-                                <td>Unmatched strength-to-weight ratio. Used heavily in aerospace structural parts and biocompatible medical implants.</td>
+                                <th scope="row">
+                                    <a href="/titanium-investment-casting" class="highlight-link">Titanium Investment Casting</a>
+                                </th>
+                                <td>Ti-6Al-4V and application-specific titanium grades</td>
+                                <td>Lightweight, corrosion-resistant components for aerospace, medical, marine, and demanding industrial applications.</td>
                             </tr>
                             <tr>
-                                <th scope="row">Carbon & Low-Alloy Steel</th>
-                                <td>1020, 1045, 4140, 8620</td>
-                                <td>Excellent strength and toughness. Widely used for heavy machinery, automotive components, and industrial brackets.</td>
+                                <th scope="row">
+                                    <a href="/carbon-steel-casting" class="highlight-link">Carbon and Low-Alloy Steel Casting</a>
+                                </th>
+                                <td>Application-specific carbon and low-alloy steel grades</td>
+                                <td>Structural brackets, levers, machinery components, automotive hardware, and wear- or strength-critical industrial parts.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">
+                                    <a href="/duplex-stainless-steel-casting" class="highlight-link">Duplex Stainless Steel Casting</a>
+                                </th>
+                                <td>2205, 2507 and related duplex grades</td>
+                                <td>Chloride-resistant valves, pumps, marine hardware, desalination equipment, and oil-and-gas components.</td>
                             </tr>
                         </tbody>
                     </table>
-                </div> 
+                </div>
             </div>
         </section>
 
-        <section id="why-forcebeyond" >
-            <div class="content-container">
-                <h2>Why Partner with ForceBeyond for Investment Casting?</h2>
-                
-                <p>
-                    When your engineering designs demand internal cavities, undercut geometries, and ultra-thin walls, 
-                    investment casting frequently outperforms sand casting, forging, and CNC machining from billet.
-                </p>
-                <ul>
-                    <li>
-                        <strong>Unrestricted Design Freedom:</strong>Because the ceramic shell is built around a sacrificial wax pattern that is melted away, there is no need for draft angles or split-line constraints. You can cast highly complex internal coring and intricate features that are impossible to machine.
-                    </li>
-                    <li>
-                        <strong>Near-Net-Shape Accuracy:</strong>Investment casting routinely achieves tight standard tolerances (typically ISO 8062 CT5 to CT7). This dramatically reduces—and often completely eliminates—the need for secondary CNC machining, saving significant time and material costs.
-                    </li>
-                    <li>
-                        <strong>Superior Surface Finish:</strong>: The fine ceramic slurry used to coat the wax pattern yields a remarkably smooth as-cast surface finish (typically 125 RMS or better), ideal for parts requiring aesthetic appeal or immediate plating.
-                    </li>
-                    <li>
-                        <strong>Zero Material Waste on Exotic Alloys:</strong>Machining a part from a solid block of Titanium or Inconel wastes highly expensive raw material. Investment casting pours metal directly into the exact shape of your part, ensuring maximum material yield.
-                    </li>
-                </ul>
-                
-            </div>
-        </section>
         <section id="investment-casting-process">
             <div class="content-container">
-                <h2>
-                    The Investment Casting Process
-                </h2>
+                <h2>Step-by-Step Lost-Wax Investment Casting Process</h2>
+                <ol>
+                    <li><strong>Pattern production:</strong> wax or printed patterns reproduce the component geometry and are attached to a central runner system.</li>
+                    <li><strong>Ceramic shell building:</strong> the pattern assembly is repeatedly dipped in refractory slurry and coated with ceramic stucco until the required shell thickness is achieved.</li>
+                    <li><strong>Dewaxing and firing:</strong> wax is removed, and the ceramic shell is fired to develop strength and prepare it for pouring.</li>
+                    <li><strong>Melting and pouring:</strong> the selected alloy is melted and poured into the heated shell. Vacuum processing may be used for reactive or high-performance alloys.</li>
+                    <li><strong>Knockout and cutoff:</strong> after solidification, the shell is removed and individual castings are separated from the runner system.</li>
+                    <li><strong>Finishing and inspection:</strong> gates are removed, surfaces are blended, and parts proceed through heat treatment, HIP, machining, coating, and inspection as required.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="design-guidelines">
+            <div class="content-container">
+                <h2>Investment Casting Design Guidelines</h2>
                 <p>
-                    ForceBeyond utilizes state-of-the-art robotic shelling and automated wax injection to ensure repeatable lot-to-lot consistency.
+                    Early manufacturability review can reduce tooling changes, distortion, shrinkage risk, and unnecessary machining.
                 </p>
-                <ul class="no-bullets">
-                    <li>
-                        <strong>1.Wax Injection & Assembly:</strong> Precision aluminum dies are used to inject sacrificial wax patterns, which are then assembled onto a central wax sprue (a "tree").
-                    </li>
-                    <li>
-                        <strong>2.Ceramic Shelling:</strong> The wax tree is repeatedly dipped into a fine ceramic slurry and coated with refractory sand to build a strong, heat-resistant shell.
-                    </li>
-                    <li>
-                        <strong>3.Dewaxing & Firing</strong> The shell is heated in an autoclave to melt out the wax (hence, "lost-wax"), leaving a hollow cavity that perfectly matches the part design. The shell is then fired to increase its strength.
-                    </li>
-                    <li>
-                        <strong>4.Pouring & Knockout:</strong> Molten alloy is poured into the hot ceramic shell. Once solidified, the ceramic is broken away (knocked out), and the individual castings are cut from the central sprue.
-                    </li>
+                <ul>
+                    <li><strong>Wall transitions:</strong> avoid abrupt section changes that can create hot spots, shrinkage, or feeding problems.</li>
+                    <li><strong>Fillets and radii:</strong> use practical internal radii to improve shell strength, metal flow, and stress distribution.</li>
+                    <li><strong>Machining allowance:</strong> add controlled stock only where functional dimensions require final machining.</li>
+                    <li><strong>Datum strategy:</strong> establish repeatable locating surfaces for machining and inspection.</li>
+                    <li><strong>Parting and gating:</strong> review gate location, cutoff access, ceramic-shell support, and potential distortion before tooling release.</li>
                 </ul>
             </div>
         </section>
 
-        <section id = "Tier-1.5-integration">
+        <section id="prototype-production">
             <div class="content-container">
-                <h2>Tier-1.5 Integration: Cast-to-Machine Solutions</h2>
+                <h2>Prototype and Production Investment Casting</h2>
                 <p>
-                    While investment casting reduces machining requirements, tight engineering tolerances often require precision finishing. 
-                    ForceBeyond operates a Tier-1.5 model, keeping all secondary operations in-house to eliminate dimensional hand-off risks between vendors.
+                    Prototype investment casting may use printed wax or SLA patterns to support design validation, low-volume production, and alloy testing before hard tooling is released. Production programs typically use dedicated wax-injection tooling for repeatability and cycle efficiency.
+                </p>
+                <p>
+                    The best approach depends on annual volume, part size, pattern cost, inspection requirements, delivery timing, and expected design changes.
+                </p>
+            </div>
+        </section>
+
+        <section id="integrated-finishing">
+            <div class="content-container">
+                <h2>Investment Casting, Machining and Secondary Operations</h2>
+                <p>
+                    Near-net investment casting can reduce material removal, but many functional parts still require coordinated secondary operations.
                 </p>
                 <ul>
-                    <li>
-                        <strong>Precision CNC Machining:</strong>5-axis milling, drilling, threading, and tapping of critical datum features.
-                    </li>
-                    <li>
-                        <strong>Advanced Heat Treatment:</strong>Solution annealing, aging, and Hot Isostatic Pressing (HIP) to eliminate any internal microporosity and maximize fatigue life.
-                    </li>
-                    <li>
-                        <strong>Rigorous NDT (Non-Destructive Testing):</strong>100% X-ray (Radiographic Testing) to verify internal integrity, alongside Fluorescent Penetrant Inspection (FPI) for surface defect detection.
-                    </li>
-                    <li>
-                        <strong>Surface Finishing:</strong>Electropolishing, passivation (critical for stainless steel), and bead blasting.
-                    </li>
+                    <li><strong><a href="/precision-machining" class="highlight-link">Precision CNC machining:</a></strong> milling, turning, drilling, tapping, and grinding for datums, bores, threads, sealing surfaces, and mating features.</li>
+                    <li><strong><a href="/heat-treatment" class="highlight-link">Heat treatment:</a></strong> alloy-specific solution treatment, aging, stress relief, and mechanical-property development.</li>
+                    <li><strong><a href="/hot-isostatic-pressing" class="highlight-link">Hot Isostatic Pressing:</a></strong> density improvement for suitable alloys and defect types, coordinated with heat treatment and inspection.</li>
+                    <li><strong><a href="/surface-finishing" class="highlight-link">Surface finishing:</a></strong> passivation, electropolishing, blasting, polishing, coating, and project-specific protective treatments.</li>
+                    <li><strong><a href="/testing-inspection-capabilities" class="highlight-link">Inspection and NDT:</a></strong> dimensional inspection, radiography, penetrant inspection, material verification, and documentation as required by the project.</li>
+                    <li><strong><a href="/assembly-and-kitting" class="highlight-link">Assembly and kitting:</a></strong> inserts, bearings, hardware, sub-assembly, labeling, and protective packaging.</li>
                 </ul>
             </div>
         </section>
+
+        <section id="industry-applications">
+            <div class="content-container">
+                <h2>Investment Casting Applications by Industry</h2>
+                <ul>
+                    <li><strong><a href="/space-defence" class="highlight-link">Aerospace and defense:</a></strong> brackets, housings, turbine-related hardware, structural components, and precision superalloy or titanium parts.</li>
+                    <li><strong><a href="/energy-power-generation" class="highlight-link">Energy and power generation:</a></strong> turbine hardware, valve components, burner parts, flow-control hardware, and heat-resistant castings.</li>
+                    <li><strong><a href="/oil-gas" class="highlight-link">Oil, gas and flow control:</a></strong> valve bodies, impellers, pump components, fittings, and corrosion-resistant duplex or nickel-alloy parts.</li>
+                    <li><strong><a href="/medical" class="highlight-link">Medical and healthcare:</a></strong> instrument components, device housings, surgical hardware, and corrosion-resistant stainless or titanium castings.</li>
+                    <li><strong><a href="/automotive" class="highlight-link">Automotive and transportation:</a></strong> brackets, levers, turbocharger-related hardware, housings, and precision steel components.</li>
+                    <li><strong><a href="/mining" class="highlight-link">Mining and industrial equipment:</a></strong> wear-related components, linkages, machinery parts, brackets, and complex steel castings.</li>
+                </ul>
+            </div>
+        </section>
+
     </div>
 </IndividualPageLayout>
