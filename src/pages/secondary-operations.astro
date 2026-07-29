@@ -37,11 +37,18 @@ const sources = [
 ];
 
 const internalResources = [
-    // Secondary Operations
+    // Secondary Operations & Subhubs
+    { label: "Precision CNC Machining", url: "/cnc-machining" },
+    { label: "Heat Treatment Services", url: "/heat-treatment" },
+    { label: "Hot Isostatic Pressing (HIP)", url: "/hot-isostatic-pressing" },
     { label: "Surface Finishing & Coating", url: "/surface-finishing" },
-    { label: "Heat Treatment", url: "/heat-treatment" },
-    { label: "Hot Isostatic Pressing", url: "/hot-isostatic-pressing" },
-    { label: "Assembly & Kitting", url: "/assembly-and-kitting" },
+
+    // Die Casting Resources
+    { label: "Die Casting Overview", url: "/die-casting" },
+    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/magnesium-casting" },
 
     // Machining
     { label: "Precision Machining", url: "/precision-machining" },
@@ -227,15 +234,10 @@ const pageSchema = {
                 <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
                     <div>
                         <p>
-                            ForceBeyond provides integrated <strong>secondary operations</strong> for castings, forgings, billet-machined parts, and fabricated metal components. These post-forming services include
-                            <a href="/precision-machining" class="highlight-link">precision CNC machining</a>,
-                            <a href="/heat-treatment" class="highlight-link">heat treatment</a>,
-                            <a href="/hot-isostatic-pressing" class="highlight-link">Hot Isostatic Pressing</a>,
-                            <a href="/surface-finishing" class="highlight-link">surface finishing and coating</a>,
-                            inspection, assembly, kitting, and protective packaging.
+                            ForceBeyond provides a complete suite of advanced <a href="/secondary-operations" class="highlight-link">secondary operations</a> and post-processing services for custom <a href="/investment-casting" class="highlight-link">castings</a>, <a href="/forging" class="highlight-link">forgings</a>, and machined components. While primary casting and forging processes create the near-net shape of a part, high-performance applications require secondary processing to achieve exact print tolerances, eliminate internal defects, optimize mechanical hardness, and prevent environmental corrosion.
                         </p>
                         <p>
-                            Primary processes create the general component shape, while secondary operations refine dimensions, mechanical properties, surface condition, corrosion resistance, cleanliness, and readiness for assembly. ForceBeyond coordinates these steps through one managed workflow to reduce supplier handoffs and improve control of machining allowances, datum strategy, distortion, documentation, and delivery sequencing.
+                            Operating under a strict ISO 9001:2015 quality management system, ForceBeyond manages the entire post-forming value chain. Through our Tier-1.5 Manufacturing Model, we eliminate supply chain fragmentation and dimensional "hand-off" risks by integrating <a href="/cnc-machining" class="highlight-link">precision CNC machining</a>, specialized <a href="/heat-treatment" class="highlight-link">heat treatment</a>, <a href="/hot-isostatic-pressing" class="highlight-link">Hot Isostatic Pressing (HIP)</a>, and advanced <a href="/surface-finishing" class="highlight-link">surface finishing</a> under a single unified quality umbrella.
                         </p>
                     </div>
 
@@ -256,11 +258,13 @@ const pageSchema = {
             </div>
         </section>
 
-        <section id="process-planning">
+        ---
+
+        <section id="tier-1-5-advantage">
             <div class="content-container">
                 <h2>How Secondary Operations Are Planned</h2>
                 <p>
-                    The correct post-processing route depends on component function, material, starting form, production volume, critical dimensions, service environment, inspection plan, and customer documentation requirements.
+                    In traditional manufacturing, managing separate vendors for <a href="/investment-casting" class="highlight-link">casting</a>, <a href="/forging" class="highlight-link">forging</a>, <a href="/cnc-machining" class="highlight-link">CNC machining</a>, thermal processing, and plating creates severe quality and schedule risks. When a part arrives out of specification, separate suppliers often blame one another.
                 </p>
                 <ul>
                     <li><strong>Starting condition:</strong> as-cast, as-forged, heat-treated, billet-machined, or fabricated components require different process sequences.</li>
@@ -272,11 +276,13 @@ const pageSchema = {
             </div>
         </section>
 
+        ---
+
         <section id="capabilities-table">
             <div class="content-container">
                 <h2>Core Secondary Operations Capabilities</h2>
                 <p>
-                    ForceBeyond organizes secondary operations into coordinated machining, thermal processing, surface treatment, inspection, and assembly disciplines.
+                    Our secondary operations are organized into four specialized disciplines, engineered to transform raw <a href="/investment-casting" class="highlight-link">castings</a> and <a href="/forging" class="highlight-link">forgings</a> into mission-critical, assembly-ready parts:
                 </p>
 
                 <div class="content-table-wrapper">
@@ -290,39 +296,24 @@ const pageSchema = {
                         </thead>
                         <tbody>
                             <tr>
-                                <th scope="row">
-                                    <a href="/precision-machining" class="highlight-link">Precision CNC Machining</a>
-                                </th>
-                                <td>Refines critical dimensions, positions, bores, threads, sealing surfaces, and datum features.</td>
-                                <td>5-axis milling, CNC turning, mill-turn, Swiss machining, wire EDM, surface grinding, cylindrical grinding, and deburring.</td>
+                                <th scope="row"><a href="/cnc-machining" class="highlight-link">Precision CNC Machining</a></th>
+                                <td>Achieves exact dimensional tolerances, true positions, and threaded features.</td>
+                                <td>5-axis CNC milling, multi-axis turning, Swiss-style machining, wire EDM, and micro-grinding.</td>
                             </tr>
                             <tr>
-                                <th scope="row">
-                                    <a href="/heat-treatment" class="highlight-link">Heat Treatment</a>
-                                </th>
-                                <td>Develops mechanical properties, relieves stress, controls hardness, and prepares components for subsequent operations.</td>
-                                <td>Solution treatment, annealing, stress relief, quench and temper, T6 aging, precipitation hardening, and application-specific thermal cycles.</td>
+                                <th scope="row"><a href="/heat-treatment" class="highlight-link">Heat Treatment</a></th>
+                                <td>Alters the metallurgical grain structure to optimize hardness, strength, and ductility.</td>
+                                <td>Solution annealing, quenching, tempering, <a href="/a356-t6-casting" class="highlight-link">T6 artificial aging</a>, stress relieving, and precipitation hardening.</td>
                             </tr>
                             <tr>
-                                <th scope="row">
-                                    <a href="/hot-isostatic-pressing" class="highlight-link">Hot Isostatic Pressing</a>
-                                </th>
-                                <td>Helps reduce internal porosity and improve density and fatigue performance in suitable cast or additively manufactured components.</td>
-                                <td>Elevated temperature and high-pressure inert gas processing, followed by project-specific heat treatment and inspection where required.</td>
+                                <th scope="row"><a href="/hot-isostatic-pressing" class="highlight-link">Hot Isostatic Pressing (HIP)</a></th>
+                                <td>Eliminates internal micro-porosity and shrinkage voids in high-stress <a href="/sand-casting" class="highlight-link">castings</a>.</td>
+                                <td>Simultaneous extreme heat and 15,000+ psi argon gas pressure to achieve near-forged mechanical fatigue density.</td>
                             </tr>
                             <tr>
-                                <th scope="row">
-                                    <a href="/surface-finishing" class="highlight-link">Surface Finishing and Coating</a>
-                                </th>
-                                <td>Improves corrosion resistance, wear resistance, cleanliness, appearance, or coating adhesion.</td>
-                                <td>Passivation, electropolishing, anodizing, plating, E-coating, powder coating, painting, blasting, polishing, and application-specific finishes.</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">
-                                    <a href="/assembly-and-kitting" class="highlight-link">Assembly and Kitting</a>
-                                </th>
-                                <td>Prepares completed components for installation, line-side use, or distribution under a consolidated part number.</td>
-                                <td>Threaded inserts, bearings, fasteners, controlled sub-assembly, labeling, kitting, protective packaging, and logistics coordination.</td>
+                                <th scope="row"><a href="/surface-finishing" class="highlight-link">Surface Finishing & Coating</a></th>
+                                <td>Protects against corrosion, wear, and chemicals while improving visual appearance.</td>
+                                <td>Chemical passivation, electropolishing, <a href="/aluminum-die-casting" class="highlight-link">anodizing (Type II & III)</a>, e-coating, powder coating, and chrome plating.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -330,16 +321,21 @@ const pageSchema = {
             </div>
         </section>
 
+        ---
+
         <section id="precision-cnc-machining">
             <div class="content-container">
-                <h2>Secondary CNC Machining</h2>
+                <h2>1. <a href="/cnc-machining" class="highlight-link">Precision CNC Machining</a></h2>
                 <p>
-                    Casting and forging can produce efficient near-net shapes, but many components still require secondary CNC machining for functional interfaces. Typical machined features include sealing faces, bearing journals, mounting datums, precision bores, threaded holes, grooves, and controlled profiles.
+                    While <a href="/investment-casting" class="highlight-link">investment casting</a>, <a href="/die-casting" class="highlight-link">die casting</a>, and <a href="/forging" class="highlight-link">forging</a> produce exceptional near-net-shape geometries, secondary <a href="/cnc-machining" class="highlight-link">CNC machining</a> is essential for features requiring sub-micron accuracy, ultra-smooth sealing faces, concentric bearing journals, and threaded holes.
                 </p>
                 <ul>
-                    <li><strong>Multi-axis machining:</strong> 5-axis milling and multi-axis turning can reduce setups and improve feature-to-feature alignment.</li>
-                    <li><strong>Hard-to-machine alloys:</strong> controlled tooling and cutting strategies support Inconel, titanium, duplex stainless steel, precipitation-hardening stainless steel, and other demanding materials.</li>
-                    <li><strong>Finishing processes:</strong> EDM and grinding may be used for hardened materials, narrow features, precision profiles, and final surface control.</li>
+                    <li>
+                        <strong>Material Expertise:</strong> Specialized in high-speed, rigid machining of hard-to-cut metals, including <a href="/inconel-718-supply" class="highlight-link">Inconel 718</a>, Titanium (<a href="/titanium-investment-casting" class="highlight-link">Ti-6Al-4V</a>), Duplex 2205/2507 (<a href="/duplex-stainless-steel-casting" class="highlight-link">Duplex Stainless Steel</a>), 17-4 PH Stainless (<a href="/stainless-steel-casting" class="highlight-link">Stainless Steel Casting</a>), and <a href="/eco-brass-c69300-forging" class="highlight-link">ECO BRASS®</a>.
+                    </li>
+                    <li>
+                        <strong>Capabilities:</strong> Multi-axis 5-axis CNC milling, live-tool turning, Swiss turning for micro-components, and precision surface/cylindrical grinding.
+                    </li>
                 </ul>
                 <p>
                     Learn more about
@@ -350,93 +346,87 @@ const pageSchema = {
             </div>
         </section>
 
+        ---
+
         <section id="thermal-processing">
             <div class="content-container">
-                <h2>Heat Treatment and Thermal Processing</h2>
+                <h2>2. <a href="/heat-treatment" class="highlight-link">Thermal Processing & Heat Treatment</a></h2>
                 <p>
-                    Heat treatment is selected according to alloy, starting condition, target mechanical properties, dimensional stability, and subsequent machining or coating requirements. Process controls may include furnace atmosphere, ramp rate, soak time, quench method, and post-treatment verification.
+                    Post-forming <a href="/heat-treatment" class="highlight-link">heat treatment</a> is critical to relieving internal stresses, increasing yield strength, or softening work-hardened alloys for subsequent machining passes. ForceBeyond strictly controls furnace atmospheres and ramp rates to prevent scaling or oxidation.
                 </p>
                 <ul>
-                    <li><strong>Steel and stainless steel:</strong> annealing, solution treatment, quench and temper, stress relief, and precipitation hardening.</li>
-                    <li><strong>Aluminum:</strong> solution treatment, quenching, and artificial aging such as T6 where appropriate.</li>
-                    <li><strong>Nickel and titanium alloys:</strong> project-specific solution and aging cycles based on material specification and application requirements.</li>
-                    <li><strong>Distortion control:</strong> fixture strategy, machining sequence, stress relief, and stock allowance should be planned together.</li>
+                    <li>
+                        <strong>Key Thermal Cycles:</strong> Solution Annealing (for stainless and superalloys), Quench & Tempering (for alloy steel - see <a href="/carbon-steel-casting" class="highlight-link">Carbon & Low-Alloy Steel Casting</a>), T6 Heat Treatment (for <a href="/a356-t6-casting" class="highlight-link">A356 aluminum</a>), and Precipitation Age Hardening (for 17-4 PH and Inconel 718 featured in our <a href="/superalloy-forging-services" class="highlight-link">superalloy forging services</a>).
+                    </li>
+                    <li>
+                        <strong>Atmospheric Control:</strong> Vacuum heat treating, inert gas atmospheres, and specialized induction hardening.
+                    </li>
                 </ul>
             </div>
         </section>
+
+        ---
 
         <section id="hot-isostatic-pressing">
             <div class="content-container">
-                <h2>Hot Isostatic Pressing for Density Improvement</h2>
+                <h2>3. <a href="/hot-isostatic-pressing" class="highlight-link">Hot Isostatic Pressing (HIP)</a></h2>
                 <p>
-                    Hot Isostatic Pressing applies elevated temperature and high-pressure inert gas uniformly around a component. For suitable alloys and defect types, this combination can help close internal pores through plastic deformation and diffusion bonding.
+                    For mission-critical castings subjected to extreme pressure, rotational stress, or cyclic fatigue, internal microporosity is a primary failure point. <a href="/hot-isostatic-pressing" class="highlight-link">Hot Isostatic Pressing (HIP)</a> subjects cast parts to simultaneous elevated temperatures and intense, uniform gas pressure (typically argon at 15,000+ psi).
                 </p>
                 <ul>
-                    <li><strong>Potential benefits:</strong> improved density, ductility, fatigue performance, and consistency in critical cast or additively manufactured components.</li>
-                    <li><strong>Important limitations:</strong> HIP does not repair every defect, eliminate surface-connected discontinuities automatically, or make all castings equivalent to forgings.</li>
-                    <li><strong>Process integration:</strong> HIP requirements should be coordinated with alloy specification, heat treatment, machining sequence, NDT, and dimensional inspection.</li>
+                    <li>
+                        <strong>Metallurgical Healing:</strong> The combined heat and pressure cause internal microscopic voids and shrinkage pores to collapse and diffusion-weld closed.
+                    </li>
+                    <li>
+                        <strong>Result:</strong> Transforms investment and <a href="/sand-casting" class="highlight-link">sand castings</a> into fully dense components with mechanical properties and fatigue life that rival wrought forgings (such as <a href="/closed-die-forging" class="highlight-link">closed die forging</a> or <a href="/open-die-forging" class="highlight-link">open die forging</a>). Critical for aerospace turbine castings and nuclear hardware.
+                    </li>
                 </ul>
             </div>
         </section>
+
+        ---
 
         <section id="surface-finishing">
             <div class="content-container">
-                <h2>Surface Finishing and Protective Coatings</h2>
+                <h2>4. <a href="/surface-finishing" class="highlight-link">Surface Finishing & Protective Coatings</a></h2>
                 <p>
-                    Surface treatments are selected according to substrate, corrosion exposure, wear conditions, electrical requirements, cleanliness, appearance, and dimensional impact.
+                    Extending the operational lifespan of a metal component requires protective <a href="/surface-finishing" class="highlight-link">surface treatments</a> engineered for its specific working environment—whether marine saltwater, high-temperature exhaust, or sterile medical fluids.
                 </p>
                 <ul>
-                    <li><strong>Stainless steel treatments:</strong> passivation and electropolishing for corrosion resistance, cleanliness, and surface conditioning.</li>
-                    <li><strong>Aluminum treatments:</strong> Type II and Type III anodizing, conversion coatings, painting, and powder coating where specified.</li>
-                    <li><strong>Plating and barrier coatings:</strong> electroless nickel, zinc-based systems, E-coating, industrial paint, and other project-specific finishes.</li>
-                    <li><strong>Mechanical finishing:</strong> blasting, tumbling, polishing, brushing, and deburring to achieve defined texture and edge condition.</li>
+                    <li>
+                        <strong>Chemical Treatments:</strong> Citric and Nitric Passivation (ASTM A967) for stainless steel, and Electropolishing for ultra-clean sanitary/medical applications.
+                    </li>
+                    <li>
+                        <strong>Anodizing & Plating:</strong> Type II & III Hardcoat Anodizing for aluminum (<a href="/aluminum-die-casting" class="highlight-link">Aluminum Die Casting</a>) / magnesium (<a href="/magnesium-casting" class="highlight-link">Magnesium Casting</a>), Chrome Plating for zinc (<a href="/zinc-die-casting" class="highlight-link">Zinc Die Casting</a>) / brass, and Electroless Nickel Plating.
+                    </li>
+                    <li>
+                        <strong>Barrier Coatings:</strong> Electro-deposition Coating (E-Coating), industrial liquid painting, and durable Powder Coating.
+                    </li>
                 </ul>
             </div>
         </section>
 
-        <section id="inspection-quality">
+        ---
+
+        <section id="ndt-testing">
             <div class="content-container">
                 <h2>Inspection, NDT and Documentation</h2>
                 <p>
                     Quality planning should verify the effects of each secondary operation rather than inspecting only the final dimensions. Available support may include:
                 </p>
                 <ul>
-                    <li><strong>Dimensional inspection:</strong> CMM reports, surface-finish checks, gauges, profiles, and project-specific first-article documentation.</li>
-                    <li><strong>Non-destructive testing:</strong> radiographic, penetrant, magnetic-particle, and ultrasonic inspection where appropriate to the material, geometry, and governing specification.</li>
-                    <li><strong>Material verification:</strong> material test reports, positive material identification, hardness testing, and traceability when specified.</li>
-                    <li><strong>Process documentation:</strong> heat-treatment charts, coating certificates, certificates of conformity, and inspection records based on purchase-order requirements.</li>
-                </ul>
-                <p>
-                    See
-                    <a href="/testing-inspection-capabilities" class="highlight-link">testing and inspection capabilities</a>
-                    and
-                    <a href="/quality-assurance-certifications" class="highlight-link">quality assurance and certifications</a>.
-                </p>
-            </div>
-        </section>
-
-        <section id="assembly-logistics">
-            <div class="content-container">
-                <h2>Assembly, Kitting and Delivery Preparation</h2>
-                <p>
-                    Secondary operations can continue beyond machining and coating to include final assembly and line-side preparation. Coordinated services may include threaded inserts, bearings, fasteners, torque-controlled assembly, labeling, protective packaging, and kitting.
-                </p>
-                <p>
-                    This can reduce incoming handling and allow customers to receive assembly-ready components under a consolidated part number, subject to project-specific quality and packaging requirements.
-                </p>
-            </div>
-        </section>
-
-        <section id="industry-applications">
-            <div class="content-container">
-                <h2>Secondary Operations for Demanding Industries</h2>
-                <ul>
-                    <li><strong><a href="/space-defence" class="highlight-link">Aerospace and defense:</a></strong> precision machining, heat treatment, HIP, NDT, coatings, and documented traceability for critical components.</li>
-                    <li><strong><a href="/energy-power-generation" class="highlight-link">Energy and power generation:</a></strong> machined castings and forgings, turbine hardware, valve parts, shafts, and corrosion- or heat-resistant finishes.</li>
-                    <li><strong><a href="/oil-gas" class="highlight-link">Oil, gas and flow control:</a></strong> valve bodies, pump components, duplex stainless-steel parts, pressure-containing hardware, and inspection documentation.</li>
-                    <li><strong><a href="/medical" class="highlight-link">Medical and healthcare:</a></strong> precision machining, passivation, electropolishing, controlled finishes, cleaning, and documented inspection.</li>
-                    <li><strong><a href="/automotive" class="highlight-link">Automotive and transportation:</a></strong> production machining, heat treatment, coatings, inserts, assembly, and packaged component delivery.</li>
-                    <li><strong><a href="/mining" class="highlight-link">Mining and heavy equipment:</a></strong> heavy machining, hardening, wear-resistant finishes, large-component inspection, and assembly support.</li>
+                    <li>
+                        <strong>Radiographic Testing (RT):</strong> X-ray inspection (ASTM E192/E1030) to verify zero internal shrinkage or porosity before and after <a href="/hot-isostatic-pressing" class="highlight-link">HIP</a>.
+                    </li>
+                    <li>
+                        <strong>Fluorescent Penetrant Inspection (FPI):</strong> Liquid penetrant testing (ASTM E1417) to detect surface-breaking cracks or pores on machined and cast surfaces.
+                    </li>
+                    <li>
+                        <strong>Ultrasonic Testing (UT):</strong> High-frequency sound wave inspection (ASTM A388) to verify internal soundness across thick-section forgings and shafts (such as <a href="/rolled-ring-forging" class="highlight-link">Rolled Ring Forging</a>).
+                    </li>
+                    <li>
+                        <strong>Full Documentation:</strong> Every shipment is accompanied by complete documentation, including Material Test Reports (MTRs), dimensional CMM reports, and heat-treat charts.
+                    </li>
                 </ul>
             </div>
         </section>
