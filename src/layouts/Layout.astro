@@ -65,24 +65,76 @@ const currentYear = new Date().getFullYear();
 </style>
 
 <slot name="head" />
-        
+
         <script type="application/ld+json">
             {
                 "@context": "https://schema.org",
                 "@graph": [
                     {
-                        "@type": "IndustrialBusiness",
+                        "@type": "Place",
+                        "@id": "https://www.forcebeyond.store/#place",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "streetAddress": "261 Quigley Blvd, Ste 18",
+                            "postalCode": "19720",
+                            "addressLocality": "New Castle",
+                            "addressRegion": "Delaware",
+                            "addressCountry": "US"
+                        }
+                    },
+                    {
+                        "@type": [
+                            "Corporation",
+                            "Organization"
+                        ],
                         "@id": "https://www.forcebeyond.store/#organization",
-                        "name": "ForceBeyond",
-                        "description": "ForceBeyond provides custom metal component manufacturing solutions including investment casting, die casting, forging, and CNC machining.",
-                        "image": "https://www.forcebeyond.store/forcebeyond-logo.png",
-                        "knowsAbout": [
-                            "Investment Casting",
-                            "Die Casting",
-                            "Forging",
-                            "CNC Machining",
-                            "Tier 1.5 Supply Chain Management"
-                        ]
+                        "name": "www.forcebeyond.store",
+                        "url": "https://www.forcebeyond.store",
+                        "sameAs": [
+                            "https://www.facebook.com/ForceBeyond-2036256726642133/",
+                            "https://twitter.com/FBmetalparts"
+                        ],
+                        "email": "contact@forcebeyond.com",
+                        "address": {
+                            "@type": "PostalAddress",
+                            "streetAddress": "261 Quigley Blvd, Ste 18",
+                            "postalCode": "19720",
+                            "addressLocality": "New Castle",
+                            "addressRegion": "Delaware",
+                            "addressCountry": "US"
+                        },
+                        "logo": {
+                            "@type": "ImageObject",
+                            "@id": "https://www.forcebeyond.store/#logo",
+                            "url": "https://www.forcebeyond.store/media/forcebeyond-logo-svg.webp",
+                            "contentUrl": "https://www.forcebeyond.store/media/forcebeyond-logo-svg.webp",
+                            "caption": "www.forcebeyond.store",
+                            "inLanguage": "en-US",
+                            "width": 200,
+                            "height": 50
+                        },
+                        "contactPoint": [
+                            {
+                                "@type": "ContactPoint",
+                                "telephone": "+1-302-995-6588",
+                                "contactType": "sales"
+                            }
+                        ],
+                        "description": "ForceBeyond is a premier manufacturing total solution provider headquartered in New Castle, Delaware. Operating as a strategic Tier 1.5 supplier, we bridge the gap between engineering design and mass production for high-precision industrial components. We specialize in superalloy casting, titanium investment casting, and high-stress forging and CNC machining for the aerospace, energy, and automotive sectors. From our Delaware hub, we manage a globally integrated supply chain providing one-stop solutions—including engineering design collaboration, quality assurance (ISO 9001), and international logistics. Partner with ForceBeyond for world-class precision parts delivered with local reliability and global cost-efficiency.",
+                        "location": {
+                            "@id": "https://www.forcebeyond.store/#place"
+                        }
+                    },
+                    {
+                        "@type": "WebSite",
+                        "@id": "https://www.forcebeyond.store/#website",
+                        "url": "https://www.forcebeyond.store",
+                        "name": "www.forcebeyond.store",
+                        "alternateName": "ForceBeyond, LLC.",
+                        "publisher": {
+                            "@id": "https://www.forcebeyond.store/#organization"
+                        },
+                        "inLanguage": "en-US"
                     }
                 ]
             }
@@ -140,10 +192,10 @@ const currentYear = new Date().getFullYear();
             
             <!-- Capabilities Dropdown -->
             <div class="relative group flex items-center h-full">
-                <a href="/capabilities" class="inline-flex items-center gap-1 py-8 hover:text-brand-blue transition">
+                <button type="button" aria-haspopup="true" aria-expanded="false" class="inline-flex items-center gap-1 py-8 hover:text-brand-blue transition cursor-pointer text-slate-900 font-normal border-none bg-transparent p-0">
                     Capabilities
                     <span class="text-xs" aria-hidden="true">▾</span>
-                </a>
+                </button>
 
                 <div class="invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 absolute left-0 top-full z-50">
                     <div class="relative min-w-[230px] bg-white border border-slate-200 shadow-2xl">
@@ -160,7 +212,7 @@ const currentYear = new Date().getFullYear();
                                         <ul class="py-2 text-sm text-slate-700">
                                             <!-- Superalloy Forging Subtier -->
                                             <li class="relative group/subsub">
-                                                <a href="/superalloy-forging-services" class="flex items-center justify-between px-6 py-2.5 font-semibold hover:bg-slate-50 hover:text-brand-blue transition">
+                                                <a href="/high-performance-superalloy-forging" class="flex items-center justify-between px-6 py-2.5 font-semibold hover:bg-slate-50 hover:text-brand-blue transition">
                                                     <span>Superalloy Forging</span>
                                                     <span class="text-xs" aria-hidden="true">▶</span>
                                                 </a>
@@ -180,7 +232,7 @@ const currentYear = new Date().getFullYear();
                                                 <div class="invisible opacity-0 translate-x-2 group-hover/subsub:visible group-hover/subsub:opacity-100 group-hover/subsub:translate-x-0 transition-all duration-200 absolute left-full top-[-9px] z-50">
                                                     <div class="min-w-[190px] bg-white border border-slate-200 shadow-2xl py-2 text-sm text-slate-700">
                                                         <a href="/titanium-aerospace-forging" class="block px-6 py-2.5 font-semibold hover:bg-slate-50 hover:text-brand-blue transition">Titanium Aerospace Forging</a>
-                                                        <a href="/beta-titanium-forging" class="block px-6 py-2.5 font-semibold hover:bg-slate-50 hover:text-brand-blue transition">Beta Titanium Forging</a>
+                                                        <a href="/high-strength-beta-titanium-forging" class="block px-6 py-2.5 font-semibold hover:bg-slate-50 hover:text-brand-blue transition">Beta Titanium Forging</a>
                                                         <a href="/near-net-shape-titanium-forging" class="block px-6 py-2.5 font-semibold hover:bg-slate-50 hover:text-brand-blue transition">Near-Net-Shape Titanium Forging</a>
                                                     </div>
                                                 </div>
@@ -206,7 +258,7 @@ const currentYear = new Date().getFullYear();
                                         <ul class="py-2 text-sm text-slate-700">
                                             <!-- Superalloy Casting Subtier -->
                                             <li class="relative group/subsub">
-                                                <a href="/superalloy-casting-services" class="flex items-center justify-between px-6 py-2.5 font-semibold hover:bg-slate-50 hover:text-brand-blue transition">
+                                                <a href="/high-performance-superalloy-casting" class="flex items-center justify-between px-6 py-2.5 font-semibold hover:bg-slate-50 hover:text-brand-blue transition">
                                                     <span>Superalloy Casting</span>
                                                     <span class="text-xs" aria-hidden="true">▶</span>
                                                 </a>
@@ -279,7 +331,7 @@ const currentYear = new Date().getFullYear();
                                         <ul class="py-2 text-sm text-slate-700">
                                             <!-- Superalloy Machining Subtier -->
                                             <li class="relative group/subsub">
-                                                <a href="/superalloy-machining-services" class="flex items-center justify-between px-6 py-2.5 font-semibold hover:bg-slate-50 hover:text-brand-blue transition">
+                                                <a href="/high-performance-superalloy-machining" class="flex items-center justify-between px-6 py-2.5 font-semibold hover:bg-slate-50 hover:text-brand-blue transition">
                                                     <span>Superalloy Machining</span>
                                                     <span class="text-xs" aria-hidden="true">▶</span>
                                                 </a>
@@ -342,10 +394,10 @@ const currentYear = new Date().getFullYear();
 
             <!-- Industries Dropdown -->
             <div class="relative group flex items-center h-full">
-                <a href="/industries" class="inline-flex items-center gap-1 py-8 hover:text-brand-blue transition cursor-pointer">
+                <button type="button" aria-haspopup="true" aria-expanded="false" class="inline-flex items-center gap-1 py-8 hover:text-brand-blue transition cursor-pointer text-slate-900 font-normal border-none bg-transparent p-0">
                     Industries
                     <span class="text-xs" aria-hidden="true">▾</span>
-                </a>
+                </button>
 
                 <div class="invisible opacity-0 translate-y-2 group-hover:visible group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-200 absolute left-0 top-full z-50">
                     <div class="relative min-w-[260px] bg-white border border-slate-200 shadow-2xl">
@@ -513,7 +565,7 @@ const currentYear = new Date().getFullYear();
         <div class="flex items-center gap-3">
             <!-- Desktop RFQ Button -->
             <a 
-                href="/request-a-quote" 
+                href="/request-for-quote" 
                 class="hidden desktop:inline-flex items-center justify-center rounded-full bg-brand-green px-7 py-3 text-sm font-semibold text-white transition hover:bg-[#5aaa14] shadow-sm"
             >
                 Request Quote
@@ -602,7 +654,7 @@ const currentYear = new Date().getFullYear();
                                     <span class="text-xs transition-transform group-open/subcap:rotate-180" aria-hidden="true">▾</span>
                                 </summary>
                                 <div class="bg-slate-50/50 py-1">
-                                    <a href="/superalloy-forging-services" class="mobile-menu-link block py-2 pl-20 pr-6 font-semibold text-brand-blue">Overview: Superalloy Forging</a>
+                                    <a href="/high-performance-superalloy-forging" class="mobile-menu-link block py-2 pl-20 pr-6 font-semibold text-brand-blue">Overview: Superalloy Forging</a>
                                     <a href="/inconel-718-forging" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Inconel 718 Forging</a>
                                     <a href="/inconel-625-forging" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Inconel 625 Forging</a>
                                 </div>
@@ -617,7 +669,7 @@ const currentYear = new Date().getFullYear();
                                 <div class="bg-slate-50/50 py-1">
                                     <a href="/titanium-forging" class="mobile-menu-link block py-2 pl-20 pr-6 font-semibold text-brand-blue">Overview: Titanium Forging</a>
                                     <a href="/titanium-aerospace-forging" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Titanium Aerospace Forging</a>
-                                    <a href="/beta-titanium-forging" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Beta Titanium Forging</a>
+                                    <a href="/high-strength-beta-titanium-forging" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Beta Titanium Forging</a>
                                     <a href="/near-net-shape-titanium-forging" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Near-Net-Shape Titanium Forging</a>
                                 </div>
                             </details>
@@ -645,7 +697,7 @@ const currentYear = new Date().getFullYear();
                                     <span class="text-xs transition-transform group-open/subcap:rotate-180" aria-hidden="true">▾</span>
                                 </summary>
                                 <div class="bg-slate-50/50 py-1">
-                                    <a href="/superalloy-casting-services" class="mobile-menu-link block py-2 pl-20 pr-6 font-semibold text-brand-blue">Overview: Superalloy Casting</a>
+                                    <a href="/high-performance-superalloy-casting" class="mobile-menu-link block py-2 pl-20 pr-6 font-semibold text-brand-blue">Overview: Superalloy Casting</a>
                                     <a href="/inconel-vacuum-precision-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Inconel Vacuum Precision Casting</a>
                                     <a href="/inconel-718-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Inconel 718 Casting</a>
                                     <a href="/inconel-625-casting" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Inconel 625 Casting</a>
@@ -714,7 +766,7 @@ const currentYear = new Date().getFullYear();
                                     <span class="text-xs transition-transform group-open/subcap:rotate-180" aria-hidden="true">▾</span>
                                 </summary>
                                 <div class="bg-slate-50/50 py-1">
-                                    <a href="/superalloy-machining-services" class="mobile-menu-link block py-2 pl-20 pr-6 font-semibold text-brand-blue">Overview: Superalloy Machining</a>
+                                    <a href="/high-performance-superalloy-machining" class="mobile-menu-link block py-2 pl-20 pr-6 font-semibold text-brand-blue">Overview: Superalloy Machining</a>
                                     <a href="/inconel-718-machining" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Inconel 718 Machining</a>
                                     <a href="/inconel-625-machining" class="mobile-menu-link block py-2 pl-20 pr-6 text-slate-500 hover:text-brand-blue">Inconel 625 Machining</a>
                                 </div>
@@ -867,7 +919,7 @@ const currentYear = new Date().getFullYear();
 
             <div class="px-6 py-6">
                 <a 
-                    href="/request-a-quote" 
+                    href="/request-for-quote" 
                     class="mobile-menu-link inline-flex w-full items-center justify-center rounded-full bg-brand-green px-8 py-3 text-sm font-semibold text-white transition hover:bg-[#5aaa14] shadow-sm"
                 >
                     Request Quote
@@ -969,9 +1021,6 @@ const currentYear = new Date().getFullYear();
             </p>
             
             <div class="flex gap-6 text-xs text-slate-400">
-                <a href="/privacy-policy" class="hover:text-white transition">
-                    Privacy Policy
-                </a>
 
                 <a href="#" class="hover:text-white transition">
                     Back to Top ↑
@@ -1043,7 +1092,7 @@ const currentYear = new Date().getFullYear();
         header.querySelectorAll('a[href]').forEach((link) => {
             const href = link.getAttribute('href') || '';
             
-            if (href.includes('/request-a-quote')) return;
+            if (href.includes('/request-for-quote')) return;
 
             if (!isSamePage(href)) return;
 

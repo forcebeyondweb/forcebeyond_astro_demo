@@ -2,8 +2,8 @@
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
 const pageTitle = 'Inconel 625 Forging: Superior Corrosion & Fatigue Resistance';
-const seoTitle = 'Inconel 625 Forging: Superior Corrosion & Fatigue Resistance';
-const seoDescription = 'AS9100 certified Inconel 625 forging for Nuclear SMR and subsea applications. Utilizing VIM and HIP across our USA, South Korea, and Taiwan facilities.';
+const seoTitle = 'Inconel 625 Forging Services | Corrosion Resistant | ForceBeyond';
+const seoDescription = 'AS9100 certified Inconel 625 forging for marine, nuclear, and chemical applications. Co-owned factories in USA, Korea, and Taiwan. Lead times under 16 weeks.';
 const faqs = [
     {
         q: "When should I choose 625 over 718 for a forging?",
@@ -48,50 +48,47 @@ const internalResources = [
     { label: "Closed Die Forging", url: "/closed-die-forging" },
     { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
     { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
 
     // Sand Casting & Steel Casting Resources
     { label: "Sand Casting", url: "/sand-casting" },
     { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
     { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
 ];
-// Service / Product Schema
+// Page-level schema migrated from the current forcebeyond.com page.
+// Global Place, Organization, and WebSite entities are defined in Layout.astro.
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/inconel-625-forging/#webpage",
+      "url": "https://www.forcebeyond.store/inconel-625-forging/",
+      "name": "Inconel 625 Forging Services | Corrosion Resistant | ForceBeyond",
+      "datePublished": "2026-03-03T15:52:20-05:00",
+      "dateModified": "2026-03-04T14:46:37-05:00",
+      "isPartOf": {
+        "@id": "https://www.forcebeyond.store/#website"
+      },
+      "inLanguage": "en-US"
+    },
+    {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/inconel-625-forging#service",
-      "name": "Inconel 625 Forging Services",
+      "serviceType": "Inconel 625 Forging",
       "provider": {
         "@type": "Organization",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
-      },
-      "description": seoDescription,
-      "serviceType": "Inconel 625 Forging Services",
-      "areaServed": "United States, South Korea, Taiwan",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Inconel 625 Forging Capabilities",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Closed-Die Forging" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seamless Rolled Rings" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Open-Die Forging" } }
-        ]
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/inconel-625-forging#faq",
-      "mainEntity": faqs.map(f => ({
-        "@type": "Question",
-        "name": f.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": f.a
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "New Castle",
+          "addressRegion": "DE"
         }
-      }))
+      },
+      "description": "Expert forging services for Inconel 625. Optimized for extreme corrosion resistance and nuclear compliance.",
+      "offers": {
+        "@type": "Offer",
+        "description": "Forged 625 rings, disks, and valve bodies with global supply chain resilience."
+      }
     }
   ]
 };
@@ -132,7 +129,7 @@ const pageSchema = {
                             utilizing our co-owned global factories to ensure zero-defect integrity.
                         </p>
                         <p>
-                            As a specialized component of our <a href="/superalloy-forging-services" class="highlight-link">Superalloy Forging Services</a>, 
+                            As a specialized component of our <a href="/high-performance-superalloy-forging" class="highlight-link">Superalloy Forging Services</a>, 
                             ForceBeyond provides precision-engineered <strong>Inconel 625 (UNS N06625)</strong> forgings. 
                             While Inconel 718 is chosen for high-load tensile strength, Inconel 625 is the premier choice for 
                             extreme corrosion resistance and thermal stability up to <strong>980°C (1,800°F)</strong>. 

@@ -2,8 +2,8 @@
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
 const pageTitle = 'Titanium Machining Services | AS9100 5-Axis CNC Finishing';
-const seoTitle = 'Titanium Forging Services | Closed-Die & Rolled Ring | ForceBeyond';
-const seoDescription = 'AS9100-certified precision titanium forging services specializing in Ti-6Al-4V, alpha-beta, and beta alloys. Delivering high-integrity closed-die and seamless rolled ring forgings from co-owned hubs in the USA, South Korea, and Taiwan for aerospace, defense, and subsea marine structures.';
+const seoTitle = 'Titanium Machining Services | AS9100 5-Axis CNC Finishing';
+const seoDescription = 'Tier-1.5 titanium machining supplier. We operate AS9100-certified 5-axis CNC centers in the USA and Taiwan. Specialized in finishing Ti-6Al-4V cast and forged components.';
 const faqs = [
     {
         q: "Why is titanium more difficult to machine than stainless steel?",
@@ -48,115 +48,86 @@ const internalResources = [
     { label: "Closed Die Forging", url: "/closed-die-forging" },
     { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
     { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
 
     // Sand Casting & Steel Casting Resources
     { label: "Sand Casting", url: "/sand-casting" },
     { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
     { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
 ];
-// Service / Product Schema
+// Page-level schema migrated from the current forcebeyond.com page.
+// Global Place, Organization, and WebSite entities are defined in Layout.astro.
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/titanium-machining#webpage",
-      "url": "https://www.forcebeyond.store/titanium-machining",
-      "name": seoTitle,
-      "description": seoDescription,
+      "@id": "https://www.forcebeyond.store/titanium-machining/#webpage",
+      "url": "https://www.forcebeyond.store/titanium-machining/",
+      "name": "Titanium Machining Services | AS9100 5-Axis CNC Finishing",
+      "datePublished": "2026-03-05T21:26:56-05:00",
+      "dateModified": "2026-03-07T20:48:56-05:00",
       "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
+        "@id": "https://www.forcebeyond.store/#website"
       },
-      "about": [
-        {
-          "@type": "Thing",
-          "name": "Titanium",
-          "sameAs": "https://en.wikipedia.org/wiki/Titanium"
-        },
-        {
-          "@type": "Thing",
-          "name": "Machining",
-          "sameAs": "https://en.wikipedia.org/wiki/Machining"
-        },
-        {
-          "@type": "Thing",
-          "name": "Milling (machining)",
-          "sameAs": "https://en.wikipedia.org/wiki/Milling_(machining)"
-        }
-      ]
+      "inLanguage": "en-US"
     },
     {
-      "@type": "Service",
-      "@id": "https://www.forcebeyond.store/titanium-machining#service",
-      "name": "Precision Titanium Machining Services",
-      "serviceType": "Titanium Machining Services",
-      "description": seoDescription,
-      "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
-        "knowsAbout": [
-          "Precision Titanium Machining",
-          "Ti-6Al-4V, Grade 2, & Beta-C Alloys",
-          "5-Axis CNC Milling & Turning",
-          "AS9100 Rev D Quality Control Systems",
-          "High-Pressure Through-Tool Coolant Systems",
-          "Titanium Work-Hardening & Galling Mitigation",
-          "Aerospace, Defense, Marine & Medical Hardware"
-        ]
+      "@type": "Organization",
+      "name": "ForceBeyond",
+      "url": "https://www.forcebeyond.store/titanium-machining/",
+      "logo": "https://www.forcebeyond.store/media/forcebeyond-logo-svg.webp",
+      "image": "https://www.forcebeyond.store/media/forcebeyond-logo-svg.webp",
+      "description": "Tier-1.5 titanium machining supplier. ForceBeyond operates AS9100-certified 5-axis CNC centers specializing in Ti-6Al-4V finishing.",
+      "telephone": "+1-302-995-6588",
+      "priceRange": "$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "261 Quigley Blvd, Suite 18",
+        "addressLocality": "New Castle",
+        "addressRegion": "DE",
+        "postalCode": "19720",
+        "addressCountry": "US"
       },
-      "areaServed": [
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "South Korea" },
-        { "@type": "Country", "name": "Taiwan" }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Titanium Machining Capabilities",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Rigid 5-Axis CNC Milling & Turning",
-              "description": "Multi-axis setups configured with maximum stiffness and optimized toolpath velocities to counteract high cutting forces and eliminate dimensional drift."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Advanced Coolant & Micro-Zone Thermal Management",
-              "description": "Deployment of ultra-high pressure through-tool coolant configurations to quickly dissipate intense heat from the cutting zone, safeguarding tools from rapid wear."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Tier-1.5 End-to-End Component Finishing",
-              "description": "Complete supply chain consolidation merging raw castings and forgings with high-precision CNC milling, surface treatments, and exhaustive NDT inspection under one AS9100 quality umbrella."
-            }
+      "certification": "AS9100D",
+      "location": [
+        {
+          "@type": "LocalBusiness",
+          "name": "ForceBeyond USA Machining Hub",
+          "image": "https://www.forcebeyond.store/media/forcebeyond-logo-svg.webp",
+          "telephone": "+1-302-995-6588",
+          "priceRange": "$$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "261 Quigley Blvd, Suite 18",
+            "addressLocality": "New Castle",
+            "addressRegion": "DE",
+            "postalCode": "19720",
+            "addressCountry": "US"
           }
-        ]
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/titanium-machining#faq",
-      "mainEntity": faqs.map(f => ({
-        "@type": "Question",
-        "name": f.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": f.a
+        },
+        {
+          "@type": "LocalBusiness",
+          "name": "ForceBeyond Taiwan Precision Center",
+          "image": "https://www.forcebeyond.store/media/forcebeyond-logo-svg.webp",
+          "telephone": "+1-302-995-6588",
+          "priceRange": "$$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Taichung Machinery Park",
+            "addressLocality": "Taichung",
+            "postalCode": "408",
+            "addressCountry": "TW"
+          }
         }
-      }))
+      ],
+      "knowsAbout": [
+        "Titanium Machining",
+        "5-Axis CNC",
+        "AS9100",
+        "Ti-6Al-4V",
+        "Aerospace Finishing"
+      ]
     }
   ]
 };

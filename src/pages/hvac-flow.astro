@@ -1,124 +1,185 @@
 ---
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'HVAC, Fluid & Flow Control Casting & Machining';
-const seoTitle = 'HVAC, Fluid & Flow Control Casting & Machining | ForceBeyond';
-const seoDescription = 'ForceBeyond supplies pressure-tight, lead-free castings, forgings, and CNC machined valve hardware for HVAC, plumbing, and fluid control industries.';
+const pageTitle = 'HVAC, Plumbing & Fluid Control Components';
+const seoTitle = 'HVAC & Fluid Control Components | Casting, Forging & CNC';
+const seoDescription = 'ForceBeyond supports HVAC, plumbing, refrigeration, valve, pump, pneumatic, and industrial flow-control programs with pressure-containing castings, forgings, CNC machining, threading, coatings, leak testing, assembly, and documentation.';
+
+const canonicalUrl = 'https://www.forcebeyond.store/hvac-flow/';
+const socialImage = 'https://www.forcebeyond.store/media/industrial-hvac-piping-flow-control-system.webp';
 
 const faqs = [
     {
-        q: "Are ForceBeyond’s brass castings compliant with lead-free plumbing regulations?",
-        a: "Yes. We process certified ECO BRASS® (C69300) and silicon bronze alloys that comply 100% with US Safe Drinking Water Act mandates and NSF/ANSI 61 standards."
+        q: "Can ForceBeyond support lead-free potable-water components?",
+        a: "ForceBeyond may support potable-water programs using customer-specified lead-free copper alloys, stainless steels, polymers, seals, and coatings. Compliance with the Safe Drinking Water Act, NSF/ANSI/CAN 61, NSF/ANSI/CAN 372, or other requirements must be established for the complete product, material, wetted surface, manufacturing route, and certification scope."
     },
     {
-        q: "Can ForceBeyond supply fully assembled ball valves?",
-        a: "Yes. We supply complete sub-assemblies including cast valve bodies, machined stems, stainless balls, PTFE seats, O-rings, and handles—100% pressure-tested and kitted."
+        q: "Can ForceBeyond supply assembled valves or fluid-control modules?",
+        a: "Project-specific assembly may include cast or forged bodies, machined stems, balls, seats, seals, handles, fasteners, actuators, labeling, testing, and packaging. Assembly scope, approved components, torque, cleanliness, pressure or leak testing, traceability, and certification requirements should be defined before quotation."
+    },
+    {
+        q: "What leak-testing methods are used for HVAC and fluid-control components?",
+        a: "Depending on application and allowable leak rate, methods may include hydrostatic testing, pneumatic pressure decay, air-under-water testing, helium or tracer-gas testing, vacuum decay, flow testing, and functional valve testing. Test pressure, medium, dwell, temperature, cleanliness, and acceptance criteria must be specified."
+    },
+    {
+        q: "What information is needed for an HVAC or valve component quote?",
+        a: "Provide drawings, CAD, material, pressure class, temperature range, fluid or refrigerant, thread or connection standard, annual volume, heat treatment, coating, cleanliness, leak rate, test method, inspection, assembly, certification, packaging, and delivery requirements."
     }
 ];
 
-// Sources
 const sources = [
-    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
-    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
-    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
-    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
-    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
-    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
+    { label: 'NSF - Drinking Water and Plumbing Product Standards', url: 'https://www.nsf.org/' },
+    { label: 'ASHRAE - HVAC and Refrigeration Technical Resources', url: 'https://www.ashrae.org/' },
+    { label: 'ASME - Valve, Piping and Pressure Equipment Standards', url: 'https://www.asme.org/codes-standards' },
+    { label: 'ASTM International - Valve, Alloy, Coating and Testing Standards', url: 'https://www.astm.org/' },
+    { label: 'Copper Development Association - Copper Alloy and Plumbing Resources', url: 'https://www.copper.org/' },
+    { label: 'American Foundry Society - Metalcasting Resources', url: 'https://www.afsinc.org/' }
 ];
 
-// Resources
 const internalResources = [
-    // Die Casting Resources
-    { label: "Die Casting Overview", url: "/die-casting" },
+    // Industry Hubs
+    { label: "Oil & Gas", url: "/oil-gas" },
+    { label: "Energy & Power Generation", url: "/energy-power-generation" },
+    { label: "Data Center Power", url: "/data-center-power" },
+    { label: "Automotive & Transportation", url: "/automotive" },
+
+    // Casting
+    { label: "Casting Capabilities", url: "/casting" },
+    { label: "Investment Casting", url: "/investment-casting" },
+    { label: "Sand Casting", url: "/sand-casting" },
+    { label: "Die Casting", url: "/die-casting" },
     { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
     { label: "Zinc Die Casting", url: "/zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "/a356-t6-casting" },
-    { label: "Magnesium Casting", url: "/magnesium-casting" },
-
-    // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "/investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "/titanium-investment-casting" },
     { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting" },
+    { label: "Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting" },
 
-    // Forging Resources
-    { label: "Forging Capabilities Overview", url: "/forging" },
-    { label: "Open Die Forging", url: "/open-die-forging" },
+    // Forging
+    { label: "Forging Capabilities", url: "/forging" },
     { label: "Closed Die Forging", url: "/closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
     { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
+    { label: "Open Die Forging", url: "/open-die-forging" },
 
-    // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "/sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
+    // Machining and Secondary Operations
+    { label: "Precision Machining", url: "/precision-machining" },
+    { label: "High-Precision Component Machining", url: "/high-precision-machining" },
+    { label: "Multi-Axis CNC Milling & Turning", url: "/multi-axis-cnc" },
+    { label: "Heat Treatment", url: "/heat-treatment" },
+    { label: "Surface Finishing & Coating", url: "/surface-finishing" },
+    { label: "Assembly & Kitting", url: "/assembly-and-kitting" },
+
+    // Materials, Quality, and Supply Chain
+    { label: "Stainless Steel & Carbon Steel", url: "/stainless-carbon-steel" },
+    { label: "Aluminum & Copper Alloys", url: "/aluminum-copper-alloys" },
+    { label: "Materials & Technical Specifications", url: "/materials-technical-specs" },
+    { label: "Material Cross-Reference Charts", url: "/material-cross-reference-charts" },
+    { label: "Manufacturing Design Guides", url: "/manufacturing-design-guides" },
+    { label: "Quality Assurance & Certifications", url: "/quality-assurance-certifications" },
+    { label: "Testing & Inspection Capabilities", url: "/testing-inspection-capabilities" },
+    { label: "Global Footprint & Logistics", url: "/global-footprint-logistics" }
 ];
 
-// Page Schema
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/hvac-flow#webpage",
-      "url": "https://www.forcebeyond.store/hvac-flow",
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
+        "@id": "https://www.forcebeyond.store/#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
-      }
+        "url": "https://www.forcebeyond.store/"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": socialImage
+      },
+      "breadcrumb": {
+        "@id": `${canonicalUrl}#breadcrumb`
+      },
+      "about": [
+        { "@type": "Thing", "name": "HVAC components" },
+        { "@type": "Thing", "name": "Valve and pump components" },
+        { "@type": "Thing", "name": "Plumbing castings" },
+        { "@type": "Thing", "name": "Fluid control manufacturing" },
+        { "@type": "Thing", "name": "Pressure and leak testing" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.forcebeyond.store/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Industries",
+          "item": "https://www.forcebeyond.store/industries/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "HVAC, Plumbing & Fluid Control",
+          "item": canonicalUrl
+        }
+      ]
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/hvac-flow#service",
-      "name": "HVAC & Fluid Control Component Manufacturing",
-      "serviceType": "Fluid Processing Precision Manufacturing",
+      "@id": `${canonicalUrl}#service`,
+      "name": "HVAC, Plumbing and Fluid Control Component Manufacturing",
+      "serviceType": "Casting, Forging, Machining, Leak Testing and Assembly for Valves, Pumps and Flow Systems",
       "description": seoDescription,
+      "url": canonicalUrl,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
-        "knowsAbout": [
-          "Lead-Free ECO BRASS® & Silicon Bronze Casting",
-          "Pressure-Tight Investment & Die Casting Solutions",
-          "Live-Tool CNC Turning for NPT, BSPT & Metric Threads",
-          "100% Pneumatic Air-Under-Water & Helium Decay Leak Testing",
-          "Complete Valve Assembly, Sub-Assembly & Kitting"
-        ]
+        "@id": "https://www.forcebeyond.store/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "HVAC & Fluid Control Capabilities",
+        "name": "HVAC and Fluid Control Manufacturing Capabilities",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Lead-Free Plumbing & Valve Hardware",
-              "description": "ECO BRASS® and bronze components complying with SDWA mandates and NSF/ANSI 61 standards."
+              "name": "Valve Bodies and Flow-Control Hardware",
+              "description": "Project-specific valve bodies, bonnets, stems, balls, seats, manifolds, fittings, and pressure-containing components."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Industrial Fluid Processing Components",
-              "description": "316L/304 stainless steel cast and machined valve bodies, pump housings, and chemical mixers."
+              "name": "Pump, Compressor and Refrigeration Components",
+              "description": "Cast, forged, and machined housings, impellers, covers, manifolds, compressor parts, and refrigerant-system hardware."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "HVAC & Pneumatic Enclosures",
-              "description": "Lightweight, pressure-tight aluminum die castings for compressor housings and actuator bodies."
+              "name": "Potable-Water and Plumbing Components",
+              "description": "Customer-specified lead-free copper-alloy, stainless, and machined components for plumbing and drinking-water applications."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Leak Testing, Assembly and Documentation",
+              "description": "Project-specific pressure and leak testing, dimensional inspection, cleanliness, assembly, labeling, packaging, and quality records."
             }
           }
         ]
@@ -126,13 +187,13 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/hvac-flow#faq",
-      "mainEntity": faqs.map(f => ({
+      "@id": `${canonicalUrl}#faq`,
+      "mainEntity": faqs.map((faq) => ({
         "@type": "Question",
-        "name": f.q,
+        "name": faq.q,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": f.a
+          "text": faq.a
         }
       }))
     }
@@ -143,78 +204,111 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
     pageTitle={pageTitle}
     heroImage="/media/industrial-hvac-ductwork-manufacturing-facility-hero.webp"
-    heroImageAlt="Wide interior view of a modern industrial HVAC facility with large stainless steel ductwork, production equipment, and workers."
-    faqSectionTitle="Frequently Asked Questions"
+    heroImageAlt="Industrial HVAC facility with ductwork, piping, valves, pumps, and flow-control equipment"
+    heroImageWidth={1920}
+    heroImageHeight={1080}
+    socialImage={socialImage}
+    socialImageAlt="HVAC, plumbing and fluid control component manufacturing"
+    faqSectionTitle="Frequently Asked Questions: HVAC & Fluid Control"
     faqItems={faqs}
-    ctaTitle="Streamline Your HVAC & Fluid Control Manufacturing"
-    ctaDescription="Partner with our engineering experts for zero-leakage, pressure-tight castings and fully assembled fluid control solutions."
-    sourcesTitle="Sources"
+    ctaTitle="Review an HVAC, Plumbing or Fluid-Control Component Program"
+    ctaDescription="Send your drawings, material, pressure class, fluid or refrigerant, temperature, annual volume, threads, heat treatment, coating, cleanliness, leak rate, test method, assembly, certification, packaging, and delivery requirements for an engineering review."
+    ctaButtonText="Request a Fluid-Control Review"
+    sourcesTitle="HVAC, Plumbing, Valve and Materials References"
     sourcesList={sources}
-    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesTitle="Related Casting, Forging, Machining, Materials and Quality Resources"
     resourcesList={internalResources}
 >
-
     <div slot="full-width" class="individual-content">
 
         <section id="overview">
             <div class="content-container">
-                
-                <h2>HVAC, Fluid & Flow Control Casting & Machining</h2>
+                <h2>Manufacturing Support for HVAC, Plumbing and Flow-Control Components</h2>
 
                 <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
                     <div>
                         <p>
-                            ForceBeyond supplies high-precision, pressure-tight castings, forgings, and machined valve hardware for the HVAC, plumbing, commercial refrigeration, and fluid processing industries. Fluid control systems require leak-free performance, smooth internal flow paths, and high corrosion resistance.
+                            HVAC, plumbing, refrigeration, pneumatic, hydraulic, and industrial fluid systems require controlled flow, sealing, pressure containment, corrosion resistance, cleanliness, and repeatable assembly.
                         </p>
                         <p>
-                            We pour lead-free Eco Brass®, bronze, 316L stainless steel, and A380 aluminum—utilizing vacuum investment casting, die casting, and high-speed CNC multi-axis turning.
+                            ForceBeyond supports valve, pump, compressor, manifold, fitting, actuator, and enclosure programs through
+                            <a href="/investment-casting" class="highlight-link">investment casting</a>,
+                            <a href="/die-casting" class="highlight-link">die casting</a>,
+                            <a href="/forging" class="highlight-link">forging</a>,
+                            <a href="/precision-machining" class="highlight-link">precision machining</a>,
+                            surface finishing, pressure and leak testing, assembly, and supply-chain coordination.
+                        </p>
+                        <p>
+                            Potable-water certification, refrigerant compatibility, pressure class, leak rate, approved materials, test method, and documentation must be defined for the complete product and intended service.
                         </p>
                     </div>
+
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
                                 src="/media/industrial-hvac-piping-flow-control-system.webp"
-                                alt="Large industrial HVAC mechanical room with orange process piping, insulated metal ducts, valves, pumps, and flow-control equipment."
+                                alt="Industrial HVAC mechanical room with piping, valves, pumps, and flow-control equipment"
+                                width="1200"
+                                height="900"
+                                loading="lazy"
+                                decoding="async"
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <section id="material-matrix">
+        <section id="application-matrix">
             <div class="content-container">
-                <h2>Fluid Control Material & Capabilities Matrix</h2>
+                <h2>HVAC, Plumbing and Fluid-Control Application Matrix</h2>
+
                 <div class="content-table-wrapper">
                     <table>
                         <thead>
                             <tr>
-                                <th scope="col">Material Category</th>
-                                <th scope="col">Alloy Grades Offered</th>
-                                <th scope="col">Key Fluid Control Benefits</th>
+                                <th scope="col">System Area</th>
+                                <th scope="col">Representative Components</th>
+                                <th scope="col">Potential Manufacturing Routes</th>
+                                <th scope="col">Key Engineering Requirements</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <tr>
-                                <th scope="row">Lead-Free Brass & Bronze</th>
-                                <td>ECO BRASS® (C69300), C83600</td>
-                                <td>Fully compliant with Safe Drinking Water Act (SDWA) standards; excellent machinability and pressure tightness.</td>
+                                <th scope="row">Commercial and Industrial HVAC</th>
+                                <td>Valve bodies, actuator housings, pump parts, compressor housings, manifolds, fittings, damper and control hardware</td>
+                                <td>Die casting, investment casting, sand casting, forging, CNC machining, coating, assembly</td>
+                                <td>Pressure containment, temperature cycling, corrosion, vibration, sealing, flow performance, and serviceability</td>
                             </tr>
                             <tr>
-                                <th scope="row">Austenitic Stainless Steel</th>
-                                <td>ASTM A351 CF8M (316 Cast), CF8 (304)</td>
-                                <td>Superior chemical and corrosion resistance for industrial fluid mixing, food/dairy, and chemical pumps.</td>
+                                <th scope="row">Plumbing and Potable Water</th>
+                                <td>Faucet and valve bodies, fittings, manifolds, stems, balls, handles, meter and backflow components</td>
+                                <td>Copper-alloy casting or forging, stainless casting, machining, plating, passivation, assembly</td>
+                                <td>Lead-content requirements, wetted-material compliance, corrosion, dezincification, cleanliness, leak integrity, certification</td>
                             </tr>
                             <tr>
-                                <th scope="row">Aluminum Alloys</th>
-                                <td>A380, A360, A413</td>
-                                <td>Lightweight, pressure-tight die castings for HVAC compressor housings and pneumatic valve bodies.</td>
+                                <th scope="row">Commercial Refrigeration</th>
+                                <td>Compressor parts, valve bodies, manifolds, fittings, housings, covers, heat-transfer and control hardware</td>
+                                <td>Aluminum die casting, stainless or brass machining, investment casting, brazing or joining where approved</td>
+                                <td>Refrigerant compatibility, pressure, low temperature, leakage, cleanliness, brazing quality, and dimensional stability</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Industrial Valves and Pumps</th>
+                                <td>Bodies, bonnets, impellers, volutes, diffusers, stems, seats, manifolds, covers, flanges</td>
+                                <td>Investment or sand casting, forging, machining, hardfacing or coating where specified, pressure testing</td>
+                                <td>Pressure class, fluid chemistry, erosion, cavitation, corrosion, sealing, NDT, and material traceability</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Pneumatic and Hydraulic Systems</th>
+                                <td>Valve blocks, actuator bodies, manifolds, cylinders, end caps, fittings, regulator and control housings</td>
+                                <td>Aluminum or zinc die casting, bar machining, forging, anodizing, plating, assembly, leak testing</td>
+                                <td>Internal passages, pressure, cleanliness, burr control, sealing, thread accuracy, response, and leakage</td>
                             </tr>
                         </tbody>
                     </table>
@@ -222,19 +316,355 @@ const pageSchema = {
             </div>
         </section>
 
-        <section id="manufacturing-capabilities">
+        <section id="component-portfolio">
             <div class="content-container">
-                <h2>Precision Valve & Pump Manufacturing Capabilities</h2>
+                <h2>Valve, Pump and Flow-Control Component Portfolio</h2>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Component Family</th>
+                                <th scope="col">Representative Hardware</th>
+                                <th scope="col">Common Product Forms</th>
+                                <th scope="col">Typical Verification</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Valve Bodies and Bonnets</th>
+                                <td>Ball, gate, globe, check, butterfly, control, balancing, and isolation valve components</td>
+                                <td>Copper-alloy, stainless, iron, steel, or aluminum castings and forgings</td>
+                                <td>NDT as applicable, CMM, pressure testing, leak testing, seat and thread inspection, material records</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Pump and Compressor Components</th>
+                                <td>Impellers, volutes, housings, covers, diffusers, shafts, compressor bodies, bearing supports</td>
+                                <td>Castings, forgings, die castings, machined wrought material</td>
+                                <td>Balance, dimensional inspection, pressure testing, surface finish, NDT, functional testing</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Manifolds and Flow Blocks</th>
+                                <td>Hydraulic, pneumatic, refrigerant, water, and process-fluid manifolds</td>
+                                <td>Machined billet, die casting, investment casting, forged blocks</td>
+                                <td>Cross-bore inspection, cleanliness, burr control, pressure decay, helium or tracer testing, dimensions</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Stems, Balls, Seats and Trim</th>
+                                <td>Valve stems, balls, discs, seats, cages, plugs, bushings, and wear components</td>
+                                <td>Machined bar, forgings, investment castings, coated or hardfaced components</td>
+                                <td>Roundness, concentricity, surface finish, hardness, coating, sealing, material verification</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Actuator and Control Housings</th>
+                                <td>Pneumatic, electric, hydraulic, compressor, regulator, and control-system housings</td>
+                                <td>Aluminum or zinc die castings, machined housings, iron or steel castings</td>
+                                <td>Sealing, ingress protection, dimensions, coating, pressure or leak testing, assembly checks</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="materials">
+            <div class="content-container">
+                <h2>Materials for HVAC, Plumbing and Fluid-Control Components</h2>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Material Family</th>
+                                <th scope="col">Representative Uses</th>
+                                <th scope="col">Primary Selection Drivers</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Lead-Free Copper Alloys and Bronzes</th>
+                                <td>Potable-water valves, fittings, faucets, manifolds, meter and plumbing hardware</td>
+                                <td>Lead content, dezincification, corrosion, machinability, pressure integrity, certification, and cost</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Austenitic Stainless Steels</th>
+                                <td>Food, beverage, chemical, water, refrigerant, pump, valve, and hygienic components</td>
+                                <td>Corrosion, temperature, cleanliness, passivation, weldability, finish, and fluid compatibility</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Duplex and Specialty Stainless Steels</th>
+                                <td>Chloride, seawater, process-fluid, high-strength valve and pump components</td>
+                                <td>Pitting, crevice corrosion, SCC, ferrite balance, heat treatment, welding, and NDT</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Aluminum and Zinc Alloys</th>
+                                <td>Actuator bodies, compressor housings, pneumatic valves, enclosures, covers, brackets</td>
+                                <td>Mass, castability, pressure tightness, corrosion, coating, threads, sealing, and volume</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Iron, Carbon Steel and Nickel Alloys</th>
+                                <td>Industrial valves, pumps, pressure equipment, steam, high-temperature, and corrosive services</td>
+                                <td>Pressure class, temperature, impact, corrosion, erosion, weldability, heat treatment, and cost</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    Review
+                    <a href="/aluminum-copper-alloys" class="highlight-link">aluminum and copper alloys</a>,
+                    <a href="/stainless-carbon-steel" class="highlight-link">stainless and carbon steels</a>,
+                    and
+                    <a href="/materials-technical-specs" class="highlight-link">materials and technical specifications</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="potable-water">
+            <div class="content-container">
+                <h2>Lead-Free Plumbing and Potable-Water Components</h2>
+                <p>
+                    Potable-water compliance applies to the complete product and certified scope, not merely to an alloy name.
+                </p>
                 <ul>
-                    <li>
-                        <strong>Smooth Internal Flow Paths:</strong> Investment casting yields ultra-smooth surface finishes (125 RMS) that optimize hydraulic efficiency and reduce fluid turbulence.
-                    </li>
-                    <li>
-                        <strong>Precision Threading & Sealing Faces:</strong> Live-tool CNC turning ensures perfect concentricity and true-position threads (NPT, BSPT, Metric).
-                    </li>
-                    <li>
-                        <strong>100% Pressure & Leak Testing:</strong> Pneumatic air-under-water and helium decay testing ensure zero porosity leaks before shipment.
-                    </li>
+                    <li><strong>Material definition:</strong> specify exact alloy, lead content, product form, casting or forging route, and approved supplier.</li>
+                    <li><strong>Wetted surfaces:</strong> identify all metals, polymers, elastomers, lubricants, coatings, solders, and joining materials exposed to water.</li>
+                    <li><strong>Manufacturing controls:</strong> manage melt segregation, recycled content, machining fluids, cleaning, plating, passivation, and contamination.</li>
+                    <li><strong>Certification:</strong> define applicable NSF, ANSI, CAN, SDWA, state, customer, or market requirements.</li>
+                    <li><strong>Documentation:</strong> confirm material certificates, declarations, test reports, certification listing, and product-marking requirements.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="casting">
+            <div class="content-container">
+                <h2>Pressure-Containing Castings for Valves, Pumps and Housings</h2>
+                <ul>
+                    <li><strong>Investment casting:</strong> complex valve bodies, impellers, manifolds, trim, fittings, and near-net internal or external geometry.</li>
+                    <li><strong>Sand casting:</strong> larger pump housings, volutes, valve bodies, covers, flanges, and industrial flow components.</li>
+                    <li><strong>Die casting:</strong> high-volume aluminum or zinc actuator bodies, compressor housings, pneumatic components, and enclosures.</li>
+                    <li><strong>Porosity planning:</strong> gating, venting, feeding, wall transitions, machining stock, vacuum assistance, and pressure requirements affect results.</li>
+                    <li><strong>Acceptance:</strong> pressure, leak, NDT, repair, impregnation, and documentation requirements should be defined before production.</li>
+                </ul>
+                <p>
+                    See
+                    <a href="/investment-casting" class="highlight-link">investment casting</a>,
+                    <a href="/sand-casting" class="highlight-link">sand casting</a>,
+                    and
+                    <a href="/aluminum-die-casting" class="highlight-link">aluminum die casting</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="machining">
+            <div class="content-container">
+                <h2>CNC Machining, Threads and Sealing Interfaces</h2>
+                <ul>
+                    <li><strong>Thread standards:</strong> NPT, NPTF, BSPP, BSPT, metric, UN, SAE, and customer-specific connections require the correct gauges and inspection method.</li>
+                    <li><strong>Sealing features:</strong> seats, bores, grooves, tapers, gasket faces, stem interfaces, and surface-finish requirements should be explicitly defined.</li>
+                    <li><strong>Cross bores and passages:</strong> manage tool access, burrs, chips, intersections, cleaning, and borescope inspection.</li>
+                    <li><strong>Concentricity and runout:</strong> datum strategy, fixturing, process sequence, and inspection should align moving and sealing components.</li>
+                    <li><strong>Surface finish:</strong> required Ra or RMS depends on sealing method, fluid, pressure, material, coating, and inspection location.</li>
+                </ul>
+                <p>
+                    See
+                    <a href="/precision-machining" class="highlight-link">precision machining</a>,
+                    <a href="/multi-axis-cnc" class="highlight-link">multi-axis CNC machining</a>,
+                    and
+                    <a href="/surface-finishing" class="highlight-link">surface finishing and roughness guidance</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="roughness">
+            <div class="content-container">
+                <h2>Flow-Path and Sealing Surface Finish</h2>
+                <p>
+                    Surface-finish targets should be specified by function rather than using one universal value for every valve or pump component.
+                </p>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Feature</th>
+                                <th scope="col">Typical Functional Concern</th>
+                                <th scope="col">Specification Considerations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Cast Internal Flow Path</th>
+                                <td>Pressure loss, turbulence, erosion, deposits, cleaning</td>
+                                <td>As-cast process, local geometry, inaccessible surfaces, coating, allowable roughness, and inspection method</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Elastomeric Seal Bore</th>
+                                <td>Leakage, seal wear, installation damage</td>
+                                <td>Ra, lay direction, waviness, burrs, lead-in, hardness, and coating</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Metal Seat or Ball Interface</th>
+                                <td>Shutoff leakage, friction, wear, galling</td>
+                                <td>Roundness, lapping, coating, hardness pairing, Ra, contact pattern, and cleanliness</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Gasket or Flange Face</th>
+                                <td>Gasket grip, sealing, blowout, relaxation</td>
+                                <td>Finish pattern, Ra range, flatness, serration, gasket type, pressure, and standard</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Bearing or Shaft Interface</th>
+                                <td>Fit, lubrication, wear, heat, runout</td>
+                                <td>Diameter, roundness, cylindricity, Ra, hardness, lubrication, and assembly method</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="testing">
+            <div class="content-container">
+                <h2>Pressure, Leak and Functional Testing</h2>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Test Method</th>
+                                <th scope="col">Typical Use</th>
+                                <th scope="col">Planning Considerations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Hydrostatic Testing</th>
+                                <td>Pressure-containing valve, pump, fitting, manifold, and housing components</td>
+                                <td>Pressure, medium, dwell, temperature, drying, corrosion prevention, safety, and acceptance</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Pneumatic Pressure Decay</th>
+                                <td>Production leak testing of sealed components and assemblies</td>
+                                <td>Test pressure, volume, stabilization, temperature compensation, cycle time, and allowable decay</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Air-Under-Water Testing</th>
+                                <td>Visual bubble detection for selected components</td>
+                                <td>Operator sensitivity, pressure, dwell, trapped air, immersion, cleanliness, and documentation</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Helium or Tracer-Gas Testing</th>
+                                <td>Low-leak-rate refrigeration, vacuum, gas, and high-integrity applications</td>
+                                <td>Leak-rate unit, calibration, background, fixture leakage, test mode, cleanliness, and cost</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Flow and Functional Testing</th>
+                                <td>Valve shutoff, Cv or flow behavior, actuator operation, pump or manifold performance</td>
+                                <td>Fluid, temperature, pressure, flow range, fixture, instrumentation, cycle count, and acceptance criteria</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    Testing frequency may be 100% or sample-based depending on risk, specification, validation, process capability, and customer requirements. It should not be assumed to be universal.
+                </p>
+            </div>
+        </section>
+
+        <section id="cleanliness">
+            <div class="content-container">
+                <h2>Cleanliness, Burr Control and Fluid Compatibility</h2>
+                <ul>
+                    <li><strong>Internal cleanliness:</strong> define particle size, particle mass, residual oil, chips, fibers, moisture, and packaging limits.</li>
+                    <li><strong>Burr control:</strong> cross holes, threads, valve passages, metering orifices, and seal areas require documented deburring and inspection.</li>
+                    <li><strong>Cleaning chemistry:</strong> confirm compatibility with alloy, coating, seals, refrigerant, oxygen, potable water, food, or process fluid.</li>
+                    <li><strong>Drying and preservation:</strong> control trapped moisture, flash corrosion, oxidation, desiccants, caps, plugs, and storage life.</li>
+                    <li><strong>Verification:</strong> borescope, gravimetric, particle-count, white-cloth, solvent extraction, or customer-specific methods may apply.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="coatings">
+            <div class="content-container">
+                <h2>Surface Finishing and Corrosion Protection</h2>
+                <ul>
+                    <li><strong>Stainless finishing:</strong> passivation, electropolishing, pickling, polishing, or customer-specified cleaning.</li>
+                    <li><strong>Aluminum finishing:</strong> conversion coating, anodizing, e-coating, powder coating, paint, or project-specific protection.</li>
+                    <li><strong>Copper-alloy finishing:</strong> plating, polishing, passivation, lacquer, or finish systems selected for appearance and service.</li>
+                    <li><strong>Wear and sealing surfaces:</strong> hard chrome alternatives, electroless nickel, thermal spray, hardfacing, or low-friction coatings where approved.</li>
+                    <li><strong>Dimensional impact:</strong> account for coating build, masking, threads, bores, seal fits, electrical contacts, and potable-water certification scope.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="assembly">
+            <div class="content-container">
+                <h2>Valve Assembly, Kitting and Packaging</h2>
+                <ul>
+                    <li><strong>Component integration:</strong> bodies, bonnets, stems, balls, discs, seats, seals, handles, actuators, fasteners, and fittings.</li>
+                    <li><strong>Torque control:</strong> define lubrication, sequence, torque-angle, tool calibration, traceability, and witness marking.</li>
+                    <li><strong>Seal and seat installation:</strong> control cleanliness, orientation, damage, compression, preload, and approved lubricants.</li>
+                    <li><strong>Functional testing:</strong> operating torque, shutoff, pressure, leakage, actuation, position, and visual inspection as required.</li>
+                    <li><strong>Packaging:</strong> caps, plugs, desiccants, cleanliness barriers, labels, instructions, kits, and customer-specific packaging.</li>
+                </ul>
+                <p>
+                    See
+                    <a href="/assembly-and-kitting" class="highlight-link">assembly and kitting</a>
+                    for broader module, hardware, and packaging support.
+                </p>
+            </div>
+        </section>
+
+        <section id="quality">
+            <div class="content-container">
+                <h2>Quality, Certification and Documentation Planning</h2>
+                <ul>
+                    <li><strong>Contract review:</strong> identify material, pressure class, connection standard, fluid, temperature, leak rate, test method, and records.</li>
+                    <li><strong>Certification scope:</strong> verify potable-water, pressure-equipment, sanitary, refrigerant, or customer-specific certification for the complete product.</li>
+                    <li><strong>Material records:</strong> define MTRs, alloy identity, chemistry, mechanical properties, heat treatment, plating, and traceability.</li>
+                    <li><strong>Inspection records:</strong> dimensional, thread, pressure, leak, cleanliness, coating, assembly, and final inspection reports.</li>
+                    <li><strong>Change control:</strong> manage material, source, process, seal, coating, thread, test method, tooling, and assembly changes.</li>
+                </ul>
+                <p>
+                    Review
+                    <a href="/quality-assurance-certifications" class="highlight-link">quality assurance and certifications</a>
+                    and
+                    <a href="/testing-inspection-capabilities" class="highlight-link">testing and inspection capabilities</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="supply-chain">
+            <div class="content-container">
+                <h2>HVAC and Fluid-Control Supply Chain Management</h2>
+                <ul>
+                    <li><strong>Approved sources:</strong> qualify foundries, forges, machine shops, seal suppliers, coating providers, laboratories, and assemblers.</li>
+                    <li><strong>Long-lead planning:</strong> coordinate brass or bronze, stainless, die-casting alloy, tooling, dies, patterns, seals, handles, and actuators.</li>
+                    <li><strong>Inventory strategy:</strong> define finished goods, service parts, component stock, packaging, ownership, and replenishment.</li>
+                    <li><strong>Seasonality:</strong> account for HVAC peaks, refrigeration demand, construction schedules, forecast volatility, and capacity constraints.</li>
+                    <li><strong>Logistics:</strong> manage customs, labeling, lot traceability, packaging, warehouse stock, and delivery milestones.</li>
+                </ul>
+                <p>
+                    Review
+                    <a href="/global-footprint-logistics" class="highlight-link">global footprint and logistics</a>
+                    for inventory, customs, warehousing, and delivery planning.
+                </p>
+            </div>
+        </section>
+
+        <section id="rfq-checklist">
+            <div class="content-container">
+                <h2>HVAC, Plumbing and Fluid-Control RFQ Checklist</h2>
+                <ul>
+                    <li><strong>Technical package:</strong> drawing, CAD, revision, bill of materials, component function, and design authority.</li>
+                    <li><strong>Material:</strong> alloy, product form, specification, wetted materials, seals, coating, and approved sources.</li>
+                    <li><strong>Service conditions:</strong> pressure, temperature, fluid, refrigerant, potable-water use, corrosion, cycle count, and environment.</li>
+                    <li><strong>Connections and surfaces:</strong> thread standard, gauge requirements, seal geometry, Ra or RMS, flatness, and cleanliness.</li>
+                    <li><strong>Testing:</strong> hydrostatic, pneumatic, helium, leak rate, flow, shutoff, cycle, sampling, and acceptance criteria.</li>
+                    <li><strong>Assembly and certification:</strong> supplied hardware, torque, labels, packaging, NSF or other certification, and documentation.</li>
+                    <li><strong>Commercial:</strong> prototype quantity, annual demand, lot size, tooling, target delivery, service parts, and program duration.</li>
                 </ul>
             </div>
         </section>

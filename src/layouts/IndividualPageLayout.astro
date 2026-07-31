@@ -59,8 +59,8 @@ const {
     // CTA
     ctaTitle = 'Discuss Your Manufacturing Project',
     ctaDescription = 'Contact our engineering team to review your drawings, requirements, and production goals.',
-    ctaButtonUrl = '/request-a-quote',
-    ctaButtonText = 'Request Quote',
+    ctaButtonUrl = '/request-for-quote',
+    ctaButtonText = 'Request for Quote',
 
     // Resources & Sources
     sourcesTitle = 'Sources',
@@ -206,40 +206,120 @@ const resolvedSocialImageAlt = socialImageAlt || heroImageAlt || pageTitle;
             </section>
 
             {sourcesList.length > 0 && (
-                <section class="space-y-4" aria-labelledby="sources-heading">
-                    <h2 id="sources-heading" class="text-3xl sm:text-4xl lg:text-4xl font-normal leading-tight text-black mt-10 mb-5">
-                        {sourcesTitle}
-                    </h2>
-                    <ul class="list-disc pl-6 space-y-2 text-sm sm:text-base text-slate-600">
-                        {sourcesList.map((source) => (
-                            <li>
-                                {source.url ? (
-                                    <a href={source.url} class="text-[#0363CE] hover:underline" target="_blank" rel="noopener noreferrer">
-                                        {source.label}
-                                    </a>
-                                ) : (
-                                    <span>{source.label}</span>
-                                )}
-                            </li>
-                        ))}
-                    </ul>
+                <section aria-labelledby="sources-heading">
+                    <details class="group overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+                        <summary
+                            id="sources-heading"
+                            class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-left transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 [&::-webkit-details-marker]:hidden"
+                        >
+                            <span class="text-xl sm:text-2xl font-medium leading-tight text-[#0B192C]">
+                                {sourcesTitle}
+                            </span>
+
+                            <span
+                                class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 transition-transform duration-200 group-open:rotate-180"
+                                aria-hidden="true"
+                            >
+                                <svg
+                                    viewBox="0 0 20 20"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-4 w-4"
+                                >
+                                    <path
+                                        d="M5 7.5L10 12.5L15 7.5"
+                                        stroke="currentColor"
+                                        stroke-width="1.75"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+                            </span>
+                        </summary>
+
+                        <div class="border-t border-slate-200 px-5 py-5">
+                            <h2 class="sr-only">{sourcesTitle}</h2>
+
+                            <p class="mb-4 text-sm leading-relaxed text-slate-500">
+                                Expand this section to review the external standards, technical organizations, and reference materials used for this page.
+                            </p>
+
+                            <ul class="list-disc space-y-2 pl-6 text-sm sm:text-base text-slate-600">
+                                {sourcesList.map((source) => (
+                                    <li>
+                                        {source.url ? (
+                                            <a
+                                                href={source.url}
+                                                class="text-[#0363CE] underline-offset-4 hover:underline"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                {source.label}
+                                            </a>
+                                        ) : (
+                                            <span>{source.label}</span>
+                                        )}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </details>
                 </section>
             )}
 
             {resourcesList.length > 0 && (
-                <section class="space-y-4 pt-4" aria-labelledby="resources-heading">
-                    <h2 id="resources-heading" class="text-3xl sm:text-4xl lg:text-4xl font-normal leading-tight text-black mt-10 mb-5">
-                        {resourcesTitle}
-                    </h2>
-                    <ul class="grid grid-cols-1 md:grid-xl-2 gap-x-8 gap-y-2 list-disc pl-6 text-sm sm:text-base text-slate-600">
-                        {resourcesList.map((res) => (
-                            <li>
-                                <a href={res.url} class="text-[#0363CE] hover:underline font-medium">
-                                    {res.label}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
+                <section aria-labelledby="resources-heading">
+                    <details class="group overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+                        <summary
+                            id="resources-heading"
+                            class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-left transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 [&::-webkit-details-marker]:hidden"
+                        >
+                            <span class="text-xl sm:text-2xl font-medium leading-tight text-[#0B192C]">
+                                {resourcesTitle}
+                            </span>
+
+                            <span
+                                class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 transition-transform duration-200 group-open:rotate-180"
+                                aria-hidden="true"
+                            >
+                                <svg
+                                    viewBox="0 0 20 20"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-4 w-4"
+                                >
+                                    <path
+                                        d="M5 7.5L10 12.5L15 7.5"
+                                        stroke="currentColor"
+                                        stroke-width="1.75"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+                            </span>
+                        </summary>
+
+                        <div class="border-t border-slate-200 px-5 py-5">
+                            <h2 class="sr-only">{resourcesTitle}</h2>
+
+                            <p class="mb-4 text-sm leading-relaxed text-slate-500">
+                                Explore related ForceBeyond material, process, quality, industry, and manufacturing resources.
+                            </p>
+
+                            <ul class="grid grid-cols-1 gap-x-8 gap-y-2 pl-6 text-sm sm:text-base text-slate-600 md:grid-cols-2">
+                                {resourcesList.map((res) => (
+                                    <li class="list-disc">
+                                        <a
+                                            href={res.url}
+                                            class="font-medium text-[#0363CE] underline-offset-4 hover:underline"
+                                        >
+                                            {res.label}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </details>
                 </section>
             )}
         </div>

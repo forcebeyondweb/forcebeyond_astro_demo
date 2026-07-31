@@ -2,8 +2,8 @@
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
 const pageTitle = 'Aerospace Titanium Machining: AS9100 Precision 5-Axis Finishing';
-const seoTitle = 'Aerospace Titanium Machining | AS9100 Precision 5-Axis CNC';
-const seoDescription = 'AS9100-certified aerospace titanium machining for Ti-6Al-4V (AMS 4928) and Beta alloys. ForceBeyond achieves ±0.005mm tolerances using high-speed 5-axis CNC centers and specialized cryogenic cooling to ensure zero alpha-case contamination.';
+const seoTitle = 'Aerospace Titanium Machining | AS9100 5-Axis CNC | ForceBeyond';
+const seoDescription = 'Precision aerospace titanium machining (Ti-6Al-4V, Ti-5553). AS9100 & ITAR compliant. Integrated Forge-to-Finish solutions in USA, S. Korea & Taiwan.';
 const faqs = [
     {
         q: "How do you handle ITAR-sensitive aerospace projects?",
@@ -49,115 +49,43 @@ const internalResources = [
     { label: "Closed Die Forging", url: "/closed-die-forging" },
     { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
     { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
 
     // Sand Casting & Steel Casting Resources
     { label: "Sand Casting", url: "/sand-casting" },
     { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
     { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
 ];
-// Service / Product Schema
+// Page-level schema migrated from the current forcebeyond.com page.
+// Global Place, Organization, and WebSite entities are defined in Layout.astro.
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/aerospace-titanium-machining#webpage",
-      "url": "https://www.forcebeyond.store/aerospace-titanium-machining",
-      "name": seoTitle,
-      "description": seoDescription,
+      "@id": "https://www.forcebeyond.store/aerospace-titanium-machining/#webpage",
+      "url": "https://www.forcebeyond.store/aerospace-titanium-machining/",
+      "name": "Aerospace Titanium Machining | AS9100 5-Axis CNC | ForceBeyond",
+      "datePublished": "2026-03-06T00:11:22-05:00",
+      "dateModified": "2026-03-06T09:42:10-05:00",
       "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
+        "@id": "https://www.forcebeyond.store/#website"
       },
-      "about": [
-        {
-          "@type": "Thing",
-          "name": "Titanium",
-          "sameAs": "https://en.wikipedia.org/wiki/Titanium"
-        },
-        {
-          "@type": "Thing",
-          "name": "Machining",
-          "sameAs": "https://en.wikipedia.org/wiki/Machining"
-        },
-        {
-          "@type": "Thing",
-          "name": "Aerospace engineering",
-          "sameAs": "https://en.wikipedia.org/wiki/Aerospace_engineering"
-        }
-      ]
+      "inLanguage": "en-US"
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/aerospace-titanium-machining#service",
-      "name": "Precision Aerospace Titanium Machining Services",
-      "serviceType": "Aerospace Titanium Machining Services",
-      "description": seoDescription,
-      "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
-        "knowsAbout": [
-          "Aerospace Titanium Machining",
-          "Ti-6Al-4V & Beta-C Machining",
-          "5-Axis CNC Milling & Turning",
-          "AS9100 Rev D Quality Management",
-          "High-Pressure Through-Spindle Coolant",
-          "Thin-Wall Structural Component Machining",
-          "Gall and Work-Hardening Mitigation"
-        ]
-      },
-      "areaServed": [
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "South Korea" },
-        { "@type": "Country", "name": "Taiwan" }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Aerospace Titanium Machining Capabilities",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "5-Axis Thin-Wall Aerospace Milling",
-              "description": "High-precision 5-axis CNC machining optimized for complex, thin-walled titanium structural components, bulkheads, and engine housings without part deflection or distortion."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Thermal Control & Cutting Fluid Systems",
-              "description": "Application of specialized high-pressure through-spindle coolant to counteract titanium's low thermal conductivity, safeguarding tool geometries and surface finishes from high heat."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Tier-1.5 Fully Finished Manufacturing",
-              "description": "Integrated pipeline matching raw titanium forgings/castings to precision finish machining, including full NDT inspection, coordinate measuring machine (CMM) reports, and AS9100 validation."
-            }
-          }
-        ]
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/aerospace-titanium-machining#faq",
-      "mainEntity": faqs.map(f => ({
-        "@type": "Question",
-        "name": f.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": f.a
+      "name": "Aerospace Titanium Machining",
+      "isRelatedTo": [
+        {
+          "@type": "Service",
+          "name": "Titanium Aerospace Forging"
+        },
+        {
+          "@type": "Service",
+          "name": "Titanium Aerospace Casting"
         }
-      }))
+      ]
     }
   ]
 };

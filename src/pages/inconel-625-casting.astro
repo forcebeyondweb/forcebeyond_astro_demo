@@ -2,8 +2,8 @@
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
 const pageTitle = 'Inconel 625 Casting Services: Co-Owned Foundries in USA, South Korea & Taiwan';
-const seoTitle = 'Inconel 625 Casting Services: Co-Owned Foundries in USA, South Korea & Taiwan';
-const seoDescription = 'AS9100-certified Inconel 625 casting with VIM & HIP for zero-defect nuclear SMR & marine parts. Global dual-shore production with 5-axis CNC machining.';
+const seoTitle = 'Inconel 625 Casting Services | Nuclear SMR &amp; Marine | ForceBeyond';
+const seoDescription = 'AS9100 certified Inconel 625 vacuum investment casting. Specialized in corrosion-resistant VIM & HIP components for Nuclear & Marine from USA, South Korea, & Taiwan.';
 const faqs = [
     {
         q: "Why choose ForceBeyond as your Inconel casting supplier?",
@@ -56,114 +56,45 @@ const internalResources = [
     { label: "Closed Die Forging", url: "/closed-die-forging" },
     { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
     { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
 
     // Sand Casting & Steel Casting Resources
     { label: "Sand Casting", url: "/sand-casting" },
     { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
     { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
 ];
-// Service / Product Schema
+// Page-level schema migrated from the current forcebeyond.com page.
+// Global Place, Organization, and WebSite entities are defined in Layout.astro.
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/inconel-625-casting#webpage",
-      "url": "https://www.forcebeyond.store/inconel-625-casting",
-      "name": seoTitle,
-      "description": seoDescription,
+      "@id": "https://www.forcebeyond.store/inconel-625-casting/#webpage",
+      "url": "https://www.forcebeyond.store/inconel-625-casting/",
+      "name": "Inconel 625 Casting Services | Nuclear SMR & Marine | ForceBeyond",
+      "datePublished": "2022-10-21T11:35:23-04:00",
+      "dateModified": "2026-03-04T14:32:19-05:00",
       "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
+        "@id": "https://www.forcebeyond.store/#website"
       },
-      "about": [
-        {
-          "@type": "Thing",
-          "name": "Inconel 625",
-          "sameAs": "https://en.wikipedia.org/wiki/Inconel_625"
-        },
-        {
-          "@type": "Thing",
-          "name": "Investment Casting",
-          "sameAs": "https://en.wikipedia.org/wiki/Investment_casting"
-        },
-        {
-          "@type": "Thing",
-          "name": "Hot Isostatic Pressing",
-          "sameAs": "https://en.wikipedia.org/wiki/Hot_isostatic_pressing"
-        }
-      ]
+      "inLanguage": "en-US"
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/inconel-625-casting#service",
-      "name": "Inconel 625 Investment Casting Services",
-      "serviceType": "Inconel 625 Investment Casting Services",
-      "description": seoDescription,
+      "@id": "https://www.forcebeyond.store/inconel-625-casting/#service",
+      "serviceType": "Inconel 625 Vacuum Precision Casting",
       "provider": {
         "@type": "Organization",
-        "@id": "https://www.forcebeyond.store#organization",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
-        "knowsAbout": [
-          "Inconel 625 (UNS N06625 / AMS 5581 / ASTM B443)",
-          "Vacuum Induction Melting (VIM)",
-          "Hot Isostatic Pressing (HIP)",
-          "AS9100D Certification",
-          "5-Axis CNC Machining",
-          "Subsea & Nuclear SMR Hardware"
-        ]
+        "url": "https://www.forcebeyond.store/"
       },
+      "description": "AS9100 certified Inconel 625 casting for Nuclear SMR and subsea applications. Utilizing VIM and HIP across our USA, South Korea, and Taiwan facilities.",
       "areaServed": [
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "South Korea" },
-        { "@type": "Country", "name": "Taiwan" }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Inconel 625 Casting & Manufacturing Capabilities",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Inconel 625 Precision Investment Casting",
-              "description": "AS9100-certified VIM investment casting for high-corrosion marine, subsea, and nuclear components."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Hot Isostatic Pressing (HIP)",
-              "description": "100% HIP process to eliminate internal microporosity and maximize crevice and pitting corrosion resistance."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "5-Axis Precision CNC Machining & Solution Annealing",
-              "description": "Complete finish machining and thermal treatment per AMS 5581 and ASTM B443 specifications."
-            }
-          }
-        ]
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/inconel-625-casting#faq",
-      "mainEntity": faqs.map(f => ({
-        "@type": "Question",
-        "name": f.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": f.a
-        }
-      }))
+        "United States",
+        "South Korea",
+        "Taiwan"
+      ]
     }
   ]
 };

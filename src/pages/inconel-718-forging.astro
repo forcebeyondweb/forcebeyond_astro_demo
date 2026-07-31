@@ -2,8 +2,8 @@
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
 const pageTitle = `Inconel 718 Forging: High-Strength Aerospace & Energy Components`;
-const seoTitle = 'Inconel 718 Forging: High-Strength Aerospace & Energy Components';
-const seoDescription = 'Custom Inconel 718 forging services for aerospace, energy, oil and gas, and other high-temperature, high-stress industrial applications.';
+const seoTitle = 'Inconel 718 Forging Services | Aerospace &amp; Power Gen | ForceBeyond';
+const seoDescription = 'AS9100 certified Inconel 718 forging. Specialized in seamless rolled rings, closed-die forgings, and turbine disks from our USA, South Korea, & Taiwan facilities.';
 const faqs = [
     {
         q: "How does ForceBeyond manage Inconel 718 lead times?",
@@ -48,50 +48,44 @@ const internalResources = [
     { label: "Closed Die Forging", url: "/closed-die-forging" },
     { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
     { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
 
     // Sand Casting & Steel Casting Resources
     { label: "Sand Casting", url: "/sand-casting" },
     { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
     { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
 ];
-// Service / Product Schema
+// Page schema matched to the current forcebeyond.com WordPress structure
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebPage",
+      "@id": "https://www.forcebeyond.store/inconel-718-forging/#webpage",
+      "url": "https://www.forcebeyond.store/inconel-718-forging/",
+      "name": "Inconel 718 Forging Services | Aerospace & Power Gen | ForceBeyond",
+      "datePublished": "2026-03-03T14:53:21-05:00",
+      "dateModified": "2026-03-04T14:49:17-05:00",
+      "isPartOf": {
+        "@id": "https://www.forcebeyond.store/#website"
+      },
+      "inLanguage": "en-US"
+    },
+    {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/inconel-718-forging#service",
-      "name": "Inconel 718 Forging Services",
+      "@id": "https://www.forcebeyond.store/inconel-718-forging/#service",
+      "serviceType": "Inconel 718 Forging Services",
       "provider": {
         "@type": "Organization",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
+        "url": "https://www.forcebeyond.store/"
       },
-      "description": seoDescription,
-      "serviceType": "Inconel 718 Superalloy Forging",
-      "areaServed": "United States, South Korea, Taiwan",
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Inconel 718 Forging Capabilities",
-        "itemListElement": [
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Closed-Die Forging" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seamless Rolled Rings" } },
-          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Open-Die Forging" } }
-        ]
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/inconel-718-forging#faq",
-      "mainEntity": faqs.map(f => ({
-        "@type": "Question",
-        "name": f.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": f.a
-        }
-      }))
+      "description": "AS9100 certified Inconel 718 forging services including seamless rolled rings and closed-die forging from USA, South Korea, and Taiwan facilities.",
+      "areaServed": [
+        "United States",
+        "South Korea",
+        "Taiwan"
+      ]
     }
   ]
 };
@@ -134,7 +128,7 @@ const pageSchema = {
                             ForceBeyond provides AS9100-certified forging solutions with optimized grain refinement from our co-owned global facilities.
                         </p>
                         <p>
-                            As a core pillar of our comprehensive <a href="/superalloy-forging-services" class="highlight-link">Superalloy Forging Services</a>, 
+                            As a core pillar of our comprehensive <a href="/high-performance-superalloy-forging" class="highlight-link">Superalloy Forging Services</a>, 
                             ForceBeyond specializes in the precision manufacturing of <strong>Inconel 718 (UNS N07718)</strong> components. 
                             Engineered for mission-critical environments, our forged 718 provides a superior structural alternative to cast parts, 
                             offering the refined grain structure and fatigue resistance required for high-stress applications up to <strong>700°C (1,292°F)</strong>.

@@ -2,8 +2,8 @@
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
 const pageTitle = 'Titanium Casting Supplier: AS9100-Certified Co-Owned Foundry Network';
-const seoTitle = 'Titanium Casting Services | Vacuum Investment & Sand Casting | ForceBeyond';
-const seoDescription = 'AS9100-certified titanium casting services specializing in Ti-6Al-4V and commercially pure grades. We utilize vacuum induction investment casting and advanced sand casting across our USA, South Korea, and Taiwan hubs to produce high-density, near-net-shape components.';
+const seoTitle = 'Titanium Casting Supplier | AS9100 Co-Owned &amp; Operated Foundry';
+const seoDescription = 'Tier-1.5 titanium casting supplier. We co-own and operate AS9100-certified vacuum investment casting foundries in the USA, S. Korea, and Taiwan. Specialized in VIM & HIP.';
 const faqs = [
     {
         q: "Is cast titanium as strong as forged titanium?",
@@ -52,115 +52,128 @@ const internalResources = [
     { label: "Closed Die Forging", url: "/closed-die-forging" },
     { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
     { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
 
     // Sand Casting & Steel Casting Resources
     { label: "Sand Casting", url: "/sand-casting" },
     { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
     { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
 ];
-// Service / Product Schema
+// Page-level schema migrated from the current forcebeyond.com page.
+// Global Place, Organization, and WebSite entities are defined in Layout.astro.
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/titanium-casting#webpage",
-      "url": "https://www.forcebeyond.store/titanium-casting",
-      "name": seoTitle,
-      "description": seoDescription,
+      "@id": "https://www.forcebeyond.store/titanium-casting/#webpage",
+      "url": "https://www.forcebeyond.store/titanium-casting/",
+      "name": "Titanium Casting Supplier | AS9100 Co-Owned & Operated Foundry",
+      "datePublished": "2017-12-27T16:00:50-05:00",
+      "dateModified": "2026-03-07T19:09:33-05:00",
       "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
+        "@id": "https://www.forcebeyond.store/#website"
       },
-      "about": [
-        {
-          "@type": "Thing",
-          "name": "Titanium",
-          "sameAs": "https://en.wikipedia.org/wiki/Titanium"
-        },
-        {
-          "@type": "Thing",
-          "name": "Casting",
-          "sameAs": "https://en.wikipedia.org/wiki/Casting"
-        },
-        {
-          "@type": "Thing",
-          "name": "Investment casting",
-          "sameAs": "https://en.wikipedia.org/wiki/Investment_casting"
-        }
-      ]
+      "inLanguage": "en-US"
     },
     {
-      "@type": "Service",
-      "@id": "https://www.forcebeyond.store/titanium-casting#service",
-      "name": "Precision Titanium Casting Services",
-      "serviceType": "Titanium Casting Services",
-      "description": seoDescription,
-      "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
-        "knowsAbout": [
-          "Precision Titanium Casting",
-          "Vacuum Induction Investment Casting",
-          "Industrial Titanium Sand Casting",
-          "Ti-6Al-4V & Commercially Pure Titanium",
-          "Alpha-Case Layer Mitigation (10^-4 Torr Vacuum)",
-          "AS9100 Rev D Quality Management",
-          "Aerospace, Defense, and Deep-Sea Components"
-        ]
+      "@type": "Organization",
+      "name": "ForceBeyond",
+      "url": "https://www.forcebeyond.store/titanium-casting/",
+      "logo": "https://www.forcebeyond.store/media/forcebeyond-logo-svg.webp",
+      "image": "https://www.forcebeyond.store/media/forcebeyond-logo-svg.webp",
+      "description": "Tier-1.5 titanium casting supplier. ForceBeyond co-owns and operates AS9100-certified vacuum investment casting foundries specializing in VIM and HIP processing.",
+      "telephone": "+1-302-995-6588",
+      "priceRange": "$$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "261 Quigley Blvd, Suite 18",
+        "addressLocality": "New Castle",
+        "addressRegion": "DE",
+        "postalCode": "19720",
+        "addressCountry": "US"
       },
+      "certification": "AS9100D",
       "areaServed": [
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "South Korea" },
-        { "@type": "Country", "name": "Taiwan" }
+        "United States",
+        "Canada",
+        "Europe",
+        "Asia-Pacific"
+      ],
+      "location": [
+        {
+          "@type": "LocalBusiness",
+          "name": "ForceBeyond USA HQ",
+          "image": "https://www.forcebeyond.store/media/forcebeyond-logo-svg.webp",
+          "telephone": "+1-302-995-6588",
+          "priceRange": "$$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "261 Quigley Blvd, Suite 18",
+            "addressLocality": "New Castle",
+            "addressRegion": "DE",
+            "postalCode": "19720",
+            "addressCountry": "US"
+          }
+        },
+        {
+          "@type": "LocalBusiness",
+          "name": "ForceBeyond South Korea Foundry",
+          "image": "https://www.forcebeyond.store/media/forcebeyond-logo-svg.webp",
+          "telephone": "+1-302-995-6588",
+          "priceRange": "$$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Gyeonggi-do Industrial Zone",
+            "addressLocality": "Gyeonggi-do",
+            "postalCode": "10000",
+            "addressCountry": "KR"
+          }
+        },
+        {
+          "@type": "LocalBusiness",
+          "name": "ForceBeyond Taiwan Facility",
+          "image": "https://www.forcebeyond.store/media/forcebeyond-logo-svg.webp",
+          "telephone": "+1-302-995-6588",
+          "priceRange": "$$$",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "Taichung Precision Machinery Park",
+            "addressLocality": "Taichung",
+            "postalCode": "408",
+            "addressCountry": "TW"
+          }
+        }
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Titanium Casting Capabilities",
+        "name": "Titanium Casting Services",
         "itemListElement": [
           {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Vacuum Induction Investment Casting",
-              "description": "High-density lost-wax process executing mold pours under deep vacuum parameters down to 10^-4 torr to avoid interstitial gas pick-up and eliminate alpha-case brittleness."
-            }
+            "@type": "Service",
+            "name": "Titanium Investment Casting",
+            "url": "https://www.forcebeyond.store/titanium-investment-casting/"
           },
           {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Industrial Titanium Sand Casting",
-              "description": "Advanced rammed-graphite and specialized sand molding designed for larger structural housings, fluid handling pump components, and high-strength industrial structures."
-            }
+            "@type": "Service",
+            "name": "Industrial Titanium Sand Casting",
+            "url": "https://www.forcebeyond.store/industrial-titanium-sand-casting/"
           },
           {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Tier-1.5 Post-Cast Finish Machining",
-              "description": "Turnkey supply chain configuration moving raw titanium castings directly into multi-axis CNC cells for final dimensional modifications, coupled with X-ray, dye penetrant, and NDT validation."
-            }
+            "@type": "Service",
+            "name": "Aerospace Titanium Casting",
+            "url": "https://www.forcebeyond.store/titanium-aerospace-casting/"
           }
         ]
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/titanium-casting#faq",
-      "mainEntity": faqs.map(f => ({
-        "@type": "Question",
-        "name": f.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": f.a
-        }
-      }))
+      },
+      "knowsAbout": [
+        "Vacuum Induction Melting (VIM)",
+        "Hot Isostatic Pressing (HIP)",
+        "Ti-6Al-4V Grade 5",
+        "AS9100",
+        "ASTM B367",
+        "Near-Net-Shape Manufacturing"
+      ]
     }
   ]
 };

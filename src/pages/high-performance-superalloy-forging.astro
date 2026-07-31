@@ -2,8 +2,8 @@
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
 const pageTitle = 'Superalloy Forging Services: Co-Owned Factories in USA, South Korea & Taiwan';
-const seoTitle = 'Superalloy Forging Services | Inconel 718 & 625 | ForceBeyond';
-const seoDescription = 'AS9100-certified Tier-1.5 superalloy forging services specializing in Inconel 718 (AMS 5663) and Inconel 625. Our co-owned factories in the USA, South Korea, and Taiwan provide supply chain resilience and in-house precision machining for aerospace, defense, and nuclear applications.';
+const seoTitle = 'Superalloy Forging Services | Inconel 718 &amp; 625 | ForceBeyond';
+const seoDescription = 'AS9100 certified Tier-1.5 forging for Inconel 718, 625, & Waspaloy. Co-owned factories in USA, South Korea, & Taiwan for aerospace & nuclear precision.';
 const faqs = [
     {
         q: " Why choose ForceBeyond as your Inconel 718 forging supplier?",
@@ -52,71 +52,50 @@ const internalResources = [
     { label: "Closed Die Forging", url: "/closed-die-forging" },
     { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
     { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
 
     // Sand Casting & Steel Casting Resources
     { label: "Sand Casting", url: "/sand-casting" },
     { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
     { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
 ];
-// Service / Product Schema
+// Page-level schema migrated from the current forcebeyond.com page.
+// Global Place, Organization, and WebSite entities are defined in Layout.astro.
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/superalloy-forging-services#webpage",
-      "url": "https://www.forcebeyond.store/superalloy-forging-services",
-      "name": seoTitle,
-      "description": seoDescription,
+      "@id": "https://www.forcebeyond.store/high-performance-superalloy-forging/#webpage",
+      "url": "https://www.forcebeyond.store/high-performance-superalloy-forging/",
+      "name": "Superalloy Forging Services | Inconel 718 & 625 | ForceBeyond",
+      "datePublished": "2026-02-16T12:39:37-05:00",
+      "dateModified": "2026-03-04T15:05:28-05:00",
       "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
+        "@id": "https://www.forcebeyond.store/#website"
       },
-      "about": [
-        {
-          "@type": "Thing",
-          "name": "Superalloy",
-          "sameAs": "https://en.wikipedia.org/wiki/Superalloy"
-        },
-        {
-          "@type": "Thing",
-          "name": "Forging",
-          "sameAs": "https://en.wikipedia.org/wiki/Forging"
-        },
-        {
-          "@type": "Thing",
-          "name": "Inconel",
-          "sameAs": "https://en.wikipedia.org/wiki/Inconel"
-        }
-      ]
+      "inLanguage": "en-US"
     },
     {
-      "@type": "Service",
-      "@id": "https://www.forcebeyond.store/superalloy-forging-services#service",
-      "name": "High-Performance Superalloy Forging Services",
-      "serviceType": "Superalloy Forging Services",
-      "description": seoDescription,
-      "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
-        "knowsAbout": [
-          "Inconel 718 Forging",
-          "Inconel 625 Forging",
-          "Seamless Rolled Ring Forging",
-          "Tier-1.5 Manufacturing Integration",
-          "AS9100 Certified Quality Systems",
-          "Aerospace, Nuclear SMR & Power Generation Components"
-        ]
+      "@type": "Organization",
+      "name": "ForceBeyond",
+      "description": "Global Tier-1.5 supplier specializing in Inconel 718 and 625 forging for aerospace, nuclear SMR, and power generation.",
+      "url": "https://www.forcebeyond.store/high-performance-superalloy-forging/",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "261 Quigley Blvd, Suite 18",
+        "addressLocality": "New Castle",
+        "addressRegion": "DE",
+        "postalCode": "19720",
+        "addressCountry": "US"
       },
-      "areaServed": [
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "South Korea" },
-        { "@type": "Country", "name": "Taiwan" }
+      "knowsAbout": [
+        "Inconel 718 Forging",
+        "Inconel 625 Forging",
+        "Seamless Rolled Ring Forging",
+        "Closed-Die Forging",
+        "AMS 5662",
+        "AMS 5663"
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -126,40 +105,38 @@ const pageSchema = {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Tier-1.5 Integrated Forging & Machining",
-              "description": "Integration of high-tonnage superalloy forging with in-house CNC machining under a single AS9100 quality umbrella to perfectly align grain flow with structural stress axes."
+              "name": "Inconel 718 Forging",
+              "description": "Precision forged Inconel 718 rings and disks for aerospace engines and high-pressure applications."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Tri-Regional Geopolitical Resilience",
-              "description": "Redundant and diversified supply chains utilizing co-owned factories across the USA (ITAR/Defense prototypes), South Korea (heavy nuclear SMR/power gen infrastructure), and Taiwan (high-efficiency industrial gas turbine blades)."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "High-Integrity Rolled Ring & Near-Net-Shape Forging",
-              "description": "Advanced metallurgical lifecycle management for Inconel 718 and 625 minimizing buy-to-fly ratios and ensuring deep grain refinement for high-fatigue components."
+              "name": "Inconel 625 Forging",
+              "description": "Corrosion-resistant forged 625 components for Nuclear SMR and marine environments."
             }
           }
         ]
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/superalloy-forging-services#faq",
-      "mainEntity": faqs.map(f => ({
-        "@type": "Question",
-        "name": f.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": f.a
+      },
+      "location": [
+        {
+          "@type": "Place",
+          "name": "USA Engineering & Prototype Center"
+        },
+        {
+          "@type": "Place",
+          "name": "South Korea Heavy Forging Facility"
+        },
+        {
+          "@type": "Place",
+          "name": "Taiwan Precision Forging & Machining Center"
         }
-      }))
+      ],
+      "certification": [
+        "AS9100 Rev D",
+        "ISO 9001:2015"
+      ]
     }
   ]
 };
@@ -246,14 +223,14 @@ const pageSchema = {
                 <p>
                     Traditional supply chains often break down during the hand-off between the forge shop and the machine shop. 
                     ForceBeyond eliminates this risk through our <strong>Tier-1.5 manufacturing model</strong>. We integrate our high-tonnage 
-                    <a href="/superalloy-forging-services" class="highlight-link">Superalloy Forging</a> operations with our in-house <a href="/superalloy-machining-services" class="highlight-link">Superalloy Machining</a> centers.
+                    <a href="/high-performance-superalloy-forging" class="highlight-link">Superalloy Forging</a> operations with our in-house <a href="/high-performance-superalloy-machining" class="highlight-link">Superalloy Machining</a> centers.
                 </p>
 
                 <p>
                     By managing the thermal-mechanical processing and the final CNC material removal under a single AS9100 quality 
                     umbrella, we ensure that the grain flow is perfectly aligned with the part’s primary stress axes. 
                     For complex geometries where forging is not feasible—such as thin-walled housings or intricate valve 
-                    manifolds—we offer seamless integration with our <a href="/superalloy-casting-services" class="highlight-link">Superalloy Casting</a> solutions, ensuring you always 
+                    manifolds—we offer seamless integration with our <a href="/high-performance-superalloy-casting" class="highlight-link">Superalloy Casting</a> solutions, ensuring you always 
                     have the optimal near-net-shape starting point for your project.
                 </p>
                 

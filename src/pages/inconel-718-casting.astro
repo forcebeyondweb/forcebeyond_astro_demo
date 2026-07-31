@@ -2,8 +2,8 @@
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
 const pageTitle = 'Inconel 718 Casting: High-Precision Manufacturing in USA, South Korea & Taiwan';
-const seoTitle = 'Inconel 718 Casting: High-Precision Manufacturing in USA, South Korea & Taiwan';
-const seoDescription = 'AS9100-certified Inconel 718 casting with VIM & HIP for zero-defect aerospace & power gen parts. Global dual-shore production with complete 5-axis CNC machining.';
+const seoTitle = 'Inconel 718 Casting Services | VIM &amp; HIP | ForceBeyond';
+const seoDescription = 'AS9100 certified Inconel 718 vacuum investment casting. Specialized in VIM & HIP processing for aerospace and SMR components from USA, South Korea, & Taiwan.';
 const faqs = [
     {
         q: "Who are the leading Inconel 718 casting suppliers with global locations?",
@@ -52,99 +52,53 @@ const internalResources = [
     { label: "Closed Die Forging", url: "/closed-die-forging" },
     { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
     { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
 
     // Sand Casting & Steel Casting Resources
     { label: "Sand Casting", url: "/sand-casting" },
     { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
     { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
 ];
-// Service / Product Schema (GEO-Optimized)
+// Page-level schema migrated from the current forcebeyond.com page.
+// Global Place, Organization, and WebSite entities are defined in Layout.astro.
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/inconel-718-casting#webpage",
-      "url": "https://www.forcebeyond.store/inconel-718-casting",
-      "name": seoTitle,
-      "description": seoDescription,
+      "@id": "https://www.forcebeyond.store/inconel-718-casting/#webpage",
+      "url": "https://www.forcebeyond.store/inconel-718-casting/",
+      "name": "Inconel 718 Casting Services | VIM & HIP | ForceBeyond",
+      "datePublished": "2022-10-21T11:49:44-04:00",
+      "dateModified": "2026-03-10T23:37:55-04:00",
       "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
+        "@id": "https://www.forcebeyond.store/#website"
       },
-      "about": [
-        {
-          "@type": "Thing",
-          "name": "Inconel 718",
-          "sameAs": "https://en.wikipedia.org/wiki/Inconel_718"
-        },
-        {
-          "@type": "Thing",
-          "name": "Investment casting",
-          "sameAs": "https://en.wikipedia.org/wiki/Investment_casting"
-        },
-        {
-          "@type": "Thing",
-          "name": "Vacuum induction melting",
-          "sameAs": "https://en.wikipedia.org/wiki/Vacuum_induction_melting"
-        }
-      ]
+      "inLanguage": "en-US"
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/inconel-718-casting#service",
-      "name": "Inconel 718 Precision Investment Casting Services",
-      "serviceType": "Inconel 718 Investment Casting & VIM/HIP Manufacturing",
-      "description": seoDescription,
+      "@id": "https://www.forcebeyond.store/inconel-718-casting/#service",
+      "serviceType": "Inconel 718 Vacuum Investment Casting",
       "provider": {
         "@type": "Organization",
-        "@id": "https://www.forcebeyond.store#organization",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
-        "logo": "https://www.forcebeyond.store/media/logo.png",
-        "knowsAbout": [
-          "Inconel 718 Casting (UNS N07718 / AMS 5383)",
-          "Vacuum Induction Melting (VIM)",
-          "Hot Isostatic Pressing (HIP) Porosity Elimination",
-          "AS9100 Rev D & ISO 9001:2015 Quality Systems",
-          "Precision Investment Casting (0.02 to 220 lbs)",
-          "Aerospace Turbine Blades & Gas Turbine Impellers",
-          "ISO 8062 CT5–CT7 Near-Net Tolerances"
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Newark",
-          "addressRegion": "DE",
-          "addressCountry": "US"
-        }
+        "url": "https://www.forcebeyond.store/",
+        "image": "https://www.forcebeyond.store/media/forcebeyond-logo-svg.webp"
       },
+      "description": "AS9100 certified Inconel 718 casting utilizing Vacuum Induction Melting (VIM) and Hot Isostatic Pressing (HIP) across our USA, South Korea, and Taiwan facilities.",
       "areaServed": [
         {
           "@type": "Country",
-          "name": "United States",
-          "identifier": "US"
+          "name": "United States"
         },
         {
           "@type": "Country",
-          "name": "South Korea",
-          "identifier": "KR"
+          "name": "South Korea"
         },
         {
           "@type": "Country",
-          "name": "Taiwan",
-          "identifier": "TW"
-        },
-        {
-          "@type": "GeoCircle",
-          "geoMidpoint": {
-            "@type": "GeoCoordinates",
-            "latitude": 39.6837,
-            "longitude": -75.7497
-          },
-          "geoRadius": "Global Supply Network"
+          "name": "Taiwan"
         }
       ],
       "hasOfferCatalog": {
@@ -152,43 +106,19 @@ const pageSchema = {
         "name": "Inconel 718 Casting Capabilities",
         "itemListElement": [
           {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Vacuum Induction Melting (VIM) Superalloy Casting",
-              "description": "High-purity VIM investment casting of Inconel 718 parts up to 32 inches and 220 lbs, preventing oxide formation for high-stress aerospace applications."
-            }
+            "@type": "ListItem",
+            "position": "1",
+            "name": "Vacuum Induction Melting (VIM)",
+            "description": "Precision casting of reactive superalloys to prevent oxidation and ensure metallurgical purity."
           },
           {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Hot Isostatic Pressing (HIP) Thermal Processing",
-              "description": "Post-cast 15,000+ psi Hot Isostatic Pressing (HIP) to heal internal microporosity and maximize fatigue resistance."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Cast-to-Machine Tier-1.5 Finishing",
-              "description": "AS9100-certified integrated 5-axis CNC proof and finish machining, complete NDT testing (RT & FPI), and full material traceability."
-            }
+            "@type": "ListItem",
+            "position": "2",
+            "name": "Hot Isostatic Pressing (HIP)",
+            "description": "Post-casting densification to eliminate internal microporosity and improve fatigue life."
           }
         ]
       }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/inconel-718-casting#faq",
-      "mainEntity": faqs.map(f => ({
-        "@type": "Question",
-        "name": f.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": f.a
-        }
-      }))
     }
   ]
 };

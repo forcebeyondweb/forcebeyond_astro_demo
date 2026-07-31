@@ -2,8 +2,8 @@
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
 const pageTitle = 'Near-Net-Shape (NNS) Titanium Machining: High-Efficiency Finishing';
-const seoTitle = 'Near-Net-Shape Titanium Machining | Optimize Buy-to-Fly Ratios';
-const seoDescription = 'Precision CNC finishing for near-net-shape titanium forgings and castings. ForceBeyond minimizes raw material waste, reducing buy-to-fly ratios down to 3.5:1 or lower for high-yield Ti-6Al-4V flight and industrial components.';
+const seoTitle = 'NNS Titanium Machining | Near-Net-Shape Finishing Specialists';
+const seoDescription = 'High-efficiency machining of NNS titanium forgings and castings. Reduce CNC cycle times by 30%. Tier-1.5 integrated oversight in USA, S. Korea & Taiwan.';
 const faqs = [
     {
         q: "Can you machine NNS blanks provided by other forges?",
@@ -52,115 +52,43 @@ const internalResources = [
     { label: "Closed Die Forging", url: "/closed-die-forging" },
     { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
     { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
 
     // Sand Casting & Steel Casting Resources
     { label: "Sand Casting", url: "/sand-casting" },
     { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
     { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
 ];
-// Service / Product Schema
+// Page-level schema migrated from the current forcebeyond.com page.
+// Global Place, Organization, and WebSite entities are defined in Layout.astro.
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/near-net-shape-titanium-machining#webpage",
-      "url": "https://www.forcebeyond.store/near-net-shape-titanium-machining",
-      "name": seoTitle,
-      "description": seoDescription,
+      "@id": "https://www.forcebeyond.store/near-net-shape-titanium-machining/#webpage",
+      "url": "https://www.forcebeyond.store/near-net-shape-titanium-machining/",
+      "name": "NNS Titanium Machining | Near-Net-Shape Finishing Specialists",
+      "datePublished": "2026-03-05T23:57:04-05:00",
+      "dateModified": "2026-03-06T13:45:35-05:00",
       "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
+        "@id": "https://www.forcebeyond.store/#website"
       },
-      "about": [
-        {
-          "@type": "Thing",
-          "name": "Near net shape",
-          "sameAs": "https://en.wikipedia.org/wiki/Near_net_shape"
-        },
-        {
-          "@type": "Thing",
-          "name": "Titanium alloy",
-          "sameAs": "https://en.wikipedia.org/wiki/Titanium_alloy"
-        },
-        {
-          "@type": "Thing",
-          "name": "Machining",
-          "sameAs": "https://en.wikipedia.org/wiki/Machining"
-        }
-      ]
+      "inLanguage": "en-US"
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/near-net-shape-titanium-machining#service",
-      "name": "Near-Net-Shape Titanium Machining Services",
-      "serviceType": "Near-Net-Shape Titanium Machining Services",
-      "description": seoDescription,
-      "provider": {
-        "@type": "Organization",
-        "id": "https://www.forcebeyond.store#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
-        "knowsAbout": [
-          "Near-Net-Shape (NNS) Machining",
-          "Buy-to-Fly Ratio Optimization",
-          "Post-Forging & Post-Casting CNC Finishing",
-          "Titanium Rough Skin Tooling Strategies",
-          "Tool Deflection Mitigation",
-          "5-Axis CNC Milling for Rough Envelopes",
-          "Tier-1.5 Supply Chain Integration"
-        ]
-      },
-      "areaServed": [
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "South Korea" },
-        { "@type": "Country", "name": "Taiwan" }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Near-Net-Shape Titanium Machining Capabilities",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Buy-to-Fly Ratio Optimization",
-              "description": "Precision finishing of titanium forgings and castings designed to drastically minimize raw material waste, often reducing the buy-to-fly ratio to 3.5:1 or lower for high-value structural components."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "5-Axis Casting & Forging Finishing",
-              "description": "Advanced multi-axis CNC machining specialized in envelope alignment and rough-skin removal for near-net-shape components up to 60 inches, guaranteeing final tolerances of ±0.005mm."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Integrated Tier-1.5 Manufacturing",
-              "description": "End-to-end supply chain solution directly linking foundry output with AS9100-certified finish machining to eliminate multi-vendor friction, transport costs, and lead times."
-            }
-          }
-        ]
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/near-net-shape-titanium-machining#faq",
-      "mainEntity": faqs.map(f => ({
-        "@type": "Question",
-        "name": f.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": f.a
+      "name": "Near-Net-Shape Titanium Machining",
+      "isRelatedTo": [
+        {
+          "@type": "Service",
+          "name": "Near-Net-Shape Titanium Forging"
+        },
+        {
+          "@type": "Service",
+          "name": "Titanium Investment Casting"
         }
-      }))
+      ]
     }
   ]
 };

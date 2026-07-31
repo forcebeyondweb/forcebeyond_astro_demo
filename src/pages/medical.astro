@@ -1,97 +1,145 @@
 ---
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Medical Device Precision Casting & CNC Machining';
-const seoTitle = 'Medical Device Precision Casting & CNC Machining | ForceBeyond';
-const seoDescription = 'ForceBeyond supplies ISO 13485-aligned ultra-high precision castings, Swiss CNC turning, and micro-machining for medical device OEMs.';
+const pageTitle = 'Medical Device Components: Precision Casting, Forging & CNC Machining';
+const seoTitle = 'Medical Device Components | Precision Casting & CNC Machining';
+const seoDescription = 'ForceBeyond supports medical device, surgical instrument, diagnostic, orthopedic, and life-science programs with precision castings, forgings, Swiss turning, micro-machining, passivation, electropolishing, inspection, traceability, and project-specific quality documentation.';
+
+const canonicalUrl = 'https://www.forcebeyond.store/medical/';
+const socialImage = 'https://www.forcebeyond.store/media/medical-ct-scanner-diagnostic-imaging-room.webp';
 
 const faqs = [
     {
-        q: "Are ForceBeyond’s medical implant materials biocompatible?",
-        a: "Yes. We pour and machine implant-grade materials compliant with ASTM F136 (Titanium ELI) and ASTM F75 (Cobalt-Chrome), accompanied by full 3.1 chemical and biocompatibility test reports."
+        q: "Can ForceBeyond support implant-grade titanium or cobalt-chrome components?",
+        a: "ForceBeyond may support customer-specified titanium, cobalt-chrome, stainless steel, and other medical-material programs through qualified sources and processes. Implant suitability, biocompatibility, material specification, manufacturing route, validation, regulatory status, and final device approval must be established by the device manufacturer and governing technical file."
     },
     {
-        q: "How does ForceBeyond inspect sub-micron medical parts?",
-        a: "We utilize non-contact 3D optical/vision measuring systems and micro-CMMs inside temperature-controlled metrology labs."
+        q: "Can ForceBeyond support ISO 13485 medical-device programs?",
+        a: "Medical-device programs may be supported through facilities and suppliers whose quality-system scope is appropriate for the quoted process. ISO 13485 status, site address, issuing body, covered activities, certificate validity, and customer-specific requirements should be confirmed for the actual production source before award."
+    },
+    {
+        q: "What inspection methods are used for small or high-precision medical components?",
+        a: "Depending on size, geometry, tolerance, and risk, inspection may include optical vision systems, CMM, micro-CMM, laser scanning, profilometry, form measurement, thread gauges, surface inspection, material verification, cleanliness testing, and project-specific functional tests. Capability must be demonstrated for the actual feature and production process."
+    },
+    {
+        q: "What information is needed for a medical component quote?",
+        a: "Provide drawings, CAD, device classification, implantable or non-implantable status, material and specification, annual quantity, critical characteristics, cleanliness, surface finish, passivation or electropolishing, inspection, traceability, validation, packaging, regulatory or quality clauses, and delivery requirements."
     }
 ];
 
-// Sources
 const sources = [
-    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
-    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
-    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
-    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
-    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
-    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
+    { label: 'U.S. Food and Drug Administration - Medical Device Manufacturing and Quality Resources', url: 'https://www.fda.gov/medical-devices' },
+    { label: 'ISO - Medical Device Quality Management Standards', url: 'https://www.iso.org/' },
+    { label: 'ASTM International - Medical and Surgical Materials Standards', url: 'https://www.astm.org/' },
+    { label: 'AAMI - Medical Device Standards and Technical Resources', url: 'https://www.aami.org/' },
+    { label: 'ASM International - Medical Materials and Surface Engineering', url: 'https://www.asminternational.org/' },
+    { label: 'SAE International - Materials and Precision Manufacturing Standards', url: 'https://www.sae.org/standards' }
 ];
 
-// Resources
 const internalResources = [
-    // Die Casting Resources
-    { label: "Die Casting Overview", url: "/die-casting" },
-    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "/zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "/a356-t6-casting" },
-    { label: "Magnesium Casting", url: "/magnesium-casting" },
+    // Industry Hubs
+    { label: "Aerospace", url: "/aerospace" },
+    { label: "Space, Aerospace & Defense", url: "/space-defense" },
+    { label: "HVAC, Plumbing & Fluid Control", url: "/hvac-flow" },
+    { label: "Automotive & Transportation", url: "/automotive" },
 
-    // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "/investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
+    // Casting and Forging
+    { label: "Casting Capabilities", url: "/casting" },
+    { label: "Investment Casting", url: "/investment-casting" },
     { label: "Titanium Investment Casting", url: "/titanium-investment-casting" },
     { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting" },
-
-    // Forging Resources
-    { label: "Forging Capabilities Overview", url: "/forging" },
-    { label: "Open Die Forging", url: "/open-die-forging" },
+    { label: "Forging Capabilities", url: "/forging" },
     { label: "Closed Die Forging", url: "/closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
     { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
 
-    // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "/sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
+    // Machining and Secondary Operations
+    { label: "Precision Machining", url: "/precision-machining" },
+    { label: "High-Precision Component Machining", url: "/high-precision-machining" },
+    { label: "Multi-Axis CNC Milling & Turning", url: "/multi-axis-cnc" },
+    { label: "Titanium Machining", url: "/titanium-machining" },
+    { label: "Heat Treatment", url: "/heat-treatment" },
+    { label: "Surface Finishing & Coating", url: "/surface-finishing" },
+    { label: "Assembly & Kitting", url: "/assembly-and-kitting" },
+
+    // Materials, Quality, and Supply Chain
+    { label: "Titanium Alloys", url: "/titanium-alloys" },
+    { label: "Superalloys & Exotic Metals", url: "/superalloys-exotic-metals" },
+    { label: "Stainless Steel & Carbon Steel", url: "/stainless-carbon-steel" },
+    { label: "Materials & Technical Specifications", url: "/materials-technical-specs" },
+    { label: "Material Cross-Reference Charts", url: "/material-cross-reference-charts" },
+    { label: "Manufacturing Design Guides", url: "/manufacturing-design-guides" },
+    { label: "Quality Assurance & Certifications", url: "/quality-assurance-certifications" },
+    { label: "Testing & Inspection Capabilities", url: "/testing-inspection-capabilities" },
+    { label: "Global Footprint & Logistics", url: "/global-footprint-logistics" }
 ];
 
-// Page Schema
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/medical#webpage",
-      "url": "https://www.forcebeyond.store/medical",
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
+        "@id": "https://www.forcebeyond.store/#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
-      }
+        "url": "https://www.forcebeyond.store/"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": socialImage
+      },
+      "breadcrumb": {
+        "@id": `${canonicalUrl}#breadcrumb`
+      },
+      "about": [
+        { "@type": "Thing", "name": "Medical device components" },
+        { "@type": "Thing", "name": "Surgical instrument manufacturing" },
+        { "@type": "Thing", "name": "Medical precision machining" },
+        { "@type": "Thing", "name": "Medical investment casting" },
+        { "@type": "Thing", "name": "Medical device quality documentation" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.forcebeyond.store/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Industries",
+          "item": "https://www.forcebeyond.store/industries/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Medical Devices",
+          "item": canonicalUrl
+        }
+      ]
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/medical#service",
-      "name": "Medical Device Precision Component Manufacturing",
-      "serviceType": "Healthcare Precision Manufacturing",
+      "@id": `${canonicalUrl}#service`,
+      "name": "Medical Device Component Manufacturing",
+      "serviceType": "Precision Casting, Forging, Machining, Finishing and Inspection for Medical Devices",
       "description": seoDescription,
+      "url": canonicalUrl,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
-        "knowsAbout": [
-          "ISO 13485-Aligned Precision Manufacturing",
-          "Biocompatible Titanium & Cobalt-Chrome Implant Components",
-          "Swiss CNC Micro-Turning & Sub-Micron Tolerances",
-          "Electropolishing & ASTM A967 Citric/Nitric Passivation",
-          "Non-Contact Optical Measuring & Micro-CMM Inspection"
-        ]
+        "@id": "https://www.forcebeyond.store/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
@@ -101,24 +149,32 @@ const pageSchema = {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Orthopedic & Spinal Implants",
-              "description": "Biocompatible Titanium (Ti-6Al-4V ELI) and Cobalt-Chrome (CoCrMo) hip/knee implants and bone screws."
+              "name": "Orthopedic and Spinal Components",
+              "description": "Project-specific titanium, cobalt-chrome, stainless, and polymer components for orthopedic, spinal, fixation, trial, and instrument systems."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Surgical Instruments & Endoscopic Clamps",
-              "description": "Precision surgical-grade stainless steel instrument handles, scalpel blanks, and clamp assemblies."
+              "name": "Surgical Instruments and Endoscopic Hardware",
+              "description": "Precision-cast, forged, and machined handles, clamps, jaws, shafts, links, housings, and instrument components."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "High-Performance Polymer Machining",
-              "description": "Micro-machined PEEK and Delrin insulators, surgical guides, and trial implants."
+              "name": "Diagnostic and Capital Equipment Components",
+              "description": "Machined housings, brackets, motion components, frames, fluid hardware, thermal parts, and equipment assemblies."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Inspection, Traceability and Validation Support",
+              "description": "Project-specific dimensional inspection, material verification, surface-finish measurement, cleanliness, traceability, validation records, and quality documentation."
             }
           }
         ]
@@ -126,13 +182,13 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/medical#faq",
-      "mainEntity": faqs.map(f => ({
+      "@id": `${canonicalUrl}#faq`,
+      "mainEntity": faqs.map((faq) => ({
         "@type": "Question",
-        "name": f.q,
+        "name": faq.q,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": f.a
+          "text": faq.a
         }
       }))
     }
@@ -143,83 +199,110 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
     pageTitle={pageTitle}
     heroImage="/media/robotic-surgery-system-modern-operating-room-hero.webp"
-    heroImageAlt="Wide view of a robotic surgical system, operating table, and surgical light inside a modern hospital operating room."
-    faqSectionTitle="Frequently Asked Questions"
+    heroImageAlt="Robotic surgery system and precision medical equipment in a modern operating room"
+    heroImageWidth={1920}
+    heroImageHeight={1080}
+    socialImage={socialImage}
+    socialImageAlt="Medical device precision casting and CNC machining"
+    faqSectionTitle="Frequently Asked Questions: Medical Device Components"
     faqItems={faqs}
-    ctaTitle="Advance Your Medical Device Manufacturing"
-    ctaDescription="Partner with our ISO 13485-aligned engineering team for biocompatible, sub-micron precision medical castings and micro-machined components."
-    sourcesTitle="Sources"
+    ctaTitle="Review a Medical Device Component Program"
+    ctaDescription="Send your drawings, device classification, material, annual volume, critical characteristics, cleanliness, surface finish, passivation or electropolishing, inspection, traceability, validation, packaging, quality clauses, and delivery requirements for an engineering review."
+    ctaButtonText="Request a Medical Component Review"
+    sourcesTitle="Medical Device, Materials and Quality References"
     sourcesList={sources}
-    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesTitle="Related Medical, Casting, Machining, Materials and Quality Resources"
     resourcesList={internalResources}
 >
-
     <div slot="full-width" class="individual-content">
 
         <section id="overview">
             <div class="content-container">
-                
-                <h2>Medical Device Precision Casting & CNC Machining</h2>
+                <h2>Manufacturing Support for Medical Device and Life-Science Components</h2>
 
                 <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
                     <div>
                         <p>
-                            ForceBeyond is an ISO 13485-aligned manufacturing partner specializing in ultra-high precision castings, Swiss-style CNC turning, and micro-machining for the medical device and healthcare sectors. Medical components require biocompatibility, sub-micron tolerances, and flawless surface integrity.
+                            Medical device components may require tight dimensional control, controlled surfaces, material traceability, cleanliness, corrosion resistance, repeatable inspection, and documented process validation.
                         </p>
                         <p>
-                            Operating in climate-controlled manufacturing cells, ForceBeyond processes surgical-grade stainless steels (316LVM, 17-4 PH), Titanium (Ti-6Al-4V ELI), and Cobalt-Chrome alloys (CoCrMo).
+                            ForceBeyond supports surgical instrument, orthopedic, spinal, diagnostic, laboratory, imaging, and capital-equipment programs through
+                            <a href="/investment-casting" class="highlight-link">investment casting</a>,
+                            <a href="/forging" class="highlight-link">forging</a>,
+                            <a href="/precision-machining" class="highlight-link">precision machining</a>,
+                            Swiss-style turning, surface finishing, inspection, assembly, and supply-chain coordination.
+                        </p>
+                        <p>
+                            Device classification, implantable status, biocompatibility, regulatory submission, sterilization validation, quality-system scope, and final device approval remain the responsibility of the legal manufacturer and governing technical file.
                         </p>
                     </div>
+
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
                                 src="/media/medical-ct-scanner-diagnostic-imaging-room.webp"
-                                alt="High-resolution view of a modern medical CT scanner and patient table inside a clean diagnostic imaging room"
+                                alt="Medical diagnostic imaging equipment with precision-machined structural and motion components"
+                                width="1200"
+                                height="900"
+                                loading="lazy"
+                                decoding="async"
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <section id="materials-matrix">
+        <section id="application-matrix">
             <div class="content-container">
-                <h2>Medical Materials & Process Matrix</h2>
+                <h2>Medical Device Application Matrix</h2>
+
                 <div class="content-table-wrapper">
                     <table>
                         <thead>
                             <tr>
-                                <th scope="col">Alloy Family</th>
-                                <th scope="col">Material Standards</th>
-                                <th scope="col">Primary Medical Applications</th>
+                                <th scope="col">Application Area</th>
+                                <th scope="col">Representative Components</th>
+                                <th scope="col">Potential Manufacturing Routes</th>
+                                <th scope="col">Key Engineering Requirements</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <tr>
-                                <th scope="row">Titanium Alloys</th>
-                                <td>ASTM F136 (Ti-6Al-4V ELI)</td>
-                                <td>Lightweight, biocompatible, non-magnetic material for orthopedic hip/knee implants and spinal bone screws.</td>
+                                <th scope="row">Orthopedic and Spinal Systems</th>
+                                <td>Fixation components, implant trials, instrument parts, cages, screws, rods, connectors, handles</td>
+                                <td>Titanium or cobalt-chrome casting, forging, Swiss turning, milling, polishing, passivation, inspection</td>
+                                <td>Material pedigree, fatigue, surface integrity, dimensional control, traceability, cleanliness, and validation</td>
                             </tr>
                             <tr>
-                                <th scope="row">Cobalt-Chrome</th>
-                                <td>ASTM F75 CoCrMo Alloy</td>
-                                <td>Exceptional wear resistance and polishability for orthopedic knee joint castings and dental prostheses.</td>
+                                <th scope="row">Surgical Instruments</th>
+                                <td>Handles, clamps, jaws, forceps, scalpel components, shafts, links, housings, ratchets</td>
+                                <td>Investment casting, forging, stamping, machining, heat treatment, polishing, passivation, assembly</td>
+                                <td>Corrosion resistance, articulation, edge and burr control, cleanability, surface finish, and repeated reprocessing</td>
                             </tr>
                             <tr>
-                                <th scope="row">Medical Stainless</th>
-                                <td>316LVM, 17-4 PH, 440C</td>
-                                <td>Surgical instrument handles, scalpel blanks, endoscopic clamps, and diagnostic equipment frames.</td>
+                                <th scope="row">Endoscopic and Minimally Invasive Devices</th>
+                                <td>Micro shafts, jaws, links, tubes, housings, connectors, actuation and fluid components</td>
+                                <td>Swiss turning, micro-machining, laser or approved joining, electropolishing, precision assembly</td>
+                                <td>Miniature geometry, concentricity, burr control, cleanliness, articulation, sealing, and inspection access</td>
                             </tr>
                             <tr>
-                                <th scope="row">High-Performance Polymers</th>
-                                <td>PEEK, Delrin</td>
-                                <td>Micro-machined insulators, surgical guides, and trial implants.</td>
+                                <th scope="row">Diagnostic and Imaging Equipment</th>
+                                <td>Motion components, brackets, housings, frames, fluid manifolds, thermal hardware, precision mounts</td>
+                                <td>Machining, casting, forging, sheet-metal or fabricated routes, coating, assembly</td>
+                                <td>Alignment, stiffness, vibration, thermal stability, cleanliness, appearance, serviceability, and repeatability</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Laboratory and Life-Science Equipment</th>
+                                <td>Pump components, valves, manifolds, instrument frames, sample-handling hardware, fluid and motion components</td>
+                                <td>Stainless or polymer machining, investment casting, passivation, electropolishing, assembly, leak testing</td>
+                                <td>Chemical compatibility, cleanliness, sealing, surface finish, dimensional control, and documentation</td>
                             </tr>
                         </tbody>
                     </table>
@@ -227,22 +310,314 @@ const pageSchema = {
             </div>
         </section>
 
-        <section id="micro-machining-finishing">
+        <section id="component-portfolio">
             <div class="content-container">
-                <h2>Micro-Machining, Passivation & Sterile Finishing</h2>
+                <h2>Medical Component Portfolio</h2>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Component Family</th>
+                                <th scope="col">Representative Hardware</th>
+                                <th scope="col">Common Product Forms</th>
+                                <th scope="col">Typical Verification</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Implant and Fixation Components</th>
+                                <td>Screws, rods, connectors, cages, plates, trial components, joint and fixation hardware</td>
+                                <td>Machined wrought titanium or cobalt alloys, castings, forgings, approved polymers</td>
+                                <td>Material records, dimensions, surface finish, mechanical testing, cleanliness, traceability, validation records</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Surgical Instrument Hardware</th>
+                                <td>Handles, jaws, clamps, shafts, hinges, links, ratchets, housings, cutting-tool components</td>
+                                <td>Stainless castings, forgings, machined bar, stamped or fabricated parts</td>
+                                <td>Dimensional inspection, hardness, corrosion-related finish, articulation, visual inspection, assembly checks</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Micro-Machined Components</th>
+                                <td>Pins, screws, sleeves, tubes, couplings, miniature shafts, connectors, instrument parts</td>
+                                <td>Swiss-turned bar, micro-milled components, approved tube and wire forms</td>
+                                <td>Optical inspection, micro-CMM, thread inspection, form, burr control, surface finish, cleanliness</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Diagnostic Equipment Components</th>
+                                <td>Brackets, frames, mounts, housings, motion components, thermal parts, fluid-control hardware</td>
+                                <td>Machined aluminum or stainless, castings, forgings, assemblies</td>
+                                <td>CMM, alignment, runout, flatness, coating, functional inspection, packaging</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Fluid and Life-Science Hardware</th>
+                                <td>Valves, pump parts, manifolds, fittings, instrument bodies, sample-path components</td>
+                                <td>Stainless machining, investment casting, polymer machining, assembled modules</td>
+                                <td>Leak testing, cleanliness, passivation, surface finish, dimensional inspection, material verification</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="materials">
+            <div class="content-container">
+                <h2>Materials for Medical Device Components</h2>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Material Family</th>
+                                <th scope="col">Representative Uses</th>
+                                <th scope="col">Primary Selection Drivers</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Titanium Alloys</th>
+                                <td>Orthopedic, spinal, fixation, instrument, structural, and lightweight medical components</td>
+                                <td>Strength-to-weight ratio, corrosion, modulus, fatigue, surface treatment, machining, and validated biocompatibility</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Cobalt-Chrome Alloys</th>
+                                <td>Wear-resistant joint, dental, instrument, bearing, and high-polish components</td>
+                                <td>Wear, corrosion, polishability, casting or machining route, fatigue, surface finish, and validation</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Medical and Surgical Stainless Steels</th>
+                                <td>Instruments, shafts, housings, clamps, fasteners, diagnostic and fluid components</td>
+                                <td>Corrosion, hardness, heat treatment, passivation, magnetic response, machining, and repeated cleaning</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">High-Performance Polymers</th>
+                                <td>Instrument handles, guides, insulators, trial components, bearings, fixtures, and device housings</td>
+                                <td>Temperature, chemical compatibility, sterilization, creep, dimensional stability, additives, and traceability</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Aluminum and Specialty Alloys</th>
+                                <td>Capital equipment, imaging systems, housings, brackets, thermal and motion components</td>
+                                <td>Mass, stiffness, thermal performance, coating, cleaning, dimensional stability, and appearance</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
                 <p>
-                    Medical components demand rigorous post-processing:
+                    Material standards define requirements for a material or product form, but they do not by themselves establish device biocompatibility, implant approval, or regulatory clearance.
                 </p>
+
+                <p>
+                    Review
+                    <a href="/titanium-alloys" class="highlight-link">titanium alloys</a>,
+                    <a href="/superalloys-exotic-metals" class="highlight-link">superalloys and exotic metals</a>,
+                    and
+                    <a href="/materials-technical-specs" class="highlight-link">materials and technical specifications</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="casting">
+            <div class="content-container">
+                <h2>Investment Casting for Medical and Surgical Components</h2>
                 <ul>
-                    <li>
-                        <strong>Swiss CNC Micro-Turning:</strong> Holds sub-micron tolerances (&plusmn;0.0001&rdquo;) on long, thin orthopedic screws and pins.
-                    </li>
-                    <li>
-                        <strong>Electropolishing:</strong> Micro-smooths stainless and Cobalt-Chrome surfaces, eliminating micro-burrs and creating a mirror-like finish.
-                    </li>
-                    <li>
-                        <strong>Citric/Nitric Passivation (ASTM A967):</strong> Dissolves free iron particles to prevent corrosion and maintain a sterile surface.
-                    </li>
+                    <li><strong>Complex near-net geometry:</strong> instrument handles, jaws, housings, brackets, fixation components, and integrated features.</li>
+                    <li><strong>Material control:</strong> alloy source, melt practice, ceramic system, heat treatment, and traceability should be defined by specification.</li>
+                    <li><strong>Surface and dimensional planning:</strong> account for as-cast roughness, draft, gates, blend zones, machining stock, and finishing allowance.</li>
+                    <li><strong>Inspection:</strong> radiography, penetrant inspection, dimensional inspection, material testing, metallography, or other methods may apply.</li>
+                    <li><strong>Validation:</strong> process qualification, first article, cleaning, finishing, and change control should be established before production.</li>
+                </ul>
+                <p>
+                    See
+                    <a href="/investment-casting" class="highlight-link">investment casting</a>,
+                    <a href="/titanium-investment-casting" class="highlight-link">titanium investment casting</a>,
+                    and
+                    <a href="/stainless-steel-casting" class="highlight-link">stainless steel casting</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="machining">
+            <div class="content-container">
+                <h2>Swiss Turning and Micro-Machining for Medical Components</h2>
+                <ul>
+                    <li><strong>Long and slender parts:</strong> screws, pins, shafts, sleeves, connectors, and instrument components may benefit from Swiss-style support near the cutting zone.</li>
+                    <li><strong>Small features:</strong> threads, flats, cross holes, slots, grooves, undercuts, and miniature interfaces require controlled tooling and inspection.</li>
+                    <li><strong>Burr control:</strong> cutting parameters, tool condition, edge preparation, secondary deburring, and inspection are critical for miniature parts.</li>
+                    <li><strong>Surface integrity:</strong> manage tool marks, smearing, residual stress, work hardening, heat, contamination, and required Ra.</li>
+                    <li><strong>Capability:</strong> tolerance and process-capability claims must be demonstrated for the actual material, feature, machine, fixture, gauge, and production volume.</li>
+                </ul>
+                <p>
+                    See
+                    <a href="/precision-machining" class="highlight-link">precision machining</a>,
+                    <a href="/high-precision-machining" class="highlight-link">high-precision machining</a>,
+                    and
+                    <a href="/titanium-machining" class="highlight-link">titanium machining</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="surface-finishing">
+            <div class="content-container">
+                <h2>Passivation, Electropolishing and Surface Finishing</h2>
+                <ul>
+                    <li><strong>Passivation:</strong> removes free iron and supports the corrosion resistance of compatible stainless components when performed to the applicable procedure.</li>
+                    <li><strong>Electropolishing:</strong> may reduce microscopic peaks, improve cleanability, and alter surface appearance on suitable stainless or cobalt-alloy components.</li>
+                    <li><strong>Mechanical polishing:</strong> controls roughness, lay, blending, visual finish, and contact surfaces.</li>
+                    <li><strong>Deburring and edge condition:</strong> define allowable edge break, radius, sharpness, burr height, and inspection method.</li>
+                    <li><strong>Surface measurement:</strong> specify Ra, Rz, RMS, waviness, lay direction, cutoff, filter, stylus direction, and inspection location where relevant.</li>
+                </ul>
+                <p>
+                    These processes do not make a component sterile. Sterility is established through a validated sterilization process applied to the finished device or packaged product.
+                </p>
+                <p>
+                    Review
+                    <a href="/surface-finishing" class="highlight-link">surface finishing and coating</a>
+                    for roughness and process-selection guidance.
+                </p>
+            </div>
+        </section>
+
+        <section id="cleanliness">
+            <div class="content-container">
+                <h2>Cleanliness, Contamination Control and Packaging</h2>
+                <ul>
+                    <li><strong>Cleaning requirements:</strong> define oils, particles, fibers, polishing media, passivation residues, ionic contamination, and bioburden-related controls where applicable.</li>
+                    <li><strong>Material compatibility:</strong> verify cleaning chemistry against alloy, polymer, coating, marking, lubricant, and subsequent processing.</li>
+                    <li><strong>Drying and handling:</strong> control water spots, corrosion, gloves, contact materials, trays, caps, and clean handling.</li>
+                    <li><strong>Verification:</strong> visual, gravimetric, particle-count, extraction, ionic, or customer-specific methods may apply.</li>
+                    <li><strong>Packaging:</strong> protect critical surfaces, cleanliness, identification, lot control, and transport condition; sterile-barrier packaging requires separate validated controls.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="inspection">
+            <div class="content-container">
+                <h2>Dimensional Inspection and Metrology</h2>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Method</th>
+                                <th scope="col">Typical Use</th>
+                                <th scope="col">Planning Considerations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Optical Vision Measurement</th>
+                                <td>Edges, profiles, small features, threads, burrs, and non-contact dimensional inspection</td>
+                                <td>Lighting, contrast, focus, edge algorithm, fixturing, magnification, calibration, and uncertainty</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">CMM and Micro-CMM</th>
+                                <td>GD&T, bores, positions, profiles, form, and complex three-dimensional features</td>
+                                <td>Probe size, access, force, fixturing, temperature, datum strategy, uncertainty, and program validation</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Surface Profilometry</th>
+                                <td>Ra, Rz, waviness, lay, sealing, sliding, polished, or patient-contact surfaces</td>
+                                <td>Stylus or optical method, cutoff, filter, direction, sampling length, location, and surface geometry</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Form and Thread Measurement</th>
+                                <td>Roundness, cylindricity, straightness, concentricity, pitch, major and minor diameter</td>
+                                <td>Instrument capability, thread standard, gauge correlation, temperature, and fixture alignment</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Visual and Surface Inspection</th>
+                                <td>Burrs, scratches, discoloration, pits, blend marks, coating, polishing, and cosmetic requirements</td>
+                                <td>Lighting, magnification, acceptance samples, viewing distance, inspector training, and defect definitions</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    “Sub-micron” should not be used as a blanket capability claim. Measurement uncertainty and process capability must be suitable for the specific tolerance and feature.
+                </p>
+            </div>
+        </section>
+
+        <section id="quality">
+            <div class="content-container">
+                <h2>Medical Device Quality Planning and Traceability</h2>
+                <ul>
+                    <li><strong>Contract review:</strong> identify device classification, drawing, specification, critical characteristics, cleanliness, validation, and documentation.</li>
+                    <li><strong>Quality-system scope:</strong> verify the exact facility, certificate, issuing body, covered processes, and customer approvals.</li>
+                    <li><strong>Risk-based controls:</strong> align process controls, inspection, validation, sampling, and records with component risk and intended use.</li>
+                    <li><strong>Traceability:</strong> define material heat or lot, process batch, inspection, nonconformance, rework, cleaning, packaging, and shipment linkage.</li>
+                    <li><strong>Change control:</strong> manage source, material, machine, tool, program, process, finish, cleaning, packaging, and inspection changes.</li>
+                </ul>
+                <p>
+                    Review
+                    <a href="/quality-assurance-certifications" class="highlight-link">quality assurance and certifications</a>
+                    and
+                    <a href="/testing-inspection-capabilities" class="highlight-link">testing and inspection capabilities</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="validation">
+            <div class="content-container">
+                <h2>Process Validation and Production Transfer</h2>
+                <ul>
+                    <li><strong>Feasibility and DFM:</strong> review material, geometry, tolerance, inspection access, surface finish, cleaning, and assembly.</li>
+                    <li><strong>First article and qualification:</strong> confirm dimensional results, material, process records, surface condition, cleanliness, and functional requirements.</li>
+                    <li><strong>IQ, OQ and PQ support:</strong> project-specific installation, operational, and performance qualification records may be required for validated processes.</li>
+                    <li><strong>Measurement-system validation:</strong> verify gauge suitability, calibration, method validation, repeatability, reproducibility, and uncertainty.</li>
+                    <li><strong>Production transfer:</strong> control tooling, programs, fixtures, approved sources, process parameters, work instructions, and training before scale-up.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="documentation">
+            <div class="content-container">
+                <h2>Material and Quality Documentation</h2>
+                <ul>
+                    <li><strong>Material records:</strong> define chemistry, mechanical properties, heat or lot, product form, heat treatment, and source certification.</li>
+                    <li><strong>Inspection records:</strong> dimensional, surface finish, visual, NDT, hardness, cleanliness, or functional reports as required.</li>
+                    <li><strong>Process records:</strong> casting, forging, machining, heat treatment, passivation, electropolishing, cleaning, marking, and assembly.</li>
+                    <li><strong>Validation records:</strong> protocol, acceptance criteria, deviations, results, approvals, and revalidation triggers.</li>
+                    <li><strong>Retention and access:</strong> define record duration, electronic format, revision control, security, customer access, and audit expectations.</li>
+                </ul>
+                <p>
+                    EN 10204 3.1 documentation, biocompatibility reports, sterilization records, and regulatory evidence are not automatically included with every shipment. The required documentation package should be contractually defined.
+                </p>
+            </div>
+        </section>
+
+        <section id="supply-chain">
+            <div class="content-container">
+                <h2>Medical Device Supply Chain and Source Qualification</h2>
+                <ul>
+                    <li><strong>Approved sources:</strong> qualify material mills, foundries, forges, machine shops, heat treaters, finishers, cleaners, laboratories, and assemblers.</li>
+                    <li><strong>Long-lead materials:</strong> plan implant or surgical grades, specialty sizes, cast alloy, forging stock, polymer lots, and test material.</li>
+                    <li><strong>Supplier controls:</strong> define audits, quality agreements, change notification, traceability, nonconformance, corrective action, and record access.</li>
+                    <li><strong>Inventory and lifecycle:</strong> plan safety stock, shelf life, service parts, tooling retention, obsolescence, and supplier changes.</li>
+                    <li><strong>Logistics:</strong> protect cleanliness, surfaces, identification, lot segregation, temperature-sensitive materials, and delivery milestones.</li>
+                </ul>
+                <p>
+                    Review
+                    <a href="/global-footprint-logistics" class="highlight-link">global footprint and logistics</a>
+                    for supplier, inventory, packaging, customs, and delivery planning.
+                </p>
+            </div>
+        </section>
+
+        <section id="rfq-checklist">
+            <div class="content-container">
+                <h2>Medical Device Component RFQ Checklist</h2>
+                <ul>
+                    <li><strong>Technical package:</strong> drawing, CAD, revision, bill of materials, device function, classification, and design authority.</li>
+                    <li><strong>Material:</strong> alloy or polymer, product form, specification, condition, heat treatment, approved source, and traceability.</li>
+                    <li><strong>Risk and intended use:</strong> implantable or non-implantable status, patient contact, duration, load, wear, corrosion, and cleaning environment.</li>
+                    <li><strong>Critical characteristics:</strong> dimensions, GD&T, threads, Ra or RMS, edge condition, burr limits, cleanliness, and appearance.</li>
+                    <li><strong>Processes:</strong> casting, forging, machining, passivation, electropolishing, heat treatment, marking, cleaning, and assembly.</li>
+                    <li><strong>Quality and validation:</strong> ISO 13485 scope, inspection, validation, sampling, traceability, records, change control, and audit requirements.</li>
+                    <li><strong>Commercial:</strong> prototype quantity, annual demand, lot size, tooling, target delivery, packaging, service parts, and program duration.</li>
                 </ul>
             </div>
         </section>

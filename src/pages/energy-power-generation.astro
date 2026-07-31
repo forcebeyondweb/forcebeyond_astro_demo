@@ -1,124 +1,191 @@
 ---
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Power Generation Casting, Forging & CNC Machining Solutions';
-const seoTitle = 'Power Generation Casting, Forging & CNC Machining | ForceBeyond';
-const seoDescription = 'ForceBeyond delivers engineered casting, forging, and CNC machining solutions for traditional, nuclear, and renewable energy infrastructure.';
+const pageTitle = 'Energy & Power Generation Components: Casting, Forging & Machining';
+const seoTitle = 'Energy & Power Generation Components | Casting, Forging & CNC';
+const seoDescription = 'ForceBeyond supports gas, steam, nuclear, wind, hydro, solar, grid, and data center power projects with castings, forgings, rolled rings, precision machining, heat treatment, coatings, inspection, and supply-chain coordination.';
+
+const canonicalUrl = 'https://www.forcebeyond.store/energy-power-generation/';
+const socialImage = 'https://www.forcebeyond.store/media/combined-cycle-power-generation-plant-grid-infrastructure-hero.webp';
 
 const faqs = [
     {
-        q: "Can ForceBeyond supply components for Nuclear SMR applications?",
-        a: "Yes. Our co-owned manufacturing facilities produce heavy forged Inconel 625 and 718 reactor components with full ASME Section III material traceability and 100% Ultrasonic Testing (UT)."
+        q: "What types of power-generation components can ForceBeyond support?",
+        a: "Depending on drawing, material, size, quantity, quality requirements, and approved sources, ForceBeyond may support turbine blades and vanes, rings, discs, shafts, valve and pump components, heat-exchanger hardware, generator housings, wind and hydro castings, electrical enclosures, busbar hardware, structural brackets, and balance-of-plant components."
     },
     {
-        q: "What surface protection is provided for offshore wind turbine castings?",
-        a: "We offer multi-layer marine protective coatings, including heavy-build E-coating, thermal spray aluminum (TSA), and specialized epoxy painting tested to ASTM B117 salt spray standards."
+        q: "Can ForceBeyond support nuclear and SMR programs?",
+        a: "ForceBeyond may support nuclear and SMR component programs through qualified casting, forging, machining, inspection, and documentation resources. Safety classification, code scope, approved sources, material, NDT, quality program, and regulatory requirements must be defined by the customer and governing contract."
+    },
+    {
+        q: "What coatings are used for offshore wind and outdoor power equipment?",
+        a: "Potential systems include zinc-based coatings, e-coating, powder coating, liquid paint, thermal-spray aluminum, metallizing, and project-specific marine coating systems. Final selection depends on substrate, environment, service life target, surface preparation, repair strategy, inspection, and governing coating specification."
+    },
+    {
+        q: "What information is needed for a power-generation component quote?",
+        a: "Provide drawings, CAD, material and product form, annual volume, component weight and envelope, operating temperature, pressure, speed, environment, heat treatment, coating, NDT, inspection frequency, quality documentation, approved-source restrictions, packaging, and target delivery schedule."
     }
 ];
 
-// Sources
 const sources = [
-    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
-    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
-    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
-    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
-    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
-    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
+    { label: 'U.S. Department of Energy - Power Generation and Grid Resources', url: 'https://www.energy.gov/' },
+    { label: 'ASME - Power, Pressure Equipment and Turbine Standards', url: 'https://www.asme.org/codes-standards' },
+    { label: 'ASTM International - Power Generation Materials and Testing Standards', url: 'https://www.astm.org/' },
+    { label: 'ASM International - Energy and High-Temperature Materials', url: 'https://www.asminternational.org/' },
+    { label: 'Forging Industry Association - Forging Resources', url: 'https://www.forging.org/' },
+    { label: 'Investment Casting Institute - Investment Casting Resources', url: 'https://www.investmentcasting.org/' }
 ];
 
-// Resources
 const internalResources = [
-    // Die Casting Resources
-    { label: "Die Casting Overview", url: "/die-casting" },
-    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "/zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "/a356-t6-casting" },
-    { label: "Magnesium Casting", url: "/magnesium-casting" },
+    // Industry Hubs
+    { label: "Power Generation", url: "/power-generation" },
+    { label: "Data Center Power", url: "/data-center-power" },
+    { label: "Nuclear & SMR", url: "/nuclear-smr" },
+    { label: "Oil & Gas", url: "/oil-gas" },
+    { label: "HVAC, Fluid & Flow Control", url: "/hvac-flow" },
+    { label: "Aerospace", url: "/aerospace" },
 
-    // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "/investment-casting" },
+    // Casting
+    { label: "Casting Capabilities", url: "/casting" },
+    { label: "Investment Casting", url: "/investment-casting" },
+    { label: "Sand Casting", url: "/sand-casting" },
+    { label: "Die Casting", url: "/die-casting" },
     { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "/titanium-investment-casting" },
     { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting" },
+    { label: "Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" },
+    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
 
-    // Forging Resources
-    { label: "Forging Capabilities Overview", url: "/forging" },
+    // Forging
+    { label: "Forging Capabilities", url: "/forging" },
     { label: "Open Die Forging", url: "/open-die-forging" },
     { label: "Closed Die Forging", url: "/closed-die-forging" },
     { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
-    { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
 
-    // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "/sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
+    // Machining and Secondary Operations
+    { label: "Precision Machining", url: "/precision-machining" },
+    { label: "High-Precision Component Machining", url: "/high-precision-machining" },
+    { label: "Multi-Axis CNC Milling & Turning", url: "/multi-axis-cnc" },
+    { label: "Hot Isostatic Pressing (HIP)", url: "/hot-isostatic-pressing" },
+    { label: "Heat Treatment", url: "/heat-treatment" },
+    { label: "Surface Finishing & Coating", url: "/surface-finishing" },
+    { label: "Assembly & Kitting", url: "/assembly-and-kitting" },
+
+    // Materials, Quality, and Technical
+    { label: "Superalloys & Exotic Metals", url: "/superalloys-exotic-metals" },
+    { label: "Stainless Steel & Carbon Steel", url: "/stainless-carbon-steel" },
+    { label: "Aluminum & Copper Alloys", url: "/aluminum-copper-alloys" },
+    { label: "Materials & Technical Specifications", url: "/materials-technical-specs" },
+    { label: "Material Cross-Reference Charts", url: "/material-cross-reference-charts" },
+    { label: "Manufacturing Design Guides", url: "/manufacturing-design-guides" },
+    { label: "Quality Assurance & Certifications", url: "/quality-assurance-certifications" },
+    { label: "Testing & Inspection Capabilities", url: "/testing-inspection-capabilities" },
+    { label: "Global Footprint & Logistics", url: "/global-footprint-logistics" }
 ];
 
-// Page Schema
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/energy-power-generation#webpage",
-      "url": "https://www.forcebeyond.store/energy-power-generation",
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
+        "@id": "https://www.forcebeyond.store/#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
-      }
+        "url": "https://www.forcebeyond.store/"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": socialImage
+      },
+      "breadcrumb": {
+        "@id": `${canonicalUrl}#breadcrumb`
+      },
+      "about": [
+        { "@type": "Thing", "name": "Power generation components" },
+        { "@type": "Thing", "name": "Energy industry manufacturing" },
+        { "@type": "Thing", "name": "Gas turbine components" },
+        { "@type": "Thing", "name": "Wind and hydro components" },
+        { "@type": "Thing", "name": "Heavy industrial forgings" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.forcebeyond.store/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Industries",
+          "item": "https://www.forcebeyond.store/industries/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Energy & Power Generation",
+          "item": canonicalUrl
+        }
+      ]
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/energy-power-generation#service",
-      "name": "Power Generation Manufacturing Solutions",
-      "serviceType": "Energy Sector Precision Components",
+      "@id": `${canonicalUrl}#service`,
+      "name": "Energy and Power Generation Component Manufacturing",
+      "serviceType": "Casting, Forging, Machining and Inspection for Power Equipment",
       "description": seoDescription,
+      "url": canonicalUrl,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
-        "knowsAbout": [
-          "Heavy-Tonnage Superalloy Ring & Shaft Forging",
-          "Vacuum Investment Casting for Gas & Steam Turbines",
-          "Large-Envelope CNC Machining & VTL Capabilities",
-          "ASME Section III & ASTM Material Compliance",
-          "Nuclear SMR, Offshore Wind & Renewable Energy Infrastructure"
-        ]
+        "@id": "https://www.forcebeyond.store/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Power Generation Capabilities",
+        "name": "Energy and Power Generation Manufacturing Capabilities",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Nuclear & SMR Power Components",
-              "description": "Forged steam generator tubesheets, reactor internal supports, and sub-sea fluid fittings in Inconel 718/625."
+              "name": "Gas and Steam Turbine Components",
+              "description": "Project-specific blades, vanes, nozzles, rings, discs, shafts, valve bodies, combustor hardware, and rotating-equipment components."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Gas & Steam Turbine Hardware",
-              "description": "Vacuum investment cast turbine blades, vanes, combustion liners, and high-pressure valve bodies."
+              "name": "Nuclear and SMR Components",
+              "description": "Cast, forged, and machined reactor internals, valve and pump hardware, rings, flanges, pressure-boundary parts, and balance-of-plant components."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Wind & Hydroelectric Infrastructure",
-              "description": "Massive sand-cast wind turbine rotor hubs, main frames, and hydro-turbine runner blades."
+              "name": "Wind and Hydroelectric Components",
+              "description": "Large castings, forgings, hubs, frames, shafts, rings, runners, impellers, housings, and structural hardware."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Solar, Grid and Electrical Hardware",
+              "description": "Die-cast and machined enclosures, connectors, busbar components, mounting hardware, thermal components, and protective housings."
             }
           }
         ]
@@ -126,13 +193,13 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/energy-power-generation#faq",
-      "mainEntity": faqs.map(f => ({
+      "@id": `${canonicalUrl}#faq`,
+      "mainEntity": faqs.map((faq) => ({
         "@type": "Question",
-        "name": f.q,
+        "name": faq.q,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": f.a
+          "text": faq.a
         }
       }))
     }
@@ -143,83 +210,116 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
     pageTitle={pageTitle}
     heroImage="/media/combined-cycle-power-generation-plant-grid-infrastructure-hero.webp"
-    heroImageAlt="High-performance power generation forged and machined components"
-    faqSectionTitle="Frequently Asked Questions"
+    heroImageAlt="Combined-cycle power generation plant with industrial turbines and electrical grid infrastructure"
+    heroImageWidth={1920}
+    heroImageHeight={1080}
+    socialImage={socialImage}
+    socialImageAlt="Energy and power generation component manufacturing"
+    faqSectionTitle="Frequently Asked Questions: Energy & Power Generation"
     faqItems={faqs}
-    ctaTitle="Ready to Elevate Your Power Generation Infrastructure?"
-    ctaDescription="Partner with our technical management team to engineer creep-resistant, high-integrity components built for continuous power duty cycles."
-    sourcesTitle="Sources"
+    ctaTitle="Review an Energy or Power Generation Component Program"
+    ctaDescription="Send your drawings, material, component size, quantity, operating conditions, heat treatment, coating, NDT, documentation, approved-source restrictions, packaging, and delivery targets for an engineering review."
+    ctaButtonText="Request a Power Component Review"
+    sourcesTitle="Energy, Power and Manufacturing References"
     sourcesList={sources}
-    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesTitle="Related Energy, Casting, Forging, Machining and Quality Resources"
     resourcesList={internalResources}
 >
-
     <div slot="full-width" class="individual-content">
 
         <section id="overview">
             <div class="content-container">
-                
-                <h2>Power Generation Casting, Forging & CNC Machining Solutions</h2>
+                <h2>Manufacturing Support for Energy and Power Generation Equipment</h2>
 
                 <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
                     <div>
                         <p>
-                            ForceBeyond is a leading manufacturing supplier for the traditional, nuclear, and renewable energy sectors. Power generation infrastructure demands structural longevity, resistance to thermal creep, and pressure-vessel integrity under continuous duty cycles.
+                            Energy and power-generation equipment operates under combinations of temperature, pressure, rotational loading, corrosion, vibration, fatigue, creep, weather exposure, and long service intervals.
                         </p>
                         <p>
-                            From heavy-tonnage forged Inconel rotor components for nuclear Small Modular Reactors (SMRs) to massive ductile iron hubs for offshore wind turbines, ForceBeyond delivers engineered components that comply with strict ASME Section III, ASTM, and ISO mandates.
+                            ForceBeyond supports traditional, nuclear, renewable, grid, and distributed-energy programs through
+                            <a href="/casting" class="highlight-link">casting</a>,
+                            <a href="/forging" class="highlight-link">forging</a>,
+                            <a href="/precision-machining" class="highlight-link">precision machining</a>,
+                            heat treatment, finishing, inspection, assembly, and supply-chain coordination.
+                        </p>
+                        <p>
+                            Final material, manufacturing route, code requirements, certification scope, inspection plan, and documentation must be defined by the customer and governing contract.
                         </p>
                     </div>
+
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
                                 src="/media/nuclear-power-plant-cooling-towers-energy-generation.webp"
-                                alt="Nuclear power plant with illuminated cooling towers, steam plumes, and electrical transmission infrastructure at night."
+                                alt="Power generation infrastructure with cooling towers and electrical transmission systems"
+                                width="1200"
+                                height="900"
+                                loading="lazy"
+                                decoding="async"
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <section id="material-matrix">
+        <section id="sector-matrix">
             <div class="content-container">
-                <h2>Thermal & Structural Material Matrix</h2>
+                <h2>Energy Sector Component and Process Matrix</h2>
+
                 <div class="content-table-wrapper">
                     <table>
                         <thead>
                             <tr>
                                 <th scope="col">Energy Sector</th>
-                                <th scope="col">Material Focus</th>
-                                <th scope="col">Key Components Manufactured</th>
+                                <th scope="col">Representative Components</th>
+                                <th scope="col">Potential Manufacturing Routes</th>
+                                <th scope="col">Key Engineering Requirements</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <tr>
-                                <th scope="row">Nuclear & SMR Power</th>
-                                <td>Inconel 718/625, Super Duplex 2507</td>
-                                <td>Forged steam generator tubesheets, reactor internal supports, and sub-sea fluid fittings.</td>
+                                <th scope="row">Gas and Steam Turbines</th>
+                                <td>Blades, vanes, nozzles, rings, discs, shafts, combustor hardware, valve bodies, casings</td>
+                                <td>Investment casting, open-die forging, rolled-ring forging, heat treatment, HIP where specified, multi-axis machining, coating</td>
+                                <td>Creep, fatigue, oxidation, hot corrosion, balance, dimensional stability, pressure integrity, and traceability</td>
                             </tr>
                             <tr>
-                                <th scope="row">Gas & Steam Turbines</th>
-                                <td>Nickel Superalloys, 12-Chrome Steels</td>
-                                <td>Vacuum investment cast turbine blades, vanes, combustion liners, and high-pressure steam valve bodies.</td>
+                                <th scope="row"><a href="/nuclear-smr" class="highlight-link">Nuclear and SMR</a></th>
+                                <td>Reactor internals, valve and pump hardware, rings, flanges, closures, supports, balance-of-plant components</td>
+                                <td>Forging, rolled rings, investment or sand casting, machining, heat treatment, NDT, pressure testing</td>
+                                <td>Code scope, safety classification, material pedigree, fracture toughness, source approval, inspection, and documentation</td>
                             </tr>
                             <tr>
-                                <th scope="row">Wind & Hydroelectric</th>
-                                <td>Ductile Iron (ASTM A536), Stainless Steel</td>
-                                <td>Massive sand-cast wind turbine rotor hubs, main frames, and hydro-turbine runner blades/impellers.</td>
+                                <th scope="row">Wind Power</th>
+                                <td>Rotor hubs, main frames, bearing housings, shafts, rings, gearbox parts, pitch and yaw hardware</td>
+                                <td>Large sand casting, ductile iron casting, open-die forging, ring rolling, machining, coating</td>
+                                <td>Fatigue, impact, dimensional control, weldability, corrosion protection, low-temperature performance, and serviceability</td>
                             </tr>
                             <tr>
-                                <th scope="row">Solar & Power Grid</th>
-                                <td>Aluminum Alloys, Galvanized Steel</td>
-                                <td>Die-cast inverter enclosures, heavy electrical connectors, and structural mounting hardware.</td>
+                                <th scope="row">Hydroelectric Power</th>
+                                <td>Runner blades, impellers, shafts, guide vanes, wicket gates, housings, rings, valve components</td>
+                                <td>Stainless casting, forging, fabrication, machining, polishing, coating, balancing</td>
+                                <td>Cavitation, erosion, corrosion, hydraulic profile, balance, weld repair, pressure integrity, and surface finish</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Solar, Grid and Electrical</th>
+                                <td>Inverter housings, electrical enclosures, busbar hardware, connectors, cooling plates, brackets, mounting hardware</td>
+                                <td>Die casting, machining, stamping, forging, plating, anodizing, powder coating, assembly</td>
+                                <td>Thermal management, conductivity, corrosion, sealing, electrical isolation, ingress protection, and dimensional fit</td>
+                            </tr>
+                            <tr>
+                                <th scope="row"><a href="/data-center-power" class="highlight-link">Data Center and Distributed Power</a></th>
+                                <td>Turbine parts, generator hardware, manifolds, valves, pump components, thermal hardware, structural components</td>
+                                <td>Investment casting, forging, machining, heat treatment, coating, pressure and leak testing</td>
+                                <td>Availability, rapid ramping, continuous duty, maintainability, thermal performance, and supply continuity</td>
                             </tr>
                         </tbody>
                     </table>
@@ -227,22 +327,283 @@ const pageSchema = {
             </div>
         </section>
 
-        <section id="forging-and-machining">
+        <section id="gas-steam">
             <div class="content-container">
-                <h2>High-Tonnage Forging & Heavy CNC Machining</h2>
+                <h2>Gas and Steam Turbine Components</h2>
+                <ul>
+                    <li><strong>Hot-section castings:</strong> blades, vanes, nozzles, shrouds, and combustor hardware in qualified high-temperature alloys.</li>
+                    <li><strong>Rotating forgings:</strong> discs, rings, shafts, hubs, spacers, and couplings requiring controlled grain flow and fatigue performance.</li>
+                    <li><strong>Valve and casing hardware:</strong> pressure-containing bodies, bonnets, flanges, closures, steam-path components, and seal hardware.</li>
+                    <li><strong>Fuel and flow components:</strong> nozzles, manifolds, atomizers, fittings, brackets, and precision flow-path features.</li>
+                </ul>
                 <p>
-                    Large power generation hardware requires high manufacturing capacity:
+                    Review
+                    <a href="/inconel-vacuum-precision-casting" class="highlight-link">Inconel vacuum precision casting</a>,
+                    <a href="/high-performance-superalloy-forging" class="highlight-link">superalloy forging</a>,
+                    and
+                    <a href="/data-center-power" class="highlight-link">data center power components</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="nuclear">
+            <div class="content-container">
+                <h2>Nuclear and SMR Component Support</h2>
+                <p>
+                    Nuclear projects require project-specific control of code scope, safety classification, material, approved sources, quality program, NDT, traceability, and documentation.
                 </p>
                 <ul>
-                    <li>
-                        <strong>Heavy Forging Infrastructure:</strong> High-tonnage presses capable of forging dense, creep-resistant superalloy rings and shafts up to several tons.
-                    </li>
-                    <li>
-                        <strong>Large-Envelope Machining:</strong> Vertical Turning Lathes (VTL) and horizontal boring mills capable of finishing large industrial castings up to 80 inches (2,000mm) in diameter.
-                    </li>
-                    <li>
-                        <strong>Creep & Rupture Testing:</strong> Material verification ensures long-term metallurgical stability at operating temperatures exceeding 1,200°F (650°C).
-                    </li>
+                    <li><strong>Pressure-boundary forgings:</strong> rings, flanges, closures, nozzles, hubs, and vessel-related hardware.</li>
+                    <li><strong>Valve and pump components:</strong> bodies, bonnets, impellers, housings, shafts, manifolds, and flow-control hardware.</li>
+                    <li><strong>Reactor internals:</strong> supports, housings, grids, spacers, brackets, and structural hardware.</li>
+                    <li><strong>Balance-of-plant:</strong> piping hardware, heat-transfer components, supports, enclosures, and auxiliary-system components.</li>
+                </ul>
+                <p>
+                    See
+                    <a href="/nuclear-smr" class="highlight-link">Nuclear & SMR components</a>
+                    for detailed manufacturing, material, quality, and RFQ guidance.
+                </p>
+            </div>
+        </section>
+
+        <section id="wind">
+            <div class="content-container">
+                <h2>Wind Power Castings, Forgings and Coated Components</h2>
+                <ul>
+                    <li><strong>Large structural castings:</strong> rotor hubs, main frames, bearing housings, and gearbox cases.</li>
+                    <li><strong>Forged and rolled components:</strong> shafts, flanges, rings, gear blanks, and high-load drivetrain hardware.</li>
+                    <li><strong>Machined interfaces:</strong> bearing seats, bolt patterns, gearbox interfaces, sealing surfaces, and alignment features.</li>
+                    <li><strong>Marine protection:</strong> project-specific blasting, metallizing, e-coating, liquid paint, powder coating, or thermal-spray systems.</li>
+                </ul>
+                <p>
+                    Offshore coating systems should be selected by environment, substrate, preparation grade, dry-film thickness, edge treatment, repair plan, inspection, and governing specification. Salt-spray testing alone does not establish field service life.
+                </p>
+            </div>
+        </section>
+
+        <section id="hydro">
+            <div class="content-container">
+                <h2>Hydroelectric and Pumped-Storage Components</h2>
+                <ul>
+                    <li><strong>Runner and impeller components:</strong> stainless cast or fabricated hydraulic profiles requiring controlled geometry and surface finish.</li>
+                    <li><strong>Guide vanes and wicket gates:</strong> wear, corrosion, cavitation, alignment, and actuator-interface requirements.</li>
+                    <li><strong>Shafts, rings and hubs:</strong> forged or rolled products requiring fatigue, dimensional, and balance control.</li>
+                    <li><strong>Valve and pressure hardware:</strong> bodies, gates, seats, flanges, covers, and water-control components.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="solar-grid">
+            <div class="content-container">
+                <h2>Solar, Grid and Electrical Infrastructure Components</h2>
+                <ul>
+                    <li><strong>Inverter and electrical housings:</strong> aluminum die castings or machined enclosures with sealing, thermal, and corrosion requirements.</li>
+                    <li><strong>Busbar and connector hardware:</strong> copper or aluminum components requiring conductivity, plating, joint integrity, and dimensional control.</li>
+                    <li><strong>Thermal-management hardware:</strong> cold plates, heat sinks, manifolds, brackets, and sealed cooling components.</li>
+                    <li><strong>Structural hardware:</strong> forged, cast, machined, or coated brackets, mounts, clamps, and support components.</li>
+                </ul>
+                <p>
+                    See
+                    <a href="/aluminum-die-casting" class="highlight-link">aluminum die casting</a>,
+                    <a href="/aluminum-copper-alloys" class="highlight-link">aluminum and copper alloys</a>,
+                    and
+                    <a href="/surface-finishing" class="highlight-link">surface finishing and coating</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="materials">
+            <div class="content-container">
+                <h2>Material Selection for Power Generation Components</h2>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Material Family</th>
+                                <th scope="col">Representative Applications</th>
+                                <th scope="col">Primary Selection Drivers</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Nickel-Base Superalloys</th>
+                                <td>Hot-section castings, combustor hardware, high-temperature fasteners, steam and corrosion-resistant components</td>
+                                <td>Creep, oxidation, hot corrosion, fatigue, weldability, casting or forging route, and coating compatibility</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Stainless and Duplex Steels</th>
+                                <td>Valves, pumps, hydro components, manifolds, cooling systems, balance-of-plant hardware</td>
+                                <td>Corrosion, strength, weldability, cavitation, chloride exposure, temperature, and phase balance</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Alloy and Carbon Steels</th>
+                                <td>Shafts, rings, discs, flanges, structures, housings, gears, and pressure hardware</td>
+                                <td>Strength, toughness, fatigue, hardenability, section size, weldability, and heat treatment</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ductile and Cast Irons</th>
+                                <td>Wind hubs, frames, housings, gearbox cases, pump bodies, and structural castings</td>
+                                <td>Castability, damping, fatigue, impact, section sensitivity, machinability, and coating</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Aluminum and Copper Alloys</th>
+                                <td>Electrical housings, thermal hardware, connectors, busbars, heat sinks, and lightweight structures</td>
+                                <td>Conductivity, thermal performance, corrosion, weight, joining, coating, and electrical isolation</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    Review
+                    <a href="/materials-technical-specs" class="highlight-link">materials and technical specifications</a>
+                    and
+                    <a href="/material-cross-reference-charts" class="highlight-link">material cross-reference charts</a>
+                    before treating different standards or grades as interchangeable.
+                </p>
+            </div>
+        </section>
+
+        <section id="manufacturing-processes">
+            <div class="content-container">
+                <h2>Manufacturing Processes for Power Equipment</h2>
+                <ul>
+                    <li><strong><a href="/investment-casting" class="highlight-link">Investment casting:</a></strong> complex near-net components, airfoils, flow paths, valve hardware, and reduced-machining designs.</li>
+                    <li><strong><a href="/sand-casting" class="highlight-link">Sand casting:</a></strong> large housings, hubs, frames, pump bodies, valve bodies, and structural components.</li>
+                    <li><strong><a href="/open-die-forging" class="highlight-link">Open-die forging:</a></strong> large shafts, discs, blocks, hubs, rings, and pressure or rotating preforms.</li>
+                    <li><strong><a href="/rolled-ring-forging" class="highlight-link">Rolled-ring forging:</a></strong> flanges, bearing rings, vessel rings, casings, turbine rings, and circumferential hardware.</li>
+                    <li><strong><a href="/precision-machining" class="highlight-link">Precision machining:</a></strong> sealing surfaces, bearing fits, flow features, bolt patterns, runout, balance, and final assembly interfaces.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="large-component-planning">
+            <div class="content-container">
+                <h2>Large and Heavy Component Manufacturing Planning</h2>
+                <p>
+                    Heavy power-generation components should be reviewed against the actual capability of the selected facility rather than relying on generic size claims.
+                </p>
+                <ul>
+                    <li><strong>Envelope and weight:</strong> define raw and finished dimensions, lifting points, center of gravity, and shipping limits.</li>
+                    <li><strong>Equipment capacity:</strong> verify press force, ring mill range, melt weight, furnace size, machine travels, table load, swing, and crane capacity.</li>
+                    <li><strong>Machining access:</strong> plan setups, datum transfer, tool reach, chip evacuation, probing, and distortion control.</li>
+                    <li><strong>Inspection access:</strong> confirm UT scan surfaces, radiographic feasibility, CMM or portable metrology, and pressure-test setup.</li>
+                    <li><strong>Logistics:</strong> account for oversized transport, export packaging, permits, route surveys, storage, and final handling.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="heat-treatment">
+            <div class="content-container">
+                <h2>Heat Treatment, HIP and Surface Engineering</h2>
+                <ul>
+                    <li><strong><a href="/heat-treatment" class="highlight-link">Heat treatment:</a></strong> solution treatment, aging, quench and temper, normalizing, stress relief, or other alloy-specific cycles.</li>
+                    <li><strong><a href="/hot-isostatic-pressing" class="highlight-link">HIP:</a></strong> may be specified for selected cast or powder-based components to reduce internal porosity and support property consistency.</li>
+                    <li><strong><a href="/surface-finishing" class="highlight-link">Coatings and finishes:</a></strong> protect against corrosion, oxidation, wear, erosion, cavitation, weather, and electrical exposure.</li>
+                    <li><strong>Post-process inspection:</strong> verify dimensions, hardness, microstructure, coating, balance, and other final requirements.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="inspection">
+            <div class="content-container">
+                <h2>Inspection and Testing for Power Generation Components</h2>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Method</th>
+                                <th scope="col">Typical Use</th>
+                                <th scope="col">Planning Considerations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Ultrasonic Testing</th>
+                                <td>Forgings, rings, shafts, plate, welds, and selected castings</td>
+                                <td>Grain structure, geometry, attenuation, calibration, scan coverage, and acceptance criteria</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Radiographic Testing</th>
+                                <td>Volumetric evaluation of selected castings and weldments</td>
+                                <td>Section thickness, geometry, image quality, technique, defect orientation, and standard</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Surface NDT</th>
+                                <td>Penetrant or magnetic-particle inspection for compatible materials and defect types</td>
+                                <td>Material compatibility, surface condition, sensitivity, personnel qualification, and acceptance</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Mechanical and Metallurgical Testing</th>
+                                <td>Tensile, impact, hardness, chemistry, microstructure, grain size, corrosion, or creep testing where specified</td>
+                                <td>Specimen location, orientation, lot definition, heat treatment, test duration, and governing method</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Dimensional and Functional Testing</th>
+                                <td>CMM, portable metrology, runout, balance, pressure, leak, flow, and assembly verification</td>
+                                <td>Datum strategy, uncertainty, environmental conditions, fixturing, test medium, and acceptance criteria</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    Review
+                    <a href="/testing-inspection-capabilities" class="highlight-link">testing and inspection capabilities</a>
+                    for method-selection and reporting guidance.
+                </p>
+            </div>
+        </section>
+
+        <section id="quality">
+            <div class="content-container">
+                <h2>Quality, Documentation and Code Requirements</h2>
+                <ul>
+                    <li><strong>Contract review:</strong> identify drawing, material, code, quality clauses, approved sources, NDT, testing, and documentation.</li>
+                    <li><strong>Certification scope:</strong> verify the exact facility, process, standard, issuing body, and expiration relevant to the component.</li>
+                    <li><strong>Traceability:</strong> define heat, lot, serial, material, process, inspection, and shipment linkage.</li>
+                    <li><strong>Code applicability:</strong> ASME, ASTM, customer, regulatory, or other requirements must be explicitly identified; no page-level claim establishes code compliance.</li>
+                    <li><strong>Change control:</strong> manage material, source, process, tooling, inspection, and design revisions throughout the program.</li>
+                </ul>
+                <p>
+                    See
+                    <a href="/quality-assurance-certifications" class="highlight-link">quality assurance and certifications</a>
+                    for quality-system and documentation guidance.
+                </p>
+            </div>
+        </section>
+
+        <section id="supply-chain">
+            <div class="content-container">
+                <h2>Supply Chain and Program Management</h2>
+                <ul>
+                    <li><strong>Long-lead materials:</strong> plan ingot, billet, master heat, large castings, forgings, special alloys, and approved-source capacity.</li>
+                    <li><strong>Tooling and fixtures:</strong> coordinate patterns, dies, cores, machining fixtures, gauges, lifting devices, and inspection tooling.</li>
+                    <li><strong>Capacity and schedule:</strong> review melt, press, ring mill, furnace, machining, NDT, coating, and logistics bottlenecks.</li>
+                    <li><strong>Inventory and spares:</strong> define service stock, replacement parts, safety stock, ownership, and replenishment.</li>
+                    <li><strong>Global logistics:</strong> manage packaging, corrosion prevention, oversized freight, customs, warehousing, and delivery milestones.</li>
+                </ul>
+                <p>
+                    Review
+                    <a href="/global-footprint-logistics" class="highlight-link">global footprint and logistics</a>
+                    for multi-region sourcing, warehousing, customs, and delivery planning.
+                </p>
+            </div>
+        </section>
+
+        <section id="rfq-checklist">
+            <div class="content-container">
+                <h2>Energy and Power Generation RFQ Checklist</h2>
+                <ul>
+                    <li><strong>Technical package:</strong> drawing, CAD, revision, bill of materials, component function, and design authority.</li>
+                    <li><strong>Material:</strong> alloy, product form, specification, condition, heat treatment, and approved source.</li>
+                    <li><strong>Operating conditions:</strong> temperature, pressure, speed, load, environment, corrosion, duty cycle, and design life.</li>
+                    <li><strong>Size and logistics:</strong> raw and finished envelope, weight, lifting, packaging, shipping route, and delivery destination.</li>
+                    <li><strong>Inspection:</strong> NDT, mechanical testing, first article, dimensional inspection, pressure or leak testing, and acceptance criteria.</li>
+                    <li><strong>Documentation:</strong> MTRs, certificates, traceability, quality records, retention, code reports, and customer formats.</li>
+                    <li><strong>Commercial:</strong> prototype quantity, annual demand, lot size, tooling, target delivery, and program duration.</li>
                 </ul>
             </div>
         </section>

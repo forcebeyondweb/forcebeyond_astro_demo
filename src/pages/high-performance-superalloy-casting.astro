@@ -2,8 +2,8 @@
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
 const pageTitle = 'Inconel Casting Suppliers: Precision Superalloy Solutions in USA, South Korea & Taiwan';
-const seoTitle = 'Superalloy Casting Services | VIM & HIPing | ForceBeyond';
-const seoDescription = 'AS9100-certified vacuum investment superalloy casting specializing in Inconel 718, 625, 713C, and Hastelloy X. Utilizing Vacuum Induction Melting (VIM) and Hot Isostatic Pressing (HIPing) across our co-owned foundries in the USA, South Korea, and Taiwan for zero-defect integrity.';
+const seoTitle = 'Superalloy Casting Services | Inconel, VIM & HIP | ForceBeyond';
+const seoDescription = 'AS9100-certified superalloy casting for Inconel 718, 625, 713C and Hastelloy X. ForceBeyond provides VIM, HIP, NDT and precision machining through co-owned foundries in the USA, South Korea and Taiwan.';
 const faqs = [
     {
         q: "Why choose ForceBeyond as your Inconel casting supplier?",
@@ -56,115 +56,47 @@ const internalResources = [
     { label: "Closed Die Forging", url: "/closed-die-forging" },
     { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
     { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
 
     // Sand Casting & Steel Casting Resources
     { label: "Sand Casting", url: "/sand-casting" },
     { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
     { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
 ];
-// Service / Product Schema
+// Page-level schema migrated from the current forcebeyond.com page.
+// Global Place, Organization, and WebSite entities are defined in Layout.astro.
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/superalloy-casting-services#webpage",
-      "url": "https://www.forcebeyond.store/superalloy-casting-services",
-      "name": seoTitle,
-      "description": seoDescription,
+      "@id": "https://www.forcebeyond.store/high-performance-superalloy-casting/#webpage",
+      "url": "https://www.forcebeyond.store/high-performance-superalloy-casting/",
+      "name": "Inconel Casting Suppliers: Precision Superalloy Solutions in USA, South Korea & Taiwan | www.forcebeyond.store",
+      "datePublished": "2026-02-16T13:37:20-05:00",
+      "dateModified": "2026-03-04T15:12:07-05:00",
       "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
+        "@id": "https://www.forcebeyond.store/#website"
       },
-      "about": [
-        {
-          "@type": "Thing",
-          "name": "Superalloy",
-          "sameAs": "https://en.wikipedia.org/wiki/Superalloy"
-        },
-        {
-          "@type": "Thing",
-          "name": "Investment casting",
-          "sameAs": "https://en.wikipedia.org/wiki/Investment_casting"
-        },
-        {
-          "@type": "Thing",
-          "name": "Hot isostatic pressing",
-          "sameAs": "https://en.wikipedia.org/wiki/Hot_isostatic_pressing"
-        }
-      ]
+      "inLanguage": "en-US"
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/superalloy-casting-services#service",
-      "name": "Precision Superalloy Casting Services",
-      "serviceType": "Superalloy Casting Services",
-      "description": seoDescription,
+      "name": "Inconel & Hastelloy X Casting Services",
       "provider": {
         "@type": "Organization",
-        "@id": "https://www.forcebeyond.store#organization",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
-        "knowsAbout": [
-          "Vacuum Investment Casting",
-          "Vacuum Induction Melting (VIM)",
-          "Hot Isostatic Pressing (HIPing)",
-          "Inconel 718, 625, & 713C Casting",
-          "Hastelloy X Components",
-          "AS9100 Rev D Certified Foundries",
-          "Aerospace & Nuclear SMR Structural Castings"
-        ]
+        "url": "https://www.forcebeyond.store/"
       },
-      "areaServed": [
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "South Korea" },
-        { "@type": "Country", "name": "Taiwan" }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Superalloy Casting Capabilities",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "VIM Vacuum Investment Casting",
-              "description": "High-integrity investment casting utilizing Vacuum Induction Melting (VIM) to prevent reactive element oxidation in complex nickel and cobalt-base superalloys."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Hot Isostatic Pressing (HIPing) Densification",
-              "description": "Post-cast Hot Isostatic Pressing treatments to completely eliminate internal microporosity and shrinkage cavities, maximizing structural fatigue life for mission-critical components."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Tier-1.5 Casting-to-Machining Integration",
-              "description": "Complete workflow consolidation combining raw vacuum castings with rigorous non-destructive testing (NDT) and in-house 5-axis CNC finish machining under a single quality frame."
-            }
-          }
-        ]
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/superalloy-casting-services#faq",
-      "mainEntity": faqs.map(f => ({
-        "@type": "Question",
-        "name": f.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": f.a
-        }
-      }))
+      "description": "Premier Inconel and Hastelloy X casting supplier. Specialized in VIM and HIPing for Aerospace, Nuclear SMR, and Power Gen through co-owned foundries in the USA, Korea, and Taiwan.",
+      "knowsAbout": [
+        "Inconel Casting Suppliers",
+        "Hastelloy X Casting",
+        "Inconel 718",
+        "Inconel 625",
+        "Vacuum Induction Melting",
+        "Hot Isostatic Pressing"
+      ]
     }
   ]
 };
@@ -222,14 +154,14 @@ const pageSchema = {
                 <h2>Tier-1.5 Integration: High-Purity Casting with Precision Finishing</h2>
                     <p>
                         A raw casting is only as good as the final tolerances it can hold. ForceBeyond eliminates the ‘foundry-to-machine-shop’ gap 
-                        through our <strong>Tier-1.5 manufacturing model</strong>. We integrate our specialized <a href="/superalloy-casting-services" class="highlight-link">Superalloy Casting</a> facilities—utilizing 
-                        Vacuum Induction Melting (VIM)—with our dedicated in-house <a href="/superalloy-machining-services" class="highlight-link">Superalloy Machining</a> centers.
+                        through our <strong>Tier-1.5 manufacturing model</strong>. We integrate our specialized <a href="/high-performance-superalloy-casting" class="highlight-link">Superalloy Casting</a> facilities—utilizing 
+                        Vacuum Induction Melting (VIM)—with our dedicated in-house <a href="/high-performance-superalloy-machining" class="highlight-link">Superalloy Machining</a> centers.
                     </p>
                     <p>
                         By managing both the initial pour and the final 5-axis CNC material removal, we ensure that complex internal geometries and 
                         critical sealing surfaces are achieved with zero ‘hand-off’ risk. For projects requiring high-pressure structural density or 
                         optimized grain flow rather than complex cast shapes, we offer seamless 
-                        coordination with our <a href="/superalloy-forging-services" class="highlight-link">Superalloy Forging</a> operations, providing you with the ultimate flexibility in near-net-shape manufacturing.
+                        coordination with our <a href="/high-performance-superalloy-forging" class="highlight-link">Superalloy Forging</a> operations, providing you with the ultimate flexibility in near-net-shape manufacturing.
 
                     </p>
             </div>

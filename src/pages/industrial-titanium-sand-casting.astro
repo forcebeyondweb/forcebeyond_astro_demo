@@ -2,8 +2,8 @@
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
 const pageTitle = 'Industrial Titanium Sand Casting: Large-Scale Corrosion Resistant Solutions';
-const seoTitle = 'Industrial Titanium Sand Casting | Heavy Pump & Valve Bodies';
-const seoDescription = 'High-capacity titanium sand casting for large-scale components up to 60 inches (1,500mm). Utilizing VIM (Vacuum Induction Melting) and vacuum-rammed graphite molds to eliminate alpha-case reaction in heavy-walled ASTM B367 components.';
+const seoTitle = 'Industrial Titanium Sand Casting | Large-Scale Pump &amp; Valve Bodies';
+const seoDescription = 'Specialist in large-scale titanium sand casting (up to 60"). ASTM B367 Grade C-2 & C-5 experts. Integrated Tier-1.5 manufacturing in USA, S. Korea & Taiwan.';
 const faqs = [
     {
         q: "What is the lead time for large sand-cast components?",
@@ -52,115 +52,48 @@ const internalResources = [
     { label: "Closed Die Forging", url: "/closed-die-forging" },
     { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
     { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
 
     // Sand Casting & Steel Casting Resources
     { label: "Sand Casting", url: "/sand-casting" },
     { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
     { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
 ];
-// Service / Product Schema
+// Page-level schema migrated from the current forcebeyond.com page.
+// Global Place, Organization, and WebSite entities are defined in Layout.astro.
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/industrial-titanium-sand-casting#webpage",
-      "url": "https://www.forcebeyond.store/industrial-titanium-sand-casting",
-      "name": seoTitle,
-      "description": seoDescription,
+      "@id": "https://www.forcebeyond.store/industrial-titanium-sand-casting/#webpage",
+      "url": "https://www.forcebeyond.store/industrial-titanium-sand-casting/",
+      "name": "Industrial Titanium Sand Casting | Large-Scale Pump & Valve Bodies",
+      "datePublished": "2026-03-05T19:11:51-05:00",
+      "dateModified": "2026-03-06T09:56:39-05:00",
       "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
+        "@id": "https://www.forcebeyond.store/#website"
       },
-      "about": [
-        {
-          "@type": "Thing",
-          "name": "Titanium",
-          "sameAs": "https://en.wikipedia.org/wiki/Titanium"
-        },
-        {
-          "@type": "Thing",
-          "name": "Sand casting",
-          "sameAs": "https://en.wikipedia.org/wiki/Sand_casting"
-        },
-        {
-          "@type": "Thing",
-          "name": "Vacuum induction melting",
-          "sameAs": "https://en.wikipedia.org/wiki/Vacuum_induction_melting"
-        }
-      ]
+      "inLanguage": "en-US"
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/industrial-titanium-sand-casting#service",
-      "name": "Industrial Titanium Sand Casting Services",
-      "serviceType": "Industrial Titanium Sand Casting Services",
-      "description": seoDescription,
+      "name": "Titanium Investment Casting",
+      "description": "High-precision investment casting services for titanium alloys used in aerospace and medical industries.",
       "provider": {
         "@type": "Organization",
-        "id": "https://www.forcebeyond.store#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
-        "knowsAbout": [
-          "Titanium Sand Casting",
-          "Vacuum Induction Melting (VIM)",
-          "ASTM B367 Grade C-2, C-5 & C-7 Alloys",
-          "Vacuum-Rammed Graphite Mold Production",
-          "Alpha-Case Contamination Mitigation",
-          "Large Envelope Component Casting",
-          "Heavy-Walled Pump & Valve Housings"
-        ]
+        "name": "ForceBeyond"
       },
-      "areaServed": [
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "South Korea" },
-        { "@type": "Country", "name": "Taiwan" }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Titanium Sand Casting Capabilities",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "VIM Large Envelope Sand Pours",
-              "description": "High-capacity titanium sand casting handling massive geometries up to 60 inches (1,500mm) using advanced Vacuum Induction Melting systems to ensure complete metallurgical integrity."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Alpha-Case Free Graphite Molding",
-              "description": "Utilization of proprietary vacuum-rammed graphite molds to eliminate reactions between molten titanium and oxygen, delivering zero interstitial alpha-case layer defects."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Heavy-Walled Fluid Handling Component Production",
-              "description": "Specialized casting for heavy-walled industrial pump bodies and valve housings exceeding 3.00 inches in thickness, engineered for highly corrosive chemical processing and marine environments."
-            }
-          }
-        ]
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/industrial-titanium-sand-casting#faq",
-      "mainEntity": faqs.map(f => ({
-        "@type": "Question",
-        "name": f.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": f.a
+      "isRelatedTo": [
+        {
+          "@type": "Service",
+          "name": "Precision Titanium Machining"
+        },
+        {
+          "@type": "Service",
+          "name": "Titanium Aerospace Casting"
         }
-      }))
+      ]
     }
   ]
 };

@@ -2,8 +2,8 @@
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
 const pageTitle = 'Near-Net-Shape (NNS) Titanium Forging: Material Yield Optimization';
-const seoTitle = 'Titanium Aerospace Forging Services | Ti-6Al-4V Parts | ForceBeyond';
-const seoDescription = 'AS9100-certified precision titanium aerospace forging. We specialize in hot close-die forging for Ti-6Al-4V and Ti-6-2-4-2 alloys, delivering complex structural components and bulkheads. Supply chain risk management via our USA, South Korea, and Taiwan footprints.';
+const seoTitle = 'Near-Net-Shape Titanium Forging | 3.5:1 Buy-to-Fly Ratio';
+const seoDescription = 'Optimize material yield with NNS Titanium Forging. Reduce waste by 45%. Integrated Tier-1.5 Forge-to-Finish oversight in USA, S. Korea & Taiwan.';
 const faqs = [
     {
         q: "What is the primary benefit of Near-Net-Shape (NNS) over traditional forging?",
@@ -48,115 +48,48 @@ const internalResources = [
     { label: "Closed Die Forging", url: "/closed-die-forging" },
     { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
     { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
 
     // Sand Casting & Steel Casting Resources
     { label: "Sand Casting", url: "/sand-casting" },
     { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
     { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
 ];
-// Service / Product Schema
+// Page-level schema migrated from the current forcebeyond.com page.
+// Global Place, Organization, and WebSite entities are defined in Layout.astro.
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/near-net-shape-titanium-forging#webpage",
-      "url": "https://www.forcebeyond.store/near-net-shape-titanium-forging",
-      "name": seoTitle,
-      "description": seoDescription,
+      "@id": "https://www.forcebeyond.store/near-net-shape-titanium-forging/#webpage",
+      "url": "https://www.forcebeyond.store/near-net-shape-titanium-forging/",
+      "name": "Near-Net-Shape Titanium Forging | 3.5:1 Buy-to-Fly Ratio",
+      "datePublished": "2026-03-05T15:00:25-05:00",
+      "dateModified": "2026-03-05T15:19:32-05:00",
       "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
+        "@id": "https://www.forcebeyond.store/#website"
       },
-      "about": [
-        {
-          "@type": "Thing",
-          "name": "Near net shape",
-          "sameAs": "https://en.wikipedia.org/wiki/Near_net_shape"
-        },
-        {
-          "@type": "Thing",
-          "name": "Forging",
-          "sameAs": "https://en.wikipedia.org/wiki/Forging"
-        },
-        {
-          "@type": "Thing",
-          "name": "Titanium alloy",
-          "sameAs": "https://en.wikipedia.org/wiki/Titanium_alloy"
-        }
-      ]
+      "inLanguage": "en-US"
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/near-net-shape-titanium-forging#service",
-      "name": "Near-Net-Shape Titanium Forging Services",
-      "serviceType": "Near-Net-Shape Titanium Forging Services",
-      "description": seoDescription,
+      "name": "Near-Net-Shape Titanium Forging",
+      "description": "NNS forging services to reduce material waste and Buy-to-Fly ratios for titanium aerospace parts.",
       "provider": {
         "@type": "Organization",
-        "id": "https://www.forcebeyond.store#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
-        "knowsAbout": [
-          "Near-Net-Shape (NNS) Titanium Forging",
-          "Buy-to-Fly Ratio Reduction",
-          "Ti-6Al-4V & Alpha-Beta Alloy Forging",
-          "Thermomechanical Processing & Grain Refinement",
-          "Closed-Die Forging Die Geometry Optimization",
-          "Seamless Rolled Rings up to 60 Inches",
-          "Tier-1.5 Integrated Supply Chain Operations"
-        ]
+        "name": "ForceBeyond"
       },
-      "areaServed": [
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "South Korea" },
-        { "@type": "Country", "name": "Taiwan" }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Near-Net-Shape Titanium Forging Capabilities",
-        "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Optimized Die Geometry Forging",
-              "description": "Advanced closed-die near-net-shape forging engineering designed to systematically reduce buy-to-fly material ratios down to 3.5:1, minimizing both raw material input mass and downstream machining cycles."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Thermomechanical Grain Refinement",
-              "description": "Controlled structural processing across massive part envelopes up to 60 inches, breaking down raw dendritic cast profiles to eliminate directional material weaknesses under high dynamic stresses."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Tier-1.5 Single-Source Component Production",
-              "description": "Fully integrated manufacturing pipeline bridging raw alloy billet conversion with specialized finish machining, delivering full single-source metallurgical traceability and reduced B2B logistical friction."
-            }
-          }
-        ]
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/near-net-shape-titanium-forging#faq",
-      "mainEntity": faqs.map(f => ({
-        "@type": "Question",
-        "name": f.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": f.a
+      "isRelatedTo": [
+        {
+          "@type": "Service",
+          "name": "Titanium Investment Casting"
+        },
+        {
+          "@type": "Service",
+          "name": "Precision Titanium Machining"
         }
-      }))
+      ]
     }
   ]
 };

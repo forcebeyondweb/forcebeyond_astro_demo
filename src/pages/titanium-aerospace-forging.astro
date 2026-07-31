@@ -2,8 +2,8 @@
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
 const pageTitle = 'Titanium Aerospace Forging: AS9100-Certified Mission Critical Components';
-const seoTitle = 'Titanium Aerospace Forging Services | Ti-6Al-4V Parts | ForceBeyond';
-const seoDescription = 'AS9100-certified precision titanium aerospace forging. We specialize in hot close-die forging for Ti-6Al-4V and Ti-6-2-4-2 alloys, delivering complex structural components and bulkheads. Supply chain risk management via our USA, South Korea, and Taiwan footprints.';
+const seoTitle = 'Titanium Aerospace Forging | AMS 4928 &amp; AS9100 Certified | ForceBeyond';
+const seoDescription = 'AS9100 titanium aerospace forging for propulsion & airframes. Specialists in AMS 4928 Ti-6Al-4V. Integrated 5-axis machining. Lead times reduced to 16 weeks.';
 const faqs = [
     {
         q: "Why is forged titanium preferred over machined-from-plate for airframes?",
@@ -60,114 +60,86 @@ const internalResources = [
     { label: "Closed Die Forging", url: "/closed-die-forging" },
     { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
     { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/superalloy-forging-services" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
 
     // Sand Casting & Steel Casting Resources
     { label: "Sand Casting", url: "/sand-casting" },
     { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
     { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
 ];
-// Service / Product Schema
+// Page-level schema migrated from the current forcebeyond.com page.
+// Global Place, Organization, and WebSite entities are defined in Layout.astro.
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/titanium-aerospace-forging#webpage",
-      "url": "https://www.forcebeyond.store/titanium-aerospace-forging",
-      "name": seoTitle,
-      "description": seoDescription,
+      "@id": "https://www.forcebeyond.store/titanium-aerospace-forging/#webpage",
+      "url": "https://www.forcebeyond.store/titanium-aerospace-forging/",
+      "name": "Titanium Aerospace Forging | AMS 4928 & AS9100 Certified | ForceBeyond",
+      "datePublished": "2026-03-05T13:15:52-05:00",
+      "dateModified": "2026-03-06T10:02:41-05:00",
       "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
+        "@id": "https://www.forcebeyond.store/#website"
       },
-      "about": [
-        {
-          "@type": "Thing",
-          "name": "Titanium",
-          "sameAs": "https://en.wikipedia.org/wiki/Titanium"
-        },
-        {
-          "@type": "Thing",
-          "name": "Forging",
-          "sameAs": "https://en.wikipedia.org/wiki/Forging"
-        },
-        {
-          "@type": "Thing",
-          "name": "Aerospace engineering",
-          "sameAs": "https://en.wikipedia.org/wiki/Aerospace_engineering"
-        }
-      ]
+      "inLanguage": "en-US"
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/titanium-aerospace-forging#service",
+      "@id": "https://www.forcebeyond.store/titanium-aerospace-forging/#service",
       "name": "Titanium Aerospace Forging Services",
-      "serviceType": "Titanium Forging Services",
-      "description": seoDescription,
+      "serviceType": "Aerospace Manufacturing",
+      "description": "High-integrity titanium forging for flight-critical components. Certified to AMS 4928 and MIL-T-9047 standards with integrated Forge-to-Finish oversight.",
       "provider": {
         "@type": "Organization",
-        "@id": "https://www.forcebeyond.store#organization",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
+        "url": "https://www.forcebeyond.store/",
         "knowsAbout": [
-          "Titanium Aerospace Forging",
-          "Ti-6Al-4V & Ti-6-2-4-2 Alloys",
-          "Hot Closed-Die Forging",
-          "Near-Net-Shape Titanium Manufacturing",
-          "AS9100 Rev D Quality Framework",
-          "Fuselage, Landing Gear & Engine Components"
+          "AMS 4928",
+          "MIL-T-9047",
+          "AS9100 Rev D",
+          "ITAR",
+          "Isothermal Forging"
         ]
       },
       "areaServed": [
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "South Korea" },
-        { "@type": "Country", "name": "Taiwan" }
+        "Global",
+        "USA",
+        "South Korea",
+        "Taiwan"
+      ],
+      "isRelatedTo": [
+        {
+          "@type": "Service",
+          "name": "Titanium Aerospace Casting",
+          "url": "https://www.forcebeyond.store/titanium-aerospace-casting/"
+        },
+        {
+          "@type": "Service",
+          "name": "Aerospace Titanium Machining",
+          "url": "https://www.forcebeyond.store/titanium-aerospace-machining/"
+        }
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Titanium Aerospace Forging Capabilities",
+        "name": "Aerospace Forging Capabilities",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Hot Closed-Die Titanium Forging",
-              "description": "High-tonnage closed-die configuration optimizing directional grain flow patterns along structural stress axes to prevent microstructural cracking under high fatigue."
+              "name": "Jet Engine Turbine Blade Forging"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Near-Net-Shape Optimization",
-              "description": "Advanced thermomechanical processing designed to significantly minimize buy-to-fly material waste ratios for critical fuselage and engine bulkheads."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Aerospace Non-Destructive Testing (NDT)",
-              "description": "Comprehensive quality verification tracking microstructural alpha-case contamination, ultrasonic integrity, and complete heat lot traceability."
+              "name": "Structural Airframe Forging"
             }
           }
         ]
       }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/titanium-aerospace-forging#faq",
-      "mainEntity": faqs.map(f => ({
-        "@type": "Question",
-        "name": f.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": f.a
-        }
-      }))
     }
   ]
 };
