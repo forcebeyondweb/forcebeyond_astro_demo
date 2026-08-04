@@ -70,7 +70,7 @@ const {
 } = Astro.props;
 
 const isCtaDescArray = Array.isArray(ctaDescription);
-const siteBase = Astro.site ?? new URL('https://www.forcebeyond.store');
+const siteBase = Astro.site ?? new URL('https://www.forcebeyond.com');
 const resolvedCanonicalUrl = canonicalUrl
     ? new URL(canonicalUrl, siteBase).toString()
     : new URL(Astro.url.pathname, siteBase).toString();

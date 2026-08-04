@@ -63,22 +63,22 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/careers#webpage",
-      "url": "https://www.forcebeyond.store/careers",
+      "@id": "https://www.forcebeyond.com/careers#webpage",
+      "url": "https://www.forcebeyond.com/careers",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
+        "@id": "https://www.forcebeyond.com#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
+        "url": "https://www.forcebeyond.com"
       }
     },
     {
       "@type": "Organization",
-      "@id": "https://www.forcebeyond.store#organization",
+      "@id": "https://www.forcebeyond.com#organization",
       "name": "ForceBeyond",
-      "url": "https://www.forcebeyond.store",
+      "url": "https://www.forcebeyond.com",
       "knowsAbout": [
         "Advanced Contract Manufacturing & Engineering",
         "AS9100 Rev D & ISO 9001:2015 Quality Assurance",
@@ -89,7 +89,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/careers#faq",
+      "@id": "https://www.forcebeyond.com/careers#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,

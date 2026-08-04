@@ -70,15 +70,15 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/forging#webpage",
-      "url": "https://www.forcebeyond.store/forging",
+      "@id": "https://www.forcebeyond.com/forging#webpage",
+      "url": "https://www.forcebeyond.com/forging",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
+        "@id": "https://www.forcebeyond.com#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
+        "url": "https://www.forcebeyond.com"
       },
       "about": [
         {
@@ -100,16 +100,16 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/forging#service",
+      "@id": "https://www.forcebeyond.com/forging#service",
       "name": "Precision Custom Metal Forging Services",
       "serviceType": "Closed-Die, Open-Die, Cold Forging & Seamless Rolled Ring Forging",
       "description": seoDescription,
       "provider": {
         "@type": "Organization",
-        "@id": "https://www.forcebeyond.store#organization",
+        "@id": "https://www.forcebeyond.com#organization",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
-        "logo": "https://www.forcebeyond.store/media/logo.png",
+        "url": "https://www.forcebeyond.com",
+        "logo": "https://www.forcebeyond.com/media/logo.png",
         "knowsAbout": [
           "Near-Net-Shape Closed Die Forging",
           "Open Die Hydraulic Press Forging",
@@ -203,7 +203,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/forging#faq",
+      "@id": "https://www.forcebeyond.com/forging#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,

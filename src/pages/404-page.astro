@@ -1,0 +1,75 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Error 404 Page';
+const seoTitle = 'Page Not Found | ForceBeyond';
+const seoDescription =
+    'The requested page could not be found. Return to the ForceBeyond homepage or explore our manufacturing capabilities.';
+
+const canonicalUrl = 'https://www.forcebeyond.com/404/';
+
+const pageSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebPage',
+    '@id': `${canonicalUrl}#webpage`,
+    url: canonicalUrl,
+    name: seoTitle,
+    description: seoDescription,
+    isPartOf: {
+        '@type': 'WebSite',
+        '@id': 'https://www.forcebeyond.com/#website',
+        name: 'ForceBeyond',
+        url: 'https://www.forcebeyond.com/',
+    },
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="noindex,follow"
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="ForceBeyond precision manufacturing background"
+    heroImageWidth={1920}
+    heroImageHeight={1080}
+>
+    <div slot="full-width" class="individual-content">
+        <section class="error-section" aria-labelledby="error-heading">
+            <div class="content-container">
+                <div class="error-grid">
+
+                    <div class="error-copy">
+                        <h2>Oops, This Page Could Not Be Found!</h2>
+
+                        <p>
+                            The page you are looking for may have been moved, renamed,
+                            or permanently removed. Please return to the homepage or
+                            explore our manufacturing capabilities.
+                        </p>
+
+                        <div class="error-actions">
+                            <a href="/" class="primary-action">
+                                Return to Homepage
+                            </a>
+
+                            <a href="/contact-us/" class="secondary-action">
+                                Contact ForceBeyond
+                            </a>
+                        </div>
+
+                        <nav class="helpful-links" aria-label="Helpful links">
+                            <a href="/casting/">Casting</a>
+                            <a href="/forging/">Forging</a>
+                            <a href="/precision-machining/">Precision Machining</a>
+                            <a href="/request-for-quote/">Request for Quote</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</IndividualPageLayout>
+

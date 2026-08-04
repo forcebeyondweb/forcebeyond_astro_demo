@@ -72,7 +72,7 @@ const currentYear = new Date().getFullYear();
                 "@graph": [
                     {
                         "@type": "Place",
-                        "@id": "https://www.forcebeyond.store/#place",
+                        "@id": "https://www.forcebeyond.com/#place",
                         "address": {
                             "@type": "PostalAddress",
                             "streetAddress": "261 Quigley Blvd, Ste 18",
@@ -87,9 +87,9 @@ const currentYear = new Date().getFullYear();
                             "Corporation",
                             "Organization"
                         ],
-                        "@id": "https://www.forcebeyond.store/#organization",
-                        "name": "www.forcebeyond.store",
-                        "url": "https://www.forcebeyond.store",
+                        "@id": "https://www.forcebeyond.com/#organization",
+                        "name": "www.forcebeyond.com",
+                        "url": "https://www.forcebeyond.com",
                         "sameAs": [
                             "https://www.facebook.com/ForceBeyond-2036256726642133/",
                             "https://twitter.com/FBmetalparts"
@@ -105,10 +105,10 @@ const currentYear = new Date().getFullYear();
                         },
                         "logo": {
                             "@type": "ImageObject",
-                            "@id": "https://www.forcebeyond.store/#logo",
-                            "url": "https://www.forcebeyond.store/media/forcebeyond-logo-svg.webp",
-                            "contentUrl": "https://www.forcebeyond.store/media/forcebeyond-logo-svg.webp",
-                            "caption": "www.forcebeyond.store",
+                            "@id": "https://www.forcebeyond.com/#logo",
+                            "url": "https://www.forcebeyond.com/media/forcebeyond-logo-svg.webp",
+                            "contentUrl": "https://www.forcebeyond.com/media/forcebeyond-logo-svg.webp",
+                            "caption": "www.forcebeyond.com",
                             "inLanguage": "en-US",
                             "width": 200,
                             "height": 50
@@ -122,17 +122,17 @@ const currentYear = new Date().getFullYear();
                         ],
                         "description": "ForceBeyond is a premier manufacturing total solution provider headquartered in New Castle, Delaware. Operating as a strategic Tier 1.5 supplier, we bridge the gap between engineering design and mass production for high-precision industrial components. We specialize in superalloy casting, titanium investment casting, and high-stress forging and CNC machining for the aerospace, energy, and automotive sectors. From our Delaware hub, we manage a globally integrated supply chain providing one-stop solutions—including engineering design collaboration, quality assurance (ISO 9001), and international logistics. Partner with ForceBeyond for world-class precision parts delivered with local reliability and global cost-efficiency.",
                         "location": {
-                            "@id": "https://www.forcebeyond.store/#place"
+                            "@id": "https://www.forcebeyond.com/#place"
                         }
                     },
                     {
                         "@type": "WebSite",
-                        "@id": "https://www.forcebeyond.store/#website",
-                        "url": "https://www.forcebeyond.store",
-                        "name": "www.forcebeyond.store",
+                        "@id": "https://www.forcebeyond.com/#website",
+                        "url": "https://www.forcebeyond.com",
+                        "name": "www.forcebeyond.com",
                         "alternateName": "ForceBeyond, LLC.",
                         "publisher": {
-                            "@id": "https://www.forcebeyond.store/#organization"
+                            "@id": "https://www.forcebeyond.com/#organization"
                         },
                         "inLanguage": "en-US"
                     }
@@ -183,6 +183,11 @@ const currentYear = new Date().getFullYear();
                             <li>
                                 <a href="/news-and-case-studies" class="block px-5 py-2.5 font-semibold hover:bg-brand-blue hover:text-white transition">
                                     News & Case Studies
+                                </a>
+                            </li>
+                            <li>
+                                <a href="/some-of-our-customers" class="block px-5 py-2.5 font-semibold hover:bg-brand-blue hover:text-white transition">
+                                    Some of Our Customer
                                 </a>
                             </li>
                         </ul>
@@ -568,7 +573,7 @@ const currentYear = new Date().getFullYear();
                 href="/request-for-quote" 
                 class="hidden desktop:inline-flex items-center justify-center rounded-full bg-brand-green px-7 py-3 text-sm font-semibold text-white transition hover:bg-[#5aaa14] shadow-sm"
             >
-                Request Quote
+                Request for Quote
             </a>
 
             <!-- Mobile Hamburger -->
@@ -626,6 +631,7 @@ const currentYear = new Date().getFullYear();
                 <div class="bg-slate-50 border-t border-slate-100">
                     <a href="/about-forcebeyond" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue">About ForceBeyond</a>
                     <a href="/news-and-case-studies" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue">News & Case Studies</a>
+                    <a href="/some-of-our-customer" class="mobile-menu-link block py-3 pl-10 pr-6 text-slate-600 hover:text-brand-blue">Some of Our Customer</a>                    
                 </div>
             </details>
 
@@ -967,9 +973,9 @@ const currentYear = new Date().getFullYear();
 
                     <li class="flex gap-2">
                         <span class="text-slate-400 w-16">Email:</span>
-                        <a href="mailto:contact@forcebeyond.com" class="hover:text-amber-400 transition">
-                            contact@forcebeyond.com
-                        </a>
+                        <p>
+                            contact at forcebeyond dot com
+                        </p>
                     </li>
 
                     <li class="flex gap-2">
@@ -1009,7 +1015,7 @@ const currentYear = new Date().getFullYear();
                     </a>
 
                     <a href="/careers" class="hover:text-amber-400 transition">
-                        Professional Opportunities (Careers)
+                        Job Opportunities
                     </a>
                 </ul>
             </div>

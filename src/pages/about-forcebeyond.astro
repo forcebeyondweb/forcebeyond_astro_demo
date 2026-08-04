@@ -67,22 +67,22 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "AboutPage",
-      "@id": "https://www.forcebeyond.store/about-forcebeyond#webpage",
-      "url": "https://www.forcebeyond.store/about-forcebeyond",
+      "@id": "https://www.forcebeyond.com/about-forcebeyond#webpage",
+      "url": "https://www.forcebeyond.com/about-forcebeyond",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
+        "@id": "https://www.forcebeyond.com#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
+        "url": "https://www.forcebeyond.com"
       }
     },
     {
       "@type": "Organization",
-      "@id": "https://www.forcebeyond.store#organization",
+      "@id": "https://www.forcebeyond.com#organization",
       "name": "ForceBeyond",
-      "url": "https://www.forcebeyond.store",
+      "url": "https://www.forcebeyond.com",
       "foundingDate": "2006",
       "description": "Premier global provider of high-precision castings, exotic alloy machining, and turnkey Tier-1.5 manufacturing solutions.",
       "knowsAbout": [
@@ -100,7 +100,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/about-forcebeyond#faq",
+      "@id": "https://www.forcebeyond.com/about-forcebeyond#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,

@@ -17,7 +17,7 @@ const projectId = env.PUBLIC_SANITY_PROJECT_ID;
 const dataset = env.PUBLIC_SANITY_DATASET;
 
 export default defineConfig({
-    site: 'https://www.forcebeyond.store',
+    site: 'https://www.forcebeyond.com',
     base: '/',
     output: 'static',
 

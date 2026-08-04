@@ -74,15 +74,15 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.store/heat-treatment#webpage",
-      "url": "https://www.forcebeyond.store/heat-treatment",
+      "@id": "https://www.forcebeyond.com/heat-treatment#webpage",
+      "url": "https://www.forcebeyond.com/heat-treatment",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store#website",
+        "@id": "https://www.forcebeyond.com#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store"
+        "url": "https://www.forcebeyond.com"
       },
       "about": [
         {
@@ -99,15 +99,15 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.store/heat-treatment#service",
+      "@id": "https://www.forcebeyond.com/heat-treatment#service",
       "name": "Thermal Processing & Heat Treatment Services",
       "serviceType": "Metallurgical Heat Treatment & Post-Processing",
       "description": seoDescription,
       "provider": {
         "@type": "Organization",
-        "@id": "https://www.forcebeyond.store#organization",
+        "@id": "https://www.forcebeyond.com#organization",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store",
+        "url": "https://www.forcebeyond.com",
         "knowsAbout": [
           "Solution Annealing & Quenching (Inconel, Stainless, Titanium)",
           "Precipitation Age Hardening (17-4 PH H900/H1150, Inconel 718)",
@@ -154,7 +154,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.store/heat-treatment#faq",
+      "@id": "https://www.forcebeyond.com/heat-treatment#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,
