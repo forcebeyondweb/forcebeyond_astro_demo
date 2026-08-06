@@ -1,60 +1,67 @@
 ---
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Data Center Power: Mission-Critical Hot Gas Path (HGP) Components';
-const seoTitle = 'Data Center Power & Hot Gas Path Components | ForceBeyond';
-const seoDescription = 'ForceBeyond manufactures aerospace-grade Hot Gas Path (HGP) turbine components for data center microgrids, including blades, nozzles, and forged discs.';
+const pageTitle = 'Data Center Power Generation Components for Gas Turbines & Microgrids';
+const seoTitle = 'Data Center Power Components | Gas Turbines & Microgrids';
+const seoDescription = 'ForceBeyond supports data center power and microgrid projects with turbine blades, vanes, nozzles, rings, discs, manifolds, and precision-machined components produced through casting, forging, HIP, CNC machining, heat treatment, coating, and inspection.';
+
+const canonicalUrl = 'https://www.forcebeyond.com/data-center-power/';
+const socialImage = 'https://www.forcebeyond.com/media/data-center-power-generation-infrastructure-hero.webp';
 
 const faqs = [
     {
-        q: "Why use AS9100-certified parts for data center power generation?",
-        a: "Data centers require \"Five 9s\" (99.999%) uptime. AS9100 certification enforces the same rigorous risk-based manufacturing, material traceability, and zero-defect controls used in commercial aviation—dramatically reducing the risk of catastrophic failure in on-site power microgrids."
+        q: "What metal components are commonly used in data center power-generation systems?",
+        a: "Common components include turbine blades, vanes, nozzles, combustor hardware, discs, rings, shafts, fuel-system components, valve bodies, manifolds, heat-exchanger hardware, generator components, and precision-machined mounting or flow-control parts. The exact manufacturing route depends on alloy, geometry, temperature, pressure, speed, inspection, and qualification requirements."
     },
     {
-        q: "Can ForceBeyond supply precision HGP replacement components for GE and Siemens turbines?",
-        a: "Yes. ForceBeyond operates as a Tier-1.5 contract manufacturer specializing in high-precision, fully certified aftermarket and OEM-equivalent Hot Gas Path components that meet or exceed original engineering specifications, providing faster lead times for MRO operations."
+        q: "Can ForceBeyond support replacement or MRO turbine components?",
+        a: "ForceBeyond may support build-to-print, repair-development, replacement, or MRO manufacturing programs when the customer provides authorized technical data, material and process specifications, acceptance criteria, and any required OEM or regulatory approvals. We do not represent parts as OEM-approved or equivalent unless that status is contractually and technically established."
+    },
+    {
+        q: "Why are aerospace-style quality controls relevant to data center power projects?",
+        a: "Gas-turbine and rotating-equipment components may require rigorous material traceability, process control, configuration management, NDT, dimensional inspection, and change control. Aerospace-style quality practices can be useful for high-consequence power applications, but the required standard and certification scope should be defined by the customer and project."
+    },
+    {
+        q: "What information is needed for a data center power component quote?",
+        a: "Provide drawings, CAD, material and product form, annual quantity, operating temperature, pressure, rotational speed, critical tolerances, coating, heat treatment, NDT, inspection frequency, documentation, approved-source restrictions, intellectual-property requirements, and target delivery schedule."
     }
 ];
 
 // Sources
 const sources = [
-    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
-    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
-    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
-    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
-    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
-    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
+    { label: 'U.S. Department of Energy - Data Center Energy Resources', url: 'https://www.energy.gov/' },
+    { label: 'Uptime Institute - Data Center Infrastructure and Resilience', url: 'https://uptimeinstitute.com/' },
+    { label: 'ASME - Gas Turbine and Power Generation Standards', url: 'https://www.asme.org/codes-standards' },
+    { label: 'SAE International - Aerospace Materials and Quality Standards', url: 'https://www.sae.org/standards' },
+    { label: 'ASM International - Superalloys and High-Temperature Materials', url: 'https://www.asminternational.org/' },
+    { label: 'Investment Casting Institute - Investment Casting Resources', url: 'https://www.investmentcasting.org/' }
 ];
 
 // Resources
 const internalResources = [
-    // Die Casting Resources
-    { label: "Die Casting Overview", url: "die-casting" },
-    { label: "Aluminum Die Casting", url: "aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "a356-t6-casting" },
-    { label: "Magnesium Casting", url: "magnesium-casting" },
-
-    // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "duplex-stainless-steel-casting" },
-
-    // Forging Resources
-    { label: "Forging Capabilities Overview", url: "forging" },
-    { label: "Open Die Forging", url: "open-die-forging" },
-    { label: "Closed Die Forging", url: "closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "rolled-ring-forging" },
-    { label: "Cold Forging", url: "cold-forging" },
-    { label: "Superalloy Forging Services", url: "superalloy-forging-services" },
-
-    // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "carbon-steel-casting" }
+    { label: "Energy & Power Generation", url: "/energy-power-generation" },
+    { label: "Power Generation", url: "/power-generation" },
+    { label: "Nuclear & SMR", url: "/nuclear-smr" },
+    { label: "Oil & Gas", url: "/oil-gas" },
+    { label: "HVAC, Fluid & Flow Control", url: "/hvac-flow" },
+    { label: "Casting Capabilities", url: "/casting" },
+    { label: "Investment Casting", url: "/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
+    { label: "Forging Capabilities", url: "/forging" },
+    { label: "Open Die Forging", url: "/open-die-forging" },
+    { label: "Closed Die Forging", url: "/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
+    { label: "Precision Machining", url: "/precision-machining" },
+    { label: "Multi-Axis CNC Milling & Turning", url: "/multi-axis-cnc" },
+    { label: "Hot Isostatic Pressing (HIP)", url: "/hot-isostatic-pressing" },
+    { label: "Heat Treatment", url: "/heat-treatment" },
+    { label: "Surface Finishing & Coating", url: "/surface-finishing" },
+    { label: "Assembly & Kitting", url: "/assembly-and-kitting" },
+    { label: "Superalloys & Exotic Metals", url: "/superalloys-exotic-metals" },
+    { label: "Quality Assurance & Certifications", url: "/quality-assurance-certifications" },
+    { label: "Testing & Inspection Capabilities", url: "/testing-inspection-capabilities" },
+    { label: "Global Footprint & Logistics", url: "/global-footprint-logistics" }
 ];
 
 // Page Schema
@@ -63,78 +70,54 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.storedata-center-power#webpage",
-      "url": "https://www.forcebeyond.storedata-center-power",
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
       "name": seoTitle,
       "description": seoDescription,
-      "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store/oscar#website",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar"
-      }
+      "isPartOf": { "@type": "WebSite", "@id": "https://www.forcebeyond.com/#website", "name": "ForceBeyond", "url": "https://www.forcebeyond.com/" },
+      "primaryImageOfPage": { "@type": "ImageObject", "url": socialImage },
+      "breadcrumb": { "@id": `${canonicalUrl}#breadcrumb` },
+      "about": [
+        { "@type": "Thing", "name": "Data center power generation" },
+        { "@type": "Thing", "name": "Gas turbine components" },
+        { "@type": "Thing", "name": "Microgrid power systems" },
+        { "@type": "Thing", "name": "Hot gas path components" },
+        { "@type": "Thing", "name": "Turbine MRO components" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.forcebeyond.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Industries", "item": "https://www.forcebeyond.com/industries/" },
+        { "@type": "ListItem", "position": 3, "name": "Data Center Power", "item": canonicalUrl }
+      ]
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.storedata-center-power#service",
-      "name": "Hot Gas Path (HGP) Turbine Component Manufacturing",
-      "serviceType": "Aerospace-Grade Power Generation Components",
+      "@id": `${canonicalUrl}#service`,
+      "name": "Data Center Power and Gas Turbine Component Manufacturing",
+      "serviceType": "Casting, Forging, Machining and Inspection for Data Center Power Systems",
       "description": seoDescription,
-      "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store/oscar#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar",
-        "knowsAbout": [
-          "Vacuum Precision Casting (VIM) & Investment Casting",
-          "Directional Solidification (DS) Turbine Buckets",
-          "Seamless Rolled Ring Forging for Turbine Discs",
-          "AS9100 Rev D & ISO 9001:2015 Quality Systems",
-          "On-Site Data Center Microgrid Power Components"
-        ]
-      },
+      "url": canonicalUrl,
+      "provider": { "@id": "https://www.forcebeyond.com/#organization" },
+      "areaServed": { "@type": "Country", "name": "United States" },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Hot Gas Path Component Capabilities",
+        "name": "Data Center Power Component Capabilities",
         "itemListElement": [
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Turbine Nozzles & Vanes",
-              "description": "Vacuum investment cast Inconel and Hastelloy components with complex internal cooling passages."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Directionally Solidified Turbine Buckets",
-              "description": "DS vacuum cast blades in Inconel 718, Mar-M-247, and Inconel 738 for maximum thermal creep resistance."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Forged Turbine Discs & Rings",
-              "description": "Seamless rolled ring forgings providing high hoop strength and fatigue resistance."
-            }
-          }
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hot Gas Path Castings", "description": "Project-specific blades, vanes, nozzles, shrouds, and combustor hardware in qualified high-temperature alloys." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Forged Discs, Rings and Rotating Hardware", "description": "Open-die, closed-die, and rolled-ring forgings for discs, rings, shafts, flanges, and rotating components." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Precision-Machined Fuel and Flow Components", "description": "Multi-axis machining for fuel nozzles, manifolds, valve components, seal hardware, and complex flow-path features." } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Inspection, Documentation and MRO Support", "description": "Project-specific NDT, CMM, material testing, traceability, first-article documentation, and replacement-part support." } }
         ]
       }
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.storedata-center-power#faq",
-      "mainEntity": faqs.map(f => ({
-        "@type": "Question",
-        "name": f.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": f.a
-        }
-      }))
+      "@id": `${canonicalUrl}#faq`,
+      "mainEntity": faqs.map((faq) => ({ "@type": "Question", "name": faq.q, "acceptedAnswer": { "@type": "Answer", "text": faq.a } }))
     }
   ]
 };
@@ -143,17 +126,24 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
     pageTitle={pageTitle}
-    heroImage="media/data-center-power-generation-infrastructure-hero.webp"
-    heroImageAlt="Data center power infrastructure with industrial turbine generators, server racks, and a global digital network supporting high-demand computing operations."
+    heroImage="/media/data-center-power-generation-infrastructure-hero.webp"
+    heroImageAlt="Data center power infrastructure with turbine generation, server facilities, and electrical distribution"
+    heroImageWidth={1920}
+    heroImageHeight={1080}
+    socialImage={socialImage}
+    socialImageAlt="Data center power generation and gas turbine component manufacturing"
     faqSectionTitle="Frequently Asked Questions: Data Center Power"
     faqItems={faqs}
-    ctaTitle="Ready to Power Your Data Center Project?"
-    ctaDescription="Contact our engineering management team to learn how our Tier-1.5 model delivers rapid-turnaround, fully certified HGP turbine hardware."
-    sourcesTitle="Sources"
+    ctaTitle="Review a Data Center Power Component Program"
+    ctaDescription="Send your drawings, material, quantity, operating conditions, critical tolerances, heat treatment, coating, NDT, documentation, approved-source requirements, and delivery targets for an engineering review."
+    ctaButtonText="Request a Power Component Review"
+    sourcesTitle="Data Center Power and Turbine References"
     sourcesList={sources}
-    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesTitle="Related Power, Casting, Forging, Machining and Quality Resources"
     resourcesList={internalResources}
 >
 
@@ -161,107 +151,49 @@ const pageSchema = {
 
         <section id="overview">
             <div class="content-container">
-                
-                <h2>Data Center Power: Mission-Critical Hot Gas Path (HGP) Components</h2>
-                        <p>
-                            ForceBeyond is a premier Tier-1.5 contract manufacturer delivering aerospace-grade Hot Gas Path (HGP) components for on-site data center power generation. As AI factories and hyperscale facilities demand gigawatt-scale, "always-on" clean firm power, utility grid constraints have driven a massive shift toward dedicated, on-site microgrids and power islands.
-                        </p>
-                        <p>
-                            Utilizing Vacuum Precision Casting (VIM), seamless rolled ring forging, and 5-axis CNC finishing, ForceBeyond supplies high-reliability turbine blades, nozzles, vanes, and discs for industrial and aeroderivative gas turbines (including GE LM2500, Frame-series, and Siemens SGT-series engines). Operating under AS9100 Rev D and ISO 9001:2015 quality certifications, we provide the zero-defect reliability required to prevent catastrophic downtime in AI compute infrastructure.
-                        </p>
+                <h2>Metal Components for Data Center Power Generation</h2>
+                <p>Data center campuses increasingly evaluate on-site generation, microgrids, combined heat and power, battery-supported systems, and dedicated utility infrastructure to improve capacity, resilience, and schedule certainty.</p>
+                <p>ForceBeyond supports data center power projects with <a href="/investment-casting" class="highlight-link">investment castings</a>, <a href="/forging" class="highlight-link">forgings</a>, <a href="/precision-machining" class="highlight-link">precision-machined components</a>, heat treatment, finishing, inspection, and assembly for gas turbines, generators, fuel systems, thermal systems, and balance-of-plant equipment.</p>
+                <p>Manufacturing routes, material systems, inspection levels, and documentation should be selected according to the component drawing, operating conditions, customer requirements, intellectual-property rights, and applicable industry standards.</p>
             </div>
         </section>
 
-        <section id="hgp-specialization">
+        <section id="system-applications">
             <div class="content-container">
-                <h2>Hot Gas Path (HGP) Component Specialization</h2>
-                <p>
-                    Data center power generation requires 24/7 continuous baseload operation and rapid-ramping capabilities. ForceBeyond manufactures and machines critical HGP internals that withstand extreme thermal stress, hot corrosion, and high-cycle fatigue:
-                </p>
-                <div class="content-table-wrapper">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th scope="col">Component Type</th>
-                                <th scope="col">Manufacturing Process</th>
-                                <th scope="col">Material Expertise</th>
-                                <th scope="col">Technical Advantage for Data Centers</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            <tr>
-                                <th scope="row">Turbine Nozzles & Vanes</th>
-                                <td>Vacuum Investment Casting</td>
-                                <td>Inconel 718, Inconel 625, Hastelloy X</td>
-                                <td>Form complex internal cooling passages essential for continuous high-efficiency operation under peak thermal loads.</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Turbine Buckets (Blades)</th>
-                                <td>Directional Solidification (DS) & Vacuum Casting</td>
-                                <td>Inconel 718, Mar-M-247, Inconel 738</td>
-                                <td>Maximizes thermal creep resistance and grain structure stability in extreme temperature gas paths.</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Turbine Discs & Rings</th>
-                                <td>Seamless Rolled Ring Forging</td>
-                                <td>Inconel 718 (AMS 5662 / 5663), 4140</td>
-                                <td>Provides continuous grain flow, superior hoop strength, and high fatigue resistance for high-speed rotating shafts.</td>
-                            </tr>
-                            <tr>
-                                <th scope="row">Fuel Nozzles & Assemblies</th>
-                                <td>Multi-Axis CNC Machining</td>
-                                <td>Hastelloy X, 316L Stainless Steel</td>
-                                <td>Ultra-tight tolerance ($\pm 0.0005''$) machining ensures optimal fuel atomization for hydrogen-blend and natural gas microgrids.</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+                <h2>Where ForceBeyond Components Fit in Data Center Power Systems</h2>
+                <div class="content-table-wrapper"><table><thead><tr><th scope="col">Power-System Area</th><th scope="col">Representative Components</th><th scope="col">Common Manufacturing Routes</th><th scope="col">Key Engineering Requirements</th></tr></thead><tbody>
+                    <tr><th scope="row">Gas Turbine Hot Section</th><td>Blades, buckets, vanes, nozzles, shrouds, combustor hardware, transition pieces</td><td>Vacuum investment casting, HIP where specified, heat treatment, multi-axis machining, coating, NDT</td><td>High-temperature strength, oxidation and hot-corrosion resistance, cooling geometry, fatigue, creep, and traceability</td></tr>
+                    <tr><th scope="row">Rotating Equipment</th><td>Discs, rings, shafts, spacers, couplings, flanges, retaining hardware</td><td>Open-die forging, closed-die forging, rolled-ring forging, heat treatment, machining, ultrasonic inspection</td><td>Grain flow, cleanliness, fatigue, hoop strength, balance, runout, dimensional stability, and material pedigree</td></tr>
+                    <tr><th scope="row">Fuel and Combustion Systems</th><td>Fuel nozzles, manifolds, valve bodies, atomizers, fittings, brackets, seal hardware</td><td>Investment casting, bar or forged stock machining, approved joining, cleaning, flow and leak testing</td><td>Flow control, pressure integrity, corrosion resistance, cleanliness, orifice geometry, and repeatability</td></tr>
+                    <tr><th scope="row">Thermal and Cooling Systems</th><td>Heat-exchanger components, manifolds, cold plates, pump bodies, impellers, valve hardware</td><td>Die casting, sand casting, investment casting, machining, brazing, coating, pressure and leak testing</td><td>Thermal performance, pressure containment, corrosion, flatness, sealing, flow restriction, and cleanliness</td></tr>
+                    <tr><th scope="row">Generator and Balance of Plant</th><td>Housings, supports, covers, bearing components, busbar hardware, frames, brackets</td><td>Sand casting, die casting, forging, fabrication, CNC machining, coating, assembly</td><td>Structural stiffness, vibration, electrical performance, corrosion, alignment, and serviceability</td></tr>
+                </tbody></table></div>
             </div>
         </section>
 
-        <section id="ai-revolution">
-            <div class="content-container">
-                <h2>Empowering the AI Revolution with On-Site Microgrids</h2>
-                <p>
-                    Hyperscalers cannot afford years-long delays waiting for public grid interconnects. ForceBeyond supports energy campus developers and MRO providers with rapid-turnaround, ready-to-install HGP hardware for:
-                </p>
-                <ul>
-                    <li>
-                        <strong>Aeroderivative Gas Turbines:</strong> Rapid-start units (e.g., GE LM2500) utilized for peaking and continuous prime power.
-                    </li>
-                    <li>
-                        <strong>Heavy Industrial Gas Turbines:</strong> Reliable baseload power plants powering dedicated data center campuses.
-                    </li>
-                    <li>
-                        <strong>Hydrogen-Ready Microgrids:</strong> High-temperature superalloy components engineered to withstand hydrogen combustion environments.
-                    </li>
-                </ul>
-                <p class="mt-4">
-                    <strong>The Tier-1.5 Advantage:</strong> By consolidating vacuum investment casting, Hot Isostatic Pressing (HIP), 5-axis CNC machining, and pre-assembled nozzle/bucket kitting under one managed quality system, ForceBeyond delivers HGP components in weeks—not years—keeping data center energy projects on schedule.
-                </p>
-            </div>
-        </section>
+        <section id="hgp-components"><div class="content-container"><h2>Hot Gas Path Component Manufacturing</h2><p>Hot gas path components operate under high temperature, thermal gradients, oxidation, hot corrosion, vibration, creep, and cyclic loading. Geometry and alloy selection are closely linked to the casting, heat-treatment, coating, and inspection route.</p><ul><li><strong>Turbine blades and buckets:</strong> equiaxed, directionally solidified, or other qualified casting structures depending on design and specification.</li><li><strong>Vanes and nozzles:</strong> complex airfoil geometry, cooling passages, platforms, sealing features, and coating interfaces.</li><li><strong>Shrouds and combustor hardware:</strong> thermal-fatigue resistance, oxidation control, fit, segment geometry, and coating compatibility.</li><li><strong>Fuel-system hardware:</strong> precise flow features, clean internal passages, leak integrity, and corrosion-resistant alloys.</li></ul><p>See <a href="/inconel-vacuum-precision-casting" class="highlight-link">Inconel vacuum precision casting</a> and <a href="/superalloys-exotic-metals" class="highlight-link">superalloys and exotic metals</a> for additional material and process information.</p></div></section>
 
-        <section id="as9100-certification">
-            <div class="content-container">
-                <h2>Why AS9100 Certification Matters for Data Center Procurement</h2>
-                <p>
-                    In an AI data center, a single "blade out" failure or unscheduled turbine outage can result in millions of dollars per hour in lost compute time. While AS9100 is an aerospace standard, it serves as the ultimate reliability insurance for energy procurement managers:
-                </p>
-                <ul>
-                    <li>
-                        <strong>100% Digital Traceability:</strong> Every bucket, blade, and disc has an unbroken material pedigree from raw superalloy melt to final CMM inspection map.
-                    </li>
-                    <li>
-                        <strong>Hot Isostatic Pressing (HIP):</strong> Applies 15,000+ psi argon gas pressure at elevated temperatures to collapse internal micro-porosity, increasing fatigue life by up to 300%.
-                    </li>
-                    <li>
-                        <strong>Comprehensive NDT Verification:</strong> 100% Radiographic Testing (X-Ray), Fluorescent Penetrant Inspection (FPI), and 3D CMM inspection verify internal structural soundness.
-                    </li>
-                </ul>
-            </div>
-        </section>
+        <section id="component-process-matrix"><div class="content-container"><h2>Component-to-Process Matrix</h2><div class="content-table-wrapper"><table><thead><tr><th scope="col">Component Family</th><th scope="col">Representative Materials</th><th scope="col">Potential Manufacturing Route</th><th scope="col">Typical Verification</th></tr></thead><tbody>
+            <tr><th scope="row">Blades, Vanes and Nozzles</th><td>Nickel-base superalloys selected by drawing and operating condition</td><td>Vacuum investment casting, ceramic cores, HIP where specified, heat treatment, machining, coating</td><td>Radiography, penetrant inspection, dimensional inspection, chemistry, mechanical testing, coating verification</td></tr>
+            <tr><th scope="row">Discs and Rings</th><td>Nickel alloys, alloy steels, stainless steels, and application-specific grades</td><td>Open-die or closed-die forging, rolled-ring forging, heat treatment, rough and finish machining</td><td>Ultrasonic testing, hardness, tensile testing, macrostructure review, CMM, balance where required</td></tr>
+            <tr><th scope="row">Fuel Nozzles and Manifolds</th><td>Stainless steels, nickel alloys, cobalt alloys, and customer-specified materials</td><td>Precision casting or wrought stock, multi-axis machining, approved joining, cleaning, flow and leak testing</td><td>Orifice inspection, CMM, borescope, pressure or leak testing, cleanliness, material traceability</td></tr>
+            <tr><th scope="row">Valve and Pump Components</th><td>Stainless, duplex, nickel alloys, carbon or low-alloy steels</td><td>Investment casting, sand casting, forging, machining, heat treatment, coating</td><td>NDT, pressure testing, dimensional inspection, hardness, PMI, coating and documentation review</td></tr>
+            <tr><th scope="row">Thermal Hardware and Housings</th><td>Aluminum, copper alloys, stainless steels, and application-specific materials</td><td>Die casting, machining, brazing, welding, coating, assembly, leak testing</td><td>Flatness, surface finish, pressure decay, flow testing, CMM, cleanliness, coating thickness</td></tr>
+        </tbody></table></div></div></section>
+
+        <section id="materials"><div class="content-container"><h2>Materials for Data Center Power Components</h2><ul><li><strong>Nickel-base superalloys:</strong> elevated-temperature strength, oxidation resistance, creep resistance, and hot-section service.</li><li><strong>Stainless and duplex steels:</strong> fuel, flow, valve, pump, manifold, and corrosion-resistant balance-of-plant components.</li><li><strong>Alloy steels:</strong> shafts, rings, flanges, housings, and structural or rotating components.</li><li><strong>Aluminum alloys:</strong> housings, thermal hardware, brackets, electronics infrastructure, and weight-sensitive assemblies.</li><li><strong>Copper alloys:</strong> electrical, thermal, busbar, heat-transfer, and conductive applications.</li></ul><p>Review <a href="/materials-technical-specs" class="highlight-link">materials and technical specifications</a> and <a href="/material-cross-reference-charts" class="highlight-link">material cross-reference charts</a>.</p></div></section>
+
+        <section id="microgrid-applications"><div class="content-container"><h2>On-Site Generation and Microgrid Applications</h2><ul><li><strong>Prime power:</strong> dedicated generation supporting continuous campus loads.</li><li><strong>Peaking and load support:</strong> rapid-response generation used alongside utility service, storage, or other sources.</li><li><strong>Combined heat and power:</strong> systems that recover thermal energy for heating, cooling, or process use.</li><li><strong>Resilience and backup:</strong> generation supporting continuity during utility interruption or constrained grid capacity.</li><li><strong>Hybrid microgrids:</strong> coordinated gas generation, batteries, renewable sources, controls, and utility interconnection.</li></ul><p>Component requirements vary significantly between continuous-duty, peaking, emergency, aeroderivative, and heavy-duty turbine systems.</p></div></section>
+
+        <section id="mro-replacement"><div class="content-container"><h2>MRO and Replacement Component Support</h2><p>Replacement-part and MRO programs require careful control of technical data, intellectual property, configuration, material, process, and acceptance criteria.</p><ol><li><strong>Confirm authority:</strong> verify the customer is authorized to provide and use the technical data.</li><li><strong>Define configuration:</strong> identify drawing revision, equipment model, serial applicability, and service condition.</li><li><strong>Review equivalency:</strong> compare geometry, material, heat treatment, coating, inspection, and documentation.</li><li><strong>Validate the process:</strong> complete first article, dimensional comparison, testing, NDT, and customer approval where required.</li><li><strong>Control changes:</strong> document any material, source, process, tooling, or inspection change before production release.</li></ol><p>ForceBeyond does not claim OEM approval, OEM authorization, or interchangeability unless supported by the applicable contract and technical approval.</p></div></section>
+
+        <section id="quality"><div class="content-container"><h2>Quality Planning for High-Consequence Power Components</h2><ul><li><strong>Contract review:</strong> drawing, specification, material, process, NDT, documentation, and source-approval requirements.</li><li><strong>Material traceability:</strong> heat, lot, MTR, process, and shipment linkage where required.</li><li><strong>Special-process control:</strong> heat treatment, HIP, coating, NDT, welding, brazing, and laboratory approvals.</li><li><strong>Dimensional inspection:</strong> CMM, gauges, optical methods, profilometry, and first-article reporting.</li><li><strong>Change control:</strong> supplier, material, tooling, process, program, and inspection changes.</li></ul><p>Review <a href="/quality-assurance-certifications" class="highlight-link">quality assurance and certifications</a> and <a href="/testing-inspection-capabilities" class="highlight-link">testing and inspection capabilities</a>.</p></div></section>
+
+        <section id="secondary-operations"><div class="content-container"><h2>Integrated Secondary Operations</h2><ul><li><strong><a href="/hot-isostatic-pressing" class="highlight-link">Hot Isostatic Pressing:</a></strong> used where specified to reduce internal porosity and support property requirements.</li><li><strong><a href="/heat-treatment" class="highlight-link">Heat treatment:</a></strong> solution treatment, aging, stress relief, quench and temper, or other alloy-specific cycles.</li><li><strong><a href="/surface-finishing" class="highlight-link">Surface finishing and coating:</a></strong> oxidation, corrosion, wear, friction, or thermal protection.</li><li><strong><a href="/multi-axis-cnc" class="highlight-link">Multi-axis machining:</a></strong> airfoil, platform, bore, slot, seal, flow-path, and datum features.</li><li><strong><a href="/assembly-and-kitting" class="highlight-link">Assembly and kitting:</a></strong> hardware, seals, subassemblies, identification, packaging, and maintenance kits.</li></ul></div></section>
+
+        <section id="supply-chain"><div class="content-container"><h2>Supply Chain and Program Management</h2><ul><li><strong>Long-lead material planning:</strong> alloy, billet, master heat, foundry, forging stock, and approved sources.</li><li><strong>Tooling and capacity:</strong> wax tooling, ceramic cores, dies, fixtures, machining programs, inspection assets, and capacity.</li><li><strong>Source qualification:</strong> facility, certification scope, special-process approvals, capability, and customer restrictions.</li><li><strong>Inventory strategy:</strong> service stock, safety stock, repair kits, spares, ownership, and replenishment rules.</li><li><strong>Logistics:</strong> packaging, corrosion protection, export controls, customs, freight, and milestones.</li></ul><p>See <a href="/global-footprint-logistics" class="highlight-link">global footprint and logistics</a>.</p></div></section>
+
+        <section id="rfq-checklist"><div class="content-container"><h2>Data Center Power Component RFQ Checklist</h2><ul><li><strong>Technical data:</strong> drawing, CAD, revision, bill of materials, equipment model, and configuration.</li><li><strong>Material:</strong> alloy, product form, specification, condition, heat treatment, and approved sources.</li><li><strong>Operating conditions:</strong> temperature, pressure, speed, fuel, environment, duty cycle, and expected life.</li><li><strong>Quality:</strong> critical characteristics, NDT, first article, capability, traceability, and documentation.</li><li><strong>Commercial:</strong> prototype quantity, annual demand, lot size, tooling, target delivery, and program duration.</li><li><strong>Legal and IP:</strong> technical-data authority, confidentiality, export controls, OEM restrictions, and approvals.</li></ul></div></section>
 
     </div>
 </IndividualPageLayout>

@@ -1,0 +1,102 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Some of Our Customers';
+const seoTitle = 'Some of Our Customers | ForceBeyond';
+const seoDescription =
+    'Explore a selection of customers and global brands served by ForceBeyond across industrial manufacturing, automotive, energy, fluid control, and engineered component markets.';
+
+const customers = [
+    { name: 'SPACEX', logo: '/media/customer-logos/SPACEX.webp' },
+    { name: 'BEMIS', logo: '/media/customer-logos/BEMIS.webp' },
+    { name: 'Click-Bond', logo: '/media/customer-logos/Click-Bond.webp' },
+    { name: 'Linamar', logo: '/media/customer-logos/Linamar.webp' },
+    { name: 'Snap-on', logo: '/media/customer-logos/Snap-on.webp' },
+    { name: 'Garrett Motion', logo: '/media/customer-logos/GARRETT.webp' },
+    { name: 'Regal Beloit', logo: '/media/customer-logos/REGAL-BELOIT.webp' },
+    { name: 'RWC', logo: '/media/customer-logos/RWC.webp' },
+    { name: 'Elkay', logo: '/media/customer-logos/Elkay.webp' },
+    { name: 'Asepco', logo: '/media/customer-logos/ASEPCO.webp' },
+    { name: 'Endurance', logo: '/media/customer-logos/ENDURANCE.webp' },
+    { name: 'GORMAN-RUPP-PUMPS', logo: '/media/customer-logos/GORMAN-RUPP-PUMPS.webp' },
+    { name: 'KELCC', logo: '/media/customer-logos/KELCC.webp' },
+    { name: 'KNOLL', logo: '/media/customer-logos/KNOLL.webp' },
+    { name: 'NOV', logo: '/media/customer-logos/NOV.webp' },
+    { name: 'PARKER', logo: '/media/customer-logos/PARKER.webp' },
+    { name: 'Saint-Gobain', logo: '/media/customer-logos/Saint-Gobain.webp' },
+    { name: 'SF-Motors', logo: '/media/customer-logos/SF-Motors.webp' },
+    { name: 'Sierra_Pacific', logo: '/media/customer-logos/Sierra_Pacific.webp' }
+];
+
+const pageSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'WebPage',
+            '@id': 'https://www.forcebeyond.com/some-of-our-customers#webpage',
+            url: 'https://www.forcebeyond.com/some-of-our-customers',
+            name: seoTitle,
+            description: seoDescription,
+            isPartOf: {
+                '@type': 'WebSite',
+                '@id': 'https://www.forcebeyond.com#website'
+            },
+            about: {
+                '@type': 'Organization',
+                '@id': 'https://www.forcebeyond.com#organization'
+            }
+        }
+    ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    canonicalUrl="/some-of-our-customers"
+    heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="ForceBeyond industrial manufacturing customer showcase"
+    ctaTitle="Discuss Your Next Manufacturing Project"
+    ctaDescription="Contact ForceBeyond to discuss your drawings, production requirements, quality standards, and supply-chain goals."
+    ctaButtonUrl="/request-for-quote"
+    ctaButtonText="Request for Quote"
+>
+    <div slot="full-width" class="individual-content">
+        <section aria-labelledby="customers-grid-heading">
+            <div class="content-container">
+                <div class="mx-auto max-w-3xl text-center">
+                    <h2 id="customers-grid-heading">Some of Our Customers</h2>
+                    <p>
+                        ForceBeyond supports customers across industrial manufacturing, automotive,
+                        energy, flow control, engineered equipment, and other demanding markets.
+                    </p>
+                </div>
+
+                <div
+                    class="mt-10 grid grid-cols-2 gap-4 sm:grid-cols-3 sm:gap-5 lg:grid-cols-4 xl:grid-cols-5"
+                    role="list"
+                    aria-label="ForceBeyond customer logos"
+                >
+                    {customers.map((customer) => (
+                        <div
+                            class="flex min-h-40 items-center justify-center border border-slate-200 bg-white p-4 shadow-sm transition duration-200 hover:-translate-y-1 hover:shadow-md"
+                            role="listitem"
+                        >
+                            <img
+                                src={customer.logo}
+                                alt={`${customer.name} logo`}
+                                width="320"
+                                height="160"
+                                loading="lazy"
+                                decoding="async"
+                                class="h-28 w-full max-w-[90%] object-contain sm:h-32"
+                            />
+                        </div>
+                    ))}
+                </div>
+            </div>
+        </section>
+    </div>
+</IndividualPageLayout>

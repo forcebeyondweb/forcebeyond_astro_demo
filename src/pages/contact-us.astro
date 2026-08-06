@@ -4,8 +4,9 @@ import { sanityClient } from 'sanity:client';
 
 // 1. Fetch Dynamic Cloud Configuration from Sanity
 const data = await sanityClient.fetch(`*[_type == "contactPage"][0]`);
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 
-const countries = ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon', 'Canada', 'Central African Republic', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros', 'Congo (Congo-Brazzaville)', 'Costa Rica', 'Croatia', 'Cuba', 'Cyprus', 'Czechia', 'Democratic Republic of the Congo', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Eswatini', 'Ethiopia', 'Fiji', 'Finland', 'France', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius', 'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'Myanmar', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Korea', 'North Macedonia', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Vatican City', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe', 'United States of America'];
+const countries = ['United States of America', 'Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'Brunei', 'Bulgaria', 'Burkina Faso', 'Burundi', 'Cabo Verde', 'Cambodia', 'Cameroon', 'Canada', 'Central African Republic', 'Chad', 'Chile', 'China', 'Colombia', 'Comoros', 'Congo (Congo-Brazzaville)', 'Costa Rica', 'Croatia', 'Cuba', 'Cyprus', 'Czechia', 'Democratic Republic of the Congo', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Eswatini', 'Ethiopia', 'Fiji', 'Finland', 'France', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Greece', 'Grenada', 'Guatemala', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Honduras', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iran', 'Iraq', 'Ireland', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Mauritania', 'Mauritius', 'Mexico', 'Micronesia', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Morocco', 'Mozambique', 'Myanmar', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'North Korea', 'North Macedonia', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Russia', 'Rwanda', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Vincent and the Grenadines', 'Samoa', 'San Marino', 'Sao Tome and Principe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Korea', 'South Sudan', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Sweden', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Timor-Leste', 'Togo', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Vatican City', 'Venezuela', 'Vietnam', 'Yemen', 'Zambia', 'Zimbabwe'];
 
 const sources = ['Cold Call', 'Direct Mail', 'Email', 'Industry Event', 'Referral', 'Search Engine', 'Web Research', 'AI Search (ChatGPT/Gemini/Claude)'];
 
@@ -37,6 +38,7 @@ const contactSchema = {
 ---
 
 <Layout title="Contact Corporate Access | ForceBeyond" description={data?.seoDescription || "Submit your metal manufacturing requirements to ForceBeyond."}>
+    <script slot="head" src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script slot="head" type="application/ld+json" set:html={JSON.stringify(contactSchema)}></script>
     
 <!-- ========================================= -->
@@ -44,7 +46,7 @@ const contactSchema = {
 <!-- ========================================= -->
 <section class="relative z-20 w-full h-[420px] lg:h-[500px] flex items-center justify-center bg-slate-950 overflow-hidden border-b border-white/5">
     <img 
-        src="media/trust.webp" 
+        src="/media/trust.webp" 
         alt="Contact ForceBeyond"
         class="absolute inset-0 z-0 h-full w-full object-cover object-center"
     />
@@ -54,7 +56,7 @@ const contactSchema = {
     <div class="absolute inset-0 z-2 bg-gradient-to-r from-slate-950/45 via-transparent to-transparent"></div>
     
     <div class="relative z-10 mx-auto max-w-7xl px-6 sm:px-12 text-center">
-        <h1 class="mt-3 text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl uppercase leading-none">
+        <h1 class="mt-3 text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl  leading-none">
             Contact Us
         </h1>
     </div>
@@ -112,15 +114,9 @@ const contactSchema = {
 
                     <div>
                         <p class="text-[10px] font-black tracking-[0.2em] text-slate-950 uppercase">Email</p>
-                        <a href={`mailto:${data?.email || "contact@forcebeyond.com"}`} class="mt-2 inline-block text-slate-700 hover:text-blue-600 transition break-all">
-                            {data?.email || "contact@forcebeyond.com"}
-                        </a>
+                        <p>contact at forcebeyond dot com
                     </div>
                 </div>
-
-                <a href={`mailto:${data?.email || "contact@forcebeyond.com"}?subject=Web%20Conference%20Appointment`} class="mt-10 inline-flex w-full items-center justify-center rounded-full bg-blue-600 px-6 py-4 font-black tracking-widest text-white uppercase text-xs transition hover:bg-blue-700 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-blue-600/10">
-                    Schedule Web Conference
-                </a>
             </aside>
 
             <!-- Right-side form body container -->
@@ -152,28 +148,28 @@ const contactSchema = {
                     </div>
                 </div>
                             
-                <form id="contactForm" action="contact.php" method="POST" class="w-full">
-                    <h2 class="text-2xl font-black tracking-tight text-slate-950 uppercase">{data?.formTitle || "B2B Technical Communications"}</h2>
+                <form id="contactForm" action="/contact-form-submit.php" method="POST" class="w-full">
+                    <h2 class="text-2xl font-black tracking-tight text-slate-950 ">{data?.formTitle || "B2B Technical Communications"}</h2>
                     <p class="mt-3 leading-relaxed text-slate-600 text-sm">{data?.formDescription || "A dedicated ForceBeyond engineer will evaluate your submission and respond within one business day."}</p>
 
                     <div class="mt-12 grid gap-x-6 gap-y-8 sm:grid-cols-2">
                         <fieldset class="contents">
-                            <legend class="sm:col-span-2 text-sm font-black text-slate-900 uppercase tracking-wider">Primary Point of Contact <span class="text-blue-600">*</span></legend>
-                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">First Name<input class={input} required name="first-name" autocomplete="given-name" type="text" /></label>
-                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">Last Name<input class={input} required name="last-name" autocomplete="family-name" type="text" /></label>
+                            <legend class="sm:col-span-2 text-sm font-black text-slate-900  tracking-wider">Contact Information<span class="text-blue-600">*</span></legend>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">Your First Name<input class={input} required name="first-name" autocomplete="given-name" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">Your Last Name<input class={input} required name="last-name" autocomplete="family-name" type="text" /></label>
                         </fieldset>
 
-                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">Your Job Title <span class="text-blue-600">(required)</span><input class={input} required name="job-title" autocomplete="organization-title" type="text" /></label>
-                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">Your Company Name <span class="text-blue-600">(required)</span><input class={input} required name="company-name" autocomplete="organization" type="text" /></label>
+                        <label class="block text-xs font-bold text-slate-500  tracking-wider">Your Job Title <span class="text-blue-600">(required)</span><input class={input} required name="job-title" autocomplete="organization-title" type="text" /></label>
+                        <label class="block text-xs font-bold text-slate-500  tracking-wider">Your Company Name <span class="text-blue-600">(required)</span><input class={input} required name="company-name" autocomplete="organization" type="text" /></label>
 
                         <fieldset class="contents">
-                            <legend class="sm:col-span-2 mt-4 text-sm font-black text-slate-900 uppercase tracking-wider">Manufacturing Location <span class="text-blue-600">(required)</span></legend>
-                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider sm:col-span-2">Address Line 1<input class={input} required name="address-line-1" autocomplete="address-line1" type="text" /></label>
-                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider sm:col-span-2">Address Line 2 (Optional)<input class={input} name="address-line-2" autocomplete="address-line2" type="text" /></label>
-                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">City<input class={input} required name="city" autocomplete="address-level2" type="text" /></label>
-                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">State / Province<input class={input} required name="state-region" autocomplete="address-level1" type="text" /></label>
-                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">Postal Code<input class={input} required name="postal-code" autocomplete="postal-code" type="text" /></label>
-                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">
+                            <legend class="sm:col-span-2 mt-4 text-sm font-black text-slate-900  tracking-wider">Your Location <span class="text-blue-600">(required)</span></legend>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider sm:col-span-2">Address Line 1<input class={input} required name="address-line-1" autocomplete="address-line1" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider sm:col-span-2">Address Line 2 (Optional)<input class={input} name="address-line-2" autocomplete="address-line2" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">City<input class={input} required name="city" autocomplete="address-level2" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">State / Province<input class={input} required name="state-region" autocomplete="address-level1" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">Postal Code<input class={input} required name="postal-code" autocomplete="postal-code" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">
                                 Country
                                 <select class={input} required name="country" autocomplete="country-name">
                                     <option value="">Select a country</option>
@@ -182,12 +178,12 @@ const contactSchema = {
                             </label>
                         </fieldset>
 
-                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">Verified Corporate Email <span class="text-blue-600">(required)</span><input id="contact-email" class={input} required name="email" autocomplete="email" type="email" /></label>
-                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">Confirm Corporate Email<input id="contact-confirm-email" class={input} required name="confirm-email" autocomplete="email" type="email" /></label>
-                        <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider sm:col-span-2">Your Business Phone <span class="text-blue-600">(Required)</span><input class={input} required name="phone" autocomplete="tel" type="tel" /></label>
+                        <label class="block text-xs font-bold text-slate-500  tracking-wider">Your Corporate Email <span class="text-blue-600">(required)</span><input id="contact-email" class={input} required name="email" autocomplete="email" type="email" /></label>
+                        <label class="block text-xs font-bold text-slate-500  tracking-wider">Confirm Corporate Email<input id="contact-confirm-email" class={input} required name="confirm-email" autocomplete="email" type="email" /></label>
+                        <label class="block text-xs font-bold text-slate-500  tracking-wider sm:col-span-2">Your Business Phone <span class="text-blue-600">(Required)</span><input class={input} required name="phone" autocomplete="tel" type="tel" /></label>
 
                         <fieldset class="sm:col-span-2 border-y border-slate-200 py-8 my-2">
-                            <legend class="text-sm font-black text-slate-900 uppercase tracking-wider">Referral Source <span class="text-blue-600">(required)</span></legend>
+                            <legend class="text-sm font-black text-slate-900  tracking-wider">How Did You Hear About Us? <span class="text-blue-600">(required)</span></legend>
                             <div class="mt-6 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                                 {sources.map((source) => (
                                     <label class="flex cursor-pointer items-center gap-3 rounded border border-slate-200 bg-slate-50/50 px-4 py-3 text-xs font-bold text-slate-700 transition hover:border-blue-500 hover:bg-slate-50">
@@ -197,9 +193,9 @@ const contactSchema = {
                             </div>
                         </fieldset>
 
-                        <label class="block text-sm font-black text-slate-900 uppercase tracking-wider sm:col-span-2">Technical Subject / Requirement <span class="text-blue-600">(required)</span><input class={input} required name="subject" type="text" /></label>
-                        <label class="block text-sm font-black text-slate-900 uppercase tracking-wider sm:col-span-2">
-                            Core Inquiry / Manufacturing Specifications <span class="text-blue-600">(required)</span>
+                        <label class="block text-sm font-black text-slate-900  tracking-wider sm:col-span-2">Subject<span class="text-blue-600">(required)</span><input class={input} required name="subject" type="text" /></label>
+                        <label class="block text-sm font-black text-slate-900  tracking-wider sm:col-span-2">
+                            Your Message <span class="text-blue-600">(required)</span>
                             <textarea 
                                 class={input + ' min-h-48 resize-y'} 
                                 required 
@@ -209,9 +205,33 @@ const contactSchema = {
                         </label>
                     </div>
 
+                    <!-- Honeypot: human visitors will never see or complete this field -->
+                    <div class="absolute -left-[10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+                        <label>
+                            Leave this field empty
+                            <input type="text" name="website-url" tabindex="-1" autocomplete="off" />
+                        </label>
+                    </div>
+
+                    <div class="mt-8">
+                        {turnstileSiteKey ? (
+                            <div
+                                class="cf-turnstile"
+                                data-sitekey={turnstileSiteKey}
+                                data-theme="light"
+                                data-size="flexible"
+                                data-action="contact-form"
+                                data-language="en"
+                            ></div>
+                        ) : (
+                            <p class="text-sm font-bold text-red-600">Security verification is not configured.</p>
+                        )}
+                        <p class="mt-2 text-xs text-slate-500">Security verification helps prevent automated spam.</p>
+                    </div>
+
                     <!-- Standardized, full, round blue submit button for the homepage -->
                     <div class="mt-10 text-center sm:text-left">
-                        <button type="submit" id="submitBtn" class="inline-flex items-center justify-center rounded-full bg-blue-600 px-12 py-4.5 font-black tracking-widest text-white uppercase text-xs transition hover:bg-blue-700 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-blue-600/10 cursor-pointer">
+                        <button type="submit" id="submitBtn" class="inline-flex items-center justify-center rounded-full bg-blue-600 px-12 py-4.5 font-black tracking-widest text-white  text-xs transition hover:bg-blue-700 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-blue-600/10 cursor-pointer">
                             Submit
                         </button>
                     </div>
@@ -245,6 +265,13 @@ const contactSchema = {
                 contactForm.addEventListener('submit', async (e) => {
                     e.preventDefault();
 
+                    const turnstileToken = contactForm.querySelector('input[name="cf-turnstile-response"]')?.value;
+
+                    if (!turnstileToken) {
+                        alert('Please complete the security verification.');
+                        return;
+                    }
+
                     contactSubmitBtn.textContent = 'Submitting...';
                     contactSubmitBtn.disabled = true;
 
@@ -275,9 +302,11 @@ const contactSchema = {
                                 behavior: 'smooth'
                             });
                         } else {
+                            window.turnstile?.reset();
                             alert('Submission failed: ' + (result.error || 'Unknown server error.'));
                         }
                     } catch (error) {
+                        window.turnstile?.reset();
                         alert('A transmission error occurred. Please try again.');
                     } finally {
                         contactSubmitBtn.textContent = 'Submit';

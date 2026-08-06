@@ -2,8 +2,8 @@
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
 const pageTitle = 'Titanium Investment Casting: High-Precision Lost Wax Solutions';
-const seoTitle = 'Titanium Investment Casting Services | Lost-Wax Process | ForceBeyond';
-const seoDescription = 'AS9100-certified titanium investment casting for complex, thin-walled geometries. We leverage vacuum induction lost-wax processing for Ti-6Al-4V components across our USA, South Korea, and Taiwan hubs to deliver maximum density and near-net-shape accuracy.';
+const seoTitle = 'Titanium Investment Casting | AS9100 Vacuum Induction Melting | ForceBeyond';
+const seoDescription = 'Tier-1.5 titanium investment casting. High-precision vacuum induction melting (VIM) for complex, thin-walled geometries. AS9100-certified for aerospace, medical, and industrial sectors.';
 const faqs = [
     {
         q: "What is the maximum part size for investment casting?",
@@ -33,160 +33,97 @@ const sources = [
 // Resources 
 const internalResources = [
     // Die Casting Resources
-    { label: "Die Casting Overview", url: "die-casting" },
-    { label: "Aluminum Die Casting", url: "aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "a356-t6-casting" },
-    { label: "Magnesium Casting", url: "magnesium-casting" },
+    { label: "Die Casting Overview", url: "/die-casting" },
+    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/magnesium-casting" },
 
     // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "duplex-stainless-steel-casting" },
+    { label: "Investment Casting Overview", url: "/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting" },
 
     // Forging Resources
-    { label: "Forging Capabilities Overview", url: "forging" },
-    { label: "Open Die Forging", url: "open-die-forging" },
-    { label: "Closed Die Forging", url: "closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "rolled-ring-forging" },
-    { label: "Cold Forging", url: "cold-forging" },
-    { label: "Superalloy Forging Services", url: "superalloy-forging-services" },
+    { label: "Forging Capabilities Overview", url: "/forging" },
+    { label: "Open Die Forging", url: "/open-die-forging" },
+    { label: "Closed Die Forging", url: "/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
 
     // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "carbon-steel-casting" }
+    { label: "Sand Casting", url: "/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
 ];
-// Service / Product Schema (GEO-Optimized)
+// Page-level schema migrated from the current forcebeyond.com page.
+// Global Place, Organization, and WebSite entities are defined in Layout.astro.
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.storetitanium-investment-casting#webpage",
-      "url": "https://www.forcebeyond.storetitanium-investment-casting",
-      "name": seoTitle,
-      "description": seoDescription,
+      "@id": "https://www.forcebeyond.com/titanium-investment-casting/#webpage",
+      "url": "https://www.forcebeyond.com/titanium-investment-casting/",
+      "name": "Titanium Investment Casting | AS9100 Vacuum Induction Melting | ForceBeyond",
+      "datePublished": "2026-03-05T20:41:20-05:00",
+      "dateModified": "2026-03-06T13:36:08-05:00",
       "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store/oscar#website",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar"
+        "@id": "https://www.forcebeyond.com/#website"
       },
-      "about": [
-        {
-          "@type": "Thing",
-          "name": "Titanium",
-          "sameAs": "https://en.wikipedia.org/wiki/Titanium"
-        },
-        {
-          "@type": "Thing",
-          "name": "Investment casting",
-          "sameAs": "https://en.wikipedia.org/wiki/Investment_casting"
-        },
-        {
-          "@type": "Thing",
-          "name": "Aerospace engineering",
-          "sameAs": "https://en.wikipedia.org/wiki/Aerospace_engineering"
-        }
-      ]
+      "inLanguage": "en-US"
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.storetitanium-investment-casting#service",
       "name": "Titanium Investment Casting Services",
-      "serviceType": "Precision Titanium Lost-Wax Casting & VIM Manufacturing",
-      "description": seoDescription,
+      "description": "High-precision vacuum investment casting (VIM) for titanium alloys. Specialized in complex geometries, thin-walled components, and high-purity metallurgical structures.",
       "provider": {
         "@type": "Organization",
-        "@id": "https://www.forcebeyond.store/oscar#organization",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar",
-        "logo": "https://www.forcebeyond.storemedia/logo.png",
-        "knowsAbout": [
-          "Titanium Investment Casting",
-          "Vacuum Induction Melting (VIM)",
-          "Ti-6Al-4V Grade 5 & Grade 23 ELI Alloys",
-          "Hot Isostatic Pressing (HIP)",
-          "Alpha-Case Elimination",
-          "AS9100 Rev D Quality Management",
-          "Aerospace & Medical Implant Casting"
-        ],
         "address": {
           "@type": "PostalAddress",
+          "streetAddress": "261 Quigley Blvd, Suite 18",
+          "addressLocality": "New Castle",
+          "addressRegion": "DE",
+          "postalCode": "19720",
           "addressCountry": "US"
         }
       },
-      "areaServed": [
-        {
-          "@type": "Country",
-          "name": "United States",
-          "identifier": "US"
-        },
-        {
-          "@type": "Country",
-          "name": "South Korea",
-          "identifier": "KR"
-        },
-        {
-          "@type": "Country",
-          "name": "Taiwan",
-          "identifier": "TW"
-        },
-        {
-          "@type": "GeoCircle",
-          "geoMidpoint": {
-            "@type": "GeoCoordinates",
-            "latitude": 37.0902,
-            "longitude": -95.7129
-          },
-          "geoRadius": "Global Supply Network"
-        }
-      ],
+      "serviceType": "Advanced Metal Casting",
+      "areaServed": "Global",
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Titanium Investment Casting Capabilities",
+        "name": "Titanium Casting Capabilities",
         "itemListElement": [
           {
-            "@type": "Offer",
-            "itemOffered": {
+            "@type": "ListItem",
+            "position": "1",
+            "item": {
               "@type": "Service",
-              "name": "Vacuum Induction Lost-Wax Casting (VIM)",
-              "description": "Deep-vacuum precision casting of Ti-6Al-4V preventing oxygen pick-up and alpha-case formation for complex, thin-walled geometries."
+              "name": "Vacuum Induction Melting (VIM)"
             }
           },
           {
-            "@type": "Offer",
-            "itemOffered": {
+            "@type": "ListItem",
+            "position": "2",
+            "item": {
               "@type": "Service",
-              "name": "Hot Isostatic Pressing (HIP) Densification",
-              "description": "Thermomechanical post-processing to eliminate internal micro-porosity and maximize fatigue life in critical structural castings."
+              "name": "Hot Isostatic Pressing (HIP) Treatment"
             }
           },
           {
-            "@type": "Offer",
-            "itemOffered": {
+            "@type": "ListItem",
+            "position": "3",
+            "item": {
               "@type": "Service",
-              "name": "Global Tier-1.5 Cast-to-Finish Supply",
-              "description": "Integrated manufacturing bridging production facilities across North America, South Korea, and Taiwan with 5-axis finish machining and 100% NDT inspection."
+              "name": "Thin-Walled Precision Geometry"
             }
           }
         ]
       }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.storetitanium-investment-casting#faq",
-      "mainEntity": faqs.map(f => ({
-        "@type": "Question",
-        "name": f.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": f.a
-        }
-      }))
     }
   ]
 };
@@ -197,7 +134,7 @@ const pageSchema = {
     description={seoDescription}
     schema={pageSchema}
     pageTitle={pageTitle}
-    heroImage="media/titanium-investment-casting-lost-wax-components-hero.webp"
+    heroImage="/media/titanium-investment-casting-lost-wax-components-hero.webp"
     heroImageAlt="Titanium investment casting process with precision cast components, ceramic shell mold, and molten metal in a modern foundry"
     faqSectionTitle="FAQ: Titanium Investment Casting"
     faqItems={faqs}
@@ -231,7 +168,7 @@ const pageSchema = {
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
-                                src="media/industrial-titanium-cast-valve-body-corrosion-resistant-4k.webp"
+                                src="/media/industrial-titanium-cast-valve-body-corrosion-resistant-4k.webp"
                                 alt="Corrosion-resistant industrial titanium cast valve body with flanged connections on a fully white background."
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />

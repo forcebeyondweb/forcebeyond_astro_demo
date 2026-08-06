@@ -1,9 +1,9 @@
 <?php
-// 🚀 核心修改 1：关闭任何非致命的 PHP 提示，防止 HostGator 的 Warning 污染你的 JSON 输出
+// Suppress non-fatal PHP notices and warnings to keep the JSON response clean
 error_reporting(0);
 ini_set('display_errors', 0);
 
-// 🚀 核心修改 2：彻底放开握手限制，并在第一行声明我们返回的是干净的 JSON
+// Allow cross-origin requests and return JSON responses
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
 header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
@@ -13,6 +13,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     header("HTTP/1.1 200 OK");
     exit(0);
 }
+
+require_once __DIR__ . '/turnstile-verify.php';
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -24,10 +26,13 @@ require 'phpmailer/SMTP.php';
 
 // 2. Guard: Only allow POST requests
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    // 如果是开发联调，不要返回死板的 HTML 页面，全部用标准的 JSON 回应前端
+    // Return a standard JSON response for unsupported request methods
     echo json_encode(["success" => false, "error" => "Method Not Allowed. Must be POST."]);
     exit;
 }
+
+verifyHoneypot();
+verifyTurnstile('contact-form');
 
 // 3. Sanitize and Collect All B2B Form Fields
 $firstName   = htmlspecialchars(strip_tags(trim($_POST["first-name"] ?? '')));
@@ -87,14 +92,15 @@ try {
 
     // --- EMAIL 1: Detailed Notification to Sales Team ---
     $mail->setFrom($mail->Username, 'www.forcebeyond.com');
-    $mail->addAddress('oscar.wang@forcebeyond.com');            
+    $mail->addAddress('contact@forcebeyond.com');            
     $mail->addReplyTo($email, $fullName);                 
 
     $mail->isHTML(true);
-    $mail->Subject = "New Quote Request: " . $subject;
+    $mail->Subject = "www.forcebeyond.com - " . $subject;
     
     $mail->Body    = "
-        <h2 style='color: #ea580c;'>New RFQ / B2B Web Inquiry</h2>
+        <p>This person sent us information from page of &quot;contact us&quot;</p>
+        <p>******</p>
         <hr style='border: 1px solid #e2e8f0;' />
         <h3>Primary Contact Info</h3>
         <p><b>Name:</b> {$fullName}</p>
@@ -127,11 +133,11 @@ try {
     
     $mail->setFrom($mail->Username, 'www.forcebeyond.com');
     $mail->addAddress($email, $fullName);                        
-    $mail->addReplyTo('oscar.wang@forcebeyond.com', 'ForceBeyond Sales'); 
+    $mail->addReplyTo('contact@forcebeyond.com', 'ForceBeyond'); 
 
     $mail->Subject = "Thank you for contacting ForceBeyond";
     
-    // 🚀 完全对齐经典款样式
+    // Customer confirmation email body
     $mail->Body    = "
         <p>Dear {$fullName},</p>
         <p>Thank you very much for contacting us. The following is what we received:</p>
@@ -166,11 +172,27 @@ try {
 
     $mail->send();
 
-    // 🚀 确保没有多余干扰，只吐出完美的 JSON 成功标识
+    // Return a clean JSON success response
     echo json_encode(["success" => true]);
 
-} catch (Exception $e) {
-    // 捕获邮件底层抛出的错误并化作标准 JSON，防止页面崩溃引发网络错误
-    echo json_encode(["success" => false, "error" => "Mailer Error: {$mail->ErrorInfo}"]);
+} catch (Throwable $e) {
+    http_response_code(500);
+
+    error_log(
+        basename(__FILE__) .
+        ' error: ' .
+        $e->getMessage() .
+        ' in ' .
+        $e->getFile() .
+        ':' .
+        $e->getLine()
+    );
+
+    echo json_encode([
+        'success' => false,
+        'error' => $e->getMessage(),
+    ]);
+
+    exit;
 }
 ?>

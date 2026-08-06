@@ -4,8 +4,9 @@ import { sanityClient } from 'sanity:client';
 
 // 1. Precisely fetch dynamic configuration copy for the inquiry/quote page from the Sanity cloud.
 const data = await sanityClient.fetch(`*[_type == "quotePage"][0]`);
+const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY;
 
-const countries = ['Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belgium', 'Belize', 'Brazil', 'Bulgaria', 'Cambodia', 'Cameroon', 'Canada', 'Chile', 'China', 'Colombia', 'Costa Rica', 'Croatia', 'Cyprus', 'Czechia', 'Denmark', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Estonia', 'Ethiopia', 'Finland', 'France', 'Germany', 'Ghana', 'Greece', 'Guatemala', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Ireland', 'Israel', 'Italy', 'Japan', 'Jordan', 'Kenya', 'Malaysia', 'Mexico', 'Netherlands', 'New Zealand', 'Nigeria', 'Norway', 'Pakistan', 'Panama', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Saudi Arabia', 'Singapore', 'South Africa', 'South Korea', 'Spain', 'Sweden', 'Switzerland', 'Taiwan', 'Thailand', 'Turkey', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'Uruguay', 'Vietnam', 'United States of America'];
+const countries = ['United States of America','Afghanistan', 'Albania', 'Algeria', 'Andorra', 'Angola', 'Argentina', 'Armenia', 'Australia', 'Austria', 'Azerbaijan', 'Bahamas', 'Bahrain', 'Bangladesh', 'Barbados', 'Belgium', 'Belize', 'Brazil', 'Bulgaria', 'Cambodia', 'Cameroon', 'Canada', 'Chile', 'China', 'Colombia', 'Costa Rica', 'Croatia', 'Cyprus', 'Czechia', 'Denmark', 'Dominican Republic', 'Ecuador', 'Egypt', 'El Salvador', 'Estonia', 'Ethiopia', 'Finland', 'France', 'Germany', 'Ghana', 'Greece', 'Guatemala', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Ireland', 'Israel', 'Italy', 'Japan', 'Jordan', 'Kenya', 'Malaysia', 'Mexico', 'Netherlands', 'New Zealand', 'Nigeria', 'Norway', 'Pakistan', 'Panama', 'Peru', 'Philippines', 'Poland', 'Portugal', 'Qatar', 'Romania', 'Saudi Arabia', 'Singapore', 'South Africa', 'South Korea', 'Spain', 'Sweden', 'Switzerland', 'Taiwan', 'Thailand', 'Turkey', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'Uruguay', 'Vietnam'];
 const sources = ['Cold Call', 'Direct Mail', 'Email', 'Industry Event', 'Referral', 'Search Engine', 'Web Research', 'AI Search (ChatGPT/Gemini/Claude)'];
 const budgets = ['$0 - $25,000', '$25,001 - $100,000', '$100,001 - $250,000', '$250,001 - $500,000', '$500,001 - $1,000,000', '$1,000,000 & Above'];
 const input = 'mt-2 w-full border border-slate-200 transition-all duration-300 bg-white px-5 py-3.5 text-slate-900 text-sm font-medium outline-none focus:border-blue-600 focus:ring-1 focus:ring-blue-100 placeholder:text-slate-400';
@@ -14,10 +15,11 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
 ---
 
 <Layout title="Request a Quote | ForceBeyond" description={data?.seoDescription || "Request a quote for custom metal component manufacturing."}>
+    <script slot="head" src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     
     <section class="relative border-b border-white/10 bg-slate-900 h-[420px] lg:h-[500px] flex items-center justify-center overflow-hidden">
     <img 
-        src="media/trust.webp" 
+        src="/media/trust.webp" 
         alt="Request for Quote"
         class="absolute inset-0 z-0 h-full w-full object-cover object-center"
     />
@@ -26,7 +28,7 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
     <div class="absolute inset-0 z-2 bg-gradient-to-r from-slate-950/45 via-transparent to-transparent"></div>
 
     <div class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
-        <h1 class="mt-3 text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl uppercase leading-none">
+        <h1 class="mt-3 text-4xl font-black tracking-tight text-white sm:text-5xl lg:text-6xl  leading-none">
             Request for quote
         </h1>
     </div>
@@ -53,47 +55,51 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
                     </button>
                 </div>
             </div>
-            <div class="mb-10 text-center">
-                <h2 class="text-2xl font-black tracking-tight text-slate-950 uppercase">
-                    Ready to Start A Conversation? Request for Quote?
-                </h2>
-                <p class="mx-auto mt-3 max-w-3xl text-sm leading-relaxed text-slate-600">
-                    Hey ForceBeyond, I would like to drop you a line about my project/product needs. Please contact me back to start a conversation.
-                </p>
-            </div>
+            
             <form 
                 id="rfqForm"
-                action="quote.php" 
+                action="/quote.php" 
                 method="POST" 
                 enctype="multipart/form-data" 
                 class="bg-white rounded-2xl border border-slate-200/80 shadow-xl shadow-slate-900/5 overflow-hidden"
             >
                 <div class="border-b border-slate-200 bg-white px-8 py-6 lg:px-14">
-                    <p class="text-xs font-black tracking-wider text-slate-500 uppercase">
+                    <p class="text-xs font-black tracking-wider text-slate-500 ">
                         <span class="mr-2 text-blue-600">*</span>Required fields
                     </p>
                 </div>
         
                 <div class="grid gap-x-6 gap-y-8 p-8 lg:grid-cols-2 lg:p-14">
+                    <div class="mb-10 lg:col-span-2">
+                        <h2 class="text-2xl font-black tracking-tight text-slate-950 ">
+                            Ready to Start A Conversation? Request for Quote?
+                        </h2>
+
+                        <p class="mt-3 max-w-3xl text-sm leading-relaxed text-slate-600">
+                            Hey ForceBeyond, I would like to drop you a line about my project/product needs.
+                            Please contact me back to start a conversation.
+                        </p>
+                    </div>
                     <div class="lg:col-span-2">
-                        <h2 class="text-2xl font-black tracking-tight text-slate-950 uppercase">Contact Information</h2>
-                        <p class="mt-3 leading-relaxed text-slate-600 text-sm">Let us know who we should contact about your request.</p>
+                        <h2 class="text-2xl font-black tracking-tight text-slate-950 ">My Contact Information</h2>
                     </div>
             
-                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">First Name <span class="text-blue-600">*</span><input class={input} required name="first-name" autocomplete="given-name" type="text" /></label>
-                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">Last Name <span class="text-blue-600">*</span><input class={input} required name="last-name" autocomplete="family-name" type="text" /></label>
-                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">My Job Title Is <span class="text-blue-600">*</span><input class={input} required name="job-title" autocomplete="organization-title" type="text" /></label>
-                    <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">My Business / Organization Is <span class="text-blue-600">*</span><input class={input} required name="organization" autocomplete="organization" type="text" /></label>
+                    <label class="block text-xs font-bold text-slate-500  tracking-wider">My First Name <span class="text-blue-600">*</span><input class={input} required name="first-name" autocomplete="given-name" type="text" /></label>
+                    <label class="block text-xs font-bold text-slate-500  tracking-wider">My Last Name <span class="text-blue-600">*</span><input class={input} required name="last-name" autocomplete="family-name" type="text" /></label>
+                    <label class="block text-xs font-bold text-slate-500  tracking-wider">My Job Title Is <span class="text-blue-600">*</span><input class={input} required name="job-title" autocomplete="organization-title" type="text" /></label>
+                    <label class="block text-xs font-bold text-slate-500  tracking-wider">My Business / Organization Is <span class="text-blue-600">*</span><input class={input} required name="organization" autocomplete="organization" type="text" /></label>
+                    <label class="block text-xs font-bold text-slate-500  tracking-wider">My Email Is <span class="text-blue-600">*</span><input id="quote-email" class={input} required name="email" autocomplete="email" type="email" /></label>
+                    <label class="block text-xs font-bold text-slate-500  tracking-wider">Confirm Email<input id="quote-confirm-email" class={input} required name="confirm-email" autocomplete="email" type="email" /></label>
 
                     <div class="lg:col-span-2 border-t border-slate-200 pt-10">
-                        <h2 class="text-2xl font-black tracking-tight text-slate-950 uppercase">Mailing Data</h2>
+                        <h2 class="text-2xl font-black tracking-tight text-slate-950 ">My Address</h2>
                         <div class="mt-6 grid gap-6 lg:grid-cols-2">
-                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">Address Line 1<input class={input} name="address-line-1" autocomplete="address-line1" type="text" /></label>
-                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">Address Line 2<input class={input} name="address-line-2" autocomplete="address-line2" type="text" /></label>
-                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">City<input class={input} name="city" autocomplete="address-level2" type="text" /></label>
-                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">State<input class={input} name="state" autocomplete="address-level1" type="text" /></label>
-                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">Postal Code<input class={input} name="postal-code" autocomplete="postal-code" type="text" /></label>
-                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">Country:
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">Address Line 1<input class={input} name="address-line-1" autocomplete="address-line1" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">Address Line 2<input class={input} name="address-line-2" autocomplete="address-line2" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">City<input class={input} name="city" autocomplete="address-level2" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">State<input class={input} name="state" autocomplete="address-level1" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">Postal Code<input class={input} name="postal-code" autocomplete="postal-code" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">Country:
                                 <select class={input} name="country" autocomplete="country-name">
                                     <option value="">Select a country</option>
                                     {countries.map((country) => <option value={country}>{country}</option>)}
@@ -102,17 +108,8 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
                         </div>
                     </div>
 
-                    <div class="lg:col-span-2 border-t border-slate-200 pt-10">
-                        <h2 class="text-2xl font-black tracking-tight text-slate-950 uppercase">Verification</h2>
-                        <div class="mt-6 grid gap-6 lg:grid-cols-2">
-                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">My Email Is <span class="text-blue-600">*</span><input id="quote-email" class={input} required name="email" autocomplete="email" type="email" /></label>
-                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">Confirm Email<input id="quote-confirm-email" class={input} required name="confirm-email" autocomplete="email" type="email" /></label>
-                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">Give Me A Call Sometime At <span class="text-blue-600">*</span><input class={input} required name="phone" autocomplete="tel" type="tel" /></label>
-                        </div>
-                    </div>
-
                     <fieldset class="lg:col-span-2 border-t border-slate-200 pt-10">
-                        <h2 class="text-2xl font-black tracking-tight text-slate-950 uppercase">How Did You Hear About ForceBeyond?</h2>
+                        <h2 class="text-2xl font-black tracking-tight text-slate-950 ">How Did You Hear About ForceBeyond?</h2>
                         <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                             {sources.map((source) => (
                                 <label class="flex cursor-pointer items-center gap-3 rounded border border-slate-200 bg-slate-50/50 px-4 py-3 text-xs font-bold text-slate-700 transition hover:border-blue-500 hover:bg-slate-50">
@@ -123,60 +120,156 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
                     </fieldset>
 
                     <fieldset class="lg:col-span-2 border-t border-slate-200 pt-10">
-                        <h2 class="text-2xl font-black tracking-tight text-slate-950 uppercase">Project Context</h2>
-                        <div class="mt-6 grid gap-8 lg:grid-cols-2">
-                            <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider">I Am Interested In
-                                <input class={input} name="project-interest" type="text" placeholder="Casting, forging, machining, or another requirement" />
-                            </label>
-                            <div>
-                                <p class="text-sm font-bold">With Annual Budget Of</p>
-                                <div class="mt-2 grid gap-2 sm:grid-cols-2">
-                                    {budgets.map((budget) => (
-                                        <label class="flex cursor-pointer items-center gap-3 rounded border border-slate-200 bg-slate-50/50 px-4 py-3 text-xs font-bold text-slate-700 transition hover:border-blue-500 hover:bg-slate-50">
-                                            <input type="radio" name="annual-budget" value={budget} class="h-4 w-4 accent-blue-600" />{budget}
-                                        </label>
-                                    ))}
-                                </div>
-                            </div>
+                        <h2 class="text-2xl font-black tracking-tight text-slate-950">
+                            I Am Interested In
+                        </h2>
+
+                        <div class="mt-6">
+                            <textarea
+                                id="project-interest"
+                                class={`${input} mt-2 min-h-36 resize-y py-4`}
+                                name="project-interest"
+                                rows="5"
+                                placeholder="Casting, forging, machining, or another requirement"
+                            ></textarea>
                         </div>
                     </fieldset>
 
-                    <div class="lg:col-span-2 border-t border-slate-200 pt-10">
-                        <h2 class="text-2xl font-black tracking-tight text-slate-950 uppercase">Engineering Assets</h2>
-                        <label class="mt-5 flex min-h-48 cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-slate-200 bg-slate-50/60 px-6 text-center transition hover:border-blue-500 hover:bg-blue-50/60 focus-within:border-blue-600">
-                            <svg class="h-10 w-10 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
-                                <path d="M12 16V4m0 0L8 8m4-4 4 4M5 14v5h14v-5" stroke-linecap="round" stroke-linejoin="round" />
+                    <fieldset class="lg:col-span-2 border-t border-slate-200 pt-10">
+                        <h2 class="text-2xl font-black tracking-tight text-slate-950">
+                            With Annual Budget Of
+                        </h2>
+
+                        <div class="mt-6 grid gap-2 sm:grid-cols-2">
+                            {budgets.map((budget) => (
+                                <label
+                                    class="flex cursor-pointer items-center gap-3 rounded border border-slate-200 bg-slate-50/50 px-4 py-3 text-xs font-bold text-slate-700 transition hover:border-blue-500 hover:bg-slate-50"
+                                >
+                                    <input
+                                        type="radio"
+                                        name="annual-budget"
+                                        value={budget}
+                                        class="h-4 w-4 accent-blue-600"
+                                    />
+                                    <span>{budget}</span>
+                                </label>
+                            ))}
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="lg:col-span-2 border-t border-slate-200 pt-10">
+                        <h2 class="text-2xl font-black tracking-tight text-slate-950">
+                            Give Me a Call Sometime At
+                        </h2>
+
+                        <div class="mt-6">
+                            <label
+                                for="phone"
+                                class="block text-xs font-bold tracking-wider text-slate-500"
+                            >
+                                Phone Number
+                                <span class="text-blue-600">*</span>
+                            </label>
+
+                            <input
+                                id="phone"
+                                class={input}
+                                required
+                                name="phone"
+                                autocomplete="tel"
+                                type="tel"
+                            />
+                        </div>
+                    </fieldset>
+
+                    <fieldset class="lg:col-span-2 border-t border-slate-200 pt-10">
+                        <h2 class="text-2xl font-black tracking-tight text-slate-950">
+                            Engineering Assets
+                        </h2>
+
+                        <label
+                            for="fileInput"
+                            class="mt-6 flex min-h-48 cursor-pointer flex-col items-center justify-center rounded-xl border-2 border-dashed border-slate-200 bg-slate-50/60 px-6 text-center transition hover:border-blue-500 hover:bg-blue-50/60 focus-within:border-blue-600"
+                        >
+                            <svg
+                                class="h-10 w-10 text-slate-400"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="1.7"
+                                aria-hidden="true"
+                            >
+                                <path
+                                    d="M12 16V4m0 0L8 8m4-4 4 4M5 14v5h14v-5"
+                                    stroke-linecap="round"
+                                    stroke-linejoin="round"
+                                />
                             </svg>
+
                             <span class="mt-4 font-bold normal-case" id="fileStatus">
                                 Click or drag files here to upload.
                             </span>
+
                             <span class="mt-2 text-sm text-slate-600">
-                                Supported formats: PDF, DWG, DXF, STEP, IGES, SLDPRT, ZIP, Images, Doc. Max 25MB per file.
+                                Supported formats: PDF, DWG, DXF, STEP, IGES, SLDPRT, ZIP,
+                                images, and documents. Maximum 2 MB per file.
                             </span>
-                            <input 
-                                id="fileInput" 
-                                name="engineering-assets[]" 
-                                type="file" 
-                                multiple 
-                                accept={allowedExtensions.join(',')} 
-                                class="sr-only" 
+
+                            <input
+                                id="fileInput"
+                                name="engineering-assets[]"
+                                type="file"
+                                multiple
+                                accept={allowedExtensions.join(',')}
+                                class="sr-only"
                             />
                         </label>
-                        
-                        <div id="fileError" class="mt-3 hidden text-sm font-bold text-red-600"></div>
+
+                        <div
+                            id="fileError"
+                            class="mt-3 hidden text-sm font-bold text-red-600"
+                        ></div>
 
                         <div id="fileListContainer" class="mt-4 hidden">
-                            <p class="text-xs font-bold uppercase tracking-wider text-slate-500">Files Selected for Upload:</p>
-                            <ul id="fileVisualList" class="mt-2 divide-y divide-slate-200 border border-slate-200 bg-slate-50 rounded-md">
-                                </ul>
+                            <p class="text-xs font-bold tracking-wider text-slate-500">
+                                Files Selected for Upload:
+                            </p>
+
+                            <ul
+                                id="fileVisualList"
+                                class="mt-2 divide-y divide-slate-200 rounded-md border border-slate-200 bg-slate-50"
+                            ></ul>
                         </div>
+                    </fieldset>
+                    <!-- Honeypot: human visitors will never see or complete this field -->
+                    <div class="absolute -left-[10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+                        <label>
+                            Leave this field empty
+                            <input type="text" name="website-url" tabindex="-1" autocomplete="off" />
+                        </label>
+                    </div>
+
+                    <div class="lg:col-span-2 border-t border-slate-200 pt-10">
+                        {turnstileSiteKey ? (
+                            <div
+                                class="cf-turnstile"
+                                data-sitekey={turnstileSiteKey}
+                                data-theme="light"
+                                data-size="flexible"
+                                data-action="rfq-form"
+                                data-language="en"
+                            ></div>
+                        ) : (
+                            <p class="text-sm font-bold text-red-600">Security verification is not configured.</p>
+                        )}
+                        <p class="mt-2 text-xs text-slate-500">Security verification helps prevent automated RFQ spam.</p>
                     </div>
 
                 </div>
         
                 <div class="border-t border-slate-200 bg-white px-8 py-8 lg:px-14 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
                     <div id="formErrorMessage" class="text-sm font-bold text-red-600 hidden"></div>
-                    <button type="submit" id="submitBtn" class="w-full rounded-full bg-blue-600 px-12 py-4 font-black tracking-widest text-white uppercase text-xs transition hover:bg-blue-700 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-blue-600/10 cursor-pointer sm:w-auto">
+                    <button type="submit" id="submitBtn" class="w-full rounded-full bg-blue-600 px-12 py-4 font-black tracking-widest text-white  text-xs transition hover:bg-blue-700 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-blue-600/10 cursor-pointer sm:w-auto">
                         Submit Request
                     </button>
                 </div>
@@ -333,6 +426,14 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
         e.preventDefault();
         formErrorMessage.classList.add('hidden');
 
+        const turnstileToken = form.querySelector('input[name="cf-turnstile-response"]')?.value;
+
+        if (!turnstileToken) {
+            formErrorMessage.textContent = 'Please complete the security verification.';
+            formErrorMessage.classList.remove('hidden');
+            return;
+        }
+
         submitBtn.textContent = 'Uploading Assets & Submitting RFQ...';
         submitBtn.disabled = true;
 
@@ -360,10 +461,12 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
                 thankYouState.classList.remove('hidden');
                 window.scrollTo({ top: thankYouState.offsetTop - 100, behavior: 'smooth' });
             } else {
+                window.turnstile?.reset();
                 formErrorMessage.textContent = 'Submission failed: ' + (result.error || 'Unknown server exception.');
                 formErrorMessage.classList.remove('hidden');
             }
         } catch (error) {
+            window.turnstile?.reset();
             formErrorMessage.textContent = 'A transmission anomaly took place.';
             formErrorMessage.classList.remove('hidden');
         } finally {

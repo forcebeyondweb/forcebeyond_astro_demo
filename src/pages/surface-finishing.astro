@@ -1,145 +1,196 @@
 ---
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Surface Finishing & Protective Coating Services';
-const seoTitle = 'Custom Surface Finishing & Protective Coating Services | ForceBeyond';
-const seoDescription = 'ForceBeyond delivers comprehensive surface finishing services for custom castings, forgings, and CNC components, including passivation, electropolishing, Type II/III anodizing, and ENP.';
+const pageTitle = 'Surface Finishing & Protective Coatings for Metal Components';
+const seoTitle = 'Surface Finishing & Protective Coating Services | ForceBeyond';
+const seoDescription = 'Explore surface finishing for castings, forgings, and CNC parts, including passivation, electropolishing, anodizing, conversion coatings, electroless nickel, e-coating, powder coating, polishing, Ra/RMS roughness control, inspection, and documentation.';
+
+const canonicalUrl = 'https://www.forcebeyond.com/surface-finishing/';
+const socialImage = 'https://www.forcebeyond.com/media/surface-finishing-protective-coating-overview-4k.webp';
 
 const faqs = [
     {
-        q: "What is the difference between Passivation and Electropolishing for stainless steel?",
-        a: "Passivation is a chemical bath (citric or nitric acid) that dissolves free iron from the surface without changing the part's physical dimensions or surface roughness. It focuses purely on restoring corrosion resistance. Electropolishing is an electrochemical process (the opposite of electroplating) that actually removes a microscopic layer of metal (typically 0.0001” to 0.0005”). It levels the surface micro-profile, removing burrs and creating a ultra-smooth, bright, mirror-like finish ideal for sterile sanitary and medical hardware."
+        q: "What is the difference between passivation and electropolishing?",
+        a: "Passivation is a chemical treatment used primarily to remove free iron and support formation of a clean passive surface on suitable stainless steels. Electropolishing removes a controlled amount of surface metal electrochemically, which can reduce microscopic peaks, improve cleanability, and brighten the finish. Dimensional change, surface roughness, corrosion performance, and appearance depend on alloy, starting condition, process parameters, and specification."
     },
     {
-        q: "Why is Electroless Nickel Plating preferred over Electroplated Nickel for complex castings?",
-        a: "Traditional electroplating relies on electrical current, which causes the plating to build up thickly on outside corners while leaving deep cavities, internal threads, and blind holes under-plated. Electroless Nickel Plating uses a autocatalytic chemical reaction without electrical current, depositing an exact, uniform layer of nickel-phosphorus across every surface of the part, regardless of geometry."
+        q: "Why is electroless nickel used on complex parts?",
+        a: "Electroless nickel deposits through an autocatalytic chemical reaction rather than external electrical current. This can provide more uniform coverage than conventional electroplating on complex external geometry, but thickness inside deep blind holes, narrow passages, threads, and shielded areas still depends on solution access, agitation, replenishment, pretreatment, and part design."
     },
     {
-        q: "Does Type III Hardcoat Anodizing affect part dimensions?",
-        a: "Yes. Hardcoat anodizing grows the oxide layer into the aluminum material while simultaneously building up on the surface. Typically, 50% of the coating thickness penetrates into the metal and 50% builds up on the surface. For a standard 0.002” (50 micron) hardcoat coating, the surface of the part will increase in dimension by approximately 0.001” per side. Our CNC engineering team accounts for this exact growth during the machining phase prior to anodizing."
+        q: "Does hardcoat anodizing change aluminum dimensions?",
+        a: "Yes. Anodizing converts part of the aluminum surface into aluminum oxide and also produces outward buildup. The relationship between total coating thickness, penetration, and dimensional growth varies with alloy, process, thickness, sealing, geometry, and specification. Critical fits, threads, bores, sealing surfaces, and masking should be reviewed before machining is released."
+    },
+    {
+        q: "What surface roughness can mechanical finishing or polishing achieve?",
+        a: "Surface roughness depends on the starting surface, material, geometry, access, process sequence, and measurement method. Mechanical finishing may target approximately 125 to 63 microinch Ra for many industrial surfaces, while controlled grinding, polishing, or electropolishing can achieve lower values where geometry and specification permit. A quoted Ra or RMS value should always be tied to a defined measurement standard, cutoff, direction, and inspection location."
+    },
+    {
+        q: "What information is needed for a surface-finishing quote?",
+        a: "Provide the drawing, base material and condition, required finish or governing specification, coating class and thickness, color, masking, critical dimensions, target Ra or RMS, corrosion or wear target, adhesion testing, salt-spray requirement, cleanliness, packaging, quantity, and required certification."
     }
 ];
 
-// Sources
 const sources = [
-    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
-    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
-    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
-    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
-    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
-    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
+    { label: 'ASTM International - Surface Treatment and Coating Standards', url: 'https://www.astm.org/' },
+    { label: 'SAE International - Aerospace Coating and Finishing Standards', url: 'https://www.sae.org/standards' },
+    { label: 'Aluminum Anodizers Council - Anodizing Resources', url: 'https://www.anodizing.org/' },
+    { label: 'Nickel Institute - Nickel Plating and Corrosion Resources', url: 'https://nickelinstitute.org/' },
+    { label: 'AMPP - Coatings and Corrosion Standards', url: 'https://www.ampp.org/' },
+    { label: 'NIST - Surface Engineering and Manufacturing', url: 'https://www.nist.gov/topics/manufacturing' }
 ];
 
-// Resources
 const internalResources = [
-    // Die Casting Resources
-    { label: "Die Casting Overview", url: "die-casting" },
-    { label: "Aluminum Die Casting", url: "aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "a356-t6-casting" },
-    { label: "Magnesium Casting", url: "magnesium-casting" },
+    // Quality and Technical
+    { label: "Quality Assurance & Certifications", url: "/quality-assurance-certifications" },
+    { label: "Testing & Inspection Capabilities", url: "/testing-inspection-capabilities" },
+    { label: "Quality & Global Supply Chain", url: "/quality-global-supply-chain" },
+    { label: "Materials & Technical Specifications", url: "/materials-technical-specs" },
+    { label: "Manufacturing Design Guides", url: "/manufacturing-design-guides" },
 
-    // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "duplex-stainless-steel-casting" },
+    // Manufacturing
+    { label: "Casting Capabilities", url: "/casting" },
+    { label: "Investment Casting", url: "/investment-casting" },
+    { label: "Sand Casting", url: "/sand-casting" },
+    { label: "Die Casting", url: "/die-casting" },
+    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/zinc-die-casting" },
+    { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" },
+    { label: "Die Casting", url: "/die-casting" },
+    { label: "Forging Capabilities", url: "/forging" },
+    { label: "Open Die Forging", url: "/open-die-forging" },
+    { label: "Closed Die Forging", url: "/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
+    { label: "Precision Machining", url: "/precision-machining" },
+    { label: "High-Precision Component Machining", url: "/high-precision-machining" },
+    { label: "Multi-Axis CNC Milling & Turning", url: "/multi-axis-cnc" },
+    { label: "Stainless Steel Machining", url: "/stainless-steel-machining" },
+    { label: "Duplex Stainless Steel Machining", url: "/duplex-machining" },
+    { label: "Titanium Machining", url: "/titanium-machining" },
 
-    // Forging Resources
-    { label: "Forging Capabilities Overview", url: "forging" },
-    { label: "Open Die Forging", url: "open-die-forging" },
-    { label: "Closed Die Forging", url: "closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "rolled-ring-forging" },
-    { label: "Cold Forging", url: "cold-forging" },
-    { label: "Superalloy Forging Services", url: "superalloy-forging-services" },
+    // Secondary Operations
+    { label: "Secondary Operations", url: "/secondary-operations" },
+    { label: "Heat Treatment", url: "/heat-treatment" },
+    { label: "Assembly & Kitting", url: "/assembly-and-kitting" },
 
-    // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "carbon-steel-casting" }
+    // Materials
+    { label: "Superalloys & Exotic Metals", url: "/superalloys-exotic-metals" },
+    { label: "Titanium Alloys", url: "/titanium-alloys" },
+    { label: "Stainless Steel & Carbon Steel", url: "/stainless-carbon-steel" },
+    { label: "Aluminum & Copper Alloys", url: "/aluminum-copper-alloys" },
+
+    // Industries
+    { label: "Aerospace", url: "/aerospace" },
+    { label: "Automotive", url: "/automotive" },
+    { label: "Medical & Healthcare", url: "/medical" },
+    { label: "HVAC, Fluid & Flow Control", url: "/hvac-flow" },
+    { label: "Data Center Power", url: "/data-center-power" }
 ];
 
-// Service / Product Schema
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.storesurface-finishing#webpage",
-      "url": "https://www.forcebeyond.storesurface-finishing",
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store/oscar#website",
+        "@id": "https://www.forcebeyond.com/#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar"
+        "url": "https://www.forcebeyond.com/"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": socialImage
+      },
+      "breadcrumb": {
+        "@id": `${canonicalUrl}#breadcrumb`
       },
       "about": [
+        { "@type": "Thing", "name": "Surface finishing" },
+        { "@type": "Thing", "name": "Passivation" },
+        { "@type": "Thing", "name": "Electropolishing" },
+        { "@type": "Thing", "name": "Anodizing" },
+        { "@type": "Thing", "name": "Protective coatings" },
+        { "@type": "Thing", "name": "Surface roughness" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
         {
-          "@type": "Thing",
-          "name": "Surface finishing",
-          "sameAs": "https://en.wikipedia.org/wiki/Surface_finishing"
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.forcebeyond.com/"
         },
         {
-          "@type": "Thing",
-          "name": "Anodizing",
-          "sameAs": "https://en.wikipedia.org/wiki/Anodizing"
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Secondary Operations",
+          "item": "https://www.forcebeyond.com/secondary-operations/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Surface Finishing & Protective Coatings",
+          "item": canonicalUrl
         }
       ]
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.storesurface-finishing#service",
-      "name": "Surface Finishing & Protective Coating Services",
-      "serviceType": "Metal Surface Treatment & Post-Processing",
+      "@id": `${canonicalUrl}#service`,
+      "name": "Surface Finishing and Protective Coating Services",
+      "serviceType": "Metal Surface Treatment, Plating, Coating and Post-Processing",
       "description": seoDescription,
+      "url": canonicalUrl,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store/oscar#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar",
-        "knowsAbout": [
-          "Stainless Steel Chemical Passivation (ASTM A967)",
-          "Electropolishing for Medical & Sanitary Components",
-          "Type II & Type III Hardcoat Anodizing (MIL-A-8625)",
-          "Electroless Nickel Plating (ENP) & Chem Film",
-          "E-Coating, Powder Coating & Pre-Treatment Blasting"
-        ]
+        "@id": "https://www.forcebeyond.com/#organization"
       },
-      "areaServed": [
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "South Korea" },
-        { "@type": "Country", "name": "Taiwan" }
-      ],
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Surface Finishing Options",
+        "name": "Surface Finishing and Coating Capabilities",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Chemical Treatments & Passivation",
-              "description": "Citric/nitric passivation and electropolishing engineered to prevent corrosion and deliver micro-smooth surface profiles."
+              "name": "Passivation and Electropolishing",
+              "description": "Project-specific stainless steel cleaning, passivation, electropolishing, surface conditioning, and documentation."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Anodizing & Conversion Coatings",
-              "description": "Type II, Type III Hardcoat Anodizing, and Chem Film treatments providing wear resistance and corrosion protection."
+              "name": "Anodizing and Conversion Coatings",
+              "description": "Type II, hardcoat, chromate-free or specification-controlled conversion coating support for aluminum and selected nonferrous alloys."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Plating & Applied Barrier Coatings",
-              "description": "Electroless Nickel Plating (ENP), E-coating, and powder coating for extreme environmental endurance."
+              "name": "Plating and Metallic Coatings",
+              "description": "Electroless nickel, electrolytic plating, zinc, tin, nickel, silver, and application-specific metallic coating support."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Mechanical Finishing and Roughness Control",
+              "description": "Blasting, tumbling, grinding, polishing, brushing, deburring, and project-specific Ra or RMS surface targets."
             }
           }
         ]
@@ -147,13 +198,13 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.storesurface-finishing#faq",
-      "mainEntity": faqs.map(f => ({
+      "@id": `${canonicalUrl}#faq`,
+      "mainEntity": faqs.map((faq) => ({
         "@type": "Question",
-        "name": f.q,
+        "name": faq.q,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": f.a
+          "text": faq.a
         }
       }))
     }
@@ -164,174 +215,546 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
     pageTitle={pageTitle}
-    heroImage="media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
-    heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"
+    heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+    heroImageAlt="Finished metal components with protective coatings and precision-machined surfaces"
+    heroImageWidth={1920}
+    heroImageHeight={1080}
+    socialImage={socialImage}
+    socialImageAlt="Surface finishing and protective coating services for metal components"
     faqSectionTitle="Frequently Asked Questions: Surface Finishing"
     faqItems={faqs}
-    ctaTitle=""
-    ctaDescription=""
-    sourcesTitle="Sources"
+    ctaTitle="Review a Surface Finishing Requirement"
+    ctaDescription="Send your drawing, base material, finish specification, coating class, thickness, color, masking, critical dimensions, surface condition, target Ra or RMS, corrosion or wear requirements, inspection, documentation, and packaging needs."
+    ctaButtonText="Request a Finishing Review"
+    sourcesTitle="Surface Treatment and Coating References"
     sourcesList={sources}
-    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesTitle="Related Finishing, Quality, Materials and Manufacturing Resources"
     resourcesList={internalResources}
 >
-
     <div slot="full-width" class="individual-content">
 
         <section id="overview">
             <div class="content-container">
-                
-                <h2>Surface Finishing & Protective Coating Services</h2>
+                <h2>Surface Finishing and Protective Coatings for Engineered Components</h2>
 
                 <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
                     <div>
                         <p>
-                            ForceBeyond provides a comprehensive suite of advanced surface finishing and protective coating services for custom metal castings, forgings, and high-precision CNC machined components. A metal component's performance is heavily defined by its surface integrity. Whether operating in subsea saltwater, harsh chemical processing environments, or high-purity medical applications, proper surface preparation and protective coatings are essential to prevent corrosion, eliminate surface contamination, reduce friction, and extend operational lifespans.
+                            Surface finishing affects corrosion resistance, wear, friction, cleanability, electrical behavior, adhesion, appearance, sealing, and dimensional fit. ForceBeyond coordinates finishing for
+                            <a href="/casting" class="highlight-link">castings</a>,
+                            <a href="/forging" class="highlight-link">forgings</a>,
+                            and
+                            <a href="/precision-machining" class="highlight-link">precision-machined components</a>
+                            according to material, service environment, governing specification, and customer requirements.
                         </p>
                         <p>
-                            Operating under a strict ISO 9001:2015 quality management system, ForceBeyond manages all surface finishing operations in-house or through certified tier-one finishing partners. From automated chemical passivation of stainless steel to hardcoat anodizing of aerospace aluminum, we deliver fully finished, aesthetic, and assembly-ready components compliant with strict ASTM, AMS, MIL, and ISO specifications.
+                            Finishing may be performed by qualified internal or approved external sources depending on process, location, certification scope, capacity, and customer approvals. The required source, specification, thickness, testing, masking, and documentation should be confirmed before production.
                         </p>
                     </div>
+
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
-                                src="media/surface-finishing-protective-coating-overview-4k.webp"
-                                alt="High-precision passivated and anodized metal components undergoing quality inspection for surface finishing."
+                                src="/media/precision-aluminum-part-surface-finishing-coating.webp"
+                                alt="Precision-machined aluminum housing with a uniform protective coating and smooth surface finish on a white background."
+                                width="1200"
+                                height="900"
+                                loading="lazy"
+                                decoding="async"
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <section id="technical-capabilities">
+        <section id="process-selection">
             <div class="content-container">
-                <h2>Technical Capabilities: Surface Finishing & Coating Options</h2>
+                <h2>How to Select a Surface Finish or Coating</h2>
+                <ul>
+                    <li><strong>Base material:</strong> stainless steel, carbon steel, aluminum, titanium, copper, brass, bronze, nickel alloys, and cast iron require different pretreatments and compatible processes.</li>
+                    <li><strong>Service environment:</strong> consider humidity, saltwater, chemicals, temperature, UV exposure, wear, galling, cleaning, and electrical contact.</li>
+                    <li><strong>Functional requirement:</strong> define corrosion, hardness, friction, conductivity, insulation, appearance, cleanability, or paint adhesion.</li>
+                    <li><strong>Dimensional requirement:</strong> account for coating buildup, material removal, penetration, edge effects, masking, and post-finish inspection.</li>
+                    <li><strong>Specification:</strong> identify governing ASTM, AMS, MIL, ISO, customer, medical, automotive, or aerospace requirements.</li>
+                    <li><strong>Validation:</strong> define thickness, adhesion, hardness, color, corrosion, roughness, cleanliness, and acceptance criteria.</li>
+                </ul>
+            </div>
+        </section>
+
+
+        <section id="process-material-matrix">
+            <div class="content-container">
+                <h2>Surface Finish Process-to-Material Matrix</h2>
                 <p>
-                    ForceBeyond offers tailored surface engineering solutions categorized into three primary disciplines: Chemical Treatments, Conversion Coatings & Plating, and Applied Barrier Coatings.
+                    Use this quick-reference matrix for preliminary process selection. Final suitability depends on alloy, temper, casting quality, heat treatment, geometry, service environment, dimensional requirements, and the governing specification.
                 </p>
                 <div class="content-table-wrapper">
                     <table>
                         <thead>
                             <tr>
-                                <th scope="col">Finishing Discipline</th>
-                                <th scope="col">Process / Technology</th>
-                                <th scope="col">Applicable Materials</th>
-                                <th scope="col">Primary Engineering Benefits</th>
+                                <th scope="col">Base Material</th>
+                                <th scope="col">Common Finish Options</th>
+                                <th scope="col">Typical Objectives</th>
+                                <th scope="col">Key Considerations</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <tr>
-                                <th scope="row" rowspan="2">Chemical Treatments</th>
-                                <td>Citric / Nitric Passivation (ASTM A967)</td>
-                                <td>Stainless Steel (304, 316, 17-4 PH, Duplex)</td>
-                                <td>Removes free iron embedded during machining, accelerating the formation of the natural protective chromium-oxide layer to prevent rusting.</td>
+                                <th scope="row">Aluminum Alloys</th>
+                                <td>Type II anodizing, hardcoat anodizing, conversion coating, e-coating, powder coating, electroless nickel, polishing, bead blasting</td>
+                                <td>Corrosion protection, wear resistance, electrical control, appearance, paint adhesion, and thermal-hardware protection</td>
+                                <td>Alloy and temper, porosity, dimensional growth, masking, color variation, sealing, and coating thickness</td>
                             </tr>
                             <tr>
-                                <td>Electropolishing</td>
-                                <td>Stainless Steel & Cobalt-Chrome</td>
-                                <td>Micro-smooths the surface electrochemically, removing microscopic burrs and peak-and-valley profiles for sterile, mirror-like finishes in medical/sanitary parts.</td>
+                                <th scope="row">Stainless Steel</th>
+                                <td>Passivation, electropolishing, pickling, mechanical polishing, bead blasting, and application-specific coatings</td>
+                                <td>Remove free iron, improve cleanability, reduce roughness, restore surface condition, and improve appearance</td>
+                                <td>Grade, heat tint, starting roughness, material removal, cleanliness, edge rounding, and final Ra</td>
                             </tr>
                             <tr>
-                                <th scope="row" rowspan="2">Anodizing & Conversion</th>
-                                <td>Type II & Type III Hardcoat Anodizing (MIL-A-8625)</td>
-                                <td>Aluminum Alloys (A356, 6061, 7075)</td>
-                                <td>Converts the aluminum surface into a dense, wear-resistant aluminum-oxide ceramic layer. Type III delivers extreme abrasion resistance and electrical insulation.</td>
+                                <th scope="row">Carbon Steel and Cast Iron</th>
+                                <td>Shot blasting, zinc plating, electroless nickel, black oxide, e-coating, powder coating, liquid paint, phosphate pretreatment</td>
+                                <td>Rust prevention, paint adhesion, wear control, lubricity, and environmental protection</td>
+                                <td>Scale removal, porosity, hydrogen embrittlement, edge coverage, pretreatment, and corrosion-test criteria</td>
                             </tr>
                             <tr>
-                                <td>Chromate Conversion (Chem Film)</td>
-                                <td>Aluminum & Magnesium</td>
-                                <td>Creates a thin, corrosion-resistant protective film while preserving electrical conductivity and acting as an optimal paint primer base.</td>
+                                <th scope="row">Copper, Brass and Bronze</th>
+                                <td>Nickel, tin, or silver plating; anti-tarnish treatments; polishing; brushing; electroless nickel</td>
+                                <td>Conductivity, solderability, contact resistance, corrosion protection, appearance, and wear</td>
+                                <td>Alloy chemistry, diffusion, tarnish, adhesion, selective masking, and post-plate dimensions</td>
                             </tr>
                             <tr>
-                                <th scope="row" rowspan="3">Plating & Barrier Coatings</th>
-                                <td>Electroless Nickel Plating (ENP)</td>
-                                <td>Steel, Copper, Brass, Cast Iron</td>
-                                <td>Deposits a uniform nickel-phosphorus alloy layer without electrical current, providing exceptional wear, hardness, and corrosion resistance inside blind holes.</td>
+                                <th scope="row">Titanium Alloys</th>
+                                <td>Pickling, chemical milling, cleaning, anodizing, polishing, bead blasting, and application-specific coatings</td>
+                                <td>Alpha-case removal, cleanliness, color coding, roughness control, and galling reduction</td>
+                                <td>Hydrogen pickup, dimensional removal, contamination, alpha case, masking, and final cleaning</td>
                             </tr>
                             <tr>
-                                <td>E-Coating (Electro-Deposition)</td>
-                                <td>Carbon Steel, Ductile Iron, Aluminum</td>
-                                <td>An immersion coating process utilizing electrical current to apply a uniform, highly corrosion-resistant organic epoxy barrier over complex geometries.</td>
-                            </tr>
-                            <tr>
-                                <td>Powder Coating & Industrial Painting</td>
-                                <td>All Ferrous & Non-Ferrous Metals</td>
-                                <td>Applies a durable, thick polymer powder baked in an oven to yield extreme chip resistance, weatherability, and custom aesthetic colors.</td>
+                                <th scope="row">Nickel and Cobalt Alloys</th>
+                                <td>Pickling, cleaning, electropolishing, grinding, polishing, and application-specific protective coatings</td>
+                                <td>Scale removal, oxidation control, roughness improvement, wear, and high-temperature protection</td>
+                                <td>Work-hardened surfaces, oxide scale, material removal, heat resistance, and coating compatibility</td>
                             </tr>
                         </tbody>
                     </table>
-                </div> 
+                </div>
+            </div>
+        </section>
+
+        <section id="capabilities">
+            <div class="content-container">
+                <h2>Surface Finishing and Coating Options</h2>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Process Family</th>
+                                <th scope="col">Representative Processes</th>
+                                <th scope="col">Common Base Materials</th>
+                                <th scope="col">Typical Engineering Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Chemical Surface Treatments</th>
+                                <td>Passivation, pickling, chemical cleaning, deoxidizing, desmutting</td>
+                                <td>Stainless steel, aluminum, titanium, copper alloys</td>
+                                <td>Remove contamination, scale, free iron, oxides, or reaction layers and prepare the surface for service or later coating.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Electrochemical Finishing</th>
+                                <td>Electropolishing and electrolytic polishing</td>
+                                <td>Stainless steel, cobalt alloys, and selected metals</td>
+                                <td>Reduce microscopic peaks, improve cleanability, brighten surfaces, and remove controlled amounts of material.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Anodizing and Conversion Coatings</th>
+                                <td>Type II anodizing, hardcoat anodizing, conversion coatings, sealing</td>
+                                <td>Aluminum and selected magnesium or titanium applications</td>
+                                <td>Improve corrosion resistance, wear, appearance, paint adhesion, or electrical properties.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Metallic Plating</th>
+                                <td>Electroless nickel, electrolytic nickel, zinc, tin, silver, copper, and application-specific systems</td>
+                                <td>Steel, stainless steel, copper alloys, cast iron, and selected nonferrous metals</td>
+                                <td>Provide corrosion protection, hardness, solderability, conductivity, wear resistance, or dimensional restoration.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Organic Barrier Coatings</th>
+                                <td>E-coating, powder coating, liquid paint, primers, and specialty polymers</td>
+                                <td>Ferrous and nonferrous metals with suitable pretreatment</td>
+                                <td>Provide environmental protection, color, UV resistance, chemical resistance, and cosmetic appearance.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Mechanical Finishing</th>
+                                <td>Blasting, tumbling, vibratory finishing, grinding, polishing, brushing, and deburring</td>
+                                <td>Most metallic materials</td>
+                                <td>Remove scale and burrs, modify texture, prepare for coating, and improve appearance or edge condition.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="passivation">
+            <div class="content-container">
+                <h2>Stainless Steel Passivation</h2>
+                <p>
+                    Passivation is used to remove free iron and selected surface contamination from stainless steel after machining, handling, fabrication, or heat treatment.
+                </p>
+                <ul>
+                    <li><strong>Cleaning first:</strong> oil, grease, scale, heat tint, and embedded debris should be removed before passivation.</li>
+                    <li><strong>Chemistry selection:</strong> citric- or nitric-based systems should be selected according to alloy, specification, contamination, and process capability.</li>
+                    <li><strong>Verification:</strong> water-break, copper sulfate, high-humidity, salt-spray, or other tests may be specified depending on the standard.</li>
+                    <li><strong>Limitations:</strong> passivation does not repair severe heat tint, remove all scale, change bulk chemistry, or guarantee corrosion resistance in every environment.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="electropolishing">
+            <div class="content-container">
+                <h2>Electropolishing for Stainless and Cobalt-Alloy Components</h2>
+                <ul>
+                    <li><strong>Controlled material removal:</strong> process parameters affect dimensional change, edge rounding, burr reduction, and surface texture.</li>
+                    <li><strong>Surface improvement:</strong> electropolishing may reduce microscopic peaks and improve cleanability and brightness.</li>
+                    <li><strong>Geometry effects:</strong> current density, fixturing, cathode placement, recesses, and shielding influence uniformity.</li>
+                    <li><strong>Pre- and post-cleaning:</strong> cleaning, rinsing, neutralization, and final handling affect final surface quality.</li>
+                    <li><strong>Application approval:</strong> sanitary or medical use depends on the complete material, process, validation, cleanliness, and regulatory package—not electropolishing alone.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="anodizing">
+            <div class="content-container">
+                <h2>Type II and Hardcoat Anodizing</h2>
+                <p>
+                    Anodizing converts the aluminum surface into an oxide layer. Final results depend on alloy, temper, casting porosity, surface condition, pretreatment, thickness, dye, sealing, geometry, and specification.
+                </p>
+                <ul>
+                    <li><strong>Type II anodizing:</strong> commonly selected for corrosion protection, color, appearance, and moderate wear requirements.</li>
+                    <li><strong>Hardcoat anodizing:</strong> selected for greater thickness, wear resistance, or electrical insulation where compatible with alloy and geometry.</li>
+                    <li><strong>Dimensional growth:</strong> bores, shafts, threads, fits, sealing surfaces, and bearing locations should include coating allowance or masking.</li>
+                    <li><strong>Alloy variation:</strong> cast and high-alloy aluminum may show different color, hardness, porosity, or appearance from wrought alloys.</li>
+                    <li><strong>Sealing:</strong> sealing method can affect corrosion resistance, color, wear, and electrical behavior.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="conversion-coatings">
+            <div class="content-container">
+                <h2>Conversion Coatings for Aluminum and Magnesium</h2>
+                <ul>
+                    <li><strong>Corrosion protection:</strong> conversion coatings provide a thin protective layer with limited dimensional effect.</li>
+                    <li><strong>Paint adhesion:</strong> properly controlled pretreatment can improve adhesion of primers and topcoats.</li>
+                    <li><strong>Electrical requirements:</strong> some classes are selected where lower contact resistance is important.</li>
+                    <li><strong>Compliance:</strong> hexavalent-chromium, trivalent-chromium, chromate-free, and environmental requirements should be specified explicitly.</li>
+                    <li><strong>Handling:</strong> thin conversion layers can be damaged by abrasion, contamination, or improper packaging.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="electroless-nickel">
+            <div class="content-container">
+                <h2>Electroless Nickel Plating</h2>
+                <p>
+                    Electroless nickel uses an autocatalytic reaction to deposit a nickel-alloy coating without external current.
+                </p>
+                <ul>
+                    <li><strong>Uniform external coverage:</strong> thickness can be more consistent than electrolytic plating on many complex shapes.</li>
+                    <li><strong>Phosphorus content:</strong> low-, medium-, and high-phosphorus deposits trade hardness, corrosion resistance, solderability, and heat-treatment response differently.</li>
+                    <li><strong>Pretreatment:</strong> adhesion depends on cleaning, activation, base material, surface condition, and process control.</li>
+                    <li><strong>Internal geometry:</strong> deep recesses, blind holes, threads, and narrow passages require solution exchange and may not plate identically to exposed surfaces.</li>
+                    <li><strong>Post-treatment:</strong> baking or heat treatment may be used for hardness, adhesion, or hydrogen-embrittlement control where applicable.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="electroplating">
+            <div class="content-container">
+                <h2>Electroplating and Metallic Coatings</h2>
+                <ul>
+                    <li><strong>Zinc plating:</strong> commonly used for sacrificial corrosion protection on carbon steel fasteners and hardware.</li>
+                    <li><strong>Nickel plating:</strong> selected for appearance, corrosion, wear, diffusion barrier, or undercoat applications.</li>
+                    <li><strong>Tin and silver:</strong> used for solderability, conductivity, contact resistance, or electrical hardware.</li>
+                    <li><strong>Thickness distribution:</strong> current density and part geometry can create edge buildup and low-current-density areas.</li>
+                    <li><strong>Hydrogen embrittlement:</strong> high-strength steels may require process restrictions, prompt baking, and verification.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="organic-coatings">
+            <div class="content-container">
+                <h2>E-Coating, Powder Coating and Liquid Paint</h2>
+                <ul>
+                    <li><strong>E-coating:</strong> immersion and electrical deposition can provide good coverage on complex conductive parts with suitable pretreatment.</li>
+                    <li><strong>Powder coating:</strong> offers durable color and barrier protection but adds measurable thickness and requires oven curing.</li>
+                    <li><strong>Liquid paint:</strong> supports primers, topcoats, high-temperature systems, touch-up, and specialized chemical resistance.</li>
+                    <li><strong>Cure control:</strong> time and temperature affect adhesion, hardness, gloss, color, and substrate properties.</li>
+                    <li><strong>Edge and recess performance:</strong> coating coverage should be evaluated on sharp edges, welds, cavities, and Faraday-cage regions.</li>
+                </ul>
+            </div>
+        </section>
+
+
+        <section id="surface-roughness">
+            <div class="content-container">
+                <h2>Surface Roughness Capabilities: Ra and RMS Guidance</h2>
+                <p>
+                    Engineering drawings commonly specify arithmetic average roughness (Ra) or root mean square roughness (RMS/Rq). They are related but not universally interchangeable. The exact relationship depends on the measured surface profile.
+                </p>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Surface Condition</th>
+                                <th scope="col">Representative Ra Range</th>
+                                <th scope="col">Approximate RMS Reference</th>
+                                <th scope="col">Typical Applications</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">General As-Machined</th>
+                                <td>125–63 µin Ra<br />3.2–1.6 µm Ra</td>
+                                <td>Often approximately 140–70 µin RMS, depending on profile</td>
+                                <td>Housings, brackets, noncritical interfaces, and pre-coating surfaces</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Fine Machined or Ground</th>
+                                <td>63–32 µin Ra<br />1.6–0.8 µm Ra</td>
+                                <td>Often approximately 70–36 µin RMS</td>
+                                <td>Sealing faces, bearing interfaces, controlled sliding surfaces, and pre-polish preparation</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Polished</th>
+                                <td>32–16 µin Ra<br />0.8–0.4 µm Ra</td>
+                                <td>Often approximately 36–18 µin RMS</td>
+                                <td>Fluid-contact surfaces, improved cleanability, cosmetic surfaces, and low-friction interfaces</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Fine Polished or Electropolished</th>
+                                <td>16 µin Ra and below<br />0.4 µm Ra and below, where geometry permits</td>
+                                <td>Project-specific; verify by direct measurement rather than conversion alone</td>
+                                <td>High-cleanliness, sanitary, vacuum, medical, and precision-flow applications where separately validated</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>
+                    These are representative engineering targets, not universal guaranteed capabilities. Final roughness depends on material, initial surface, geometry, access, abrasive sequence, polishing direction, coating, measurement cutoff, filter, stylus direction, and inspection location.
+                </p>
             </div>
         </section>
 
         <section id="surface-preparation">
             <div class="content-container">
-                <h2>Surface Preparation & Pre-Treatment Operations</h2>
+                <h2>Surface Preparation and Pretreatment</h2>
                 <p>
-                    A protective coating or finish is only as reliable as the surface pre-treatment beneath it. ForceBeyond integrates rigorous pre-finishing steps to ensure 100% coating adhesion and surface purity:
+                    Coating performance depends heavily on cleaning, surface condition, and process compatibility.
                 </p>
                 <ul>
-                    <li>
-                        <strong>Abrasive Media Blasting (Shot / Bead Blasting):</strong> Uses glass beads, ceramic media, or aluminum oxide to clean scale from heat-treated parts, remove casting sand residue, and produce a uniform matte surface texture (ideal for hiding cosmetic tool marks).
-                    </li>
-                    <li>
-                        <strong>Vibratory Deburring & Tumbling:</strong> Mechanical tumbling with ceramic or plastic media to smooth sharp edges, remove micro-burrs left from CNC milling, and radiate corners.
-                    </li>
-                    <li>
-                        <strong>Ultrasonic Aqueous Degreasing:</strong> Removes heavy cutting oils, coolants, and microscopic particulate matter prior to chemical passivation or plating lines.
-                    </li>
+                    <li><strong>Aqueous and solvent cleaning:</strong> remove oils, coolants, drawing compounds, fingerprints, and organic contamination.</li>
+                    <li><strong>Ultrasonic cleaning:</strong> assist removal from complex features when chemistry, geometry, and cleanliness requirements permit.</li>
+                    <li><strong>Abrasive blasting:</strong> remove scale, rust, residue, or old coatings and establish a controlled anchor profile.</li>
+                    <li><strong>Pickling and etching:</strong> remove oxides and activate surfaces while controlling material removal and hydrogen risk.</li>
+                    <li><strong>Deburring and tumbling:</strong> modify edges and texture before coating, while protecting critical dimensions and sealing surfaces.</li>
+                    <li><strong>Water quality and rinsing:</strong> rinse control affects staining, residues, adhesion, and final cleanliness.</li>
                 </ul>
             </div>
         </section>
 
-        <section id="tier-1-5-integration">
+        <section id="masking">
             <div class="content-container">
-                <h2>Tier-1.5 Integration: Cast, Machine, Finish & Pack</h2>
-                <p>
-                    Managing separate subcontractors for casting, CNC machining, and electroplating leads to high scrap rates and shipping delays. ForceBeyond’s Tier-1.5 Manufacturing Model integrates surface finishing directly into the component production cycle:
-                </p>
+                <h2>Masking and Selective Finishing</h2>
                 <ul>
-                    <li>
-                        <strong>Near-Net Forming & Machining:</strong> The part is cast/forged and precision CNC machined to final print specifications.
-                    </li>
-                    <li>
-                        <strong>In-Line Inspection:</strong> Pre-coating CMM dimensional verification to account for plating thickness allowances.
-                    </li>
-                    <li>
-                        <strong>Surface Processing:</strong> The component undergoes automated pre-cleaning, chemical finishing (e.g., passivation or hardcoat anodizing), and post-treatment sealing.
-                    </li>
-                    <li>
-                        <strong>Final Quality Certification:</strong> 100% visual inspection, coating thickness verification (ASTM B499), salt spray corrosion testing (ASTM B117 compliance), and final protective packaging.
-                    </li>
+                    <li><strong>Critical fits:</strong> mask bores, shafts, bearing seats, threads, datum targets, sealing surfaces, and electrical contacts where required.</li>
+                    <li><strong>Masking method:</strong> plugs, caps, tape, wax, stop-off, reusable fixtures, or custom tooling may be selected.</li>
+                    <li><strong>Transition zones:</strong> drawing notes should define acceptable feathering, witness lines, edge buildup, and coating boundaries.</li>
+                    <li><strong>Thread strategy:</strong> specify pre- or post-coating thread condition, allowance, masking, chasing, and gauge requirements.</li>
+                    <li><strong>Inspection:</strong> confirm coating exclusion, coverage, dimensions, and cleanliness after masking is removed.</li>
                 </ul>
             </div>
         </section>
 
-        <section id="certified-applications">
+        <section id="design-dimensions">
             <div class="content-container">
-                <h2>Certified Surface Finishing Applications</h2>
+                <h2>Coating Thickness and Dimensional Planning</h2>
                 <p>
-                    Our specialized finishing lines supply certified surface-engineered components to:
+                    Finishing should be included in tolerance and process planning before final machining.
                 </p>
                 <ul>
-                    <li>
-                        <strong>Fluid & Flow Control:</strong> E-coated cast iron valve bodies, passivated 316L pump impellers, and electroless nickel-plated steel manifolds.
-                    </li>
-                    <li>
-                        <strong>Aerospace & Defense:</strong> Type III hard-anodized aluminum brackets, chem-filmed avionics housings, and passivated 17-4 PH structural actuators.
-                    </li>
-                    <li>
-                        <strong>Medical & Food Processing:</strong> Electropolished stainless surgical guides, mirror-finished 316L FDA sanitary fittings, and biocompatible titanium implants.
-                    </li>
-                    <li>
-                        <strong>Automotive & Industrial:</strong> Powder-coated suspension brackets, zinc-plated high-tensile fasteners, and black oxide-treated gear blanks.
-                    </li>
+                    <li><strong>Build-up coatings:</strong> plating, paint, powder, and e-coat add thickness to exposed surfaces.</li>
+                    <li><strong>Conversion processes:</strong> anodizing includes both penetration and outward growth, while chemical conversion coatings are comparatively thin.</li>
+                    <li><strong>Removal processes:</strong> electropolishing, pickling, etching, and blasting remove or modify surface material.</li>
+                    <li><strong>Edge effects:</strong> corners, recesses, threads, and blind holes may receive different effective thickness.</li>
+                    <li><strong>Inspection sequence:</strong> define which dimensions are inspected before coating and which are final-after-finish requirements.</li>
+                </ul>
+                <p>
+                    See the
+                    <a href="/manufacturing-design-guides" class="highlight-link">manufacturing design guides</a>
+                    for DFM, tolerance, masking, and machining-allowance planning.
+                </p>
+            </div>
+        </section>
+
+        <section id="inspection-testing">
+            <div class="content-container">
+                <h2>Coating Inspection and Performance Testing</h2>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Verification</th>
+                                <th scope="col">What It Evaluates</th>
+                                <th scope="col">Important Considerations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Visual Inspection</th>
+                                <td>Coverage, color, staining, blistering, pits, burns, runs, bare areas, and workmanship.</td>
+                                <td>Lighting, viewing distance, cosmetic class, sample standards, and acceptable variation.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Thickness Measurement</th>
+                                <td>Coating or plating thickness at defined locations.</td>
+                                <td>Method suitability, base material, curvature, edge distance, calibration, and sampling plan.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Adhesion Testing</th>
+                                <td>Resistance to separation, peeling, flaking, or loss of bond.</td>
+                                <td>Test method, coating type, cure, substrate, geometry, and acceptance criteria.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Corrosion Testing</th>
+                                <td>Comparative resistance under salt spray, cyclic corrosion, humidity, immersion, or chemical exposure.</td>
+                                <td>Laboratory exposure does not directly equal field life; scribe, edge, substrate, and evaluation method matter.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Hardness and Wear</th>
+                                <td>Surface hardness, abrasion, friction, or wear response.</td>
+                                <td>Coating thickness, substrate support, load, counterface, lubrication, and test method.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Cleanliness and Surface Condition</th>
+                                <td>Residues, particles, free iron, water break, roughness, or application-specific cleanliness.</td>
+                                <td>Sampling, handling, packaging, rinse quality, and customer-specific limits.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    Review
+                    <a href="/testing-inspection-capabilities" class="highlight-link">testing and inspection capabilities</a>
+                    for broader metrology, material testing, and quality-documentation information.
+                </p>
+            </div>
+        </section>
+
+        <section id="quality-documentation">
+            <div class="content-container">
+                <h2>Surface Finishing Quality Documentation</h2>
+                <ul>
+                    <li><strong>Process certification:</strong> identify specification, revision, class, type, thickness, color, seal, and applicable exceptions.</li>
+                    <li><strong>Source approval:</strong> document approved processor, accreditation, customer approval, and certificate scope where required.</li>
+                    <li><strong>Inspection records:</strong> include visual, thickness, adhesion, hardness, corrosion, dimensional, or cleanliness results as specified.</li>
+                    <li><strong>Lot traceability:</strong> link coating lot, process date, part lot, quantity, rework, and shipment records.</li>
+                    <li><strong>Nonconformance control:</strong> document stripping, rework, repair, deviation, and customer approval when applicable.</li>
+                </ul>
+            </div>
+        </section>
+
+
+        <section id="manufacturing-route-hub">
+            <div class="content-container">
+                <h2>Surface Finishing for Castings, Forgings and Machined Parts</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Manufacturing Route</th>
+                                <th scope="col">Common Surface Challenges</th>
+                                <th scope="col">Relevant Finishing Paths</th>
+                                <th scope="col">Related Resources</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Investment Casting</th>
+                                <td>Shell residue, scale, gates, reaction layers, and as-cast roughness</td>
+                                <td>Blasting, pickling, passivation, polishing, plating, coating, and cleaning</td>
+                                <td><a href="/investment-casting" class="highlight-link">Investment Casting</a>, <a href="/stainless-steel-casting" class="highlight-link">Stainless Steel Casting</a>, <a href="/titanium-investment-casting" class="highlight-link">Titanium Casting</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Sand Casting</th>
+                                <td>Sand residue, heavier scale, variable texture, and porous surfaces</td>
+                                <td>Shot blasting, grinding, painting, powder coating, and e-coating</td>
+                                <td><a href="/sand-casting" class="highlight-link">Sand Casting</a>, <a href="/carbon-steel-casting" class="highlight-link">Carbon Steel Casting</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Die Casting</th>
+                                <td>Release residue, flash, porosity, cosmetic variation, and adhesion sensitivity</td>
+                                <td>Deburring, conversion coating, anodizing where suitable, e-coating, powder coating, and plating</td>
+                                <td><a href="/die-casting" class="highlight-link">Die Casting</a>, <a href="/aluminum-die-casting" class="highlight-link">Aluminum Die Casting</a>, <a href="/zinc-die-casting" class="highlight-link">Zinc Die Casting</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Forging</th>
+                                <td>Scale, trim marks, shot-blast texture, and machining transitions</td>
+                                <td>Shot blasting, pickling, grinding, passivation, plating, black oxide, paint, and powder coating</td>
+                                <td><a href="/forging" class="highlight-link">Forging</a>, <a href="/closed-die-forging" class="highlight-link">Closed Die Forging</a>, <a href="/rolled-ring-forging" class="highlight-link">Rolled Ring Forging</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">CNC Machining</th>
+                                <td>Tool marks, burrs, coolant residue, embedded iron, sharp edges, and tight fits</td>
+                                <td>Deburring, polishing, passivation, electropolishing, anodizing, plating, and selective masking</td>
+                                <td><a href="/precision-machining" class="highlight-link">Precision Machining</a>, <a href="/multi-axis-cnc" class="highlight-link">Multi-Axis CNC</a>, <a href="/high-precision-machining" class="highlight-link">High-Precision Machining</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="integrated-processing">
+            <div class="content-container">
+                <h2>Integrated Cast, Forge, Machine, Finish and Inspect Programs</h2>
+                <ol>
+                    <li><strong>Review the drawing:</strong> confirm finish specification, masking, dimensions, appearance, and test requirements.</li>
+                    <li><strong>Select the source:</strong> verify material compatibility, process capability, certification scope, capacity, and approvals.</li>
+                    <li><strong>Plan machining allowance:</strong> account for buildup, penetration, removal, post-finish machining, and final inspection.</li>
+                    <li><strong>Prepare and finish:</strong> clean, pretreat, mask, process, rinse, cure, seal, and handle according to the approved route.</li>
+                    <li><strong>Inspect and document:</strong> verify coating, dimensions, performance, traceability, packaging, and shipment records.</li>
+                </ol>
+                <p>
+                    Surface finishing can be coordinated with
+                    <a href="/secondary-operations" class="highlight-link">secondary operations</a>,
+                    <a href="/assembly-and-kitting" class="highlight-link">assembly and kitting</a>,
+                    and
+                    <a href="/quality-assurance-certifications" class="highlight-link">quality assurance</a>
+                    according to the project scope.
+                </p>
+            </div>
+        </section>
+
+        <section id="applications">
+            <div class="content-container">
+                <h2>Surface Finishing Applications by Industry</h2>
+                <ul>
+                    <li><strong><a href="/hvac-flow" class="highlight-link">Fluid and flow control:</a></strong> passivated stainless, coated cast iron, plated steel, and finished valve, pump, manifold, and fitting components.</li>
+                    <li><strong><a href="/aerospace" class="highlight-link">Aerospace:</a></strong> anodized aluminum, conversion-coated housings, plated fasteners, passivated stainless, and specification-controlled protective finishes.</li>
+                    <li><strong><a href="/medical" class="highlight-link">Medical and healthcare:</a></strong> electropolished or passivated components where the complete material, cleaning, validation, and regulatory requirements are approved.</li>
+                    <li><strong><a href="/automotive" class="highlight-link">Automotive:</a></strong> e-coated brackets, powder-coated structures, plated fasteners, anodized housings, and corrosion-protected hardware.</li>
+                    <li><strong><a href="/data-center-power" class="highlight-link">Data center and electrical:</a></strong> anodized housings, conversion-coated aluminum, plated copper, conductive contacts, busbars, and corrosion-protected thermal hardware.</li>
                 </ul>
             </div>
         </section>

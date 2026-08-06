@@ -1,124 +1,185 @@
 ---
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Agricultural Equipment Casting, Forging & Sub-Assembly';
-const seoTitle = 'Agricultural Equipment Casting, Forging & Sub-Assembly | ForceBeyond';
-const seoDescription = 'ForceBeyond supplies high-strength, cost-effective cast and forged agricultural components, coatings, and ready-to-assemble kitted hardware for OEMs.';
+const pageTitle = 'Agricultural Equipment Components: Casting, Forging & Assembly';
+const seoTitle = 'Agricultural Equipment Components | Casting, Forging & Assembly';
+const seoDescription = 'ForceBeyond supports tractor, tillage, seeding, harvesting, drivetrain, hub, housing, and agricultural machinery programs with castings, forgings, CNC machining, heat treatment, coatings, assembly, kitting, inspection, and logistics.';
+
+const canonicalUrl = 'https://www.forcebeyond.com/agricultural/';
+const socialImage = 'https://www.forcebeyond.com/media/agricultural-equipment-overview-4k.webp';
 
 const faqs = [
     {
-        q: "What coatings are best for agricultural castings exposed to weather and fertilizers?",
-        a: "We recommend Electro-deposition Coating (E-Coating) or heavy-duty thermosetting Powder Coating, which provide high salt spray resistance and chemical protection against corrosive fertilizers."
+        q: "What coatings are suitable for agricultural components exposed to weather, soil, and fertilizers?",
+        a: "Potential systems include e-coating, powder coating, liquid paint, zinc-based coatings, plating, and application-specific corrosion-protection systems. Selection depends on substrate, pretreatment, fertilizer chemistry, UV exposure, abrasion, edge coverage, coating thickness, appearance, repair requirements, and the specified test method."
     },
     {
-        q: "Can ForceBeyond provide pre-assembled hubs with pressed bearings?",
-        a: "Yes. Our assembly cells press bearings, install seals, apply torque-verified fasteners, and package complete hub modules ready for immediate machine mounting."
+        q: "Can ForceBeyond provide pre-assembled hubs, bearing modules, or agricultural kits?",
+        a: "Project-specific assembly and kitting may include machined hubs, bearings, seals, retaining hardware, lubrication, torque-controlled fasteners, labels, inspection, and packaging. Fit, cleanliness, torque, preload, runout, traceability, testing, and packaging requirements should be defined before quotation."
+    },
+    {
+        q: "Which manufacturing processes are used for agricultural equipment components?",
+        a: "Depending on geometry, material, annual volume, load, wear, and cost targets, agricultural components may use green-sand or no-bake casting, investment casting, aluminum die casting, closed-die forging, open-die forging, CNC machining, heat treatment, coatings, and mechanical assembly."
+    },
+    {
+        q: "What information is needed for an agricultural component quote?",
+        a: "Provide drawings, CAD, material, annual volume, component function, load, wear environment, corrosion exposure, heat treatment, hardness, machining, coating, inspection, assembly, packaging, service-parts demand, and delivery requirements."
     }
 ];
 
-// Sources
 const sources = [
-    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
-    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
-    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
-    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
-    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
-    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
+    { label: 'Association of Equipment Manufacturers - Agricultural Equipment Resources', url: 'https://www.aem.org/' },
+    { label: 'American Foundry Society - Metalcasting Resources', url: 'https://www.afsinc.org/' },
+    { label: 'Forging Industry Association - Forging Resources', url: 'https://www.forging.org/' },
+    { label: 'ASM International - Wear, Heat Treatment and Materials Resources', url: 'https://www.asminternational.org/' },
+    { label: 'ASTM International - Agricultural Materials, Coatings and Testing Standards', url: 'https://www.astm.org/' },
+    { label: 'AMPP - Corrosion and Protective Coating Resources', url: 'https://www.ampp.org/' }
 ];
 
-// Resources
 const internalResources = [
-    // Die Casting Resources
-    { label: "Die Casting Overview", url: "die-casting" },
-    { label: "Aluminum Die Casting", url: "aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "a356-t6-casting" },
-    { label: "Magnesium Casting", url: "magnesium-casting" },
+    // Industry Hubs
+    { label: "Mining, Heavy Equipment & Agriculture", url: "/mining" },
+    { label: "Automotive & Transportation", url: "/automotive" },
+    { label: "Oil & Gas", url: "/oil-gas" },
+    { label: "HVAC, Fluid & Flow Control", url: "/hvac-flow" },
 
-    // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "duplex-stainless-steel-casting" },
+    // Casting
+    { label: "Casting Capabilities", url: "/casting" },
+    { label: "Sand Casting", url: "/sand-casting" },
+    { label: "Investment Casting", url: "/investment-casting" },
+    { label: "Die Casting", url: "/die-casting" },
+    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
+    { label: "A356-T6 Casting", url: "/a356-t6-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" },
 
-    // Forging Resources
-    { label: "Forging Capabilities Overview", url: "forging" },
-    { label: "Open Die Forging", url: "open-die-forging" },
-    { label: "Closed Die Forging", url: "closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "rolled-ring-forging" },
-    { label: "Cold Forging", url: "cold-forging" },
-    { label: "Superalloy Forging Services", url: "superalloy-forging-services" },
+    // Forging
+    { label: "Forging Capabilities", url: "/forging" },
+    { label: "Closed Die Forging", url: "/closed-die-forging" },
+    { label: "Cold Forging", url: "/cold-forging" },
+    { label: "Open Die Forging", url: "/open-die-forging" },
+    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
 
-    // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "carbon-steel-casting" }
+    // Machining and Secondary Operations
+    { label: "Precision Machining", url: "/precision-machining" },
+    { label: "High-Precision Component Machining", url: "/high-precision-machining" },
+    { label: "Multi-Axis CNC Milling & Turning", url: "/multi-axis-cnc" },
+    { label: "Heat Treatment", url: "/heat-treatment" },
+    { label: "Surface Finishing & Coating", url: "/surface-finishing" },
+    { label: "Assembly & Kitting", url: "/assembly-and-kitting" },
+
+    // Materials, Quality, and Supply Chain
+    { label: "Stainless Steel & Carbon Steel", url: "/stainless-carbon-steel" },
+    { label: "Aluminum & Copper Alloys", url: "/aluminum-copper-alloys" },
+    { label: "Materials & Technical Specifications", url: "/materials-technical-specs" },
+    { label: "Material Cross-Reference Charts", url: "/material-cross-reference-charts" },
+    { label: "Manufacturing Design Guides", url: "/manufacturing-design-guides" },
+    { label: "Quality Assurance & Certifications", url: "/quality-assurance-certifications" },
+    { label: "Testing & Inspection Capabilities", url: "/testing-inspection-capabilities" },
+    { label: "Global Footprint & Logistics", url: "/global-footprint-logistics" }
 ];
 
-// Page Schema
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.storeagricultural#webpage",
-      "url": "https://www.forcebeyond.storeagricultural",
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store/oscar#website",
+        "@id": "https://www.forcebeyond.com/#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar"
-      }
+        "url": "https://www.forcebeyond.com/"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": socialImage
+      },
+      "breadcrumb": {
+        "@id": `${canonicalUrl}#breadcrumb`
+      },
+      "about": [
+        { "@type": "Thing", "name": "Agricultural equipment components" },
+        { "@type": "Thing", "name": "Tractor castings and forgings" },
+        { "@type": "Thing", "name": "Tillage and harvesting components" },
+        { "@type": "Thing", "name": "Agricultural hub and bearing assemblies" },
+        { "@type": "Thing", "name": "Agricultural OEM supply chain" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.forcebeyond.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Industries",
+          "item": "https://www.forcebeyond.com/industries/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Agricultural Equipment",
+          "item": canonicalUrl
+        }
+      ]
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.storeagricultural#service",
+      "@id": `${canonicalUrl}#service`,
       "name": "Agricultural Equipment Component Manufacturing",
-      "serviceType": "Agricultural Machinery OEM Manufacturing",
+      "serviceType": "Casting, Forging, Machining, Coating, Assembly and Kitting for Agricultural Machinery",
       "description": seoDescription,
+      "url": canonicalUrl,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store/oscar#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar",
-        "knowsAbout": [
-          "Automated Green Sand & Investment Casting",
-          "Closed-Die Precision Hot Forging for High Impact Components",
-          "Near-Net-Shape Casting & Cost Optimization",
-          "Protective E-Coating & UV-Resistant Powder Coating",
-          "Point-of-Use Kitting & Multi-Material Sub-Assembly"
-        ]
+        "@id": "https://www.forcebeyond.com/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Agricultural Component Capabilities",
+        "name": "Agricultural Equipment Manufacturing Capabilities",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Heavy Cast Machinery Hardware",
-              "description": "Ductile iron tractor frame brackets, gearbox housings, axle trumpets, and counterweights."
+              "name": "Tractor and Structural Cast Components",
+              "description": "Project-specific frame brackets, gearbox housings, axle housings, counterweights, carriers, and structural castings."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "High-Impact Forged Tillage & Harvesting Parts",
-              "description": "Forged plow points, tiller tines, combine cutter bars, and hitch components."
+              "name": "Tillage and Harvesting Forgings",
+              "description": "Forged plow points, tines, links, hitch components, cutter hardware, shafts, and wear-resistant agricultural parts."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Kitting & Modular Sub-Assemblies",
-              "description": "Pre-assembled planetary gear kits, hub modules, and sealed bearing assemblies."
+              "name": "Seed, Metering and Lightweight Components",
+              "description": "Aluminum die-cast and machined housings, covers, brackets, metering parts, and cab or control hardware."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Hub Modules, Kitting and Assembly",
+              "description": "Project-specific hub assemblies, bearing modules, gear kits, seals, hardware, labeling, testing, and packaging."
             }
           }
         ]
@@ -126,13 +187,13 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.storeagricultural#faq",
-      "mainEntity": faqs.map(f => ({
+      "@id": `${canonicalUrl}#faq`,
+      "mainEntity": faqs.map((faq) => ({
         "@type": "Question",
-        "name": f.q,
+        "name": faq.q,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": f.a
+          "text": faq.a
         }
       }))
     }
@@ -143,83 +204,117 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
     pageTitle={pageTitle}
-    heroImage="media/agricultural-tractor-crop-spraying-green-farmland-hero.webp"
-    heroImageAlt="Red agricultural tractor spraying crops across a large green farmland field under a clear blue sky."
-    faqSectionTitle="Frequently Asked Questions"
+    heroImage="/media/agricultural-tractor-crop-spraying-green-farmland-hero.webp"
+    heroImageAlt="Agricultural tractor operating in a cultivated field"
+    heroImageWidth={1920}
+    heroImageHeight={1080}
+    socialImage={socialImage}
+    socialImageAlt="Agricultural equipment casting, forging and assembly"
+    faqSectionTitle="Frequently Asked Questions: Agricultural Equipment"
     faqItems={faqs}
-    ctaTitle="Optimize Your Agricultural OEM Manufacturing"
-    ctaDescription="Partner with ForceBeyond for value-engineered castings, high-impact forgings, and pre-assembled agricultural sub-components delivered right to your production line."
-    sourcesTitle="Sources"
+    ctaTitle="Review an Agricultural Equipment Component Program"
+    ctaDescription="Send your drawings, material, annual volume, load, wear environment, heat treatment, hardness, machining, coating, assembly, packaging, service-parts demand, and delivery requirements for an engineering review."
+    ctaButtonText="Request an Agricultural Review"
+    sourcesTitle="Agricultural Equipment, Materials and Manufacturing References"
     sourcesList={sources}
-    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesTitle="Related Agricultural, Casting, Forging, Machining and Quality Resources"
     resourcesList={internalResources}
 >
-
     <div slot="full-width" class="individual-content">
 
         <section id="overview">
             <div class="content-container">
-                
-                <h2>Agricultural Equipment Casting, Forging & Sub-Assembly</h2>
+                <h2>Manufacturing Support for Agricultural Equipment Components</h2>
 
                 <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
                     <div>
                         <p>
-                            ForceBeyond supplies high-strength, cost-effective cast and forged components for agricultural machinery OEMs. Farm machinery demands reliable performance in abrasive soil, high moisture, and heavy cyclic loads.
+                            Agricultural machinery operates under abrasive soil, moisture, fertilizer exposure, cyclic loading, impact, vibration, contamination, and seasonal production demands.
                         </p>
                         <p>
-                            By combining low-cost automated green sand casting, precision investment casting, and closed-die forging, ForceBeyond delivers fully machined, powder-coated, and pre-assembled agricultural hardware directly to assembly lines.
+                            ForceBeyond supports tractor, tillage, seeding, harvesting, drivetrain, hub, and implement programs through
+                            <a href="/sand-casting" class="highlight-link">sand casting</a>,
+                            <a href="/investment-casting" class="highlight-link">investment casting</a>,
+                            <a href="/closed-die-forging" class="highlight-link">closed-die forging</a>,
+                            <a href="/precision-machining" class="highlight-link">precision machining</a>,
+                            heat treatment, coatings, assembly, kitting, inspection, and logistics coordination.
+                        </p>
+                        <p>
+                            Final material, process route, heat treatment, hardness, coating, assembly scope, inspection, and delivery model must be confirmed for the selected component and service environment.
                         </p>
                     </div>
+
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
-                                src="media/agricultural-equipment-overview-4k.webp"
-                                alt="agricultural-equipment-overview-4k."
+                                src="/media/agricultural-equipment-overview-4k.webp"
+                                alt="Agricultural machinery and tractor components used in field operations"
+                                width="1200"
+                                height="900"
+                                loading="lazy"
+                                decoding="async"
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <section id="agricultural-matrix">
+        <section id="application-matrix">
             <div class="content-container">
-                <h2>Agricultural Capabilities & Alloys</h2>
+                <h2>Agricultural Equipment Application Matrix</h2>
+
                 <div class="content-table-wrapper">
                     <table>
                         <thead>
                             <tr>
-                                <th scope="col">Manufacturing Process</th>
-                                <th scope="col">Primary Materials</th>
-                                <th scope="col">Key Components Produced</th>
+                                <th scope="col">Equipment Area</th>
+                                <th scope="col">Representative Components</th>
+                                <th scope="col">Potential Manufacturing Routes</th>
+                                <th scope="col">Key Engineering Requirements</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <tr>
-                                <th scope="row">Automated Sand Casting</th>
-                                <td>Ductile Iron (65-45-12), Gray Iron</td>
-                                <td>Heavy tractor frame brackets, gearbox housings, axle trumpets, and counterweights.</td>
+                                <th scope="row">Tractors and Power Units</th>
+                                <td>Frame brackets, gearbox housings, axle housings, carriers, counterweights, hubs, mounts</td>
+                                <td>Sand casting, ductile-iron casting, steel forging, machining, heat treatment, coating</td>
+                                <td>Fatigue, stiffness, vibration, bearing alignment, corrosion, dimensional control, and serviceability</td>
                             </tr>
                             <tr>
-                                <th scope="row">Precision Hot Forging</th>
-                                <td>AISI 1045, 4140 Alloy Steel</td>
-                                <td>High-impact plow points, tiller tines, combine cutter bars, and hitch components.</td>
+                                <th scope="row">Tillage and Soil Engagement</th>
+                                <td>Plow points, tines, shanks, discs, coulters, links, wear plates, hitch components</td>
+                                <td>Closed-die forging, alloy-steel casting, machining, Q&T, induction hardening, hardfacing</td>
+                                <td>Abrasion, impact, wear pattern, toughness, hardness profile, soil release, and replaceability</td>
                             </tr>
                             <tr>
-                                <th scope="row">Aluminum Die Casting</th>
-                                <td>A380, A360 Aluminum Alloys</td>
-                                <td>Lightweight belt covers, seed metering housings, and tractor cab hardware.</td>
+                                <th scope="row">Seeding and Planting</th>
+                                <td>Meter housings, seed discs, brackets, row-unit parts, hubs, covers, drive and linkage hardware</td>
+                                <td>Aluminum die casting, iron casting, forging, precision machining, coating, assembly</td>
+                                <td>Metering accuracy, corrosion, contamination, wear, alignment, dimensional repeatability, and low mass</td>
                             </tr>
                             <tr>
-                                <th scope="row">Kitting & Sub-Assembly</th>
-                                <td>Multi-Material Integration</td>
-                                <td>Pre-assembled planetary gear kits, hub assemblies, and sealed bearing modules.</td>
+                                <th scope="row">Harvesting Equipment</th>
+                                <td>Cutter components, shafts, housings, sprockets, hubs, links, gathering and conveyor hardware</td>
+                                <td>Forging, casting, machining, heat treatment, coating, assembly</td>
+                                <td>Fatigue, wear, impact, balance, contamination, service access, and seasonal uptime</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Drivetrain and Hub Systems</th>
+                                <td>Wheel hubs, carriers, gear blanks, shafts, bearing supports, seals, planetary components</td>
+                                <td>Ductile-iron casting, steel forging, rolled rings, machining, heat treatment, bearing assembly</td>
+                                <td>Torque, fatigue, bearing fits, runout, lubrication, sealing, preload, and traceability</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Cab, Control and Auxiliary Hardware</th>
+                                <td>Covers, brackets, housings, control bodies, pump and valve components, thermal and electrical enclosures</td>
+                                <td>Aluminum or zinc die casting, machining, stamping, coating, assembly</td>
+                                <td>Corrosion, sealing, appearance, vibration, ergonomics, electrical protection, and packaging</td>
                             </tr>
                         </tbody>
                     </table>
@@ -227,22 +322,321 @@ const pageSchema = {
             </div>
         </section>
 
-        <section id="cost-efficiency">
+        <section id="component-portfolio">
             <div class="content-container">
-                <h2>Cost-Efficiency & Value Engineering</h2>
+                <h2>Agricultural Component Portfolio</h2>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Component Family</th>
+                                <th scope="col">Representative Hardware</th>
+                                <th scope="col">Common Product Forms</th>
+                                <th scope="col">Typical Verification</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Structural Castings</th>
+                                <td>Frame brackets, housings, carriers, axle structures, counterweights, mounts</td>
+                                <td>Ductile iron, gray iron, cast steel, aluminum castings</td>
+                                <td>Dimensions, chemistry, microstructure, NDT as required, machining interfaces, coating</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Forged Wear and Load Components</th>
+                                <td>Plow points, tines, links, shafts, hitch parts, cutter and drivetrain hardware</td>
+                                <td>Closed-die forgings, open-die forgings, machined alloy steel</td>
+                                <td>Hardness, case depth, grain flow, dimensions, surface NDT, mechanical properties</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Lightweight Cast Housings</th>
+                                <td>Seed-meter bodies, covers, cab hardware, pump and control housings</td>
+                                <td>Aluminum die castings, A356-type castings, zinc die castings</td>
+                                <td>Porosity criteria, leak testing where required, dimensions, coating, threads, assembly fit</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Hub and Drivetrain Components</th>
+                                <td>Hubs, carriers, gear blanks, shafts, bearing supports, seals, planetary hardware</td>
+                                <td>Castings, forgings, rolled rings, machined parts, assemblies</td>
+                                <td>Bearing fit, runout, hardness, torque, balance, seal installation, traceability</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Kitted and Assembled Modules</th>
+                                <td>Hub modules, bearing kits, gear kits, linkage kits, hardware packs, line-side assemblies</td>
+                                <td>Multi-material components and purchased hardware</td>
+                                <td>Part verification, torque, fit, labeling, count, packaging, barcode, and final inspection</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="materials">
+            <div class="content-container">
+                <h2>Materials for Agricultural Equipment Components</h2>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Material Family</th>
+                                <th scope="col">Representative Uses</th>
+                                <th scope="col">Primary Selection Drivers</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Ductile and Gray Iron</th>
+                                <td>Housings, brackets, carriers, axle structures, counterweights, gearbox components</td>
+                                <td>Castability, damping, strength, fatigue, machinability, section sensitivity, and cost</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Carbon and Alloy Steels</th>
+                                <td>Tines, points, links, shafts, pins, hitch parts, wear and drivetrain hardware</td>
+                                <td>Strength, toughness, hardenability, fatigue, weldability, wear, and heat treatment</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Aluminum Alloys</th>
+                                <td>Housings, covers, controls, seed-meter components, cab and auxiliary hardware</td>
+                                <td>Mass, castability, corrosion, thermal behavior, machining, coating, and cost</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Stainless and Specialty Alloys</th>
+                                <td>Corrosion-resistant shafts, fluid components, fasteners, fertilizer-exposed and washdown hardware</td>
+                                <td>Corrosion, galling, strength, temperature, cleaning, passivation, and cost</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Wear-Resistant Irons and Steels</th>
+                                <td>Soil-engaging, abrasive, impact, slurry, and replaceable wear components</td>
+                                <td>Abrasion mode, impact, carbide or microstructure control, hardness, toughness, and service validation</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
                 <p>
-                    Agricultural OEMs face strict cost targets. ForceBeyond optimizes manufacturing economics through:
+                    Review
+                    <a href="/stainless-carbon-steel" class="highlight-link">stainless and carbon steels</a>,
+                    <a href="/aluminum-copper-alloys" class="highlight-link">aluminum and copper alloys</a>,
+                    and
+                    <a href="/materials-technical-specs" class="highlight-link">materials and technical specifications</a>.
                 </p>
+            </div>
+        </section>
+
+        <section id="casting">
+            <div class="content-container">
+                <h2>Sand, Investment and Die Casting for Agricultural Components</h2>
                 <ul>
-                    <li>
-                        <strong>Near-Net-Shape Casting:</strong> Reduces raw metal weight and minimizes secondary CNC machining time.
-                    </li>
-                    <li>
-                        <strong>In-House Finishing & Coating:</strong> E-coating and UV-resistant powder coating protect against soil corrosion and weather exposure.
-                    </li>
-                    <li>
-                        <strong>Point-of-Use Kitting:</strong> Delivering complete assembly kits under a single SKU to streamline factory line efficiency.
-                    </li>
+                    <li><strong>Sand casting:</strong> tractor housings, gearbox components, brackets, carriers, axle structures, and larger equipment parts.</li>
+                    <li><strong>Investment casting:</strong> smaller complex brackets, links, levers, fittings, and near-net components.</li>
+                    <li><strong>Aluminum die casting:</strong> high-volume housings, covers, control bodies, seed-meter components, and lightweight hardware.</li>
+                    <li><strong>Solidification planning:</strong> gating, risers, chills, wall transitions, machining stock, and tooling affect internal quality and yield.</li>
+                    <li><strong>Acceptance planning:</strong> define porosity, NDT, leak testing, repair, impregnation, dimensional, and documentation requirements.</li>
+                </ul>
+                <p>
+                    See
+                    <a href="/sand-casting" class="highlight-link">sand casting</a>,
+                    <a href="/investment-casting" class="highlight-link">investment casting</a>,
+                    and
+                    <a href="/aluminum-die-casting" class="highlight-link">aluminum die casting</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="forging">
+            <div class="content-container">
+                <h2>Forged Tillage, Drivetrain and High-Load Components</h2>
+                <ul>
+                    <li><strong>Closed-die forging:</strong> tines, points, links, levers, hitch parts, hubs, brackets, and high-volume load components.</li>
+                    <li><strong>Open-die forging:</strong> larger shafts, hubs, blocks, rings, and lower-volume heavy preforms.</li>
+                    <li><strong>Cold forging:</strong> pins, sleeves, fasteners, small shafts, fittings, and high-volume near-net hardware.</li>
+                    <li><strong>Grain-flow planning:</strong> forging direction, reduction, flash, heat treatment, and machining allowance should support load and fatigue.</li>
+                    <li><strong>Surface hardening:</strong> induction hardening, carburizing, nitriding, or other routes may be used where wear and core toughness must be balanced.</li>
+                </ul>
+                <p>
+                    Review
+                    <a href="/closed-die-forging" class="highlight-link">closed-die forging</a>,
+                    <a href="/cold-forging" class="highlight-link">cold forging</a>,
+                    and
+                    <a href="/open-die-forging" class="highlight-link">open-die forging</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="machining">
+            <div class="content-container">
+                <h2>CNC Machining for Agricultural Castings and Forgings</h2>
+                <ul>
+                    <li><strong>Critical interfaces:</strong> bearing seats, seal bores, flange faces, bolt patterns, shaft journals, threads, and assembly datums.</li>
+                    <li><strong>Cast and forged blanks:</strong> manage stock variation, scale, flash, draft, distortion, and datum transfer.</li>
+                    <li><strong>Hard machining:</strong> control tool wear, heat, chatter, burrs, surface integrity, and distortion in heat-treated parts.</li>
+                    <li><strong>Heavy components:</strong> confirm machine envelope, table load, swing, travel, crane access, fixture, and portable metrology.</li>
+                    <li><strong>Inspection:</strong> use CMM, portable arms, gauges, runout, hardness, surface finish, and assembly checks as required.</li>
+                </ul>
+                <p>
+                    See
+                    <a href="/precision-machining" class="highlight-link">precision machining</a>
+                    and
+                    <a href="/multi-axis-cnc" class="highlight-link">multi-axis CNC machining</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="heat-treatment">
+            <div class="content-container">
+                <h2>Heat Treatment and Wear Performance</h2>
+                <ul>
+                    <li><strong>Quench and temper:</strong> balances strength, hardness, toughness, and fatigue for selected agricultural steel components.</li>
+                    <li><strong>Induction hardening:</strong> may produce a hardened surface or localized wear zone while retaining a tougher core.</li>
+                    <li><strong>Carburizing and nitriding:</strong> may be used for gears, pins, shafts, and wear interfaces where case properties are required.</li>
+                    <li><strong>Stress relief:</strong> may reduce distortion risk between rough and finish machining.</li>
+                    <li><strong>Verification:</strong> hardness, case depth, microstructure, mechanical testing, dimensional stability, and process records may apply.</li>
+                </ul>
+                <p>
+                    Review
+                    <a href="/heat-treatment" class="highlight-link">heat treatment</a>
+                    for process-selection and documentation guidance.
+                </p>
+            </div>
+        </section>
+
+        <section id="coatings">
+            <div class="content-container">
+                <h2>Coatings for Soil, Weather and Fertilizer Exposure</h2>
+                <ul>
+                    <li><strong>E-coating:</strong> immersion-based corrosion protection for compatible conductive parts with suitable pretreatment.</li>
+                    <li><strong>Powder coating:</strong> durable color and barrier protection for brackets, frames, housings, and agricultural hardware.</li>
+                    <li><strong>Liquid paint:</strong> primers and topcoats for large parts, field repair, UV exposure, and customer-specific finish systems.</li>
+                    <li><strong>Metallic protection:</strong> zinc plating, galvanizing, metallizing, or project-specific sacrificial systems where suitable.</li>
+                    <li><strong>Wear zones:</strong> coatings may be supplemented by hardfacing, overlays, inserts, or replaceable wear components.</li>
+                </ul>
+                <p>
+                    Salt-spray results do not by themselves establish field service life. Pretreatment, edge coverage, coating thickness, UV, abrasion, fertilizer chemistry, damage, and maintenance all affect performance.
+                </p>
+                <p>
+                    See
+                    <a href="/surface-finishing" class="highlight-link">surface finishing and coating</a>
+                    for process-to-material guidance.
+                </p>
+            </div>
+        </section>
+
+        <section id="assembly">
+            <div class="content-container">
+                <h2>Hub Assembly, Bearing Installation and Kitting</h2>
+                <ul>
+                    <li><strong>Press-fit installation:</strong> bearings, bushings, sleeves, seals, pins, and retainers installed using controlled equipment and defined limits.</li>
+                    <li><strong>Torque control:</strong> define lubrication, sequence, torque-angle, tool calibration, traceability, and witness marking.</li>
+                    <li><strong>Functional verification:</strong> runout, rotation, end play, preload, seal condition, leakage, and customer-specific checks.</li>
+                    <li><strong>Kitting:</strong> line-side kits, hardware packs, mixed-SKU controls, labels, barcode, count verification, and reusable packaging.</li>
+                    <li><strong>Preservation:</strong> corrosion prevention, lubrication, caps, wraps, desiccants, stacking, and storage-life requirements.</li>
+                </ul>
+                <p>
+                    See
+                    <a href="/assembly-and-kitting" class="highlight-link">assembly and kitting</a>
+                    for broader module and packaging support.
+                </p>
+            </div>
+        </section>
+
+        <section id="inspection">
+            <div class="content-container">
+                <h2>Inspection and Testing for Agricultural Components</h2>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Method</th>
+                                <th scope="col">Typical Use</th>
+                                <th scope="col">Planning Considerations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Dimensional Inspection</th>
+                                <td>Bores, fits, profiles, runout, bolt patterns, linkage geometry, and assembly interfaces</td>
+                                <td>Part size, datums, temperature, fixturing, portable versus fixed metrology, and uncertainty</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Hardness and Case-Depth Testing</th>
+                                <td>Q&T, induction-hardened, carburized, nitrided, and wear-resistant components</td>
+                                <td>Location, surface preparation, scale, conversion limits, case profile, and acceptance range</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Radiographic or Ultrasonic Testing</th>
+                                <td>Selected castings, forgings, shafts, rings, and critical sections</td>
+                                <td>Geometry, section thickness, grain structure, attenuation, technique, scan plan, and acceptance criteria</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Surface NDT</th>
+                                <td>Penetrant or magnetic-particle inspection for surface-breaking discontinuities</td>
+                                <td>Material compatibility, surface condition, sensitivity, personnel qualification, and inspection stage</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Assembly and Functional Testing</th>
+                                <td>Runout, torque, preload, leakage, rotation, fit, count, and packaging verification</td>
+                                <td>Fixture, test sequence, sample plan, acceptance criteria, traceability, and reaction plan</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    Review
+                    <a href="/testing-inspection-capabilities" class="highlight-link">testing and inspection capabilities</a>
+                    for detailed method-selection and reporting guidance.
+                </p>
+            </div>
+        </section>
+
+        <section id="value-engineering">
+            <div class="content-container">
+                <h2>Value Engineering for Agricultural OEM Components</h2>
+                <ul>
+                    <li><strong>Near-net-shape design:</strong> reduce raw material, machining stock, cycle time, and scrap where process and tooling permit.</li>
+                    <li><strong>Material optimization:</strong> align strength, wear, toughness, corrosion, mass, and cost with the actual duty cycle.</li>
+                    <li><strong>Part consolidation:</strong> combine features or subcomponents where casting, forging, die casting, or assembly supports it.</li>
+                    <li><strong>Replaceable wear components:</strong> use tines, points, inserts, liners, or sacrificial zones to reduce whole-assembly replacement.</li>
+                    <li><strong>Packaging and kitting:</strong> reduce receiving and line-side handling through defined kits, labels, and reusable packaging.</li>
+                </ul>
+                <p>
+                    Savings should be validated against tooling, material yield, machining time, annual volume, quality risk, logistics, service life, and total delivered cost.
+                </p>
+            </div>
+        </section>
+
+        <section id="supply-chain">
+            <div class="content-container">
+                <h2>Agricultural Equipment Supply Chain and Program Management</h2>
+                <ul>
+                    <li><strong>Seasonal demand:</strong> plan forecasts, peak production, launch timing, harvest cycles, dealer demand, and service-parts needs.</li>
+                    <li><strong>Capacity review:</strong> verify foundry, forge, machining, heat treatment, coating, assembly, and inspection capacity.</li>
+                    <li><strong>Source qualification:</strong> evaluate mills, foundries, forges, heat treaters, machine shops, coating providers, laboratories, and assemblers.</li>
+                    <li><strong>Inventory planning:</strong> define finished goods, service parts, tooling retention, safety stock, ownership, and replenishment.</li>
+                    <li><strong>Logistics:</strong> manage oversized freight, corrosion protection, export packaging, warehousing, line-side kits, and delivery milestones.</li>
+                </ul>
+                <p>
+                    Review
+                    <a href="/global-footprint-logistics" class="highlight-link">global footprint and logistics</a>
+                    for sourcing, inventory, packaging, customs, and delivery planning.
+                </p>
+            </div>
+        </section>
+
+        <section id="rfq-checklist">
+            <div class="content-container">
+                <h2>Agricultural Equipment RFQ Checklist</h2>
+                <ul>
+                    <li><strong>Technical package:</strong> drawing, CAD, revision, bill of materials, component function, and design authority.</li>
+                    <li><strong>Material:</strong> alloy, product form, specification, target hardness, heat treatment, case depth, and approved sources.</li>
+                    <li><strong>Service conditions:</strong> soil type, abrasion, impact, load, speed, temperature, moisture, fertilizer, chemicals, and duty cycle.</li>
+                    <li><strong>Manufacturing scope:</strong> casting, forging, machining, heat treatment, coating, hardfacing, assembly, kitting, and packaging.</li>
+                    <li><strong>Inspection:</strong> NDT, hardness, chemistry, microstructure, dimensions, runout, assembly checks, and acceptance criteria.</li>
+                    <li><strong>Program needs:</strong> prototype quantity, annual demand, seasonal peak, service parts, tooling, target delivery, and program duration.</li>
                 </ul>
             </div>
         </section>

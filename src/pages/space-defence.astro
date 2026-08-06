@@ -1,124 +1,191 @@
 ---
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Aerospace & Defense Precision Components';
-const seoTitle = 'Aerospace & Defense Casting, Forging & CNC Machining | ForceBeyond';
-const seoDescription = 'ForceBeyond delivers AS9100-aligned, ITAR-compliant precision components for commercial aviation, military defense, and space exploration.';
+const pageTitle = 'Space, Aerospace & Defense Components: Casting, Forging & CNC Machining';
+const seoTitle = 'Space, Aerospace & Defense Components | Casting, Forging & CNC';
+const seoDescription = 'ForceBeyond supports space, aerospace, and defense programs with titanium and superalloy castings, forgings, rolled rings, 5-axis machining, HIP, heat treatment, coatings, NDT, AS9102 FAI, and project-specific quality documentation.';
+
+const canonicalUrl = 'https://www.forcebeyond.com/space-defense/';
+const socialImage = 'https://www.forcebeyond.com/media/aerospace-defense-overview-4k.webp';
 
 const faqs = [
     {
-        q: "Is ForceBeyond ITAR registered for defense projects?",
-        a: "Yes. ForceBeyond manages ITAR-compliant defense projects within our USA-based manufacturing facilities to ensure strict ITAR compliance."
+        q: "Can ForceBeyond support ITAR- or EAR-controlled aerospace and defense programs?",
+        a: "Export-controlled work requires a project-specific compliance review covering jurisdiction, classification, technical-data access, end use, end user, destination, authorized personnel, approved facilities, licensing, and customer flow-down requirements. No project should be treated as ITAR- or EAR-compliant solely because it appears on this website."
     },
     {
-        q: "How does ForceBeyond eliminate internal defects in aerospace castings?",
-        a: "Aerospace castings undergo Hot Isostatic Pressing (HIP) to eliminate internal micro-porosity, followed by 100% Radiographic Testing (RT) and Fluorescent Penetrant Inspection (FPI)."
+        q: "How are internal discontinuities in aerospace castings addressed?",
+        a: "Depending on alloy, geometry, product specification, and customer requirements, castings may use process controls, radiographic inspection, penetrant inspection, HIP, destructive testing, metallography, and first-article validation. HIP may reduce selected internal porosity in qualified components, but it does not guarantee elimination of every defect."
+    },
+    {
+        q: "Can ForceBeyond provide AS9102 first article inspection reports?",
+        a: "AS9102 FAI support may be provided when required by contract. The scope should define the drawing revision, ballooned characteristics, material and process certifications, inspection results, forms, partial or full FAI requirements, and customer-specific documentation."
+    },
+    {
+        q: "What information is needed for a space, aerospace, or defense component quote?",
+        a: "Provide drawings, CAD, material and product form, annual quantity, application, operating temperature, loads, fatigue or life requirements, heat treatment, coating, NDT, inspection frequency, FAI requirements, approved-source restrictions, export-control classification, quality clauses, and delivery targets."
     }
 ];
 
-// Sources
 const sources = [
-    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
-    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
-    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
-    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
-    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
-    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
+    { label: 'Federal Aviation Administration - Aircraft Certification and Manufacturing', url: 'https://www.faa.gov/' },
+    { label: 'SAE International - Aerospace Materials and Quality Standards', url: 'https://www.sae.org/standards' },
+    { label: 'U.S. Department of State - Directorate of Defense Trade Controls', url: 'https://www.pmddtc.state.gov/' },
+    { label: 'U.S. Bureau of Industry and Security - Export Administration Regulations', url: 'https://www.bis.gov/' },
+    { label: 'ASM International - Aerospace Materials and Manufacturing', url: 'https://www.asminternational.org/' },
+    { label: 'Investment Casting Institute - Aerospace Investment Casting Resources', url: 'https://www.investmentcasting.org/' }
 ];
 
-// Resources
 const internalResources = [
-    // Die Casting Resources
-    { label: "Die Casting Overview", url: "die-casting" },
-    { label: "Aluminum Die Casting", url: "aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "a356-t6-casting" },
-    { label: "Magnesium Casting", url: "magnesium-casting" },
+    // Industry Hubs
+    { label: "Aerospace", url: "/aerospace" },
+    { label: "Energy & Power Generation", url: "/energy-power-generation" },
+    { label: "Data Center Power", url: "/data-center-power" },
+    { label: "Nuclear & SMR", url: "/nuclear-smr" },
 
-    // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "duplex-stainless-steel-casting" },
+    // Casting
+    { label: "Casting Capabilities", url: "/casting" },
+    { label: "Investment Casting", url: "/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
 
-    // Forging Resources
-    { label: "Forging Capabilities Overview", url: "forging" },
-    { label: "Open Die Forging", url: "open-die-forging" },
-    { label: "Closed Die Forging", url: "closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "rolled-ring-forging" },
-    { label: "Cold Forging", url: "cold-forging" },
-    { label: "Superalloy Forging Services", url: "superalloy-forging-services" },
+    // Forging
+    { label: "Forging Capabilities", url: "/forging" },
+    { label: "Open Die Forging", url: "/open-die-forging" },
+    { label: "Closed Die Forging", url: "/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
+    { label: "Titanium Aerospace Forging", url: "/titanium-aerospace-forging" },
 
-    // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "carbon-steel-casting" }
+    // Machining and Secondary Operations
+    { label: "Precision Machining", url: "/precision-machining" },
+    { label: "High-Precision Component Machining", url: "/high-precision-machining" },
+    { label: "Multi-Axis CNC Milling & Turning", url: "/multi-axis-cnc" },
+    { label: "Titanium Machining", url: "/titanium-machining" },
+    { label: "Inconel 718 Machining", url: "/inconel-718-machining" },
+    { label: "Inconel 625 Machining", url: "/inconel-625-machining" },
+    { label: "Hot Isostatic Pressing (HIP)", url: "/hot-isostatic-pressing" },
+    { label: "Heat Treatment", url: "/heat-treatment" },
+    { label: "Surface Finishing & Coating", url: "/surface-finishing" },
+    { label: "Assembly & Kitting", url: "/assembly-and-kitting" },
+
+    // Materials, Quality, and Supply Chain
+    { label: "Superalloys & Exotic Metals", url: "/superalloys-exotic-metals" },
+    { label: "Titanium Alloys", url: "/titanium-alloys" },
+    { label: "Stainless Steel & Carbon Steel", url: "/stainless-carbon-steel" },
+    { label: "Aluminum & Copper Alloys", url: "/aluminum-copper-alloys" },
+    { label: "Materials & Technical Specifications", url: "/materials-technical-specs" },
+    { label: "Material Cross-Reference Charts", url: "/material-cross-reference-charts" },
+    { label: "Manufacturing Design Guides", url: "/manufacturing-design-guides" },
+    { label: "Quality Assurance & Certifications", url: "/quality-assurance-certifications" },
+    { label: "Testing & Inspection Capabilities", url: "/testing-inspection-capabilities" },
+    { label: "Global Footprint & Logistics", url: "/global-footprint-logistics" }
 ];
 
-// Page Schema
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.storespace-defense#webpage",
-      "url": "https://www.forcebeyond.storespace-defense",
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store/oscar#website",
+        "@id": "https://www.forcebeyond.com/#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar"
-      }
+        "url": "https://www.forcebeyond.com/"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": socialImage
+      },
+      "breadcrumb": {
+        "@id": `${canonicalUrl}#breadcrumb`
+      },
+      "about": [
+        { "@type": "Thing", "name": "Aerospace component manufacturing" },
+        { "@type": "Thing", "name": "Spaceflight hardware" },
+        { "@type": "Thing", "name": "Defense manufacturing" },
+        { "@type": "Thing", "name": "Titanium and superalloy components" },
+        { "@type": "Thing", "name": "AS9102 first article inspection" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.forcebeyond.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Industries",
+          "item": "https://www.forcebeyond.com/industries/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Space, Aerospace & Defense",
+          "item": canonicalUrl
+        }
+      ]
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.storespace-defense#service",
-      "name": "Aerospace & Defense Precision Manufacturing",
-      "serviceType": "Aerospace Precision Components",
+      "@id": `${canonicalUrl}#service`,
+      "name": "Space, Aerospace and Defense Component Manufacturing",
+      "serviceType": "Casting, Forging, Machining and Inspection for Flight and Defense Hardware",
       "description": seoDescription,
+      "url": canonicalUrl,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store/oscar#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar",
-        "knowsAbout": [
-          "Vacuum Induction Melting (VIM) Precision Casting",
-          "Titanium & Inconel Closed-Die Forging",
-          "5-Axis CNC Machining for Flight Hardware",
-          "AS9100 Rev D & ITAR Compliance",
-          "AS9102 First Article Inspection (FAI)"
-        ]
+        "@id": "https://www.forcebeyond.com/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Aerospace & Defense Capabilities",
+        "name": "Space, Aerospace and Defense Manufacturing Capabilities",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Turbine & Engine Systems",
-              "description": "Inconel 718 turbine disks, blisks, fuel nozzles, combustor fittings, and housing frames."
+              "name": "Propulsion and Turbine Components",
+              "description": "Project-specific blades, vanes, nozzles, combustor hardware, fuel-system parts, rings, discs, and high-temperature housings."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Structural Airframe & Landing Gear",
-              "description": "Titanium landing gear brackets, wing pins, structural hinges, and stabilizer fittings."
+              "name": "Structural and Landing-System Components",
+              "description": "Forged, cast, and machined brackets, fittings, hinges, links, pins, housings, and structural hardware."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Flight Control & Actuation",
-              "description": "17-4 PH actuator housings, brake and latch components, and hydraulic manifolds."
+              "name": "Actuation, Fluid and Control Hardware",
+              "description": "Precision-machined actuator housings, valve bodies, manifolds, latches, brake components, and hydraulic hardware."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Inspection, FAI and Documentation",
+              "description": "Project-specific AS9102 FAI, CMM, NDT, material testing, traceability, configuration control, and quality documentation."
             }
           }
         ]
@@ -126,13 +193,13 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.storespace-defense#faq",
-      "mainEntity": faqs.map(f => ({
+      "@id": `${canonicalUrl}#faq`,
+      "mainEntity": faqs.map((faq) => ({
         "@type": "Question",
-        "name": f.q,
+        "name": faq.q,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": f.a
+          "text": faq.a
         }
       }))
     }
@@ -143,83 +210,110 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
     pageTitle={pageTitle}
-    heroImage="media/industry-aerospace-turbine-engine-v5.webp"
-    heroImageAlt="aerospcae-turbine-engine"
-    faqSectionTitle="Frequently Asked Questions"
+    heroImage="/media/industry-aerospace-turbine-engine-v5.webp"
+    heroImageAlt="Aerospace turbine engine and precision flight hardware"
+    heroImageWidth={1920}
+    heroImageHeight={1080}
+    socialImage={socialImage}
+    socialImageAlt="Space, aerospace and defense component manufacturing"
+    faqSectionTitle="Frequently Asked Questions: Space, Aerospace & Defense"
     faqItems={faqs}
-    ctaTitle="Ready to Elevate Your Aerospace Project?"
-    ctaDescription="Partner with our AS9100-aligned, ITAR-compliant team for high-integrity, precision-crafted flight hardware."
-    sourcesTitle="Sources"
+    ctaTitle="Review a Space, Aerospace or Defense Component Program"
+    ctaDescription="Send your drawings, material, quantity, application, loads, operating conditions, heat treatment, coating, NDT, FAI, export-control, quality, approved-source, and delivery requirements for an engineering review."
+    ctaButtonText="Request an Aerospace Review"
+    sourcesTitle="Aerospace, Defense and Export-Control References"
     sourcesList={sources}
-    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesTitle="Related Aerospace, Casting, Forging, Machining and Quality Resources"
     resourcesList={internalResources}
 >
-
     <div slot="full-width" class="individual-content">
 
         <section id="overview">
             <div class="content-container">
-                
-                <h2>Aerospace & Defense Casting, Forging & CNC Machining</h2>
+                <h2>Manufacturing Support for Space, Aerospace and Defense Components</h2>
 
                 <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
                     <div>
                         <p>
-                            ForceBeyond is an AS9100-aligned, ITAR-compliant Tier-1.5 supplier delivering mission-critical components for commercial aviation, military defense, and space exploration. In aerospace manufacturing, where safety-critical hardware must withstand extreme cyclic fatigue, vibration, and elevated thermal stress, ForceBeyond provides zero-defect solutions.
+                            Space, aerospace, and defense hardware may operate under combinations of cyclic loading, vibration, thermal gradients, oxidation, corrosion, pressure, vacuum, impact, and strict mass constraints.
                         </p>
                         <p>
-                            Leveraging co-owned manufacturing facilities across the USA, South Korea, and Taiwan, we combine advanced VIM (Vacuum Induction Melting) precision investment casting, high-tonnage Titanium and Inconel closed-die forging, and 5-axis CNC machining.
+                            ForceBeyond supports programs through
+                            <a href="/investment-casting" class="highlight-link">investment casting</a>,
+                            <a href="/forging" class="highlight-link">forging</a>,
+                            <a href="/precision-machining" class="highlight-link">precision machining</a>,
+                            HIP, heat treatment, surface finishing, NDT, first article inspection, assembly, and supply-chain coordination.
+                        </p>
+                        <p>
+                            Facility approvals, certification scope, export-control authorization, customer source approval, and part qualification must be confirmed for each program.
                         </p>
                     </div>
+
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
-                                src="media/aerospace-defense-overview-4k.webp"
-                                alt="business airplane turbine engine"
+                                src="/media/aerospace-defense-overview-4k.webp"
+                                alt="Commercial aerospace turbine engine and precision-manufactured flight components"
+                                width="1200"
+                                height="900"
+                                loading="lazy"
+                                decoding="async"
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <section id="capabilities">
+        <section id="application-matrix">
             <div class="content-container">
-                <h2>Aerospace Capabilities & Material Matrix</h2>
+                <h2>Space, Aerospace and Defense Application Matrix</h2>
+
                 <div class="content-table-wrapper">
                     <table>
                         <thead>
                             <tr>
-                                <th scope="col">Process Technology</th>
-                                <th scope="col">Materials Processed</th>
-                                <th scope="col">Industry Application</th>
+                                <th scope="col">System Area</th>
+                                <th scope="col">Representative Components</th>
+                                <th scope="col">Potential Manufacturing Routes</th>
+                                <th scope="col">Key Engineering Requirements</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <tr>
-                                <th scope="row">Titanium Forging & Machining</th>
-                                <td>Ti-6Al-4V (Grade 5), Ti-6Al-4V ELI</td>
-                                <td>High strength-to-weight ratio; used for structural airframe brackets, landing gear, and fasteners.</td>
+                                <th scope="row">Commercial and Military Aircraft</th>
+                                <td>Engine hardware, structural fittings, actuator parts, landing-system hardware, hydraulic components, avionics housings</td>
+                                <td>Investment casting, closed-die forging, ring rolling, 5-axis machining, heat treatment, coating, NDT</td>
+                                <td>Fatigue, damage tolerance, corrosion, weight, configuration control, FAI, traceability, and approved processes</td>
                             </tr>
                             <tr>
-                                <th scope="row">Superalloy Investment Casting</th>
-                                <td>Inconel 718, Inconel 625, René 41, René 80</td>
-                                <td>Vacuum-cast superalloys maintaining structural integrity up to 1,800°F (980°C) for jet engine hot sections.</td>
+                                <th scope="row">Space Launch and Propulsion</th>
+                                <td>Injector hardware, manifolds, turbomachinery parts, rings, housings, brackets, thrust-structure components</td>
+                                <td>Vacuum casting, forging, machining, HIP where specified, approved joining, cleaning, pressure and leak testing</td>
+                                <td>Pressure integrity, thermal cycling, oxidation, cryogenic compatibility, cleanliness, dimensional stability, and material pedigree</td>
                             </tr>
                             <tr>
-                                <th scope="row">Precision Aluminum Machining</th>
-                                <td>7075-T6, 6061-T6, A356-T6 Aluminum</td>
-                                <td>High-speed 5-axis CNC milling for intricate avionics housings and flight control linkages.</td>
+                                <th scope="row">Satellite and Spacecraft Systems</th>
+                                <td>Structural brackets, optical mounts, propulsion components, thermal hardware, antenna and mechanism components</td>
+                                <td>Precision machining, investment casting, additive or hybrid routes where approved, finishing, assembly</td>
+                                <td>Low mass, stiffness, dimensional stability, vacuum compatibility, contamination control, thermal expansion, and outgassing requirements</td>
                             </tr>
                             <tr>
-                                <th scope="row">Precipitation Hardening Stainless</th>
-                                <td>17-4 PH, 15-5 PH (Condition H900/H1150)</td>
-                                <td>High strength and excellent corrosion resistance for flight actuators and latch hardware.</td>
+                                <th scope="row">Defense Land and Naval Systems</th>
+                                <td>Valve bodies, housings, structural forgings, drivetrain components, actuators, brackets, pump and fluid hardware</td>
+                                <td>Sand or investment casting, forging, machining, heat treatment, coating, pressure testing</td>
+                                <td>Shock, vibration, corrosion, ballistic or load requirements, maintainability, traceability, and export control</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Missile and Guidance Systems</th>
+                                <td>Airframe fittings, control-surface hardware, actuator parts, seeker housings, propulsion and structural components</td>
+                                <td>Closed-die forging, investment casting, high-precision machining, coating, NDT, assembly</td>
+                                <td>Mass, stiffness, vibration, thermal exposure, tight interfaces, configuration control, and controlled technical data</td>
                             </tr>
                         </tbody>
                     </table>
@@ -227,42 +321,311 @@ const pageSchema = {
             </div>
         </section>
 
-        <section id="certified-hardware">
+        <section id="component-portfolio">
             <div class="content-container">
-                <h2>Certified Aerospace Hardware</h2>
+                <h2>Aerospace and Defense Component Portfolio</h2>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Component Family</th>
+                                <th scope="col">Representative Hardware</th>
+                                <th scope="col">Material Families</th>
+                                <th scope="col">Typical Verification</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Propulsion and Turbine Hardware</th>
+                                <td>Blades, vanes, nozzles, combustor fittings, fuel nozzles, discs, rings, housings</td>
+                                <td>Nickel-base superalloys, cobalt alloys, stainless steels, titanium alloys</td>
+                                <td>Radiography, penetrant inspection, UT for forgings, CMM, chemistry, mechanical testing, coating verification</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Structural and Airframe Hardware</th>
+                                <td>Brackets, fittings, hinges, links, pins, clevises, frames, stabilizer and wing hardware</td>
+                                <td>Titanium alloys, aluminum alloys, precipitation-hardening stainless steels, alloy steels</td>
+                                <td>Dimensional inspection, surface NDT, hardness, tensile testing, grain-flow review, FAI</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Actuation and Flight-Control Hardware</th>
+                                <td>Actuator housings, manifolds, valve bodies, latch parts, brake components, hydraulic hardware</td>
+                                <td>17-4 PH, 15-5 PH, titanium, aluminum, nickel alloys</td>
+                                <td>CMM, pressure or leak testing, surface finish, NDT, material verification, functional inspection</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Spacecraft and Propulsion Hardware</th>
+                                <td>Injector bodies, manifolds, turbomachinery components, cryogenic fittings, housings, thermal structures</td>
+                                <td>Nickel alloys, stainless steels, titanium, aluminum, copper alloys</td>
+                                <td>Cleanliness, pressure and leak testing, dimensional inspection, material traceability, approved joining records</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Defense and Mission-System Hardware</th>
+                                <td>Structural forgings, housings, fluid components, brackets, drive components, covers, mounting hardware</td>
+                                <td>Alloy steels, stainless steels, aluminum, titanium, nickel alloys</td>
+                                <td>NDT, dimensional inspection, coating, mechanical testing, lot traceability, configuration control</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="materials">
+            <div class="content-container">
+                <h2>Aerospace Materials and Product Forms</h2>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Material Family</th>
+                                <th scope="col">Representative Uses</th>
+                                <th scope="col">Key Manufacturing Considerations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Titanium Alloys</th>
+                                <td>Structural fittings, compressor hardware, landing-system parts, fasteners, spacecraft structures</td>
+                                <td>Forging temperature, alpha case, oxygen pickup, machining heat, galling, surface contamination, and inspection</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Nickel-Base Superalloys</th>
+                                <td>Turbine and propulsion hardware, combustor components, high-temperature rings, discs, and housings</td>
+                                <td>Vacuum melting, casting structure, forging reduction, heat treatment, creep, oxidation, machining, and coating</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Aluminum Alloys</th>
+                                <td>Avionics housings, brackets, structural components, thermal hardware, satellite structures</td>
+                                <td>Temper, residual stress, distortion, anodizing allowance, corrosion, fatigue, and dimensional stability</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Precipitation-Hardening Stainless Steels</th>
+                                <td>Actuator parts, latches, shafts, valve components, fittings, and corrosion-resistant hardware</td>
+                                <td>Condition, heat treatment, toughness, corrosion, machining, passivation, and hydrogen-related risks</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Copper and Specialty Alloys</th>
+                                <td>Combustion, thermal-management, electrical, injector, and heat-transfer components</td>
+                                <td>Conductivity, joining, oxidation, thermal expansion, machining, coating, and cleanliness</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
                 <p>
-                    Our tri-regional manufacturing network supplies flight-ready components:
+                    Review
+                    <a href="/superalloys-exotic-metals" class="highlight-link">superalloys and exotic metals</a>,
+                    <a href="/titanium-alloys" class="highlight-link">titanium alloys</a>,
+                    and
+                    <a href="/materials-technical-specs" class="highlight-link">materials and technical specifications</a>.
                 </p>
+            </div>
+        </section>
+
+        <section id="casting">
+            <div class="content-container">
+                <h2>Investment Casting for Aerospace and Space Hardware</h2>
                 <ul>
-                    <li>
-                        <strong>Turbine & Engine Systems:</strong> Inconel 718 turbine disks, blisks, fuel nozzles, combustor fittings, and housing frames.
-                    </li>
-                    <li>
-                        <strong>Structural Airframe & Landing Gear:</strong> Titanium landing gear brackets, wing pins, structural hinges, and stabilizer fittings.
-                    </li>
-                    <li>
-                        <strong>Flight Control & Actuation:</strong> 17-4 PH actuator housings, brake and latch components, and hydraulic manifolds.
-                    </li>
+                    <li><strong>Complex near-net geometry:</strong> airfoils, manifolds, brackets, housings, thin-wall features, and integrated flow passages.</li>
+                    <li><strong>Vacuum processing:</strong> used where alloy chemistry, reactivity, oxidation, and cleanliness require controlled atmosphere.</li>
+                    <li><strong>Ceramic cores:</strong> enable selected internal passages and complex hollow geometry.</li>
+                    <li><strong>HIP:</strong> may reduce selected internal porosity in qualified cast components when required by specification.</li>
+                    <li><strong>Inspection:</strong> radiography, penetrant inspection, dimensional inspection, material testing, and metallography may apply.</li>
+                </ul>
+                <p>
+                    See
+                    <a href="/investment-casting" class="highlight-link">investment casting</a>,
+                    <a href="/inconel-vacuum-precision-casting" class="highlight-link">Inconel vacuum precision casting</a>,
+                    and
+                    <a href="/titanium-investment-casting" class="highlight-link">titanium investment casting</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="forging">
+            <div class="content-container">
+                <h2>Titanium, Superalloy and Aerospace Forging</h2>
+                <ul>
+                    <li><strong>Closed-die forging:</strong> repeatable near-net structural, landing-system, engine, and control-system hardware.</li>
+                    <li><strong>Open-die forging:</strong> billets, blocks, shafts, discs, hubs, and preforms for large or lower-volume parts.</li>
+                    <li><strong>Rolled rings:</strong> engine rings, casings, bearing rings, flanges, and circumferential structures.</li>
+                    <li><strong>Grain-flow control:</strong> forging route, reduction, orientation, and heat treatment should support loading and fatigue requirements.</li>
+                    <li><strong>Test material:</strong> coupons, prolongations, sacrificial zones, or test rings may be required by material and customer specifications.</li>
+                </ul>
+                <p>
+                    Review
+                    <a href="/titanium-aerospace-forging" class="highlight-link">titanium aerospace forging</a>,
+                    <a href="/high-performance-superalloy-forging" class="highlight-link">superalloy forging</a>,
+                    and
+                    <a href="/rolled-ring-forging" class="highlight-link">rolled-ring forging</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="machining">
+            <div class="content-container">
+                <h2>5-Axis CNC Machining for Flight Hardware</h2>
+                <ul>
+                    <li><strong>Complex geometry:</strong> airfoils, impellers, blisks, manifolds, pockets, compound angles, and contoured structures.</li>
+                    <li><strong>Datum strategy:</strong> preserve alignment between forged or cast geometry, machined features, and inspection datums.</li>
+                    <li><strong>Distortion control:</strong> manage residual stress, roughing sequence, stress relief, fixturing, and material removal.</li>
+                    <li><strong>Difficult alloys:</strong> control heat, tool wear, work hardening, chatter, burrs, and surface integrity in titanium, nickel alloys, and PH stainless steels.</li>
+                    <li><strong>Final verification:</strong> CMM, optical scanning, profilometry, gauges, pressure testing, and customer-specific inspection.</li>
+                </ul>
+                <p>
+                    See
+                    <a href="/multi-axis-cnc" class="highlight-link">multi-axis CNC machining</a>,
+                    <a href="/titanium-machining" class="highlight-link">titanium machining</a>,
+                    and
+                    <a href="/inconel-718-machining" class="highlight-link">Inconel 718 machining</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="space-hardware">
+            <div class="content-container">
+                <h2>Space Launch, Propulsion and Spacecraft Components</h2>
+                <ul>
+                    <li><strong>Launch and propulsion:</strong> injector hardware, manifolds, turbomachinery parts, thrust structures, rings, housings, and brackets.</li>
+                    <li><strong>Cryogenic systems:</strong> fittings, valve components, manifolds, and structural parts requiring material and seal compatibility.</li>
+                    <li><strong>Satellite structures:</strong> lightweight brackets, optical mounts, thermal structures, actuator parts, and antenna hardware.</li>
+                    <li><strong>Cleanliness and vacuum:</strong> control particles, residues, lubricants, coatings, trapped volumes, and outgassing requirements.</li>
+                    <li><strong>Pressure integrity:</strong> define pressure, leak rate, proof test, burst margin, test medium, cleanliness, and acceptance criteria.</li>
                 </ul>
             </div>
         </section>
 
-        <section id="quality-controls">
+        <section id="export-controls">
             <div class="content-container">
-                <h2>Tri-Regional Geopolitical Resilience & Quality Controls</h2>
+                <h2>ITAR, EAR and Controlled Technical Data</h2>
                 <p>
-                    ForceBeyond provides supply chain security through our US-managed, global manufacturing footprint:
+                    Export-controlled aerospace and defense projects require formal review before technical data, hardware, software, or manufacturing instructions are shared.
                 </p>
                 <ul>
-                    <li>
-                        <strong>USA Operations:</strong> Engineering management, ITAR-compliant projects, and domestic quality oversight.
-                    </li>
-                    <li>
-                        <strong>South Korea & Taiwan Facilities:</strong> Heavy-tonnage AS9100 forging and 5-axis CNC machining operations.
-                    </li>
-                    <li>
-                        <strong>AS9102 First Article Inspection (FAI):</strong> Complete dimensional mapping and lot-traceability for every flight-critical assembly.
-                    </li>
+                    <li><strong>Jurisdiction and classification:</strong> determine whether ITAR, EAR, sanctions, customer restrictions, or other controls apply.</li>
+                    <li><strong>Authorized access:</strong> restrict controlled data to approved people, systems, suppliers, and locations.</li>
+                    <li><strong>End-use and party screening:</strong> review end user, consignee, destination, intermediaries, and prohibited activities.</li>
+                    <li><strong>Licenses and agreements:</strong> obtain required authorization before export, re-export, transfer, or foreign-person access.</li>
+                    <li><strong>Records and cybersecurity:</strong> maintain access, classification, approval, shipment, and system-control records as required.</li>
+                </ul>
+                <p>
+                    The website does not establish that ForceBeyond or every participating facility is registered, licensed, or approved for every controlled program.
+                </p>
+            </div>
+        </section>
+
+        <section id="quality">
+            <div class="content-container">
+                <h2>Aerospace Quality Planning and AS9102 FAI</h2>
+                <ul>
+                    <li><strong>Contract review:</strong> identify drawing, specification, key characteristics, customer clauses, approved sources, NDT, and records.</li>
+                    <li><strong>AS9102 FAI:</strong> define full, partial, delta, or customer-specific first article requirements.</li>
+                    <li><strong>Configuration control:</strong> manage drawing, model, material, process, source, program, tooling, and inspection revisions.</li>
+                    <li><strong>Special processes:</strong> verify heat treatment, HIP, coating, NDT, welding, brazing, and laboratory approval scope.</li>
+                    <li><strong>Traceability:</strong> maintain heat, lot, serial, process, inspection, nonconformance, and shipment linkage where required.</li>
+                </ul>
+                <p>
+                    Review
+                    <a href="/quality-assurance-certifications" class="highlight-link">quality assurance and certifications</a>
+                    for detailed quality-system and certification-scope guidance.
+                </p>
+            </div>
+        </section>
+
+        <section id="inspection">
+            <div class="content-container">
+                <h2>NDT, Dimensional Inspection and Material Testing</h2>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Method</th>
+                                <th scope="col">Typical Use</th>
+                                <th scope="col">Planning Considerations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Radiographic Testing</th>
+                                <td>Volumetric evaluation of selected castings and weldments</td>
+                                <td>Technique, section thickness, geometry, defect orientation, image quality, and acceptance criteria</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ultrasonic Testing</th>
+                                <td>Forgings, rings, shafts, plate, welds, and selected product forms</td>
+                                <td>Grain structure, attenuation, calibration, scan plan, reference standards, and coverage</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Penetrant or Magnetic-Particle Inspection</th>
+                                <td>Surface-breaking discontinuities in compatible materials</td>
+                                <td>Material compatibility, surface condition, sensitivity, personnel qualification, and acceptance</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Dimensional Inspection</th>
+                                <td>GD&T, profile, position, runout, airfoil geometry, interfaces, and final assembly features</td>
+                                <td>Datum strategy, measurement uncertainty, temperature, fixturing, access, and reporting format</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Mechanical and Metallurgical Testing</th>
+                                <td>Tensile, fatigue, impact, hardness, chemistry, microstructure, grain size, alpha case, or corrosion testing</td>
+                                <td>Specimen location, orientation, lot definition, heat treatment, method, and acceptance criteria</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    See
+                    <a href="/testing-inspection-capabilities" class="highlight-link">testing and inspection capabilities</a>
+                    for method-selection and reporting guidance.
+                </p>
+            </div>
+        </section>
+
+        <section id="surface-finishing">
+            <div class="content-container">
+                <h2>Heat Treatment, HIP and Surface Engineering</h2>
+                <ul>
+                    <li><strong><a href="/hot-isostatic-pressing" class="highlight-link">HIP:</a></strong> may reduce selected internal porosity in qualified cast or powder-based components.</li>
+                    <li><strong><a href="/heat-treatment" class="highlight-link">Heat treatment:</a></strong> solution treatment, aging, stress relief, quench and temper, or material-specific cycles.</li>
+                    <li><strong><a href="/surface-finishing" class="highlight-link">Surface finishing:</a></strong> anodizing, passivation, electropolishing, plating, coating, polishing, and project-specific surface engineering.</li>
+                    <li><strong>Cleanliness:</strong> final cleaning, particle control, fluid compatibility, and packaging may be critical for propulsion, hydraulic, oxygen, or vacuum systems.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="supply-chain">
+            <div class="content-container">
+                <h2>Aerospace Supply Chain and Source Qualification</h2>
+                <ul>
+                    <li><strong>Approved sources:</strong> verify mills, forges, foundries, heat treaters, NDT providers, laboratories, and coating processors.</li>
+                    <li><strong>Long-lead materials:</strong> plan master heat, billet, forging stock, cast alloy, tooling, cores, and test material.</li>
+                    <li><strong>Source transfer:</strong> require feasibility review, FAI, process validation, customer approval, and configuration control.</li>
+                    <li><strong>Counterfeit prevention:</strong> control source, certification, receiving inspection, traceability, and suspect-material escalation.</li>
+                    <li><strong>Logistics:</strong> address export control, packaging, corrosion protection, shock, humidity, customs, warehousing, and delivery milestones.</li>
+                </ul>
+                <p>
+                    Review
+                    <a href="/global-footprint-logistics" class="highlight-link">global footprint and logistics</a>
+                    for multi-region sourcing, export-control, inventory, and delivery planning.
+                </p>
+            </div>
+        </section>
+
+        <section id="rfq-checklist">
+            <div class="content-container">
+                <h2>Space, Aerospace and Defense RFQ Checklist</h2>
+                <ul>
+                    <li><strong>Technical package:</strong> drawing, CAD, revision, specification tree, bill of materials, configuration, and design authority.</li>
+                    <li><strong>Material:</strong> alloy, product form, specification, condition, heat treatment, approved mill or source, and test requirements.</li>
+                    <li><strong>Operating environment:</strong> temperature, pressure, load, fatigue, vibration, vacuum, fluid, corrosion, radiation, or cryogenic exposure.</li>
+                    <li><strong>Quality:</strong> key characteristics, FAI, NDT, capability, traceability, records, source approval, and customer clauses.</li>
+                    <li><strong>Export control:</strong> jurisdiction, classification, end use, end user, destination, access restrictions, and required authorization.</li>
+                    <li><strong>Commercial:</strong> prototype quantity, annual demand, lot size, tooling, target delivery, spares, and program duration.</li>
                 </ul>
             </div>
         </section>

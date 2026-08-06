@@ -10,21 +10,28 @@ export interface FaqItem {
 interface Props {
     title?: string;
     description?: string;
+    canonicalUrl?: string;
+    robots?: string;
     pageTitle?: string;
     heroImage?: string;
     heroImageAlt?: string;
-    schema?: Record<string, any>; 
+    heroImageWidth?: number;
+    heroImageHeight?: number;
+    socialImage?: string;
+    socialImageAlt?: string;
+    schema?: Record<string, any>;
 
-    // FAQ 
+    // FAQ
     faqSectionTitle?: string;
     faqItems?: FaqItem[];
 
-    // CTA 
+    // CTA
     ctaTitle?: string;
     ctaDescription?: string | string[];
     ctaButtonUrl?: string;
+    ctaButtonText?: string;
 
-    // Sources & Resources 
+    // Sources & Resources
     sourcesTitle?: string;
     sourcesList?: { label: string; url?: string }[];
     resourcesTitle?: string;
@@ -34,52 +41,95 @@ interface Props {
 const {
     title = 'Industrial Solutions',
     description = 'Reliable industrial solutions built for performance.',
+    canonicalUrl,
+    robots = 'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1',
     pageTitle = 'Industrial Solutions',
     heroImage = '',
     heroImageAlt = '',
+    heroImageWidth,
+    heroImageHeight,
+    socialImage,
+    socialImageAlt,
     schema,
 
-    // FAQ 
-    faqSectionTitle = 'FAQ: Sourcing Inconel 718 Forgings',
+    // FAQ
+    faqSectionTitle = 'Frequently Asked Questions',
     faqItems = [],
 
-    // CTA 
-    ctaTitle = 'Request an Inconel 718 Technical Consultation',
-    ctaDescription = 'Direct access to our engineering team. Feasibility reviews delivered within 48 hours.',
-    ctaButtonUrl = 'request-a-quote',
+    // CTA
+    ctaTitle = 'Discuss Your Manufacturing Project',
+    ctaDescription = 'Contact our engineering team to review your drawings, requirements, and production goals.',
+    ctaButtonUrl = '/request-for-quote',
+    ctaButtonText = 'Request for Quote',
 
-    // Resources & Sources 
+    // Resources & Sources
     sourcesTitle = 'Sources',
     sourcesList = [],
-    resourcesTitle = 'Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting',
+    resourcesTitle = 'Related Resources',
     resourcesList = []
 } = Astro.props;
 
-// check ctaDescription array
 const isCtaDescArray = Array.isArray(ctaDescription);
+const siteBase = Astro.site ?? new URL('https://www.forcebeyond.com');
+const resolvedCanonicalUrl = canonicalUrl
+    ? new URL(canonicalUrl, siteBase).toString()
+    : new URL(Astro.url.pathname, siteBase).toString();
+const resolvedSocialImage = socialImage || heroImage
+    ? new URL(socialImage || heroImage, siteBase).toString()
+    : undefined;
+const resolvedSocialImageAlt = socialImageAlt || heroImageAlt || pageTitle;
 ---
 
 <Layout title={title} description={description}>
-    {schema && (
-        <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-    )}
-    <!-- ========================================
-         Compact Hero Section 
-         ======================================== -->
+    <Fragment slot="head">
+        <link rel="canonical" href={resolvedCanonicalUrl} />
+        <meta name="robots" content={robots} />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="ForceBeyond" />
+        <meta property="og:locale" content="en_US" />
+        <meta property="og:url" content={resolvedCanonicalUrl} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        {resolvedSocialImage && (
+            <>
+                <meta property="og:image" content={resolvedSocialImage} />
+                <meta property="og:image:alt" content={resolvedSocialImageAlt} />
+            </>
+        )}
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content={title} />
+        <meta name="twitter:description" content={description} />
+        {resolvedSocialImage && (
+            <>
+                <meta name="twitter:image" content={resolvedSocialImage} />
+                <meta name="twitter:image:alt" content={resolvedSocialImageAlt} />
+            </>
+        )}
+
+        {schema && (
+            <script type="application/ld+json" set:html={JSON.stringify(schema)} />
+        )}
+    </Fragment>
+
+    <!-- Compact Hero Section -->
     <section class="relative w-full overflow-hidden bg-slate-100 py-16 sm:py-24 lg:py-48">
-        <!-- Background Image -->
         {heroImage && (
             <div class="absolute inset-0 z-0">
                 <img
                     src={heroImage}
                     alt={heroImageAlt || pageTitle}
+                    width={heroImageWidth}
+                    height={heroImageHeight}
                     class="w-full h-full object-cover object-center"
                     loading="eager"
+                    fetchpriority="high"
                     decoding="async"
                 />
             </div>
         )}
-        <!-- Centered Content -->
+
         <div class="relative z-10 w-full px-0 text-center">
             <div class="w-full">
                 <h1 class="text-4xl sm:text-4xl lg:text-6xl leading-[1.2] text-white tracking-tight w-full">
@@ -104,30 +154,30 @@ const isCtaDescArray = Array.isArray(ctaDescription);
     <section class="w-full bg-white border-slate-200 py-14 lg:py-4 text-slate-800">
         <div class="w-full max-w-7xl mx-auto px-6 sm:px-12 space-y-12">
 
-            {faqItems && faqItems.length > 0 && (
-                <div class="space-y-6">
-                    <h2 class="text-3xl sm:text-4xl lg:text-4xl font-normal leading-tight text-black mt-10 mb-5">
+            {faqItems.length > 0 && (
+                <section class="space-y-6" aria-labelledby="faq-heading">
+                    <h2 id="faq-heading" class="text-3xl sm:text-4xl lg:text-4xl font-normal leading-tight text-black mt-10 mb-5">
                         {faqSectionTitle}
                     </h2>
 
                     <div class="space-y-6">
-                        {faqItems.map((item) => (
-                            <div class="space-y-2">
-                                <p class="text-base font-semibold text-[#0B192C]">
-                                    Q: {item.q}
-                                </p>
-                                <p 
-                                    class="text-base text-slate-600 leading-relaxed border-slate-200" 
-                                    set:html={`A: ${item.a}`}
+                        {faqItems.map((item, index) => (
+                            <article class="space-y-2" aria-labelledby={`faq-question-${index}`}>
+                                <h3 id={`faq-question-${index}`} class="text-base font-semibold text-[#0B192C]">
+                                    {item.q}
+                                </h3>
+                                <p
+                                    class="text-base text-slate-600 leading-relaxed border-slate-200"
+                                    set:html={item.a}
                                 />
-                            </div>
+                            </article>
                         ))}
                     </div>
-                </div>
+                </section>
             )}
 
-            <div class="py-8 text-center border-slate-100 my-10">
-                <h2 class="text-3xl sm:text-4xl lg:text-4xl font-normal leading-tight text-black mt-10 mb-5">
+            <section class="py-8 text-center border-slate-100 my-10" aria-labelledby="cta-heading">
+                <h2 id="cta-heading" class="text-3xl sm:text-4xl lg:text-4xl font-normal leading-tight text-black mt-10 mb-5">
                     {ctaTitle}
                 </h2>
 
@@ -150,47 +200,127 @@ const isCtaDescArray = Array.isArray(ctaDescription);
                         href={ctaButtonUrl}
                         class="inline-flex items-center justify-center rounded-full bg-brand-green px-8 py-3.5 text-base font-semibold text-white shadow-md transition hover:bg-[#5aaa14] hover:shadow-lg"
                     >
-                        Request Quote
+                        {ctaButtonText}
                     </a>
                 </div>
-            </div>
+            </section>
 
-            {sourcesList && sourcesList.length > 0 && (
-                <div class="space-y-4">
-                    <h2 class="text-3xl sm:text-4xl lg:text-4xl font-normal leading-tight text-black mt-10 mb-5">
-                        {sourcesTitle}
-                    </h2>
-                    <ul class="list-disc pl-6 space-y-2 text-sm sm:text-base text-slate-600">
-                        {sourcesList.map((source) => (
-                            <li>
-                                {source.url ? (
-                                    <a href={source.url} class="text-[#0363CE] hover:underline" target="_blank" rel="noopener noreferrer">
-                                        {source.label}
-                                    </a>
-                                ) : (
-                                    <span>{source.label}</span>
-                                )}
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+            {sourcesList.length > 0 && (
+                <section aria-labelledby="sources-heading">
+                    <details class="group overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+                        <summary
+                            id="sources-heading"
+                            class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-left transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 [&::-webkit-details-marker]:hidden"
+                        >
+                            <span class="text-xl sm:text-2xl font-medium leading-tight text-[#0B192C]">
+                                {sourcesTitle}
+                            </span>
+
+                            <span
+                                class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 transition-transform duration-200 group-open:rotate-180"
+                                aria-hidden="true"
+                            >
+                                <svg
+                                    viewBox="0 0 20 20"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-4 w-4"
+                                >
+                                    <path
+                                        d="M5 7.5L10 12.5L15 7.5"
+                                        stroke="currentColor"
+                                        stroke-width="1.75"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+                            </span>
+                        </summary>
+
+                        <div class="border-t border-slate-200 px-5 py-5">
+                            <h2 class="sr-only">{sourcesTitle}</h2>
+
+                            <p class="mb-4 text-sm leading-relaxed text-slate-500">
+                                Expand this section to review the external standards, technical organizations, and reference materials used for this page.
+                            </p>
+
+                            <ul class="list-disc space-y-2 pl-6 text-sm sm:text-base text-slate-600">
+                                {sourcesList.map((source) => (
+                                    <li>
+                                        {source.url ? (
+                                            <a
+                                                href={source.url}
+                                                class="text-[#0363CE] underline-offset-4 hover:underline"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                {source.label}
+                                            </a>
+                                        ) : (
+                                            <span>{source.label}</span>
+                                        )}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </details>
+                </section>
             )}
 
-            {resourcesList && resourcesList.length > 0 && (
-                <div class="space-y-4 pt-4">
-                    <h2 class="text-3xl sm:text-4xl lg:text-4xl font-normal leading-tight text-black mt-10 mb-5">
-                        {resourcesTitle}
-                    </h2>
-                    <ul class="grid grid-cols-1 md:grid-xl-2 gap-x-8 gap-y-2 list-disc pl-6 text-sm sm:text-base text-slate-600">
-                        {resourcesList.map((res) => (
-                            <li>
-                                <a href={res.url} class="text-[#0363CE] hover:underline font-medium">
-                                    {res.label}
-                                </a>
-                            </li>
-                        ))}
-                    </ul>
-                </div>
+            {resourcesList.length > 0 && (
+                <section aria-labelledby="resources-heading">
+                    <details class="group overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+                        <summary
+                            id="resources-heading"
+                            class="flex cursor-pointer list-none items-center justify-between gap-4 px-5 py-4 text-left transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green focus-visible:ring-offset-2 [&::-webkit-details-marker]:hidden"
+                        >
+                            <span class="text-xl sm:text-2xl font-medium leading-tight text-[#0B192C]">
+                                {resourcesTitle}
+                            </span>
+
+                            <span
+                                class="flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-slate-200 bg-slate-50 text-slate-600 transition-transform duration-200 group-open:rotate-180"
+                                aria-hidden="true"
+                            >
+                                <svg
+                                    viewBox="0 0 20 20"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    class="h-4 w-4"
+                                >
+                                    <path
+                                        d="M5 7.5L10 12.5L15 7.5"
+                                        stroke="currentColor"
+                                        stroke-width="1.75"
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                    />
+                                </svg>
+                            </span>
+                        </summary>
+
+                        <div class="border-t border-slate-200 px-5 py-5">
+                            <h2 class="sr-only">{resourcesTitle}</h2>
+
+                            <p class="mb-4 text-sm leading-relaxed text-slate-500">
+                                Explore related ForceBeyond material, process, quality, industry, and manufacturing resources.
+                            </p>
+
+                            <ul class="grid grid-cols-1 gap-x-8 gap-y-2 pl-6 text-sm sm:text-base text-slate-600 md:grid-cols-2">
+                                {resourcesList.map((res) => (
+                                    <li class="list-disc">
+                                        <a
+                                            href={res.url}
+                                            class="font-medium text-[#0363CE] underline-offset-4 hover:underline"
+                                        >
+                                            {res.label}
+                                        </a>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </details>
+                </section>
             )}
         </div>
     </section>

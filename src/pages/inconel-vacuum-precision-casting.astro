@@ -2,8 +2,8 @@
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
 const pageTitle = 'Inconel Vacuum Precision Casting: Global Co-Owned Foundries';
-const seoTitle = 'Inconel Vacuum Precision Casting: Global Co-Owned Foundries';
-const seoDescription = 'AS9100-certified Inconel vacuum investment casting utilizing VIM & 100% HIP for zero-defect aerospace & subsea parts. Global production with 5-axis CNC machining.';
+const seoTitle = 'Inconel Vacuum Casting Services | VIM, HIP & AS9100 | ForceBeyond';
+const seoDescription = 'AS9100-certified Inconel vacuum investment casting for 718, 625, 713C and X-750 components. VIM, HIP, NDT and 5-axis CNC support across ForceBeyond’s USA, South Korea and Taiwan foundry network.';
 const faqs = [
     {
         q: "Where are ForceBeyond’s Inconel casting foundries located?",
@@ -53,148 +53,104 @@ const sources = [
 // Resources 
 const internalResources = [
     // Die Casting Resources
-    { label: "Die Casting Overview", url: "die-casting" },
-    { label: "Aluminum Die Casting", url: "aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "a356-t6-casting" },
-    { label: "Magnesium Casting", url: "magnesium-casting" },
+    { label: "Die Casting Overview", url: "/die-casting" },
+    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/magnesium-casting" },
 
     // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "duplex-stainless-steel-casting" },
+    { label: "Investment Casting Overview", url: "/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting" },
 
     // Forging Resources
-    { label: "Forging Capabilities Overview", url: "forging" },
-    { label: "Open Die Forging", url: "open-die-forging" },
-    { label: "Closed Die Forging", url: "closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "rolled-ring-forging" },
-    { label: "Cold Forging", url: "cold-forging" },
-    { label: "Superalloy Forging Services", url: "superalloy-forging-services" },
+    { label: "Forging Capabilities Overview", url: "/forging" },
+    { label: "Open Die Forging", url: "/open-die-forging" },
+    { label: "Closed Die Forging", url: "/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
 
     // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "carbon-steel-casting" }
+    { label: "Sand Casting", url: "/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
 ];
-// Service / Product Schema
-// Ensure 'faqs' array exists in your frontmatter
+// Page-level schema migrated from the current forcebeyond.com page.
+// Global Place, Organization, and WebSite entities are defined in Layout.astro.
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.storeinconel-vacuum-precision-casting#webpage",
-      "url": "https://www.forcebeyond.storeinconel-vacuum-precision-casting",
-      "name": seoTitle,
-      "description": seoDescription,
+      "@id": "https://www.forcebeyond.com/inconel-vacuum-precision-casting/#webpage",
+      "url": "https://www.forcebeyond.com/inconel-vacuum-precision-casting/",
+      "name": "Inconel Vacuum Precision Casting: Global Co-Owned Foundries | www.forcebeyond.com",
+      "datePublished": "2022-10-21T15:38:17-04:00",
+      "dateModified": "2026-03-02T16:02:57-05:00",
       "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store/oscar#website",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar"
+        "@id": "https://www.forcebeyond.com/#website"
       },
-      "about": [
-        {
-          "@type": "Thing",
-          "name": "Investment Casting",
-          "sameAs": "https://en.wikipedia.org/wiki/Investment_casting"
-        },
-        {
-          "@type": "Thing",
-          "name": "Vacuum Induction Melting",
-          "sameAs": "https://en.wikipedia.org/wiki/Vacuum_induction_melting"
-        },
-        {
-          "@type": "Thing",
-          "name": "Hot Isostatic Pressing",
-          "sameAs": "https://en.wikipedia.org/wiki/Hot_isostatic_pressing"
-        },
-        {
-          "@type": "Thing",
-          "name": "Superalloy",
-          "sameAs": "https://en.wikipedia.org/wiki/Superalloy"
-        }
-      ]
+      "inLanguage": "en-US"
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.storeinconel-vacuum-precision-casting#service",
-      "name": "Inconel Vacuum Precision Investment Casting Services",
-      "serviceType": "Inconel Vacuum Precision Investment Casting Services",
-      "description": seoDescription,
+      "name": "Inconel Vacuum Precision Casting",
       "provider": {
         "@type": "Organization",
-        "@id": "https://www.forcebeyond.store/oscar#organization",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar",
-        "knowsAbout": [
-          "Inconel Superalloys (Inconel 718, 625, X-750, 600)",
-          "Vacuum Induction Melting (VIM)",
-          "Hot Isostatic Pressing (HIP)",
-          "AS9100D Certification",
-          "5-Axis CNC Machining",
-          "Aerospace Turbines & Rocket Propulsion",
-          "Nuclear SMR & Subsea Hardware"
-        ]
+        "url": "https://www.forcebeyond.com",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Newark",
+          "addressRegion": "DE",
+          "addressCountry": "US"
+        },
+        "description": "Global manufacturer specializing in Inconel and superalloy casting through co-owned foundries in the USA, South Korea, and Taiwan."
       },
       "areaServed": [
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "South Korea" },
-        { "@type": "Country", "name": "Taiwan" }
+        {
+          "@type": "Country",
+          "name": "United States"
+        },
+        {
+          "@type": "Country",
+          "name": "South Korea"
+        },
+        {
+          "@type": "Country",
+          "name": "Taiwan"
+        }
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Inconel Vacuum Precision Casting Capabilities",
+        "name": "Inconel Casting Services",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Inconel Vacuum Investment Casting (VIM)",
-              "description": "AS9100-certified VIM casting for high-temperature nickel superalloy components."
+              "name": "Inconel 718 Vacuum Casting"
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Hot Isostatic Pressing (HIP) Densification",
-              "description": "100% HIP process to eliminate internal microporosity and ensure maximum structural density."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Multi-Alloy Inconel Casting (718, 625, X-750, 600)",
-              "description": "Precision casting across full range of heat-resistant and corrosion-resistant Inconel grades."
-            }
-          },
-          {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "5-Axis CNC Precision Machining & Thermal Processing",
-              "description": "Complete finish machining, solution annealing, and age-hardening heat treatment."
+              "name": "Inconel 625 Precision Casting"
             }
           }
         ]
-      }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.storeinconel-vacuum-precision-casting#faq",
-      "mainEntity": faqs.map(f => ({
-        "@type": "Question",
-        "name": f.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": f.a
-        }
-      }))
+      },
+      "knowsAbout": [
+        "Vacuum Induction Melting",
+        "VIM Casting",
+        "Superalloy Investment Casting",
+        "AS9100 Manufacturing"
+      ]
     }
   ]
 };
@@ -205,7 +161,7 @@ const pageSchema = {
     description={seoDescription}
     schema={pageSchema}
     pageTitle={pageTitle}
-    heroImage="media/industry-aerospace-turbine-engine-v5.webp"
+    heroImage="/media/industry-aerospace-turbine-engine-v5.webp"
     heroImageAlt="Close-up of an aerospace gas turbine engine illustrating high-temperature Inconel casting applications"
     faqSectionTitle="Frequently Asked Questions: Inconel Casting & Supply"
     faqItems={faqs}
@@ -268,7 +224,7 @@ const pageSchema = {
                     <div class="relative">
                         <div class="overflow-hidden ">
                             <img
-                                src="media/Gas-Turbine-Disc-and-Nozzle-Ring-sku-5.webp"
+                                src="/media/Gas-Turbine-Disc-and-Nozzle-Ring-sku-5.webp"
                                 alt="Vacuum-cast gas turbine nozzle ring made for high-temperature aerospace and power-generation applications"
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />

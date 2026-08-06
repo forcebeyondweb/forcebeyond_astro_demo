@@ -4,6 +4,7 @@ import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 const pageTitle = 'Precision Forging Services: High-Strength, Defect-Free Manufacturing';
 const seoTitle = 'Custom Precision Forging Services | Closed-Die, Open-Die & Rolled Rings';
 const seoDescription = 'AS9100-certified custom metal forging services specializing in titanium, superalloy, stainless steel, and aluminum components. ForceBeyond delivers near-net-shape closed-die, open-die, and seamless rolled ring forgings up to 3,500mm OD.';
+
 const faqs = [
     {
         q: "What is the difference between hot forging and cold forging?",
@@ -22,58 +23,62 @@ const faqs = [
 // Sources
 const sources = [
     { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
+    { label: 'Wikipedia - Forging', url: 'https://en.wikipedia.org/wiki/Forging' },
     { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
     { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
     { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
     { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
-    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
     { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
 ];
 
 // Resources 
 const internalResources = [
+    // Forging Resources (Hub & Sub-pages)
+    { label: "Forging Capabilities Overview", url: "/forging" },
+    { label: "Open Die Forging", url: "/open-die-forging" },
+    { label: "Closed Die Forging", url: "/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
+
+    // Precision CNC Machining Hub
+    { label: "Precision CNC Machining Services", url: "/precision-machining" },
+
     // Die Casting Resources
-    { label: "Die Casting Overview", url: "die-casting" },
-    { label: "Aluminum Die Casting", url: "aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "a356-t6-casting" },
-    { label: "Magnesium Casting", url: "magnesium-casting" },
+    { label: "Die Casting Overview", url: "/die-casting" },
+    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/magnesium-casting" },
 
     // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "duplex-stainless-steel-casting" },
-
-    // Forging Resources
-    { label: "Forging Capabilities Overview", url: "forging" },
-    { label: "Open Die Forging", url: "open-die-forging" },
-    { label: "Closed Die Forging", url: "closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "rolled-ring-forging" },
-    { label: "Cold Forging", url: "cold-forging" },
-    { label: "Superalloy Forging Services", url: "superalloy-forging-services" },
+    { label: "Investment Casting Overview", url: "/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting" },
 
     // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "carbon-steel-casting" }
+    { label: "Sand Casting Overview", url: "/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
 ];
+
 // Service / Product Schema (GEO-Optimized)
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.storeforging#webpage",
-      "url": "https://www.forcebeyond.storeforging",
+      "@id": "https://www.forcebeyond.com/forging#webpage",
+      "url": "https://www.forcebeyond.com/forging",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store/oscar#website",
+        "@id": "https://www.forcebeyond.com#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar"
+        "url": "https://www.forcebeyond.com"
       },
       "about": [
         {
@@ -95,21 +100,23 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.storeforging#service",
+      "@id": "https://www.forcebeyond.com/forging#service",
       "name": "Precision Custom Metal Forging Services",
-      "serviceType": "Closed-Die, Open-Die & Seamless Rolled Ring Forging",
+      "serviceType": "Closed-Die, Open-Die, Cold Forging & Seamless Rolled Ring Forging",
       "description": seoDescription,
       "provider": {
         "@type": "Organization",
-        "@id": "https://www.forcebeyond.store/oscar#organization",
+        "@id": "https://www.forcebeyond.com#organization",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar",
-        "logo": "https://www.forcebeyond.storemedia/logo.png",
+        "url": "https://www.forcebeyond.com",
+        "logo": "https://www.forcebeyond.com/media/logo.png",
         "knowsAbout": [
           "Near-Net-Shape Closed Die Forging",
           "Open Die Hydraulic Press Forging",
+          "Cold Forging & Precision Extrusion",
           "Seamless Rolled Ring Forging (Up to 3,500mm OD)",
           "Titanium (Ti-6Al-4V) & Superalloy (Inconel 718/625) Forging",
+          "Precision CNC Machining & Tier-1.5 Finishing",
           "Optimized Grain Flow & Continuous Macro-Structure",
           "ISO 9001:2015 & AS9100 Rev D Quality Management",
           "Full NDT Testing (100% Ultrasonic, MPI, FPI)"
@@ -149,7 +156,7 @@ const pageSchema = {
       ],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Custom Forging Capabilities",
+        "name": "Custom Forging & Finishing Capabilities",
         "itemListElement": [
           {
             "@type": "Offer",
@@ -163,8 +170,24 @@ const pageSchema = {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
+              "name": "Open Die Forging",
+              "description": "Custom heavy-duty open die forgings for large shafts, blocks, and rings with high fatigue resistance."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
               "name": "Seamless Rolled Ring Forging",
               "description": "Custom seamless rolled rings up to 3,500mm OD with circumferential grain flow engineered for high-pressure turbine casings and flanges."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Cold Forging Services",
+              "description": "High-precision net-shape cold heading and extrusion at room temperature for tight tolerance fasteners and shaft components."
             }
           },
           {
@@ -180,7 +203,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.storeforging#faq",
+      "@id": "https://www.forcebeyond.com/forging#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,
@@ -199,7 +222,7 @@ const pageSchema = {
     description={seoDescription}
     schema={pageSchema}
     pageTitle={pageTitle}
-    heroImage="media/titanium-aerospace-jet-engine-testing-hero.webp"
+    heroImage="/media/titanium-aerospace-jet-engine-testing-hero.webp"
     heroImageAlt="Titanium aerospace jet engine undergoing a high-performance ground test with active exhaust"
     faqSectionTitle="Frequently Asked Questions: Forging Manufacturing"
     faqItems={faqs}
@@ -213,7 +236,7 @@ const pageSchema = {
 
     <div slot="full-width" class="individual-content">
 
-        <section id="overview" >
+        <section id="overview">
             <div class="content-container">
                 
                 <h2>Precision Forging Services: High-Strength, Defect-Free Manufacturing</h2>
@@ -221,21 +244,21 @@ const pageSchema = {
                 <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
                     <div>
                         <p>
-                           ForceBeyond is a premier global supplier of high-precision forged components. 
-                           By utilizing immense pressure to shape heated metal, our forging processes manipulate the internal grain structure of the alloy, 
-                           delivering parts with unparalleled structural integrity, impact resistance, and fatigue life.
+                           ForceBeyond is a premier Delaware-headquartered Tier-1.5 global supplier of high-precision forged components. 
+                           By utilizing immense mechanical or hydraulic pressure to shape heated metal, our engineered forging processes manipulate the internal grain structure of the alloy, 
+                           delivering parts with superior continuous grain alignment, unmatched structural integrity, elevated impact resistance, and extended fatigue life.
                         </p>
                         <p>
-                            Operating under a strict ISO 9001:2015 quality management system, our dual-shore manufacturing network supplies mission-critical 
-                            forged parts to the world’s most demanding sectors—including aerospace, power generation, oil and gas, and heavy automotive. 
-                            From massive open-die steel blocks to near-net-shape aerospace titanium, we deliver fully machined, lot-traceable components 
-                            ready for final assembly.
+                            Operating under an <a href="/quality-assurance-certifications">AS9100 Rev D & ISO 9001:2015 certified quality management system</a>, our dual-shore manufacturing network supplies mission-critical 
+                            forged parts to the world’s most demanding sectors—including <a href="/space-defence">aerospace & defense</a>, power generation, <a href="/oil-gas">oil and gas</a>, and heavy transportation. 
+                            From massive open-die steel blocks to near-net-shape aerospace titanium, we deliver fully finished, lot-traceable components 
+                            integrated seamlessly with our <a href="/precision-machining">precision CNC machining services</a> for direct assembly line integration.
                         </p>
                     </div>
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
-                                src="media/hydraulic-forging-press-hot-metal-billet-industrial.webp"
+                                src="/media/hydraulic-forging-press-hot-metal-billet-industrial.webp"
                                 alt="Hot metal billet positioned beneath a hydraulic forging press for precision shaping in an industrial forge."
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
@@ -246,35 +269,38 @@ const pageSchema = {
             </div>
         </section>
 
-        <section id="forging-capabilities" >
+        <section id="forging-capabilities">
             <div class="content-container">
-                <h2>Comprehensive Forging Capabilities</h2>
+                <h2>Comprehensive Forging Process Capabilities</h2>
                     <p>
-                        ForceBeyond offers a complete suite of forging processes, allowing us to match the exact dimensional, volume, 
-                        and metallurgical requirements of your engineering prints.
+                        ForceBeyond offers a complete suite of specialized forging processes, allowing our engineering team to match the exact dimensional, volume, 
+                        and metallurgical requirements of your technical prints while minimizing material waste:
                     </p>
                     <ul>
                         <li>
-                            <strong>Closed Die Forging:</strong>Ideal for high-volume production. Custom-engineered steel dies compress the metal into complex, near-net shapes, drastically reducing material waste and secondary machining time.
+                            <strong><a href="/closed-die-forging" class="highlight-link">Closed Die Forging</a>:</strong> Ideal for mid-to-high-volume production. Custom-engineered steel dies compress the metal into complex, near-net shapes, drastically reducing raw material waste and secondary machining cycle times.
                         </li>
                         <li>
-                            <strong>Open Die Forging</strong>The ultimate solution for massive, heavy-duty components. By hammering metal between flat dies without custom tooling, we achieve maximum structural density for massive shafts, cylinders, and blocks with rapid lead times.
+                            <strong><a href="/open-die-forging" class="highlight-link">Open Die Forging</a>:</strong> The ultimate solution for massive, heavy-duty structural components. By hammering or pressing metal between flat dies without custom impression tooling, we achieve maximum structural density for large shafts, cylinders, and blocks with short lead times.
                         </li>
                         <li>
-                            <strong>Seamless Rolled Ring Forging:</strong>Essential for circular components like turbine casings and high-pressure flanges. The rolling mill imparts a circumferential grain flow that provides unmatched resistance to radial and tangential stress with zero weld seams.
+                            <strong><a href="/rolled-ring-forging" class="highlight-link">Seamless Rolled Ring Forging</a>:</strong> Essential for critical circular components such as jet engine turbine casings, bearing races, and high-pressure flanges. The continuous rolling mill process imparts a seamless circumferential grain flow up to 3,500mm OD with zero circumferential weld seams.
+                        </li>
+                        <li>
+                            <strong><a href="/cold-forging" class="highlight-link">Cold Forging Services</a>:</strong> Executed at ambient room temperature, cold forging utilizes strain hardening to yield ultra-high yield strength, precise dimensional tolerances, and smooth surface finishes for high-volume automotive and industrial fasteners.
                         </li>
                     </ul>
                 
             </div>
         </section>
 
-        <section id="advanced-material" >
+        <section id="advanced-material">
             <div class="content-container">
-                <h2>Advanced Material Expertise: Superalloys & Titanium</h2>
+                <h2>Advanced Material Expertise: Superalloys, Titanium & Stainless Steel</h2>
                 
                 <p>
-                    While we forge all standard grades of carbon, alloy, and stainless steels, ForceBeyond specializes in high-performance metallurgy. 
-                    Our advanced thermal control prevents grain coarsening and oxidation in highly reactive and heat-resistant metals.
+                    While we forge all standard structural grades of carbon, alloy, and stainless steel, ForceBeyond specializes in high-performance metallurgy for extreme environments. 
+                    Our advanced thermal management and controlled-atmosphere forging prevent grain coarsening and gas absorption in highly reactive metals.
                 </p>
                 <div class="content-table-wrapper">
                     <table>
@@ -282,25 +308,30 @@ const pageSchema = {
                             <tr>
                                 <th scope="col">Material Category</th>
                                 <th scope="col">Core Alloys</th>
-                                <th scope="col">Key Advantages & Applications</th>
+                                <th scope="col">Key Metallurgical Advantages & Applications</th>
                             </tr>
                         </thead>
 
                         <tbody>
                             <tr>
-                                <th scope="row">Titanium Forging</th>
-                                <td>Ti-6Al-4V (Grade 5)</td>
-                                <td>Exceptional strength-to-weight ratio. We specialize in Aerospace Titanium Forging and Near-Net-Shape Titanium to minimize expensive material waste.</td>
+                                <th scope="row"><a href="/titanium-forging" class="highlight-link">Titanium Forging</a></th>
+                                <td>Ti-6Al-4V (Grade 5), Grade 2, Ti-6242</td>
+                                <td>Exceptional strength-to-weight ratio and corrosion resistance. We specialize in Aerospace Titanium Forgings and Near-Net-Shape pressing to minimize costly machining scrap.</td>
                             </tr>
                             <tr>
-                                <th scope="row">Superalloy Forging</th>
-                                <td>Inconel 718, Inconel 625</td>
-                                <td>Extreme heat and fatigue resistance. Critical for jet engine rotating parts, industrial gas turbines, and nuclear infrastructure.</td>
+                                <th scope="row"><a href="/high-performance-superalloy-forging" class="highlight-link">Superalloy Forging</a></th>
+                                <td>Inconel 718, Inconel 625, Waspaloy, Hastelloy</td>
+                                <td>Extreme high-temperature creep resistance and thermal fatigue strength. Critical for gas turbine rotating discs, rocket propulsion, and nuclear reactors.</td>
                             </tr>
                             <tr>
-                                <th scope="row">Non-Ferrous</th>
-                                <td>ECO BRASS(C69300),Aluminum</td>
-                                <td>Lead-free, leak-proof density for fluid control and lightweight structural brackets for transportation.</td>
+                                <th scope="row"><a href="/stainless-steel-casting" class="highlight-link">Stainless & Duplex Steel</a></th>
+                                <td>316L, 17-4PH, 2205 Duplex, 2507 Super Duplex</td>
+                                <td>Combines high mechanical strength with aggressive chemical pitting resistance for marine hardware and offshore oil & gas valve bodies.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Non-Ferrous & Light Metals</th>
+                                <td>ECO BRASS (C69300), 6061-T6 / 7075 Aluminum</td>
+                                <td>Lead-free, leak-proof density for fluid control systems and ultra-lightweight structural brackets for automotive and aerospace airframes.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -308,49 +339,49 @@ const pageSchema = {
             </div>
         </section>
 
-
-        <section id="why-forging" >
+        <section id="why-forging">
             <div class="content-container">
-                <h2>The Metallurgical Advantage: Why Choose Forging?</h2>
+                <h2>The Metallurgical Advantage: Why Choose Forging Over Casting?</h2>
                 
                 <p>
-                    When components are subjected to extreme pressure, rotational stress, or cyclic fatigue, cast or machined-from-billet parts carry inherent risks. Forging eliminates these vulnerabilities.
+                    When mechanical components are subjected to extreme hydraulic pressure, rotational torque, or severe cyclic loading, cast parts or raw stock machined directly from billet carry structural vulnerabilities. Precision forging eliminates these defect risks.
                 </p>
                 <ul>
                     <li>
-                        <strong>Optimized Grain Flow:</strong>Machining a part from a solid block cuts straight across the metal's natural grain. Forging physically moves and bends the grain to follow the exact contours of the component, dramatically increasing directional strength and impact resistance.
+                        <strong>Optimized Continuous Grain Flow:</strong> Machining a part from a solid billet cuts across the metal's natural grain lines, leaving micro-structural weakness. Forging mechanically deforms and aligns the grain flow to mirror the precise external contours of the component, dramatically increasing directional tensile strength and fracture toughness.
                     </li>
                     <li>
-                        <strong>Zero Internal Porosity:</strong>The extreme pressures involved in the forging process compress the metal, eliminating the internal micro-shrinkage, voids, or gas pockets that frequently plague cast components.
+                        <strong>Elimination of Internal Porosity:</strong> High tonnage pressures during compressive forging consolidate the grain structure, completely closing micro-shrinkage voids, gas pockets, and internal pinholes common in traditional <a href="/investment-casting" class="highlight-link">investment casting</a> or <a href="/sand-casting" class="highlight-link">sand casting</a>.
                     </li>
                     <li>
-                        <strong>Isotropic Response to Heat Treatment</strong>A dense, refined, and uniform forged grain structure ensures that subsequent heat treatments (like quenching, tempering, or age hardening) penetrate evenly, yielding perfectly consistent mechanical properties across the entire part.
+                        <strong>Isotropic Response to Heat Treatment:</strong> A dense, refined, and consistent forged microstructure ensures that subsequent solution annealing, quenching, or precipitation age hardening penetrate uniformly, yielding consistent mechanical properties throughout the part.
                     </li>
                 </ul>
             </div>
         </section>
-        <section id = "Tier-1.5-integration">
+
+        <section id="Tier-1.5-integration">
             <div class="content-container">
-                <h2>Tier-1.5 Integration: Forged-to-Machine Solutions</h2>
+                <h2>Tier-1.5 Integration: Complete Forged-to-Machined Solutions</h2>
                 <p>
-                    Forgings typically leave the press with a material allowance. ForceBeyond operates on a Tier-1.5 model, 
-                    providing a seamless transition from the heavy forging press to our high-precision secondary operations.
+                    Raw forgings exit the die with intentional machine allowances. Operating as a complete Tier-1.5 partner, ForceBeyond handles the entire workflow from initial forging press operations to finished, ready-to-assemble parts.
                 </p>
                 <p>
-                    By managing the entire value chain, we eliminate dimensional "hand-off" risks between separate forging and machining vendors.
+                    By consolidating metal shaping, thermal processing, and finish machining under a unified quality assurance protocol, we eliminate logistical delays and dimensional hand-off errors between separate vendors.
                 </p>
                 <ul>
                     <li>
-                        <strong>High-Precision CNC Machining:</strong>100% immersion UT to verify internal structural integrity.
+                        <strong><a href="/precision-machining" class="highlight-link">Precision CNC Machining Services</a>:</strong> High-speed 5-axis CNC milling, turning, and micro-boring to achieve tight geometric tolerances (down to ±0.005mm) on critical forged surfaces.
                     </li>
                     <li>
-                        <strong>Advanced Thermal Processing:</strong>Solution annealing, age hardening, and stress relieving to lock in targeted tensile and yield strengths.
+                        <strong>Advanced Thermal Processing:</strong> Solution heat treating, precipitation hardening, stress relieving, and tempering to lock in target yield strength and hardness specs.
                     </li>
                     <li>
-                        <strong>Rigorous NDT (Non-Destructive Testing):</strong>100% Ultrasonic Testing (UT) to guarantee internal integrity, alongside Magnetic Particle (MPI) and Fluorescent Penetrant Inspection (FPI).
+                        <strong>Rigorous Non-Destructive Testing (NDT):</strong> 100% Ultrasonic Testing (UT) to verify internal structural soundness, complemented by Magnetic Particle Inspection (MPI) and Fluorescent Penetrant Inspection (FPI) for zero surface defects.
                     </li>
                 </ul>   
             </div>
         </section>
+
     </div>
 </IndividualPageLayout>

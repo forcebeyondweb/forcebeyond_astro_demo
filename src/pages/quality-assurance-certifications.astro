@@ -1,109 +1,189 @@
 ---
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Quality Assurance & Certifications: Zero-Defect Manufacturing';
-const seoTitle = 'Quality Assurance & AS9100 Certifications | ForceBeyond';
-const seoDescription = 'ForceBeyond’s global quality assurance program. Certified to ISO 9001:2015, AS9100 Rev D, and IATF 16949, with Nadcap-compliant special processing for OEMs.';
+const pageTitle = 'Quality Assurance, Certifications & Manufacturing Compliance';
+const seoTitle = 'Quality Assurance & Manufacturing Certifications | ForceBeyond';
+const seoDescription = 'ForceBeyond supports metal-component programs with quality planning, supplier controls, material traceability, first-article inspection, PPAP, NDT, dimensional inspection, certification review, and project-specific quality documentation.';
+
+const canonicalUrl = 'https://www.forcebeyond.com/quality-assurance-certifications/';
+const socialImage = 'https://www.forcebeyond.com/media/precision-cmm-inspection-machined-metal-component-hero.webp';
 
 const faqs = [
     {
-        q: "What is the difference between an EN 10204 3.1 and 3.2 Material Test Report (MTR)?",
-        a: "A 3.1 MTR is certified by the manufacturer's independent quality representative, confirming that the specific heat lot meets all chemical and mechanical requirements. A 3.2 MTR includes all the data of a 3.1, but is co-signed by an independent third-party inspector (such as Lloyd’s Register or ABS). ForceBeyond standardly provides 3.1 MTRs and can facilitate 3.2 certifications upon request."
+        q: "What is the difference between EN 10204 Type 3.1 and Type 3.2 inspection documents?",
+        a: "A Type 3.1 document is validated by the manufacturer’s authorized inspection representative who is independent of the manufacturing department. A Type 3.2 document includes validation by the manufacturer and either the purchaser’s authorized representative or an independent third-party inspector. Availability depends on the material source, governing specification, purchase order, and inspection arrangement."
     },
     {
-        q: "Does ForceBeyond provide AS9102 First Article Inspection (FAI) reports?",
-        a: "Yes. For aerospace, defense, and other highly regulated industries, we provide comprehensive AS9102-compliant FAI reports. This includes a complete dimensional 'balloon' drawing mapped to our CMM data, verifying that every single CAD feature has been manufactured to specification."
+        q: "Can ForceBeyond support AS9102 first article inspection reports?",
+        a: "AS9102-format first article inspection support may be provided when required by the purchase order and applicable program requirements. The package may include a ballooned drawing, characteristic accountability, dimensional results, material and process records, and nonconformance documentation. Scope should be agreed before production."
+    },
+    {
+        q: "Are all ForceBeyond suppliers certified to the same standards?",
+        a: "No. Certification scope varies by supplier, site, process, and industry. Supplier selection and approval should verify the exact certificate, issuing body, scope, expiration, special-process approvals, and applicability to the quoted component."
+    },
+    {
+        q: "What quality information should be included with an RFQ?",
+        a: "Provide drawings, specifications, material requirements, annual volume, critical characteristics, FAI or PPAP level, NDT, capability targets, traceability, record-retention requirements, approved-source restrictions, special-process requirements, and required shipment documentation."
     }
 ];
 
-// Sources
 const sources = [
-    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
-    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
-    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
-    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
-    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
-    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
+    { label: 'ISO - ISO 9001 Quality Management Systems', url: 'https://www.iso.org/iso-9001-quality-management.html' },
+    { label: 'SAE International - AS9100 and AS9102 Standards', url: 'https://www.sae.org/standards' },
+    { label: 'IATF Global Oversight - IATF 16949 Resources', url: 'https://www.iatfglobaloversight.org/' },
+    { label: 'AIAG - APQP, PPAP, FMEA, MSA and SPC Resources', url: 'https://www.aiag.org/' },
+    { label: 'Performance Review Institute - Nadcap Program', url: 'https://www.p-r-i.org/nadcap/' },
+    { label: 'CEN - EN 10204 Inspection Documents', url: 'https://www.cencenelec.eu/' }
 ];
 
-// Resources
 const internalResources = [
-    // Die Casting Resources
-    { label: "Die Casting Overview", url: "die-casting" },
-    { label: "Aluminum Die Casting", url: "aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "a356-t6-casting" },
-    { label: "Magnesium Casting", url: "magnesium-casting" },
+    // Quality and Supply Chain
+    { label: "Quality & Global Supply Chain", url: "/quality-global-supply-chain" },
+    { label: "Testing & Inspection Capabilities", url: "/testing-inspection-capabilities" },
+    { label: "Global Footprint & Logistics", url: "/global-footprint-logistics" },
+    { label: "Assembly & Kitting", url: "/assembly-and-kitting" },
+    { label: "Secondary Operations", url: "/secondary-operations" },
 
-    // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "duplex-stainless-steel-casting" },
+    // Technical and Materials
+    { label: "Materials & Technical Specifications", url: "/materials-technical-specs" },
+    { label: "Material Cross-Reference Charts", url: "/material-cross-reference-charts" },
+    { label: "Manufacturing Design Guides", url: "/manufacturing-design-guides" },
 
-    // Forging Resources
-    { label: "Forging Capabilities Overview", url: "forging" },
-    { label: "Open Die Forging", url: "open-die-forging" },
-    { label: "Closed Die Forging", url: "closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "rolled-ring-forging" },
-    { label: "Cold Forging", url: "cold-forging" },
-    { label: "Superalloy Forging Services", url: "superalloy-forging-services" },
+    // Manufacturing
+    { label: "Casting Capabilities", url: "/casting" },
+    { label: "Investment Casting", url: "/investment-casting" },
+    { label: "Forging Capabilities", url: "/forging" },
+    { label: "Precision Machining", url: "/precision-machining" },
+    { label: "High-Precision Component Machining", url: "/high-precision-machining" },
+    { label: "Multi-Axis CNC Milling & Turning", url: "/multi-axis-cnc" },
+    { label: "Heat Treatment", url: "/heat-treatment" },
+    { label: "Surface Finishing & Coating", url: "/surface-finishing" },
 
-    // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "carbon-steel-casting" }
+    // Industries
+    { label: "Aerospace", url: "/aerospace" },
+    { label: "Space & Defence", url: "/space-defence" },
+    { label: "Automotive", url: "/automotive" },
+    { label: "Medical & Healthcare", url: "/medical" },
+    { label: "Nuclear & SMR", url: "/nuclear-smr" },
+    { label: "Energy & Power Generation", url: "/energy-power-generation" }
 ];
 
-// Page Schema
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.storequality-assurance-certifications#webpage",
-      "url": "https://www.forcebeyond.storequality-assurance-certifications",
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store/oscar#website",
+        "@id": "https://www.forcebeyond.com/#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar"
-      }
+        "url": "https://www.forcebeyond.com/"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": socialImage
+      },
+      "breadcrumb": {
+        "@id": `${canonicalUrl}#breadcrumb`
+      },
+      "about": [
+        { "@type": "Thing", "name": "Manufacturing quality assurance" },
+        { "@type": "Thing", "name": "Quality management systems" },
+        { "@type": "Thing", "name": "First article inspection" },
+        { "@type": "Thing", "name": "Production Part Approval Process" },
+        { "@type": "Thing", "name": "Material traceability" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.forcebeyond.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Quality & Global Supply Chain",
+          "item": "https://www.forcebeyond.com/quality-global-supply-chain/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Quality Assurance & Certifications",
+          "item": canonicalUrl
+        }
+      ]
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.storequality-assurance-certifications#service",
-      "name": "Quality Assurance & Certification Management",
-      "serviceType": "Quality Control & Regulatory Compliance Services",
+      "@id": `${canonicalUrl}#service`,
+      "name": "Quality Assurance and Certification Management",
+      "serviceType": "Manufacturing Quality Planning, Inspection, Traceability and Compliance Support",
       "description": seoDescription,
+      "url": canonicalUrl,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store/oscar#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar",
-        "knowsAbout": [
-          "AS9100 Rev D Aerospace Quality Certification",
-          "ISO 9001:2015 Quality Management Systems",
-          "IATF 16949 Automotive Quality System",
-          "Nadcap Compliant Special Processes",
-          "AS9102 First Article Inspection (FAI) & PPAP Submissions",
-          "EN 10204 3.1 & 3.2 Material Traceability"
+        "@id": "https://www.forcebeyond.com/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Quality Assurance and Documentation Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Quality-System and Certification Review",
+              "description": "Verification of applicable quality-system certificates, scope, issuing body, site, expiration, and customer-specific requirements."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "First Article and Production Approval Documentation",
+              "description": "Project-specific AS9102-format FAI, PPAP, control plans, process flow, FMEA, capability data, and dimensional reporting."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Material and Process Traceability",
+              "description": "Heat and lot identification, material records, special-process certifications, inspection records, and shipment documentation."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Corrective Action and Continuous Improvement",
+              "description": "Containment, root-cause analysis, corrective action, effectiveness verification, supplier development, and recurring-issue reduction."
+            }
+          }
         ]
       }
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.storequality-assurance-certifications#faq",
-      "mainEntity": faqs.map(f => ({
+      "@id": `${canonicalUrl}#faq`,
+      "mainEntity": faqs.map((faq) => ({
         "@type": "Question",
-        "name": f.q,
+        "name": faq.q,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": f.a
+          "text": faq.a
         }
       }))
     }
@@ -114,132 +194,311 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
     pageTitle={pageTitle}
-    heroImage="media/precision-cmm-inspection-machined-metal-component-hero.webp"
-    heroImageAlt="CMM inspection probe measuring a precision-machined metal component for dimensional accuracy and manufacturing quality control."
-    faqSectionTitle="Frequently Asked Questions: Quality Assurance"
+    heroImage="/media/precision-cmm-inspection-machined-metal-component-hero.webp"
+    heroImageAlt="CMM inspection of a precision-machined component for manufacturing quality assurance"
+    heroImageWidth={1920}
+    heroImageHeight={1080}
+    socialImage={socialImage}
+    socialImageAlt="Quality assurance, certification review, traceability, and manufacturing inspection"
+    faqSectionTitle="Frequently Asked Questions: Quality Assurance & Certifications"
     faqItems={faqs}
-    ctaTitle="Partner with an AS9100-Certified Quality Leader"
-    ctaDescription="Ensure zero-defect manufacturing and complete material traceability for your critical aerospace, automotive, or industrial components."
-    sourcesTitle="Sources"
+    ctaTitle="Review Your Quality and Certification Requirements"
+    ctaDescription="Send your drawings, quality clauses, material and process specifications, FAI or PPAP requirements, NDT, capability targets, traceability, record retention, and shipment-documentation needs for a quality review."
+    ctaButtonText="Request a Quality Review"
+    sourcesTitle="Quality and Certification References"
     sourcesList={sources}
-    resourcesTitle="Our Internal Resources for Quality and Global Operations"
+    resourcesTitle="Related Quality, Inspection, Supply Chain and Manufacturing Resources"
     resourcesList={internalResources}
 >
-
     <div slot="full-width" class="individual-content">
 
         <section id="overview">
             <div class="content-container">
-                
-                <h2>Quality Assurance & Certifications: Zero-Defect Manufacturing</h2>
+                <h2>Manufacturing Quality Assurance and Compliance Support</h2>
 
                 <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
                     <div>
                         <p>
-                            At ForceBeyond, quality is not just a final inspection step—it is a proactive, risk-managed discipline integrated into every phase of our Tier-1.5 Manufacturing Model. For OEMs in the aerospace, nuclear energy, medical device, and automotive sectors, component failure carries unacceptable risks. We mitigate that risk by engineering quality into the process before the first pour or forge is ever executed.
+                            Quality assurance begins with contract review, process planning, supplier qualification, risk analysis, material control, inspection strategy, and documentation—not only final inspection. ForceBeyond supports casting, forging, machining, heat treatment, finishing, inspection, and assembly programs through project-specific quality controls.
                         </p>
                         <p>
-                            Operating a unified Quality Management System (QMS) across our global network, we provide Tier-1 and Tier-2 procurement teams with audit-ready transparency, absolute material traceability, and continuous process controls that guarantee zero-defect delivery.
+                            Certification and compliance requirements should be verified by facility, process, certificate scope, issuing body, expiration date, and customer flow-down. ForceBeyond coordinates the required quality package according to the drawing, purchase order, industry, component criticality, and approved-source requirements.
                         </p>
                     </div>
+
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
-                                src="media/cmm-probe-quality-inspection-precision-machined-component.webp"
-                                alt="CMM touch probe inspecting a precision-machined metal component for dimensional accuracy and manufacturing quality control."
+                                src="/media/cmm-probe-quality-inspection-precision-machined-component.webp"
+                                alt="CMM touch probe inspecting a precision-machined component"
+                                width="1200"
+                                height="900"
+                                loading="lazy"
+                                decoding="async"
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <section id="core-certifications">
+        <section id="quality-frameworks">
             <div class="content-container">
-                <h2>Core Quality Management Certifications</h2>
+                <h2>Quality Management Standards and Industry Frameworks</h2>
                 <p>
-                    Our facilities operate under the world’s most stringent regulatory frameworks, ensuring compliance across every major industrial vertical:
+                    The following frameworks may apply depending on customer, facility, process, and contract. A certification should never be assumed to cover every site or operation.
                 </p>
+
                 <div class="content-table-wrapper">
                     <table>
                         <thead>
                             <tr>
-                                <th scope="col">Certification</th>
-                                <th scope="col">Regulated Industry Focus</th>
-                                <th scope="col">Key Quality Mandates & Controls</th>
+                                <th scope="col">Standard or Program</th>
+                                <th scope="col">Typical Industry Use</th>
+                                <th scope="col">Representative Quality Focus</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <tr>
-                                <th scope="row">AS9100 Rev D</th>
-                                <td>Aerospace, Defense, SMR Nuclear</td>
-                                <td>Strict risk management, counterfeit parts prevention, and 100% material traceability from raw melt to final assembly.</td>
+                                <th scope="row">ISO 9001</th>
+                                <td>General industrial manufacturing and service organizations</td>
+                                <td>Process management, customer requirements, risk-based thinking, corrective action, internal audit, and continuous improvement.</td>
                             </tr>
                             <tr>
-                                <th scope="row">ISO 9001:2015</th>
-                                <td>Industrial, Oil & Gas, Data Centers</td>
-                                <td>Comprehensive QMS standard ensuring consistent manufacturing processes, continuous improvement, and customer satisfaction.</td>
+                                <th scope="row">AS9100</th>
+                                <td>Aerospace, space, and defense supply chains</td>
+                                <td>Product safety, configuration management, operational risk, counterfeit-parts prevention, change control, and aerospace-specific quality requirements.</td>
                             </tr>
                             <tr>
                                 <th scope="row">IATF 16949</th>
-                                <td>Automotive & Commercial Vehicles</td>
-                                <td>Defect prevention, reduction of supply chain variation, and advanced product quality planning (APQP) for high-volume production.</td>
+                                <td>Automotive production and relevant service-part organizations</td>
+                                <td>Defect prevention, variation reduction, supplier development, APQP, PPAP, FMEA, SPC, MSA, and customer-specific requirements.</td>
                             </tr>
                             <tr>
-                                <th scope="row">Nadcap Alignment</th>
-                                <td>Aerospace & Defense</td>
-                                <td>Certified oversight for Special Processes, including Non-Destructive Testing (NDT), Heat Treatment, and Chemical Surface Plating.</td>
+                                <th scope="row">ISO 13485</th>
+                                <td>Medical-device quality management</td>
+                                <td>Regulatory controls, risk management, traceability, validation, cleanliness, complaint handling, and device-specific documentation.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Nadcap</th>
+                                <td>Aerospace special-process accreditation</td>
+                                <td>Process-specific audit and accreditation for areas such as heat treatment, NDT, coatings, chemical processing, welding, and materials testing.</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
+
+                <p>
+                    See
+                    <a href="/quality-global-supply-chain" class="highlight-link">Quality & Global Supply Chain</a>
+                    for supplier-management and multi-region program controls.
+                </p>
             </div>
         </section>
 
-        <section id="document-control">
+        <section id="certification-scope">
             <div class="content-container">
-                <h2>Advanced Document Control & Traceability</h2>
-                <p>
-                    We provide comprehensive quality documentation packages tailored to your project’s specific compliance mandates. Our engineering and quality teams seamlessly integrate with your internal portals to deliver:
-                </p>
+                <h2>How Certification Scope Should Be Verified</h2>
                 <ul>
-                    <li>
-                        <strong>AS9102 First Article Inspection (FAI):</strong> Complete dimensional mapping and process verification for aerospace and defense hardware.
-                    </li>
-                    <li>
-                        <strong>Production Part Approval Process (PPAP):</strong> Level 1 through Level 5 PPAP submissions, including Control Plans, FMEAs, and Capability Studies for automotive and industrial clients.
-                    </li>
-                    <li>
-                        <strong>Certified Material Test Reports (EN 10204 3.1):</strong> Unbroken chain of custody tracing exact chemical composition, tensile strength, and hardness properties back to the original heat/melt lot.
-                    </li>
+                    <li><strong>Legal entity and site:</strong> confirm that the certificate covers the facility performing the quoted work.</li>
+                    <li><strong>Scope statement:</strong> verify that the listed activities include the required manufacturing or service process.</li>
+                    <li><strong>Issuing body:</strong> confirm accreditation and certificate authenticity where appropriate.</li>
+                    <li><strong>Expiration and status:</strong> check current validity, suspension, withdrawal, or transition status.</li>
+                    <li><strong>Sub-tier processing:</strong> separately verify outside heat treatment, NDT, plating, laboratories, and other special processes.</li>
+                    <li><strong>Customer approvals:</strong> confirm approved-source lists, delegated inspection, and customer-specific restrictions.</li>
                 </ul>
             </div>
         </section>
 
-        <section id="tier-1-5-quality-umbrella">
+        <section id="quality-planning">
             <div class="content-container">
-                <h2>The Tier-1.5 Quality Umbrella</h2>
+                <h2>Quality Planning from RFQ to Production</h2>
+                <ol>
+                    <li><strong>Contract review:</strong> identify drawing notes, specifications, critical characteristics, quality clauses, and approval requirements.</li>
+                    <li><strong>Feasibility review:</strong> confirm process capability, measurement strategy, material availability, tooling, testing, and documentation.</li>
+                    <li><strong>Risk analysis:</strong> evaluate process steps, potential failure modes, severity, occurrence, controls, and reaction plans.</li>
+                    <li><strong>Control plan:</strong> define characteristics, methods, frequency, sample size, records, and response to nonconformance.</li>
+                    <li><strong>Validation:</strong> complete first article, PPAP, process qualification, or customer-specific approval before production release.</li>
+                    <li><strong>Production monitoring:</strong> review capability, inspection results, supplier performance, changes, and recurring issues.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="fai">
+            <div class="content-container">
+                <h2>First Article Inspection and AS9102 Support</h2>
+                <p>
+                    First article inspection demonstrates that the planned manufacturing process can produce a part that meets the defined design characteristics.
+                </p>
+                <ul>
+                    <li><strong>Ballooned drawing:</strong> assign a characteristic number to each reportable requirement.</li>
+                    <li><strong>Characteristic accountability:</strong> record nominal values, tolerances, results, and inspection methods.</li>
+                    <li><strong>Material and process records:</strong> include required certificates, approvals, and specification evidence.</li>
+                    <li><strong>Partial or full FAI:</strong> determine scope based on new parts, drawing changes, process changes, source changes, or production interruption.</li>
+                    <li><strong>Nonconformance control:</strong> document discrepancies, concessions, corrective action, and approval status.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="ppap">
+            <div class="content-container">
+                <h2>PPAP and Automotive Quality Documentation</h2>
+                <p>
+                    PPAP requirements vary by customer, submission level, component risk, and production program.
+                </p>
+                <ul>
+                    <li><strong>Design records and change documents:</strong> maintain approved drawings, specifications, and engineering changes.</li>
+                    <li><strong>Process flow and PFMEA:</strong> document manufacturing sequence, risks, controls, and prevention methods.</li>
+                    <li><strong>Control plan:</strong> define incoming, in-process, final, and reaction-plan requirements.</li>
+                    <li><strong>Measurement-system analysis:</strong> evaluate gauge repeatability, reproducibility, bias, and stability where required.</li>
+                    <li><strong>Capability studies:</strong> report process performance for designated characteristics when sufficient data and stable conditions exist.</li>
+                    <li><strong>Part submission warrant:</strong> summarize submission status and customer approval.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="material-traceability">
+            <div class="content-container">
+                <h2>Material Traceability and Inspection Documents</h2>
+                <ul>
+                    <li><strong>Heat and lot identification:</strong> maintain linkage from raw material through manufacturing and shipment where required.</li>
+                    <li><strong>EN 10204 Type 3.1:</strong> manufacturer-validated inspection documentation for the supplied product, when available and required.</li>
+                    <li><strong>EN 10204 Type 3.2:</strong> additional validation by the purchaser’s representative or an independent inspector when contractually arranged.</li>
+                    <li><strong>Certificates of conformity:</strong> confirm shipment compliance with stated purchase-order requirements.</li>
+                    <li><strong>Positive material identification:</strong> use XRF, OES, or other suitable methods when specified or risk-appropriate.</li>
+                    <li><strong>Record control:</strong> define retention, revision, retrieval, legibility, security, and customer-access requirements.</li>
+                </ul>
+                <p>
+                    Review
+                    <a href="/materials-technical-specs" class="highlight-link">materials and technical specifications</a>
+                    and
+                    <a href="/material-cross-reference-charts" class="highlight-link">material cross-reference charts</a>
+                    for alloy and specification context.
+                </p>
+            </div>
+        </section>
+
+        <section id="inspection-testing">
+            <div class="content-container">
+                <h2>Inspection, NDT and Test Planning</h2>
+                <ul>
+                    <li><strong>Dimensional inspection:</strong> CMM, gauges, optical systems, surface-finish measurement, and first-article reporting.</li>
+                    <li><strong>Surface NDT:</strong> penetrant or magnetic-particle testing where compatible with material and specification.</li>
+                    <li><strong>Volumetric NDT:</strong> radiographic or ultrasonic testing according to geometry, defect risk, and acceptance criteria.</li>
+                    <li><strong>Material testing:</strong> chemistry, tensile, yield, elongation, hardness, impact, metallography, corrosion, or other required testing.</li>
+                    <li><strong>Functional testing:</strong> pressure, leak, flow, torque, electrical, load, or customer-specific performance verification.</li>
+                </ul>
+                <p>
+                    Learn more about
+                    <a href="/testing-inspection-capabilities" class="highlight-link">testing and inspection capabilities</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="special-processes">
+            <div class="content-container">
+                <h2>Special-Process Qualification and Control</h2>
+                <p>
+                    Special processes require qualified procedures, trained personnel, controlled equipment, documented parameters, and approved sources because final inspection alone may not fully verify the result.
+                </p>
+                <ul>
+                    <li><strong>Heat treatment:</strong> furnace qualification, temperature uniformity, system accuracy, load records, quench control, and hardness or property verification.</li>
+                    <li><strong>NDT:</strong> personnel qualification, written practice, procedure approval, calibration, sensitivity, interpretation, and reporting.</li>
+                    <li><strong>Chemical processing and plating:</strong> bath control, pre-cleaning, masking, thickness, adhesion, hydrogen-embrittlement relief, and corrosion testing.</li>
+                    <li><strong>Welding and brazing:</strong> procedure qualification, personnel qualification, filler control, joint preparation, heat input, and inspection.</li>
+                    <li><strong>Laboratories:</strong> scope, method validation, calibration, traceability, proficiency, and reporting requirements.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="measurement">
+            <div class="content-container">
+                <h2>Measurement Systems, Calibration and Capability</h2>
+                <ul>
+                    <li><strong>Calibration:</strong> maintain equipment status, traceability, interval, acceptance criteria, and out-of-tolerance response.</li>
+                    <li><strong>Measurement uncertainty:</strong> ensure the method is suitable relative to the tolerance and decision rule.</li>
+                    <li><strong>Gauge R&amp;R:</strong> evaluate repeatability and reproducibility for critical production measurements where required.</li>
+                    <li><strong>Capability:</strong> calculate process indices only after confirming stable data, suitable measurement, and rational subgrouping.</li>
+                    <li><strong>Environmental control:</strong> account for temperature, cleanliness, vibration, humidity, and part stabilization where significant.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="nonconformance">
+            <div class="content-container">
+                <h2>Nonconformance and Corrective Action</h2>
+                <ul>
+                    <li><strong>Containment:</strong> identify affected material, stop further escape, segregate inventory, and protect the customer.</li>
+                    <li><strong>Disposition:</strong> use authorized review for rework, repair, use-as-is, return, or scrap decisions.</li>
+                    <li><strong>Root-cause analysis:</strong> distinguish occurrence cause, escape cause, and systemic cause.</li>
+                    <li><strong>Corrective action:</strong> implement process, documentation, training, tooling, inspection, or supplier changes.</li>
+                    <li><strong>Effectiveness verification:</strong> confirm that action prevents recurrence over an appropriate period and production quantity.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="change-control">
+            <div class="content-container">
+                <h2>Configuration and Manufacturing Change Control</h2>
+                <ul>
+                    <li><strong>Drawing revision:</strong> ensure production, inspection, tooling, and work instructions use the approved revision.</li>
+                    <li><strong>Process change:</strong> review machine, tooling, location, supplier, heat treatment, inspection, or sequence changes.</li>
+                    <li><strong>Material change:</strong> require equivalency review and formal approval before substitution.</li>
+                    <li><strong>Source transfer:</strong> complete qualification, first article, validation, and customer notification where required.</li>
+                    <li><strong>Record of approval:</strong> retain deviation, waiver, concession, and change-authorization evidence.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="integrated-quality">
+            <div class="content-container">
+                <h2>Integrated Quality Across Casting, Forging and Machining</h2>
+
                 <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
                     <div>
                         <p>
-                            In fragmented supply chains, defects often occur during vendor hand-offs (e.g., a foundry shipping an out-of-tolerance casting to a third-party machine shop). By executing casting, forging, Hot Isostatic Pressing (HIP), and 5-axis CNC machining under a single, unified quality umbrella, ForceBeyond eliminates dimensional disputes, reduces administrative friction, and assumes 100% accountability for the final component.
+                            Coordinating the complete manufacturing route can improve visibility between primary forming, heat treatment, machining, finishing, inspection, and assembly. The quality plan should define ownership and acceptance at every handoff rather than assume that integration eliminates all process risk.
                         </p>
+                        <ul>
+                            <li><strong>Upstream controls:</strong> material, tooling, casting or forging process, heat treatment, and NDT.</li>
+                            <li><strong>Machining controls:</strong> datum creation, probing, tool life, in-process checks, and final dimensional inspection.</li>
+                            <li><strong>Secondary controls:</strong> coating, cleaning, assembly, packaging, and shipment documentation.</li>
+                            <li><strong>Program oversight:</strong> supplier performance, changes, corrective action, schedule, and customer communication.</li>
+                        </ul>
                     </div>
+
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
-                                src="media/precision-micrometer-inspection-machined-metal-component.webp"
-                                alt="Quality inspector using a digital micrometer to measure a precision-machined metal component for dimensional accuracy and manufacturing compliance."
+                                src="/media/precision-micrometer-inspection-machined-metal-component.webp"
+                                alt="Digital micrometer inspection of a precision-machined metal component"
+                                width="1200"
+                                height="900"
+                                loading="lazy"
+                                decoding="async"
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+
+        <section id="quality-package">
+            <div class="content-container">
+                <h2>Typical Project Quality Documentation</h2>
+                <ul>
+                    <li><strong>Material:</strong> MTRs, chemistry, mechanical properties, heat and lot traceability, and PMI records.</li>
+                    <li><strong>Process:</strong> routing, control plan, process certificates, heat-treatment records, and special-process approvals.</li>
+                    <li><strong>Inspection:</strong> dimensional reports, FAI, PPAP, NDT, capability, gauge studies, and functional-test results.</li>
+                    <li><strong>Compliance:</strong> certificates of conformity, deviations, customer approvals, country-of-origin, and regulatory records.</li>
+                    <li><strong>Shipment:</strong> packing list, labels, serial or lot numbers, preservation, and customer-specific documentation.</li>
+                </ul>
             </div>
         </section>
 

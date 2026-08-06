@@ -1,124 +1,188 @@
 ---
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Nuclear & SMR Precision Components for Next-Gen Energy';
-const seoTitle = 'Nuclear & SMR Precision Components | ForceBeyond';
-const seoDescription = 'ForceBeyond delivers AS9100-certified precision components for Small Modular Reactors (SMRs), micro-reactors, and Gen IV nuclear power systems.';
+const pageTitle = 'Nuclear & SMR Components for Advanced Reactor Systems';
+const seoTitle = 'Nuclear & SMR Components | Castings, Forgings & Machining';
+const seoDescription = 'ForceBeyond supports nuclear and SMR programs with reactor internals, valve and pump components, pressure-boundary forgings, precision castings, rolled rings, CNC machining, HIP, heat treatment, NDT, and project-specific quality documentation.';
+
+const canonicalUrl = 'https://www.forcebeyond.com/nuclear-smr/';
+const socialImage = 'https://www.forcebeyond.com/media/nuclear-power-plant-cooling-towers-energy-generation.webp';
 
 const faqs = [
     {
-        q: "Why is AS9100 certification crucial for Nuclear SMR hardware?",
-        a: "AS9100 certification mandates an unbroken chain of custody, proactive risk management, and micro-tolerance precision (±0.0005\") on difficult-to-machine superalloys—providing the exact audit-ready quality controls needed for Safety-Related nuclear applications."
+        q: "What manufacturing processes are commonly used for nuclear and SMR components?",
+        a: "Depending on component function and qualification requirements, nuclear and SMR hardware may use investment casting, sand casting, open-die forging, closed-die forging, rolled-ring forging, wrought stock machining, HIP, heat treatment, welding, brazing, coatings, NDT, dimensional inspection, and pressure or leak testing."
     },
     {
-        q: "Which superalloy grades does ForceBeyond recommend for Molten Salt Reactor (MSR) components?",
-        a: "We recommend Inconel 625 and Hastelloy X. These alloys provide exceptional oxidation and corrosion resistance against fluoride and chloride salts at temperatures exceeding 1,200°F (650°C), while maintaining high creep-rupture strength."
+        q: "Can ForceBeyond manufacture safety-related nuclear components?",
+        a: "Safety classification, code scope, material, approved source, quality program, documentation, and regulatory requirements must be defined by the customer and governing contract. ForceBeyond may support nuclear manufacturing programs through qualified facilities and suppliers, but no component should be represented as safety-related, code-stamped, or nuclear-qualified without the applicable approvals and documented scope."
+    },
+    {
+        q: "Which alloys are used in molten salt, high-temperature gas, or sodium-cooled systems?",
+        a: "Candidate materials vary by coolant chemistry, temperature, irradiation, pressure, weldability, corrosion mechanism, and design code. Nickel alloys, stainless steels, ferritic or martensitic steels, zirconium alloys, and other materials may be evaluated, but final material selection must come from the reactor designer, governing specification, and validated test data."
+    },
+    {
+        q: "What information is needed for a nuclear or SMR component quote?",
+        a: "Provide drawings, CAD, material and product form, code or specification, safety classification, annual quantity, operating temperature and pressure, irradiation or coolant environment, heat treatment, NDT, inspection frequency, traceability, documentation, approved-source restrictions, export-control requirements, and target delivery schedule."
     }
 ];
 
-// Sources
 const sources = [
-    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
-    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
-    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
-    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
-    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
-    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
+    { label: 'U.S. Nuclear Regulatory Commission - Advanced Reactor and SMR Resources', url: 'https://www.nrc.gov/' },
+    { label: 'U.S. Department of Energy - Advanced Nuclear Energy Resources', url: 'https://www.energy.gov/ne' },
+    { label: 'ASME - Boiler and Pressure Vessel Code Resources', url: 'https://www.asme.org/codes-standards' },
+    { label: 'ASTM International - Nuclear Materials and Testing Standards', url: 'https://www.astm.org/' },
+    { label: 'ASM International - Nuclear and High-Temperature Materials', url: 'https://www.asminternational.org/' },
+    { label: 'Forging Industry Association - Forging Design and Process Resources', url: 'https://www.forging.org/' }
 ];
 
-// Resources
 const internalResources = [
-    // Die Casting Resources
-    { label: "Die Casting Overview", url: "die-casting" },
-    { label: "Aluminum Die Casting", url: "aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "a356-t6-casting" },
-    { label: "Magnesium Casting", url: "magnesium-casting" },
+    // Industry Hubs
+    { label: "Energy & Power Generation", url: "/energy-power-generation" },
+    { label: "Power Generation", url: "/power-generation" },
+    { label: "Data Center Power", url: "/data-center-power" },
+    { label: "Oil & Gas", url: "/oil-gas" },
+    { label: "HVAC, Fluid & Flow Control", url: "/hvac-flow" },
 
-    // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "duplex-stainless-steel-casting" },
+    // Casting
+    { label: "Casting Capabilities", url: "/casting" },
+    { label: "Investment Casting", url: "/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
+    { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
+    { label: "Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
 
-    // Forging Resources
-    { label: "Forging Capabilities Overview", url: "forging" },
-    { label: "Open Die Forging", url: "open-die-forging" },
-    { label: "Closed Die Forging", url: "closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "rolled-ring-forging" },
-    { label: "Cold Forging", url: "cold-forging" },
-    { label: "Superalloy Forging Services", url: "superalloy-forging-services" },
+    // Forging
+    { label: "Forging Capabilities", url: "/forging" },
+    { label: "Open Die Forging", url: "/open-die-forging" },
+    { label: "Closed Die Forging", url: "/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
 
-    // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "carbon-steel-casting" }
+    // Machining and Secondary Operations
+    { label: "Precision Machining", url: "/precision-machining" },
+    { label: "High-Precision Component Machining", url: "/high-precision-machining" },
+    { label: "Multi-Axis CNC Milling & Turning", url: "/multi-axis-cnc" },
+    { label: "Hot Isostatic Pressing (HIP)", url: "/hot-isostatic-pressing" },
+    { label: "Heat Treatment", url: "/heat-treatment" },
+    { label: "Surface Finishing & Coating", url: "/surface-finishing" },
+    { label: "Assembly & Kitting", url: "/assembly-and-kitting" },
+
+    // Materials, Quality, and Technical
+    { label: "Superalloys & Exotic Metals", url: "/superalloys-exotic-metals" },
+    { label: "Titanium Alloys", url: "/titanium-alloys" },
+    { label: "Stainless Steel & Carbon Steel", url: "/stainless-carbon-steel" },
+    { label: "Materials & Technical Specifications", url: "/materials-technical-specs" },
+    { label: "Material Cross-Reference Charts", url: "/material-cross-reference-charts" },
+    { label: "Manufacturing Design Guides", url: "/manufacturing-design-guides" },
+    { label: "Quality Assurance & Certifications", url: "/quality-assurance-certifications" },
+    { label: "Testing & Inspection Capabilities", url: "/testing-inspection-capabilities" },
+    { label: "Global Footprint & Logistics", url: "/global-footprint-logistics" }
 ];
 
-// Page Schema
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.storenuclear-smr#webpage",
-      "url": "https://www.forcebeyond.storenuclear-smr",
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store/oscar#website",
+        "@id": "https://www.forcebeyond.com/#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar"
-      }
+        "url": "https://www.forcebeyond.com/"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": socialImage
+      },
+      "breadcrumb": {
+        "@id": `${canonicalUrl}#breadcrumb`
+      },
+      "about": [
+        { "@type": "Thing", "name": "Small modular reactor components" },
+        { "@type": "Thing", "name": "Advanced nuclear manufacturing" },
+        { "@type": "Thing", "name": "Nuclear forgings" },
+        { "@type": "Thing", "name": "Nuclear valve and pump components" },
+        { "@type": "Thing", "name": "Reactor internals" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.forcebeyond.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Industries",
+          "item": "https://www.forcebeyond.com/industries/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Nuclear & SMR",
+          "item": canonicalUrl
+        }
+      ]
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.storenuclear-smr#service",
-      "name": "Nuclear & SMR Precision Component Manufacturing",
-      "serviceType": "Safety-Critical Nuclear Power Components",
+      "@id": `${canonicalUrl}#service`,
+      "name": "Nuclear and SMR Component Manufacturing",
+      "serviceType": "Casting, Forging, Machining and Inspection for Advanced Nuclear Systems",
       "description": seoDescription,
+      "url": canonicalUrl,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store/oscar#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar",
-        "knowsAbout": [
-          "Vacuum Precision Investment Casting (VIM)",
-          "Seamless Rolled Ring Forging for Pressure Vessels",
-          "Hot Isostatic Pressing (HIP) for 100% Structural Density",
-          "AS9100 Rev D & ISO 9001:2015 Quality Systems",
-          "Small Modular Reactors (SMR) & Micro-Reactor Hardware"
-        ]
+        "@id": "https://www.forcebeyond.com/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Nuclear & SMR Capabilities",
+        "name": "Nuclear and SMR Manufacturing Capabilities",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Reactor Internals",
-              "description": "Control rod drive mechanism housings, fuel spacers, and core grid plates manufactured from Inconel 718 and nuclear grade 316L."
+              "name": "Reactor Internals and Structural Hardware",
+              "description": "Project-specific cast, forged, and machined internals, supports, housings, grids, spacers, brackets, and structural components."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Flow Control & Valves",
-              "description": "Forged valve bodies and steam isolation valves engineered for molten salt and extreme cooling media."
+              "name": "Pressure-Boundary Forgings and Rolled Rings",
+              "description": "Open-die, closed-die, and rolled-ring forgings for flanges, rings, nozzles, closures, manways, and pressure-retaining hardware."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Pressure Boundary Forgings",
-              "description": "Heavy seamless rolled rings for reactor pressure vessel flanges and manway covers."
+              "name": "Valve, Pump and Flow-Control Components",
+              "description": "Cast, forged, and machined valve bodies, pump components, impellers, manifolds, fittings, and fluid-system hardware."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Inspection, Traceability and Documentation",
+              "description": "Project-specific NDT, dimensional inspection, mechanical testing, material records, traceability, and quality documentation."
             }
           }
         ]
@@ -126,13 +190,13 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.storenuclear-smr#faq",
-      "mainEntity": faqs.map(f => ({
+      "@id": `${canonicalUrl}#faq`,
+      "mainEntity": faqs.map((faq) => ({
         "@type": "Question",
-        "name": f.q,
+        "name": faq.q,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": f.a
+          "text": faq.a
         }
       }))
     }
@@ -143,77 +207,85 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
     pageTitle={pageTitle}
-    heroImage="media/nuclear-power-plant-cooling-towers-energy-generation.webp"
-    heroImageAlt="Nuclear power plant with illuminated cooling towers, steam plumes, and electrical transmission infrastructure at night."
+    heroImage="/media/nuclear-power-plant-cooling-towers-energy-generation.webp"
+    heroImageAlt="Nuclear power generation infrastructure with cooling towers and electrical transmission systems"
+    heroImageWidth={1920}
+    heroImageHeight={1080}
+    socialImage={socialImage}
+    socialImageAlt="Nuclear and small modular reactor component manufacturing"
     faqSectionTitle="Frequently Asked Questions: Nuclear & SMR Components"
     faqItems={faqs}
-    ctaTitle="Ready to Power Next-Gen Nuclear Infrastructure?"
-    ctaDescription="Partner with our engineering team for audit-ready, precision-crafted components built for safety-critical SMR and Gen IV applications."
-    sourcesTitle="Sources"
+    ctaTitle="Review a Nuclear or SMR Component Program"
+    ctaDescription="Send your drawings, material, code requirements, safety classification, quantity, operating conditions, heat treatment, NDT, traceability, documentation, approved-source restrictions, and delivery targets for an engineering review."
+    ctaButtonText="Request a Nuclear Component Review"
+    sourcesTitle="Nuclear, SMR and Materials References"
     sourcesList={sources}
-    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesTitle="Related Nuclear, Casting, Forging, Machining and Quality Resources"
     resourcesList={internalResources}
 >
-
     <div slot="full-width" class="individual-content">
 
         <section id="overview">
             <div class="content-container">
-                
-                <h2>Nuclear & SMR Precision Components for Next-Gen Energy</h2>
-                        <p>
-                            ForceBeyond is an AS9100-certified, Tier-1.5 contract manufacturer specializing in safety-critical precision components for Small Modular Reactors (SMRs), micro-reactors, and Generation IV nuclear power systems. As global utilities and tech hyperscalers deploy dedicated Nuclear Microgrids to supply emission-free, gigawatt-scale power directly to AI data center campuses, ForceBeyond delivers the high-integrity hardware required for the nuclear renaissance.
-                        </p>
-                        <p>
-                            Utilizing Vacuum Precision Casting, heavy-tonnage seamless ring rolling, and advanced 5-axis CNC machining, we manufacture reactor internals, flow control valve bodies, and pressure boundary forgings. Our tri-regional manufacturing network (USA, South Korea, Taiwan) guarantees absolute material traceability, zero-porosity metallurgical purity, and strict audit-ready compliance.
-                        </p>
-                    </div>
+                <h2>Manufacturing Support for Nuclear, SMR and Advanced Reactor Components</h2>
+                <p>
+                    Small modular reactors, microreactors, and advanced reactor concepts require components capable of operating under demanding combinations of temperature, pressure, irradiation, corrosion, fatigue, creep, and long service intervals.
+                </p>
+                <p>
+                    ForceBeyond supports nuclear and SMR programs through
+                    <a href="/investment-casting" class="highlight-link">investment casting</a>,
+                    <a href="/forging" class="highlight-link">forging</a>,
+                    <a href="/rolled-ring-forging" class="highlight-link">rolled-ring production</a>,
+                    <a href="/precision-machining" class="highlight-link">precision machining</a>,
+                    HIP, heat treatment, finishing, inspection, and supply-chain coordination.
+                </p>
+                <p>
+                    Final process route, quality system, source approval, safety classification, code applicability, documentation, and regulatory requirements must be defined by the customer and governing contract.
+                </p>
             </div>
         </section>
 
-        <section id="component-portfolio">
+        <section id="reactor-types">
             <div class="content-container">
-                <h2>Safety-Critical Component Portfolio & Material Matrix</h2>
-                <p>
-                    Advanced SMRs and advanced cooling loops (including molten salt, high-temperature gas, and liquid sodium) subject internal hardware to extreme neutron irradiation, thermal creep, and corrosive cooling media. ForceBeyond manufactures high-precision components engineered for 60+ year design lifespans:
-                </p>
+                <h2>Advanced Reactor and SMR Applications</h2>
                 <div class="content-table-wrapper">
                     <table>
                         <thead>
                             <tr>
-                                <th scope="col">Component Category</th>
-                                <th scope="col">Primary Applications</th>
-                                <th scope="col">Material Expertise</th>
-                                <th scope="col">Technical Performance Attribute</th>
+                                <th scope="col">Reactor or System Type</th>
+                                <th scope="col">Representative Component Needs</th>
+                                <th scope="col">Material and Process Considerations</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <tr>
-                                <th scope="row">Reactor Internals</th>
-                                <td>Control Rod Drive Mechanism (CRDM) housings, fuel spacers, core grid plates</td>
-                                <td>Inconel 718, Low-Cobalt Nuclear Grade 316L</td>
-                                <td>Maintains high yield strength (1,035MPa) and dimensional stability under intense irradiation.</td>
+                                <th scope="row">Light-Water SMRs</th>
+                                <td>Pressure-boundary hardware, valve bodies, pump components, reactor internals, supports, flanges, rings, and fittings</td>
+                                <td>Code-defined materials, fracture toughness, corrosion resistance, weldability, NDT, traceability, and pressure testing</td>
                             </tr>
                             <tr>
-                                <th scope="row">Flow Control & Valves</th>
-                                <td>Forged valve bodies, steam isolation valves, main steamline fittings</td>
-                                <td>Hastelloy X, Duplex 2205, Super Duplex</td>
-                                <td>Superior resistance to hot stress corrosion cracking (SCC) and aggressive liquid cooling media.</td>
+                                <th scope="row">Microreactors</th>
+                                <td>Compact structural hardware, heat-transfer components, shielding supports, vessel hardware, transportable module components</td>
+                                <td>Compact geometry, thermal cycling, transport loads, modular assembly, inspection access, and field serviceability</td>
                             </tr>
                             <tr>
-                                <th scope="row">Pressure Boundary</th>
-                                <td>Reactor Pressure Vessel (RPV) forged rings, vessel flanges, manway covers</td>
-                                <td>SA-508 Gr. 3, Inconel 625 (ASTM B564)</td>
-                                <td>Heavy seamless rolled rings providing high hoop strength and fracture toughness under thermal pressure cycles.</td>
+                                <th scope="row">Molten Salt Reactors</th>
+                                <td>Salt-contacting vessels, valve bodies, pump housings, impellers, manifolds, heat-exchanger hardware, and structural components</td>
+                                <td>Coolant chemistry, impurity control, corrosion, mass transfer, temperature, weldability, and qualification data</td>
                             </tr>
                             <tr>
-                                <th scope="row">Pump Components</th>
-                                <td>Canned motor pump housings, precision-machined primary loop impellers</td>
-                                <td>Ti-6Al-4V Titanium, Zirconium, Monel</td>
-                                <td>Vacuum-cast and HIPed for 100% pressure-tight, zero-porosity fluid containment.</td>
+                                <th scope="row">High-Temperature Gas Reactors</th>
+                                <td>Heat-exchanger hardware, pressure-boundary parts, internal supports, control-system components, and high-temperature structures</td>
+                                <td>Creep, oxidation, helium compatibility, thermal gradients, graphite interaction, and elevated-temperature code rules</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Sodium-Cooled Fast Reactors</th>
+                                <td>Pump and valve components, piping hardware, vessels, internals, supports, and heat-transfer components</td>
+                                <td>Sodium compatibility, thermal shock, leak detection, cleanliness, weld integrity, and inspection planning</td>
                             </tr>
                         </tbody>
                     </table>
@@ -221,48 +293,324 @@ const pageSchema = {
             </div>
         </section>
 
-        <section id="strategic-solutions">
+        <section id="component-portfolio">
             <div class="content-container">
-                <h2>Strategic Manufacturing Solutions for Advanced Nuclear</h2>
-                <p>
-                    ForceBeyond provides end-to-end manufacturing capabilities for primary loop cooling and reactor safety systems:
-                </p>
-                <ul>
-                    <li>
-                        <strong>Small Modular Reactors (SMRs):</strong> Factory-built, near-net-shape investment castings and forgings for modular reactor modules.
-                    </li>
-                    <li>
-                        <strong>Micro-Reactors:</strong> High-integrity compact castings and structural forgings for decentralized and mobile clean power units.
-                    </li>
-                    <li>
-                        <strong>Generation IV & Molten Salt Reactors:</strong> Specialized vacuum superalloy casting (Inconel 625, Hastelloy X) engineered for high molten fluoride/chloride salt corrosion resistance.
-                    </li>
-                    <li>
-                        <strong>First-of-a-Kind (FOAK) Support:</strong> Rapid prototyping and engineering development to accelerate SMR design-to-deployment timelines.
-                    </li>
-                </ul>
+                <h2>Nuclear and SMR Component Portfolio</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Component Family</th>
+                                <th scope="col">Representative Hardware</th>
+                                <th scope="col">Potential Manufacturing Route</th>
+                                <th scope="col">Key Verification Needs</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Reactor Internals</th>
+                                <td>Supports, housings, grids, spacers, guide structures, brackets, and internal hardware</td>
+                                <td>Investment casting, forging, plate or bar machining, approved joining, heat treatment</td>
+                                <td>Material traceability, dimensional inspection, NDT, surface condition, configuration control</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Pressure-Boundary Hardware</th>
+                                <td>Forged rings, flanges, nozzles, closures, manways, covers, vessel transition pieces</td>
+                                <td>Open-die forging, rolled-ring forging, heat treatment, rough machining, ultrasonic inspection, finish machining</td>
+                                <td>Fracture toughness, ultrasonic testing, mechanical properties, dimensions, documentation, approved material source</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Valves and Flow Control</th>
+                                <td>Valve bodies, bonnets, seats, stems, manifolds, fittings, steam or coolant-system hardware</td>
+                                <td>Forging, investment casting, sand casting, machining, hardfacing or coating where specified</td>
+                                <td>Pressure integrity, NDT, material verification, seat geometry, leak testing, corrosion compatibility</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Pump Components</th>
+                                <td>Pump housings, impellers, shafts, diffusers, covers, canned-motor structures</td>
+                                <td>Casting, forging, machining, heat treatment, coating, balancing, pressure testing</td>
+                                <td>Flow geometry, balance, pressure containment, surface finish, NDT, dimensional accuracy</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Heat-Transfer and Support Hardware</th>
+                                <td>Heat-exchanger components, plates, manifolds, supports, frames, brackets, and transition pieces</td>
+                                <td>Forging, casting, machining, fabrication, joining, heat treatment, finishing</td>
+                                <td>Thermal cycling, dimensional stability, weld or braze quality, cleanliness, leak testing, traceability</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </section>
 
-        <section id="casting-hip-protocol">
+        <section id="material-selection">
             <div class="content-container">
-                <h2>Vacuum Precision Casting & HIP Protocol</h2>
+                <h2>Materials for Nuclear and Advanced Reactor Components</h2>
                 <p>
-                    To satisfy the zero-defect mandates of the nuclear industry, ForceBeyond enforces a strict VIM + HIP production protocol:
+                    Material selection should be controlled by the reactor designer, governing code, coolant chemistry, irradiation conditions, service temperature, pressure, weldability, fracture behavior, and available qualification data.
                 </p>
-                <blockquote class="my-4 italic">
-                    Vacuum Induction Melting (VIM) &rarr; Precision Investment Casting &rarr; Hot Isostatic Pressing (HIP) &rarr; 5-Axis CNC Machining &rarr; 100% NDT (X-Ray/FPI/CMM)
-                </blockquote>
                 <ul>
-                    <li>
-                        <strong>VIM Casting:</strong> Melting superalloys in a high-vacuum chamber eliminates dissolved gases, slag, and non-metallic inclusions, ensuring ultra-pure grain structures.
-                    </li>
-                    <li>
-                        <strong>Hot Isostatic Pressing (HIP):</strong> Subjecting cast components to simultaneous high temperature and 15,000+ psi argon pressure "heals" internal microscopic voids, yielding 100% theoretical density.
-                    </li>
-                    <li>
-                        <strong>Audit-Ready Documentation:</strong> Every shipment includes comprehensive NDT inspection reports (Radiographic X-ray, Fluorescent Penetrant Inspection), CMM dimensional maps, and EN 10204 3.1 MTRs tracing parts directly to the raw melt.
-                    </li>
+                    <li><strong>Austenitic stainless steels:</strong> used in selected internals, piping, valve, pump, and heat-transfer applications.</li>
+                    <li><strong>Low-alloy and ferritic steels:</strong> used in selected pressure-vessel, flange, ring, shaft, and structural applications.</li>
+                    <li><strong>Nickel-base alloys:</strong> considered for elevated-temperature, corrosion-resistant, weld-overlay, valve, steam-generator, or advanced-coolant applications.</li>
+                    <li><strong>Duplex and super duplex stainless steels:</strong> may be evaluated for selected balance-of-plant or cooling-water applications, subject to code and environment.</li>
+                    <li><strong>Titanium and zirconium alloys:</strong> used in specific corrosion-resistant, heat-transfer, fuel-system, or reactor applications according to validated design requirements.</li>
+                </ul>
+                <p>
+                    Review
+                    <a href="/materials-technical-specs" class="highlight-link">materials and technical specifications</a>
+                    and
+                    <a href="/material-cross-reference-charts" class="highlight-link">material cross-reference charts</a>
+                    for specification context. Cross-referenced grades should not be treated as automatically interchangeable.
+                </p>
+            </div>
+        </section>
+
+        <section id="process-matrix">
+            <div class="content-container">
+                <h2>Component-to-Manufacturing Process Matrix</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Component Type</th>
+                                <th scope="col">Preferred Starting Route</th>
+                                <th scope="col">Secondary Operations</th>
+                                <th scope="col">Typical Inspection</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Large Rings and Flanges</th>
+                                <td>Rolled-ring or open-die forging</td>
+                                <td>Heat treatment, rough machining, stress relief where required, finish machining</td>
+                                <td>Ultrasonic testing, mechanical testing, hardness, dimensional inspection, material documentation</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Complex Valve or Pump Bodies</th>
+                                <td>Investment casting, sand casting, or closed-die forging depending on size and geometry</td>
+                                <td>HIP where specified, heat treatment, machining, coating, pressure testing</td>
+                                <td>Radiography or UT as applicable, penetrant or magnetic-particle inspection, CMM, pressure or leak testing</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Internal Supports and Housings</th>
+                                <td>Investment casting, forging, plate, or wrought stock</td>
+                                <td>Machining, approved joining, heat treatment, passivation or coating</td>
+                                <td>Dimensional inspection, surface NDT, material verification, weld inspection where applicable</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Pump Impellers and Flow Components</th>
+                                <td>Investment casting, sand casting, or wrought stock machining</td>
+                                <td>HIP where specified, heat treatment, machining, polishing, balancing</td>
+                                <td>Radiography, penetrant inspection, dimensional inspection, balance, pressure or performance testing</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Prototype and FOAK Hardware</th>
+                                <td>Machined billet, prototype casting, forging, or hybrid route</td>
+                                <td>Rapid tooling, machining, heat treatment, surface finishing, assembly</td>
+                                <td>First article, dimensional comparison, NDT, material testing, design-review feedback</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="casting">
+            <div class="content-container">
+                <h2>Investment and Sand Casting for Nuclear Hardware</h2>
+                <ul>
+                    <li><strong>Investment casting:</strong> useful for complex near-net geometry, internal passages, thin-to-moderate sections, and reduced machining stock.</li>
+                    <li><strong>Vacuum melting and pouring:</strong> may be used for reactive or high-alloy materials where chemistry and cleanliness require controlled atmosphere.</li>
+                    <li><strong>Sand casting:</strong> may suit larger valve bodies, pump housings, structural hardware, and lower-volume components.</li>
+                    <li><strong>HIP:</strong> may reduce internal porosity in qualified cast products when specified, but does not guarantee defect-free or fully dense material in every geometry.</li>
+                    <li><strong>Qualification:</strong> casting procedure, heat treatment, test coupons, NDT, repair policy, and acceptance criteria should be agreed before production.</li>
+                </ul>
+                <p>
+                    See
+                    <a href="/investment-casting" class="highlight-link">investment casting</a>,
+                    <a href="/inconel-vacuum-precision-casting" class="highlight-link">Inconel vacuum precision casting</a>,
+                    and
+                    <a href="/carbon-steel-casting" class="highlight-link">carbon and low-alloy steel casting</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="forging">
+            <div class="content-container">
+                <h2>Forgings and Rolled Rings for Pressure and Structural Applications</h2>
+                <ul>
+                    <li><strong>Open-die forging:</strong> suitable for large shafts, hubs, blocks, discs, nozzles, and pressure-boundary preforms.</li>
+                    <li><strong>Closed-die forging:</strong> supports repeatable near-net shapes where volume and tooling economics justify the process.</li>
+                    <li><strong>Rolled rings:</strong> used for flanges, vessel rings, closures, bearing rings, and other circumferential components.</li>
+                    <li><strong>Grain flow:</strong> forging route and reduction schedule should support loading direction, toughness, and inspection requirements.</li>
+                    <li><strong>Test material:</strong> prolongations, coupons, sacrificial zones, or test rings may be required by code or purchase specification.</li>
+                </ul>
+                <p>
+                    Review
+                    <a href="/open-die-forging" class="highlight-link">open-die forging</a>
+                    and
+                    <a href="/rolled-ring-forging" class="highlight-link">rolled-ring forging</a>
+                    for additional process guidance.
+                </p>
+            </div>
+        </section>
+
+        <section id="hip-heat-treatment">
+            <div class="content-container">
+                <h2>HIP and Heat Treatment Planning</h2>
+                <p>
+                    HIP and heat treatment should be controlled through material-specific procedures, qualified equipment, defined temperature and pressure cycles, furnace surveys, records, and post-process verification.
+                </p>
+                <ul>
+                    <li><strong>HIP:</strong> may close selected internal porosity and support property consistency in qualified cast or powder-based products.</li>
+                    <li><strong>Solution treatment and aging:</strong> used for selected nickel alloys, precipitation-hardening stainless steels, and other age-hardenable materials.</li>
+                    <li><strong>Quench and temper:</strong> used for selected alloy steels where strength, toughness, and hardness must be balanced.</li>
+                    <li><strong>Stress relief:</strong> may be used between rough and finish machining to control residual stress and distortion.</li>
+                    <li><strong>Verification:</strong> hardness, tensile, impact, microstructure, grain size, dimensional stability, and other tests may apply.</li>
+                </ul>
+                <p>
+                    Learn more about
+                    <a href="/hot-isostatic-pressing" class="highlight-link">Hot Isostatic Pressing</a>
+                    and
+                    <a href="/heat-treatment" class="highlight-link">heat treatment</a>.
+                </p>
+            </div>
+        </section>
+
+        <section id="quality-code">
+            <div class="content-container">
+                <h2>Nuclear Quality, Code Scope and Source Approval</h2>
+                <p>
+                    Nuclear manufacturing requirements vary significantly by safety classification, component function, jurisdiction, owner, reactor design, and applicable code.
+                </p>
+                <ul>
+                    <li><strong>Code applicability:</strong> define ASME, ASTM, customer, regulatory, or project-specific requirements before quoting.</li>
+                    <li><strong>Quality program:</strong> confirm required quality-system scope, audit status, approved suppliers, and sub-tier controls.</li>
+                    <li><strong>Safety classification:</strong> identify safety-related, safety-significant, commercial-grade, balance-of-plant, or other project designation.</li>
+                    <li><strong>Commercial-grade dedication:</strong> define critical characteristics, source evaluation, testing, acceptance, and documentation where applicable.</li>
+                    <li><strong>Source approval:</strong> verify material mills, forges, foundries, heat treaters, NDT providers, laboratories, and repair sources.</li>
+                </ul>
+                <p>
+                    Review
+                    <a href="/quality-assurance-certifications" class="highlight-link">quality assurance and certifications</a>
+                    for broader quality-system and documentation information.
+                </p>
+            </div>
+        </section>
+
+        <section id="inspection-testing">
+            <div class="content-container">
+                <h2>NDT, Dimensional Inspection and Material Testing</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Method</th>
+                                <th scope="col">Typical Use</th>
+                                <th scope="col">Planning Considerations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Radiographic Testing</th>
+                                <td>Volumetric evaluation of selected castings and weldments</td>
+                                <td>Technique, geometry, section thickness, image quality, defect orientation, and acceptance standard</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Ultrasonic Testing</th>
+                                <td>Forgings, rings, shafts, plate, welds, and selected castings</td>
+                                <td>Grain structure, attenuation, calibration, scan plan, surface condition, and reference standards</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Penetrant or Magnetic-Particle Inspection</th>
+                                <td>Surface-breaking discontinuities in compatible materials</td>
+                                <td>Material compatibility, surface preparation, sensitivity, personnel qualification, and acceptance criteria</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Dimensional Inspection</th>
+                                <td>GD&T, profile, position, runout, wall thickness, sealing surfaces, and assembly interfaces</td>
+                                <td>Datum strategy, measurement uncertainty, temperature, fixturing, access, and reporting format</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Mechanical and Metallurgical Testing</th>
+                                <td>Tensile, impact, hardness, chemistry, microstructure, grain size, ferrite, corrosion, or other project tests</td>
+                                <td>Specimen location, orientation, heat treatment, lot definition, test standard, and acceptance criteria</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>
+                    See
+                    <a href="/testing-inspection-capabilities" class="highlight-link">testing and inspection capabilities</a>
+                    for detailed method-selection guidance.
+                </p>
+            </div>
+        </section>
+
+        <section id="traceability">
+            <div class="content-container">
+                <h2>Material Traceability and Documentation</h2>
+                <ul>
+                    <li><strong>Heat and lot control:</strong> preserve identification from raw material through manufacturing and shipment where required.</li>
+                    <li><strong>Material records:</strong> include MTRs, chemistry, mechanical properties, heat treatment, and approved-source evidence.</li>
+                    <li><strong>Process records:</strong> maintain forging, casting, HIP, furnace, coating, NDT, weld, and repair documentation as applicable.</li>
+                    <li><strong>Inspection records:</strong> dimensional reports, first article, NDT, test results, calibration, and nonconformance documentation.</li>
+                    <li><strong>Record retention:</strong> define duration, format, revision control, accessibility, cybersecurity, and customer access.</li>
+                </ul>
+                <p>
+                    Documentation content should be contractually defined. Not every shipment automatically includes every possible report or EN 10204 inspection document.
+                </p>
+            </div>
+        </section>
+
+        <section id="foak-prototyping">
+            <div class="content-container">
+                <h2>FOAK, Prototype and Development Support</h2>
+                <ul>
+                    <li><strong>Design-for-manufacturability review:</strong> evaluate material, geometry, tooling, machining, inspection, and assembly risks early.</li>
+                    <li><strong>Prototype routing:</strong> compare machined billet, rapid tooling, prototype casting, forging, and hybrid routes.</li>
+                    <li><strong>Test hardware:</strong> produce coupons, mockups, flow loops, pressure-test articles, and development assemblies where required.</li>
+                    <li><strong>Design iteration:</strong> incorporate dimensional, NDT, material, corrosion, and assembly feedback into the next revision.</li>
+                    <li><strong>Production transition:</strong> establish qualified tooling, sources, control plans, first article, and change control before scaling.</li>
+                </ul>
+                <p>
+                    Review the
+                    <a href="/manufacturing-design-guides" class="highlight-link">manufacturing design guides</a>
+                    for DFM and early-stage engineering considerations.
+                </p>
+            </div>
+        </section>
+
+        <section id="supply-chain">
+            <div class="content-container">
+                <h2>Nuclear Supply Chain and Program Management</h2>
+                <ul>
+                    <li><strong>Approved-source planning:</strong> confirm mills, foundries, forges, heat treaters, NDT providers, laboratories, and coating sources.</li>
+                    <li><strong>Long-lead materials:</strong> plan ingot, billet, master heat, special alloy, tooling, test material, and capacity requirements.</li>
+                    <li><strong>Configuration control:</strong> manage drawing, specification, material, process, source, tooling, and inspection revisions.</li>
+                    <li><strong>Export and data controls:</strong> identify restricted technical data, end use, end user, destination, and access limitations.</li>
+                    <li><strong>Packaging and preservation:</strong> protect machined, passivated, coated, or pressure-boundary components during storage and shipment.</li>
+                </ul>
+                <p>
+                    See
+                    <a href="/global-footprint-logistics" class="highlight-link">global footprint and logistics</a>
+                    for supply-chain, customs, warehousing, and delivery planning.
+                </p>
+            </div>
+        </section>
+
+        <section id="rfq-checklist">
+            <div class="content-container">
+                <h2>Nuclear and SMR Component RFQ Checklist</h2>
+                <ul>
+                    <li><strong>Technical package:</strong> drawing, CAD, revision, bill of materials, configuration, and design authority.</li>
+                    <li><strong>Code and classification:</strong> applicable code, safety class, quality clauses, commercial-grade dedication, and regulatory requirements.</li>
+                    <li><strong>Material:</strong> alloy, product form, specification, heat treatment, approved mill or source, and test requirements.</li>
+                    <li><strong>Operating conditions:</strong> temperature, pressure, coolant, irradiation, cyclic duty, corrosion environment, and design life.</li>
+                    <li><strong>Inspection:</strong> NDT, first article, dimensional inspection, mechanical testing, pressure testing, and acceptance criteria.</li>
+                    <li><strong>Documentation:</strong> MTRs, certificates, traceability, process records, retention, cybersecurity, and shipment package.</li>
+                    <li><strong>Commercial:</strong> prototype quantity, annual volume, lot size, tooling, target delivery, and program duration.</li>
                 </ul>
             </div>
         </section>

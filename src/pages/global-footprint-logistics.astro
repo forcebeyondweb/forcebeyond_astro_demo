@@ -1,108 +1,190 @@
 ---
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Global Footprint & Logistics: Tri-Regional Supply Chain Resilience';
-const seoTitle = 'Global Footprint & Logistics Network | ForceBeyond';
-const seoDescription = 'ForceBeyond’s tri-regional manufacturing network across the USA, South Korea, and Taiwan provides Tier-1 OEMs with geopolitical risk mitigation and flexible logistics.';
+const pageTitle = 'Global Manufacturing Footprint, Logistics & Supply Chain Resilience';
+const seoTitle = 'Global Manufacturing Footprint & Logistics | ForceBeyond';
+const seoDescription = 'ForceBeyond supports global metal-component programs through multi-region manufacturing coordination, freight planning, customs documentation, domestic inventory, kitting, packaging, and supply-chain risk management.';
+
+const canonicalUrl = 'https://www.forcebeyond.com/global-footprint-logistics/';
+const socialImage = 'https://www.forcebeyond.com/media/global-logistics-supply-chain-transportation-network-hero.webp';
 
 const faqs = [
     {
-        q: "How does ForceBeyond handle ITAR compliance if you have overseas facilities?",
-        a: "Compliance and intellectual property security are strictly enforced. Any project designated as ITAR (International Traffic in Arms Regulations) or defense-related is isolated and manufactured exclusively within our US-based manufacturing footprint. We never export ITAR-controlled technical data to our South Korean or Taiwanese facilities."
+        q: "How are export-controlled or defense-related projects handled?",
+        a: "Export-controlled projects require a project-specific compliance review covering technical data, end use, end user, destination, citizenship or access restrictions, approved facilities, licensing, and customer flow-down requirements. ITAR- or EAR-controlled information should only be shared with authorized parties and locations under the applicable compliance plan."
     },
     {
-        q: "Can ForceBeyond hold safety stock and release it based on our production schedule?",
-        a: "Yes. To help our Tier-1 and Tier-2 OEM partners optimize cash flow and reduce warehouse space, we offer customized Just-In-Time (JIT) and Kanban inventory programs. We hold your finished safety stock in our domestic US warehouses and drop-ship exact quantities to your assembly lines precisely when your ERP system triggers demand."
+        q: "Can ForceBeyond support safety stock, JIT, or Kanban programs?",
+        a: "Inventory programs may be structured around forecast, lead time, minimum order quantity, service level, ownership, storage location, shelf life, release frequency, packaging, liability, and replenishment rules. Availability and commercial terms should be defined in the quotation or supply agreement."
+    },
+    {
+        q: "Does ForceBeyond coordinate international freight and customs?",
+        a: "Freight booking, export documentation, customs coordination, brokerage, duties, insurance, consolidation, and final delivery may be supported according to the agreed Incoterms and commercial scope. Legal responsibility for classification, valuation, origin, duties, and importer-of-record obligations must be defined contractually."
+    },
+    {
+        q: "What information is needed for a global logistics review?",
+        a: "Provide drawings, manufacturing locations, annual demand, shipment frequency, destinations, target lead time, Incoterms, packaging, labeling, country-of-origin requirements, export-control restrictions, approved-source rules, customs classifications, inventory targets, and business-continuity priorities."
     }
 ];
 
-// Sources
 const sources = [
-    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
-    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
-    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
-    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
-    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
-    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
+    { label: 'U.S. Customs and Border Protection - Trade Resources', url: 'https://www.cbp.gov/trade' },
+    { label: 'International Chamber of Commerce - Incoterms Rules', url: 'https://iccwbo.org/business-solutions/incoterms-rules/' },
+    { label: 'Bureau of Industry and Security - Export Administration Regulations', url: 'https://www.bis.gov/' },
+    { label: 'U.S. Department of State - Directorate of Defense Trade Controls', url: 'https://www.pmddtc.state.gov/' },
+    { label: 'NIST - Supply Chain Risk Management', url: 'https://www.nist.gov/' },
+    { label: 'CISA - Supply Chain Resilience Resources', url: 'https://www.cisa.gov/' }
 ];
 
-// Resources
 const internalResources = [
-    // Die Casting Resources
-    { label: "Die Casting Overview", url: "die-casting" },
-    { label: "Aluminum Die Casting", url: "aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "a356-t6-casting" },
-    { label: "Magnesium Casting", url: "magnesium-casting" },
+    // Quality and Supply Chain
+    { label: "Quality & Global Supply Chain", url: "/quality-global-supply-chain" },
+    { label: "Quality Assurance & Certifications", url: "/quality-assurance-certifications" },
+    { label: "Testing & Inspection Capabilities", url: "/testing-inspection-capabilities" },
+    { label: "Assembly & Kitting", url: "/assembly-and-kitting" },
+    { label: "Secondary Operations", url: "/secondary-operations" },
 
-    // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "duplex-stainless-steel-casting" },
+    // Manufacturing
+    { label: "Casting Capabilities", url: "/casting" },
+    { label: "Investment Casting", url: "/investment-casting" },
+    { label: "Forging Capabilities", url: "/forging" },
+    { label: "Open Die Forging", url: "/open-die-forging" },
+    { label: "Closed Die Forging", url: "/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
+    { label: "Precision Machining", url: "/precision-machining" },
+    { label: "High-Precision Component Machining", url: "/high-precision-machining" },
+    { label: "Multi-Axis CNC Milling & Turning", url: "/multi-axis-cnc" },
 
-    // Forging Resources
-    { label: "Forging Capabilities Overview", url: "forging" },
-    { label: "Open Die Forging", url: "open-die-forging" },
-    { label: "Closed Die Forging", url: "closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "rolled-ring-forging" },
-    { label: "Cold Forging", url: "cold-forging" },
-    { label: "Superalloy Forging Services", url: "superalloy-forging-services" },
+    // Materials and Technical
+    { label: "Materials & Technical Specifications", url: "/materials-technical-specs" },
+    { label: "Material Cross-Reference Charts", url: "/material-cross-reference-charts" },
+    { label: "Manufacturing Design Guides", url: "/manufacturing-design-guides" },
 
-    // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "carbon-steel-casting" }
+    // Industries
+    { label: "Aerospace", url: "/aerospace" },
+    { label: "Space & Defence", url: "/space-defence" },
+    { label: "Nuclear & SMR", url: "/nuclear-smr" },
+    { label: "Automotive", url: "/automotive" },
+    { label: "Data Center Power", url: "/data-center-power" },
+    { label: "Energy & Power Generation", url: "/energy-power-generation" }
 ];
 
-// Page Schema
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.storeglobal-footprint-logistics#webpage",
-      "url": "https://www.forcebeyond.storeglobal-footprint-logistics",
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store/oscar#website",
+        "@id": "https://www.forcebeyond.com/#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar"
-      }
+        "url": "https://www.forcebeyond.com/"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": socialImage
+      },
+      "breadcrumb": {
+        "@id": `${canonicalUrl}#breadcrumb`
+      },
+      "about": [
+        { "@type": "Thing", "name": "Global manufacturing footprint" },
+        { "@type": "Thing", "name": "International logistics" },
+        { "@type": "Thing", "name": "Supply chain resilience" },
+        { "@type": "Thing", "name": "Customs and freight coordination" },
+        { "@type": "Thing", "name": "Inventory and kitting programs" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.forcebeyond.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Quality & Global Supply Chain",
+          "item": "https://www.forcebeyond.com/quality-global-supply-chain/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Global Footprint & Logistics",
+          "item": canonicalUrl
+        }
+      ]
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.storeglobal-footprint-logistics#service",
-      "name": "Tri-Regional Supply Chain & Global Logistics Management",
-      "serviceType": "Global Supply Chain & Freight Logistics Services",
+      "@id": `${canonicalUrl}#service`,
+      "name": "Global Manufacturing and Logistics Coordination",
+      "serviceType": "Multi-Region Manufacturing, Freight, Customs, Inventory and Delivery Support",
       "description": seoDescription,
+      "url": canonicalUrl,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store/oscar#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar",
-        "knowsAbout": [
-          "Tri-Regional Manufacturing Network (USA, South Korea, Taiwan)",
-          "ITAR/Defense Compliant Domestic Manufacturing",
-          "Geopolitical Supply Chain Redundancy & Risk Mitigation",
-          "JIT / Kanban Inventory Warehousing Programs",
-          "Custom Point-of-Use Kitting & Landed Freight Management"
+        "@id": "https://www.forcebeyond.com/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Global Footprint and Logistics Capabilities",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Multi-Region Manufacturing Coordination",
+              "description": "Program coordination across qualified casting, forging, machining, finishing, inspection, and assembly resources."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Freight and Customs Coordination",
+              "description": "Project-specific support for freight booking, export and import documentation, customs brokerage coordination, insurance, and final delivery."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Inventory, JIT and Kanban Programs",
+              "description": "Commercially defined safety stock, replenishment, domestic warehousing, scheduled release, and consumption-based inventory support."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Kitting, Packaging and Point-of-Use Delivery",
+              "description": "Custom labeling, corrosion protection, consolidation, kitting, assembly, and delivery configurations based on customer requirements."
+            }
+          }
         ]
       }
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.storeglobal-footprint-logistics#faq",
-      "mainEntity": faqs.map(f => ({
+      "@id": `${canonicalUrl}#faq`,
+      "mainEntity": faqs.map((faq) => ({
         "@type": "Question",
-        "name": f.q,
+        "name": faq.q,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": f.a
+          "text": faq.a
         }
       }))
     }
@@ -113,81 +195,189 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
     pageTitle={pageTitle}
-    heroImage="media/global-logistics-supply-chain-transportation-network-hero.webp"
-    heroImageAlt="Global logistics network connecting international shipping, air freight, trucking, and rail transportation across major manufacturing and distribution hubs."
-    faqSectionTitle="Frequently Asked Questions: Logistics & Global Footprint"
+    heroImage="/media/global-logistics-supply-chain-transportation-network-hero.webp"
+    heroImageAlt="Global manufacturing and logistics network connecting production, freight, customs, and distribution"
+    heroImageWidth={1920}
+    heroImageHeight={1080}
+    socialImage={socialImage}
+    socialImageAlt="Global manufacturing footprint and logistics coordination"
+    faqSectionTitle="Frequently Asked Questions: Global Footprint & Logistics"
     faqItems={faqs}
-    ctaTitle="Streamline Your Global Manufacturing & Logistics"
-    ctaDescription="Partner with ForceBeyond for geopolitical risk mitigation, JIT warehousing, and seamless door-to-door delivery across our USA, South Korea, and Taiwan facilities."
-    sourcesTitle="Sources"
+    ctaTitle="Review Your Global Manufacturing and Logistics Plan"
+    ctaDescription="Send your drawings, forecast, manufacturing locations, destinations, lead-time targets, Incoterms, packaging, customs, export-control, inventory, and business-continuity requirements for a program review."
+    ctaButtonText="Request a Logistics Review"
+    sourcesTitle="Logistics, Customs and Compliance References"
     sourcesList={sources}
-    resourcesTitle="Our Internal Resources for Quality and Global Operations"
+    resourcesTitle="Related Quality, Manufacturing, Supply Chain and Technical Resources"
     resourcesList={internalResources}
 >
-
     <div slot="full-width" class="individual-content">
 
         <section id="overview">
             <div class="content-container">
-                
-                <h2>Global Footprint & Logistics: Tri-Regional Supply Chain Resilience</h2>
+                <h2>Global Manufacturing Footprint and Logistics Coordination</h2>
 
                 <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
                     <div>
                         <p>
-                            In today’s volatile geopolitical climate, relying on a single geographic region for mission-critical manufacturing introduces unacceptable supply chain risk. ForceBeyond protects our OEM partners through a highly resilient, tri-regional manufacturing network spanning the USA, South Korea, and Taiwan.
+                            Global component programs must balance technical capability, cost, capacity, lead time, country of origin, quality, logistics, export controls, tariffs, and business continuity. ForceBeyond coordinates qualified manufacturing and delivery resources across multiple regions according to project-specific requirements.
                         </p>
                         <p>
-                            By strategically distributing our engineering, casting, forging, and CNC machining operations across allied, high-tech manufacturing hubs, we provide Tier-1 and Tier-2 procurement teams with tariff navigation flexibility, disaster redundancy, and rapid speed-to-market.
+                            A multi-region strategy can provide flexibility, but geographic diversity alone does not eliminate risk. Effective resilience requires approved processes, consistent drawings and specifications, supplier qualification, first-article validation, inventory planning, logistics visibility, and formal change control.
                         </p>
                     </div>
+
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
-                                src="media/global-manufacturing-sourcing-supply-chain-network.webp"
-                                alt="Global manufacturing sourcing and supply chain network connecting North America, Asia, and international production hubs"
+                                src="/media/global-manufacturing-sourcing-supply-chain-network.webp"
+                                alt="Global manufacturing sourcing and supply-chain network"
+                                width="1200"
+                                height="900"
+                                loading="lazy"
+                                decoding="async"
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
                         </div>
                     </div>
                 </div>
-
             </div>
         </section>
 
-        <section id="foundry-network">
+        <section id="regional-strategy">
             <div class="content-container">
-                <h2>The Tri-Regional Foundry & Machining Network</h2>
+                <h2>Multi-Region Manufacturing Strategy</h2>
                 <p>
-                    Our globally integrated footprint allows us to match your component’s specific technical requirements, volume, and ITAR restrictions to the optimal facility:
+                    Manufacturing location should be selected by capability, quality-system scope, material, process, volume, customer restrictions, lead time, and total landed cost—not by geography alone.
                 </p>
+
                 <div class="content-table-wrapper">
                     <table>
                         <thead>
                             <tr>
-                                <th scope="col">Geographic Hub</th>
-                                <th scope="col">Primary Manufacturing & Operational Focus</th>
-                                <th scope="col">Strategic Advantage for Procurement</th>
+                                <th scope="col">Regional Role</th>
+                                <th scope="col">Representative Program Functions</th>
+                                <th scope="col">Selection Considerations</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <tr>
-                                <th scope="row">United States (Delaware HQ)</th>
-                                <td>Executive Engineering, ITAR/Defense Manufacturing, QA Management, Domestic Warehousing.</td>
-                                <td>Ensures strict ITAR/EAR compliance, local engineering support, and rapid domestic JIT distribution.</td>
+                                <th scope="row">United States</th>
+                                <td>Customer interface, engineering coordination, quality oversight, domestic warehousing, approved domestic production, and final distribution.</td>
+                                <td>Export controls, customer-approved sources, domestic-content requirements, response time, documentation, and local inventory.</td>
                             </tr>
                             <tr>
                                 <th scope="row">South Korea</th>
-                                <td>Heavy-Tonnage Closed-Die Forging, AS9100 Aerospace Machining, Large-Scale Sand Casting.</td>
-                                <td>World-class metallurgical expertise; ideal for heavy nuclear, aerospace, and oil & gas forgings.</td>
+                                <td>Qualified forging, machining, casting, heat treatment, inspection, or heavy-component production depending on supplier capability.</td>
+                                <td>Equipment scale, material experience, certification scope, shipping time, country of origin, and approved-source requirements.</td>
                             </tr>
                             <tr>
                                 <th scope="row">Taiwan</th>
-                                <td>Vacuum Investment Casting (VIM), High-Volume Precision CNC Machining, Electronics Infrastructure.</td>
-                                <td>Premier destination for high-precision superalloy castings, medical devices, and data center thermal hardware.</td>
+                                <td>Qualified precision casting, machining, electronics-related hardware, finishing, inspection, or production-volume support depending on supplier capability.</td>
+                                <td>Process specialization, tooling, volume, metrology, freight, origin requirements, and customer restrictions.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Alternate or Secondary Sources</th>
+                                <td>Risk-based backup capacity, alternate material supply, redundant processing, tooling strategy, or regional diversification.</td>
+                                <td>Qualification cost, tooling duplication, validation, customer approval, volume economics, and transfer lead time.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    Review
+                    <a href="/quality-global-supply-chain" class="highlight-link">Quality & Global Supply Chain</a>
+                    for supplier qualification and risk-management controls.
+                </p>
+            </div>
+        </section>
+
+        <section id="location-selection">
+            <div class="content-container">
+                <h2>How Manufacturing Locations Are Selected</h2>
+                <ul>
+                    <li><strong>Technical capability:</strong> alloy experience, equipment, tooling, process window, heat treatment, finishing, inspection, and capacity.</li>
+                    <li><strong>Quality requirements:</strong> certification scope, special-process approvals, customer approvals, traceability, and documentation.</li>
+                    <li><strong>Commercial fit:</strong> tooling, minimum order quantity, annual volume, payment terms, currency, freight, duties, and total landed cost.</li>
+                    <li><strong>Compliance:</strong> export controls, sanctions, country-of-origin rules, domestic-content requirements, and customer restrictions.</li>
+                    <li><strong>Risk profile:</strong> single-source exposure, natural hazards, regional instability, port dependence, raw-material availability, and recovery time.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="export-controls">
+            <div class="content-container">
+                <h2>Export-Control and Technical-Data Management</h2>
+                <p>
+                    Export-control requirements must be evaluated before technical data, hardware, software, or manufacturing instructions are shared across borders.
+                </p>
+                <ul>
+                    <li><strong>Jurisdiction and classification:</strong> determine whether ITAR, EAR, sanctions, customer controls, or other restrictions apply.</li>
+                    <li><strong>End use and end user:</strong> screen destination, parties, application, and prohibited activities.</li>
+                    <li><strong>Access control:</strong> restrict technical data to authorized personnel, systems, locations, and suppliers.</li>
+                    <li><strong>Licensing and agreements:</strong> obtain required authorization before export, re-export, transfer, or foreign-person access.</li>
+                    <li><strong>Recordkeeping:</strong> maintain classifications, licenses, approvals, screening, shipments, and access records as required.</li>
+                </ul>
+                <p>
+                    Export-controlled work should be reviewed individually; the page does not represent that every domestic or overseas location is approved for every controlled program.
+                </p>
+            </div>
+        </section>
+
+        <section id="source-transfer">
+            <div class="content-container">
+                <h2>Source Transfer and Dual-Source Qualification</h2>
+                <p>
+                    Moving production between suppliers or regions requires formal validation rather than a simple tooling transfer.
+                </p>
+                <ol>
+                    <li><strong>Compare capability:</strong> equipment, process, material source, tooling, heat treatment, finishing, inspection, and capacity.</li>
+                    <li><strong>Review tooling and data:</strong> confirm ownership, revision, condition, maintenance, transport, programs, fixtures, and inspection assets.</li>
+                    <li><strong>Complete feasibility review:</strong> address process differences, tolerances, risk, documentation, and customer requirements.</li>
+                    <li><strong>Validate the source:</strong> conduct first article, process qualification, capability review, or PPAP as required.</li>
+                    <li><strong>Obtain approval:</strong> notify and obtain customer or design-authority approval before production transfer where required.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section id="freight">
+            <div class="content-container">
+                <h2>International Freight Planning</h2>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Shipping Mode</th>
+                                <th scope="col">Typical Use</th>
+                                <th scope="col">Planning Considerations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Ocean Freight</th>
+                                <td>Regular production, heavy parts, full-container or consolidated shipments.</td>
+                                <td>Port schedule, sailing time, consolidation, container loading, moisture protection, customs, and inland transport.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Air Freight</th>
+                                <td>Urgent production, prototypes, line-down recovery, or high-value lower-weight shipments.</td>
+                                <td>Weight, dimensions, dangerous-goods rules, security, airport handling, customs, and premium cost.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Courier or Express</th>
+                                <td>Samples, documents, small components, prototypes, and replacement parts.</td>
+                                <td>Declared value, brokerage, dimensional weight, restrictions, tracking, and delivery limits.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Truck and Domestic Distribution</th>
+                                <td>Port pickup, warehouse transfer, milk runs, scheduled delivery, and final-mile distribution.</td>
+                                <td>Appointment, pallet configuration, securement, insurance, route, weather, and proof of delivery.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -195,39 +385,172 @@ const pageSchema = {
             </div>
         </section>
 
-        <section id="risk-management">
+        <section id="incoterms-customs">
             <div class="content-container">
-                <h2>Supply Chain Risk Management</h2>
-                <p>
-                    ForceBeyond operates as a single, unified corporate entity. You work directly with our US-based engineering and project management teams, while we seamlessly manage the complexities of global production:
-                </p>
+                <h2>Incoterms, Customs and Import Responsibilities</h2>
                 <ul>
-                    <li>
-                        <strong>Geopolitical Redundancy:</strong> By maintaining duplicate tooling capabilities across South Korea and Taiwan, we can rapidly pivot production lines to avoid regional disruptions, shipping delays, or sudden tariff implementations.
-                    </li>
-                    <li>
-                        <strong>Tariff & Duty Navigation:</strong> Our logistics experts optimize Country of Origin (COO) strategies to legally minimize import duties and Section 301 tariffs, lowering your Total Cost of Ownership (TCO).
-                    </li>
+                    <li><strong>Incoterms selection:</strong> define transfer of cost, risk, export clearance, freight, insurance, import clearance, and delivery responsibility.</li>
+                    <li><strong>Importer of record:</strong> identify the legally responsible importing party before shipment.</li>
+                    <li><strong>Tariff classification:</strong> assign an appropriate customs classification based on the actual product and jurisdiction.</li>
+                    <li><strong>Country of origin:</strong> determine origin using applicable transformation and marking rules; origin cannot be selected solely to reduce duty.</li>
+                    <li><strong>Valuation:</strong> declare transaction value, assists, tooling, royalties, related-party adjustments, and other required elements correctly.</li>
+                    <li><strong>Broker instructions:</strong> provide consistent invoices, packing lists, classifications, origin, licenses, and supporting documentation.</li>
                 </ul>
             </div>
         </section>
 
-        <section id="advanced-logistics">
+        <section id="landed-cost">
             <div class="content-container">
-                <h2>Advanced Logistics, Kanban & Custom Kitting</h2>
+                <h2>Total Landed Cost Analysis</h2>
                 <p>
-                    We don't just manufacture parts; we manage your inventory. To reduce your warehouse footprint and accelerate your assembly lines, ForceBeyond provides tailored logistics programs:
+                    Unit price alone does not represent the complete acquisition cost of a global component.
                 </p>
                 <ul>
-                    <li>
-                        <strong>Just-In-Time (JIT) & Kanban:</strong> We hold strategic safety stock in our domestic US warehouses, releasing product to your production floor precisely when your ERP system triggers demand.
-                    </li>
-                    <li>
-                        <strong>Custom Point-of-Use Kitting:</strong> Instead of receiving loose castings, machined parts, and hardware from multiple vendors, we deliver fully assembled, pressure-tested, and custom-packaged kits under a single SKU directly to your assembly stations.
-                    </li>
-                    <li>
-                        <strong>Global Freight Forwarding:</strong> We handle 100% of the international logistics—including ocean/air freight booking, customs clearance, and final-mile delivery—providing a frictionless, door-to-door purchasing experience.
-                    </li>
+                    <li><strong>Manufacturing:</strong> unit price, tooling, fixtures, samples, testing, inspection, and documentation.</li>
+                    <li><strong>Logistics:</strong> freight, fuel, consolidation, insurance, handling, storage, brokerage, and final delivery.</li>
+                    <li><strong>Import:</strong> duties, tariffs, taxes, fees, origin rules, and compliance administration.</li>
+                    <li><strong>Inventory:</strong> transit stock, safety stock, carrying cost, obsolescence, damage, and working capital.</li>
+                    <li><strong>Risk:</strong> premium freight, line-down exposure, quality containment, rework, transfer qualification, and schedule disruption.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="inventory">
+            <div class="content-container">
+                <h2>Safety Stock, JIT and Kanban Programs</h2>
+                <p>
+                    Inventory programs should balance service level, lead time, forecast accuracy, minimum order quantities, storage cost, shelf life, and ownership.
+                </p>
+                <ul>
+                    <li><strong>Safety stock:</strong> establish quantity using demand variability, replenishment lead time, service level, and risk.</li>
+                    <li><strong>JIT release:</strong> schedule deliveries close to consumption while preserving adequate recovery time.</li>
+                    <li><strong>Kanban replenishment:</strong> define trigger, container quantity, minimum and maximum stock, replenishment time, and exception rules.</li>
+                    <li><strong>Ownership:</strong> specify when title transfers, who owns stored inventory, and how obsolete or excess stock is handled.</li>
+                    <li><strong>Inventory accuracy:</strong> use lot control, cycle counting, FIFO or FEFO, status identification, and release authorization.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="warehousing">
+            <div class="content-container">
+                <h2>Domestic Warehousing and Distribution</h2>
+                <ul>
+                    <li><strong>Receiving control:</strong> verify quantity, condition, labels, documents, lot identity, and damage.</li>
+                    <li><strong>Storage environment:</strong> manage corrosion, humidity, temperature, contamination, stacking, and shelf-life requirements.</li>
+                    <li><strong>Lot segregation:</strong> preserve traceability and status between accepted, quarantined, nonconforming, and released inventory.</li>
+                    <li><strong>Order release:</strong> coordinate customer schedule, ERP signal, minimum shipment, carrier, and delivery appointment.</li>
+                    <li><strong>Returns and exceptions:</strong> define handling for damage, shortage, overage, obsolete inventory, and customer returns.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="kitting">
+            <div class="content-container">
+                <h2>Kitting, Assembly and Point-of-Use Packaging</h2>
+                <ul>
+                    <li><strong><a href="/assembly-and-kitting" class="highlight-link">Custom kitting:</a></strong> combine castings, forgings, machined parts, hardware, seals, labels, and documents under a defined bill of materials.</li>
+                    <li><strong>Subassembly:</strong> perform project-specific fastening, joining, leak testing, torque verification, or functional checks where required.</li>
+                    <li><strong>Point-of-use packaging:</strong> organize parts by workstation, build sequence, service kit, or assembly operation.</li>
+                    <li><strong>Single-SKU delivery:</strong> consolidate approved contents while maintaining component-level lot and serial traceability where required.</li>
+                    <li><strong>Error prevention:</strong> use count verification, barcode scanning, visual aids, weight checks, and final kit inspection.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="packaging">
+            <div class="content-container">
+                <h2>Export Packaging and Preservation</h2>
+                <ul>
+                    <li><strong>Corrosion protection:</strong> use suitable oils, VCI materials, desiccants, barriers, or sealed packaging according to material and transit.</li>
+                    <li><strong>Physical protection:</strong> prevent part-to-part contact, thread damage, impact, bending, and abrasion.</li>
+                    <li><strong>Moisture management:</strong> account for ocean transit, condensation, humidity, temperature cycling, and storage duration.</li>
+                    <li><strong>Wood packaging:</strong> meet applicable treatment, marking, and import requirements for wood packaging materials.</li>
+                    <li><strong>Labels and documents:</strong> include part number, revision, quantity, lot, serial number, origin, handling, and customer-specific information.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="visibility">
+            <div class="content-container">
+                <h2>Shipment Visibility and Exception Management</h2>
+                <ul>
+                    <li><strong>Milestone tracking:</strong> monitor production completion, pickup, export clearance, departure, arrival, customs, and delivery.</li>
+                    <li><strong>Document readiness:</strong> review invoices, packing lists, origin documents, licenses, and broker instructions before departure.</li>
+                    <li><strong>Exception alerts:</strong> define escalation for delay, customs hold, damage, missed sailing, shortage, or delivery failure.</li>
+                    <li><strong>Recovery planning:</strong> evaluate alternate route, air freight, partial shipment, inventory release, or customer reprioritization.</li>
+                    <li><strong>Performance review:</strong> track transit time, on-time delivery, damage, customs delay, premium freight, and carrier performance.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="risk-management">
+            <div class="content-container">
+                <h2>Global Supply-Chain Risk Management</h2>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Risk</th>
+                                <th scope="col">Potential Impact</th>
+                                <th scope="col">Example Controls</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Regional Disruption</th>
+                                <td>Production interruption, port closure, delayed transit, or unavailable capacity.</td>
+                                <td>Alternate-source review, route options, safety stock, capacity reservation, and recovery plans.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Tooling Dependency</th>
+                                <td>Long restart time if tooling is damaged, inaccessible, or tied to one supplier.</td>
+                                <td>Tooling ownership records, maintenance, spare inserts, duplicate-tool evaluation, and transfer planning.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Customs or Compliance Hold</th>
+                                <td>Shipment delay, penalties, re-export restriction, or seizure.</td>
+                                <td>Classification review, party screening, accurate origin, complete documentation, and broker coordination.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Demand Volatility</th>
+                                <td>Excess inventory, shortages, premium freight, or unstable production schedules.</td>
+                                <td>Forecast cadence, flexible releases, safety-stock rules, capacity review, and inventory ownership terms.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Quality Escape</th>
+                                <td>Line disruption, sorting, return freight, rework, or field risk.</td>
+                                <td>Control plans, source inspection, first article, capability monitoring, containment, and corrective action.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="business-continuity">
+            <div class="content-container">
+                <h2>Business Continuity and Recovery Planning</h2>
+                <ul>
+                    <li><strong>Critical-path mapping:</strong> identify sole-source materials, special processes, tools, ports, carriers, and inspection resources.</li>
+                    <li><strong>Recovery-time objectives:</strong> define acceptable interruption and restart targets by component and customer.</li>
+                    <li><strong>Alternate-source readiness:</strong> maintain feasibility data, qualification plans, customer-approval requirements, and transfer estimates.</li>
+                    <li><strong>Inventory strategy:</strong> establish buffers based on consequence, replenishment time, forecast, and carrying cost.</li>
+                    <li><strong>Scenario review:</strong> evaluate natural disaster, political disruption, cyber incident, supplier failure, port closure, or transportation interruption.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="program-review">
+            <div class="content-container">
+                <h2>What to Include in a Global Logistics RFQ</h2>
+                <ul>
+                    <li><strong>Technical requirements:</strong> drawings, material, process, revision, quality, testing, and approved sources.</li>
+                    <li><strong>Demand:</strong> prototypes, annual volume, lot size, forecast horizon, service parts, and production duration.</li>
+                    <li><strong>Delivery:</strong> ship-to locations, frequency, requested lead time, appointments, and line-side requirements.</li>
+                    <li><strong>Trade:</strong> Incoterms, importer of record, origin, classification, valuation, licenses, and restricted parties.</li>
+                    <li><strong>Packaging:</strong> preservation, pallet, container, labeling, returnable packaging, and point-of-use configuration.</li>
+                    <li><strong>Inventory:</strong> safety stock, Kanban quantity, ownership, release trigger, obsolescence, and replenishment rules.</li>
                 </ul>
             </div>
         </section>

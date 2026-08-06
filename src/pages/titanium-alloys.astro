@@ -1,124 +1,210 @@
 ---
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
-const pageTitle = 'Titanium Alloys: Ti-6Al-4V, Ti-ELI & Commercially Pure Solutions';
-const seoTitle = 'Titanium Casting, Forging & CNC Machining | ForceBeyond';
-const seoDescription = 'Certified Ti-6Al-4V Grade 5, Ti-6Al-4V ELI, and Commercially Pure titanium manufacturing for aerospace, medical, and defense applications.';
+const pageTitle = 'Titanium Alloys for Casting, Forging and Precision Machining';
+const seoTitle = 'Titanium Alloys | Ti-6Al-4V, Grade 23 & CP Titanium';
+const seoDescription = 'Explore ForceBeyond manufacturing support for Ti-6Al-4V Grade 5, Ti-6Al-4V ELI Grade 23, and commercially pure titanium through casting, forging, CNC machining, heat treatment, surface finishing, inspection, and documentation.';
+
+const canonicalUrl = 'https://www.forcebeyond.com/titanium-alloys/';
+const socialImage = 'https://www.forcebeyond.com/media/precision-cnc-machining-metal-manufacturing-workshop-hero.webp';
 
 const faqs = [
     {
-        q: "How does ForceBeyond prevent brittle alpha-case formation during titanium casting?",
-        a: "We utilize rammed-graphite molds and pour within specialized vacuum induction furnaces to eliminate exposure to atmospheric oxygen, nitrogen, and hydrogen at elevated temperatures."
+        q: "How is alpha case controlled during titanium casting and heat treatment?",
+        a: "Titanium readily reacts with oxygen, nitrogen, and carbon at elevated temperature. Alpha case is controlled through suitable vacuum or inert-atmosphere processing, compatible mold and crucible systems, controlled thermal exposure, chemical milling or pickling, machining allowance, and verification where required. The exact control plan depends on alloy, process route, section size, and specification."
     },
     {
-        q: "What is the difference between Ti-6Al-4V Grade 5 and Ti-6Al-4V ELI (Grade 23)?",
-        a: "Ti-6Al-4V ELI contains Extra Low Interstitials (reduced oxygen and iron content), granting higher fracture toughness and superior biocompatibility, making it the preferred choice for medical implants."
+        q: "What is the difference between Ti-6Al-4V Grade 5 and Grade 23 ELI?",
+        a: "Grade 23 is the extra-low-interstitial version of Ti-6Al-4V, with tighter limits on oxygen, nitrogen, carbon, and iron than Grade 5. This can improve fracture toughness and low-temperature ductility. Medical or implant use still depends on the exact material specification, manufacturing process, surface condition, cleanliness, validation, and regulatory requirements."
+    },
+    {
+        q: "Which manufacturing processes are used for titanium components?",
+        a: "Titanium components may be produced by investment casting, sand casting, closed-die or open-die forging, rolled-ring forging, billet machining, additive manufacturing, and combinations of heat treatment, HIP, machining, chemical milling, surface finishing, and inspection. Process selection depends on geometry, volume, product form, properties, tooling, and specification."
+    },
+    {
+        q: "What information is needed for a titanium manufacturing quote?",
+        a: "Provide a 2D drawing and, when available, a 3D CAD model, along with titanium grade, governing specification, product form, quantity, service environment, mechanical requirements, heat treatment, HIP, machining, surface treatment, NDT, documentation, cleanliness, and delivery expectations."
     }
 ];
 
-// Sources
 const sources = [
-    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
-    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
-    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
-    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
-    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
-    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
+    { label: 'ASM International - Titanium and Titanium Alloys', url: 'https://www.asminternational.org/' },
+    { label: 'ASTM International - Titanium Material Standards', url: 'https://www.astm.org/' },
+    { label: 'SAE International - Aerospace Materials Specifications', url: 'https://www.sae.org/standards' },
+    { label: 'International Titanium Association - Titanium Resources', url: 'https://titanium.org/' },
+    { label: 'NIST - Materials and Manufacturing', url: 'https://www.nist.gov/topics/materials' },
+    { label: 'Investment Casting Institute - Investment Casting Process', url: 'https://www.investmentcasting.org/what-is.html' }
 ];
 
-// Resources
 const internalResources = [
-    // Die Casting Resources
-    { label: "Die Casting Overview", url: "die-casting" },
-    { label: "Aluminum Die Casting", url: "aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "a356-t6-casting" },
-    { label: "Magnesium Casting", url: "magnesium-casting" },
+    // Materials Hub
+    { label: "Materials & Technical Specifications", url: "/materials-technical-specs" },
+    { label: "Superalloys & Exotic Metals", url: "/superalloys-exotic-metals" },
+    { label: "Stainless Steel & Carbon Steel", url: "/stainless-carbon-steel" },
+    { label: "Aluminum & Copper Alloys", url: "/aluminum-copper-alloys" },
+    { label: "Material Cross-Reference Charts", url: "/material-cross-reference-charts" },
+    { label: "Manufacturing Design Guides", url: "/manufacturing-design-guides" },
 
-    // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "duplex-stainless-steel-casting" },
+    // Titanium Manufacturing
+    { label: "Titanium Investment Casting", url: "/titanium-investment-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
+    { label: "Titanium Aerospace Forging", url: "/titanium-aerospace-forging" },
+    { label: "Titanium Machining", url: "/titanium-machining" },
+    { label: "Investment Casting", url: "/investment-casting" },
+    { label: "Forging Capabilities", url: "/forging" },
+    { label: "Open Die Forging", url: "/open-die-forging" },
+    { label: "Closed Die Forging", url: "/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
+    { label: "Precision Machining", url: "/precision-machining" },
+    { label: "Multi-Axis CNC Milling & Turning", url: "/multi-axis-cnc" },
 
-    // Forging Resources
-    { label: "Forging Capabilities Overview", url: "forging" },
-    { label: "Open Die Forging", url: "open-die-forging" },
-    { label: "Closed Die Forging", url: "closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "rolled-ring-forging" },
-    { label: "Cold Forging", url: "cold-forging" },
-    { label: "Superalloy Forging Services", url: "superalloy-forging-services" },
+    // Secondary Operations and Quality
+    { label: "Heat Treatment", url: "/heat-treatment" },
+    { label: "Secondary Operations", url: "/secondary-operations" },
+    { label: "Surface Finishing & Coating", url: "/surface-finishing" },
+    { label: "Testing & Inspection Capabilities", url: "/testing-inspection-capabilities" },
+    { label: "Quality Assurance & Certifications", url: "/quality-assurance-certifications" },
+    { label: "Assembly & Kitting", url: "/assembly-and-kitting" },
 
-    // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "carbon-steel-casting" }
+    // Industries
+    { label: "Aerospace", url: "/aerospace" },
+    { label: "Medical & Healthcare", url: "/medical" },
+    { label: "Oil & Gas", url: "/oil-gas" },
+    { label: "Energy & Power Generation", url: "/energy-power-generation" },
+    { label: "Space & Defence", url: "/space-defence" }
 ];
 
-// Page Schema
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.storetitanium-alloys#webpage",
-      "url": "https://www.forcebeyond.storetitanium-alloys",
+      "@id": `${canonicalUrl}#webpage`,
+      "url": canonicalUrl,
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store/oscar#website",
+        "@id": "https://www.forcebeyond.com/#website",
         "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar"
-      }
+        "url": "https://www.forcebeyond.com/"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": socialImage
+      },
+      "breadcrumb": {
+        "@id": `${canonicalUrl}#breadcrumb`
+      },
+      "about": [
+        { "@type": "Thing", "name": "Titanium alloys" },
+        { "@type": "Thing", "name": "Ti-6Al-4V Grade 5" },
+        { "@type": "Thing", "name": "Ti-6Al-4V ELI Grade 23" },
+        { "@type": "Thing", "name": "Commercially pure titanium" },
+        { "@type": "Thing", "name": "Titanium manufacturing" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": `${canonicalUrl}#breadcrumb`,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.forcebeyond.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Materials & Technical Specifications",
+          "item": "https://www.forcebeyond.com/materials-technical-specs/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Titanium Alloys",
+          "item": canonicalUrl
+        }
+      ]
+    },
+    {
+      "@type": "CollectionPage",
+      "@id": `${canonicalUrl}#collection`,
+      "name": "Titanium Alloys and Manufacturing Resources",
+      "url": canonicalUrl,
+      "description": seoDescription,
+      "hasPart": [
+        {
+          "@type": "WebPage",
+          "name": "Titanium Investment Casting",
+          "url": "https://www.forcebeyond.com/titanium-investment-casting/"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Industrial Titanium Sand Casting",
+          "url": "https://www.forcebeyond.com/industrial-titanium-sand-casting/"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Titanium Aerospace Forging",
+          "url": "https://www.forcebeyond.com/titanium-aerospace-forging/"
+        },
+        {
+          "@type": "WebPage",
+          "name": "Titanium Machining",
+          "url": "https://www.forcebeyond.com/titanium-machining/"
+        }
+      ]
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.storetitanium-alloys#service",
-      "name": "Titanium Alloy Component Manufacturing Services",
-      "serviceType": "High-Integrity Titanium Manufacturing",
+      "@id": `${canonicalUrl}#service`,
+      "name": "Titanium Alloy Manufacturing Support",
+      "serviceType": "Casting, Forging, Heat Treatment and CNC Machining of Titanium Alloys",
       "description": seoDescription,
+      "url": canonicalUrl,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.store/oscar#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar",
-        "knowsAbout": [
-          "Ti-6Al-4V Grade 5 Aerospace & Structural Hardware",
-          "Ti-6Al-4V ELI (Grade 23) Biocompatible Medical Implants",
-          "Commercially Pure (Grade 2) Corrosion-Resistant Equipment",
-          "Rammed-Graphite & Vacuum Induction Casting",
-          "Closed-Die Hot Forging & Grain Flow Alignment"
-        ]
+        "@id": "https://www.forcebeyond.com/#organization"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "United States"
       },
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Titanium Capabilities Catalog",
+        "name": "Titanium Manufacturing Capabilities",
         "itemListElement": [
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Aerospace & Defense Titanium Hardware",
-              "description": "Ti-6Al-4V Grade 5 structural brackets, airframe fittings, and landing gear components."
+              "name": "Ti-6Al-4V Grade 5 Manufacturing",
+              "description": "Casting, forging, machining, heat treatment, and finishing support for Grade 5 titanium structural and industrial components."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Medical Grade Titanium Implants",
-              "description": "Ti-6Al-4V ELI biocompatible bone screws, joint replacements, and surgical instrumentation."
+              "name": "Ti-6Al-4V ELI Grade 23 Manufacturing",
+              "description": "Precision manufacturing support for Grade 23 components requiring tighter interstitial control and application-specific medical or aerospace requirements."
             }
           },
           {
             "@type": "Offer",
             "itemOffered": {
               "@type": "Service",
-              "name": "Corrosion-Resistant Industrial Components",
-              "description": "Commercially Pure Grade 2 titanium for heat exchangers, chemical processing, and marine environments."
+              "name": "Commercially Pure Titanium Components",
+              "description": "Manufacturing support for Grade 1, Grade 2, and other commercially pure titanium components used in corrosion-resistant industrial and chemical applications."
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Titanium Inspection and Documentation",
+              "description": "Project-specific PMI, chemistry, mechanical testing, alpha-case evaluation, NDT, dimensional inspection, cleanliness, and quality documentation."
             }
           }
         ]
@@ -126,13 +212,13 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.storetitanium-alloys#faq",
-      "mainEntity": faqs.map(f => ({
+      "@id": `${canonicalUrl}#faq`,
+      "mainEntity": faqs.map((faq) => ({
         "@type": "Question",
-        "name": f.q,
+        "name": faq.q,
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": f.a
+          "text": faq.a
         }
       }))
     }
@@ -143,67 +229,135 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
     pageTitle={pageTitle}
-    heroImage="media/precision-cnc-machining-metal-manufacturing-workshop-hero.webp"
-    heroImageAlt="Precision CNC milling machine cutting a metal component in a modern manufacturing workshop with automated equipment and digital controls."
-    faqSectionTitle="Frequently Asked Questions"
+    heroImage="/media/precision-cnc-machining-metal-manufacturing-workshop-hero.webp"
+    heroImageAlt="Precision manufacturing and CNC machining of titanium alloy components"
+    heroImageWidth={1920}
+    heroImageHeight={1080}
+    socialImage={socialImage}
+    socialImageAlt="Titanium alloys for casting, forging, and precision machining"
+    faqSectionTitle="Frequently Asked Questions: Titanium Alloys"
     faqItems={faqs}
-    ctaTitle="Elevate Performance with Precision Titanium Manufacturing"
-    ctaDescription="Partner with our certified engineering team for high-integrity titanium vacuum investment castings, forgings, and Swiss CNC machined components."
-    sourcesTitle="Sources"
+    ctaTitle="Review a Titanium Manufacturing Program"
+    ctaDescription="Send your drawing, titanium grade, governing specification, service environment, quantity, casting or forging route, heat treatment, machining, surface treatment, inspection, and documentation requirements for an engineering review."
+    ctaButtonText="Request a Titanium Review"
+    sourcesTitle="Technical References"
     sourcesList={sources}
-    resourcesTitle="Our Internal Resources for Die Casting, Investment casting, Forging and Sand Casting"
+    resourcesTitle="Related Titanium Materials, Manufacturing and Quality Resources"
     resourcesList={internalResources}
 >
-
     <div slot="full-width" class="individual-content">
 
         <section id="overview">
             <div class="content-container">
-                
-                <h2>Titanium Alloys: Ti-6Al-4V, Ti-ELI & Commercially Pure Solutions</h2>
-                        <p>
-                            ForceBeyond is an AS9100 and ISO 13485-aligned manufacturing provider of high-integrity titanium components. Renowned for their outstanding strength-to-weight ratio, low density (40% lighter than steel), superior corrosion resistance, and total biocompatibility, titanium alloys are critical across the aerospace, defense, medical implant, and deepwater marine sectors.
-                        </p>
-                        <p>
-                            From vacuum investment casting and heavy closed-die forging to micro-precision Swiss CNC turning, ForceBeyond manufactures Ti-6Al-4V Grade 5, Ti-6Al-4V ELI, and Commercially Pure (CP) titanium parts built for extreme performance.
-                        </p>
+                <h2>Titanium Alloys for Lightweight, Corrosion-Resistant Components</h2>
+                <p>
+                    Titanium alloys combine low density, high specific strength, corrosion resistance, fatigue performance, and useful temperature capability. ForceBeyond supports titanium components across
+                    <a href="/titanium-investment-casting" class="highlight-link">investment casting</a>,
+                    <a href="/titanium-aerospace-forging" class="highlight-link">forging</a>,
+                    <a href="/titanium-machining" class="highlight-link">precision machining</a>,
+                    heat treatment, surface finishing, inspection, and assembly.
+                </p>
+                <p>
+                    This page serves as the titanium material-family guide for Ti-6Al-4V Grade 5, Ti-6Al-4V ELI Grade 23, commercially pure titanium, and application-specific grades. Final alloy and process selection should be based on product form, specification, service environment, loading, fatigue, temperature, corrosion, cleanliness, and inspection requirements.
+                </p>
             </div>
         </section>
 
-        <section id="technical-capabilities">
+        <section id="alloy-families">
             <div class="content-container">
-                <h2>Titanium Technical Capabilities & Mechanical Profiles</h2>
+                <h2>Titanium Alloy Families and Representative Grades</h2>
+                <p>
+                    Mechanical properties vary by chemistry, product form, heat treatment, section size, processing route, and test method. The table below is intended for initial material selection rather than final design allowables.
+                </p>
+
                 <div class="content-table-wrapper">
                     <table>
                         <thead>
                             <tr>
-                                <th scope="col">Titanium Grade</th>
-                                <th scope="col">Standard Specifications</th>
-                                <th scope="col">Tensile Strength (Min)</th>
-                                <th scope="col">Primary Material Performance & Uses</th>
+                                <th scope="col">Titanium Family</th>
+                                <th scope="col">Representative Grades</th>
+                                <th scope="col">Typical Selection Factors</th>
+                                <th scope="col">Representative Applications</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             <tr>
-                                <th scope="row">Ti-6Al-4V (Grade 5)</th>
-                                <td>UNS R56400<br />AMS 4928 / ASTM B367</td>
-                                <td>895 MPa (130 ksi)</td>
-                                <td>The most widely used alpha-beta titanium alloy. Combines high mechanical strength, light weight, and high corrosion resistance. Used for Aerospace Brackets and airframe fittings.</td>
+                                <th scope="row">Alpha-Beta Titanium</th>
+                                <td>Ti-6Al-4V Grade 5 and related specification-controlled grades</td>
+                                <td>High specific strength, fatigue performance, corrosion resistance, forgeability, heat treatment response, and broad industrial availability.</td>
+                                <td>Aerospace brackets, airframe fittings, fasteners, shafts, energy hardware, marine components, and industrial structures.</td>
                             </tr>
                             <tr>
-                                <th scope="row">Ti-6Al-4V ELI (Grade 23)</th>
-                                <td>UNS R56401<br />ASTM F136 / AMS 4930</td>
-                                <td>860 MPa (125 ksi)</td>
-                                <td>"Extra Low Interstitials" version with reduced oxygen/iron content for maximum fracture toughness and biocompatibility. Essential for Medical Bone Screws & Joint Implants.</td>
+                                <th scope="row">Extra-Low-Interstitial Alpha-Beta Titanium</th>
+                                <td>Ti-6Al-4V ELI Grade 23</td>
+                                <td>Tighter interstitial limits, improved fracture toughness, low-temperature ductility, and application-specific medical or aerospace requirements.</td>
+                                <td>Medical components where approved, cryogenic hardware, aerospace parts, and high-reliability structures.</td>
                             </tr>
                             <tr>
-                                <th scope="row">Commercially Pure (Grade 2)</th>
-                                <td>UNS R50400<br />ASTM B348 / ASTM B265</td>
-                                <td>345 MPa (50 ksi)</td>
-                                <td>Unalloyed, highly ductile titanium offering exceptional corrosion resistance in oxidizing and organic chemical environments. Used for heat exchangers and chemical piping.</td>
+                                <th scope="row">Commercially Pure Titanium</th>
+                                <td>Grades 1, 2, 3, and 4</td>
+                                <td>Corrosion resistance, formability, weldability, ductility, and lower strength than alpha-beta alloys.</td>
+                                <td>Chemical equipment, heat exchangers, marine hardware, piping, vessels, architectural components, and medical hardware where specified.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Near-Alpha and Beta Titanium</th>
+                                <td>Application-specific aerospace, energy, and high-temperature grades</td>
+                                <td>Elevated-temperature strength, creep resistance, deep hardenability, formability, or specialized fatigue performance.</td>
+                                <td>Engine components, high-temperature structures, springs, fasteners, landing-gear hardware, and specialized aerospace parts.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    Review the broader
+                    <a href="/materials-technical-specs" class="highlight-link">materials and technical specifications</a>
+                    hub for cross-family alloy selection and manufacturing compatibility.
+                </p>
+            </div>
+        </section>
+
+        <section id="grade-comparison">
+            <div class="content-container">
+                <h2>Grade 5 vs. Grade 23 ELI vs. Commercially Pure Titanium</h2>
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Selection Factor</th>
+                                <th scope="col">Grade 5</th>
+                                <th scope="col">Grade 23 ELI</th>
+                                <th scope="col">Commercially Pure Titanium</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Strength</th>
+                                <td>High strength for structural and aerospace applications.</td>
+                                <td>Similar alloy family with tighter interstitial control and application-specific property requirements.</td>
+                                <td>Lower strength but higher ductility and formability in many conditions.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Fracture Toughness and Ductility</th>
+                                <td>Depends on condition, section, processing, and heat treatment.</td>
+                                <td>Often selected where lower interstitial content and improved toughness are required.</td>
+                                <td>Generally ductile, with properties varying by CP grade.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Corrosion Resistance</th>
+                                <td>Strong general corrosion resistance in many environments.</td>
+                                <td>Comparable family-level corrosion behavior, subject to surface and environment.</td>
+                                <td>Widely selected for chemical and marine corrosion resistance.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Typical Manufacturing Routes</th>
+                                <td>Casting, forging, billet machining, additive manufacturing, and combinations.</td>
+                                <td>Precision forging, machining, additive manufacturing, and selected casting routes where specification permits.</td>
+                                <td>Plate, sheet, bar, tube, fabrication, machining, and selected casting or forming routes.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -211,22 +365,127 @@ const pageSchema = {
             </div>
         </section>
 
-        <section id="special-techniques">
+        <section id="manufacturing-route">
             <div class="content-container">
-                <h2>Special Techniques for Titanium Fabrication</h2>
+                <h2>Selecting a Titanium Manufacturing Route</h2>
                 <p>
-                    Because molten titanium reacts aggressively with atmospheric oxygen, nitrogen, and hydrogen at elevated temperatures, specialized manufacturing infrastructure is required:
+                    The correct route depends on geometry, volume, alloy, product form, mechanical properties, cleanliness, inspection, and tooling economics.
                 </p>
                 <ul>
-                    <li>
-                        <strong>Rammed-Graphite & Vacuum Casting:</strong> Poured in specialized vacuum induction furnaces to prevent the formation of brittle alpha-case surface layers.
-                    </li>
-                    <li>
-                        <strong>Precision Forging Grain Alignment:</strong> Closed-die hot forging reorients the alpha-beta grain flow, maximizing cyclic fatigue resistance for high-load structural pins and landing gear hardware.
-                    </li>
-                    <li>
-                        <strong>Chemical Passivation & Surface Treatment:</strong> Chemical pickling and passivation restore the natural, non-reactive titanium oxide skin, ensuring zero chemical reactivity in marine and medical environments.
-                    </li>
+                    <li><strong><a href="/titanium-investment-casting" class="highlight-link">Titanium investment casting:</a></strong> complex near-net geometry, internal features, reduced machining, and production parts where the alloy and specification permit.</li>
+                    <li><strong><a href="/industrial-titanium-sand-casting" class="highlight-link">Titanium sand casting:</a></strong> larger or lower-volume components with process-specific surface, section, and inspection considerations.</li>
+                    <li><strong><a href="/titanium-aerospace-forging" class="highlight-link">Titanium forging:</a></strong> components requiring grain flow, fatigue, impact, and structural performance.</li>
+                    <li><strong><a href="/titanium-machining" class="highlight-link">Billet and forged-part machining:</a></strong> prototypes, low volume, simple shapes, and applications requiring wrought material properties.</li>
+                    <li><strong>Hybrid routes:</strong> casting or forging followed by heat treatment, HIP, machining, chemical milling, finishing, inspection, and assembly.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="casting">
+            <div class="content-container">
+                <h2>Titanium Casting and Alpha-Case Control</h2>
+                <p>
+                    Molten and high-temperature titanium reacts strongly with oxygen, nitrogen, hydrogen, carbon, and many conventional refractories.
+                </p>
+                <ul>
+                    <li><strong>Atmosphere control:</strong> vacuum or inert-atmosphere processing helps limit gas pickup and oxidation.</li>
+                    <li><strong>Mold and crucible compatibility:</strong> ceramic, graphite, or other specialized systems must be selected for the alloy and process.</li>
+                    <li><strong>Alpha-case allowance:</strong> surface reaction layers may require chemical milling, pickling, grinding, or machining removal.</li>
+                    <li><strong>Solidification control:</strong> gating, feeding, hot tearing, shrinkage, and local section changes require process-specific review.</li>
+                    <li><strong>Verification:</strong> alpha-case depth, chemistry, microstructure, NDT, and dimensional inspection may be required by specification.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="forging">
+            <div class="content-container">
+                <h2>Titanium Forging Considerations</h2>
+                <ul>
+                    <li><strong>Temperature window:</strong> forging temperature and strain rate affect flow stress, cracking, and microstructure.</li>
+                    <li><strong>Grain flow:</strong> die and preform design can align material flow with high-load regions.</li>
+                    <li><strong>Surface protection:</strong> scale, contamination, lubrication, and atmosphere must be managed during heating and forging.</li>
+                    <li><strong>Heat treatment:</strong> annealing, solution treatment, aging, or stress relief should follow the exact grade and specification.</li>
+                    <li><strong>Inspection:</strong> ultrasonic testing, penetrant inspection, dimensional inspection, and mechanical testing may be required.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="machining">
+            <div class="content-container">
+                <h2>Machining Titanium Alloys</h2>
+                <p>
+                    Titanium combines low thermal conductivity, chemical reactivity, springback, and strength at cutting temperatures, which can concentrate heat at the cutting edge.
+                </p>
+                <ul>
+                    <li><strong>Rigid setups:</strong> control deflection, vibration, chatter, and feature position.</li>
+                    <li><strong>Sharp cutting tools:</strong> maintain positive cutting action and avoid rubbing or excessive dwell.</li>
+                    <li><strong>Heat management:</strong> use suitable coolant delivery, tool material, geometry, and cutting parameters.</li>
+                    <li><strong>Low radial engagement:</strong> selected toolpaths can help reduce heat and maintain stable cutting on complex parts.</li>
+                    <li><strong><a href="/multi-axis-cnc" class="highlight-link">Multi-axis machining:</a></strong> improve access, reduce setups, and use shorter tools on complex titanium components.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="heat-treatment">
+            <div class="content-container">
+                <h2>Heat Treatment and Microstructure Control</h2>
+                <p>
+                    Heat treatment affects strength, ductility, fatigue, residual stress, microstructure, and dimensional stability.
+                </p>
+                <ul>
+                    <li><strong>Annealing:</strong> reduce residual stress and establish a stable microstructure for subsequent machining or service.</li>
+                    <li><strong>Solution treatment and aging:</strong> used on selected titanium alloys to develop specified strength and microstructure.</li>
+                    <li><strong>Atmosphere control:</strong> vacuum or inert processing may be required to control oxidation and alpha-case formation.</li>
+                    <li><strong>Distortion planning:</strong> fixturing, machining allowance, support, and final inspection should account for thermal movement.</li>
+                    <li><strong>Verification:</strong> hardness, tensile testing, microstructure, alpha case, dimensional inspection, or customer-specific checks may be required.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="surface-finishing">
+            <div class="content-container">
+                <h2>Titanium Surface Finishing and Cleaning</h2>
+                <ul>
+                    <li><strong><a href="/surface-finishing" class="highlight-link">Pickling and chemical milling:</a></strong> remove scale, contamination, and alpha case under controlled conditions.</li>
+                    <li><strong>Passivation and cleaning:</strong> support a clean oxide surface and remove processing contamination where required.</li>
+                    <li><strong>Anodizing and coating:</strong> selected for color coding, wear, galling, electrical, or corrosion-related requirements.</li>
+                    <li><strong>Mechanical finishing:</strong> grinding, polishing, blasting, and deburring for surface, edge, and dimensional requirements.</li>
+                    <li><strong>Cleanliness:</strong> final cleaning, handling, packaging, and contamination control may be critical for medical, aerospace, or vacuum applications.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="inspection">
+            <div class="content-container">
+                <h2>Material Verification, NDT and Documentation</h2>
+                <ul>
+                    <li><strong>Material documentation:</strong> mill or material test reports, heat and lot traceability, and certificates of conformity.</li>
+                    <li><strong>Positive material identification:</strong> XRF, OES, or project-specific chemistry verification where appropriate.</li>
+                    <li><strong>Surface NDT:</strong> penetrant inspection for project-specific surface-discontinuity requirements.</li>
+                    <li><strong>Volumetric NDT:</strong> ultrasonic or radiographic inspection based on product form, geometry, defect risk, and specification.</li>
+                    <li><strong>Metallurgical testing:</strong> microstructure, alpha case, interstitial content, grain size, hardness, tensile, fatigue, or other project-specific evaluation.</li>
+                    <li><strong>Dimensional inspection:</strong> CMM, gauges, optical systems, surface-finish checks, and first-article reporting.</li>
+                </ul>
+                <p>
+                    Review our
+                    <a href="/testing-inspection-capabilities" class="highlight-link">testing and inspection capabilities</a>
+                    and
+                    <a href="/quality-assurance-certifications" class="highlight-link">quality assurance and certifications</a>
+                    for additional information.
+                </p>
+            </div>
+        </section>
+
+        <section id="industry-applications">
+            <div class="content-container">
+                <h2>Titanium Applications by Industry</h2>
+                <ul>
+                    <li><strong><a href="/aerospace" class="highlight-link">Aerospace:</a></strong> brackets, fittings, fasteners, shafts, engine-adjacent hardware, airframe structures, and propulsion components.</li>
+                    <li><strong><a href="/space-defence" class="highlight-link">Space and defense:</a></strong> lightweight structures, housings, actuators, fasteners, UAV hardware, and corrosion-resistant components.</li>
+                    <li><strong><a href="/medical" class="highlight-link">Medical and healthcare:</a></strong> instruments, housings, fixation hardware, and implantable components only where the exact grade, process, validation, and regulatory requirements are approved.</li>
+                    <li><strong><a href="/oil-gas" class="highlight-link">Oil and gas:</a></strong> corrosion-resistant fasteners, valves, pump components, offshore hardware, and deepwater equipment.</li>
+                    <li><strong><a href="/energy-power-generation" class="highlight-link">Energy and power generation:</a></strong> heat-exchanger hardware, turbine-related components, fasteners, and corrosion-resistant equipment parts.</li>
+                    <li><strong>Chemical and marine processing:</strong> heat exchangers, piping components, vessels, pump parts, and seawater-service hardware.</li>
                 </ul>
             </div>
         </section>

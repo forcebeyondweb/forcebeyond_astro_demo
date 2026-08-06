@@ -2,12 +2,12 @@
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
 const pageTitle = 'Industrial Titanium Machining: Large-Scale Corrosion-Critical Finishing';
-const seoTitle = 'Industrial Titanium Machining | Heavy Duty B2B CNC Services';
-const seoDescription = 'Precision CNC machining for heavy-industrial titanium components up to 60 inches. Delivering ±0.01mm tolerances for Grade 2 and Grade 7 (Ti-Pd) alloys engineered for highly corrosive chemical processing, desalination, and marine equipment.';
+const seoTitle = 'Industrial Titanium Machining | Large-Scale CNC Finishing | ForceBeyond';
+const seoDescription = 'Tier-1.5 industrial titanium machining services. Specialized 5-axis CNC finishing for large pump housings, valve bodies, and desalination components. AS9100 & ISO 9001 certified.';
 const faqs = [
     {
         q: "What is the largest titanium component you can machine?",
-        a: "Our current capacity allows for components up to <strong>80 inches (2,000mm)</strong> in diameter and up to <strong>10 tons</strong> in weight, specifically geared toward large <a href='industrial-titanium-sand-casting' class='highlight-link'>Sand Castings</a> and industrial rings."
+        a: "Our current capacity allows for components up to <strong>80 inches (2,000mm)</strong> in diameter and up to <strong>10 tons</strong> in weight, specifically geared toward large <a href='/industrial-titanium-sand-casting' class='highlight-link'>Sand Castings</a> and industrial rings."
     },
     {
         q: "Can you machine Grade 7 (Palladium) titanium?",
@@ -33,134 +33,76 @@ const sources = [
 // Resources 
 const internalResources = [
     // Die Casting Resources
-    { label: "Die Casting Overview", url: "die-casting" },
-    { label: "Aluminum Die Casting", url: "aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "a356-t6-casting" },
-    { label: "Magnesium Casting", url: "magnesium-casting" },
+    { label: "Die Casting Overview", url: "/die-casting" },
+    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
+    { label: "Zinc Die Casting", url: "/zinc-die-casting" },
+    { label: "A356-T6 Casting", url: "/a356-t6-casting" },
+    { label: "Magnesium Casting", url: "/magnesium-casting" },
 
     // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "duplex-stainless-steel-casting" },
+    { label: "Investment Casting Overview", url: "/investment-casting" },
+    { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
+    { label: "Titanium Investment Casting", url: "/titanium-investment-casting" },
+    { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting" },
 
     // Forging Resources
-    { label: "Forging Capabilities Overview", url: "forging" },
-    { label: "Open Die Forging", url: "open-die-forging" },
-    { label: "Closed Die Forging", url: "closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "rolled-ring-forging" },
-    { label: "Cold Forging", url: "cold-forging" },
-    { label: "Superalloy Forging Services", url: "superalloy-forging-services" },
+    { label: "Forging Capabilities Overview", url: "/forging" },
+    { label: "Open Die Forging", url: "/open-die-forging" },
+    { label: "Closed Die Forging", url: "/closed-die-forging" },
+    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
+    { label: "Cold Forging", url: "/cold-forging" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
 
     // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "carbon-steel-casting" }
+    { label: "Sand Casting", url: "/sand-casting" },
+    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
 ];
-// Service / Product Schema
+// Page-level schema migrated from the current forcebeyond.com page.
+// Global Place, Organization, and WebSite entities are defined in Layout.astro.
 const pageSchema = {
   "@context": "https://schema.org",
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.storeindustrial-titanium-machining#webpage",
-      "url": "https://www.forcebeyond.storeindustrial-titanium-machining",
-      "name": seoTitle,
-      "description": seoDescription,
+      "@id": "https://www.forcebeyond.com/industrial-titanium-machining/#webpage",
+      "url": "https://www.forcebeyond.com/industrial-titanium-machining/",
+      "name": "Industrial Titanium Machining | Large-Scale CNC Finishing | ForceBeyond",
+      "datePublished": "2026-03-05T23:15:41-05:00",
+      "dateModified": "2026-03-06T13:09:57-05:00",
       "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://www.forcebeyond.store/oscar#website",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar"
+        "@id": "https://www.forcebeyond.com/#website"
       },
-      "about": [
-        {
-          "@type": "Thing",
-          "name": "Titanium",
-          "sameAs": "https://en.wikipedia.org/wiki/Titanium"
-        },
-        {
-          "@type": "Thing",
-          "name": "Machining",
-          "sameAs": "https://en.wikipedia.org/wiki/Machining"
-        },
-        {
-          "@type": "Thing",
-          "name": "Corrosion",
-          "sameAs": "https://en.wikipedia.org/wiki/Corrosion"
-        }
-      ]
+      "inLanguage": "en-US"
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.storeindustrial-titanium-machining#service",
-      "name": "Industrial Titanium Machining Services",
-      "serviceType": "Industrial Titanium Machining Services",
-      "description": seoDescription,
+      "name": "Industrial Titanium Machining",
+      "description": "High-precision CNC machining of large-scale titanium components for industrial flow control, power generation, and chemical processing.",
       "provider": {
         "@type": "Organization",
-        "id": "https://www.forcebeyond.store/oscar#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.store/oscar",
-        "knowsAbout": [
-          "Industrial Titanium Machining",
-          "CP Grade 2 & Grade 7 (Ti-Pd) Machining",
-          "5-Axis CNC Milling & Heavy Turning",
-          "ASTM B348 & NACE MR0175 Compliance",
-          "Corrosion-Resistant Component Finishing",
-          "Large-Envelope Pump & Valve Machining",
-          "High-Metal Removal Rate (MRR) Optimization"
-        ]
+        "name": "ForceBeyond"
       },
-      "areaServed": [
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "South Korea" },
-        { "@type": "Country", "name": "Taiwan" }
-      ],
+      "serviceType": "CNC Machining",
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "Industrial Titanium Machining Capabilities",
+        "name": "Industrial Titanium Services",
         "itemListElement": [
           {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Large-Envelope Multi-Axis CNC Milling",
-              "description": "High-precision 5-axis milling and turning for heavy-duty industrial titanium components up to 60 inches, achieving strict ±0.01mm dimensional tolerances."
-            }
+            "@type": "Service",
+            "name": "Large-Envelope Titanium Milling"
           },
           {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Harsh-Environment Component Finishing",
-              "description": "Specialized machining of titanium pump impellers, mixer shafts, and large valve bodies optimized for aggressive chemical processing, desalination, and marine infrastructure."
-            }
+            "@type": "Service",
+            "name": "Corrosion-Resistant Valve Machining"
           },
           {
-            "@type": "Offer",
-            "itemOffered": {
-              "@type": "Service",
-              "name": "Tier-1.5 Post-Casting & Post-Forging Finishing",
-              "description": "Streamlined manufacturing pipeline executing heavy stock removal and precision finish machining on raw titanium sand castings or large forgings with full single-source metallurgical traceability."
-            }
+            "@type": "Service",
+            "name": "Industrial Pump Housing Finishing"
           }
         ]
       }
-    },
-    {
-      "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.storeindustrial-titanium-machining#faq",
-      "mainEntity": faqs.map(f => ({
-        "@type": "Question",
-        "name": f.q,
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": f.a
-        }
-      }))
     }
   ]
 };
@@ -171,7 +113,7 @@ const pageSchema = {
     description={seoDescription}
     schema={pageSchema}
     pageTitle={pageTitle}
-    heroImage="media/aerospace-titanium-5-axis-machining-as9100-hero.webp"
+    heroImage="/media/aerospace-titanium-5-axis-machining-as9100-hero.webp"
     heroImageAlt="Precision 5-axis machining of an aerospace titanium component in an AS9100-certified manufacturing environment"
     faqSectionTitle="FAQ: Aerospace Titanium Machining"
     faqItems={faqs}
@@ -193,8 +135,8 @@ const pageSchema = {
                 <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
                     <div>
                         <p>
-                            ForceBeyond provides high-capacity <a href='industrial-titanium-machining' class = "highlight-link">Industrial Titanium Machining</a> for large-scale, 
-                            corrosion-resistant assemblies. Specialized in finishing heavy-walled <a href='industrial-titanium-sand-casting' class='highlight-link'>Sand Castings</a> and industrial 
+                            ForceBeyond provides high-capacity <a href='/industrial-titanium-machining' class = "highlight-link">Industrial Titanium Machining</a> for large-scale, 
+                            corrosion-resistant assemblies. Specialized in finishing heavy-walled <a href='/industrial-titanium-sand-casting' class='highlight-link'>Sand Castings</a> and industrial 
                             forgings, our co-owned CNC centers handle components up to <strong>80 inches (2,000mm)</strong> in diameter. 
                             Our Tier-1.5 integrated model ensures that critical seal surfaces and flange faces on pump housings, 
                             valve bodies, and heat exchangers meet the rigorous <strong>ASTM B367</strong> and <strong>ASME</strong> standards required for 
@@ -205,7 +147,7 @@ const pageSchema = {
                     <div class="relative">
                         <div class="overflow-hidden">
                             <img
-                                src="media/precision-cnc-machined-titanium-manifold-housing-4k.webp"
+                                src="/media/precision-cnc-machined-titanium-manifold-housing-4k.webp"
                                 alt="Precision CNC-machined titanium manifold housing with threaded ports, mounting holes, and complex milled features on a white background."
                                 class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
                             />
