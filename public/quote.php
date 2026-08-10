@@ -1,15 +1,5 @@
 <?php
-// Allow browser requests and CORS preflight handling
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
-header("Access-Control-Allow-Methods: POST, GET, OPTIONS");
-header("Access-Control-Allow-Credentials: true");
-
-// Respond to OPTIONS preflight requests
-if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
-    header("HTTP/1.1 200 OK");
-    exit(0);
-}
+header("Content-Type: application/json; charset=UTF-8");
 
 require_once __DIR__ . '/turnstile-verify.php';
 
@@ -22,10 +12,6 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
     exit("Method Not Allowed");
 }
 
-verifyHoneypot();
-verifyTurnstile('rfq-form');
-
-header("Content-Type: application/json; charset=UTF-8");
 
 require 'phpmailer/Exception.php';
 require 'phpmailer/PHPMailer.php';
@@ -38,14 +24,16 @@ $lastName    = htmlspecialchars(strip_tags(trim($_POST["last-name"] ?? '')));
 $jobTitle    = htmlspecialchars(strip_tags(trim($_POST["job-title"] ?? '')));
 $organization= htmlspecialchars(strip_tags(trim($_POST["organization"] ?? ''))); 
 
-$address1    = htmlspecialchars(strip_tags(trim($_POST["address-line-1"] ?? 'Not provided')));
+$address1    = htmlspecialchars(strip_tags(trim($_POST["address-line-1"] ?? '')));
 $address2    = htmlspecialchars(strip_tags(trim($_POST["address-line-2"] ?? '')));
-$city        = htmlspecialchars(strip_tags(trim($_POST["city"] ?? 'Not provided')));
-$state       = htmlspecialchars(strip_tags(trim($_POST["state"] ?? 'Not provided')));
-$postalCode  = htmlspecialchars(strip_tags(trim($_POST["postal-code"] ?? 'Not provided')));
-$country     = htmlspecialchars(strip_tags(trim($_POST["country"] ?? 'Not provided')));
+$city        = htmlspecialchars(strip_tags(trim($_POST["city"] ?? '')));
+$state       = htmlspecialchars(strip_tags(trim($_POST["state"] ?? '')));
+$postalCode  = htmlspecialchars(strip_tags(trim($_POST["postal-code"] ?? '')));
+$country     = htmlspecialchars(strip_tags(trim($_POST["country"] ?? '')));
 
-$email       = filter_var(trim($_POST["email"] ?? ''), FILTER_VALIDATE_EMAIL);
+$rawEmail    = trim($_POST["email"] ?? '');
+$confirmEmail = trim($_POST["confirm-email"] ?? '');
+$email       = filter_var($rawEmail, FILTER_VALIDATE_EMAIL);
 $phone       = htmlspecialchars(strip_tags(trim($_POST["phone"] ?? '')));
 $leadSource  = htmlspecialchars(strip_tags(trim($_POST["marketing-source"] ?? '')));
 
@@ -53,11 +41,55 @@ $leadSource  = htmlspecialchars(strip_tags(trim($_POST["marketing-source"] ?? ''
 $interest    = htmlspecialchars(strip_tags(trim($_POST["project-interest"] ?? '')));
 $budget      = htmlspecialchars(strip_tags(trim($_POST["annual-budget"] ?? '')));
 
-// Validate required fields
-if (!$firstName || !$lastName || !$email || !$organization || !$leadSource || !$interest || !$budget || !$phone) {
-    echo json_encode(["success" => false, "error" => "Required validation fields are empty."]);
+// Every user-facing field is required except engineering attachments.
+$requiredFields = [
+    'First Name' => $firstName,
+    'Last Name' => $lastName,
+    'Job Title' => $jobTitle,
+    'Business / Organization' => $organization,
+    'Email' => $email,
+    'Confirm Email' => $confirmEmail,
+    'Address Line 1' => $address1,
+    'City' => $city,
+    'State' => $state,
+    'Postal Code' => $postalCode,
+    'Country' => $country,
+    'How Did You Hear About ForceBeyond' => $leadSource,
+    'Project Interest' => $interest,
+    'Annual Budget' => $budget,
+    'Phone Number' => $phone,
+];
+
+$missingFields = [];
+
+foreach ($requiredFields as $label => $value) {
+    if ($value === false || trim((string) $value) === '') {
+        $missingFields[] = $label;
+    }
+}
+
+if ($missingFields) {
+    http_response_code(422);
+    echo json_encode([
+        "success" => false,
+        "error" => "Please complete: " . implode(", ", $missingFields) . "."
+    ]);
     exit;
 }
+
+if (strcasecmp($rawEmail, $confirmEmail) !== 0) {
+    http_response_code(422);
+    echo json_encode([
+        "success" => false,
+        "error" => "Email and confirm email must match."
+    ]);
+    exit;
+}
+
+// Run bot checks only after ordinary field validation succeeds.
+// Turnstile tokens are single-use, so this avoids consuming a token for an incomplete form.
+verifyHoneypot();
+verifyTurnstile('rfq-form');
 
 $fullName = $firstName . ' ' . $lastName;
 
@@ -68,28 +100,64 @@ $attachmentCount = 0;
 
 if (isset($_FILES['engineering-assets'])) {
     $files = $_FILES['engineering-assets'];
+
     foreach ($files['name'] as $key => $name) {
-        if ($files['error'][$key] === UPLOAD_ERR_OK) {
-            $fileNameLower = strtolower($name);
-            
-            if (preg_match('/\.(php|js|sh|exe|pl|py)/', $fileNameLower)) {
-                echo json_encode(["success" => false, "error" => "Security exception: Execution script pattern intercepted."]);
-                exit;
-            }
+        $uploadError = $files['error'][$key] ?? UPLOAD_ERR_NO_FILE;
 
-            $ext = pathinfo($fileNameLower, PATHINFO_EXTENSION);
-            if (!in_array($ext, $allowedExtensions)) {
-                echo json_encode(["success" => false, "error" => "Extension rejected: '." . $ext . "' is unauthorized."]);
-                exit;
-            }
-
-            if ($files['size'][$key] > $maxFileSize) {
-                echo json_encode(["success" => false, "error" => "Payload cap breached by file: " . $name]);
-                exit;
-            }
-
-            $attachmentCount++;
+        // Empty file slots are normal when the optional attachment field is unused.
+        if ($uploadError === UPLOAD_ERR_NO_FILE) {
+            continue;
         }
+
+        // Do not silently turn a failed upload into "no attachment". Mobile files
+        // are often larger, which can expose hosting-level PHP upload limits.
+        if ($uploadError !== UPLOAD_ERR_OK) {
+            $uploadErrorMessages = [
+                UPLOAD_ERR_INI_SIZE   => 'The file exceeds the server upload_max_filesize limit.',
+                UPLOAD_ERR_FORM_SIZE  => 'The file exceeds the form upload size limit.',
+                UPLOAD_ERR_PARTIAL    => 'The file was only partially uploaded. Please try again.',
+                UPLOAD_ERR_NO_TMP_DIR => 'The server temporary upload folder is missing.',
+                UPLOAD_ERR_CANT_WRITE => 'The server could not write the uploaded file.',
+                UPLOAD_ERR_EXTENSION  => 'A server extension stopped the file upload.',
+            ];
+
+            http_response_code(422);
+            echo json_encode([
+                'success' => false,
+                'error' => ($uploadErrorMessages[$uploadError] ?? 'The attachment could not be uploaded.') .
+                    ($name ? ' File: ' . $name : ''),
+            ]);
+            exit;
+        }
+
+        $fileNameLower = strtolower($name);
+
+        if (preg_match('/\.(php|js|sh|exe|pl|py)/', $fileNameLower)) {
+            http_response_code(422);
+            echo json_encode(["success" => false, "error" => "Security exception: Execution script pattern intercepted."]);
+            exit;
+        }
+
+        $ext = pathinfo($fileNameLower, PATHINFO_EXTENSION);
+        if (!in_array($ext, $allowedExtensions, true)) {
+            http_response_code(422);
+            echo json_encode(["success" => false, "error" => "Extension rejected: '." . $ext . "' is unauthorized."]);
+            exit;
+        }
+
+        if (($files['size'][$key] ?? 0) > $maxFileSize) {
+            http_response_code(422);
+            echo json_encode(["success" => false, "error" => "Payload cap breached by file: " . $name]);
+            exit;
+        }
+
+        if (!is_uploaded_file($files['tmp_name'][$key])) {
+            http_response_code(422);
+            echo json_encode(["success" => false, "error" => "The server could not verify the uploaded file: " . $name]);
+            exit;
+        }
+
+        $attachmentCount++;
     }
 }
 
