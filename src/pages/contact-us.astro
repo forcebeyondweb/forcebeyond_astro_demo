@@ -148,42 +148,51 @@ const contactSchema = {
                     </div>
                 </div>
                             
-                <form id="contactForm" action="/contact-form-submit.php" method="POST" class="w-full">
+                <form id="contactForm" action="/contact-form-submit.php" method="POST" class="w-full" novalidate>
                     <h2 class="text-2xl font-black tracking-tight text-slate-950 ">{data?.formTitle || "B2B Technical Communications"}</h2>
                     <p class="mt-3 leading-relaxed text-slate-600 text-sm">{data?.formDescription || "A dedicated ForceBeyond engineer will evaluate your submission and respond within one business day."}</p>
-
+                        <p class="text-xs font-black tracking-wider text-slate-500 ">
+                            <span class="mr-2 text-blue-600">*</span>Required fields
+                        </p>
                     <div class="mt-12 grid gap-x-6 gap-y-8 sm:grid-cols-2">
                         <fieldset class="contents">
-                            <legend class="sm:col-span-2 text-sm font-black text-slate-900  tracking-wider">Contact Information<span class="text-blue-600">*</span></legend>
-                            <label class="block text-xs font-bold text-slate-500  tracking-wider">Your First Name<input class={input} required name="first-name" autocomplete="given-name" type="text" /></label>
-                            <label class="block text-xs font-bold text-slate-500  tracking-wider">Your Last Name<input class={input} required name="last-name" autocomplete="family-name" type="text" /></label>
+                            <legend class="sm:col-span-2 text-sm font-black text-slate-900  tracking-wider">Contact Information<span class="text-blue-600">(Required)</span></legend>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">Your First Name<span class="mr-2 text-blue-600">*</span><input class={input} required name="first-name" autocomplete="given-name" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">Your Last Name<span class="mr-2 text-blue-600">*</span><input class={input} required name="last-name" autocomplete="family-name" type="text" /></label>
                         </fieldset>
 
-                        <label class="block text-xs font-bold text-slate-500  tracking-wider">Your Job Title <span class="text-blue-600">(required)</span><input class={input} required name="job-title" autocomplete="organization-title" type="text" /></label>
-                        <label class="block text-xs font-bold text-slate-500  tracking-wider">Your Company Name <span class="text-blue-600">(required)</span><input class={input} required name="company-name" autocomplete="organization" type="text" /></label>
+                        <label class="block text-xs font-bold text-slate-500  tracking-wider">Your Job Title <span class="mr-2 text-blue-600">*</span></span><input class={input} required name="job-title" autocomplete="organization-title" type="text" /></label>
+                        <label class="block text-xs font-bold text-slate-500  tracking-wider">Your Company Name <span class="mr-2 text-blue-600">*</span></span><input class={input} required name="company-name" autocomplete="organization" type="text" /></label>
 
                         <fieldset class="contents">
-                            <legend class="sm:col-span-2 mt-4 text-sm font-black text-slate-900  tracking-wider">Your Location <span class="text-blue-600">(required)</span></legend>
-                            <label class="block text-xs font-bold text-slate-500  tracking-wider sm:col-span-2">Address Line 1<input class={input} required name="address-line-1" autocomplete="address-line1" type="text" /></label>
+                            <legend class="sm:col-span-2 mt-4 text-sm font-black text-slate-900  tracking-wider">Your Location <span class="mr-2 text-blue-600">(Required)</span></legend>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider sm:col-span-2">Address Line 1<span class="mr-2 text-blue-600">*</span><input class={input} required name="address-line-1" autocomplete="address-line1" type="text" /></label>
                             <label class="block text-xs font-bold text-slate-500  tracking-wider sm:col-span-2">Address Line 2 (Optional)<input class={input} name="address-line-2" autocomplete="address-line2" type="text" /></label>
-                            <label class="block text-xs font-bold text-slate-500  tracking-wider">City<input class={input} required name="city" autocomplete="address-level2" type="text" /></label>
-                            <label class="block text-xs font-bold text-slate-500  tracking-wider">State / Province<input class={input} required name="state-region" autocomplete="address-level1" type="text" /></label>
-                            <label class="block text-xs font-bold text-slate-500  tracking-wider">Postal Code<input class={input} required name="postal-code" autocomplete="postal-code" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">City<span class="mr-2 text-blue-600">*</span><input class={input} required name="city" autocomplete="address-level2" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">State / Province<span class="mr-2 text-blue-600">*</span><input class={input} required name="state-region" autocomplete="address-level1" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">Postal Code<span class="mr-2 text-blue-600">*</span><input class={input} required name="postal-code" autocomplete="postal-code" type="text" /></label>
                             <label class="block text-xs font-bold text-slate-500  tracking-wider">
-                                Country
+                                Country<span class="mr-2 text-blue-600">*</span>
                                 <select class={input} required name="country" autocomplete="country-name">
                                     <option value="">Select a country</option>
-                                    {countries.map((country) => <option value={country}>{country}</option>)}
+                                    {countries.map((country) => (
+                                        <option
+                                            value={country}
+                                            selected={country === "United States of America"}
+                                        >
+                                            {country}
+                                        </option>
+                                    ))}
                                 </select>
                             </label>
                         </fieldset>
 
-                        <label class="block text-xs font-bold text-slate-500  tracking-wider">Your Corporate Email <span class="text-blue-600">(required)</span><input id="contact-email" class={input} required name="email" autocomplete="email" type="email" /></label>
-                        <label class="block text-xs font-bold text-slate-500  tracking-wider">Confirm Corporate Email<input id="contact-confirm-email" class={input} required name="confirm-email" autocomplete="email" type="email" /></label>
-                        <label class="block text-xs font-bold text-slate-500  tracking-wider sm:col-span-2">Your Business Phone <span class="text-blue-600">(Required)</span><input class={input} required name="phone" autocomplete="tel" type="tel" /></label>
+                        <label class="block text-xs font-bold text-slate-500  tracking-wider">Your Corporate Email <span class="mr-2 text-blue-600">*</span><input id="contact-email" class={input} required name="email" autocomplete="email" type="email" /></label>
+                        <label class="block text-xs font-bold text-slate-500  tracking-wider">Confirm Corporate Email<span class="mr-2 text-blue-600">*</span><input id="contact-confirm-email" class={input} required name="confirm-email" autocomplete="email" type="email" /></label>
+                        <label class="block text-xs font-bold text-slate-500  tracking-wider sm:col-span-2">Your Business Phone <span class="mr-2 text-blue-600">*</span><input class={input} required name="phone" autocomplete="tel" type="tel" /></label>
 
                         <fieldset class="sm:col-span-2 border-y border-slate-200 py-8 my-2">
-                            <legend class="text-sm font-black text-slate-900  tracking-wider">How Did You Hear About Us? <span class="text-blue-600">(required)</span></legend>
+                            <legend class="text-sm font-black text-slate-900  tracking-wider">How Did You Hear About Us? <span class="mr-2 text-blue-600">(Required)</span></legend>
                             <div class="mt-6 grid gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
                                 {sources.map((source) => (
                                     <label class="flex cursor-pointer items-center gap-3 rounded border border-slate-200 bg-slate-50/50 px-4 py-3 text-xs font-bold text-slate-700 transition hover:border-blue-500 hover:bg-slate-50">
@@ -193,9 +202,9 @@ const contactSchema = {
                             </div>
                         </fieldset>
 
-                        <label class="block text-sm font-black text-slate-900  tracking-wider sm:col-span-2">Subject<span class="text-blue-600">(required)</span><input class={input} required name="subject" type="text" /></label>
+                        <label class="block text-sm font-black text-slate-900  tracking-wider sm:col-span-2">Subject<span class="mr-2 text-blue-600">(Required)</span><input class={input} required name="subject" type="text" /></label>
                         <label class="block text-sm font-black text-slate-900  tracking-wider sm:col-span-2">
-                            Your Message <span class="text-blue-600">(required)</span>
+                            Your Message<span class="mr-2 text-blue-600">(Required)</span>
                             <textarea 
                                 class={input + ' min-h-48 resize-y'} 
                                 required 
@@ -229,8 +238,10 @@ const contactSchema = {
                         <p class="mt-2 text-xs text-slate-500">Security verification helps prevent automated spam.</p>
                     </div>
 
+                    <div id="formErrorMessage" class="mt-8 hidden rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm font-bold text-red-700" role="alert" aria-live="polite"></div>
+
                     <!-- Standardized, full, round blue submit button for the homepage -->
-                    <div class="mt-10 text-center sm:text-left">
+                    <div class="mt-6 text-center sm:text-left">
                         <button type="submit" id="submitBtn" class="inline-flex items-center justify-center rounded-full bg-blue-600 px-12 py-4.5 font-black tracking-widest text-white  text-xs transition hover:bg-blue-700 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-blue-600/10 cursor-pointer">
                             Submit
                         </button>
@@ -240,35 +251,200 @@ const contactSchema = {
             </div>
         </div>
     </div>
-        <!-- Email matching validation script -->
-        <script is:inline>
-            const emailInput = document.getElementById('contact-email');
-            const confirmEmailInput = document.getElementById('contact-confirm-email');
-
-            function validateEmail() {
-                if (confirmEmailInput.value && emailInput.value !== confirmEmailInput.value) {
-                    confirmEmailInput.setCustomValidity("Email addresses must match.");
-                } else {
-                    confirmEmailInput.setCustomValidity("");
-                }
-            }
-
-            emailInput.addEventListener('input', validateEmail);
-            confirmEmailInput.addEventListener('input', validateEmail);
-        </script>
+        <!-- Mobile-safe contact form validation and submission -->
         <script is:inline>
             const contactForm = document.getElementById('contactForm');
             const contactSubmitBtn = document.getElementById('submitBtn');
             const contactThankYouState = document.getElementById('thankYouState');
+            const formErrorMessage = document.getElementById('formErrorMessage');
+            const emailInput = document.getElementById('contact-email');
+            const confirmEmailInput = document.getElementById('contact-confirm-email');
 
-            if (contactForm && contactSubmitBtn && contactThankYouState) {
-                contactForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
+            const requiredFields = [
+                { name: 'first-name', label: 'First Name' },
+                { name: 'last-name', label: 'Last Name' },
+                { name: 'job-title', label: 'Job Title' },
+                { name: 'company-name', label: 'Company Name' },
+                { name: 'address-line-1', label: 'Address Line 1' },
+                { name: 'city', label: 'City' },
+                { name: 'state-region', label: 'State / Province' },
+                { name: 'postal-code', label: 'Postal Code' },
+                { name: 'country', label: 'Country' },
+                { name: 'email', label: 'Corporate Email' },
+                { name: 'confirm-email', label: 'Confirm Corporate Email' },
+                { name: 'phone', label: 'Business Phone' },
+                { name: 'marketing-source', label: 'How Did You Hear About Us' },
+                { name: 'subject', label: 'Subject' },
+                { name: 'message', label: 'Message' }
+            ];
 
-                    const turnstileToken = contactForm.querySelector('input[name="cf-turnstile-response"]')?.value;
+            const INVALID_CLASSES = ['ring-2', 'ring-red-500', 'ring-offset-4'];
+            const SCROLL_OFFSET = 120;
+
+            function validateEmail() {
+                if (
+                    confirmEmailInput.value &&
+                    emailInput.value !== confirmEmailInput.value
+                ) {
+                    confirmEmailInput.setCustomValidity('Email addresses must match.');
+                } else {
+                    confirmEmailInput.setCustomValidity('');
+                }
+            }
+
+            function getMissingFields() {
+                return requiredFields.filter(({ name }) => {
+                    const fields = contactForm.querySelectorAll(`[name="${name}"]`);
+
+                    if (!fields.length) {
+                        return true;
+                    }
+
+                    if (fields[0].type === 'radio') {
+                        return !Array.from(fields).some((field) => field.checked);
+                    }
+
+                    return !fields[0].value.trim();
+                });
+            }
+
+            function showFormError(message) {
+                formErrorMessage.textContent = message;
+                formErrorMessage.classList.remove('hidden');
+            }
+
+            function clearFormError() {
+                formErrorMessage.textContent = '';
+                formErrorMessage.classList.add('hidden');
+            }
+
+            function clearInvalidHighlights() {
+                contactForm
+                    .querySelectorAll('.ring-red-500')
+                    .forEach((element) => element.classList.remove(...INVALID_CLASSES));
+            }
+
+            function getValidationTarget(field) {
+                if (!field) {
+                    return null;
+                }
+
+                if (field.type === 'radio' || field.type === 'checkbox') {
+                    return field.closest('fieldset') || field.closest('label') || field;
+                }
+
+                return field.closest('label') || field;
+            }
+
+            function scrollToValidationTarget(field) {
+                const target = getValidationTarget(field);
+
+                if (!target) {
+                    return;
+                }
+
+                clearInvalidHighlights();
+                target.classList.add(...INVALID_CLASSES);
+
+                const top =
+                    target.getBoundingClientRect().top +
+                    window.scrollY -
+                    SCROLL_OFFSET;
+
+                window.scrollTo({
+                    top: Math.max(0, top),
+                    behavior: 'smooth'
+                });
+
+                window.setTimeout(() => {
+                    try {
+                        field.focus({ preventScroll: true });
+                    } catch {
+                        field.focus();
+                    }
+                }, 450);
+            }
+
+            function scrollToTurnstile() {
+                const turnstile = contactForm.querySelector('.cf-turnstile');
+                const target = turnstile?.parentElement || turnstile || formErrorMessage;
+
+                clearInvalidHighlights();
+                target.classList.add(...INVALID_CLASSES);
+
+                const top =
+                    target.getBoundingClientRect().top +
+                    window.scrollY -
+                    SCROLL_OFFSET;
+
+                window.scrollTo({
+                    top: Math.max(0, top),
+                    behavior: 'smooth'
+                });
+            }
+
+            function clearFieldHighlight(event) {
+                const target = getValidationTarget(event.target);
+                target?.classList.remove(...INVALID_CLASSES);
+            }
+
+            if (
+                contactForm &&
+                contactSubmitBtn &&
+                contactThankYouState &&
+                formErrorMessage &&
+                emailInput &&
+                confirmEmailInput
+            ) {
+                emailInput.addEventListener('input', () => {
+                    validateEmail();
+                    clearFieldHighlight({ target: emailInput });
+                });
+
+                confirmEmailInput.addEventListener('input', () => {
+                    validateEmail();
+                    clearFieldHighlight({ target: confirmEmailInput });
+                });
+
+                contactForm.addEventListener('input', clearFieldHighlight);
+                contactForm.addEventListener('change', clearFieldHighlight);
+
+                contactForm.addEventListener('submit', async (event) => {
+                    event.preventDefault();
+                    clearFormError();
+                    clearInvalidHighlights();
+                    validateEmail();
+
+                    const missingFields = getMissingFields();
+
+                    if (missingFields.length > 0 || !contactForm.checkValidity()) {
+                        const missingLabels = missingFields
+                            .map(({ label }) => label)
+                            .join(', ');
+
+                        showFormError(
+                            missingLabels
+                                ? `Please complete: ${missingLabels}.`
+                                : 'Please correct the highlighted field.'
+                        );
+
+                        const firstMissingName = missingFields[0]?.name;
+                        const firstInvalidField = firstMissingName
+                            ? contactForm.querySelector(`[name="${firstMissingName}"]`)
+                            : contactForm.querySelector(':invalid');
+
+                        scrollToValidationTarget(firstInvalidField);
+                        return;
+                    }
+
+                    const turnstileToken =
+                        contactForm.querySelector(
+                            'input[name="cf-turnstile-response"]'
+                        )?.value;
 
                     if (!turnstileToken) {
-                        alert('Please complete the security verification.');
+                        showFormError('Please complete the security verification.');
+                        scrollToTurnstile();
                         return;
                     }
 
@@ -290,24 +466,61 @@ const contactSchema = {
                             result = await response.json();
                         } else {
                             const textResponse = await response.text();
-                            result = { success: response.ok, error: textResponse };
+                            result = {
+                                success: false,
+                                error:
+                                    textResponse ||
+                                    'The server returned an invalid response.'
+                            };
                         }
 
-                        if (result.success || response.ok) {
+                        if (response.ok && result.success === true) {
                             contactForm.reset();
+                            clearInvalidHighlights();
                             contactForm.classList.add('hidden');
                             contactThankYouState.classList.remove('hidden');
+
+                            const top =
+                                contactThankYouState.getBoundingClientRect().top +
+                                window.scrollY -
+                                SCROLL_OFFSET;
+
                             window.scrollTo({
-                                top: contactThankYouState.offsetTop - 120,
+                                top: Math.max(0, top),
                                 behavior: 'smooth'
                             });
                         } else {
                             window.turnstile?.reset();
-                            alert('Submission failed: ' + (result.error || 'Unknown server error.'));
+                            showFormError(
+                                result.error ||
+                                    `Submission failed with HTTP status ${response.status}. Please try again.`
+                            );
+
+                            const top =
+                                formErrorMessage.getBoundingClientRect().top +
+                                window.scrollY -
+                                SCROLL_OFFSET;
+
+                            window.scrollTo({
+                                top: Math.max(0, top),
+                                behavior: 'smooth'
+                            });
                         }
                     } catch (error) {
                         window.turnstile?.reset();
-                        alert('A transmission error occurred. Please try again.');
+                        showFormError(
+                            'A transmission error occurred. Please try again.'
+                        );
+
+                        const top =
+                            formErrorMessage.getBoundingClientRect().top +
+                            window.scrollY -
+                            SCROLL_OFFSET;
+
+                        window.scrollTo({
+                            top: Math.max(0, top),
+                            behavior: 'smooth'
+                        });
                     } finally {
                         contactSubmitBtn.textContent = 'Submit';
                         contactSubmitBtn.disabled = false;

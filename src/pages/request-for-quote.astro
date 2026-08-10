@@ -60,7 +60,8 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
                 id="rfqForm"
                 action="/quote.php" 
                 method="POST" 
-                enctype="multipart/form-data" 
+                enctype="multipart/form-data"
+                novalidate
                 class="bg-white rounded-2xl border border-slate-200/80 shadow-xl shadow-slate-900/5 overflow-hidden"
             >
                 <div class="border-b border-slate-200 bg-white px-8 py-6 lg:px-14">
@@ -81,7 +82,7 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
                         </p>
                     </div>
                     <div class="lg:col-span-2">
-                        <h2 class="text-2xl font-black tracking-tight text-slate-950 ">My Contact Information</h2>
+                        <h2 class="text-2xl font-black tracking-tight text-slate-950 ">My Contact Information<span class="text-blue-600">(Required)</span></h2>
                     </div>
             
                     <label class="block text-xs font-bold text-slate-500  tracking-wider">My First Name <span class="text-blue-600">*</span><input class={input} required name="first-name" autocomplete="given-name" type="text" /></label>
@@ -89,18 +90,18 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
                     <label class="block text-xs font-bold text-slate-500  tracking-wider">My Job Title Is <span class="text-blue-600">*</span><input class={input} required name="job-title" autocomplete="organization-title" type="text" /></label>
                     <label class="block text-xs font-bold text-slate-500  tracking-wider">My Business / Organization Is <span class="text-blue-600">*</span><input class={input} required name="organization" autocomplete="organization" type="text" /></label>
                     <label class="block text-xs font-bold text-slate-500  tracking-wider">My Email Is <span class="text-blue-600">*</span><input id="quote-email" class={input} required name="email" autocomplete="email" type="email" /></label>
-                    <label class="block text-xs font-bold text-slate-500  tracking-wider">Confirm Email<input id="quote-confirm-email" class={input} required name="confirm-email" autocomplete="email" type="email" /></label>
+                    <label class="block text-xs font-bold text-slate-500  tracking-wider">Confirm Email <span class="text-blue-600">*</span><input id="quote-confirm-email" class={input} required name="confirm-email" autocomplete="email" type="email" /></label>
 
                     <div class="lg:col-span-2 border-t border-slate-200 pt-10">
-                        <h2 class="text-2xl font-black tracking-tight text-slate-950 ">My Address</h2>
+                        <h2 class="text-2xl font-black tracking-tight text-slate-950 ">My Address<span class="text-blue-600">(Required)</span></h2>
                         <div class="mt-6 grid gap-6 lg:grid-cols-2">
-                            <label class="block text-xs font-bold text-slate-500  tracking-wider">Address Line 1<input class={input} name="address-line-1" autocomplete="address-line1" type="text" /></label>
-                            <label class="block text-xs font-bold text-slate-500  tracking-wider">Address Line 2<input class={input} name="address-line-2" autocomplete="address-line2" type="text" /></label>
-                            <label class="block text-xs font-bold text-slate-500  tracking-wider">City<input class={input} name="city" autocomplete="address-level2" type="text" /></label>
-                            <label class="block text-xs font-bold text-slate-500  tracking-wider">State<input class={input} name="state" autocomplete="address-level1" type="text" /></label>
-                            <label class="block text-xs font-bold text-slate-500  tracking-wider">Postal Code<input class={input} name="postal-code" autocomplete="postal-code" type="text" /></label>
-                            <label class="block text-xs font-bold text-slate-500  tracking-wider">Country:
-                                <select class={input} name="country" autocomplete="country-name">
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">Address Line 1 <span class="text-blue-600">*</span><input class={input} required name="address-line-1" autocomplete="address-line1" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">Address Line 2 <span class="text-slate-400">(Optional)</span><input class={input} name="address-line-2" autocomplete="address-line2" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">City <span class="text-blue-600">*</span><input class={input} required name="city" autocomplete="address-level2" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">State <span class="text-blue-600">*</span><input class={input} required name="state" autocomplete="address-level1" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">Postal Code <span class="text-blue-600">*</span><input class={input} required name="postal-code" autocomplete="postal-code" type="text" /></label>
+                            <label class="block text-xs font-bold text-slate-500  tracking-wider">Country:<span class="text-blue-600">*</span>
+                                <select class={input} required name="country" autocomplete="country-name">
                                     <option value="">Select a country</option>
                                     {countries.map((country) => <option value={country}>{country}</option>)}
                                 </select>
@@ -109,11 +110,11 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
                     </div>
 
                     <fieldset class="lg:col-span-2 border-t border-slate-200 pt-10">
-                        <h2 class="text-2xl font-black tracking-tight text-slate-950 ">How Did You Hear About ForceBeyond?</h2>
+                        <h2 class="text-2xl font-black tracking-tight text-slate-950 ">How Did You Hear About ForceBeyond? <span class="text-blue-600">(Required)</span></h2>
                         <div class="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
                             {sources.map((source) => (
                                 <label class="flex cursor-pointer items-center gap-3 rounded border border-slate-200 bg-slate-50/50 px-4 py-3 text-xs font-bold text-slate-700 transition hover:border-blue-500 hover:bg-slate-50">
-                                    <input type="radio" name="marketing-source" value={source} class="h-4 w-4 accent-blue-600" />{source}
+                                    <input type="radio" name="marketing-source" value={source} required class="h-4 w-4 accent-blue-600" />{source}
                                 </label>
                             ))}
                         </div>
@@ -121,7 +122,7 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
 
                     <fieldset class="lg:col-span-2 border-t border-slate-200 pt-10">
                         <h2 class="text-2xl font-black tracking-tight text-slate-950">
-                            I Am Interested In
+                            I Am Interested In <span class="text-blue-600">(Required)</span>
                         </h2>
 
                         <div class="mt-6">
@@ -129,6 +130,7 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
                                 id="project-interest"
                                 class={`${input} mt-2 min-h-36 resize-y py-4`}
                                 name="project-interest"
+                                required
                                 rows="5"
                                 placeholder="Casting, forging, machining, or another requirement"
                             ></textarea>
@@ -137,7 +139,7 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
 
                     <fieldset class="lg:col-span-2 border-t border-slate-200 pt-10">
                         <h2 class="text-2xl font-black tracking-tight text-slate-950">
-                            With Annual Budget Of
+                            With Annual Budget Of <span class="text-blue-600">(Required)</span>
                         </h2>
 
                         <div class="mt-6 grid gap-2 sm:grid-cols-2">
@@ -149,6 +151,7 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
                                         type="radio"
                                         name="annual-budget"
                                         value={budget}
+                                        required
                                         class="h-4 w-4 accent-blue-600"
                                     />
                                     <span>{budget}</span>
@@ -159,7 +162,7 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
 
                     <fieldset class="lg:col-span-2 border-t border-slate-200 pt-10">
                         <h2 class="text-2xl font-black tracking-tight text-slate-950">
-                            Give Me a Call Sometime At
+                            Give Me a Call Sometime At<span class="text-blue-600">(Required)</span>
                         </h2>
 
                         <div class="mt-6">
@@ -184,7 +187,7 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
 
                     <fieldset class="lg:col-span-2 border-t border-slate-200 pt-10">
                         <h2 class="text-2xl font-black tracking-tight text-slate-950">
-                            Engineering Assets
+                            Engineering Assets <span class="text-slate-400 text-sm font-semibold">(Optional)</span>
                         </h2>
 
                         <label
@@ -212,7 +215,7 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
 
                             <span class="mt-2 text-sm text-slate-600">
                                 Supported formats: PDF, DWG, DXF, STEP, IGES, SLDPRT, ZIP,
-                                images, and documents. Maximum 2 MB per file.
+                                images, and documents. Maximum 25 MB per file.
                             </span>
 
                             <input
@@ -268,7 +271,7 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
                 </div>
         
                 <div class="border-t border-slate-200 bg-white px-8 py-8 lg:px-14 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-                    <div id="formErrorMessage" class="text-sm font-bold text-red-600 hidden"></div>
+                    <div id="formErrorMessage" class="hidden rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm font-bold text-red-700" role="alert" aria-live="polite"></div>
                     <button type="submit" id="submitBtn" class="w-full rounded-full bg-blue-600 px-12 py-4 font-black tracking-widest text-white  text-xs transition hover:bg-blue-700 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-blue-600/10 cursor-pointer sm:w-auto">
                         Submit Request
                     </button>
@@ -291,10 +294,10 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
     email.addEventListener('input', validateEmailMatch);
     confirmation.addEventListener('input', validateEmailMatch);
 
-    // ==================================================================
-    // Introduce an advanced browser-based `DataTransfer` virtual repository to enable the incremental appending of files.
-    // ==================================================================
-    let fileBufferContainer = new DataTransfer(); // This is a persistent virtual file collection repository
+    // Keep selected files in a normal JavaScript array instead of assigning to
+    // input.files via DataTransfer. Programmatic FileList replacement is not
+    // reliable on iOS Safari and some other mobile browsers.
+    let selectedEngineeringFiles = [];
 
     const fileInput = document.getElementById('fileInput');
     const fileStatus = document.getElementById('fileStatus');
@@ -303,70 +306,63 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
     const fileVisualList = document.getElementById('fileVisualList');
 
     fileInput.addEventListener('change', () => {
-        const freshSelectedFiles = fileInput.files; // Files newly selected in this pop-up window
+        const freshSelectedFiles = Array.from(fileInput.files || []);
         fileError.classList.add('hidden');
+        fileError.textContent = '';
 
-        if (freshSelectedFiles.length > 0) {
-            for (let i = 0; i < freshSelectedFiles.length; i++) {
-                const file = freshSelectedFiles[i];
-                const extension = '.' + file.name.split('.').pop().toLowerCase();
-                
-                // Security filter
-                if (file.name.includes('.php') || file.name.includes('.js') || file.name.includes('.sh') || file.name.includes('.exe')) {
-                    fileError.textContent = `🛑 Security exception: "${file.name}" is unauthorized.`;
-                    fileError.classList.remove('hidden');
-                    return;
-                }
-                if (!allowedExtensions.includes(extension)) {
-                    fileError.textContent = `❌ Extension rejected: "${extension}" is not supported.`;
-                    fileError.classList.remove('hidden');
-                    return;
-                }
-                if (file.size > MAX_FILE_SIZE) {
-                    fileError.textContent = `❌ File size exceeded: "${file.name}" is larger than 25MB.`;
-                    fileError.classList.remove('hidden');
-                    return;
-                }
+        for (const file of freshSelectedFiles) {
+            const extension = '.' + file.name.split('.').pop().toLowerCase();
+            const lowerName = file.name.toLowerCase();
 
-                // If the total count is not over 10, append the new file to our virtual repository instead of overwriting!
-                if (fileBufferContainer.files.length >= 10) {
-                    fileError.textContent = `⚠️ Upper limit breached: You can upload a maximum of 10 engineering assets.`;
-                    fileError.classList.remove('hidden');
-                    break;
-                }
-                
-                // Check whether a file with the same name has been added more than once.
-                unsetDuplicate: {
-                    for(let j=0; j<fileBufferContainer.files.length; j++) {
-                        if(fileBufferContainer.files[j].name === file.name && fileBufferContainer.files[j].size === file.size) {
-                            break unsetDuplicate; // An identical file exists; skipping to avoid adding a duplicate.
-                        }
-                    }
-                    fileBufferContainer.items.add(file); 
-                }
+            if (lowerName.includes('.php') || lowerName.includes('.js') || lowerName.includes('.sh') || lowerName.includes('.exe')) {
+                fileError.textContent = `🛑 Security exception: "${file.name}" is unauthorized.`;
+                fileError.classList.remove('hidden');
+                continue;
             }
 
-            // The integration mechanism forcibly injects the merged [total file set] from the virtual repository back into the native HTML input element, making it available for form submission.
-            fileInput.files = fileBufferContainer.files;
-            
-            // Render UI list
-            renderVisualList();
+            if (!allowedExtensions.includes(extension)) {
+                fileError.textContent = `❌ Extension rejected: "${extension}" is not supported.`;
+                fileError.classList.remove('hidden');
+                continue;
+            }
+
+            if (file.size > MAX_FILE_SIZE) {
+                fileError.textContent = `❌ File size exceeded: "${file.name}" is larger than 25MB.`;
+                fileError.classList.remove('hidden');
+                continue;
+            }
+
+            if (selectedEngineeringFiles.length >= 10) {
+                fileError.textContent = '⚠️ You can upload a maximum of 10 engineering assets.';
+                fileError.classList.remove('hidden');
+                break;
+            }
+
+            const duplicate = selectedEngineeringFiles.some(
+                (existingFile) => existingFile.name === file.name && existingFile.size === file.size
+            );
+
+            if (!duplicate) {
+                selectedEngineeringFiles.push(file);
+            }
         }
+
+        // Clear the native picker after copying the File objects. This allows the
+        // same file to be selected again later and avoids relying on FileList mutation.
+        fileInput.value = '';
+        renderVisualList();
     });
 
-    // Render the visual list with delete buttons
     function renderVisualList() {
         fileVisualList.innerHTML = '';
-        const currentFiles = fileBufferContainer.files;
 
-        if (currentFiles.length > 0) {
+        if (selectedEngineeringFiles.length > 0) {
             let totalSize = 0;
 
-            for (let i = 0; i < currentFiles.length; i++) {
-                const file = currentFiles[i];
+            selectedEngineeringFiles.forEach((file, i) => {
                 totalSize += file.size;
                 const sizeInMB = (file.size / (1024 * 1024)).toFixed(2);
-                
+
                 const li = document.createElement('li');
                 li.className = 'flex items-center justify-between px-4 py-3 text-sm';
                 li.innerHTML = `
@@ -374,45 +370,32 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
                         <svg class="h-5 w-5 text-slate-400 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
-                        <span class="font-medium text-slate-700 truncate">${file.name}</span>
+                        <span class="font-medium text-slate-700 truncate"></span>
                     </div>
                     <div class="flex items-center gap-3 flex-shrink-0">
                         <span class="text-xs font-semibold text-slate-400 bg-slate-200/60 px-2 py-1 rounded">${sizeInMB} MB</span>
-                        <button type="button" data-index="${i}" class="remove-file-btn text-red-500 hover:text-red-700 font-bold px-1">✕</button>
+                        <button type="button" data-index="${i}" class="remove-file-btn text-red-500 hover:text-red-700 font-bold px-1" aria-label="Remove ${file.name}">✕</button>
                     </div>
                 `;
+
+                // Do not inject a user-controlled filename through innerHTML.
+                li.querySelector('.font-medium').textContent = file.name;
                 fileVisualList.appendChild(li);
-            }
-
-            const totalMB = (totalSize / (1024 * 1024)).toFixed(1);
-            fileStatus.innerHTML = `Total <span class="text-blue-600 font-extrabold">${currentFiles.length}</span> file(s) appended (${totalMB} MB).`;
-            fileListContainer.classList.remove('hidden');
-
-            // Attach a listener for the deletion event.
-            document.querySelectorAll('.remove-file-btn').forEach(btn => {
-                btn.addEventListener('click', (e) => {
-                    const indexToRemove = parseInt(e.target.getAttribute('data-index'));
-                    
-                    // Delete a file at a specific location by reconstructing DataTransfer.
-                    const newContainer = new DataTransfer();
-                    for(let k = 0; k < fileBufferContainer.files.length; k++) {
-                        if(k !== indexToRemove) {
-                            newContainer.items.add(fileBufferContainer.files[k]);
-                        }
-                    }
-                    fileBufferContainer = newContainer;
-                    fileInput.files = fileBufferContainer.files;
-                    
-                    renderVisualList(); 
-                    if(fileBufferContainer.files.length === 0) {
-                        fileStatus.textContent = 'Click or drag files here to upload.';
-                        fileListContainer.classList.add('hidden');
-                    }
-                });
             });
 
+            const totalMB = (totalSize / (1024 * 1024)).toFixed(1);
+            fileStatus.innerHTML = `Total <span class="text-blue-600 font-extrabold">${selectedEngineeringFiles.length}</span> file(s) selected (${totalMB} MB).`;
+            fileListContainer.classList.remove('hidden');
+
+            fileVisualList.querySelectorAll('.remove-file-btn').forEach((btn) => {
+                btn.addEventListener('click', () => {
+                    const indexToRemove = Number(btn.getAttribute('data-index'));
+                    selectedEngineeringFiles.splice(indexToRemove, 1);
+                    renderVisualList();
+                });
+            });
         } else {
-            fileStatus.textContent = 'Click or drag files here to upload.';
+            fileStatus.textContent = 'Click or tap here to upload files.';
             fileListContainer.classList.add('hidden');
         }
     }
@@ -422,15 +405,169 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
     const thankYouState = document.getElementById('thankYouState');
     const formErrorMessage = document.getElementById('formErrorMessage');
 
+    // Every user-facing field is required except Address Line 2 and engineering attachments.
+    const requiredFields = [
+        { name: 'first-name', label: 'First Name' },
+        { name: 'last-name', label: 'Last Name' },
+        { name: 'job-title', label: 'Job Title' },
+        { name: 'organization', label: 'Business / Organization' },
+        { name: 'email', label: 'Email' },
+        { name: 'confirm-email', label: 'Confirm Email' },
+        { name: 'address-line-1', label: 'Address Line 1' },
+        { name: 'city', label: 'City' },
+        { name: 'state', label: 'State' },
+        { name: 'postal-code', label: 'Postal Code' },
+        { name: 'country', label: 'Country' },
+        { name: 'marketing-source', label: 'How Did You Hear About ForceBeyond' },
+        { name: 'project-interest', label: 'Project Interest' },
+        { name: 'annual-budget', label: 'Annual Budget' },
+        { name: 'phone', label: 'Phone Number' }
+    ];
+
+    const getFieldsByName = (name) =>
+        Array.from(form.querySelectorAll(`[name="${name}"]`));
+
+    const isFieldMissing = (name) => {
+        const fields = getFieldsByName(name);
+
+        if (!fields.length) {
+            return true;
+        }
+
+        if (fields[0].type === 'radio' || fields[0].type === 'checkbox') {
+            return !fields.some((field) => field.checked);
+        }
+
+        return !String(fields[0].value || '').trim();
+    };
+
+    const getValidationTarget = (field) => {
+        if (!field) return null;
+
+        // Radio groups should scroll to their complete visible section and heading,
+        // rather than to the tiny first radio control.
+        if (field.type === 'radio' || field.type === 'checkbox') {
+            return field.closest('fieldset') || field.closest('label') || field;
+        }
+
+        return field.closest('label') || field.closest('fieldset') || field;
+    };
+
+    const clearValidationHighlight = () => {
+        form.querySelectorAll('[data-validation-error="true"]').forEach((element) => {
+            element.removeAttribute('data-validation-error');
+            element.classList.remove('ring-2', 'ring-red-500', 'ring-offset-4');
+        });
+
+        form.querySelectorAll('[aria-invalid="true"]').forEach((field) => {
+            field.removeAttribute('aria-invalid');
+        });
+    };
+
+    const showValidationLocation = (field) => {
+        if (!field) return;
+
+        clearValidationHighlight();
+
+        const target = getValidationTarget(field);
+        const groupFields = field.name ? getFieldsByName(field.name) : [field];
+
+        groupFields.forEach((groupField) => groupField.setAttribute('aria-invalid', 'true'));
+
+        if (target) {
+            target.setAttribute('data-validation-error', 'true');
+            target.classList.add('ring-2', 'ring-red-500', 'ring-offset-4');
+
+            // Manual offset is more reliable than scrollIntoView on iOS Safari,
+            // especially when the website has a sticky header.
+            const headerOffset = 120;
+            const top = Math.max(
+                0,
+                target.getBoundingClientRect().top + window.pageYOffset - headerOffset
+            );
+
+            window.scrollTo({
+                top,
+                behavior: 'smooth'
+            });
+        }
+
+        // Focus after starting the scroll. preventScroll avoids mobile browsers
+        // overriding the carefully calculated position.
+        window.setTimeout(() => {
+            try {
+                field.focus({ preventScroll: true });
+            } catch {
+                field.focus();
+            }
+        }, 350);
+    };
+
+    form.addEventListener('input', (event) => {
+        const field = event.target;
+        if (!(field instanceof HTMLInputElement || field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement)) return;
+
+        field.removeAttribute('aria-invalid');
+        const target = getValidationTarget(field);
+        target?.removeAttribute('data-validation-error');
+        target?.classList.remove('ring-2', 'ring-red-500', 'ring-offset-4');
+    });
+
+    form.addEventListener('change', (event) => {
+        const field = event.target;
+        if (!(field instanceof HTMLInputElement || field instanceof HTMLSelectElement || field instanceof HTMLTextAreaElement)) return;
+
+        field.removeAttribute('aria-invalid');
+        const target = getValidationTarget(field);
+        target?.removeAttribute('data-validation-error');
+        target?.classList.remove('ring-2', 'ring-red-500', 'ring-offset-4');
+    });
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
         formErrorMessage.classList.add('hidden');
+        clearValidationHighlight();
+
+        validateEmailMatch();
+
+        const missingFields = requiredFields.filter(({ name }) => isFieldMissing(name));
+        const firstBrowserInvalidField = form.querySelector(':invalid');
+
+        if (missingFields.length > 0 || firstBrowserInvalidField) {
+            const missingLabels = missingFields.map(({ label }) => label).join(', ');
+
+            formErrorMessage.textContent = missingLabels
+                ? `Please complete: ${missingLabels}.`
+                : firstBrowserInvalidField?.validationMessage || 'Please correct the highlighted field.';
+
+            formErrorMessage.classList.remove('hidden');
+
+            const firstMissingName = missingFields[0]?.name;
+            const firstInvalidField = firstMissingName
+                ? form.querySelector(`[name="${firstMissingName}"]`)
+                : firstBrowserInvalidField;
+
+            showValidationLocation(firstInvalidField);
+            return;
+        }
 
         const turnstileToken = form.querySelector('input[name="cf-turnstile-response"]')?.value;
 
         if (!turnstileToken) {
             formErrorMessage.textContent = 'Please complete the security verification.';
             formErrorMessage.classList.remove('hidden');
+
+            const turnstileSection = form.querySelector('.cf-turnstile')?.parentElement;
+            if (turnstileSection) {
+                turnstileSection.setAttribute('data-validation-error', 'true');
+                turnstileSection.classList.add('ring-2', 'ring-red-500', 'ring-offset-4');
+
+                const top = Math.max(
+                    0,
+                    turnstileSection.getBoundingClientRect().top + window.pageYOffset - 120
+                );
+                window.scrollTo({ top, behavior: 'smooth' });
+            }
             return;
         }
 
@@ -439,36 +576,47 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
 
         const formData = new FormData(form);
 
+        // The native file input is intentionally cleared after selection. Append
+        // our retained File objects directly so mobile and desktop submit identically.
+        formData.delete('engineering-assets[]');
+        selectedEngineeringFiles.forEach((file) => {
+            formData.append('engineering-assets[]', file, file.name);
+        });
+
         try {
             const response = await fetch(form.action, {
                 method: 'POST',
-                body: formData 
+                body: formData
             });
 
             let result;
-            const contentType = response.headers.get("content-type");
-            if (contentType && contentType.includes("application/json")) {
+            const contentType = response.headers.get('content-type');
+            if (contentType && contentType.includes('application/json')) {
                 result = await response.json();
             } else {
                 const textResponse = await response.text();
-                result = { success: response.ok, error: textResponse };
+                result = { success: false, error: textResponse || 'The server returned an invalid response.' };
             }
 
-            if (result.success || response.status === 200) {
+            if (response.ok && result.success === true) {
                 form.reset();
-                fileBufferContainer = new DataTransfer(); 
+                clearValidationHighlight();
+                selectedEngineeringFiles = [];
+                renderVisualList();
                 form.classList.add('hidden');
                 thankYouState.classList.remove('hidden');
                 window.scrollTo({ top: thankYouState.offsetTop - 100, behavior: 'smooth' });
             } else {
                 window.turnstile?.reset();
-                formErrorMessage.textContent = 'Submission failed: ' + (result.error || 'Unknown server exception.');
+                formErrorMessage.textContent = result.error || `Submission failed (HTTP ${response.status}). Please try again.`;
                 formErrorMessage.classList.remove('hidden');
+                showValidationLocation(formErrorMessage);
             }
         } catch (error) {
             window.turnstile?.reset();
             formErrorMessage.textContent = 'A transmission anomaly took place.';
             formErrorMessage.classList.remove('hidden');
+            showValidationLocation(formErrorMessage);
         } finally {
             submitBtn.textContent = 'Submit Request';
             submitBtn.disabled = false;

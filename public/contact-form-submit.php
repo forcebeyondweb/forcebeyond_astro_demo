@@ -26,13 +26,10 @@ require 'phpmailer/SMTP.php';
 
 // 2. Guard: Only allow POST requests
 if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    // Return a standard JSON response for unsupported request methods
+    http_response_code(405);
     echo json_encode(["success" => false, "error" => "Method Not Allowed. Must be POST."]);
     exit;
 }
-
-verifyHoneypot();
-verifyTurnstile('contact-form');
 
 // 3. Sanitize and Collect All B2B Form Fields
 $firstName   = htmlspecialchars(strip_tags(trim($_POST["first-name"] ?? '')));
@@ -47,17 +44,61 @@ $state       = htmlspecialchars(strip_tags(trim($_POST["state-region"] ?? '')));
 $postalCode  = htmlspecialchars(strip_tags(trim($_POST["postal-code"] ?? '')));
 $country     = htmlspecialchars(strip_tags(trim($_POST["country"] ?? '')));
 
-$email       = filter_var(trim($_POST["email"] ?? ''), FILTER_VALIDATE_EMAIL);
+$rawEmail    = trim($_POST["email"] ?? '');
+$confirmEmail = trim($_POST["confirm-email"] ?? '');
+$email       = filter_var($rawEmail, FILTER_VALIDATE_EMAIL);
 $phone       = htmlspecialchars(strip_tags(trim($_POST["phone"] ?? '')));
 $leadSource  = htmlspecialchars(strip_tags(trim($_POST["marketing-source"] ?? '')));
 $subject     = htmlspecialchars(strip_tags(trim($_POST["subject"] ?? 'Inquiry from Webform')));
 $userMessage = htmlspecialchars(strip_tags(trim($_POST["message"] ?? '')));
 
-// Validation check for core requirements
-if (!$firstName || !$lastName || !$email || !$companyName || !$phone) {
-    echo json_encode(["success" => false, "error" => "Missing required corporate fields."]);
+// Validate every field marked as required in the HTML form before consuming Turnstile.
+$requiredFields = [
+    'First Name' => $firstName,
+    'Last Name' => $lastName,
+    'Job Title' => $jobTitle,
+    'Company Name' => $companyName,
+    'Address Line 1' => $address1,
+    'City' => $city,
+    'State / Province' => $state,
+    'Postal Code' => $postalCode,
+    'Country' => $country,
+    'Corporate Email' => $email,
+    'Confirm Corporate Email' => $confirmEmail,
+    'Business Phone' => $phone,
+    'How Did You Hear About Us' => $leadSource,
+    'Subject' => $subject,
+    'Message' => $userMessage,
+];
+
+$missingFields = [];
+foreach ($requiredFields as $label => $value) {
+    if ($value === false || trim((string) $value) === '') {
+        $missingFields[] = $label;
+    }
+}
+
+if ($missingFields) {
+    http_response_code(422);
+    echo json_encode([
+        "success" => false,
+        "error" => "Please complete: " . implode(", ", $missingFields) . "."
+    ]);
     exit;
 }
+
+if (strcasecmp($rawEmail, $confirmEmail) !== 0) {
+    http_response_code(422);
+    echo json_encode([
+        "success" => false,
+        "error" => "Corporate Email and Confirm Corporate Email must match."
+    ]);
+    exit;
+}
+
+// Verify anti-spam controls only after ordinary form validation succeeds.
+verifyHoneypot();
+verifyTurnstile('contact-form');
 
 $fullName = $firstName . ' ' . $lastName;
 
