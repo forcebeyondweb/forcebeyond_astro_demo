@@ -158,7 +158,6 @@ try {
             <b>Country:</b> {$country}
         </p>
 
-        <h3>Marketing Metadata</h3>
         <p><b>How did they hear about us:</b> {$leadSource}</p>
         
         <hr style='border: 1px solid #e2e8f0;' />
