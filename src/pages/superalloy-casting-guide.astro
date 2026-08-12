@@ -1,0 +1,455 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const pageTitle = 'Superalloy Casting Technical Guide: Inconel 718, Inconel 625, VIM & HIP';
+const seoTitle = 'Superalloy Casting Technical Guide | Inconel 718 & 625 | ForceBeyond';
+const seoDescription = 'Technical guide to superalloy casting, Inconel 718 and 625, Vacuum Induction Melting (VIM), HIP, NDT, alloy selection, casting-vs-forging screening, and quality control.';
+const pdfUrl = '/media/superalloy-casting-guide.pdf';
+
+const faqs = [
+  {
+    q: 'What is ForceBeyond’s superalloy casting capability?',
+    a: 'ForceBeyond describes precision casting support for nickel-based superalloys and related high-performance materials, with vacuum investment casting, VIM for applicable routes, HIP where required, NDT, material traceability, machining, and manufacturing support across its USA, South Korea, and Taiwan network.'
+  },
+  {
+    q: 'Is HIP required for every Inconel casting?',
+    a: 'No. HIP is applied when required by the drawing, material specification, qualification plan, customer requirements, or service conditions. It may be used to reduce internal microporosity and increase density, but it is not a universal zero-defect guarantee.'
+  },
+  {
+    q: 'When should Inconel 718 be considered for casting?',
+    a: 'Inconel 718 is commonly considered when mechanical strength, creep performance, and elevated-temperature capability are important design drivers. Final material and process selection must follow the component design, service conditions, heat-treatment condition, and governing specification.'
+  },
+  {
+    q: 'When should Inconel 625 be considered for casting?',
+    a: 'Inconel 625 is commonly considered when corrosion resistance, including resistance to pitting, crevice corrosion, and chloride-containing environments, is a primary design driver. Final use must follow the service environment, loading, temperature, applicable code, qualification plan, and governing specification.'
+  },
+  {
+    q: 'What is the difference between superalloy casting and forging?',
+    a: 'Vacuum investment casting is commonly selected for complex and near-net-shape geometries, while forging is commonly selected when a wrought structure and controlled material flow are important. Neither route is universally superior; the correct process depends on geometry, loading, quantity, inspection requirements, and governing specifications.'
+  }
+];
+
+const sources = [
+  {
+    label: 'SAE International - AMS 5383 Inconel 718 Investment Castings',
+    url: 'https://saemobilus.sae.org/standards/ams5383-alloy-castings-investment-corrosion-heat-resistant-nickel-base-19cr-30mo-51-cb-ta-090ti-060al-vacuum-melted-vacuum-cast'
+  },
+  {
+    label: 'SAE International - AMS 5401 Inconel 625 Investment Castings',
+    url: 'https://saemobilus.sae.org/standards/ams5401-alloy-castings-investment-corrosion-heat-resistant-62ni-215cr-90mo-36-cb-ta-vacuum-melted-vacuum-cast'
+  },
+  {
+    label: 'Investment Casting Institute - What Is Investment Casting?',
+    url: 'https://www.investmentcasting.org/what-is.html'
+  }
+];
+
+const internalResources = [
+  { label: 'Superalloy Casting Services', url: '/high-performance-superalloy-casting/' },
+  { label: 'Inconel Vacuum Precision Casting', url: '/inconel-vacuum-precision-casting/' },
+  { label: 'Inconel 718 Casting', url: '/inconel-718-casting/' },
+  { label: 'Inconel 625 Casting', url: '/inconel-625-casting/' },
+  { label: 'Superalloy Forging Services', url: '/high-performance-superalloy-forging/' },
+  { label: 'Superalloy Machining', url: '/high-performance-superalloy-machining/' }
+];
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': 'https://www.forcebeyond.com/superalloy-casting-guide/#webpage',
+      url: 'https://www.forcebeyond.com/superalloy-casting-guide/',
+      name: seoTitle,
+      description: seoDescription,
+      datePublished: '2026-08-12',
+      dateModified: '2026-08-12',
+
+      isPartOf: {
+        '@id': 'https://www.forcebeyond.com/#website'
+      },
+
+      mainEntity: {
+        '@id': 'https://www.forcebeyond.com/superalloy-casting-guide/#article'
+      },
+
+      about: [
+        {
+          '@id': 'https://www.forcebeyond.com/high-performance-superalloy-casting/#service'
+        },
+        {
+          '@id': 'https://www.forcebeyond.com/inconel-vacuum-precision-casting/#service'
+        },
+        {
+          '@id': 'https://www.forcebeyond.com/inconel-718-casting/#service'
+        },
+        {
+          '@id': 'https://www.forcebeyond.com/inconel-625-casting/#service'
+        }
+      ],
+
+      subjectOf: {
+        '@id': 'https://www.forcebeyond.com/superalloy-casting-guide/#faq'
+      },
+
+      inLanguage: 'en-US'
+    },
+
+    {
+      '@type': 'TechArticle',
+      '@id': 'https://www.forcebeyond.com/superalloy-casting-guide/#article',
+
+      headline:
+        'Superalloy Casting Technical Guide: Inconel 718, Inconel 625, VIM & HIP',
+
+      description: seoDescription,
+
+      url: 'https://www.forcebeyond.com/superalloy-casting-guide/',
+
+      mainEntityOfPage: {
+        '@id': 'https://www.forcebeyond.com/superalloy-casting-guide/#webpage'
+      },
+
+      author: {
+        '@id': 'https://www.forcebeyond.com/#organization'
+      },
+
+      publisher: {
+        '@id': 'https://www.forcebeyond.com/#organization'
+      },
+
+      datePublished: '2026-08-12',
+      dateModified: '2026-08-12',
+
+      about: [
+        {
+          '@id': 'https://www.forcebeyond.com/high-performance-superalloy-casting/#service'
+        },
+        {
+          '@id': 'https://www.forcebeyond.com/inconel-vacuum-precision-casting/#service'
+        },
+        {
+          '@id': 'https://www.forcebeyond.com/inconel-718-casting/#service'
+        },
+        {
+          '@id': 'https://www.forcebeyond.com/inconel-625-casting/#service'
+        },
+        {
+          '@type': 'Thing',
+          name: 'Vacuum Induction Melting',
+          alternateName: 'VIM'
+        },
+        {
+          '@type': 'Thing',
+          name: 'Hot Isostatic Pressing',
+          alternateName: 'HIP'
+        },
+        {
+          '@type': 'Thing',
+          name: 'Vacuum Investment Casting'
+        },
+        {
+          '@type': 'Thing',
+          name: 'Nickel-Based Superalloys'
+        }
+      ],
+
+      mentions: [
+        {
+          '@type': 'Thing',
+          name: 'Inconel 718',
+          identifier: 'UNS N07718'
+        },
+        {
+          '@type': 'Thing',
+          name: 'Inconel 625',
+          identifier: 'UNS N06625'
+        },
+        {
+          '@type': 'Thing',
+          name: 'Non-Destructive Testing',
+          alternateName: 'NDT'
+        },
+        {
+          '@type': 'Thing',
+          name: 'Near-Net-Shape Manufacturing'
+        },
+        {
+          '@type': 'Thing',
+          name: '5-Axis CNC Machining'
+        }
+      ],
+
+      keywords: [
+        'superalloy casting',
+        'Inconel casting',
+        'Inconel 718 casting',
+        'Inconel 625 casting',
+        'vacuum investment casting',
+        'Vacuum Induction Melting',
+        'VIM casting',
+        'Hot Isostatic Pressing',
+        'HIP casting',
+        'nickel alloy casting',
+        'superalloy investment casting'
+      ],
+
+      encoding: {
+        '@type': 'MediaObject',
+        '@id':
+          'https://www.forcebeyond.com/superalloy-casting-guide/#pdf',
+        contentUrl: `https://www.forcebeyond.com${pdfUrl}`,
+        encodingFormat: 'application/pdf',
+        name: 'Superalloy Casting Technical Guide PDF'
+      },
+
+      isAccessibleForFree: true,
+
+      inLanguage: 'en-US'
+    },
+
+    {
+      '@type': 'FAQPage',
+      '@id': 'https://www.forcebeyond.com/superalloy-casting-guide/#faq',
+      url: 'https://www.forcebeyond.com/superalloy-casting-guide/#faq',
+
+      isPartOf: {
+        '@id': 'https://www.forcebeyond.com/superalloy-casting-guide/#webpage'
+      },
+
+      mainEntity: faqs.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.a.replace(/<[^>]+>/g, '')
+        }
+      }))
+    },
+
+    {
+      '@type': 'BreadcrumbList',
+      '@id':
+        'https://www.forcebeyond.com/superalloy-casting-guide/#breadcrumb',
+
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: 'Home',
+          item: 'https://www.forcebeyond.com/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: 'Superalloy Casting',
+          item:
+            'https://www.forcebeyond.com/high-performance-superalloy-casting/'
+        },
+        {
+          '@type': 'ListItem',
+          position: 3,
+          name: 'Superalloy Casting Technical Guide',
+          item:
+            'https://www.forcebeyond.com/superalloy-casting-guide/'
+        }
+      ]
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+  title={seoTitle}
+  description={seoDescription}
+  schema={pageSchema}
+  pageTitle={pageTitle}
+  heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+  heroImageAlt="Precision superalloy turbine components representing Inconel casting and machining applications"
+  faqSectionTitle="Frequently Asked Engineering Questions"
+  faqItems={faqs}
+  ctaTitle="Discuss a Superalloy Casting Project"
+  ctaDescription="Send the drawing, alloy specification, material condition, quantity, inspection requirements, and service environment for a manufacturing review."
+  sourcesTitle="Technical Sources"
+  sourcesList={sources}
+  resourcesTitle="Related ForceBeyond Superalloy Resources"
+  resourcesList={internalResources}
+>
+  <div slot="full-width" class="individual-content">
+    <section id="executive-summary">
+      <div class="content-container">
+        <h2>1. Executive Summary</h2>
+        <p>
+          ForceBeyond presents superalloy casting as a precision manufacturing route for demanding aerospace, power-generation, marine, chemical-processing, oil-and-gas, space, and selected nuclear applications. The capability cluster connects the broader Superalloy Casting hub with dedicated Inconel Vacuum Precision Casting, Inconel 718 Casting, and Inconel 625 Casting pages.
+        </p>
+        <p>
+          The manufacturing approach includes vacuum investment casting, Vacuum Induction Melting (VIM) for applicable alloy and casting routes, HIP where required, NDT, material traceability, heat treatment, and integration with precision CNC machining. Numerical values and program claims must be confirmed against the current drawing, material specification, purchase order, qualification plan, code requirements, and customer acceptance criteria before production.
+        </p>
+        <div class="mt-6 flex flex-wrap gap-3">
+          <a href={pdfUrl} target="_blank" rel="noopener noreferrer" class="highlight-link">Download the PDF edition</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="capability">
+      <div class="content-container">
+        <h2>2. Superalloy Casting Capability</h2>
+        <p>
+          ForceBeyond’s casting portfolio includes nickel-based superalloys such as Inconel 718, Inconel 625, Inconel 713C, Inconel 738, Mar-M-247, and Hastelloy X, together with selected cobalt-based alloys and other high-performance materials. Actual alloy availability, casting size, geometry, process route, and qualification requirements are project-dependent.
+        </p>
+        <div class="content-table-wrapper">
+          <table>
+            <thead><tr><th>Capability Layer</th><th>Primary Role</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Superalloy Casting</th><td>Broad casting hub covering materials, casting routes, quality control, NDT, and downstream machining.</td></tr>
+              <tr><th scope="row">Inconel Vacuum Precision Casting</th><td>Vacuum investment casting, VIM for applicable routes, near-net-shape manufacturing, inspection, and secondary operations.</td></tr>
+              <tr><th scope="row">Inconel 718 Casting</th><td>Strength- and creep-oriented nickel-alloy casting for demanding aerospace and energy applications.</td></tr>
+              <tr><th scope="row">Inconel 625 Casting</th><td>Corrosion-oriented nickel-alloy casting for marine, chemical-processing, subsea, and selected nuclear applications.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="vacuum-casting">
+      <div class="content-container">
+        <h2>3. Inconel Vacuum Precision Casting & VIM</h2>
+        <p>
+          Vacuum investment casting can produce complex, thin-walled, and near-net-shape nickel-alloy components. VIM is used for applicable superalloy casting routes to help limit oxidation, gas pickup, and contamination during melting. VIM supports alloy cleanliness and consistency, but final material properties depend on the complete casting, thermal-processing, inspection, and qualification route.
+        </p>
+        <ul>
+          <li><strong>Lost Wax / Investment Casting:</strong> Supports complex geometries and near-net-shape production.</li>
+          <li><strong>VIM:</strong> Helps control the melt environment for applicable nickel-based superalloys.</li>
+          <li><strong>Shell & Thermal Control:</strong> Ceramic-shell construction and thermal processing are selected to suit geometry and alloy requirements.</li>
+          <li><strong>Inspection:</strong> Radiography, penetrant inspection, dimensional inspection, chemistry verification, and mechanical testing may be required depending on the program.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="inconel-718">
+      <div class="content-container">
+        <h2>4. Inconel 718 Casting</h2>
+        <p>
+          Inconel 718 (UNS N07718) is a precipitation-hardenable nickel-based superalloy commonly considered where mechanical strength, creep performance, and elevated-temperature capability are important. Vacuum investment castings may be produced to applicable specifications such as <strong>AMS 5383</strong>. The applicable revision, heat-treatment condition, mechanical-property requirements, and acceptance criteria remain controlling.
+        </p>
+        <p>
+          Published elevated-temperature property data extend to approximately 1300°F (704°C), but this should not be interpreted as a universal service-temperature limit or rating. Allowable service conditions depend on product condition, geometry, loading, environment, heat treatment, and governing design requirements.
+        </p>
+      </div>
+    </section>
+
+    <section id="inconel-625">
+      <div class="content-container">
+        <h2>5. Inconel 625 Casting</h2>
+        <p>
+          Inconel 625 (UNS N06625) is a nickel-chromium-molybdenum-niobium alloy commonly selected when corrosion resistance is a primary design driver. It is known for resistance to pitting, crevice corrosion, and many chloride-containing environments. Vacuum investment castings may be produced to applicable specifications such as <strong>AMS 5401</strong>, which covers vacuum-melted, vacuum-cast corrosion- and heat-resistant investment castings of the Alloy 625 chemistry.
+        </p>
+        <p>
+          Published property data extend across cryogenic and elevated-temperature conditions. Actual allowable service temperature, corrosion performance, and fatigue life depend on material condition, geometry, loading, environment, processing history, and governing specification. Nuclear or SMR use must be confirmed against the applicable code, qualification plan, material specification, and customer requirements.
+        </p>
+      </div>
+    </section>
+
+    <section id="alloy-screening">
+      <div class="content-container">
+        <h2>6. Inconel 718 vs. Inconel 625: Material Screening</h2>
+        <div class="content-table-wrapper">
+          <table>
+            <thead><tr><th>Factor</th><th>Inconel 718</th><th>Inconel 625</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Primary design emphasis</th><td>Mechanical strength, creep, elevated-temperature performance</td><td>Corrosion resistance and environmental durability</td></tr>
+              <tr><th scope="row">UNS</th><td>N07718</td><td>N06625</td></tr>
+              <tr><th scope="row">Investment casting reference</th><td>AMS 5383, where applicable</td><td>AMS 5401, where applicable</td></tr>
+              <tr><th scope="row">Typical application direction</th><td>Aerospace, space, power generation, high-load hot-section applications</td><td>Marine, chemical processing, subsea, corrosion-critical systems, selected nuclear programs</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Selection rule:</strong> use this comparison only as an initial screening guide. Final material selection must follow the governing engineering requirements.</p>
+      </div>
+    </section>
+
+    <section id="hip">
+      <div class="content-container">
+        <h2>7. HIP and Internal Microporosity</h2>
+        <p>
+          Hot Isostatic Pressing (HIP) may be applied to selected castings to reduce internal microporosity and increase density. HIP is not automatically required for every Inconel casting and should not be described as a universal “zero-defect” or “100% density” guarantee.
+        </p>
+        <p>
+          HIP requirements are established from the drawing, material specification, qualification plan, customer requirements, and service conditions. Final fatigue and structural performance also depend on material condition, casting quality, defects, heat treatment, geometry, surface condition, residual stress, inspection acceptance criteria, and service environment.
+        </p>
+      </div>
+    </section>
+
+    <section id="quality-ndt">
+      <div class="content-container">
+        <h2>8. Quality Assurance, NDT & Traceability</h2>
+        <p>
+          Inspection methods and acceptance criteria must be selected for the alloy, casting route, drawing, specification, and customer program. Facility-level certifications should be confirmed for the manufacturing location selected for each project rather than inferred from a general website statement.
+        </p>
+        <div class="content-table-wrapper">
+          <table>
+            <thead><tr><th>Inspection / Control</th><th>Typical Purpose</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Radiography / X-ray</th><td>Detect internal shrinkage, porosity, or inclusions according to the applicable casting-specific procedure and acceptance criteria.</td></tr>
+              <tr><th scope="row">Fluorescent Penetrant Inspection</th><td>Detect surface-breaking discontinuities on suitable surfaces.</td></tr>
+              <tr><th scope="row">Chemical / PMI Verification</th><td>Confirm alloy chemistry and material identity.</td></tr>
+              <tr><th scope="row">Mechanical Testing</th><td>Verify required mechanical properties where specified.</td></tr>
+              <tr><th scope="row">Dimensional Inspection</th><td>Verify drawing-defined geometry and tolerances.</td></tr>
+              <tr><th scope="row">Documentation & Traceability</th><td>Maintain required heat-lot, processing, inspection, and certification records.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="casting-vs-forging">
+      <div class="content-container">
+        <h2>9. Casting vs. Forging</h2>
+        <div class="content-table-wrapper">
+          <table>
+            <thead><tr><th>Feature</th><th>Vacuum Investment Casting</th><th>Superalloy Forging</th></tr></thead>
+            <tbody>
+              <tr><th scope="row">Geometry</th><td>Well suited to complex and near-net-shape geometries</td><td>Well suited to shapes that can be produced through controlled deformation</td></tr>
+              <tr><th scope="row">Material structure</th><td>Cast microstructure, controlled through casting and thermal processing</td><td>Wrought structure with controlled material flow</td></tr>
+              <tr><th scope="row">Typical application direction</th><td>Vanes, housings, manifolds, complex shapes</td><td>Disks, shafts, rings, highly loaded structural components</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Neither manufacturing route is universally superior. Process selection depends on geometry, mechanical loading, environment, quantity, material specification, inspection requirements, and total manufacturing cost.</p>
+      </div>
+    </section>
+
+    <section id="manufacturing-flow">
+      <div class="content-container">
+        <h2>10. Manufacturing Flow</h2>
+        <ol>
+          <li>Review the drawing, material specification, service environment, quantity, and inspection requirements.</li>
+          <li>Select the alloy and casting route appropriate to the component.</li>
+          <li>Develop the investment-casting pattern and ceramic-shell process.</li>
+          <li>Use VIM where applicable to the alloy and casting route.</li>
+          <li>Control casting and thermal-processing conditions.</li>
+          <li>Apply HIP where required by the program.</li>
+          <li>Perform required NDT, material verification, and mechanical testing.</li>
+          <li>Perform dimensional inspection and secondary machining as required.</li>
+          <li>Complete material certification, traceability, and final documentation.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="applications">
+      <div class="content-container">
+        <h2>11. Representative Applications</h2>
+        <p>Potential applications include aerospace propulsion hardware, power-generation components, marine and subsea hardware, chemical-processing equipment, oil-and-gas components, space hardware, and selected nuclear/SMR components. Application lists are illustrative only; actual suitability must be verified against the governing code, design, material specification, qualification plan, service environment, and customer requirements.</p>
+      </div>
+    </section>
+
+    <section id="technical-disclaimer">
+      <div class="content-container">
+        <h2>12. Technical Disclaimer</h2>
+        <p>
+          This guide is a general engineering reference and does not replace an applicable material specification, drawing, purchase specification, code, customer requirement, qualification plan, or engineering analysis. Casting size, weight, tolerances, mechanical properties, inspection requirements, HIP conditions, and service limits vary by alloy, geometry, processing history, heat-treatment condition, qualification status, and governing specification. Verify current controlled requirements before production or design release.
+        </p>
+      </div>
+    </section>
+  </div>
+</IndividualPageLayout>

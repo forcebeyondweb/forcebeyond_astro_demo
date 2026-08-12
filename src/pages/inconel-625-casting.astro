@@ -3,11 +3,11 @@ import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
 const pageTitle = 'Inconel 625 Casting Services: Co-Owned Foundries in USA, South Korea & Taiwan';
 const seoTitle = 'Inconel 625 Casting Services | Nuclear SMR & Marine | ForceBeyond';
-const seoDescription = 'AS9100 certified Inconel 625 vacuum investment casting. Specialized in corrosion-resistant VIM & HIP components for Nuclear & Marine from USA, South Korea, & Taiwan.';
+const seoDescription = 'Inconel 625 vacuum investment casting with VIM, HIP where required, NDT and machining for corrosion-critical marine, chemical-processing and selected nuclear applications.';
 const faqs = [
     {
         q: "Why choose ForceBeyond as your Inconel casting supplier?",
-        a: "<strong>ForceBeyond</strong> is a premier Inconel casting supplier providing direct operational control through co-owned foundries in the USA and Asia. We provide the metallurgical purity of VIM and the zero-defect guarantee of HIPing required for mission-critical aerospace and nuclear components."
+        a: "<strong>ForceBeyond</strong> provides Inconel casting through a co-owned manufacturing network in the USA and Asia, with engineering and quality oversight coordinated across casting, heat treatment, inspection, machining, and documentation. VIM and HIP are applied where appropriate to the alloy, drawing, specification, qualification plan, and customer requirements."
     },
     {
         q: "How does ForceBeyond ensure supply chain reliability for Inconel 625?",
@@ -15,7 +15,7 @@ const faqs = [
     },
     {
         q: "When should I choose Inconel 625 over Inconel 718?",
-        a: "Choose Inconel 625 when your primary requirement is corrosion and oxidation resistance, particularly in seawater or acidic environments. If your application requires maximum high-temperature mechanical strength, review our <a href='/inconel-718-casting' class='highlight-link'>Inconel 718 Casting</a> solutions."  
+        a: "Inconel 625 is commonly considered when corrosion and oxidation resistance are primary design drivers, particularly in seawater, chloride-containing, or chemical-processing environments. Inconel 718 is commonly considered when higher mechanical strength and creep performance dominate. Final selection must follow the service environment, loading, temperature, material condition, and governing specification. See our <a href='/inconel-718-casting/' class='highlight-link'>Inconel 718 Casting</a> page for the strength-oriented option."  
     },
     {
         q: "Can ForceBeyond provide large-scale Inconel 625 castings?",
@@ -25,43 +25,39 @@ const faqs = [
 
 // Sources
 const sources = [
-    { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
-    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
-    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
-    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
-    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
-    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
+    { label: "SAE International - AMS 5401 Inconel 625 Investment Castings", url: "https://saemobilus.sae.org/standards/ams5401-alloy-castings-investment-corrosion-heat-resistant-62ni-215cr-90mo-36-cb-ta-vacuum-melted-vacuum-cast" },
+    { label: "Special Metals - INCONEL Alloy 625 Technical Bulletin", url: "https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-625.pdf" }
 ];
 
 // Resources 
 const internalResources = [
+    { label: "Superalloy Casting Technical Guide", url: "/superalloy-casting-guide/" },
     // Die Casting Resources
-    { label: "Die Casting Overview", url: "/die-casting" },
-    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "/zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "/a356-t6-casting" },
-    { label: "Magnesium Casting", url: "/magnesium-casting" },
+    { label: "Die Casting Overview", url: "/die-casting/" },
+    { label: "Aluminum Die Casting", url: "/aluminum-die-casting/" },
+    { label: "Zinc Die Casting", url: "/zinc-die-casting/" },
+    { label: "A356-T6 Casting", url: "/a356-t6-casting/" },
+    { label: "Magnesium Casting", url: "/magnesium-casting/" },
 
     // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "/investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "/titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting" },
+    { label: "Investment Casting Overview", url: "/investment-casting/" },
+    { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting/" },
+    { label: "Titanium Investment Casting", url: "/titanium-investment-casting/" },
+    { label: "Stainless Steel Casting", url: "/stainless-steel-casting/" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting/" },
 
     // Forging Resources
-    { label: "Forging Capabilities Overview", url: "/forging" },
-    { label: "Open Die Forging", url: "/open-die-forging" },
-    { label: "Closed Die Forging", url: "/closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
-    { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
+    { label: "Forging Capabilities Overview", url: "/forging/" },
+    { label: "Open Die Forging", url: "/open-die-forging/" },
+    { label: "Closed Die Forging", url: "/closed-die-forging/" },
+    { label: "Rolled Ring Forging", url: "/rolled-ring-forging/" },
+    { label: "Cold Forging", url: "/cold-forging/" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging/" },
 
     // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "/sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
+    { label: "Sand Casting", url: "/sand-casting/" },
+    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting/" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting/" }
 ];
 // Page-level schema migrated from the current forcebeyond.com page.
 // Global Place, Organization, and WebSite entities are defined in Layout.astro.
@@ -78,6 +74,9 @@ const pageSchema = {
       "isPartOf": {
         "@id": "https://www.forcebeyond.com/#website"
       },
+      "mainEntity": {
+        "@id": "https://www.forcebeyond.com/inconel-625-casting/#service"
+      },
       "inLanguage": "en-US"
     },
     {
@@ -85,16 +84,36 @@ const pageSchema = {
       "@id": "https://www.forcebeyond.com/inconel-625-casting/#service",
       "serviceType": "Inconel 625 Vacuum Precision Casting",
       "provider": {
-        "@type": "Organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.com/"
+        "@id": "https://www.forcebeyond.com/#organization"
       },
-      "description": "AS9100 certified Inconel 625 casting for Nuclear SMR and subsea applications. Utilizing VIM and HIP across our USA, South Korea, and Taiwan facilities.",
+      "description": "Inconel 625 vacuum investment casting with VIM, HIP where required, NDT, and machining for corrosion-critical marine, chemical-processing, subsea, and selected nuclear applications.",
       "areaServed": [
-        "United States    sfd",
-        "South Korea",
-        "Taiwan"
+        {
+          "@type": "Country",
+          "name": "United States"
+        },
+        {
+          "@type": "Country",
+          "name": "South Korea"
+        },
+        {
+          "@type": "Country",
+          "name": "Taiwan"
+        }
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.com/inconel-625-casting/#faq",
+      "url": "https://www.forcebeyond.com/inconel-625-casting/#faq",
+      "mainEntity": faqs.map((item) => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.a.replace(/<[^>]+>/g, "")
+        }
+      }))
     }
   ]
 };
@@ -118,11 +137,7 @@ const pageSchema = {
 >
     <div class="individual-content ">
         <p>
-            <strong>Inconel 625 Casting Key Facts:</strong> Inconel 625 (UNS N06625 / AMS 5581) is a non-magnetic nickel-chromium-molybdenum 
-            alloy investment cast using Vacuum Induction Melting (VIM) and 100% Hot Isostatic Pressing (HIP) to eliminate porosity 
-            and maximize pitting resistance. Engineered for extreme subsea, seawater, and chemical processing environments up to 980°C (1,800°F), 
-            ForceBeyond’s AS9100-certified facilities offer complete 5-axis CNC machining, 
-            solution annealing, and NDT inspection for critical valve bodies, marine hardware, and nuclear SMR hardware.
+            <strong>Inconel 625 Casting Key Facts:</strong> Inconel 625 (UNS N06625) is a nickel-chromium-molybdenum-niobium alloy valued for resistance to pitting, crevice corrosion, and many chloride-containing environments. Vacuum investment castings may be produced to applicable specifications such as AMS 5401. ForceBeyond supports VIM for applicable casting routes, HIP where required, heat treatment, NDT, and precision machining. Published property data extend across cryogenic and elevated-temperature conditions, while actual allowable service conditions depend on material condition, geometry, loading, environment, code requirements, and the governing specification.
         </p>
     </div>
 
@@ -137,11 +152,10 @@ const pageSchema = {
                     <div>
                         <p>
                            ForceBeyond is a premier <strong>Inconel 625 casting supplier</strong> with co-owned foundries in the USA, South Korea, 
-                           and Taiwan. We specialize in high-purity <strong>Vacuum Induction Melting (VIM)</strong> and <strong>Hot Isostatic Pressing (HIPing)</strong> 
-                           to deliver zero-defect components for the world’s most aggressive thermal and corrosive environments. 
-                           Our dual-shore manufacturing model ensures strict AS9100 quality control and direct oversight for the 
-                           <strong>Nuclear SMR</strong>, subsea oil and gas, and advanced chemical processing sectors. Learn more about our advanced 
-                           VIM and quality control processes on our <a href="/superalloy-casting" class="highlight-link">Superalloy Casting</a> hub.
+                           and Taiwan. We support <strong>Vacuum Induction Melting (VIM)</strong> for applicable casting routes and <strong>Hot Isostatic Pressing (HIP)</strong> where required to control internal porosity. Our manufacturing model coordinates engineering and quality oversight across the network for marine, subsea oil and gas, chemical-processing, and selected <strong>Nuclear / SMR</strong> programs where the alloy and casting route are permitted by the applicable code, specification, qualification plan, and customer requirements. Learn more about our advanced 
+                           VIM and quality control processes on our <a href="/high-performance-superalloy-casting/" class="highlight-link">
+                                Superalloy Casting Services
+                            </a> hub.
                         </p>
                     </div>
 
@@ -171,13 +185,13 @@ const pageSchema = {
                 </p>
                 <ul>
                     <li>
-                        <strong>Exceptional Corrosion Resistance:</strong>  Virtually immune to seawater and organic/mineral acids.
+                        <strong>Corrosion Resistance:</strong> Strong resistance to seawater, chloride-containing environments, and many chemical-processing media, subject to concentration, temperature, material condition, and service conditions.
                     </li>
                     <li>
-                        <strong>Superior Fatigue Strength:</strong>Maintains exceptional tensile and fatigue properties from cryogenic temperatures up to 1800°F (982°C).
+                        <strong>Broad Temperature Capability:</strong> Published property data cover cryogenic and elevated-temperature conditions. Allowable service temperature and fatigue performance depend on material condition, loading, environment, geometry, and governing specification.
                     </li>
                     <li>
-                        <strong>Excellent Fabricability: </strong>  Ideal for complex nuclear and marine sub-assemblies that require secondary welding or cladding without post-weld heat treatment.
+                        <strong>Fabricability:</strong> Alloy 625 is widely used in welded and fabricated corrosion-resistant systems; welding procedure, heat treatment, qualification, and post-weld requirements remain application- and specification-dependent.
                     </li>
                 </ul>
             </div>
@@ -187,7 +201,10 @@ const pageSchema = {
             <div class="content-container">
                 <h2>Technical Specifications: Precision Inconel 625 Castings</h2>
                     <p>
-                        All ForceBeyond Inconel 625 castings are manufactured to meet <strong>AMS 5581, ASTM B443, and UNS N06625</strong> standards.
+                        Inconel 625 vacuum investment castings may be produced to applicable
+                        casting specifications such as <strong>AMS 5401</strong>, subject to the
+                        required alloy condition, drawing, customer specification, heat treatment,
+                        inspection requirements, and specified revision.
                     </p>
                 <div class="content-table-wrapper">
                     <table>
@@ -234,9 +251,7 @@ const pageSchema = {
                 </p>
                 
                 <p>
-                    By taking total ownership of the component—from the initial pour to 5-axis CNC finishing—we ensure that 
-                    critical sealing surfaces and internal geometries meet ± 0.005mm tolerances. This eliminates the risk of 
-                    third-party machining errors on high-value cast components.
+                    By coordinating the component from the initial pour through 5-axis CNC finishing, ForceBeyond can reduce avoidable hand-off risk and control critical features through one manufacturing plan. Sealing surfaces and datum features are finish-machined to drawing-defined tolerances subject to geometry, size, feature accessibility, inspection method, and process-capability review.
                 </p>
 
                 <p>
@@ -256,7 +271,7 @@ const pageSchema = {
 
                 <ul>
                     <li>
-                        <strong>Nuclear & SMR:</strong> Primary reactor cooling loops, fuel element spacers, and waste management hardware.
+                        <strong>Nuclear & SMR:</strong> Selected corrosion-resistant components where Inconel 625 casting is permitted by the applicable code, material specification, qualification plan, service conditions, and customer requirements.
                     </li>
                     <li>
                         <strong>Marine & Subsea:</strong> Seawater piping systems, propeller shafts, and subsea cable connectors.
@@ -273,24 +288,14 @@ const pageSchema = {
 
         <section id="advanced-post-processing" >
             <div class="content-container">
-                <h2>Advanced Post-Processing: HIPing for Nuclear Integrity</h2>
-                
+                <h2>Advanced Post-Processing: HIP for Internal Porosity Control</h2>
                 <p>
-                   For safety-critical applications like <strong>Nuclear SMR</strong>, ForceBeyond utilizes <strong>Hot Isostatic Pressing (HIPing)</strong>. 
-                   This process applies high pressure and temperature to eliminate internal microporosity, 
-                   ensuring every Inconel 625 component achieves 100% density.
+                    <strong>Hot Isostatic Pressing (HIP)</strong> may be applied to selected Inconel 625 castings to reduce internal microporosity and increase density. HIP is used when required by the drawing, material specification, qualification plan, customer requirements, or service conditions; it does not provide a universal 100% density or zero-defect guarantee.
                 </p>
-
                 <ul>
-                    <li>
-                        <strong>Elimination of Voids:</strong> Essential for high-pressure reactor components.
-                    </li>
-                    <li>
-                        <strong>Maximized Fatigue Life:</strong> Crucial for subsea components subjected to cyclic loading.
-                    </li>
-                    <li>
-                        <strong>VIM Purity:</strong> Our Vacuum Induction Melting process prevents oxidation of reactive elements like Niobium and Molybdenum.
-                    </li>
+                    <li><strong>Porosity Reduction:</strong> HIP can close or reduce certain internal voids when the defect morphology and alloy condition are suitable.</li>
+                    <li><strong>Fatigue Performance:</strong> Final fatigue life depends on material condition, defects, heat treatment, geometry, surface condition, residual stress, inspection acceptance criteria, and service environment.</li>
+                    <li><strong>VIM Process Control:</strong> VIM helps limit oxidation, gas pickup, and contamination during melting of nickel-based superalloys.</li>
                 </ul>
             </div>
         </section>
@@ -301,13 +306,13 @@ const pageSchema = {
                 <h2>Why Choose ForceBeyond as Your Inconel 625 Supplier?</h2>
                 <ul>
                     <li>
-                        <strong>VIM (Vacuum Induction Melting) Purity:</strong> Reactive elements in 625, such as Niobium and Molybdenum, require the oxygen-free environment of our VIM furnaces to prevent inclusions and ensure maximum metallurgical integrity.
+                        <strong>VIM (Vacuum Induction Melting):</strong> For applicable casting routes, VIM helps limit oxidation, gas pickup, and contamination during melting, supporting alloy cleanliness and consistency.
                     </li>
                     <li>
                         <strong>Co-Owned Supply Chain Redundancy:</strong> We operate our own facilities in the <strong>USA, South Korea, and Taiwan</strong>. This allows us to mitigate geopolitical risks and provide prioritized lead times for mission-critical projects.
                     </li>
                     <li>
-                        <strong>Advanced NDT & HIPing:</strong> Every casting undergoes rigorous Non-Destructive Testing (NDT). For nuclear-grade applications, we utilize <strong>Hot Isostatic Pressing (HIPing)</strong> to eliminate internal microporosity and guarantee 100% density.
+                        <strong>Advanced NDT & HIP:</strong> Inspection and HIP requirements are established from the drawing, material specification, qualification plan, customer requirements, and service conditions. HIP may be used to reduce internal microporosity; final acceptance remains based on the applicable inspection criteria.
                     </li>
                 </ul>
             </div>
@@ -317,7 +322,7 @@ const pageSchema = {
             <div class="content-container">
                 <h2>Quality Compliance & Corrosion Verification</h2>
                 <p>
-                    Every Inconel 625 casting undergoes a strict battery of tests to ensure zero-defect performance in corrosive environments.
+                    Inspection requirements are established from the applicable drawing, material specification, qualification plan, corrosion requirements, and customer acceptance criteria. NDT and material verification are used to detect relevant discontinuities and confirm compliance; they do not constitute a universal zero-defect guarantee.
                 </p>
                 <div class="content-table-wrapper">
                     <table>
@@ -349,7 +354,7 @@ const pageSchema = {
                             <tr>
                                 <th scope="row">Fluorescent Penetrant</th>
                                 <td>Surface-breaking crack detection post-machining.</td>
-                                <td>ASTM E1417 / Nadcap</td>
+                                <td>ASTM E1417 or applicable customer requirement</td>
                             </tr>
                         </tbody>
                     </table>

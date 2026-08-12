@@ -3,6 +3,7 @@ import { defineConfig } from 'astro/config';
 import react from '@astrojs/react';
 import sanity from '@sanity/astro';
 import sitemap from '@astrojs/sitemap';
+import { pageDates } from './src/data/page-dates.js';
 
 import tailwindcss from '@tailwindcss/vite';
 import { loadEnv } from 'vite';
@@ -27,8 +28,21 @@ export default defineConfig({
             dataset: dataset || 'production',
             useCdn: true,
         }),
+
         react(),
-        sitemap(),
+
+        sitemap({
+            serialize(item) {
+                const pathname = new URL(item.url).pathname;
+                const dates = pageDates[pathname];
+
+                if (dates?.modified) {
+                    item.lastmod = dates.modified;
+                }
+
+                return item;
+            },
+        }),
     ],
 
     vite: {

@@ -3,15 +3,15 @@ import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
 
 const pageTitle = 'Inconel Casting Suppliers: Precision Superalloy Solutions in USA, South Korea & Taiwan';
 const seoTitle = 'Superalloy Casting Services | Inconel, VIM & HIP | ForceBeyond';
-const seoDescription = 'AS9100-certified superalloy casting for Inconel 718, 625, 713C and Hastelloy X. ForceBeyond provides VIM, HIP, NDT and precision machining through co-owned foundries in the USA, South Korea and Taiwan.';
+const seoDescription = 'Superalloy casting for Inconel 718, 625, 713C and Hastelloy X with VIM, HIP where required, NDT and precision machining across ForceBeyond’s USA, South Korea and Taiwan manufacturing network.';
 const faqs = [
     {
         q: "Why choose ForceBeyond as your Inconel casting supplier?",
-        a: "ForceBeyond is a premier Inconel casting supplier providing direct operational control through co-owned foundries in the USA and Asia. We provide the metallurgical purity of VIM and the zero-defect guarantee of HIPing required for mission-critical aerospace and nuclear components."
+        a: "ForceBeyond provides Inconel casting through a co-owned manufacturing network in the USA and Asia, with engineering and quality oversight coordinated across casting, heat treatment, machining, inspection, and documentation. VIM and HIP are applied where appropriate to the alloy, drawing, specification, qualification plan, and customer requirements."
     },
     {
         q: "Why is HIPing necessary for superalloy parts?",
-        a: "<strong>Hot Isostatic Pressing (HIPing)</strong> is used to eliminate internal microporosity common in vacuum casting. This process is essential for components in Nuclear and Aerospace industries to ensure maximum fatigue life and safety."
+        a: "<strong>Hot Isostatic Pressing (HIP)</strong> may be used to reduce internal microporosity and increase density in critical castings. It is not automatically required for every superalloy casting; application depends on the drawing, material specification, qualification plan, customer requirements, and service conditions."
     },
     {
         q: "Can you cast thin-wall superalloy components?",
@@ -19,49 +19,48 @@ const faqs = [
     },
     {
         q: "How does ForceBeyond manage quality across global foundries?",
-        a: "Quality is managed through direct co-ownership. Our Delaware-based engineering team works in tandem with our facilities in South Korea and Taiwan to enforce standardized AS9100 QMS and material testing protocols."
+        a: "ForceBeyond coordinates engineering, manufacturing, inspection, and quality oversight across its USA, South Korea, and Taiwan manufacturing network. Facility certifications and project requirements are applied according to the selected production route, drawing, specification, inspection plan, and customer requirements."
     }
 ];
 
 // Sources
 const sources = [
+    { label: 'SAE International - AMS 5383 Inconel 718 Investment Castings', url: 'https://saemobilus.sae.org/standards/ams5383-alloy-castings-investment-corrosion-heat-resistant-nickel-base-19cr-30mo-51-cb-ta-090ti-060al-vacuum-melted-vacuum-cast' },
+    { label: 'SAE International - AMS 5401 Inconel 625 Investment Castings', url: 'https://saemobilus.sae.org/standards/ams5401-alloy-castings-investment-corrosion-heat-resistant-62ni-215cr-90mo-36-cb-ta-vacuum-melted-vacuum-cast' },
+    { label: 'Investment Casting Institute - What Is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
     { label: 'American Foundry Society - Metal Casting', url: 'https://www.afsinc.org/about-metalcasting' },
-    { label: 'Wikipedia - Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
-    { label: 'Wikipedia - Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
-    { label: 'eFunda - Sand Casting Process Overview', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
-    { label: 'Investment Casting Institute - What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is.html' },
-    { label: 'The Library of Manufacturing - Investment Casting Process', url: 'https://thelibraryofmanufacturing.com/investment_casting.html' },
-    { label: 'Forging Industry Association - What is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx?hkey=19c58afa-fd8f-40e3-bfec-65634f86c609' }
+    { label: 'Forging Industry Association - What Is Forging?', url: 'https://www.forging.org/fia/content/about/What_is_Forging.aspx' }
 ];
 
 // Resources 
 const internalResources = [
+    { label: "Superalloy Casting Technical Guide", url: "/superalloy-casting-guide/" },
     // Die Casting Resources
-    { label: "Die Casting Overview", url: "/die-casting" },
-    { label: "Aluminum Die Casting", url: "/aluminum-die-casting" },
-    { label: "Zinc Die Casting", url: "/zinc-die-casting" },
-    { label: "A356-T6 Casting", url: "/a356-t6-casting" },
-    { label: "Magnesium Casting", url: "/magnesium-casting" },
+    { label: "Die Casting Overview", url: "/die-casting/" },
+    { label: "Aluminum Die Casting", url: "/aluminum-die-casting/" },
+    { label: "Zinc Die Casting", url: "/zinc-die-casting/" },
+    { label: "A356-T6 Casting", url: "/a356-t6-casting/" },
+    { label: "Magnesium Casting", url: "/magnesium-casting/" },
 
     // Investment Casting Resources
-    { label: "Investment Casting Overview", url: "/investment-casting" },
-    { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting" },
-    { label: "Titanium Investment Casting", url: "/titanium-investment-casting" },
-    { label: "Stainless Steel Casting", url: "/stainless-steel-casting" },
-    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting" },
+    { label: "Investment Casting Overview", url: "/investment-casting/" },
+    { label: "Inconel Vacuum Precision Casting", url: "/inconel-vacuum-precision-casting/" },
+    { label: "Titanium Investment Casting", url: "/titanium-investment-casting/" },
+    { label: "Stainless Steel Casting", url: "/stainless-steel-casting/" },
+    { label: "Duplex & Super Duplex Stainless Steel Casting", url: "/duplex-stainless-steel-casting/" },
 
     // Forging Resources
-    { label: "Forging Capabilities Overview", url: "/forging" },
-    { label: "Open Die Forging", url: "/open-die-forging" },
-    { label: "Closed Die Forging", url: "/closed-die-forging" },
-    { label: "Rolled Ring Forging", url: "/rolled-ring-forging" },
-    { label: "Cold Forging", url: "/cold-forging" },
-    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging" },
+    { label: "Forging Capabilities Overview", url: "/forging/" },
+    { label: "Open Die Forging", url: "/open-die-forging/" },
+    { label: "Closed Die Forging", url: "/closed-die-forging/" },
+    { label: "Rolled Ring Forging", url: "/rolled-ring-forging/" },
+    { label: "Cold Forging", url: "/cold-forging/" },
+    { label: "Superalloy Forging Services", url: "/high-performance-superalloy-forging/" },
 
     // Sand Casting & Steel Casting Resources
-    { label: "Sand Casting", url: "/sand-casting" },
-    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting" },
-    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting" }
+    { label: "Sand Casting", url: "/sand-casting/" },
+    { label: "Industrial Titanium Sand Casting", url: "/industrial-titanium-sand-casting/" },
+    { label: "Carbon & Low-Alloy Steel Casting", url: "/carbon-steel-casting/" }
 ];
 // Page-level schema migrated from the current forcebeyond.com page.
 // Global Place, Organization, and WebSite entities are defined in Layout.astro.
@@ -72,31 +71,65 @@ const pageSchema = {
       "@type": "WebPage",
       "@id": "https://www.forcebeyond.com/high-performance-superalloy-casting/#webpage",
       "url": "https://www.forcebeyond.com/high-performance-superalloy-casting/",
-      "name": "Inconel Casting Suppliers: Precision Superalloy Solutions in USA, South Korea & Taiwan | www.forcebeyond.com",
+      "name": "Superalloy Casting Services | Inconel, VIM & HIP | ForceBeyond",
       "datePublished": "2026-02-16T13:37:20-05:00",
-      "dateModified": "2026-03-04T15:12:07-05:00",
+      "dateModified": "2026-08-12T17:06:00-04:00",
       "isPartOf": {
         "@id": "https://www.forcebeyond.com/#website"
+      },
+      "mainEntity": {
+        "@id": "https://www.forcebeyond.com/high-performance-superalloy-casting/#service"
       },
       "inLanguage": "en-US"
     },
     {
       "@type": "Service",
-      "name": "Inconel & Hastelloy X Casting Services",
+      "@id": "https://www.forcebeyond.com/high-performance-superalloy-casting/#service",
+      "name": "Superalloy Casting Services",
+      "serviceType": "Nickel-Based Superalloy Investment Casting Services",
       "provider": {
-        "@type": "Organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.com/"
+        "@id": "https://www.forcebeyond.com/#organization"
       },
-      "description": "Premier Inconel and Hastelloy X casting supplier. Specialized in VIM and HIPing for Aerospace, Nuclear SMR, and Power Gen through co-owned foundries in the USA, Korea, and Taiwan.",
+      "description": "Superalloy casting services for Inconel 718, Inconel 625, Hastelloy X, and other high-performance alloys, with VIM, HIP where required, NDT, heat treatment, and precision machining coordinated across ForceBeyond's USA, South Korea, and Taiwan manufacturing network.",
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "United States"
+        },
+        {
+          "@type": "Country",
+          "name": "South Korea"
+        },
+        {
+          "@type": "Country",
+          "name": "Taiwan"
+        }
+      ],
       "knowsAbout": [
-        "Inconel Casting Suppliers",
+        "Superalloy Casting",
+        "Inconel Casting",
+        "Inconel 718 Casting",
+        "Inconel 625 Casting",
         "Hastelloy X Casting",
-        "Inconel 718",
-        "Inconel 625",
+        "Vacuum Investment Casting",
         "Vacuum Induction Melting",
-        "Hot Isostatic Pressing"
+        "Hot Isostatic Pressing",
+        "Non-Destructive Testing",
+        "Near-Net-Shape Manufacturing"
       ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.forcebeyond.com/high-performance-superalloy-casting/#faq",
+      "url": "https://www.forcebeyond.com/high-performance-superalloy-casting/#faq",
+      "mainEntity": faqs.map((item) => ({
+        "@type": "Question",
+        "name": item.q,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": item.a.replace(/<[^>]+>/g, "")
+        }
+      }))
     }
   ]
 };
@@ -107,7 +140,7 @@ const pageSchema = {
     description={seoDescription}
     schema={pageSchema}
     pageTitle={pageTitle}
-    heroImage="/media/inconel-718-5-axis-cnc-machining-turbine-impeller.webp"
+    heroImage="/media/high-performance-superalloy-forging-hero.webp"
     heroImageAlt="5-axis CNC machining an Inconel 718 turbine impeller inside a high-precision machining center"
     faqSectionTitle="Frequently Asked Questions"
     faqItems={faqs}
@@ -157,37 +190,21 @@ const pageSchema = {
                         through our <strong>Tier-1.5 manufacturing model</strong>. We integrate our specialized <a href="/high-performance-superalloy-casting" class="highlight-link">Superalloy Casting</a> facilities—utilizing 
                         Vacuum Induction Melting (VIM)—with our dedicated in-house <a href="/high-performance-superalloy-machining" class="highlight-link">Superalloy Machining</a> centers.
                     </p>
-                    <p>
-                        By managing both the initial pour and the final 5-axis CNC material removal, we ensure that complex internal geometries and 
-                        critical sealing surfaces are achieved with zero ‘hand-off’ risk. For projects requiring high-pressure structural density or 
-                        optimized grain flow rather than complex cast shapes, we offer seamless 
-                        coordination with our <a href="/high-performance-superalloy-forging" class="highlight-link">Superalloy Forging</a> operations, providing you with the ultimate flexibility in near-net-shape manufacturing.
-
-                    </p>
+                    <p>By coordinating the initial pour, heat treatment, inspection, and final 5-axis CNC material removal within one sourcing program, we reduce avoidable hand-off risk while controlling critical geometry and documentation. For projects that benefit more from a wrought structure and controlled material flow than from complex cast shapes, we offer coordinated <a href="/high-performance-superalloy-forging/" class="highlight-link">Superalloy Forging</a> operations.</p>
             </div>
         </section>
 
         <section id="advanced-post-processing" >
             <div class="content-container">
-                <h2>Advanced Post-Processing: HIPing for Zero-Defect Integrity</h2>
-                
+                <h2>Advanced Post-Processing: HIP for Internal Porosity Control</h2>
                 <p>
-                    In the world of mission-critical superalloys, internal microporosity is a risk that cannot be ignored. 
-                    ForceBeyond utilizes <strong>Hot Isostatic Pressing (HIPing)</strong> to eliminate internal defects and ensure 100% density 
-                    in every component.
+                    <strong>Hot Isostatic Pressing (HIP)</strong> may be applied to selected superalloy castings to reduce internal microporosity and increase density. HIP is a post-casting process, not a universal zero-defect guarantee, and it is not automatically required for every component.
                 </p>
                 <ul>
-                    <li>
-                        <strong>Elimination of Microporosity:</strong>HIPing applies high pressure and temperature simultaneously to “heal” internal voids and gas holes.
-                    </li>
-                    <li>
-                        <strong>Enhanced Fatigue Life: </strong> Ideal for rotating parts in Data Center Power and Aerospace applications.
-                    </li>
-                    <li>
-                        <strong>Nuclear Compliance:</strong>A standard requirement for components used in primary reactor cooling loops and SMR infrastructure.
-                    </li>
+                    <li><strong>Internal Porosity Reduction:</strong> High temperature and isostatic pressure can close or reduce certain internal voids when the alloy and defect morphology are suitable.</li>
+                    <li><strong>Application-Dependent Use:</strong> HIP is applied when required by the drawing, material specification, qualification plan, customer requirements, or service conditions.</li>
+                    <li><strong>Verification Still Required:</strong> Final fatigue, structural, and safety performance depend on alloy condition, casting quality, heat treatment, geometry, defects, surface condition, inspection acceptance criteria, and service environment.</li>
                 </ul>
-                
             </div>
         </section>
 
@@ -202,10 +219,10 @@ const pageSchema = {
                 
                 <ul>
                     <li>
-                        <a href="/inconel-718-casting" class="highlight-link">Inconel 718 Casting</a> - <strong>Best for Gas Turbines and Cryogenic Applications.</strong>A high-strength precipitation-hardenable alloy with excellent creep-rupture strength up to 1300°F (700°C).
+                        <a href="/inconel-718-casting/" class="highlight-link">Inconel 718 Casting</a> - <strong>Strength-oriented option for demanding aerospace and energy applications.</strong> A precipitation-hardenable alloy with published elevated-temperature property data extending to approximately 1300°F (704°C); allowable service conditions remain application- and specification-dependent.
                     </li>
                     <li>
-                        <a href="/inconel-625-casting" class="highlight-link">Inconel 625 Casting</a> - <strong>Best for Nuclear SMR and Seawater Corrosion Resistance.</strong>Non-magnetic, corrosion, and oxidation-resistant alloy used heavily in primary reactor cooling loops.
+                        <a href="/inconel-625-casting/" class="highlight-link">Inconel 625 Casting</a> - <strong>Corrosion-oriented option for marine, chemical-processing, and selected nuclear/SMR applications.</strong> Alloy 625 is commonly considered where resistance to pitting, crevice corrosion, and chloride-containing environments is important; final use must follow the applicable code, material specification, qualification plan, and customer requirements.
                     </li>
                     <li>
                         <strong>Hastelloy X Casting </strong>-Exceptional Oxidation Resistance. Engineered for high-temperature combustion environments, offering superior balance between oxidation resistance and fabricability up to 2200°F (1200°C).
@@ -269,7 +286,7 @@ const pageSchema = {
                 </p>
                 <ul>
                     <li>
-                        <strong>Vacuum Induction Melting (VIM): </strong>Essential for maintaining alloy purity and preventing oxidation in reactive superalloys.
+                        <strong>Vacuum Induction Melting (VIM): </strong>Used for applicable superalloy casting routes to help limit oxidation, gas pickup, and contamination during melting.
                     </li>
                     <li>
                         <strong>Near-Net-Shape Casting:</strong> Achieving complex, thin-walled geometries to reduce expensive secondary machining.
@@ -278,7 +295,7 @@ const pageSchema = {
                         <strong>Non-Destructive Testing (NDT): </strong> In-house Level I & II X-ray, Fluorescent Penetrant Inspection (FPI), and ultrasonic testing.
                     </li>
                     <li>
-                        <strong>Global Certifications:</strong> Strict adherence to <strong>AS9100</strong> and <strong>ISO 9001</strong> Quality Management Systems across our foundry network.
+                        <strong>Quality Systems:</strong> Manufacturing and inspection are controlled according to the applicable facility quality system, drawing, material specification, inspection plan, and customer requirements. Facility-level AS9100 or ISO 9001 certification should be confirmed for the production location selected for each program.
                     </li>
                 </ul>
             </div>
@@ -301,14 +318,14 @@ const pageSchema = {
 
                         <tbody>
                             <tr>
-                                <th scope="row"><a href="/inconel-718-casting" class="highlight-link">Inconel 718</a></th>
-                                <td>High Fatigue & Creep Strength</td>
-                                <td><a href="/data-center-power" class="highlight-link">Data Center Power</a></td>
+                                <th scope="row"><a href="/inconel-718-casting/" class="highlight-link">Inconel 718</a></th>
+                                <td>High strength & creep performance</td>
+                                <td><a href="/data-center-power/" class="highlight-link">Data Center Power</a></td>
                             </tr>
                             <tr>
-                                <th scope="row"><a href="/inconel-625-casting" class="highlight-link">Inconel 625</a></th>
+                                <th scope="row"><a href="/inconel-625-casting/" class="highlight-link">Inconel 625</a></th>
                                 <td>Superior Corrosion Resistance</td>
-                                <td><a href="/nuclear-smr" class="highlight-link">Nuclear & SMR</a></td>
+                                <td>Marine, chemical processing & selected nuclear/SMR programs</td>
                             </tr>
                             <tr>
                                 <th scope="row">Inconel 713C</th>
@@ -329,10 +346,7 @@ const pageSchema = {
         <section id="quality-assurance" >
             <div class="content-container">
                 <h2>Rigorous Quality Assurance & NDT for Superalloy Castings</h2>
-                <p>
-                    We de-risk your supply chain through 100% inspection at our co-owned facilities, 
-                    ensuring every casting meets Tier-1 aerospace and energy standards.
-                </p>
+                <p>Inspection plans are established according to the alloy, casting route, drawing, material specification, customer requirements, and applicable acceptance criteria. ForceBeyond coordinates NDT, material verification, dimensional inspection, and documentation across the selected manufacturing route.</p>
                 <div class="content-table-wrapper">
                     <table>
                         <thead>
@@ -348,27 +362,27 @@ const pageSchema = {
                             <tr>
                                 <th scope="row">Digital Radiography (X-Ray)</th>
                                 <td>Detects internal microporosity and inclusions.</td>
-                                <td>ASTM E2104 / AS9100</td>
+                                <td>Per drawing / casting-specific radiography requirements</td>
                             </tr>
                             <tr>
                                 <th scope="row">Fluorescent Penetrant (FPI)</th>
                                 <td>Identifies surface-breaking cracks and porosity.</td>
-                                <td>ASTM E1417 / Level I & II</td>
+                                <td>ASTM E1417 or applicable customer requirement</td>
                             </tr>
                             <tr>
                                 <th scope="row">Ultrasonic Testing (UT)</th>
                                 <td>Verifies internal density and wall thickness.</td>
-                                <td>ASTM A388</td>
+                                <td>Applicable UT procedure / customer requirement</td>
                             </tr>
                             <tr>
                                 <th scope="row">Spectrographic Analysis</th>
                                 <td>Confirms exact chemical/alloy composition per melt.</td>
-                                <td>NIST Traceable</td>
+                                <td>Applicable chemistry / PMI procedure</td>
                             </tr>
                             <tr>
                                 <th scope="row">CMM Dimensional Audit</th>
                                 <td>Ensures tight tolerances on complex geometries.</td>
-                                <td>ISO 8062 / CT5-CT7</td>
+                                <td>Drawing / agreed dimensional acceptance criteria</td>
                             </tr>
                         </tbody>
                     </table>
@@ -416,6 +430,47 @@ const pageSchema = {
                             </tr>
                         </tbody>
                     </table>
+                </div>
+                <!-- Technical Resource -->
+            <div class="mt-8 bg-slate-50 p-6 sm:p-8">
+                <div class="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
+                    <div class="max-w-3xl">
+                        <p class="mb-2 text-sm font-bold uppercase tracking-wider text-slate-500">
+                            Technical Resource
+                        </p>
+
+                        <h3 class="mb-3 text-xl font-bold text-slate-800 sm:text-2xl">
+                            Superalloy Casting Technical Guide
+                        </h3>
+
+                        <p class="text-base leading-7 text-slate-600">
+                            Review ForceBeyond’s engineering guide to Inconel 718, Inconel 625, VIM, HIP, 
+                            alloy selection, near-net-shape manufacturing, NDT, quality control, and casting-vs-forging screening.
+                        </p>
+                    </div>
+
+                    <div class="shrink-0">
+                        <div class="flex flex-col gap-3 sm:flex-row">
+                            <a
+                                href="/superalloy-casting-guide/"
+                                class="inline-flex items-center justify-center rounded-lg bg-brand-blue px-6 py-3 text-sm font-bold text-white transition-opacity hover:opacity-90"
+                                aria-label="Read the Superalloy Casting Technical Guide"
+                            >
+                                Read Technical Guide
+                            </a>
+                            <a
+                                href="/downloads/technical-resources/superalloy-casting-guide.pdf"
+                                target="_blank"
+                                rel="noopener"
+                                download
+                                class="inline-flex items-center justify-center rounded-lg border border-slate-300 px-6 py-3 text-sm font-bold text-slate-700 transition-opacity hover:opacity-90"
+                                aria-label="Download the Superalloy Casting Technical Guide PDF"
+                            >
+                                Download PDF
+                                <span aria-hidden="true" class="ml-2">↓</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

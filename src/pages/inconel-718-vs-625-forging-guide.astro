@@ -1,0 +1,455 @@
+---
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+import { pageDates } from '../data/page-dates.js';
+
+const pageTitle = 'Inconel® 718 vs. Inconel® 625 Forging: Technical Guide';
+const seoTitle = 'Inconel 718 vs 625 Forging Guide | Alloy Selection | ForceBeyond';
+const seoDescription = 'Technical guide comparing Inconel 718 and Inconel 625 for forging, alloy selection, heat treatment, corrosion resistance, applications, inspection, and manufacturing.';
+
+const pageUrl = 'https://www.forcebeyond.com/inconel-718-vs-625-forging-guide/';
+const pdfUrl = '/downloads/technical-resources/inconel-718-vs-625-forging-guide.pdf';
+const dates = pageDates['/inconel-718-vs-625-forging-guide/'];
+
+const faqs = [
+  {
+    q: 'What is the main difference between Inconel 718 and Inconel 625?',
+    a: 'Inconel 718 is an age-hardenable alloy commonly selected for high mechanical strength and fatigue performance. Inconel 625 is primarily solid-solution strengthened and is especially valued for corrosion resistance, including resistance to pitting and crevice corrosion.'
+  },
+  {
+    q: 'Which is stronger, Inconel 718 or 625?',
+    a: 'In general, properly heat-treated Inconel 718 is selected when higher mechanical strength is the priority. Exact strength depends on product form, heat treatment, temperature, and governing specification.'
+  },
+  {
+    q: 'Which is better for corrosion resistance, Inconel 718 or 625?',
+    a: 'Inconel 625 is generally the preferred starting point when severe aqueous corrosion, pitting, or crevice corrosion is the dominant concern.'
+  },
+  {
+    q: 'Can Inconel 718 be forged?',
+    a: 'Yes. Inconel 718 is a well-established wrought nickel alloy and is used in forged aerospace and gas-turbine components. The forging and heat-treatment route must follow the applicable specification and material condition.'
+  },
+  {
+    q: 'Can Inconel 625 be forged?',
+    a: 'Yes. Inconel 625 is available in wrought product forms and is used for demanding components where corrosion resistance is important. The exact forging route and heat treatment should be selected to the applicable specification.'
+  },
+  {
+    q: 'Why use forging instead of machining from billet?',
+    a: 'Forging can establish controlled material flow and provide a near-final preform, potentially reducing machining and supporting structural performance. The benefit depends strongly on geometry and process design.'
+  },
+  {
+    q: 'Is Inconel 718 suitable for turbine components?',
+    a: 'Inconel 718 is widely associated with aerospace and gas-turbine components because of its high-strength and fatigue-performance profile.'
+  },
+  {
+    q: 'Is Inconel 625 suitable for marine components?',
+    a: 'Yes. Inconel 625 is used in marine engineering and is valued for resistance to severe corrosive environments, including pitting and crevice corrosion.'
+  },
+  {
+    q: 'Does forging automatically improve fatigue life?',
+    a: 'Not automatically. Fatigue performance depends on alloy condition, grain structure, defects, surface condition, heat treatment, geometry, residual stress, and service environment. A controlled forging process can support a favorable material structure, but qualification remains application-specific.'
+  },
+  {
+    q: 'What inspections are common for nickel-alloy forgings?',
+    a: 'Common methods include ultrasonic testing, liquid or dye penetrant inspection, dimensional inspection, material certification, and additional testing required by the drawing, purchase specification, or industry standard.'
+  },
+  {
+    q: 'Which alloy should be used for high-temperature corrosion?',
+    a: 'The answer depends on the environment and temperature. Inconel 625 is often attractive for aggressive corrosion environments, while Inconel 718 is often chosen when high mechanical strength is the dominant requirement. Detailed service conditions must be reviewed.'
+  },
+  {
+    q: 'Can Inconel 718 and 625 be used interchangeably?',
+    a: 'No. They have different strengthening mechanisms, mechanical-property profiles, corrosion behavior, and typical application priorities. Material substitution should be formally reviewed against the design and governing specification.'
+  }
+];
+
+const sources = [
+  {
+    label: 'ForceBeyond — Inconel 718 Forging',
+    url: 'https://www.forcebeyond.com/inconel-718-forging/'
+  },
+  {
+    label: 'ForceBeyond — Inconel 625 Forging',
+    url: 'https://www.forcebeyond.com/inconel-625-forging/'
+  },
+  {
+    label: 'ForceBeyond — Superalloy Forging Services',
+    url: 'https://www.forcebeyond.com/high-performance-superalloy-forging/'
+  },
+  {
+    label: 'ForceBeyond — Forging',
+    url: 'https://www.forcebeyond.com/forging/'
+  },
+  {
+    label: 'Special Metals — INCONEL Alloy 718 Technical Bulletin',
+    url: 'https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-718.pdf'
+  },
+  {
+    label: 'Special Metals — INCONEL Alloy 625 Technical Bulletin',
+    url: 'https://www.specialmetals.com/documents/technical-bulletins/inconel/inconel-alloy-625.pdf'
+  },
+  {
+    label: 'Special Metals — INCONEL Technical Bulletins',
+    url: 'https://www.specialmetals.com/documents/technical-bulletins/inconel/'
+  }
+];
+
+const internalResources = [
+  { label: 'Inconel 718 Forging', url: '/inconel-718-forging/' },
+  { label: 'Inconel 625 Forging', url: '/inconel-625-forging/' },
+  { label: 'High-Performance Superalloy Forging', url: '/high-performance-superalloy-forging/' },
+  { label: 'Forging Capabilities', url: '/forging/' },
+  { label: 'Open Die Forging', url: '/open-die-forging/' },
+  { label: 'Closed Die Forging', url: '/closed-die-forging/' },
+  { label: 'Rolled Ring Forging', url: '/rolled-ring-forging/' },
+  { label: 'Precision Machining', url: '/precision-machining/' }
+];
+
+const pageSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'WebPage',
+      '@id': `${pageUrl}#webpage`,
+      url: pageUrl,
+      name: seoTitle,
+      description: seoDescription,
+      ...(dates?.published && { datePublished: dates.published }),
+      ...(dates?.modified && { dateModified: dates.modified }),
+      isPartOf: { '@id': 'https://www.forcebeyond.com/#website' },
+      mainEntity: { '@id': `${pageUrl}#article` },
+      inLanguage: 'en-US'
+    },
+    {
+      '@type': 'TechArticle',
+      '@id': `${pageUrl}#article`,
+      mainEntityOfPage: { '@id': `${pageUrl}#webpage` },
+      headline: 'Inconel 718 vs. Inconel 625 Forging: A Technical Guide to Alloy Selection, Forging, Heat Treatment, and Applications',
+      description: seoDescription,
+      ...(dates?.published && { datePublished: dates.published }),
+      ...(dates?.modified && { dateModified: dates.modified }),
+      author: { '@id': 'https://www.forcebeyond.com/#organization' },
+      publisher: { '@id': 'https://www.forcebeyond.com/#organization' },
+      about: [
+        { '@type': 'Thing', name: 'Inconel 718', sameAs: 'https://www.forcebeyond.com/inconel-718-forging/' },
+        { '@type': 'Thing', name: 'Inconel 625', sameAs: 'https://www.forcebeyond.com/inconel-625-forging/' },
+        { '@type': 'Thing', name: 'Nickel-alloy forging' }
+      ],
+      mentions: [
+        { '@id': 'https://www.forcebeyond.com/inconel-718-forging/#service' },
+        { '@id': 'https://www.forcebeyond.com/inconel-625-forging/#service' },
+        { '@id': 'https://www.forcebeyond.com/high-performance-superalloy-forging/#service' }
+      ],
+      keywords: [
+        'Inconel 718 forging',
+        'Inconel 625 forging',
+        'Inconel 718 vs 625',
+        'nickel alloy forging',
+        'superalloy forging',
+        'forging heat treatment',
+        'alloy selection'
+      ],
+      encoding: {
+        '@type': 'MediaObject',
+        contentUrl: `https://www.forcebeyond.com${pdfUrl}`,
+        encodingFormat: 'application/pdf',
+        name: 'Inconel 718 vs. Inconel 625 Forging Technical Guide PDF'
+      },
+      citation: sources.map((source) => source.url)
+    },
+    {
+      '@type': 'FAQPage',
+      '@id': `${pageUrl}#faq`,
+      url: `${pageUrl}#faq`,
+      mainEntity: faqs.map((item) => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.a
+        }
+      }))
+    }
+  ]
+};
+---
+
+<IndividualPageLayout
+  title={seoTitle}
+  description={seoDescription}
+  schema={pageSchema}
+  pageTitle={pageTitle}
+  publishedDate={dates?.published}
+  modifiedDate={dates?.modified}
+  heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
+  heroImageAlt="Inconel 718 and Inconel 625 forged nickel-alloy components for aerospace, energy, marine, and chemical processing applications"
+  faqSectionTitle="Frequently Asked Engineering Questions"
+  faqItems={faqs}
+  ctaTitle=""
+  ctaDescription=""
+  sourcesTitle="References"
+  sourcesList={sources}
+  resourcesTitle="Related Inconel & Forging Resources"
+  resourcesList={internalResources}
+>
+  <article slot="full-width" class="individual-content" aria-labelledby="whitepaper-title">
+    <section id="whitepaper-introduction">
+      <div class="content-container">
+        <p><strong>Technical White Paper | 2026 Edition</strong></p>
+        <h2 id="whitepaper-title">Inconel® 718 vs. Inconel® 625 Forging</h2>
+        <p><em>A Technical Guide to Alloy Selection, Forging, Heat Treatment, and Applications</em></p>
+        <p>Prepared as an engineering reference for designers, sourcing teams, and manufacturing engineers. This HTML page is the crawlable web version of the technical guide; the PDF below is provided as a downloadable companion.</p>
+
+        <div class="mt-6">
+          <p><strong>Executive takeaway:</strong> Inconel 718 and Inconel 625 are both nickel-based superalloys, but they solve different engineering problems. Inconel 718 is age-hardenable and is typically selected when high mechanical strength, fatigue performance, and elevated-temperature capability are primary requirements. Inconel 625 is a solid-solution-strengthened alloy with particularly strong resistance to aqueous corrosion, pitting, and crevice corrosion, making it attractive for severe marine, chemical, and process environments.</p>
+        </div>
+
+        <p class="mt-6">
+          <a href={pdfUrl} class="highlight-link" target="_blank" rel="noopener" download>
+            Download the original 8-page PDF technical white paper
+          </a>
+        </p>
+      </div>
+    </section>
+
+    <section id="executive-summary">
+      <div class="content-container">
+        <h2>1. Executive Summary</h2>
+        <p>Selecting between Inconel 718 and Inconel 625 is primarily a question of which performance requirement dominates the application. Both alloys combine nickel-based corrosion resistance with useful elevated-temperature properties, but their strengthening mechanisms and resulting engineering profiles differ.</p>
+        <p><strong>Inconel 718 (UNS N07718)</strong> is an age-hardenable nickel-chromium alloy. It is used where high strength, corrosion resistance, tensile performance, fatigue resistance, creep resistance, and rupture strength are important, including aerospace and gas-turbine components, rings, casings, fasteners, and cryogenic applications.</p>
+        <p><strong>Inconel 625 (UNS N06625)</strong> is a solid-solution-strengthened nickel-based alloy. It is especially valued for resistance to severe corrosive environments, including pitting and crevice corrosion, with applications in marine engineering, chemical processing, pollution control, and other demanding environments.</p>
+        <p><strong>Selection rule:</strong> Choose 718 when high mechanical strength and fatigue performance are the primary design drivers. Choose 625 when corrosion resistance, environmental durability, and resistance to pitting or crevice attack are the dominant requirements. Final alloy selection should always be validated against the component design, temperature, environment, required properties, governing specification, and applicable heat-treatment condition.</p>
+
+        <h3>At a Glance</h3>
+        <div class="content-table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Factor</th>
+                <th scope="col">Inconel 718</th>
+                <th scope="col">Inconel 625</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">UNS designation</th><td>N07718</td><td>N06625</td></tr>
+              <tr><th scope="row">Primary strengthening</th><td>Age / precipitation hardening</td><td>Solid-solution strengthening</td></tr>
+              <tr><th scope="row">Primary engineering advantage</th><td>High strength and fatigue performance</td><td>Corrosion and environmental resistance</td></tr>
+              <tr><th scope="row">Typical temperature capability</th><td>Used across cryogenic and elevated-temperature applications; source data extends to 1300°F</td><td>Strong elevated-temperature capability with broad corrosion resistance; application-specific limits apply</td></tr>
+              <tr><th scope="row">Representative applications</th><td>Aerospace, gas turbines, rings, casings, fasteners</td><td>Marine, chemical processing, pollution control, process equipment</td></tr>
+              <tr><th scope="row">Forging relevance</th><td>Well suited to high-performance forged components where strength is critical</td><td>Well suited to forged components exposed to aggressive environments</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-alloys-differ">
+      <div class="content-container">
+        <h2>2. Why the Two Alloys Are Different</h2>
+        <h3>Inconel 718: Strength-Oriented Selection</h3>
+        <p>Inconel 718 is designed to develop high strength through heat treatment. Its composition includes nickel, chromium, iron, niobium, molybdenum, titanium, and aluminum; the niobium- and titanium-containing system supports precipitation hardening. For forged components, this makes the alloy attractive where the component must carry high mechanical loads while retaining useful properties at elevated temperature.</p>
+        <ul>
+          <li>High tensile and yield-strength potential after the specified heat treatment.</li>
+          <li>Good fatigue, creep, and rupture performance for demanding service conditions.</li>
+          <li>Commonly associated with aerospace and gas-turbine hardware, rings, casings, and other highly loaded components.</li>
+          <li>Useful across a wide temperature range, including cryogenic service and elevated-temperature applications.</li>
+        </ul>
+
+        <h3>Inconel 625: Corrosion-Oriented Selection</h3>
+        <p>Inconel 625 obtains its strength primarily through solid-solution strengthening. Its nickel-chromium-molybdenum-niobium chemistry provides a combination of strength and corrosion resistance. The alloy is particularly known for resistance to severe corrosive environments and strong resistance to pitting and crevice corrosion.</p>
+        <ul>
+          <li>Strong resistance to many aqueous and chloride-containing environments.</li>
+          <li>Useful in marine, chemical-processing, pollution-control, and process-plant applications.</li>
+          <li>Good combination of corrosion resistance, toughness, and useful elevated-temperature strength.</li>
+          <li>Often selected when environmental durability is more important than maximizing the strength level achievable by an age-hardenable alloy.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="engineering-comparison">
+      <div class="content-container">
+        <h2>3. Inconel 718 vs. Inconel 625: Engineering Comparison</h2>
+        <p>The following comparison is intended as a design-screening guide rather than a substitute for material specifications or qualification testing.</p>
+        <div class="content-table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Design Question</th>
+                <th scope="col">Preferred Starting Point</th>
+                <th scope="col">Why</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Is maximum mechanical strength the main concern?</th><td>718</td><td>Age-hardening enables a high-strength condition.</td></tr>
+              <tr><th scope="row">Is fatigue performance under high mechanical loading critical?</th><td>718</td><td>Commonly selected for highly loaded aerospace and rotating hardware.</td></tr>
+              <tr><th scope="row">Is severe aqueous corrosion the dominant concern?</th><td>625</td><td>Strong resistance to corrosion, pitting, and crevice attack.</td></tr>
+              <tr><th scope="row">Is seawater exposure central to the application?</th><td>625</td><td>Established marine-engineering use and strong chloride-environment resistance.</td></tr>
+              <tr><th scope="row">Is chemical-process service involved?</th><td>625</td><td>Broad corrosion resistance is a major reason for selection.</td></tr>
+              <tr><th scope="row">Is the component a highly loaded turbine-related forging?</th><td>718</td><td>Strength and fatigue performance are often primary drivers.</td></tr>
+              <tr><th scope="row">Is environmental durability more important than peak strength?</th><td>625</td><td>Corrosion resistance can dominate life-cycle performance.</td></tr>
+              <tr><th scope="row">Does the component require an age-hardening response?</th><td>718</td><td>718 is an age-hardenable alloy; 625 is primarily solid-solution strengthened.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Important qualification note:</strong> The “better” alloy depends on the actual service environment. A component exposed to severe corrosion may benefit more from 625 even if 718 offers higher strength, while a highly loaded rotating component may justify 718 because mechanical performance dominates. Use the governing material specification and customer requirements for final selection.</p>
+      </div>
+    </section>
+
+    <section id="why-forge-inconel">
+      <div class="content-container">
+        <h2>4. Why Forge Inconel Alloys?</h2>
+        <p>Forging shapes metal through controlled plastic deformation. For nickel-based superalloys, process control can be used to manage material flow and microstructure while producing the geometry needed for a component. The value of forging is therefore not simply dimensional; it is also metallurgical and structural.</p>
+        <h3>Forging can provide</h3>
+        <ul>
+          <li>Controlled material flow and directional grain structure associated with the forging process.</li>
+          <li>A route to dense, structurally sound components when the process and material condition are properly controlled.</li>
+          <li>Improved starting geometry for subsequent machining, reducing the amount of material that must be removed compared with machining certain geometries from billet.</li>
+          <li>A repeatable manufacturing route for complex or highly loaded components when the tooling and process are appropriately designed.</li>
+        </ul>
+        <p>The exact benefits depend on alloy condition, forging method, reduction, temperature history, die design, heat treatment, and inspection requirements. Forging should therefore be treated as a process-structure-property problem rather than a single generic operation.</p>
+
+        <h3>Forging Route Selection</h3>
+        <div class="content-table-wrapper">
+          <table>
+            <thead>
+              <tr>
+                <th scope="col">Component Requirement</th>
+                <th scope="col">Potential Forging Route</th>
+                <th scope="col">Typical Rationale</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Large or heavy geometry</th><td>Open-die forging</td><td>Flexible deformation of large sections and preforms.</td></tr>
+              <tr><th scope="row">Complex repeatable geometry / higher production volume</th><td>Closed-die forging</td><td>Dedicated dies provide controlled shape and repeatability.</td></tr>
+              <tr><th scope="row">Circular rings or annular components</th><td>Rolled-ring forging</td><td>Efficient route for ring geometries and directional material flow.</td></tr>
+              <tr><th scope="row">Near-net geometry</th><td>Closed-die / precision forging</td><td>Can reduce downstream machining where geometry and process capability permit.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="inconel-718-forging">
+      <div class="content-container">
+        <h2>5. Inconel 718 Forging</h2>
+        <p><a href="/inconel-718-forging/" class="highlight-link">Inconel 718</a> (UNS N07718 / W.Nr. 2.4668) is an age-hardenable nickel-chromium material. It combines high strength with corrosion resistance and good tensile, fatigue, creep, and rupture strength. Its combination of fabricability and mechanical performance has led to broad use in aerospace and gas-turbine applications.</p>
+        <h3>Why 718 is attractive for forged components</h3>
+        <ul>
+          <li>High-strength capability after appropriate solution and aging treatment.</li>
+          <li>Good fatigue and high-temperature mechanical performance.</li>
+          <li>Suitability for rings, casings, turbine-related hardware, fasteners, and other highly loaded components.</li>
+          <li>Forging can provide a useful starting microstructure and directional material flow for subsequent machining and service.</li>
+        </ul>
+        <h3>Representative 718 applications</h3>
+        <ul>
+          <li>Aircraft and land-based gas-turbine components</li>
+          <li>Rings and casings</li>
+          <li>High-load rotating or structural components</li>
+          <li>Rocket and cryogenic hardware</li>
+          <li>High-performance fasteners and instrumentation components</li>
+        </ul>
+        <h3>718 processing considerations</h3>
+        <p>Because 718 derives much of its final strength from heat treatment, the forging route and subsequent thermal processing should be considered together. The exact forging temperature window, reduction schedule, solution treatment, aging treatment, and acceptance criteria must follow the applicable material and customer specification rather than a generic web recommendation.</p>
+      </div>
+    </section>
+
+    <section id="inconel-625-forging">
+      <div class="content-container">
+        <h2>6. Inconel 625 Forging</h2>
+        <p><a href="/inconel-625-forging/" class="highlight-link">Inconel 625</a> (UNS N06625 / W.Nr. 2.4856) is a solid-solution-strengthened nickel-based alloy. It is valued for resistance to severe corrosive environments, including pitting and crevice corrosion, and is used in marine engineering and chemical processing.</p>
+        <h3>Why 625 is attractive for forged components</h3>
+        <ul>
+          <li>Excellent resistance to many aggressive aqueous and chloride-containing environments.</li>
+          <li>Strong resistance to pitting and crevice corrosion.</li>
+          <li>Useful combination of corrosion resistance, toughness, and elevated-temperature capability.</li>
+          <li>Appropriate for components where environmental exposure is a major driver of service life.</li>
+        </ul>
+        <h3>Representative 625 applications</h3>
+        <ul>
+          <li>Marine and subsea hardware</li>
+          <li>Chemical and petrochemical processing equipment</li>
+          <li>Pollution-control and waste-processing equipment</li>
+          <li>Heat exchangers and process components</li>
+          <li>Components exposed to chloride-rich or otherwise aggressive environments</li>
+        </ul>
+        <h3>625 processing considerations</h3>
+        <p>625 is primarily strengthened through its solid-solution chemistry, so the required material condition and heat treatment should be selected around the governing specification and application. For corrosion-critical components, inspection and traceability are especially important because surface condition, inclusions, chemistry, heat treatment, and manufacturing history can all affect performance.</p>
+      </div>
+    </section>
+
+    <section id="billet-to-finished-forging">
+      <div class="content-container">
+        <h2>7. From Billet to Finished Forging</h2>
+        <p>A mission-critical forged component is normally the result of a controlled manufacturing chain rather than the forging strike alone.</p>
+        <ol>
+          <li>Material selection and melt / billet verification</li>
+          <li>Billet preparation and identification</li>
+          <li>Controlled heating and forging</li>
+          <li>Intermediate processing or ring rolling where applicable</li>
+          <li>Heat treatment to the required condition</li>
+          <li>Machining and secondary operations</li>
+          <li>Non-destructive testing and dimensional inspection</li>
+          <li>Material certification, traceability, and final release</li>
+        </ol>
+        <p><strong>Quality principle:</strong> For high-value nickel-alloy forgings, process control and traceability should extend from incoming material through forging, heat treatment, machining, inspection, and final documentation.</p>
+
+        <h3>Common Inspection Methods</h3>
+        <div class="content-table-wrapper">
+          <table>
+            <thead>
+              <tr><th scope="col">Method</th><th scope="col">Primary Purpose</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Ultrasonic Testing (UT)</th><td>Detect internal discontinuities and assess volumetric integrity.</td></tr>
+              <tr><th scope="row">Liquid / Dye Penetrant Inspection (LPI / DPI)</th><td>Detect surface-breaking discontinuities on suitable surfaces.</td></tr>
+              <tr><th scope="row">Dimensional inspection</th><td>Verify finished geometry against drawing requirements.</td></tr>
+              <tr><th scope="row">Material Test Report (MTR)</th><td>Document chemistry, mechanical properties, heat treatment, and/or other required material data.</td></tr>
+              <tr><th scope="row">Corrosion testing, when specified</th><td>Evaluate application-specific corrosion behavior or intergranular corrosion resistance.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="alloy-selection-guide">
+      <div class="content-container">
+        <h2>8. Practical Alloy Selection Guide</h2>
+        <p>Use the following questions as an initial screening sequence. The final selection should be confirmed through engineering review.</p>
+        <ol>
+          <li><strong>Is the dominant failure risk mechanical overload, fatigue, creep, or rupture?</strong> Start with Inconel 718.</li>
+          <li><strong>Is the dominant failure risk corrosion, pitting, crevice corrosion, or aggressive aqueous exposure?</strong> Start with Inconel 625.</li>
+          <li><strong>Is the component a highly loaded aerospace or turbine-related part?</strong> 718 is often the more natural starting point.</li>
+          <li><strong>Is the component primarily exposed to seawater, chlorides, chemical processing media, or other aggressive environments?</strong> 625 is often the more natural starting point.</li>
+          <li><strong>Does the customer specification mandate a specific alloy, product form, heat treatment, or testing regime?</strong> Follow the governing specification first.</li>
+          <li><strong>Are both strength and corrosion resistance critical?</strong> Compare the actual design allowables, temperature, environment, and required life rather than selecting by alloy name alone.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section id="forcebeyond-capability">
+      <div class="content-container">
+        <h2>10. ForceBeyond Forging Capability</h2>
+        <p>ForceBeyond positions Inconel 718 and Inconel 625 as core materials within its <a href="/high-performance-superalloy-forging/" class="highlight-link">superalloy forging capability</a>. Its current capability pages present 718 as a high-strength forging option for aerospace and energy applications and 625 as a corrosion-focused option for marine, nuclear, and chemical-processing environments.</p>
+        <div class="content-table-wrapper">
+          <table>
+            <thead>
+              <tr><th scope="col">ForceBeyond Resource</th><th scope="col">Purpose</th></tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row"><a href="/inconel-718-forging/" class="highlight-link">Inconel 718 Forging</a></th><td>Material-specific capability page focused on high-strength 718 forgings.</td></tr>
+              <tr><th scope="row"><a href="/inconel-625-forging/" class="highlight-link">Inconel 625 Forging</a></th><td>Material-specific capability page focused on corrosion-resistant 625 forgings.</td></tr>
+              <tr><th scope="row"><a href="/high-performance-superalloy-forging/" class="highlight-link">Superalloy Forging</a></th><td>Hub connecting 718 and 625 forging capabilities.</td></tr>
+              <tr><th scope="row"><a href="/forging/" class="highlight-link">Forging</a></th><td>Broader process hub covering forging methods, materials, and secondary operations.</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>For project-specific feasibility, the appropriate next step is to review the component geometry, material specification, required condition, quantity, service environment, inspection requirements, and downstream machining needs.</p>
+      </div>
+    </section>
+
+    <section id="technical-disclaimer">
+      <div class="content-container">
+        <h2>Technical Disclaimer</h2>
+        <p>This document is intended as a general engineering reference and does not replace the applicable material specification, purchase specification, drawing, code, customer requirement, or qualified engineering analysis. Mechanical properties, allowable stresses, forging temperatures, heat-treatment parameters, inspection requirements, and service limits vary with product form, size, processing history, heat-treatment condition, and governing standard. Always verify current requirements before production or design release.</p>
+      </div>
+    </section>
+  </article>
+</IndividualPageLayout>
