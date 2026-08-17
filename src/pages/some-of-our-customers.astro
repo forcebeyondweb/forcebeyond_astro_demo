@@ -33,17 +33,16 @@ const pageSchema = {
     '@graph': [
         {
             '@type': 'WebPage',
-            '@id': 'https://www.forcebeyond.com/some-of-our-customers#webpage',
+            '@id': 'https://www.forcebeyond.com/some-of-our-customers/#webpage',
             url: 'https://www.forcebeyond.com/some-of-our-customers',
             name: seoTitle,
             description: seoDescription,
             isPartOf: {
                 '@type': 'WebSite',
-                '@id': 'https://www.forcebeyond.com#website'
+                '@id': 'https://www.forcebeyond.com/#website'
             },
             about: {
-                '@type': 'Organization',
-                '@id': 'https://www.forcebeyond.com#organization'
+                '@id': 'https://www.forcebeyond.com/#organization'
             }
         }
     ]
@@ -55,7 +54,7 @@ const pageSchema = {
     description={seoDescription}
     schema={pageSchema}
     pageTitle={pageTitle}
-    canonicalUrl="/some-of-our-customers"
+    canonicalUrl="/some-of-our-customers/"
     heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="ForceBeyond industrial manufacturing customer showcase"
     ctaTitle="Discuss Your Next Manufacturing Project"

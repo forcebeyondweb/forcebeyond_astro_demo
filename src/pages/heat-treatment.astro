@@ -74,13 +74,13 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.com/heat-treatment#webpage",
+      "@id": "https://www.forcebeyond.com/heat-treatment/#webpage",
       "url": "https://www.forcebeyond.com/heat-treatment",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.com#website",
+        "@id": "https://www.forcebeyond.com/#website",
         "name": "ForceBeyond",
         "url": "https://www.forcebeyond.com"
       },
@@ -99,22 +99,12 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.com/heat-treatment#service",
+      "@id": "https://www.forcebeyond.com/heat-treatment/#service",
       "name": "Thermal Processing & Heat Treatment Services",
       "serviceType": "Metallurgical Heat Treatment & Post-Processing",
       "description": seoDescription,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.com#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.com",
-        "knowsAbout": [
-          "Solution Annealing & Quenching (Inconel, Stainless, Titanium)",
-          "Precipitation Age Hardening (17-4 PH H900/H1150, Inconel 718)",
-          "T6 Heat Treatment for A356 Aluminum Castings",
-          "Quench & Tempering (Q&T) & Stress Relieving",
-          "Vacuum Heat Treating & Carburizing/Nitriding Case Hardening"
-        ]
+        "@id": "https://www.forcebeyond.com/#organization"
       },
       "areaServed": [
         { "@type": "Country", "name": "United States" },
@@ -154,7 +144,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.com/heat-treatment#faq",
+      "@id": "https://www.forcebeyond.com/heat-treatment/#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,
@@ -323,7 +313,7 @@ const pageSchema = {
             <div class="content-container">
                 <h2>Quality Control & Process Certification</h2>
                 <p>
-                    Every heat treatment batch processed by ForceBeyond is rigorously tested and documented to guarantee compliance with international standards:
+                    Heat-treatment batches are tested and documented according to the applicable material specification, process requirements, customer requirements, and facility quality-system scope.
                 </p>
                 <ul>
                     <li>

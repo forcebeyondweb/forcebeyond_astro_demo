@@ -1,0 +1,30 @@
+
+> forcebeyond_astro_demo@0.0.1 verify:seo-geo
+> node scripts/verify-seo-geo.mjs
+
+SEO/GEO Verification
+Pages checked: 82
+Errors: 0
+Warnings: 21
+
+WARN /a356-t6-casting/index.html: potentially absolute claim language: guaranteed
+WARN /c69300-brass-forging/index.html: potentially absolute claim language: guarantee, fully compliant
+WARN /die-casting/index.html: potentially absolute claim language: guaranteed
+WARN /forging/index.html: potentially absolute claim language: unmatched
+WARN /heat-treatment/index.html: potentially absolute claim language: guarantee
+WARN /high-performance-superalloy-casting/index.html: potentially absolute claim language: guarantee, unmatched
+WARN /inconel-625-casting/index.html: potentially absolute claim language: guarantee
+WARN /inconel-625-forging/index.html: potentially absolute claim language: guaranteed
+WARN /inconel-625-machining/index.html: potentially absolute claim language: guarantee
+WARN /inconel-718-machining/index.html: potentially absolute claim language: guarantee
+WARN /manufacturing-design-guides/index.html: potentially absolute claim language: guarantee
+WARN /materials-technical-specs/index.html: potentially absolute claim language: guaranteed
+WARN /nuclear-smr/index.html: potentially absolute claim language: guarantee
+WARN /open-die-forging/index.html: potentially absolute claim language: guarantee
+WARN /rolled-ring-forging/index.html: potentially absolute claim language: unmatched, guarantee
+WARN /sand-casting/index.html: potentially absolute claim language: every part
+WARN /space-defense/index.html: potentially absolute claim language: guarantee
+WARN /stainless-steel-casting/index.html: potentially absolute claim language: guaranteed
+WARN /superalloy-casting-guide/index.html: potentially absolute claim language: guarantee
+WARN /superalloys-exotic-metals/index.html: potentially absolute claim language: guarantee
+WARN /surface-finishing/index.html: potentially absolute claim language: guarantee, guaranteed

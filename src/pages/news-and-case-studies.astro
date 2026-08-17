@@ -63,33 +63,20 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.com/new-and-case-studies#webpage",
+      "@id": "https://www.forcebeyond.com/news-and-case-studies/#webpage",
       "url": "https://www.forcebeyond.com/new-and-case-studies",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.com#website",
+        "@id": "https://www.forcebeyond.com/#website",
         "name": "ForceBeyond",
         "url": "https://www.forcebeyond.com"
       }
     },
     {
-      "@type": "Organization",
-      "@id": "https://www.forcebeyond.com#organization",
-      "name": "ForceBeyond",
-      "url": "https://www.forcebeyond.com",
-      "knowsAbout": [
-        "Vacuum Precision Casting (VIM) & Investment Casting",
-        "Hot Isostatic Pressing (HIP) Microporosity Elimination",
-        "Directionally Solidified (DS) Superalloy Turbine Components",
-        "NACE MR0175 Compliant Super Duplex 2507 Castings",
-        "Ti-6Al-4V Closed-Die Forgings for Severe Environments"
-      ]
-    },
-    {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.com/new-and-case-studies#faq",
+      "@id": "https://www.forcebeyond.com/news-and-case-studies/#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,

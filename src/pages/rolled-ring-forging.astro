@@ -66,13 +66,13 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.com/rolled-ring-forging#webpage",
+      "@id": "https://www.forcebeyond.com/rolled-ring-forging/#webpage",
       "url": "https://www.forcebeyond.com/rolled-ring-forging",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.com#website",
+        "@id": "https://www.forcebeyond.com/#website",
         "name": "ForceBeyond",
         "url": "https://www.forcebeyond.com"
       },
@@ -96,31 +96,12 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.com/rolled-ring-forging#service",
+      "@id": "https://www.forcebeyond.com/rolled-ring-forging/#service",
       "name": "Seamless Rolled Ring Forging Services",
       "serviceType": "Seamless Rolled Ring Forging & Precision CNC Machining",
       "description": seoDescription,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.com#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.com",
-        "logo": "https://www.forcebeyond.com/media/logo.png",
-        "knowsAbout": [
-          "Seamless Rolled Ring Forging",
-          "Inconel 718 & Titanium Ring Rolling",
-          "Circumferential Grain Flow Optimization",
-          "Contoured & Profiled Cross-Section Rings",
-          "Ultrasonic Testing (UT) & NDT Validation",
-          "Vertical Turning Lathe (VTL) CNC Machining",
-          "AS9100 Rev D & ISO 9001:2015 Quality Systems"
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "New Castle",
-          "addressRegion": "DE",
-          "addressCountry": "US"
-        }
+        "@id": "https://www.forcebeyond.com/#organization"
       },
       "areaServed": [
         {
@@ -181,7 +162,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.com/rolled-ring-forging#faq",
+      "@id": "https://www.forcebeyond.com/rolled-ring-forging/#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,
@@ -304,7 +285,7 @@ const pageSchema = {
                 </p>
                 <ul>
                     <li>
-                        <strong>Circumferential Grain Flow:</strong> Unlike machining a ring out of a solid block or plate—which cuts across the metal's natural grain—the ring rolling process stretches the metal in a continuous circular direction. This creates a radial grain flow that provides unmatched resistance to impact, fatigue, and structural cracking.
+                        <strong>Circumferential Grain Flow:</strong> Circumferential grain flow can support impact resistance, fatigue performance, and structural integrity compared with machining across the grain of suitable wrought stock.
                     </li>
                     <li>
                         <strong>Zero Weld Seams:</strong> Because the ring is forged from a single, pierced block of metal (a "donut"), there are no weld seams or joints. This seamless construction is mandatory for high-pressure and aerospace applications where weld failures could be catastrophic.
@@ -337,7 +318,7 @@ const pageSchema = {
                         <strong>Advanced Thermal Processing:</strong> Solution annealing, age hardening (critical for Inconel 718), and stress relieving to lock in mechanical properties.
                     </li>
                     <li>
-                        <strong>Rigorous NDT:</strong> We perform 100% Ultrasonic Testing (UT) to guarantee zero internal voids, alongside Magnetic Particle Inspection (MPI) or Fluorescent Penetrant Inspection (FPI) for surface integrity.
+                        <strong>Rigorous NDT:</strong> Ultrasonic testing may be applied to detect relevant internal discontinuities, with MPI or FPI used for applicable surface inspection requirements. Methods, coverage, and acceptance criteria are defined by the governing specification and inspection plan.
                     </li>
                 </ul>   
             </div>

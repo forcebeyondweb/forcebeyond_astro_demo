@@ -16,7 +16,7 @@ const faqs = [
     },
     {
         q: "Why choose open die forging instead of casting for a large part?",
-        a: "While sand casting can produce large parts closer to net shape, castings inherently carry a risk of internal porosity, shrinkage, and a brittle grain structure. Open die forging mechanically works the metal to guarantee a dense, highly refined, defect-free internal structure, which is mandatory for parts subjected to high stress, heavy loads, or extreme pressures."
+        a: "While sand casting can produce large parts closer to net shape, castings inherently carry a risk of internal porosity and shrinkage. Open-die forging mechanically works the material to refine grain structure and may consolidate internal porosity. Its suitability for highly loaded components depends on the alloy, geometry, governing specification, qualification plan, and service requirements."
     }
 ];
 
@@ -71,13 +71,13 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.com/open-die-forging#webpage",
+      "@id": "https://www.forcebeyond.com/open-die-forging/#webpage",
       "url": "https://www.forcebeyond.com/open-die-forging",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.com#website",
+        "@id": "https://www.forcebeyond.com/#website",
         "name": "ForceBeyond",
         "url": "https://www.forcebeyond.com"
       },
@@ -101,29 +101,12 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.com/open-die-forging#service",
+      "@id": "https://www.forcebeyond.com/open-die-forging/#service",
       "name": "Custom Open Die Forging Services",
       "serviceType": "Open Die Forging & Heavy Precision Machining",
       "description": seoDescription,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.com#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.com",
-        "logo": "https://www.forcebeyond.com/media/logo.png",
-        "knowsAbout": [
-          "Open Die Forging & Free Forging",
-          "Heavy Component Forging Up to 50,000+ lbs",
-          "Step Shafts, Discs, Hubs & Forged Blocks",
-          "Grain Refinement & Porosity Consolidation",
-          "Zero Custom Tooling Cost Forging",
-          "Ultrasonic Testing (UT) & Deep Hole Drilling",
-          "ISO 9001:2015 & AS9100 Rev D Quality Systems"
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressCountry": "US"
-        }
+        "@id": "https://www.forcebeyond.com/#organization"
       },
       "areaServed": [
         {
@@ -184,7 +167,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.com/open-die-forging#faq",
+      "@id": "https://www.forcebeyond.com/open-die-forging/#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,
@@ -332,7 +315,7 @@ const pageSchema = {
                         <strong>Advanced Heat Treatment:</strong> Deep-penetration normalizing, quenching, and tempering to achieve specific mechanical and tensile properties throughout massive sections.
                     </li>
                     <li>
-                        <strong>Rigorous NDT & Inspection:</strong> Comprehensive Ultrasonic Testing (UT) to guarantee zero internal voids, supported by full Material Test Reports (MTRs) and ISO/AS9100 traceability.
+                        <strong>Rigorous NDT & Inspection:</strong> Ultrasonic testing may be used to detect relevant internal discontinuities according to the applicable specification, scan plan, calibration standard, coverage, and acceptance criteria.
                     </li>
                 </ul>   
             </div>

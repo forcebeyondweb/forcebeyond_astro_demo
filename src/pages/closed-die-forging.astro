@@ -66,13 +66,13 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.com/closed-die-forging#webpage",
+      "@id": "https://www.forcebeyond.com/closed-die-forging/#webpage",
       "url": "https://www.forcebeyond.com/closed-die-forging",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.com#website",
+        "@id": "https://www.forcebeyond.com/#website",
         "name": "ForceBeyond",
         "url": "https://www.forcebeyond.com"
       },
@@ -96,32 +96,12 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.com/closed-die-forging#service",
+      "@id": "https://www.forcebeyond.com/closed-die-forging/#service",
       "name": "Closed Die Forging & Impression Die Forging Services",
       "serviceType": "Near-Net Precision Closed Die Forging",
       "description": seoDescription,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.com#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.com",
-        "logo": "https://www.forcebeyond.com/media/logo.png",
-        "knowsAbout": [
-          "Closed Die Forging & Impression Die Forging",
-          "Near-Net-Shape Precision & Grain Flow Optimization",
-          "Zero-Porosity High-Density Metallic Structures",
-          "Carbon & Alloy Steels (1020, 1045, 4140, 4340)",
-          "Stainless Steels (304, 316, 17-4 PH, Duplex)",
-          "Titanium (Ti-6Al-4V) & Superalloys (Inconel 718, 625)",
-          "Tier-1.5 Forged-to-Machine 5-Axis CNC Finishing & NDT",
-          "ISO 9001:2015 Quality Management System"
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "New Castle",
-          "addressRegion": "DE",
-          "addressCountry": "US"
-        }
+        "@id": "https://www.forcebeyond.com/#organization"
       },
       "areaServed": [
         {
@@ -182,7 +162,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.com/closed-die-forging#faq",
+      "@id": "https://www.forcebeyond.com/closed-die-forging/#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,

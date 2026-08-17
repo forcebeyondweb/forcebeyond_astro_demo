@@ -69,13 +69,13 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.com/sand-casting#webpage",
+      "@id": "https://www.forcebeyond.com/sand-casting/#webpage",
       "url": "https://www.forcebeyond.com/sand-casting",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.com#website",
+        "@id": "https://www.forcebeyond.com/#website",
         "name": "ForceBeyond",
         "url": "https://www.forcebeyond.com"
       },
@@ -94,24 +94,12 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.com/sand-casting#service",
+      "@id": "https://www.forcebeyond.com/sand-casting/#service",
       "name": "Large-Scale Sand Casting Manufacturing Services",
       "serviceType": "Custom Sand Casting Services",
       "description": seoDescription,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.com#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.com",
-        "knowsAbout": [
-          "Large-Scale & Heavy-Duty Sand Casting",
-          "Automated Green Sand Molding Lines",
-          "Resin / No-Bake Sand Molding for Multi-Ton Components",
-          "Ferrous & Non-Ferrous Alloys (Ductile Iron, Gray Iron, Carbon Steel, A356 Aluminum)",
-          "Complex Internal Coring & Fluid Cavities",
-          "Heavy CNC Machining (VTLs & Horizontal Boring Mills)",
-          "Non-Destructive Testing (MPI, UT) & ISO 9001:2015 Integration"
-        ]
+        "@id": "https://www.forcebeyond.com/#organization"
       },
       "areaServed": [
         { "@type": "Country", "name": "United States" },
@@ -151,7 +139,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.com/sand-casting#faq",
+      "@id": "https://www.forcebeyond.com/sand-casting/#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,

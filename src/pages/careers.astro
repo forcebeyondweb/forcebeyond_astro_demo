@@ -63,33 +63,20 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.com/careers#webpage",
+      "@id": "https://www.forcebeyond.com/careers/#webpage",
       "url": "https://www.forcebeyond.com/careers",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.com#website",
+        "@id": "https://www.forcebeyond.com/#website",
         "name": "ForceBeyond",
         "url": "https://www.forcebeyond.com"
       }
     },
     {
-      "@type": "Organization",
-      "@id": "https://www.forcebeyond.com#organization",
-      "name": "ForceBeyond",
-      "url": "https://www.forcebeyond.com",
-      "knowsAbout": [
-        "Advanced Contract Manufacturing & Engineering",
-        "AS9100 Rev D & ISO 9001:2015 Quality Assurance",
-        "Design for Manufacturability (DFM) & CAD/CAM Systems",
-        "Global Supply Chain Management & ITAR Compliance",
-        "Multi-Axis CNC Programming & Superalloy Machining"
-      ]
-    },
-    {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.com/careers#faq",
+      "@id": "https://www.forcebeyond.com/careers/#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,

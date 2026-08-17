@@ -19,7 +19,7 @@ const faqs = [
     },
     {
         q:"Can ForceBeyond machine Inconel 718 in both the annealed and age-hardened states?",
-        a: "Yes. We optimize production routing based on your print specifications. We perform heavy material removal (roughing) in the Solution Annealed State (AMS 5662) while the alloy is softer (approx. 20-25 HRC). To guarantee tight aerospace tolerances without risking dimensional distortion from heat treatment, we perform finish machining in the Age-Hardened State (AMS 5663) at 36–44 HRC using advanced PVD-coated solid carbide tooling."
+        a: "Yes. We optimize production routing based on your print specifications. We perform heavy material removal (roughing) in the Solution Annealed State (AMS 5662) while the alloy is softer (approx. 20-25 HRC). To support tight aerospace tolerances while reducing dimensional risk from subsequent heat treatment, finish machining may be performed in the age-hardened condition using tooling and process controls selected for the applicable drawing and material condition."
     },
     {
         q: "How do your machining facilities prevent tool deformation and work-hardening on Inconel 718?",
@@ -89,9 +89,7 @@ const pageSchema = {
       "@id": "https://www.forcebeyond.com/inconel-718-machining/#service",
       "serviceType": "Inconel 718 CNC Machining",
       "provider": {
-        "@type": "Organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.com/"
+        "@id": "https://www.forcebeyond.com/#organization"
       },
       "description": "AS9100 certified precision 5-axis CNC machining, milling, and turning for Inconel 718 across our USA, South Korea, and Taiwan facilities.",
       "areaServed": [

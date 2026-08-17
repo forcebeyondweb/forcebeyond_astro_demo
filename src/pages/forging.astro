@@ -70,13 +70,13 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.com/forging#webpage",
+      "@id": "https://www.forcebeyond.com/forging/#webpage",
       "url": "https://www.forcebeyond.com/forging",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.com#website",
+        "@id": "https://www.forcebeyond.com/#website",
         "name": "ForceBeyond",
         "url": "https://www.forcebeyond.com"
       },
@@ -100,33 +100,12 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.com/forging#service",
+      "@id": "https://www.forcebeyond.com/forging/#service",
       "name": "Precision Custom Metal Forging Services",
       "serviceType": "Closed-Die, Open-Die, Cold Forging & Seamless Rolled Ring Forging",
       "description": seoDescription,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.com#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.com",
-        "logo": "https://www.forcebeyond.com/media/logo.png",
-        "knowsAbout": [
-          "Near-Net-Shape Closed Die Forging",
-          "Open Die Hydraulic Press Forging",
-          "Cold Forging & Precision Extrusion",
-          "Seamless Rolled Ring Forging (Up to 3,500mm OD)",
-          "Titanium (Ti-6Al-4V) & Superalloy (Inconel 718/625) Forging",
-          "Precision CNC Machining & Tier-1.5 Finishing",
-          "Optimized Grain Flow & Continuous Macro-Structure",
-          "ISO 9001:2015 & AS9100 Rev D Quality Management",
-          "Full NDT Testing (100% Ultrasonic, MPI, FPI)"
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "New Castle",
-          "addressRegion": "DE",
-          "addressCountry": "US"
-        }
+        "@id": "https://www.forcebeyond.com/#organization"
       },
       "areaServed": [
         {
@@ -203,7 +182,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.com/forging#faq",
+      "@id": "https://www.forcebeyond.com/forging/#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,
@@ -245,12 +224,11 @@ const pageSchema = {
                     <div>
                         <p>
                            ForceBeyond is a premier Delaware-headquartered Tier-1.5 global supplier of high-precision forged components. 
-                           By utilizing immense mechanical or hydraulic pressure to shape heated metal, our engineered forging processes manipulate the internal grain structure of the alloy, 
-                           delivering parts with superior continuous grain alignment, unmatched structural integrity, elevated impact resistance, and extended fatigue life.
+                           By applying controlled mechanical or hydraulic pressure to heated metal, forging can produce continuous grain flow that supports structural integrity, impact resistance, and fatigue performance for suitable alloys and component geometries.
                         </p>
                         <p>
                             Operating under an <a href="/quality-assurance-certifications">AS9100 Rev D & ISO 9001:2015 certified quality management system</a>, our dual-shore manufacturing network supplies mission-critical 
-                            forged parts to the world’s most demanding sectors—including <a href="/space-defence">aerospace & defense</a>, power generation, <a href="/oil-gas">oil and gas</a>, and heavy transportation. 
+                            forged parts to the world’s most demanding sectors—including <a href="/space-defense">aerospace & defense</a>, power generation, <a href="/oil-gas">oil and gas</a>, and heavy transportation.
                             From massive open-die steel blocks to near-net-shape aerospace titanium, we deliver fully finished, lot-traceable components 
                             integrated seamlessly with our <a href="/precision-machining">precision CNC machining services</a> for direct assembly line integration.
                         </p>

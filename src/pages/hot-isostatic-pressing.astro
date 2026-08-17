@@ -74,13 +74,13 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.com/hot-isostatic-pressing#webpage",
+      "@id": "https://www.forcebeyond.com/hot-isostatic-pressing/#webpage",
       "url": "https://www.forcebeyond.com/hot-isostatic-pressing",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.com#website",
+        "@id": "https://www.forcebeyond.com/#website",
         "name": "ForceBeyond",
         "url": "https://www.forcebeyond.com"
       },
@@ -99,22 +99,12 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.com/hot-isostatic-pressing#service",
+      "@id": "https://www.forcebeyond.com/hot-isostatic-pressing/#service",
       "name": "Hot Isostatic Pressing (HIP) Services",
       "serviceType": "Metal Component Densification & Porosity Elimination",
       "description": seoDescription,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.com#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.com",
-        "knowsAbout": [
-          "Hot Isostatic Pressing (HIP) for Investment Castings & Additive Parts",
-          "Internal Micro-Porosity and Shrinkage Defect Elimination",
-          "Inconel, Titanium, CoCr, and Duplex Stainless Densification",
-          "High Pressure Quenching & Single-Cycle Thermal Processing",
-          "Radiographic NDT Compliance & ASTM X-Ray Defect Healing"
-        ]
+        "@id": "https://www.forcebeyond.com/#organization"
       },
       "areaServed": [
         { "@type": "Country", "name": "United States" },
@@ -154,7 +144,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.com/hot-isostatic-pressing#faq",
+      "@id": "https://www.forcebeyond.com/hot-isostatic-pressing/#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,
@@ -197,7 +187,7 @@ const pageSchema = {
                             ForceBeyond provides state-of-the-art <a href="/hot-isostatic-pressing" class="highlight-link">Hot Isostatic Pressing (HIP) services</a> to eliminate internal porosity, increase material density, and dramatically enhance the fatigue life of high-performance metal components. As an essential solution within our <a href="/secondary-operations" class="highlight-link">secondary operations</a> capabilities, HIP subjects custom <a href="/investment-casting" class="highlight-link">investment castings</a>, <a href="/sand-casting" class="highlight-link">sand castings</a>, 3D-printed metal parts (Additive Manufacturing), and powdered metals to simultaneous high temperatures and uniform high-pressure inert gas, physically collapsing and diffusion-welding internal voids closed.
                         </p>
                         <p>
-                            Operating under a strict ISO 9001:2015 quality management system, ForceBeyond provides certified HIP processing for mission-critical components in the aerospace, medical, energy, and defense sectors. Whether processing Inconel superalloy turbine blades or biocompatible Titanium orthopedic implants, our advanced HIP technology guarantees 100% internal theoretical density and near-<a href="/forging" class="highlight-link">forged</a> mechanical properties, seamlessly preparing components for final <a href="/precision-machining" class="highlight-link">CNC machining</a> and <a href="/surface-finishing" class="highlight-link">surface finishing</a>.
+                            Through appropriately qualified facilities, ForceBeyond coordinates HIP processing for mission-critical components in the aerospace, medical, energy, and defense sectors. For components such as Inconel turbine blades or titanium orthopedic implants, HIP can reduce internal porosity and support specified density and mechanical-property objectives; results depend on alloy, initial casting condition, HIP cycle, heat treatment, geometry, and acceptance criteria.
                         </p>
                     </div>
                     <div class="relative">

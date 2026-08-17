@@ -32,6 +32,7 @@ export default defineConfig({
         react(),
 
         sitemap({
+            filter: (page) => new URL(page).pathname !== '/404-page/',
             serialize(item) {
                 const pathname = new URL(item.url).pathname;
                 const dates = pageDates[pathname];
