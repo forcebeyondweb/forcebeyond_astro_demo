@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import TitaniumSolutionsPageLayout from '../layouts/TitaniumSolutionsPageLayout.astro';
+
+
+const dates = pageDates['/titanium-turbine-blade/'];
 
 const pageTitle = 'Titanium Turbine Blade';
 const seoTitle = 'Titanium Turbine Blade | Aerospace Titanium Turbine Blades | ForceBeyond';
@@ -57,7 +61,7 @@ const pageSchema = {
             name: seoTitle,
             description: seoDescription,
             datePublished: '2019-10-18T15:24:46-04:00',
-            dateModified: '2026-08-17T11:11:00-04:00',
+            dateModified: dates.modified,
             isPartOf: { '@id': 'https://www.forcebeyond.com/#website' },
             about: { '@id': 'https://www.forcebeyond.com/titanium-turbine-blade/#service' },
             inLanguage: 'en-US'
@@ -83,7 +87,9 @@ const pageSchema = {
     heroImage="/media/titanium-solutions-and-parts-hero.jpg"
     heroImageAlt="Titanium turbine blades for aerospace and jet engine applications"
     publishedDate="2019-10-18T15:24:46-04:00"
-    modifiedDate="2026-08-17T11:11:00-04:00"
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     ctaTitle="Request a Quote for Titanium Turbine Blades"
     ctaDescription="Tell us about your titanium alloy, turbine blade geometry, casting or machining requirements, inspection requirements, quantity, and delivery schedule."
     ctaButtonUrl="/request-for-quote/"

@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import TitaniumSolutionsPageLayout from '../layouts/TitaniumSolutionsPageLayout.astro';
+
+
+const dates = pageDates['/titanium-bolts/'];
 
 const pageTitle = 'Titanium Bolts';
 const seoTitle = 'Titanium Bolts | Precision Titanium Fasteners | ForceBeyond';
@@ -65,7 +69,7 @@ const pageSchema = {
             name: seoTitle,
             description: seoDescription,
             datePublished: '2019-10-22T16:51:25-04:00',
-            dateModified: '2026-08-17T11:37:00-04:00',
+            dateModified: dates.modified,
             isPartOf: { '@id': 'https://www.forcebeyond.com/#website' },
             about: { '@id': 'https://www.forcebeyond.com/titanium-bolts/#service' },
             inLanguage: 'en-US'
@@ -91,7 +95,9 @@ const pageSchema = {
     heroImage="/media/titanium-solutions-and-parts-hero.jpg"
     heroImageAlt="Precision machined titanium bolts and fasteners"
     publishedDate="2019-10-22T16:51:25-04:00"
-    modifiedDate="2026-08-17T11:37:00-04:00"
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     ctaTitle="Request a Quote for Titanium Bolts"
     ctaDescription="Tell us about your titanium alloy, bolt or fastener geometry, machining requirements, inspection requirements, quantity, and delivery schedule."
     ctaButtonUrl="/request-for-quote/"

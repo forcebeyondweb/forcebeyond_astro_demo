@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/investment-casting/'];
 
 const pageTitle = 'Investment Casting Services: Precision Lost-Wax Metal Components';
 const seoTitle = 'Investment Casting Services | Precision Lost-Wax Metal Parts';
@@ -196,7 +200,10 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/titanium-investment-casting-lost-wax-process-hero.webp"
     heroImageAlt="Investment casting process with wax patterns and ceramic shell preparation"

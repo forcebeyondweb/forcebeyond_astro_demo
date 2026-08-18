@@ -1,5 +1,8 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const dates = pageDates['/space-defense/'];
 
 const pageTitle = 'Space, Aerospace & Defense Components: Casting, Forging & CNC Machining';
 const seoTitle = 'Space, Aerospace & Defense Components | Casting, Forging & CNC';
@@ -213,6 +216,9 @@ const pageSchema = {
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     pageTitle={pageTitle}
     heroImage="/media/industry-aerospace-turbine-engine-v5.webp"
     heroImageAlt="Aerospace turbine engine and precision flight hardware"

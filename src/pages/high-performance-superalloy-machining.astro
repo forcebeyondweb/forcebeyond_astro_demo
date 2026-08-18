@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/high-performance-superalloy-machining/'];
 
 const pageTitle = 'High-Performance Superalloy Machining Services';
 const seoTitle = 'Superalloy Machining Services | 5-Axis CNC | ForceBeyond';
@@ -134,7 +138,10 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/inconel-718-5-axis-cnc-machining-turbine-impeller.webp"
     heroImageAlt="5-axis CNC machining an Inconel 718 turbine impeller inside a high-precision machining center"

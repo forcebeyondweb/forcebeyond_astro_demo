@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/magnesium-casting/'];
 
 const pageTitle = 'Magnesium Die Casting Services for Lightweight Precision Components';
 const seoTitle = 'Magnesium Die Casting Services | AZ91D, AM60B & AM50A Parts';
@@ -205,6 +209,9 @@ const pageSchema = {
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     pageTitle={pageTitle}
     heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="Magnesium die casting production for lightweight precision components"

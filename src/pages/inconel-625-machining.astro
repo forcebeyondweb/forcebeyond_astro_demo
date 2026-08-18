@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/inconel-625-machining/'];
 
 const pageTitle = 'Inconel 625 Machining Services: Precision CNC for Corrosion-Resistant Alloys';
 const seoTitle = 'Inconel 625 Machining Services | 5-Axis CNC & Nuclear QA | ForceBeyond';
@@ -132,7 +136,10 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/inconel-625-5-axis-cnc-machining-impeller-hero.webp"
     heroImageAlt="5-axis CNC machining of an Inconel 625 impeller in a precision high-tech machining center"

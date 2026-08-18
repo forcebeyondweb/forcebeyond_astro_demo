@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/high-strength-beta-titanium-forging/'];
 
 const pageTitle = 'High-Strength Beta Titanium Forging: Ti-5553 & Ti-10-2-3 Experts';
 const seoTitle = 'High-Strength Beta Titanium Forging | Ti-5553 & Ti-10-2-3 Experts';
@@ -151,7 +155,10 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/titanium-aerospace-jet-engine-testing-hero.webp"
     heroImageAlt="Titanium aerospace jet engine undergoing a high-performance ground test with active exhaust"

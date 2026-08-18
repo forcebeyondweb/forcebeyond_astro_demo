@@ -1,0 +1,407 @@
+---
+import SuperalloySolutionsPageLayout from '../layouts/SuperalloySolutionsPageLayout.astro';
+
+const pageTitle = 'Superalloy Solutions';
+const seoTitle = 'Superalloy Solutions | Casting & Precision Machining | ForceBeyond';
+const seoDescription = 'Explore ForceBeyond superalloy solutions for turbine, aerospace, energy, and turbocharger components, including precision machining, vacuum casting, turbine impellers, shrouds, nozzle rings, and shaft-wheel assemblies.';
+
+const machiningItems = [
+    { src: '/media/SuperAlloys-machining-Impeller-3.jpg', alt: 'Superalloy machined impeller' },
+    { src: '/media/Gas-Turbine-Impeller-sku-5.jpg', alt: 'Gas turbine impeller' },
+    { src: '/media/Gas-Turbine-Impeller-sku-2.jpg', alt: 'Gas turbine impeller' },
+    { src: '/media/Machined-Superalloys-Parts-Aircraft-Parts-Helicopter-Parts.jpg', alt: 'Machined superalloy aircraft and helicopter parts' },
+    { src: '/media/SuperAlloys-machining-Titanium-Pump-Impeller-1.jpg', alt: 'Precision machined pump impeller' },
+    { src: '/media/SuperAlloys-machining-Titanium-Pump-Impeller-2.jpg', alt: '5-axis machined pump impeller' }
+];
+
+const castingItems = [
+    { src: '/media/Titanium-Casting-Titanium-Impeller-3.jpg', alt: 'Precision cast impeller' },
+    { src: '/media/SuperAlloys-machining-Titanium-Pump-Impeller-1.jpg', alt: 'Precision machined pump impeller' },
+    { src: '/media/SuperAlloys-machining-Titanium-Pump-Impeller-2.jpg', alt: 'Precision machined pump impeller' },
+    { src: '/media/Gas-Turbine-Disk-and-Nozzle-Ring-sku-2.jpg', alt: 'Gas turbine disk and nozzle ring' },
+    { src: '/media/Gas-Turbine-Disk-and-Nozzle-Ring-sku-3.jpg', alt: 'Gas turbine disk and nozzle ring' },
+    { src: '/media/Gas-Turbine-Disk-and-Nozzle-Ring-sku-1.jpg', alt: 'Gas turbine disk and nozzle ring' }
+    
+];
+
+const turbochargerItems = [
+    { src: '/media/Normal-Compressor-Wheel-Ram.png', alt: 'Turbocharger compressor wheel' },
+    { src: '/media/Compressor-Wheel-Turbocharger.png', alt: 'Turbocharger compressor wheel' },
+    { src: '/media/Turbocharger-Parts-Turbine-Wheel-Turbine-Shaft.png', alt: 'Turbocharger turbine wheel and turbine shaft' }
+];
+
+const shroudItems = [
+    { src: '/media/Gas-Turbine-Shrouds-and-Segments-sku-1.jpg', alt: 'Gas turbine shroud and segment' },
+    { src: '/media/Gas-Turbine-Shrouds-and-Segments-sku-4.jpg', alt: 'Gas turbine shroud and segment' },
+    { src: '/media/Gas-Turbine-Shrouds-and-Segments-sku-2.jpg', alt: 'Gas turbine shroud and segment' },
+    { src: '/media/Gas-Turbine-Shrouds-and-Segments-sku-3.jpg', alt: 'Gas turbine shroud and segment' },
+    { src: '/media/Gas-Turbine-Shrouds-and-Segments-sku-5.jpg', alt: 'Gas turbine shroud and segment' }
+];
+
+const gasTurbineImpellerItems = [
+    { src: '/media/Gas-Turbine-Impeller-sku-1.jpg', alt: 'Gas turbine impeller' },
+    { src: '/media/Gas-Turbine-Impeller-sku-5.jpg', alt: 'Gas turbine impeller' },
+    { src: '/media/Gas-Turbine-Impeller-sku-2.jpg', alt: 'Gas turbine impeller' },
+    { src: '/media/Gas-Turbine-Impeller-sku-6.jpg', alt: 'Gas turbine impeller' },
+    { src: '/media/Gas-Turbine-Impeller-sku-4.jpg', alt: 'Gas turbine impeller' },
+    { src: '/media/Gas-Turbine-Impeller-sku-3.jpg', alt: 'Gas turbine impeller' },
+    { src: '/media/Gas-Turbine-Impeller-sku-8.jpg', alt: 'Gas turbine impeller' },
+    { src: '/media/Gas-Turbine-Impeller-sku-7.jpg', alt: 'Gas turbine impeller' }
+];
+
+const diskNozzleItems = [
+    { src: '/media/Gas-Turbine-Disk-and-Nozzle-Ring-sku-1.jpg', alt: 'Gas turbine disk and nozzle ring' },
+    { src: '/media/Gas-Turbine-Disk-and-Nozzle-Ring-sku-2.jpg', alt: 'Gas turbine disk and nozzle ring' },
+    { src: '/media/Gas-Turbine-Disk-and-Nozzle-Ring-sku-3.jpg', alt: 'Gas turbine disk and nozzle ring' },
+    { src: '/media/Gas-Turbine-Disk-and-Nozzle-Ring-sku-4.jpg', alt: 'Gas turbine disk and nozzle ring' },
+    { src: '/media/Gas-Turbine-Disk-and-Nozzle-Ring-sku-6.jpg', alt: 'Superalloy turbine disk and nozzle ring' },
+    { src: '/media/Gas-Turbine-Disk-and-Nozzle-Ring-sku-5.jpg', alt: 'Precision cast turbine disk and nozzle ring' },
+    { src: '/media/Gas-Turbine-Disk-and-Nozzle-Ring-sku-7.jpg', alt: 'Gas turbine nozzle ring component' }
+];
+
+const internalResources = [
+    { label: 'Superalloy Casting', url: '/high-performance-superalloy-casting/' },
+    { label: 'Superalloy Machining', url: '/superalloy-machining/' },
+    { label: 'Inconel Vacuum Precision Casting', url: '/inconel-vacuum-precision-casting/' },
+    { label: 'Inconel 718 Casting', url: '/inconel-718-casting/' },
+    { label: 'Inconel 625 Casting', url: '/inconel-625-casting/' },
+    { label: 'Inconel 718 Machining', url: '/inconel-718-machining/' },
+    { label: 'Inconel 625 Machining', url: '/inconel-625-machining/' },
+    { label: 'Turbocharger Shaft Wheel', url: '/turbocharger-shaft-wheel/' }
+];
+
+const canonicalUrl = 'https://www.forcebeyond.com/superalloy-solutions/';
+const heroImageUrl = 'https://www.forcebeyond.com/media/superalloy-solutions-and-parts-hero.jpg';
+
+const allGalleryItems = [
+    ...machiningItems,
+    ...castingItems,
+    ...turbochargerItems,
+    ...shroudItems,
+    ...gasTurbineImpellerItems,
+    ...diskNozzleItems
+];
+
+const pageSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'WebPage',
+            '@id': `${canonicalUrl}#webpage`,
+            url: canonicalUrl,
+            name: seoTitle,
+            headline: pageTitle,
+            description: seoDescription,
+            inLanguage: 'en-US',
+            dateModified: '2026-08-14T00:00:00-04:00',
+            isPartOf: { '@id': 'https://www.forcebeyond.com/#website' },
+            breadcrumb: { '@id': `${canonicalUrl}#breadcrumb` },
+            primaryImageOfPage: { '@id': `${canonicalUrl}#primaryimage` },
+            about: [
+                { '@type': 'Thing', name: 'Superalloy Manufacturing' },
+                { '@type': 'Thing', name: 'Superalloy Casting' },
+                { '@type': 'Thing', name: 'Superalloy Machining' },
+                { '@type': 'Thing', name: 'Gas Turbine Components' },
+                { '@type': 'Thing', name: 'Turbocharger Components' }
+            ],
+            mainEntity: { '@id': `${canonicalUrl}#service` }
+        },
+        {
+            '@type': 'ImageObject',
+            '@id': `${canonicalUrl}#primaryimage`,
+            contentUrl: heroImageUrl,
+            url: heroImageUrl,
+            caption: 'Superalloy turbine blisk and high-temperature rotating component',
+            representativeOfPage: true
+        },
+        {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            itemListElement: [
+                {
+                    '@type': 'ListItem',
+                    position: 1,
+                    name: 'Home',
+                    item: 'https://www.forcebeyond.com/'
+                },
+                {
+                    '@type': 'ListItem',
+                    position: 2,
+                    name: 'Superalloy Solutions',
+                    item: canonicalUrl
+                }
+            ]
+        },
+        {
+            '@type': 'Service',
+            '@id': `${canonicalUrl}#service`,
+            url: canonicalUrl,
+            name: 'Superalloy Casting and Precision Machining Solutions',
+            serviceType: 'Superalloy Casting, Precision Machining and Turbine Component Manufacturing',
+            description: seoDescription,
+            provider: { '@id': 'https://www.forcebeyond.com/#organization' },
+            areaServed: [
+                { '@type': 'Country', name: 'United States' },
+                { '@type': 'Country', name: 'South Korea' },
+                { '@type': 'Country', name: 'Taiwan' }
+            ],
+            audience: [
+                { '@type': 'BusinessAudience', audienceType: 'Aerospace OEMs and Tier suppliers' },
+                { '@type': 'BusinessAudience', audienceType: 'Power generation and gas turbine manufacturers' },
+                { '@type': 'BusinessAudience', audienceType: 'Turbocharger and industrial equipment manufacturers' }
+            ],
+            hasOfferCatalog: {
+                '@type': 'OfferCatalog',
+                name: 'Superalloy Manufacturing Capabilities',
+                itemListElement: [
+                    {
+                        '@type': 'Offer',
+                        itemOffered: {
+                            '@type': 'Service',
+                            name: 'Superalloy Precision Machining',
+                            description: '5-axis milling, precision turning, complex profiles, and finish machining for superalloy impellers, aircraft parts, pump components, and turbine hardware.'
+                        }
+                    },
+                    {
+                        '@type': 'Offer',
+                        itemOffered: {
+                            '@type': 'Service',
+                            name: 'Superalloy Casting',
+                            description: 'Near-net-shape casting for turbine disks, nozzle rings, impellers, shrouds, segments, and other high-temperature components.'
+                        }
+                    },
+                    {
+                        '@type': 'Offer',
+                        itemOffered: {
+                            '@type': 'Service',
+                            name: 'Turbocharger Component Manufacturing',
+                            description: 'Manufacturing support for compressor wheels, turbine wheels, shafts, and shaft-wheel assemblies.'
+                        }
+                    },
+                    {
+                        '@type': 'Offer',
+                        itemOffered: {
+                            '@type': 'Service',
+                            name: 'Gas Turbine Hot-Section Components',
+                            description: 'Manufacturing support for gas turbine shrouds, segments, impellers, disks, and nozzle rings.'
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            '@type': 'ItemList',
+            '@id': `${canonicalUrl}#component-gallery`,
+            name: 'Superalloy Components Gallery',
+            numberOfItems: allGalleryItems.length,
+            itemListElement: allGalleryItems.map((item, index) => ({
+                '@type': 'ListItem',
+                position: index + 1,
+                item: {
+                    '@type': 'ImageObject',
+                    contentUrl: `https://www.forcebeyond.com${item.src}`,
+                    url: `https://www.forcebeyond.com${item.src}`,
+                    caption: item.alt,
+                    name: item.alt
+                }
+            }))
+        }
+    ]
+};
+---
+
+<SuperalloySolutionsPageLayout
+    title={seoTitle}
+    canonicalUrl={canonicalUrl}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/media/superalloy-solutions-and-parts-hero.jpg"
+    heroImageAlt="Superalloy turbine blisk and high-temperature rotating component"
+    modifiedDate="2026-08-14T00:00:00-04:00"
+    ctaTitle="Request a Quote for Superalloy Components"
+    ctaDescription="Tell us about your alloy, component geometry, casting or machining requirements, inspection scope, quantity, and delivery schedule."
+    ctaButtonUrl="/request-for-quote/"
+    ctaButtonText="Request for Quote"
+    resourcesTitle="Related Superalloy Casting and Machining Capabilities"
+    resourcesList={internalResources}
+>
+    <h2>Superalloy Manufacturing Solutions for High-Temperature Components</h2>
+
+    <p>
+        ForceBeyond supports precision superalloy components for aerospace, gas turbine, energy, turbocharger, and other severe-service applications. Our manufacturing network combines vacuum investment casting, precision CNC machining, secondary operations, inspection, and project-level supply-chain management for complex nickel-based and high-performance alloy components.
+    </p>
+
+    <p>
+        Programs can be structured around near-net-shape casting, finish machining, or an integrated cast-to-machine route. This approach is particularly useful for turbine impellers, nozzle rings, shrouds and segments, rotating hardware, compressor components, and other geometries where material cost, machining time, dimensional control, and inspection requirements must be considered together.
+    </p>
+
+    <p>
+        The component galleries below provide representative examples of ForceBeyond manufacturing capabilities. Final alloy, manufacturing route, tolerance, heat treatment, and inspection requirements are determined by the customer drawing, specification, operating environment, and qualification plan.
+    </p>
+
+    <h2>Superalloy Manufacturing Capabilities at a Glance</h2>
+
+    <div class="content-table-wrapper">
+        <table class="content-table">
+            <caption><span class="caption-title">Integrated Superalloy Production Capabilities</span></caption>
+            <thead>
+                <tr>
+                    <th scope="col">Capability</th>
+                    <th scope="col">Representative Components</th>
+                    <th scope="col">Manufacturing Focus</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Precision Machining</th>
+                    <td>Impellers, aircraft parts, pump components, turbine hardware</td>
+                    <td>5-axis milling, precision turning, complex profiles, finish machining</td>
+                </tr>
+                <tr>
+                    <th scope="row">Superalloy Casting</th>
+                    <td>Turbine disks, nozzle rings, impellers, hot-section components</td>
+                    <td>Near-net-shape production for complex high-temperature geometries</td>
+                </tr>
+                <tr>
+                    <th scope="row">Turbocharger Components</th>
+                    <td>Compressor wheels, turbine wheels, shaft-wheel assemblies</td>
+                    <td>Rotating-component geometry, dimensional control, finished interfaces</td>
+                </tr>
+                <tr>
+                    <th scope="row">Gas Turbine Hot Section</th>
+                    <td>Shrouds, segments, impellers, disks, nozzle rings</td>
+                    <td>High-temperature components for demanding turbine environments</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>Markets and Component Applications</h2>
+
+    <div class="content-table-wrapper">
+        <table class="content-table">
+            <caption><span class="caption-title">Representative Superalloy Markets</span></caption>
+            <tbody>
+                <tr>
+                    <th scope="row">Aerospace</th>
+                    <td>Turbine, compressor, helicopter, aircraft, and propulsion-system components.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Power Generation</th>
+                    <td>Gas turbine hot-section and rotating components for industrial energy systems.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Automotive & Turbocharger</th>
+                    <td>Turbine wheels, compressor wheels, shaft-wheel assemblies, and high-temperature rotating hardware.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Industrial Severe Service</th>
+                    <td>High-temperature, corrosion-resistant, and fatigue-critical components requiring coordinated casting and machining.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <section id="superalloy-machining" class="titanium-product-gallery-section">
+        <h2>Superalloy Machining</h2>
+        <p>
+            Precision machining supports complex superalloy components where final geometry, surface finish, interfaces, and dimensional control are critical. Representative examples include impellers, aircraft hardware, and pump components.
+        </p>
+        <div class="titanium-product-gallery">
+            {machiningItems.map((item) => (
+                <figure class="titanium-product-card">
+                    <div class="titanium-product-image">
+                        <img src={item.src} alt={item.alt} loading="lazy" decoding="async" />
+                    </div>
+                    <figcaption>{item.alt}</figcaption>
+                </figure>
+            ))}
+        </div>
+    </section>
+
+    <section id="superalloy-casting" class="titanium-product-gallery-section">
+        <h2>Superalloy Casting</h2>
+        <p>
+            Near-net-shape casting is used for complex turbine and flow-path components where geometry and material utilization make full machining from solid stock inefficient.
+        </p>
+        <div class="titanium-product-gallery">
+            {castingItems.map((item) => (
+                <figure class="titanium-product-card">
+                    <div class="titanium-product-image">
+                        <img src={item.src} alt={item.alt} loading="lazy" decoding="async" />
+                    </div>
+                    <figcaption>{item.alt}</figcaption>
+                </figure>
+            ))}
+        </div>
+    </section>
+
+    <section id="turbocharger-shaft-wheel" class="titanium-product-gallery-section">
+        <h2>Turbocharger Shaft Wheel</h2>
+        <p>
+            Turbocharger component programs can include compressor wheels, turbine wheels, shafts, and integrated shaft-wheel assemblies requiring controlled rotating geometry and precision finishing.
+        </p>
+        <div class="titanium-product-gallery">
+            {turbochargerItems.map((item) => (
+                <figure class="titanium-product-card">
+                    <div class="titanium-product-image">
+                        <img src={item.src} alt={item.alt} loading="lazy" decoding="async" />
+                    </div>
+                    <figcaption>{item.alt}</figcaption>
+                </figure>
+            ))}
+        </div>
+    </section>
+
+    <section id="gas-turbine-shrouds-segments" class="titanium-product-gallery-section">
+        <h2>Gas Turbine Shrouds and Segments</h2>
+        <p>
+            Gas turbine shrouds and segment components operate in demanding hot-section environments and may require coordinated casting, heat treatment, machining, and inspection.
+        </p>
+        <div class="titanium-product-gallery">
+            {shroudItems.map((item) => (
+                <figure class="titanium-product-card">
+                    <div class="titanium-product-image">
+                        <img src={item.src} alt={item.alt} loading="lazy" decoding="async" />
+                    </div>
+                    <figcaption>{item.alt}</figcaption>
+                </figure>
+            ))}
+        </div>
+    </section>
+
+    <section id="gas-turbine-impeller" class="titanium-product-gallery-section">
+        <h2>Gas Turbine Impeller</h2>
+        <p>
+            Gas turbine impellers combine complex aerodynamic geometry with demanding dimensional and material requirements. ForceBeyond supports near-net-shape and finish-machined component routes according to project requirements.
+        </p>
+        <div class="titanium-product-gallery">
+            {gasTurbineImpellerItems.map((item) => (
+                <figure class="titanium-product-card">
+                    <div class="titanium-product-image">
+                        <img src={item.src} alt={item.alt} loading="lazy" decoding="async" />
+                    </div>
+                    <figcaption>{item.alt}</figcaption>
+                </figure>
+            ))}
+        </div>
+    </section>
+
+    <section id="gas-turbine-disk-nozzle-ring" class="titanium-product-gallery-section">
+        <h2>Gas Turbine Disk &amp; Nozzle Ring</h2>
+        <p>
+            Turbine disks and nozzle rings represent high-value components where casting quality, dimensional control, finish machining, and inspection planning must be integrated from the beginning of the manufacturing route.
+        </p>
+        <div class="titanium-product-gallery">
+            {diskNozzleItems.map((item) => (
+                <figure class="titanium-product-card">
+                    <div class="titanium-product-image">
+                        <img src={item.src} alt={item.alt} loading="lazy" decoding="async" />
+                    </div>
+                    <figcaption>{item.alt}</figcaption>
+                </figure>
+            ))}
+        </div>
+    </section>
+</SuperalloySolutionsPageLayout>

@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/automotive/'];
 
 const pageTitle = 'Automotive & Transportation Components: Casting, Forging & CNC Machining';
 const seoTitle = 'Automotive Components | Casting, Forging & CNC Machining';
@@ -208,6 +212,9 @@ const pageSchema = {
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     pageTitle={pageTitle}
     heroImage="/media/heavy-duty-mining-dump-truck-industrial-haulage.webp"
     heroImageAlt="Heavy-duty commercial transportation vehicle with large forged and cast drivetrain components"

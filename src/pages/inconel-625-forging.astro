@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/inconel-625-forging/'];
 
 const pageTitle = 'Inconel 625 Forging: Superior Corrosion & Fatigue Resistance';
 const seoTitle = 'Inconel 625 Forging Services | Corrosion Resistant | ForceBeyond';
@@ -212,7 +216,10 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="Precision forged Inconel 625 component"

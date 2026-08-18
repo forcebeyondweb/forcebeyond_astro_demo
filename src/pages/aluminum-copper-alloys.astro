@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/aluminum-copper-alloys/'];
 
 const pageTitle = 'Aluminum & Copper Alloys for Casting, Forging and Machining';
 const seoTitle = 'Aluminum & Copper Alloys | A356, A380, 6061 & Copper';
@@ -225,7 +229,9 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/precision-cnc-machining-metal-manufacturing-workshop-hero.webp"
     heroImageAlt="Precision manufacturing and CNC machining of aluminum and copper alloy components"

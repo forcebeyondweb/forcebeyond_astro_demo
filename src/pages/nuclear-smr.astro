@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/nuclear-smr/'];
 
 const pageTitle = 'Nuclear & SMR Components for Advanced Reactor Systems';
 const seoTitle = 'Nuclear & SMR Components | Castings, Forgings & Machining';
@@ -209,7 +213,10 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/nuclear-power-plant-cooling-towers-energy-generation.webp"
     heroImageAlt="Nuclear power generation infrastructure with cooling towers and electrical transmission systems"

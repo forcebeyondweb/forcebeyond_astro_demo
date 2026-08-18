@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/sand-casting/'];
 
 const pageTitle = 'Sand Casting: Large-Scale, Cost-Effective Metal Manufacturing';
 const seoTitle = 'Custom Sand Casting Services | Ductile Iron, Steel & Aluminum | ForceBeyond';
@@ -156,7 +160,10 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="Large-scale sand casting foundry operations and heavy industrial machine bases"

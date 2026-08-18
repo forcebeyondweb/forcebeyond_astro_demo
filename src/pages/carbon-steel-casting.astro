@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/carbon-steel-casting/'];
 
 const pageTitle = 'Carbon & Low-Alloy Steel Casting: High-Strength, Cost-Effective Precision';
 const seoTitle = 'Custom Carbon & Low-Alloy Steel Casting Services | ForceBeyond';
@@ -158,7 +162,9 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="High-precision steel casting components and CNC finished structural parts"

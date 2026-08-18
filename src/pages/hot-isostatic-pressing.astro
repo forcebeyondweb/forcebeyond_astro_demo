@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/hot-isostatic-pressing/'];
 
 const pageTitle = 'Hot Isostatic Pressing (HIP) Services: Densification & Defect Elimination';
 const seoTitle = 'Hot Isostatic Pressing (HIP) Services | ForceBeyond';
@@ -161,7 +165,9 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"

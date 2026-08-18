@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/aluminum-die-casting/'];
 
 const pageTitle = 'Aluminum Die Casting Services for High-Volume Precision Components';
 const seoTitle = 'Aluminum Die Casting Services | A380, A360 & 413 Parts';
@@ -205,7 +209,9 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="Cold-chamber aluminum die casting production for precision metal components"

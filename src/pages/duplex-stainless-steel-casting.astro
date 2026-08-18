@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/duplex-stainless-steel-casting/'];
 
 const pageTitle = 'Duplex & Super Duplex Stainless Steel Casting Services';
 const seoTitle = 'Duplex Stainless Steel Casting | 2205 & Super Duplex 2507';
@@ -193,7 +197,9 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     pageTitle={pageTitle}
     heroImage="/media/stainless-steel-investment-casting-components-hero.webp"
     heroImageAlt="Duplex and super duplex stainless steel casting components and foundry processing"

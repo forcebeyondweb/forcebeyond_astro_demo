@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/titanium-casting/'];
 
 const pageTitle = 'Titanium Casting Supplier: AS9100-Certified Co-Owned Foundry Network';
 const seoTitle = 'Titanium Casting Supplier | AS9100 Co-Owned & Operated Foundry';
@@ -83,7 +87,10 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/precision-cnc-machining-tools-metal-components-hero.webp"
     heroImageAlt="High-precision CNC machining tools cutting metal components with coolant in a modern manufacturing facility"

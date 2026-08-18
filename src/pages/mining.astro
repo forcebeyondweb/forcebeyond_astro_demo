@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/mining/'];
 
 const pageTitle = 'Mining, Heavy Equipment & Agricultural Components';
 const seoTitle = 'Mining & Heavy Equipment Components | Casting, Forging & CNC';
@@ -206,7 +210,10 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/heavy-duty-mining-dump-truck-open-pit-mine.webp"
     heroImageAlt="Heavy mining haul truck operating in an open-pit mine"

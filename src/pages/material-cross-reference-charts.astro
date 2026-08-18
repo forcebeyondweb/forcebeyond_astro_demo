@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/material-cross-reference-charts/'];
 
 const pageTitle = 'International Material Cross-Reference Charts for Metal Alloys';
 const seoTitle = 'Material Cross-Reference Charts | UNS, ASTM, EN, DIN & JIS';
@@ -221,7 +225,10 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/precision-cnc-machining-metal-manufacturing-workshop-hero.webp"
     heroImageAlt="International material standards and precision metal manufacturing"

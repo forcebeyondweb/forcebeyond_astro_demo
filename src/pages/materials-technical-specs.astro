@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/materials-technical-specs/'];
 
 const pageTitle = 'Materials & Technical Specifications for Engineered Metal Components';
 const seoTitle = 'Materials & Technical Specifications | Metals & Alloy Guide';
@@ -227,7 +231,10 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/precision-cnc-machining-metal-manufacturing-workshop-hero.webp"
     heroImageAlt="Precision metal manufacturing and CNC machining for engineered alloy components"

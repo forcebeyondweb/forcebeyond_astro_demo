@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/stainless-steel-casting/'];
 
 const pageTitle = 'Stainless Steel Casting Services for Precision Metal Components';
 const seoTitle = 'Stainless Steel Casting Services | Investment Cast Parts';
@@ -201,7 +205,10 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/stainless-steel-investment-casting-components-hero.webp"
     heroImageAlt="Stainless steel investment casting components, ceramic shell patterns, and molten metal pouring"

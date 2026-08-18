@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import TitaniumSolutionsPageLayout from '../layouts/TitaniumSolutionsPageLayout.astro';
+
+
+const dates = pageDates['/titanium-solutions/'];
 
 const pageTitle = 'Titanium Solutions';
 const seoTitle = 'Titanium Solutions | Titanium Castings & Machined Parts | ForceBeyond';
@@ -67,7 +71,7 @@ const pageSchema = {
             name: seoTitle,
             description: seoDescription,
             datePublished: '2019-10-18T11:56:12-04:00',
-            dateModified: '2026-08-14T16:41:00-04:00',
+            dateModified: dates.modified,
             isPartOf: { '@id': 'https://www.forcebeyond.com/#website' },
             about: { '@id': 'https://www.forcebeyond.com/titanium-solutions/#service' },
             inLanguage: 'en-US'
@@ -93,7 +97,9 @@ const pageSchema = {
     heroImage="/media/titanium-solutions-and-parts-hero.jpg"
     heroImageAlt="Titanium pump body and precision titanium components manufactured by ForceBeyond"
     publishedDate="2019-10-18T11:56:12-04:00"
-    modifiedDate="2026-08-14T16:41:00-04:00"
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     ctaTitle="Request a Quote for Titanium Parts"
     ctaDescription="Tell us about your titanium casting or machined-part requirements and our team will review your project."
     ctaButtonUrl="/request-for-quote/"

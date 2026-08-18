@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/multi-axis-cnc/'];
 
 const pageTitle = 'Multi-Axis CNC Milling & Turning Services for Complex Components';
 const seoTitle = 'Multi-Axis CNC Machining | 5-Axis Milling & Mill-Turn';
@@ -204,7 +208,10 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="Multi-axis CNC machining of a complex precision metal component"

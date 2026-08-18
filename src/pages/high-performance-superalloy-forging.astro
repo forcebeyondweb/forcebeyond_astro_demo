@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/high-performance-superalloy-forging/'];
 
 const pageTitle = 'Superalloy Forging Services: USA, South Korea & Taiwan Manufacturing Network';
 const seoTitle = 'Superalloy Forging Services | Inconel 718 & 625 | ForceBeyond';
@@ -257,6 +261,9 @@ const pageSchema = {
     title={seoTitle}
     description={seoDescription}
     schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     pageTitle={pageTitle}
     heroImage="/media/high-performance-superalloy-forging-hero.webp"
     heroImageAlt="High-performance superalloy forging within ForceBeyond’s manufacturing network"

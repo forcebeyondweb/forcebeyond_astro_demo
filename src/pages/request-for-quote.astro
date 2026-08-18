@@ -1,6 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import Layout from '../layouts/Layout.astro';
 import { sanityClient } from 'sanity:client';
+
+const dates = pageDates['/request-for-quote/'];
 
 // 1. Precisely fetch dynamic configuration copy for the inquiry/quote page from the Sanity cloud.
 const data = await sanityClient.fetch(`*[_type == "quotePage"][0]`);
@@ -15,6 +18,9 @@ const allowedExtensions = ['.pdf', '.dwg', '.dxf', '.step', '.stp', '.iges', '.i
 ---
 
 <Layout title="Request a Quote | ForceBeyond" description={data?.seoDescription || "Request a quote for custom metal component manufacturing."}>
+    <Fragment slot="head">
+        <meta property="article:modified_time" content={dates.modified} />
+    </Fragment>
     <script slot="head" src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     
     <section class="relative border-b border-white/10 bg-slate-900 h-[420px] lg:h-[500px] flex items-center justify-center overflow-hidden">

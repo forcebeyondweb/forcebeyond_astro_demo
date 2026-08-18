@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/global-footprint-logistics/'];
 
 const pageTitle = 'Global Manufacturing Footprint, Logistics & Supply Chain Resilience';
 const seoTitle = 'Global Manufacturing Footprint & Logistics | ForceBeyond';
@@ -197,7 +201,10 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/global-logistics-supply-chain-transportation-network-hero.webp"
     heroImageAlt="Global manufacturing and logistics network connecting production, freight, customs, and distribution"

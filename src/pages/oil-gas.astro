@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/oil-gas/'];
 
 const pageTitle = 'Oil & Gas Components: Casting, Forging & CNC Machining';
 const seoTitle = 'Oil & Gas Components | Casting, Forging & CNC Machining';
@@ -210,7 +214,10 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/industry-oil-gas-plant.webp"
     heroImageAlt="Oil and gas processing infrastructure with pipelines, towers, and pressure equipment"

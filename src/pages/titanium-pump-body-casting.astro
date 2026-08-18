@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import TitaniumSolutionsPageLayout from '../layouts/TitaniumSolutionsPageLayout.astro';
+
+
+const dates = pageDates['/titanium-pump-body-casting/'];
 
 const pageTitle = 'Titanium Pump Body Casting';
 const seoTitle = 'Titanium Pump Body Casting | Titanium Pump Casing | ForceBeyond';
@@ -85,7 +89,7 @@ const pageSchema = {
             name: seoTitle,
             description: seoDescription,
             datePublished: '2019-10-18T15:19:42-04:00',
-            dateModified: '2026-08-17T10:45:00-04:00',
+            dateModified: dates.modified,
             isPartOf: { '@id': 'https://www.forcebeyond.com/#website' },
             about: { '@id': 'https://www.forcebeyond.com/titanium-pump-body-casting/#service' },
             inLanguage: 'en-US'
@@ -111,7 +115,9 @@ const pageSchema = {
     heroImage="/media/titanium-solutions-and-parts-hero.jpg"
     heroImageAlt="Titanium pump body castings and precision titanium pump casings"
     publishedDate="2019-10-18T15:19:42-04:00"
-    modifiedDate="2026-08-17T10:45:00-04:00"
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     ctaTitle="Request a Quote for Titanium Pump Body Castings"
     ctaDescription="Tell us about your titanium alloy, pump casing geometry, casting and machining requirements, inspection requirements, quantity, and delivery schedule."
     ctaButtonUrl="/request-for-quote/"

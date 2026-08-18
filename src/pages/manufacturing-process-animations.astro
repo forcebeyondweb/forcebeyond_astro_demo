@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/manufacturing-process-animations/'];
 
 const pageTitle = 'Manufacturing Process Visualizations: 3D Technical Animations';
 const seoTitle = '3D Manufacturing Process Visualizations & Animations | ForceBeyond';
@@ -107,7 +111,10 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="3D technical manufacturing process visualization and CAD simulation"

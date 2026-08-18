@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/casting/'];
 
 const pageTitle = 'Custom Metal Casting Services: Precision Near-Net-Shape Solutions';
 const seoTitle = 'Custom Metal Casting Services | Sand, Die & Investment Casting';
@@ -159,7 +163,9 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl="https://www.forcebeyond.com/casting/"
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     pageTitle={pageTitle}
     heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="Custom precision metal casting components manufactured via investment, sand, and die casting processes"

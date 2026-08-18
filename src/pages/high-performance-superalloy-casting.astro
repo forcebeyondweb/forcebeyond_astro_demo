@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/high-performance-superalloy-casting/'];
 
 const pageTitle = 'Inconel Casting Suppliers: Precision Superalloy Solutions in USA, South Korea & Taiwan';
 const seoTitle = 'Superalloy Casting Services | Inconel, VIM & HIP | ForceBeyond';
@@ -138,7 +142,10 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/high-performance-superalloy-forging-hero.webp"
     heroImageAlt="5-axis CNC machining an Inconel 718 turbine impeller inside a high-precision machining center"

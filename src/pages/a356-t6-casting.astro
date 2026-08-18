@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/a356-t6-casting/'];
 
 const pageTitle = 'A356 Aluminum Casting & T6 Heat Treatment Services';
 const seoTitle = 'A356 Aluminum Casting Services | T6 Heat-Treated Parts';
@@ -196,6 +200,9 @@ const pageSchema = {
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     pageTitle={pageTitle}
     heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="A356 aluminum casting and T6 heat treatment for precision industrial components"

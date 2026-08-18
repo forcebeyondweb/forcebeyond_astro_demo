@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/news-and-case-studies/'];
 
 const pageTitle = 'Technical Insights, News & Case Studies | ForceBeyond Resource Center';
 const seoTitle = 'Technical Insights, News & Case Studies | ForceBeyond';
@@ -93,7 +97,10 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/precision-cnc-machining-metal-manufacturing-workshop-hero.webp"
     heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"

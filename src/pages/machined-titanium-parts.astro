@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import TitaniumSolutionsPageLayout from '../layouts/TitaniumSolutionsPageLayout.astro';
+
+
+const dates = pageDates['/machined-titanium-parts/'];
 
 const pageTitle = 'Machined Titanium Parts';
 const seoTitle = 'Machined Titanium Parts | Precision Titanium CNC Machining | ForceBeyond';
@@ -77,7 +81,7 @@ const pageSchema = {
             name: seoTitle,
             description: seoDescription,
             datePublished: '2019-10-18T14:46:08-04:00',
-            dateModified: '2026-08-17T10:11:00-04:00',
+            dateModified: dates.modified,
             isPartOf: { '@id': 'https://www.forcebeyond.com/#website' },
             about: { '@id': 'https://www.forcebeyond.com/machined-titanium-parts/#service' },
             inLanguage: 'en-US'
@@ -103,7 +107,9 @@ const pageSchema = {
     heroImage="/media/titanium-solutions-and-parts-hero.jpg"
     heroImageAlt="Precision machined titanium components for aerospace and industrial applications"
     publishedDate="2019-10-18T14:46:08-04:00"
-    modifiedDate="2026-08-17T10:11:00-04:00"
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     ctaTitle="Request a Quote for Machined Titanium Parts"
     ctaDescription="Tell us about your titanium alloy, geometry, machining, inspection, quantity, and delivery requirements and our team will review your project."
     ctaButtonUrl="/request-for-quote/"

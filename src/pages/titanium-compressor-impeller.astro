@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import TitaniumSolutionsPageLayout from '../layouts/TitaniumSolutionsPageLayout.astro';
+
+
+const dates = pageDates['/titanium-compressor-impeller/'];
 
 const pageTitle = 'Titanium Compressor Impeller';
 const seoTitle = 'Titanium Compressor Impeller | Titanium Casting & Machining | ForceBeyond';
@@ -57,7 +61,7 @@ const pageSchema = {
             name: seoTitle,
             description: seoDescription,
             datePublished: '2019-10-18T15:25:54-04:00',
-            dateModified: '2026-08-17T11:21:00-04:00',
+            dateModified: dates.modified,
             isPartOf: { '@id': 'https://www.forcebeyond.com/#website' },
             about: { '@id': 'https://www.forcebeyond.com/titanium-compressor-impeller/#service' },
             inLanguage: 'en-US'
@@ -83,7 +87,9 @@ const pageSchema = {
     heroImage="/media/titanium-solutions-and-parts-hero.jpg"
     heroImageAlt="Titanium compressor impeller for aerospace and industrial applications"
     publishedDate="2019-10-18T15:25:54-04:00"
-    modifiedDate="2026-08-17T11:21:00-04:00"
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     ctaTitle="Request a Quote for Titanium Compressor Impellers"
     ctaDescription="Tell us about your titanium alloy, compressor impeller geometry, casting or machining requirements, inspection requirements, quantity, and delivery schedule."
     ctaButtonUrl="/request-for-quote/"

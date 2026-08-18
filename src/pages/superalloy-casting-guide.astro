@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/superalloy-casting-guide/'];
 
 const pageTitle = 'Superalloy Casting Technical Guide: Inconel 718, Inconel 625, VIM & HIP';
 const seoTitle = 'Superalloy Casting Technical Guide | Inconel 718 & 625 | ForceBeyond';
@@ -63,7 +67,7 @@ const pageSchema = {
       name: seoTitle,
       description: seoDescription,
       datePublished: '2026-08-12',
-      dateModified: '2026-08-12',
+      dateModified: dates.modified,
 
       isPartOf: {
         '@id': 'https://www.forcebeyond.com/#website'
@@ -119,7 +123,7 @@ const pageSchema = {
       },
 
       datePublished: '2026-08-12',
-      dateModified: '2026-08-12',
+      dateModified: dates.modified,
 
       about: [
         {
@@ -263,6 +267,9 @@ const pageSchema = {
   title={seoTitle}
   description={seoDescription}
   schema={pageSchema}
+  modifiedDate={dates.modified}
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
   pageTitle={pageTitle}
   heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
   heroImageAlt="Precision superalloy turbine components representing Inconel casting and machining applications"

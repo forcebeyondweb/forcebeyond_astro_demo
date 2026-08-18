@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/agricultural/'];
 
 const pageTitle = 'Agricultural Equipment Components: Casting, Forging & Assembly';
 const seoTitle = 'Agricultural Equipment Components | Casting, Forging & Assembly';
@@ -206,7 +210,9 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/agricultural-tractor-crop-spraying-green-farmland-hero.webp"
     heroImageAlt="Agricultural tractor operating in a cultivated field"

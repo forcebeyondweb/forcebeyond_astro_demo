@@ -1,0 +1,73 @@
+---
+import IndividualPageLayout from './IndividualPageLayout.astro';
+
+export interface FaqItem {
+    q: string;
+    a: string;
+}
+
+interface Props {
+    title?: string;
+    description?: string;
+    canonicalUrl?: string;
+    robots?: string;
+    pageTitle?: string;
+    heroImage?: string;
+    heroImageAlt?: string;
+    heroImageWidth?: number;
+    heroImageHeight?: number;
+    socialImage?: string;
+    socialImageAlt?: string;
+    schema?: Record<string, any>;
+    publishedDate?: string;
+    modifiedDate?: string;
+    faqSectionTitle?: string;
+    faqItems?: FaqItem[];
+    ctaTitle?: string;
+    ctaDescription?: string | string[];
+    ctaButtonUrl?: string;
+    ctaButtonText?: string;
+    sourcesTitle?: string;
+    sourcesList?: { label: string; url?: string }[];
+    resourcesTitle?: string;
+    resourcesList?: { label: string; url: string }[];
+}
+
+const props = Astro.props;
+
+const sectionNav = [
+    { label: 'Superalloy Machining', href: '#superalloy-machining' },
+    { label: 'Superalloy Casting', href: '#superalloy-casting' },
+    { label: 'Turbocharger Shaft Wheel', href: '#turbocharger-shaft-wheel' },
+    { label: 'Gas Turbine Shrouds & Segments', href: '#gas-turbine-shrouds-segments' },
+    { label: 'Gas Turbine Impeller', href: '#gas-turbine-impeller' },
+    { label: 'Gas Turbine Disk & Nozzle Ring', href: '#gas-turbine-disk-nozzle-ring' }
+];
+---
+
+<IndividualPageLayout {...props}>
+    <nav
+        aria-label="Superalloy Solutions page sections"
+        class="mb-10 rounded-xl border border-slate-200 bg-white p-4 shadow-sm"
+    >
+        <div class="mb-3 text-sm font-bold uppercase tracking-wider text-slate-500">
+            Explore Superalloy Components
+        </div>
+        <div class="grid gap-2 sm:grid-cols-2 lg:grid-cols-3">
+            {sectionNav.map((item) => (
+                <a
+                    href={item.href}
+                    class="rounded-lg border border-slate-200 px-4 py-3 text-sm font-semibold text-slate-700 transition hover:border-blue-500 hover:bg-blue-50 hover:text-blue-700"
+                >
+                    {item.label}
+                </a>
+            ))}
+        </div>
+    </nav>
+
+    <slot />
+
+    <div slot="full-width" class="individual-content">
+        <slot name="full-width" />
+    </div>
+</IndividualPageLayout>

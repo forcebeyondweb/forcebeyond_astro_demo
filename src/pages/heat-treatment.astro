@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/heat-treatment/'];
 
 const pageTitle = 'Thermal Processing & Heat Treatment Services';
 const seoTitle = 'Precision Thermal Processing & Heat Treatment Services | ForceBeyond';
@@ -162,6 +166,9 @@ const pageSchema = {
     title={seoTitle}
     description={seoDescription}
     schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     pageTitle={pageTitle}
     heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="Forged Inconel 718 rings and high-performance industrial components"

@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/titanium-aerospace-forging/'];
 
 const pageTitle = 'Titanium Aerospace Forging: AS9100-Certified Mission Critical Components';
 const seoTitle = 'Titanium Aerospace Forging | AMS 4928 & AS9100 Certified | ForceBeyond';
@@ -185,7 +189,10 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/titanium-aerospace-jet-engine-testing-hero.webp"
     heroImageAlt="Titanium aerospace jet engine undergoing a high-performance ground test with active exhaust"

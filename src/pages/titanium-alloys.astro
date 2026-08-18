@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/titanium-alloys/'];
 
 const pageTitle = 'Titanium Alloys for Casting, Forging and Precision Machining';
 const seoTitle = 'Titanium Alloys | Ti-6Al-4V, Grade 23 & CP Titanium';
@@ -231,7 +235,10 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/precision-cnc-machining-metal-manufacturing-workshop-hero.webp"
     heroImageAlt="Precision manufacturing and CNC machining of titanium alloy components"

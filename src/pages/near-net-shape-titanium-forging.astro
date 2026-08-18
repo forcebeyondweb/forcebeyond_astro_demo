@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/near-net-shape-titanium-forging/'];
 
 const pageTitle = 'Near-Net-Shape (NNS) Titanium Forging: Material Yield Optimization';
 const seoTitle = 'Near-Net-Shape Titanium Forging | 3.5:1 Buy-to-Fly Ratio';
@@ -143,7 +147,10 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/titanium-aerospace-jet-engine-testing-hero.webp"
     heroImageAlt="Titanium aerospace jet engine undergoing a high-performance ground test with active exhaust"

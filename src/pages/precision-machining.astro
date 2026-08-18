@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/precision-machining/'];
 
 const pageTitle = 'Precision CNC Machining Services: 5-Axis Milling, Turning & Secondary Operations';
 const seoTitle = 'Precision CNC Machining Services | 5-Axis Milling & Turning';
@@ -196,7 +200,10 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/high-precision-cnc-machining-metal-components-4k.webp"
     heroImageAlt="Precision CNC machining of complex metal components using 5-axis milling and turning"

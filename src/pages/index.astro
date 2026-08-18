@@ -1,7 +1,10 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import Layout from '../layouts/Layout.astro';
 import '../styles/homepage.css';
 import { sanityClient } from 'sanity:client';
+
+const dates = pageDates['/'];
 
 type HomepageContent = {
     heroDescription?: string;
@@ -19,6 +22,7 @@ try {
 
 <Layout title="ForceBeyond | Tier 1.5 Global Supply Chain Partner" description="Precision Built. Globally Sourced. Specialists in Precision Casting, Forging, and Multi-Axis CNC Machining Solutions.">
     <Fragment slot="head">
+        <meta property="article:modified_time" content={dates.modified} />
         <link rel="canonical" href="https://www.forcebeyond.com/" />
     </Fragment>
     

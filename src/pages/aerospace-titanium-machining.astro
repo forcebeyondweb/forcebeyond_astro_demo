@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/aerospace-titanium-machining/'];
 
 const pageTitle = 'Aerospace Titanium Machining: AS9100 Precision 5-Axis Finishing';
 const seoTitle = 'Aerospace Titanium Machining | AS9100 5-Axis CNC | ForceBeyond';
@@ -94,7 +98,9 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/aerospace-titanium-5-axis-machining-as9100-hero.webp"
     heroImageAlt="Precision 5-axis machining of an aerospace titanium component in an AS9100-certified manufacturing environment"

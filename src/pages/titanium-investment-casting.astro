@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/titanium-investment-casting/'];
 
 const pageTitle = 'Titanium Investment Casting: High-Precision Lost Wax Solutions';
 const seoTitle = 'Titanium Investment Casting | Vacuum Induction Melting | ForceBeyond';
@@ -124,7 +128,10 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/titanium-investment-casting-lost-wax-components-hero.webp"
     heroImageAlt="Titanium investment casting process with precision cast components, ceramic shell mold, and molten metal in a modern foundry"

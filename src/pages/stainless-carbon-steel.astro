@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/stainless-carbon-steel/'];
 
 const pageTitle = 'Stainless Steel & Carbon Steel for Casting, Forging and Machining';
 const seoTitle = 'Stainless & Carbon Steel | 304, 316, 17-4, 2205 & 4140';
@@ -238,7 +242,10 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/precision-cnc-machining-metal-manufacturing-workshop-hero.webp"
     heroImageAlt="Precision manufacturing and CNC machining of stainless steel and carbon steel components"

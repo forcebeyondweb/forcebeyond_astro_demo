@@ -1,6 +1,10 @@
 
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/open-die-forging/'];
 
 const pageTitle = 'Open Die Forging: Extreme Strength for Massive Components';
 const seoTitle = 'Open Die Forging Services | Heavy Components Up to 50,000+ lbs';
@@ -184,7 +188,10 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/titanium-aerospace-jet-engine-testing-hero.webp"
     heroImageAlt="Titanium aerospace jet engine undergoing a high-performance ground test with active exhaust"

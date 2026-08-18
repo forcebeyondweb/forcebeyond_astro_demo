@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import TitaniumSolutionsPageLayout from '../layouts/TitaniumSolutionsPageLayout.astro';
+
+
+const dates = pageDates['/titanium-boat-propeller/'];
 
 const pageTitle = 'Titanium Boat Propeller';
 const seoTitle = 'Titanium Boat Propeller | Titanium Marine Propeller | ForceBeyond';
@@ -57,7 +61,7 @@ const pageSchema = {
             name: seoTitle,
             description: seoDescription,
             datePublished: '2019-10-23T13:53:51-04:00',
-            dateModified: '2026-08-17T11:45:00-04:00',
+            dateModified: dates.modified,
             isPartOf: { '@id': 'https://www.forcebeyond.com/#website' },
             about: { '@id': 'https://www.forcebeyond.com/titanium-boat-propeller/#service' },
             inLanguage: 'en-US'
@@ -83,7 +87,9 @@ const pageSchema = {
     heroImage="/media/titanium-solutions-and-parts-hero.jpg"
     heroImageAlt="Titanium boat propeller and precision titanium marine components"
     publishedDate="2019-10-23T13:53:51-04:00"
-    modifiedDate="2026-08-17T11:45:00-04:00"
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     ctaTitle="Request a Quote for Titanium Boat Propellers"
     ctaDescription="Tell us about your titanium alloy, propeller geometry, casting or machining requirements, inspection requirements, quantity, and delivery schedule."
     ctaButtonUrl="/request-for-quote/"

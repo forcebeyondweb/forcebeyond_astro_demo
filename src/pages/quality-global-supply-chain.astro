@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/quality-global-supply-chain/'];
 
 const pageTitle = 'Quality Management & Global Manufacturing Supply Chain';
 const seoTitle = 'Quality & Global Supply Chain Management | ForceBeyond';
@@ -188,7 +192,10 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/precision-cmm-inspection-machined-metal-component-hero.webp"
     heroImageAlt="CMM inspection of a precision-machined metal component for manufacturing quality control"
