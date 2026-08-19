@@ -1,0 +1,922 @@
+---
+import { pageDates } from '../data/page-dates.js';
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const dates = pageDates['/additive-manufacturing/'] ?? {
+    published: '2026-08-19',
+    modified: '2026-08-19'
+};
+
+const pageTitle = 'Metal Additive Manufacturing Services';
+const seoTitle = 'Metal Additive Manufacturing Services | Inconel & Titanium';
+const seoDescription = 'Metal additive manufacturing for complex Inconel 718, Inconel 625 and titanium components, with coordinated heat treatment, HIP, CNC machining and inspection.';
+
+const canonicalUrl = 'https://www.forcebeyond.com/additive-manufacturing/';
+
+// Replace this with a dedicated AM hero image when the final asset is available.
+const heroImage = '/media/metal-additive-manufacturing-inconel-titanium-hero.webp';
+const socialImage = `https://www.forcebeyond.com${heroImage}`;
+
+const faqs = [
+    {
+        q: 'What is metal additive manufacturing?',
+        a: 'Metal additive manufacturing builds metal components layer by layer from digital 3D data. In laser powder bed fusion (LPBF), a laser selectively fuses thin layers of metal powder to create the part. The process can produce complex geometries, internal passages and consolidated assemblies that may be difficult or uneconomical to make with conventional manufacturing.'
+    },
+    {
+        q: 'What are the main advantages of metal additive manufacturing?',
+        a: 'The main advantages are design freedom, reduced dependence on dedicated tooling, faster design iteration, potential lead-time reduction for development and low-volume programs, part consolidation, lightweighting and improved material utilization for expensive alloys. The actual benefit depends on geometry, material, quantity, qualification requirements and the competing conventional process.'
+    },
+    {
+        q: 'Can additive manufacturing reduce lead time?',
+        a: 'Yes, particularly when conventional production would require new casting tooling, forging dies, extensive prototype machining or repeated tooling changes. AM can move directly from a qualified digital model into build preparation and production. Post-processing, inspection and qualification still require time, so lead-time savings should be evaluated for the complete manufacturing route rather than the printing step alone.'
+    },
+    {
+        q: 'When should I choose additive manufacturing instead of investment casting?',
+        a: 'Additive manufacturing is often attractive for low-volume or evolving designs, complex internal passages, part consolidation and programs where tooling lead time is a major constraint. Investment casting is often more economical for mature repeat-production programs where tooling can be amortized over higher volumes. ForceBeyond can compare both routes based on geometry, quantity, alloy, inspection and total manufacturing requirements.'
+    },
+    {
+        q: 'When should I choose additive manufacturing instead of forging?',
+        a: 'AM is generally considered when geometry, internal features, lightweighting or low-volume flexibility are primary drivers. Forging remains a strong choice for many highly loaded parts that benefit from wrought structure, controlled material flow and mature production economics. Final process selection should follow the drawing, loading, material specification and qualification requirements.'
+    },
+    {
+        q: 'Does an additively manufactured metal part still need CNC machining?',
+        a: 'Often, yes. Critical datums, sealing surfaces, bores, threads, bearing fits and tight-tolerance features commonly require finish machining. The AM build can create the near-net geometry while CNC machining establishes the final dimensional and surface-finish requirements.'
+    },
+    {
+        q: 'Is HIP always required after metal additive manufacturing?',
+        a: 'No. HIP should be applied when required by the material specification, drawing, qualification plan, customer requirement or performance objective. It can be used to reduce internal porosity and improve density in appropriate AM components, but it is not automatically required for every printed part.'
+    },
+    {
+        q: 'What materials does ForceBeyond focus on for additive manufacturing?',
+        a: 'The flagship material focus for this additive manufacturing service is Inconel 718, Inconel 625, Ti-6Al-4V Grade 5 and Ti-6Al-4V ELI Grade 23. Final alloy availability, process parameters and qualification requirements are confirmed during technical review.'
+    },
+    {
+        q: 'What production quantities are suitable for metal additive manufacturing?',
+        a: 'There is no universal quantity cutoff. AM is especially attractive for prototypes, low-volume production, bridge production, complex high-value parts and designs where tooling cost or design changes dominate the business case. For stable high-volume production, investment casting, forging or other conventional processes may provide lower recurring cost.'
+    },
+    {
+        q: 'What should I look for in a metal additive manufacturing supplier?',
+        a: 'Evaluate more than printer availability. Review supported alloys and AM standards, powder traceability, qualified process parameters, heat treatment and HIP capability, finish machining, inspection methods such as CT or NDT, documentation and whether the supplier can compare AM with casting, forging and machining when another route may provide a better total-cost or qualification outcome.'
+    },
+    {
+        q: 'What information should I provide for an additive manufacturing RFQ?',
+        a: 'Provide a 3D CAD model and drawing when available, alloy and material specification, prototype and annual quantities, critical dimensions and GD&T, surface-finish requirements, service conditions, heat treatment, HIP, NDT, inspection, certification, documentation and requested delivery schedule. Identifying critical-to-quality features helps the engineering team evaluate both AM feasibility and the required post-processing route.'
+    },
+    {
+        q: 'Can ForceBeyond help determine whether AM, casting, forging or machining is the best process?',
+        a: 'Yes. ForceBeyond can review geometry, alloy, quantity, tooling requirements, lead time, mechanical-performance requirements, inspection and downstream operations to compare additive manufacturing with investment casting, forging and CNC machining. The objective is to select the manufacturing route that best fits the complete program rather than defaulting to a single process.'
+    }
+];
+
+const sources = [
+    { label: 'NIST - Powder Bed Fusion', url: 'https://www.nist.gov/additive-manufacturing/research-areas/technologies/powder-bed-fusion' },
+    { label: 'NIST - Measurement Science for Additive Manufacturing', url: 'https://www.nist.gov/programs-projects/measurement-science-additive-manufacturing-program' },
+    { label: 'NIST - Additive Manufacturing / 3D Printing', url: 'https://www.nist.gov/mep/additive-manufacturing3d-printing' },
+    { label: 'ASTM International - Additive Manufacturing Standards', url: 'https://www.astm.org/products-services/standards-and-publications/standards/additive-manufacturing-standards.html' },
+    { label: 'EOS - NickelAlloy IN718 Material Data', url: 'https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-nickelalloy-in718' },
+    { label: 'EOS - NickelAlloy IN625 Material Data', url: 'https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-nickelalloy-in625' },
+    { label: 'EOS - Titanium Ti64 Material Data', url: 'https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-titanium-ti64' },
+    { label: 'EOS - Titanium Ti64 Grade 23 Material Data', url: 'https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-titanium-ti64-grade-23' },
+    { label: 'Renishaw - Metal Powders for Additive Manufacturing', url: 'https://www.renishaw.com/en/metal-powders-for-am--31457' }
+];
+
+const internalResources = [
+    // Additive Manufacturing Material Pages
+    { label: 'Inconel 718 Additive Manufacturing', url: '/inconel-718-additive-manufacturing/' },
+    { label: 'Inconel 625 Additive Manufacturing', url: '/inconel-625-additive-manufacturing/' },
+    { label: 'Titanium Additive Manufacturing', url: '/titanium-additive-manufacturing/' },
+
+    // Process Comparisons
+    { label: 'Investment Casting', url: '/investment-casting/' },
+    { label: 'Forging Capabilities', url: '/forging/' },
+    { label: 'Precision Machining', url: '/precision-machining/' },
+    { label: 'High-Precision CNC Machining', url: '/high-precision-machining/' },
+
+    // Downstream Processing and Quality
+    { label: 'Hot Isostatic Pressing (HIP)', url: '/hot-isostatic-pressing/' },
+    { label: 'Heat Treatment', url: '/heat-treatment/' },
+    { label: 'Testing & Inspection Capabilities', url: '/testing-inspection-capabilities/' },
+    { label: 'Quality Assurance & Certifications', url: '/quality-assurance-certifications/' },
+
+    // Existing Material and Process Pages
+    { label: 'Superalloy Casting Services', url: '/high-performance-superalloy-casting/' },
+    { label: 'Inconel 718 Casting', url: '/inconel-718-casting/' },
+    { label: 'Inconel 625 Casting', url: '/inconel-625-casting/' },
+    { label: 'Inconel 718 Forging', url: '/inconel-718-forging/' },
+    { label: 'Inconel 718 Machining', url: '/inconel-718-machining/' },
+    { label: 'Titanium Casting', url: '/titanium-casting/' },
+    { label: 'Titanium Machining', url: '/titanium-machining/' }
+];
+
+const pageSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'WebPage',
+            '@id': `${canonicalUrl}#webpage`,
+            url: canonicalUrl,
+            name: seoTitle,
+            description: seoDescription,
+            isPartOf: {
+                '@id': 'https://www.forcebeyond.com/#website'
+            },
+            primaryImageOfPage: {
+                '@type': 'ImageObject',
+                url: socialImage
+            },
+            breadcrumb: {
+                '@id': `${canonicalUrl}#breadcrumb`
+            },
+            about: [
+                { '@type': 'Thing', name: 'Metal additive manufacturing' },
+                { '@type': 'Thing', name: 'Laser powder bed fusion' },
+                { '@type': 'Thing', name: 'Inconel 718 additive manufacturing' },
+                { '@type': 'Thing', name: 'Inconel 625 additive manufacturing' },
+                { '@type': 'Thing', name: 'Titanium additive manufacturing' }
+            ],
+            inLanguage: 'en-US'
+        },
+        {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            itemListElement: [
+                {
+                    '@type': 'ListItem',
+                    position: 1,
+                    name: 'Home',
+                    item: 'https://www.forcebeyond.com/'
+                },
+                {
+                    '@type': 'ListItem',
+                    position: 2,
+                    name: 'Additive Manufacturing',
+                    item: canonicalUrl
+                }
+            ]
+        },
+        {
+            '@type': 'Service',
+            '@id': `${canonicalUrl}#service`,
+            name: 'Metal Additive Manufacturing Services',
+            serviceType: 'Metal Additive Manufacturing and Laser Powder Bed Fusion',
+            description: seoDescription,
+            url: canonicalUrl,
+            provider: {
+                '@id': 'https://www.forcebeyond.com/#organization'
+            },
+            areaServed: {
+                '@type': 'Country',
+                name: 'United States'
+            },
+            knowsAbout: [
+                'Metal Additive Manufacturing',
+                'Laser Powder Bed Fusion',
+                'Inconel 718',
+                'Inconel 625',
+                'Ti-6Al-4V',
+                'Ti-6Al-4V ELI',
+                'Hot Isostatic Pressing',
+                'Heat Treatment',
+                'Precision Machining',
+                'Non-Destructive Testing'
+            ],
+            hasOfferCatalog: {
+                '@type': 'OfferCatalog',
+                name: 'Metal Additive Manufacturing Capabilities',
+                itemListElement: [
+                    {
+                        '@type': 'Offer',
+                        itemOffered: {
+                            '@type': 'Service',
+                            name: 'Inconel 718 Additive Manufacturing',
+                            url: 'https://www.forcebeyond.com/inconel-718-additive-manufacturing/'
+                        }
+                    },
+                    {
+                        '@type': 'Offer',
+                        itemOffered: {
+                            '@type': 'Service',
+                            name: 'Inconel 625 Additive Manufacturing',
+                            url: 'https://www.forcebeyond.com/inconel-625-additive-manufacturing/'
+                        }
+                    },
+                    {
+                        '@type': 'Offer',
+                        itemOffered: {
+                            '@type': 'Service',
+                            name: 'Titanium Additive Manufacturing',
+                            url: 'https://www.forcebeyond.com/titanium-additive-manufacturing/'
+                        }
+                    },
+                    {
+                        '@type': 'Offer',
+                        itemOffered: {
+                            '@type': 'Service',
+                            name: 'Additive Manufacturing Post-Processing',
+                            description: 'Coordinated heat treatment, HIP where required, precision machining, surface finishing, NDT and dimensional inspection according to project requirements.'
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            '@type': 'FAQPage',
+            '@id': `${canonicalUrl}#faq`,
+            mainEntity: faqs.map((faq) => ({
+                '@type': 'Question',
+                name: faq.q,
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: faq.a.replace(/<[^>]+>/g, '')
+                }
+            }))
+        }
+    ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
+    modifiedDate={dates.modified}
+    publishedDate={dates.published}
+    pageTitle={pageTitle}
+    heroImage={heroImage}
+    heroImageAlt="Metal additive manufacturing of complex Inconel and titanium components for aerospace, energy and industrial applications"
+    socialImage={socialImage}
+    socialImageAlt="Metal additive manufacturing services for Inconel and titanium components"
+    schema={pageSchema}
+    faqSectionTitle="Metal Additive Manufacturing FAQ"
+    faqItems={faqs}
+    ctaTitle="Not Sure Which Manufacturing Route Fits Your Part?"
+    ctaDescription="ForceBeyond can review geometry, alloy, quantity, tooling, lead time, post-processing, inspection and qualification requirements to compare additive manufacturing with investment casting, forging and precision machining."
+    ctaButtonUrl="/request-for-quote/"
+    ctaButtonText="Request a Manufacturing Review"
+    sourcesTitle="Additive Manufacturing Technical Sources"
+    sourcesList={sources}
+    resourcesTitle="Related Additive Manufacturing & Metal Manufacturing Resources"
+    resourcesList={internalResources}
+>
+    <div class="individual-content">
+        <p class="page-lead">
+            <strong>ForceBeyond provides metal additive manufacturing services</strong> for complex, high-value Inconel and titanium components using <strong>laser powder bed fusion (LPBF)</strong>, with coordinated heat treatment, <a href="/hot-isostatic-pressing/" class="highlight-link">Hot Isostatic Pressing (HIP)</a> where required, precision CNC machining and inspection. Our flagship material focus includes <strong>Inconel 718, Inconel 625, Ti-6Al-4V Grade 5 and Ti-6Al-4V ELI Grade 23</strong>, especially where conventional tooling, material waste, internal geometry or development lead time can limit traditional production routes.
+        </p>
+    </div>
+
+    <div slot="full-width" class="individual-content">
+        <section id="what-is-metal-additive-manufacturing">
+            <div class="content-container">
+                <h2>What Is Metal Additive Manufacturing?</h2>
+                <p>
+                    <strong>Metal additive manufacturing (AM)</strong> produces components directly from digital 3D data by adding material layer by layer instead of cutting a shape from billet or filling a conventional mold. For the high-performance alloys emphasized on this page, <strong>laser powder bed fusion (LPBF)</strong> is the primary process focus. LPBF spreads thin layers of metal powder and selectively fuses each layer with a laser until the complete near-net-shape component is built.
+                </p>
+                <p>
+                    The value of AM is not simply that a component can be “3D printed.” Its engineering value comes from changing the manufacturing route: eliminating or reducing dedicated tooling, creating internal passages that are difficult to machine, consolidating multiple parts into one build, reducing material removal on expensive alloys and accelerating design changes during development.
+                </p>
+                <p>
+                    AM should still be evaluated as a complete production chain. Build orientation, support removal, stress relief or heat treatment, HIP when specified, finish machining, surface condition and inspection can all influence cost, lead time and final performance. For this reason, ForceBeyond evaluates additive manufacturing alongside <a href="/investment-casting/" class="highlight-link">investment casting</a>, <a href="/forging/" class="highlight-link">forging</a> and <a href="/precision-machining/" class="highlight-link">precision machining</a> rather than treating AM as the default process for every part.
+                </p>
+            </div>
+        </section>
+
+        <section id="why-choose-additive-manufacturing" >
+            <div class="content-container">
+                <h2>Why Choose Additive Manufacturing?</h2>
+                <p>
+                    Additive manufacturing is most valuable when it solves a specific engineering or supply-chain problem. The strongest business cases typically combine several of the following advantages.
+                </p>
+
+                <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-3 mt-8">
+                    <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                        <h3 class="mt-0">Shorter Development Lead Times</h3>
+                        <p>Reduce dependence on hard tooling and move more directly from a released digital model into manufacturing, especially for prototypes, engineering changes and bridge production.</p>
+                    </article>
+                    <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                        <h3 class="mt-0">Complex Geometry</h3>
+                        <p>Create curved internal passages, compact manifolds, thin-wall features and other geometries that may be difficult, multi-step or impossible to access with conventional cutting tools.</p>
+                    </article>
+                    <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                        <h3 class="mt-0">Reduced Tooling Requirements</h3>
+                        <p>Avoid or defer investment in wax tooling, forging dies and other dedicated production tooling when quantities are low or the design is still evolving.</p>
+                    </article>
+                    <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                        <h3 class="mt-0">Rapid Design Iteration</h3>
+                        <p>Update the digital model and manufacturing plan without rebuilding an entire conventional tooling package for every engineering revision.</p>
+                    </article>
+                    <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                        <h3 class="mt-0">Part Consolidation</h3>
+                        <p>Combine functions that would otherwise require multiple machined, welded, brazed or fastened pieces, potentially reducing joints, assembly steps and inspection handoffs.</p>
+                    </article>
+                    <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                        <h3 class="mt-0">Improved Material Utilization</h3>
+                        <p>Build closer to final geometry and reduce the amount of expensive titanium or nickel superalloy removed as chips compared with some billet-machining routes.</p>
+                    </article>
+                    <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:col-span-2 xl:col-span-3">
+                        <h3 class="mt-0">Lightweight and Function-Driven Design</h3>
+                        <p>Use topology optimization, hollow structures, integrated flow paths and material placement strategies that can reduce mass while preserving the features required by the application.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="lead-time-advantage">
+            <div class="content-container">
+                <h2>How Additive Manufacturing Can Reduce Lead Time</h2>
+                <p>
+                    Lead time is one of the most practical reasons customers evaluate AM. Conventional casting and forging programs can require tooling design, tooling fabrication, first-article development and process validation before repeat production begins. Additive manufacturing can remove some of those tooling-dependent steps and allow qualified digital data to move more directly into build preparation.
+                </p>
+
+                <div class="grid gap-8 lg:grid-cols-2 mt-8">
+                    <div class="rounded-xl border border-slate-200 bg-white p-6">
+                        <h3 class="mt-0">Typical Tooling-Dependent Development Route</h3>
+                        <ol>
+                            <li>Finalize component design</li>
+                            <li>Design and manufacture dedicated tooling or dies</li>
+                            <li>Produce initial patterns, preforms or trial parts</li>
+                            <li>Validate the conventional process and make tooling corrections</li>
+                            <li>Complete downstream machining, treatment and inspection</li>
+                        </ol>
+                    </div>
+                    <div class="rounded-xl border border-slate-200 bg-white p-6">
+                        <h3 class="mt-0">Typical Additive Development Route</h3>
+                        <ol>
+                            <li>Finalize or revise the 3D model</li>
+                            <li>Complete build orientation and process preparation</li>
+                            <li>Print and remove the component from the build system</li>
+                            <li>Complete required heat treatment, HIP and support removal</li>
+                            <li>Finish machine, inspect and document the part</li>
+                        </ol>
+                    </div>
+                </div>
+
+                <h3>Prototype and Engineering Changes</h3>
+                <p>
+                    AM can be especially useful when a design is expected to change. Instead of modifying hard tooling after every revision, the digital geometry and build preparation can be updated for the next manufacturing cycle. This can shorten the feedback loop between engineering, testing and the next design iteration.
+                </p>
+
+                <h3>Bridge Production Before Conventional Tooling Is Ready</h3>
+                <p>
+                    For selected components, AM can support early or low-rate production while a longer-term investment casting or forging process is being developed. This <strong>bridge-production</strong> strategy can help engineering and sourcing teams avoid treating prototype and mature production as the same manufacturing problem.
+                </p>
+
+                <h3>Low-Volume Replacement and Legacy Parts</h3>
+                <p>
+                    AM can also be attractive when the original tooling no longer exists or the expected demand is too low to justify rebuilding it. The economics still depend on geometry, build size, material, qualification and post-processing, but digital production can remove a major tooling barrier for selected replacement-part programs.
+                </p>
+
+                <div class="mt-8 border-l-4 border-[#0363CE] bg-slate-50 px-6 py-5">
+                    <p class="mt-0">
+                        <strong>Lead-time note:</strong> additive manufacturing does not automatically make every part faster. Heat treatment, HIP, machining, NDT, CT inspection, qualification or repeated build development can become the controlling steps. ForceBeyond evaluates the <strong>complete manufacturing lead time</strong>, not only printer cycle time.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="capabilities">
+            <div class="content-container">
+                <h2>Metal Additive Manufacturing Capabilities</h2>
+                <p>
+                    For sourcing and engineering teams, the relevant question is not only whether a part can be printed, but whether the complete manufacturing route can be coordinated from material and build preparation through post-processing, machining and inspection. ForceBeyond focuses on high-performance alloy programs where AM is evaluated against conventional manufacturing on total lead time, qualification requirements and delivered-part economics.
+                </p>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <caption>
+                            <span class="caption-title">ForceBeyond Metal AM Service Scope</span>
+                            <span class="caption-subtitle">Final availability, acceptance criteria and qualification requirements remain project-specific.</span>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Capability</th>
+                                <th scope="col">ForceBeyond Focus</th>
+                                <th scope="col">Engineering / Sourcing Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Primary AM Process</th>
+                                <td>Laser Powder Bed Fusion (LPBF)</td>
+                                <td>Suitable for complex near-net geometry, internal passages, part consolidation and digital design iteration.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Flagship Materials</th>
+                                <td>Inconel 718, Inconel 625, Ti-6Al-4V Grade 5 and Grade 23</td>
+                                <td>Focuses the AM offering on high-value nickel superalloy and titanium applications rather than a broad commodity material catalog.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Prototype & Engineering Validation</th>
+                                <td>Supported</td>
+                                <td>Useful for development builds, design changes and qualification hardware before mature production tooling is justified.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Low-Volume / Bridge Production</th>
+                                <td>Supported</td>
+                                <td>Can reduce tooling dependency while longer-term casting or forging routes are still under development.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Heat Treatment</th>
+                                <td>Coordinated per alloy and specification</td>
+                                <td>Establishes the required post-build material condition according to the qualified route.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">HIP</th>
+                                <td>Available where required</td>
+                                <td>May be used to reduce suitable internal porosity and support density, fatigue or qualification objectives.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Precision CNC Machining</th>
+                                <td>Available</td>
+                                <td>Completes critical datums, bores, threads, sealing surfaces and tight final tolerances.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">NDT / CT / Dimensional Inspection</th>
+                                <td>Project-specific</td>
+                                <td>Inspection planning is matched to geometry, defect risk, application criticality and acceptance criteria.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Manufacturing Route Review</th>
+                                <td>AM vs. investment casting / forging / machining</td>
+                                <td>Helps determine whether additive manufacturing is actually the best route for the full program.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="when-to-use-additive-manufacturing" >
+            <div class="content-container">
+                <h2>When Does Additive Manufacturing Make Sense?</h2>
+                <p>
+                    AM tends to be strongest when geometry, tooling, development speed or material utilization matters more than achieving the lowest recurring piece price at very high production volume.
+                </p>
+
+                <div class="grid gap-8 lg:grid-cols-2 mt-8">
+                    <div class="rounded-xl border border-slate-200 bg-white p-6">
+                        <h3 class="mt-0">Strong AM Candidates</h3>
+                        <ul>
+                            <li>Prototype or low-rate production where hard tooling is difficult to justify</li>
+                            <li>Designs that are still evolving and may require repeated engineering changes</li>
+                            <li>Complex internal channels, manifolds or compact flow paths</li>
+                            <li>Assemblies that can potentially be consolidated into fewer components</li>
+                            <li>High-value titanium or nickel-alloy parts with significant machining waste</li>
+                            <li>Applications where mass reduction or compact packaging is important</li>
+                            <li>Bridge production while longer-term casting or forging tooling is developed</li>
+                            <li>Low-demand replacement parts where legacy tooling is unavailable</li>
+                        </ul>
+                    </div>
+
+                    <div class="rounded-xl border border-slate-200 bg-white p-6">
+                        <h3 class="mt-0">When a Traditional Process May Be Better</h3>
+                        <ul>
+                            <li>Stable, high-volume production where conventional tooling is already amortized</li>
+                            <li>Simple geometry that can be efficiently machined from standard stock</li>
+                            <li>Large parts outside the practical build envelope of the selected AM system</li>
+                            <li>Applications where a wrought forging route is specifically required</li>
+                            <li>Programs where the recurring unit-cost target dominates tooling and development cost</li>
+                            <li>Components whose required specification or customer qualification does not permit the proposed AM route</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="additive-vs-traditional">
+            <div class="content-container">
+                <h2>Additive Manufacturing vs. Investment Casting, Forging and CNC Machining</h2>
+                <p>
+                    No single manufacturing process is best for every metal component. The comparison below is a sourcing and design guide; actual feasibility depends on the specific drawing, alloy, part size, quantity, mechanical requirements and qualification plan.
+                </p>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <caption>
+                            <span class="caption-title">Manufacturing Route Comparison</span>
+                            <span class="caption-subtitle">General comparison for complex engineered metal components; project-specific review is required.</span>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Decision Factor</th>
+                                <th scope="col">Additive Manufacturing</th>
+                                <th scope="col">Investment Casting</th>
+                                <th scope="col">Forging</th>
+                                <th scope="col">CNC Machining</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Dedicated tooling</th>
+                                <td>Low</td>
+                                <td>Usually required for mature production</td>
+                                <td>Often significant for closed-die production</td>
+                                <td>Generally low, excluding fixtures</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Design iteration</th>
+                                <td>Strong</td>
+                                <td>Can require pattern/tooling changes</td>
+                                <td>Can require die changes</td>
+                                <td>Strong for machinable geometry</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Internal passages</th>
+                                <td>Excellent for suitable printable geometry</td>
+                                <td>Possible with cores</td>
+                                <td>Limited</td>
+                                <td>Limited by tool access</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Low-volume / prototype fit</th>
+                                <td>Often strong</td>
+                                <td>Possible with printed patterns or soft tooling</td>
+                                <td>Route dependent</td>
+                                <td>Often strong</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">High-volume economics</th>
+                                <td>Application dependent</td>
+                                <td>Often strong after tooling amortization</td>
+                                <td>Often strong for repeat production</td>
+                                <td>Geometry and cycle-time dependent</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Material utilization</th>
+                                <td>Often high for near-net builds</td>
+                                <td>High</td>
+                                <td>High with near-net preforms</td>
+                                <td>Can be low for high buy-to-fly parts</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Final tight tolerances</th>
+                                <td>Finish machining often required</td>
+                                <td>Finish machining often required</td>
+                                <td>Finish machining often required</td>
+                                <td>Primary strength</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Wrought grain flow</th>
+                                <td>No conventional forging grain flow</td>
+                                <td>No</td>
+                                <td>Primary strength</td>
+                                <td>Depends on starting stock</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>Additive Manufacturing vs. Investment Casting</h3>
+                <p>
+                    <a href="/investment-casting/" class="highlight-link">Investment casting</a> remains an excellent process for complex near-net-shape components and can become highly economical once a stable design reaches repeat production. AM becomes especially attractive when hard tooling is difficult to justify, internal features are challenging for casting cores, or the design is expected to change. A program can also use AM for prototypes or bridge quantities and transition to investment casting when annual demand and design stability support the tooling investment.
+                </p>
+
+                <h3>Additive Manufacturing vs. Forging</h3>
+                <p>
+                    <a href="/forging/" class="highlight-link">Forging</a> is often selected for highly loaded components where a wrought structure, controlled material flow or a qualified forged product form is important. AM provides much greater geometric freedom but should not be presented as a universal replacement for forging. The decision should follow structural requirements, geometry, material specification, volume and qualification needs.
+                </p>
+
+                <h3>Additive Manufacturing vs. CNC Machining</h3>
+                <p>
+                    <a href="/high-precision-machining/" class="highlight-link">CNC machining</a> remains the preferred route for many precise, accessible geometries and is commonly required after AM. The strongest AM case appears when conventional machining would remove a large amount of expensive material or cannot reach internal geometry. A hybrid route—AM near-net shape followed by precision machining—can combine geometric freedom with tight final tolerances.
+                </p>
+            </div>
+        </section>
+
+        <section id="lpbf-process" >
+            <div class="content-container">
+                <h2>Laser Powder Bed Fusion (LPBF) for High-Performance Metal Parts</h2>
+                <p>
+                    ForceBeyond’s primary metal AM focus is <strong>laser powder bed fusion (LPBF)</strong>, a powder-bed process in which a laser selectively fuses each layer of metal powder according to the build data. LPBF is widely used for complex metal components in nickel superalloys and titanium alloys, particularly when fine geometric detail and integrated internal features are important.
+                </p>
+
+                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4 mt-8">
+                    <div class="rounded-xl border border-slate-200 bg-white p-5">
+                        <h3 class="mt-0">1. Build Preparation</h3>
+                        <p>Review geometry, orientation, support strategy, machining stock and critical surfaces before production.</p>
+                    </div>
+                    <div class="rounded-xl border border-slate-200 bg-white p-5">
+                        <h3 class="mt-0">2. Powder-Bed Build</h3>
+                        <p>Metal powder is spread in thin layers and selectively fused according to the digital build file.</p>
+                    </div>
+                    <div class="rounded-xl border border-slate-200 bg-white p-5">
+                        <h3 class="mt-0">3. Thermal & Structural Processing</h3>
+                        <p>Stress relief, heat treatment, support removal and HIP are applied as required by the material and qualification route.</p>
+                    </div>
+                    <div class="rounded-xl border border-slate-200 bg-white p-5">
+                        <h3 class="mt-0">4. Finish & Verify</h3>
+                        <p>CNC machining, surface finishing, NDT and dimensional inspection establish the final drawing requirements.</p>
+                    </div>
+                </div>
+
+                <p class="mt-8">
+                    Other additive technologies can be appropriate for different build sizes, repair applications or deposition strategies, but they are not presented here as standard ForceBeyond production capabilities unless confirmed for the specific project and supply route.
+                </p>
+            </div>
+        </section>
+
+        <section id="materials">
+            <div class="content-container">
+                <h2>Flagship Materials for Metal Additive Manufacturing</h2>
+                <p>
+                    ForceBeyond focuses this service on mature, widely used metal AM alloy systems that align with our existing superalloy and titanium manufacturing expertise. Final powder specification, process qualification, heat treatment and acceptance criteria must follow the drawing and customer requirements.
+                </p>
+
+                <div class="grid gap-6 lg:grid-cols-3 mt-8">
+                    <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                        <p class="text-sm font-semibold uppercase tracking-wide text-slate-500 mt-0">Nickel Superalloy</p>
+                        <h3 class="mt-2"><a href="/inconel-718-additive-manufacturing/" class="highlight-link">Inconel 718 Additive Manufacturing</a></h3>
+                        <p>
+                            Precipitation-hardening nickel-chromium superalloy widely used where high strength, elevated-temperature performance and complex geometry are important. <strong>Best fit when structural strength, thermal loading and geometric complexity are primary drivers.</strong>
+                        </p>
+                        <p><strong>Material:</strong> Inconel 718 / UNS N07718</p>
+                        <p><a href="/inconel-718-additive-manufacturing/" class="highlight-link">Explore Inconel 718 AM Capabilities</a></p>
+                    </article>
+
+                    <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                        <p class="text-sm font-semibold uppercase tracking-wide text-slate-500 mt-0">Nickel Superalloy</p>
+                        <h3 class="mt-2"><a href="/inconel-625-additive-manufacturing/" class="highlight-link">Inconel 625 Additive Manufacturing</a></h3>
+                        <p>
+                            Nickel-chromium-molybdenum alloy used where corrosion and oxidation resistance are major design drivers. <strong>Best fit when harsh-environment resistance and complex fluid or thermal geometry dominate the application.</strong>
+                        </p>
+                        <p><strong>Material:</strong> Inconel 625 / UNS N06625</p>
+                        <p><a href="/inconel-625-additive-manufacturing/" class="highlight-link">Explore Inconel 625 AM Capabilities</a></p>
+                    </article>
+
+                    <article class="rounded-xl border border-slate-200 bg-white p-6 shadow-sm">
+                        <p class="text-sm font-semibold uppercase tracking-wide text-slate-500 mt-0">Titanium</p>
+                        <h3 class="mt-2"><a href="/titanium-additive-manufacturing/" class="highlight-link">Titanium Additive Manufacturing</a></h3>
+                        <p>
+                            Ti-6Al-4V combines high specific strength, corrosion resistance and low density. <strong>Best fit when weight reduction, structural efficiency and high machining buy-to-fly ratio are major program drivers.</strong>
+                        </p>
+                        <p><strong>Flagship grades:</strong> Ti-6Al-4V Grade 5 and Ti-6Al-4V ELI Grade 23</p>
+                        <p><a href="/titanium-additive-manufacturing/" class="highlight-link">Explore Titanium AM Capabilities</a></p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="applications" >
+            <div class="content-container">
+                <h2>Applications for Metal Additive Manufacturing</h2>
+                <p>
+                    The best AM applications are not defined only by industry. They are defined by a combination of part complexity, material value, production quantity, thermal or fluid requirements, assembly reduction and lead-time pressure.
+                </p>
+
+                <div class="grid gap-8 md:grid-cols-2 mt-8">
+                    <div>
+                        <h3>Aerospace & Defense</h3>
+                        <ul>
+                            <li>Propulsion and combustion hardware with integrated flow or cooling features</li>
+                            <li>Lightweight brackets and structural hardware</li>
+                            <li>Compact manifolds, ducting and thermal-management components</li>
+                            <li>Low-rate development hardware where tooling flexibility is valuable</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Energy & Power Generation</h3>
+                        <ul>
+                            <li>Complex superalloy hot-section or combustion-support hardware</li>
+                            <li>Heat-transfer and thermal-management components</li>
+                            <li>Low-volume replacement and development components</li>
+                            <li>Integrated flow components that benefit from reduced assembly count</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Marine, Chemical & Fluid Systems</h3>
+                        <ul>
+                            <li>Inconel 625 manifolds and flow components for corrosive environments</li>
+                            <li>Compact internal fluid passages and consolidated routing</li>
+                            <li>Low-volume replacement components with difficult legacy tooling economics</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Advanced Industrial Equipment</h3>
+                        <ul>
+                            <li>Complex tooling, fixtures and functionally integrated components</li>
+                            <li>High-value parts where reduced material removal can improve economics</li>
+                            <li>Prototype-to-production programs requiring fast engineering iteration</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="manufacturing-scenarios">
+            <div class="content-container">
+                <h2>Where Additive Manufacturing Can Improve the Manufacturing Route</h2>
+
+                <div class="space-y-8 mt-8">
+                    <article class="rounded-xl border border-slate-200 bg-white p-6">
+                        <h3 class="mt-0">Scenario 1: High Buy-to-Fly Inconel or Titanium Component</h3>
+                        <p>
+                            A conventionally machined component may begin as a large billet or forging and require extensive stock removal. For expensive, difficult-to-machine alloys, AM can build closer to final geometry before finish machining. The business case improves when material waste, machining hours and tool consumption are significant enough to offset AM build and post-processing cost.
+                        </p>
+                    </article>
+
+                    <article class="rounded-xl border border-slate-200 bg-white p-6">
+                        <h3 class="mt-0">Scenario 2: Multi-Part Flow Assembly</h3>
+                        <p>
+                            A manifold or thermal-management assembly may require several machined components followed by welding, brazing, fasteners and leak inspection. An AM redesign may integrate those flow paths into fewer components. The benefit is not only fewer parts—it can also reduce joining operations, assembly tolerance stack-up and supply-chain handoffs.
+                        </p>
+                    </article>
+
+                    <article class="rounded-xl border border-slate-200 bg-white p-6">
+                        <h3 class="mt-0">Scenario 3: Prototype to Mature Production</h3>
+                        <p>
+                            A program may use AM for the first prototypes, engineering validation and qualification quantities because no hard tooling is required. AM can then support bridge production while longer-term tooling is developed. If demand later grows and the geometry is suitable, ForceBeyond can compare a transition to <a href="/investment-casting/" class="highlight-link">investment casting</a> or <a href="/forging/" class="highlight-link">forging</a>. The correct route can change over the product life cycle as design stability, annual volume and recurring-cost priorities change.
+                        </p>
+                        <p><strong>Typical lifecycle:</strong> Prototype / validation → LPBF → bridge production → evaluate mature casting, forging or machining route.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="why-forcebeyond">
+            <div class="content-container">
+                <h2>Why Work With ForceBeyond for Metal Additive Manufacturing?</h2>
+                <p>
+                    ForceBeyond treats additive manufacturing as one manufacturing option within a broader sourcing strategy. The goal is to use AM where its geometry, tooling, lead-time or material-efficiency advantages create real program value—and to recommend another process when casting, forging or machining provides a better long-term result.
+                </p>
+
+                <div class="grid gap-6 md:grid-cols-2 mt-8">
+                    <div class="rounded-xl border border-slate-200 bg-white p-6">
+                        <h3 class="mt-0">Manufacturing-Route Neutrality</h3>
+                        <p>
+                            ForceBeyond can compare LPBF with <a href="/investment-casting/" class="highlight-link">investment casting</a>, <a href="/forging/" class="highlight-link">forging</a> and <a href="/precision-machining/" class="highlight-link">precision machining</a> before production release rather than defaulting every complex part to AM.
+                        </p>
+                    </div>
+
+                    <div class="rounded-xl border border-slate-200 bg-white p-6">
+                        <h3 class="mt-0">High-Performance Alloy Focus</h3>
+                        <p>
+                            The AM service centers on Inconel 718, Inconel 625 and Ti-6Al-4V grades that align with aerospace, energy, marine and advanced industrial applications where material performance and manufacturing route both matter.
+                        </p>
+                    </div>
+
+                    <div class="rounded-xl border border-slate-200 bg-white p-6">
+                        <h3 class="mt-0">Integrated Post-Processing</h3>
+                        <p>
+                            Heat treatment, HIP where required, precision machining and <a href="/testing-inspection-capabilities/" class="highlight-link">testing and inspection</a> can be coordinated as part of the same manufacturing plan so the sourcing decision is based on the finished component, not printer capability alone.
+                        </p>
+                    </div>
+
+                    <div class="rounded-xl border border-slate-200 bg-white p-6">
+                        <h3 class="mt-0">Prototype-to-Production Strategy</h3>
+                        <p>
+                            AM can support prototype, validation and bridge-production needs, while later production can be re-evaluated against casting, forging or machining as annual volume, design stability and recurring-cost priorities change.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="post-processing" >
+            <div class="content-container">
+                <h2>Additive Manufacturing Is Only Part of the Production Process</h2>
+                <p>
+                    For critical metal components, printing is usually only one step in the route to a drawing-compliant finished part. ForceBeyond coordinates downstream operations according to the alloy, build condition, specification and application.
+                </p>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Production Stage</th>
+                                <th scope="col">Purpose</th>
+                                <th scope="col">ForceBeyond Resource</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Build & Support Removal</th>
+                                <td>Produce the near-net geometry and remove the part/support structure from the build platform.</td>
+                                <td>Project-specific AM manufacturing route</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Stress Relief / Heat Treatment</th>
+                                <td>Manage residual stress and develop the required alloy condition where specified.</td>
+                                <td><a href="/heat-treatment/" class="highlight-link">Heat Treatment</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Hot Isostatic Pressing</th>
+                                <td>Reduce enclosed internal porosity and increase density when required by the program.</td>
+                                <td><a href="/hot-isostatic-pressing/" class="highlight-link">HIP Services</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Precision Machining</th>
+                                <td>Finish critical datums, bores, sealing surfaces, threads and tight-tolerance features.</td>
+                                <td><a href="/high-precision-machining/" class="highlight-link">High-Precision Machining</a></td>
+                            </tr>
+                            <tr>
+                                <th scope="row">NDT & Dimensional Inspection</th>
+                                <td>Verify geometry, surface condition and internal quality according to the defined inspection plan.</td>
+                                <td><a href="/testing-inspection-capabilities/" class="highlight-link">Testing & Inspection</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="design-considerations">
+            <div class="content-container">
+                <h2>What Should Customers Consider Before Ordering an Additively Manufactured Part?</h2>
+                <p>
+                    A successful AM program starts with design-for-manufacturing and qualification review, not simply uploading a 3D model. The following items should be considered before the build route is released.
+                </p>
+
+                <h3>Geometry and Build Orientation</h3>
+                <p>
+                    Orientation affects support requirements, build time, surface condition, residual stress, accessibility and the location of machining stock. Critical surfaces and datums should be identified before build preparation.
+                </p>
+
+                <h3>Support Removal and Powder Removal</h3>
+                <p>
+                    Supports must be accessible for removal, and enclosed channels must be evaluated for powder evacuation and downstream cleaning. A printable internal passage is not automatically a manufacturable or inspectable passage.
+                </p>
+
+                <h3>Surface Finish and Final Tolerances</h3>
+                <p>
+                    As-built AM surfaces and dimensions should not be assumed to match finish-machined requirements. Critical sealing faces, bearing surfaces, threaded features, datum structures and tight GD&T commonly require machining or finishing allowances.
+                </p>
+
+                <h3>Material Condition and Post-Processing</h3>
+                <p>
+                    Build parameters, orientation, stress relief, solution treatment, aging and HIP can affect final material behavior. The required route should be tied to the governing material specification, drawing and customer qualification plan rather than a generic “printed material” data sheet.
+                </p>
+
+                <h3>Inspection Strategy</h3>
+                <p>
+                    Complex AM geometry can require a combination of dimensional inspection, penetrant testing, radiography, ultrasonic methods, industrial CT, metallography, witness coupons or other project-specific verification. Inspection method and acceptance criteria should be agreed during feasibility review. See our <a href="/testing-inspection-capabilities/" class="highlight-link">Testing & Inspection Capabilities</a> for the broader quality framework.
+                </p>
+
+                <h3>Qualification and Traceability</h3>
+                <p>
+                    Aerospace, defense, power-generation and other critical applications may require controlled powder lots, machine/process qualification, build records, heat-treatment traceability, mechanical testing, inspection records and customer-specific approvals. Required documentation should be defined before production begins.
+                </p>
+            </div>
+        </section>
+
+        <section id="rfq-information" >
+            <div class="content-container">
+                <h2>What Information Should You Provide for an Additive Manufacturing Quote?</h2>
+                <p>
+                    The more clearly the engineering and sourcing requirements are defined, the more accurately ForceBeyond can compare AM with conventional manufacturing routes.
+                </p>
+
+                <div class="grid gap-8 md:grid-cols-2 mt-8">
+                    <div>
+                        <h3>Part & Material Information</h3>
+                        <ul>
+                            <li>3D CAD model and 2D engineering drawing when available</li>
+                            <li>Required alloy, material specification and material condition</li>
+                            <li>Overall dimensions and critical wall / channel features</li>
+                            <li>Critical dimensions, datums, GD&T and surface-finish requirements</li>
+                            <li>Service temperature, environment and loading information when relevant</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3>Production & Quality Information</h3>
+                        <ul>
+                            <li>Prototype quantity, batch quantity and estimated annual demand</li>
+                            <li>Required delivery schedule and development milestones</li>
+                            <li>Heat treatment and HIP requirements</li>
+                            <li>NDT, dimensional inspection and mechanical testing requirements</li>
+                            <li>Certification, traceability and documentation package</li>
+                            <li>Any customer-specific process qualification or approved-source requirements</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <p class="mt-8">
+                    If the manufacturing route has not yet been selected, send the same engineering package and identify the program priorities—such as lead time, recurring cost, material utilization, performance or design flexibility. ForceBeyond can compare <strong>additive manufacturing, investment casting, forging and machining</strong> before the production route is finalized.
+                </p>
+            </div>
+        </section>
+
+        <section id="material-pages">
+            <div class="content-container">
+                <h2>Explore Additive Manufacturing by Material</h2>
+                <p>
+                    Use the material-specific pages below for deeper guidance on alloy behavior, applications, post-processing and process selection.
+                </p>
+
+                <div class="grid gap-6 md:grid-cols-3 mt-8">
+                    <a href="/inconel-718-additive-manufacturing/" class="block rounded-xl border border-slate-200 bg-white p-6 no-underline shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                        <h3 class="mt-0 text-black">Inconel 718 Additive Manufacturing</h3>
+                        <p>High-strength nickel superalloy AM for aerospace, propulsion, turbine, energy and demanding industrial components.</p>
+                    </a>
+                    <a href="/inconel-625-additive-manufacturing/" class="block rounded-xl border border-slate-200 bg-white p-6 no-underline shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                        <h3 class="mt-0 text-black">Inconel 625 Additive Manufacturing</h3>
+                        <p>Corrosion-resistant nickel alloy AM for marine, chemical, energy, aerospace and fluid-system applications.</p>
+                    </a>
+                    <a href="/titanium-additive-manufacturing/" class="block rounded-xl border border-slate-200 bg-white p-6 no-underline shadow-sm transition hover:-translate-y-1 hover:shadow-md">
+                        <h3 class="mt-0 text-black">Titanium Additive Manufacturing</h3>
+                        <p>Ti-6Al-4V Grade 5 and Grade 23 AM for lightweight, high-value aerospace and advanced engineered components.</p>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+</IndividualPageLayout>

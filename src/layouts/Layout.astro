@@ -372,6 +372,23 @@ const currentYear = new Date().getFullYear();
                                 </div>
                             </li>
 
+                            <!-- Additive Manufacturing Layer -->
+                            <li class="relative group/submenu">
+                                <a href="/additive-manufacturing" class="flex items-center justify-between px-5 py-2.5 font-semibold transition hover:bg-brand-blue hover:text-white">
+                                    <span>Additive Manufacturing</span>
+                                    <span class="text-xs" aria-hidden="true">▶</span>
+                                </a>
+                                <div class="invisible opacity-0 translate-x-2 group-hover/submenu:visible group-hover/submenu:opacity-100 group-hover/submenu:translate-x-0 transition-all duration-200 absolute left-full top-[-9px] z-50">
+                                    <div class="min-w-[300px] bg-white border border-slate-200 shadow-2xl">
+                                        <ul class="py-2 text-sm text-slate-700">
+                                            <li><a href="/inconel-718-additive-manufacturing/" class="block px-6 py-2.5 font-semibold hover:bg-slate-50 hover:text-brand-blue transition">Inconel 718 Additive Manufacturing</a></li>
+                                            <li><a href="/inconel-625-additive-manufacturing/" class="block px-6 py-2.5 font-semibold hover:bg-slate-50 hover:text-brand-blue transition">Inconel 625 Additive Manufacturing</a></li>
+                                            <li><a href="/titanium-additive-manufacturing/" class="block px-6 py-2.5 font-semibold hover:bg-slate-50 hover:text-brand-blue transition">Titanium Additive Manufacturing</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+
                             <!-- Secondary Operations Layer -->
                             <li class="relative group/submenu">
                                 <a href="/secondary-operations" class="flex items-center justify-between px-5 py-2.5 font-semibold transition hover:bg-brand-blue hover:text-white">
@@ -810,8 +827,22 @@ const currentYear = new Date().getFullYear();
                         </div>
                     </details>
 
+                    <!-- Additive Manufacturing Tier -->
+                    <details class="group/cap border-b border-slate-200/70">
+                        <summary class="flex cursor-pointer list-none items-center justify-between py-3 pl-10 pr-6 font-semibold text-slate-700 hover:text-brand-blue">
+                            <span>Additive Manufacturing</span>
+                            <span class="text-xs transition-transform group-open/cap:rotate-180" aria-hidden="true">▾</span>
+                        </summary>
+                        <div class="bg-white">
+                            <a href="/additive-manufacturing" class="mobile-menu-link block py-2.5 pl-14 pr-6 font-semibold text-brand-blue border-b border-slate-100">Overview: Additive Manufacturing</a>
+                            <a href="/inconel-718-additive-manufacturing" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Inconel 718 Additive Manufacturing</a>
+                            <a href="/inconel-625-additive-manufacturing" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Inconel 625 Additive Manufacturing</a>
+                            <a href="/titanium-additive-manufacturing" class="mobile-menu-link block py-2.5 pl-14 pr-6 text-slate-600 hover:text-brand-blue">Titanium Additive Manufacturing</a>
+                        </div>
+                    </details>
+
                     <!-- Secondary Operations Tier -->
-                    <details class="group/cap">
+                    <details class="group/cap border-b border-slate-200/70">
                         <summary class="flex cursor-pointer list-none items-center justify-between py-3 pl-10 pr-6 font-semibold text-slate-700 hover:text-brand-blue">
                             <span>Secondary Operations</span>
                             <span class="text-xs transition-transform group-open/cap:rotate-180" aria-hidden="true">▾</span>

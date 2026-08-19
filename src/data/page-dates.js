@@ -394,4 +394,28 @@ export const pageDates = {
         published: "2026-03-05T11:07:47-05:00",
         modified: "2026-08-14",
     },
+    "/additive-manufacturing/": {
+        published: "2026-08-19T13:20:00-04:00",
+        modified: "2026-08-19",
+    },
+    "/inconel-718-additive-manufacturing/": {
+        published: "2026-08-19",
+        modified: "2026-08-19",
+    },
+    "/inconel-625-additive-manufacturing/": {
+        published: "2026-08-19",
+        modified: "2026-08-19",
+    },
+    "/titanium-additive-manufacturing/": {
+        published: "2026-08-19",
+        modified: "2026-08-19",
+    },
+    "/inconel-625-additive-manufacturing/": {
+        published: "2026-08-19",
+        modified: "2026-08-19",
+    },
+      "/titanium-additive-manufacturing/": {
+        published: "2026-08-19",
+        modified: "2026-08-19",
+    },
 };
