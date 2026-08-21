@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/about-forcebeyond/'];
 
 const pageTitle = 'About ForceBeyond';
 const seoTitle = 'About ForceBeyond | Tier-1.5 Engineered Components Manufacturer';
@@ -12,11 +16,11 @@ const faqs = [
     },
     {
         q: "How does ForceBeyond ensure supply chain redundancy?",
-        a: "We mitigate supply chain risks and single-source failures by offering built-in geographic redundancy. With manufacturing footprints in multiple strategic regions—including North America, South Korea, and Taiwan—we can seamlessly reallocate or shift production to maintain zero assembly line downtime."
+        a: "We mitigate supply chain risks and single-source failures through geographic redundancy. When qualified alternate production routes are available, manufacturing footprints in North America, South Korea, and Taiwan can reduce exposure to production interruptions and support continuity."
     },
     {
         q: "What industries and quality standards does ForceBeyond support?",
-        a: "We serve highly regulated sectors where failure is not an option, including Aerospace, Defense, Power Generation (SMR Nuclear), Medical Devices, and Heavy Automotive. Our network operates under stringent compliance frameworks including AS9100, ISO 9001:2015, and IATF 16949 with complete material traceability and PPAP documentation."
+        a: "We support programs in Aerospace, Defense, Power Generation (including SMR Nuclear), Medical Devices, and Heavy Automotive. Appropriately qualified facilities within our manufacturing network may hold certifications such as AS9100, ISO 9001, and IATF 16949. Certification status, scope, facility, process, and applicability are verified for each program, together with the required traceability and documentation."
     }
 ];
 
@@ -67,40 +71,20 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "AboutPage",
-      "@id": "https://www.forcebeyond.com/about-forcebeyond#webpage",
-      "url": "https://www.forcebeyond.com/about-forcebeyond",
+      "@id": "https://www.forcebeyond.com/about-forcebeyond/#webpage",
+      "url": "https://www.forcebeyond.com/about-forcebeyond/",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
-        "@type": "WebSite",
-        "@id": "https://www.forcebeyond.com#website",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.com"
+        "@id": "https://www.forcebeyond.com/#website"
+      },
+      "about": {
+        "@id": "https://www.forcebeyond.com/#organization"
       }
     },
     {
-      "@type": "Organization",
-      "@id": "https://www.forcebeyond.com#organization",
-      "name": "ForceBeyond",
-      "url": "https://www.forcebeyond.com",
-      "foundingDate": "2006",
-      "description": "Premier global provider of high-precision castings, exotic alloy machining, and turnkey Tier-1.5 manufacturing solutions.",
-      "knowsAbout": [
-        "Precision Investment, Vacuum, Die, and Sand Casting",
-        "Exotic Superalloy Machining (Titanium, Inconel 718/625, Hastelloy)",
-        "Tier-1.5 Co-Ownership Manufacturing & Supply Chain Redundancy",
-        "Hot Isostatic Pressing (HIP) and Secondary Operations",
-        "AS9100, ISO 9001:2015, and IATF 16949 Quality Frameworks"
-      ],
-      "areaServed": [
-        { "@type": "Country", "name": "United States" },
-        { "@type": "Country", "name": "South Korea" },
-        { "@type": "Country", "name": "Taiwan" }
-      ]
-    },
-    {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.com/about-forcebeyond#faq",
+      "@id": "https://www.forcebeyond.com/about-forcebeyond/#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,
@@ -118,6 +102,9 @@ const pageSchema = {
     title={seoTitle}
     description={seoDescription}
     schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     pageTitle={pageTitle}
     heroImage="/media/forcebeyond-company-building.webp"
     heroImageAlt="forcebeyond-company-building"
@@ -166,7 +153,7 @@ const pageSchema = {
                 <h2>Purpose & Drive</h2>
                 <ul>
                     <li>
-                        <strong>Our Mission:</strong> To engineer resilience into global supply chains by delivering high-precision, mission-critical components that meet the world’s most stringent regulatory standards—on time, every time.
+                        <strong>Our Mission:</strong> To engineer resilience into global supply chains by delivering high-precision, mission-critical components to the applicable regulatory and customer requirements.
                     </li>
                     <li>
                         <strong>Our Vision:</strong> To be the definitive Tier-1.5 manufacturing partner for advanced industries, blending global cost-competitiveness with domestic engineering accountability, and pioneering frictionless, redundant supply chains for an evolving global market.
@@ -192,17 +179,17 @@ const pageSchema = {
                             <tr>
                                 <th scope="row">1. The Co-Ownership Model</th>
                                 <td>Equity stakes and direct operational oversight across our global foundry network.</td>
-                                <td>Total quality control, priority production scheduling, and domestic IP protection paired with global cost-efficiency.</td>
+                                <td>Coordinated quality oversight, priority production scheduling, and domestic IP support paired with global cost-efficiency.</td>
                             </tr>
                             <tr>
                                 <th scope="row">2. Radical Supply Chain Redundancy</th>
                                 <td>Built-in geographic redundancy across manufacturing footprints in North America, South Korea, and Taiwan.</td>
-                                <td>Mitigates geopolitical shifts and logistics bottlenecks with seamless production shifting for zero downtime.</td>
+                                <td>Reduces exposure to geopolitical shifts, logistics bottlenecks, and production interruptions when qualified alternate routes are available.</td>
                             </tr>
                             <tr>
                                 <th scope="row">3. Engineering-First Methodology</th>
                                 <td>Early-stage integration providing advanced Design for Manufacturing (DFM) feedback.</td>
-                                <td>Optimizes part geometries, refines alloy choices, reduces weight, eliminates scrap, and lowers TCO.</td>
+                                <td>Optimizes part geometries, refines alloy choices, reduces weight and scrap risk, and lowers TCO.</td>
                             </tr>
                         </tbody>
                     </table>
@@ -240,7 +227,7 @@ const pageSchema = {
                     At ForceBeyond, quality is not a checkbox—it is our absolute gatekeeper. We serve industries where component failure is not an option, including Aerospace, Defense, Power Generation (SMR Nuclear), Medical Devices, and Heavy Automotive.
                 </p>
                 <p>
-                    <strong>Our Quality Management Standard:</strong> ForceBeyond and our manufacturing network operate under stringent compliance frameworks, fully supporting AS9100, ISO 9001:2015, and IATF 16949 standards. Every project is backed by comprehensive material traceability, PPAP documentation, and robust inspection reports (CMM, X-Ray, FPI).
+                    <strong>Our Quality Management Approach:</strong> ForceBeyond supports programs requiring quality frameworks such as AS9100, ISO 9001, and IATF 16949 through appropriately qualified facilities within its manufacturing network. Certification status, scope, and applicability are verified at the facility and process level for each project. Required material traceability, PPAP documentation, and inspection reporting (such as CMM, X-Ray, or FPI) are defined by the applicable program requirements.
                 </p>
             </div>
         </section>

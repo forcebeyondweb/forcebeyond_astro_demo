@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/near-net-shape-titanium-machining/'];
 
 const pageTitle = 'Near-Net-Shape (NNS) Titanium Machining: High-Efficiency Finishing';
 const seoTitle = 'NNS Titanium Machining | Near-Net-Shape Finishing Specialists';
@@ -97,7 +101,10 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/aerospace-titanium-5-axis-machining-as9100-hero.webp"
     heroImageAlt="Precision 5-axis machining of an aerospace titanium component in an AS9100-certified manufacturing environment"
@@ -233,8 +240,7 @@ const pageSchema = {
 
                 <p>
                     For complex cast geometries, our machining spoke utilizes 5-axis “Best Fit” algorithms. 
-                    We analyze the as-cast surface and shift the digital model to ensure every critical feature 
-                    has enough material for a perfect finish.
+                    We analyze the as-cast surface and align the digital model so critical features can retain the machining allowance required by the drawing and process plan.
                 </p>
                 
             </div>

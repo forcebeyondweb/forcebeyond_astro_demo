@@ -1,0 +1,284 @@
+---
+import { pageDates } from '../data/page-dates.js';
+import TitaniumSolutionsPageLayout from '../layouts/TitaniumSolutionsPageLayout.astro';
+
+
+const dates = pageDates['/titanium-fan-blades/'];
+
+const pageTitle = 'Titanium Fan Blades';
+const seoTitle = 'Titanium Fan Blades | Forged Turbine & Compressor Fan Blades | ForceBeyond';
+const seoDescription = 'ForceBeyond provides custom titanium fan blades and forged turbine compressor fan blades for aerospace applications, combining high strength-to-weight ratio, corrosion resistance, and precision manufacturing.';
+
+const galleryItems = [
+    {
+        src: '/media/thumbs_Titanium-F-15-Turbine-Blade-Titanium-Forged-Turbine-Compressor-Fan-Blade.jpg',
+        alt: 'Titanium Forged Turbine Compressor Fan Blade'
+    }
+];
+
+const sources = [
+    { label: 'American Foundry Society — Metal Casting', url: 'https://www.afsinc.org/' },
+    { label: 'Wikipedia — Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
+    { label: 'Wikipedia — Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
+    { label: 'eFunda — Sand Casting', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'The Investment Casting Institute — What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is-investment-casting.html' },
+    { label: 'The Library of Manufacturing — Investment Casting', url: 'http://thelibraryofmanufacturing.com/investment_casting.html' },
+    { label: 'Forging Industry Association — Forging Industry', url: 'https://www.forging.org/' }
+];
+
+const internalResources = [
+    { label: 'Die Casting', url: '/die-casting/' },
+    { label: 'Aluminum Die Casting', url: '/aluminum-die-casting/' },
+    { label: 'Zinc Die Casting', url: '/zinc-die-casting/' },
+    { label: 'A356 Aluminum Casting with T6 Heat Treatment', url: '/a356-t6-casting/' },
+    { label: 'Magnesium Die Casting', url: '/magnesium-casting/' },
+    { label: 'Investment Casting', url: '/investment-casting/' },
+    { label: 'Stainless Steel Casting', url: '/stainless-steel-casting/' },
+    { label: 'Duplex Stainless Steel Casting', url: '/duplex-stainless-steel-casting/' },
+    { label: 'Titanium Casting', url: '/titanium-casting/' },
+    { label: 'Carbon & Low Alloy Casting', url: '/carbon-steel-casting/' },
+    { label: 'Forging', url: '/forging/' },
+    { label: 'Cold Forging', url: '/cold-forging/' },
+    { label: 'ECO BRASS C69300 Brass Forging', url: '/c69300-brass-forging/' },
+    { label: 'Sand Casting (Aluminum, Ductile Iron & Gray Iron)', url: '/sand-casting/' }
+];
+
+const pageSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'WebPage',
+            '@id': 'https://www.forcebeyond.com/titanium-fan-blades/#webpage',
+            url: 'https://www.forcebeyond.com/titanium-fan-blades/',
+            name: seoTitle,
+            description: seoDescription,
+            datePublished: '2019-10-18T15:22:03-04:00',
+            dateModified: dates.modified,
+            isPartOf: { '@id': 'https://www.forcebeyond.com/#website' },
+            about: { '@id': 'https://www.forcebeyond.com/titanium-fan-blades/#service' },
+            inLanguage: 'en-US'
+        },
+        {
+            '@type': 'Service',
+            '@id': 'https://www.forcebeyond.com/titanium-fan-blades/#service',
+            name: 'Titanium Fan Blades',
+            serviceType: 'Titanium Fan Blade Manufacturing',
+            description: seoDescription,
+            provider: { '@id': 'https://www.forcebeyond.com/#organization' },
+            areaServed: { '@type': 'Country', name: 'United States' }
+        }
+    ]
+};
+---
+
+<TitaniumSolutionsPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/media/titanium-solutions-and-parts-hero.jpg"
+    heroImageAlt="Titanium aerospace components and precision titanium fan blade manufacturing"
+    publishedDate="2019-10-18T15:22:03-04:00"
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+    ctaTitle="Request a Quote for Titanium Fan Blades"
+    ctaDescription="Tell us about your titanium alloy, fan blade geometry, forging or machining requirements, inspection requirements, quantity, and delivery schedule."
+    ctaButtonUrl="/request-for-quote/"
+    ctaButtonText="Request for Quote"
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment Casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+    <h2>Titanium Fan Blades</h2>
+
+    <div class="titanium-content-media-row">
+        <div>
+            <p>
+                We are very experienced in the customized production of Titanium Fan Blades. We provide super quality of Titanium Fan Blades, which are designed to meet our customer’s target.
+            </p>
+
+            <p>
+                We maintain proactive communication with our customers to assure that we fully understand our customers’ requirements and produce parts with the desired characteristics in the most cost effective manner.
+            </p>
+
+            <p>
+                If you are looking for Titanium Fan Blades, get in touch today and we will provide you with an accurate quote and our best services.
+            </p>
+
+            <p>
+                Watch the video of our titanium casting and titanium alloy facility to learn how titanium castings and titanium alloys &amp; sheets are made. Video also available on
+                <a
+                    href="https://www.youtube.com/watch?v=-I22A2Ij8H8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    youtube.com
+                </a>.
+            </p>
+        </div>
+
+        <figure class="titanium-content-media">
+            <img
+                src="/media/Titanium-F-15-Turbine-Blade-Titanium-Forged-Turbine-Compressor-Fan-Blade.jpg"
+                alt="Titanium forged turbine compressor fan blade"
+                width="570"
+                height="365"
+                loading="eager"
+                decoding="async"
+            />
+        </figure>
+    </div>
+
+    <h2>Advantage of Titanium Fan Blades</h2>
+
+    <ul>
+        <li>
+            <strong>Strength and lightweight:</strong>
+            As strong as most common steels with less than 40% of the counterpart’s weight.
+        </li>
+        <li>
+            <strong>Corrosion resistance:</strong>
+            Almost as resistant to chemical attack as platinum. One of best candidates for seawater and chemical handling components.
+        </li>
+        <li>
+            <strong>Cosmetic appeal:</strong>
+            Titanium cosmetic and technical appeal even outperforms the precious metals especially in the consumer marketplace.
+        </li>
+    </ul>
+
+    <h2>Titanium Alloys Information for Titanium Fan Blades</h2>
+
+    <p>
+        Titanium offers a high strength to weight ratio and extraordinary corrosion resistance, making it an ideal choice for medical, marine, hand tools, sporting goods, and high performance automotive applications. We supply all grades of titanium alloys: Alpha alloys, Near Alpha alloys, Alpha and Beta alloys, Beta alloys. For oil and gas industry we supply high strength titanium alloys Titanium 6-2-4-6; for casting industry, we supply Grade 5 titanium and CP titanium.
+    </p>
+
+    <p>
+        There are two common casting titanium alloys: Titanium Grade 2 and Titanium Grade 5. Please see below for detailed characteristics, applications etc.
+    </p>
+
+    <h2>Titanium Alloy Grade 2</h2>
+
+    <p>
+        Titanium Grade 2 is light weight and highly corrosion resistant. It is an unalloyed titanium and is considered a “commercially pure” titanium (TiCP). Thanks to its varied usability and wide availability, Grade 2 is used in most of the chemical processing plants and is cold formable. Grade 2 plate and sheet can have ultimate tensile strength at and above 40,000 psi.
+    </p>
+
+    <p>
+        With moderate strength and excellent corrosion resistance, it also offers ductility and high impact toughness, and good weldability. It is used commonly in applications that require welding. Grades 2 is not hardenable by heat treatment.
+    </p>
+
+    <div class="content-table-wrapper">
+        <table class="content-table">
+            <caption>
+                <span class="caption-title">Applications for Titanium Casting &amp; Machining Alloy Grade 2</span>
+            </caption>
+            <tbody>
+                <tr>
+                    <th scope="row">Chemical Processes</th>
+                    <td>
+                        Grade 2 titanium is highly resistant to chemical environments including oxidising, alkaline, organic acids and compounds, aqueous salt solutions and hot gases. Its corrosion resistance holds up in, nitric acid, mildly reducing acids and wet chlorine or bromine gas.
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Marine</th>
+                    <td>
+                        In seawater, Grade 2 is resistant to corrosion at temperatures up to 315°C, rendering it ideal for a variety of marine uses.
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>Titanium Alloy Grade 5</h2>
+
+    <p>
+        Titanium Grade 5 is the most commonly used Titanium worldwide. Titanium Grade 5 is alloyed with 6% Aluminum and 4% Vanadium and is commonly known as Ti 6Al-4V. Grade 5 or Ti 6Al-4V, accounts for 50 percent of total titanium usage the world over.
+    </p>
+
+    <p>
+        It can be heat treated to enhance mechanical properties. It can be used in welded fabrication at service temperatures of up to 315°C. This alloy offers high strength at a light weight, useful formability and high corrosion resistance.
+    </p>
+
+    <div class="content-table-wrapper">
+        <table class="content-table">
+            <caption>
+                <span class="caption-title">Applications for Titanium Casting &amp; Machining Alloy Grade 5</span>
+            </caption>
+            <tbody>
+                <tr>
+                    <th scope="row">Industries</th>
+                    <td>Aerospace, medical, marine and chemical processing industries and oil field services.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Plate</th>
+                    <td>The material is worked to the closest size of the desired part and the grain structure of the finished piece is more homogenous.</td>
+                </tr>
+                <tr>
+                    <th scope="row">Heat Barrier</th>
+                    <td>Titanium stops the heat and does not transfer to the rest of the assembly.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>Surface Treatment for Titanium Fan Blades</h2>
+
+    <div class="content-table-wrapper">
+        <table class="content-table">
+            <caption>
+                <span class="caption-title">Surface Treatment for Casting &amp; Machining Titanium Alloys</span>
+            </caption>
+            <tbody>
+                <tr>
+                    <th scope="row">Corrosion Resistance and Surface Treatment</th>
+                    <td>
+                        1) The atmospheric oxidation treatment<br />
+                        2) Precious metal coating<br />
+                        3) Dry coating TiC, TiA membrane (CVD, w2, PCVD)<br />
+                        4) Pb + Pt + injection (ion beam and electron beam)
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Wear Resistance Surface Treatment</th>
+                    <td>
+                        1) Wet coating<br />
+                        2) Thermal diffusion method<br />
+                        3) Welding method<br />
+                        4) Sputtering<br />
+                        5) CVD, PCD, PCVD method<br />
+                        6) Ion implantation
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">Then Surface Treatment</th>
+                    <td>
+                        1) Surface finish<br />
+                        2) The mirror finishing<br />
+                        3) Color
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <section id="titanium-fan-blades-gallery" class="titanium-product-gallery-section">
+        <h2>Titanium Fan Blades</h2>
+
+        <div class="titanium-product-gallery">
+            {galleryItems.map((item) => (
+                <figure class="titanium-product-card">
+                    <div class="titanium-product-image">
+                        <img
+                            src={item.src}
+                            alt={item.alt}
+                            loading="lazy"
+                            decoding="async"
+                        />
+                    </div>
+                    <figcaption>{item.alt}</figcaption>
+                </figure>
+            ))}
+        </div>
+    </section>
+</TitaniumSolutionsPageLayout>

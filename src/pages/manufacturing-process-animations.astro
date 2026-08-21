@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/manufacturing-process-animations/'];
 
 const pageTitle = 'Manufacturing Process Visualizations: 3D Technical Animations';
 const seoTitle = '3D Manufacturing Process Visualizations & Animations | ForceBeyond';
@@ -67,41 +71,30 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.com/manufacturing-process-animations#webpage",
+      "@id": "https://www.forcebeyond.com/manufacturing-process-animations/#webpage",
       "url": "https://www.forcebeyond.com/manufacturing-process-animations",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.com#website",
+        "@id": "https://www.forcebeyond.com/#website",
         "name": "ForceBeyond",
         "url": "https://www.forcebeyond.com"
       }
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.com/manufacturing-process-animations#service",
+      "@id": "https://www.forcebeyond.com/manufacturing-process-animations/#service",
       "name": "3D Manufacturing Process Visualizations & Engineering",
       "serviceType": "Design for Manufacturability & Process Visualization",
       "description": seoDescription,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.com#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.com",
-        "knowsAbout": [
-          "Vacuum Investment Casting (VIM)",
-          "Closed-Die Hot Forging & Grain Flow Alignment",
-          "Hot Isostatic Pressing (HIP) Void Elimination",
-          "5-Axis Simultaneous CNC Milling & Turning",
-          "Automated Sand Molding (Green Sand vs. Resin No-Bake)",
-          "Design for Manufacturability (DFM) Simulations"
-        ]
+        "@id": "https://www.forcebeyond.com/#organization"
       }
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.com/manufacturing-process-animations#faq",
+      "@id": "https://www.forcebeyond.com/manufacturing-process-animations/#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,
@@ -118,7 +111,10 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="3D technical manufacturing process visualization and CAD simulation"
@@ -232,7 +228,7 @@ const pageSchema = {
                         <strong>Design for Manufacturability (DFM):</strong> Our engineering team reviews your 3D CAD prints to optimize wall transitions, draft angles, and machining allowances before tooling is cut.
                     </li>
                     <li>
-                        <strong>Zero Dimensional Hand-Off Risk:</strong> We guarantee that raw castings and forgings fit perfectly into secondary CNC fixtures, eliminating vendor disputes over out-of-spec raw stock.
+                        <strong>Reduced Dimensional Hand-Off Risk:</strong> Coordinated casting, forging, and machining routes help confirm that raw components fit the qualified CNC fixtures and reduce disputes over out-of-spec stock.
                     </li>
                     <li>
                         <strong>Single-Source Quality Assurance:</strong> Every process shown in our animations is certified with complete EN 10204 3.1 Material Test Reports (MTRs), CMM dimensional maps, and Non-Destructive Testing (NDT) sign-offs.

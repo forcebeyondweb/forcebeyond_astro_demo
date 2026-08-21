@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/industrial-titanium-sand-casting/'];
 
 const pageTitle = 'Industrial Titanium Sand Casting: Large-Scale Corrosion Resistant Solutions';
 const seoTitle = 'Industrial Titanium Sand Casting | Large-Scale Pump & Valve Bodies';
@@ -81,8 +85,7 @@ const pageSchema = {
       "name": "Titanium Investment Casting",
       "description": "High-precision investment casting services for titanium alloys used in aerospace and medical industries.",
       "provider": {
-        "@type": "Organization",
-        "name": "ForceBeyond"
+        "@id": "https://www.forcebeyond.com/#organization"
       },
       "isRelatedTo": [
         {
@@ -102,7 +105,10 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/titanium-investment-casting-lost-wax-components-hero.webp"
     heroImageAlt="Titanium investment casting process with precision cast components, ceramic shell mold, and molten metal in a modern foundry"

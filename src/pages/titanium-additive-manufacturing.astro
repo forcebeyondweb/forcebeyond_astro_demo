@@ -1,0 +1,980 @@
+---
+import { pageDates } from '../data/page-dates.js';
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const dates = pageDates['/titanium-additive-manufacturing/'] ?? {
+    published: '2026-08-19',
+    modified: '2026-08-19'
+};
+
+const pageTitle = 'Titanium Additive Manufacturing Services';
+const seoTitle = 'Titanium Additive Manufacturing Services | Ti-6Al-4V LPBF | ForceBeyond';
+const seoDescription = 'Titanium additive manufacturing using LPBF for Ti-6Al-4V Grade 5 and Grade 23 components, with coordinated heat treatment, HIP where required, CNC machining and inspection.';
+
+const canonicalUrl = 'https://www.forcebeyond.com/titanium-additive-manufacturing/';
+const heroImage = '/media/metal-additive-manufacturing-inconel-titanium-hero.webp';
+const socialImage = `https://www.forcebeyond.com${heroImage}`;
+
+const faqs = [
+    {
+        q: 'Can Ti-6Al-4V be additively manufactured?',
+        a: 'Yes. Ti-6Al-4V is one of the most established titanium alloys for metal additive manufacturing. ASTM F2924 covers additively manufactured Ti-6Al-4V components produced by full-melt powder bed fusion processes such as laser and electron-beam melting. Final properties depend on powder chemistry, build parameters, orientation, thermal processing, machining, inspection and the governing customer specification.'
+    },
+    {
+        q: 'What is the difference between Ti-6Al-4V Grade 5 and Grade 23 for additive manufacturing?',
+        a: 'Grade 23 is the extra-low-interstitial version of Ti-6Al-4V, with tighter chemistry limits intended to support improved ductility and toughness. This generally supports improved ductility and toughness, while Grade 5 is widely used for structural applications requiring a strong strength-to-weight ratio. The correct grade depends on the governing specification, mechanical requirements, environment and qualification plan.'
+    },
+    {
+        q: 'Why is titanium attractive for additive manufacturing?',
+        a: 'Titanium combines low density, high specific strength and corrosion resistance, but conventional machining can create high material waste and long cycle times. LPBF can build closer to final geometry, create internal features and lightweight structures, consolidate parts and reduce the amount of expensive titanium removed as chips.'
+    },
+    {
+        q: 'Why choose titanium additive manufacturing instead of machining from billet?',
+        a: 'Titanium AM is especially attractive for complex components with high machining buy-to-fly ratios, inaccessible internal geometry, topology-optimized structures or low-volume production where material waste and machining time are significant. Machining remains the preferred route for many simple geometries and is commonly required after AM to establish critical datums, fits, threads and surface finishes.'
+    },
+    {
+        q: 'When should I choose titanium additive manufacturing instead of titanium casting or forging?',
+        a: 'LPBF is often attractive for low-volume or evolving designs, complex internal passages, lattice or topology-optimized structures and programs where conventional tooling lead time is difficult to justify. Casting can become more economical for mature repeat-production complex shapes, while forging may be preferred when a wrought structure, specific product form or established structural qualification route is required. Final selection depends on geometry, quantity, loading, specification, inspection and total delivered cost.'
+    },
+    {
+        q: 'Does LPBF Ti-6Al-4V require heat treatment?',
+        a: 'Thermal processing is commonly used because the as-built LPBF Ti-6Al-4V microstructure can contain fine acicular alpha-prime martensite and significant residual stress. Heat treatment can reduce residual stress and transform the microstructure toward alpha-plus-beta conditions with different strength and ductility. The exact cycle should follow the qualified AM process and applicable specification.'
+    },
+    {
+        q: 'Is HIP always required for titanium additive manufacturing?',
+        a: 'No. HIP may be required by a drawing, material specification, qualification plan, fatigue objective or customer requirement, but it is not universally required for every Ti-6Al-4V LPBF component. The need for HIP depends on process capability, internal-defect acceptance, fatigue requirements, part criticality and the qualified production route.'
+    },
+    {
+        q: 'What are common quality risks in titanium LPBF?',
+        a: 'Potential risks include lack-of-fusion defects, gas or keyhole porosity, residual stress, distortion, rough internal surfaces, trapped powder, anisotropy, oxygen or nitrogen pickup and microstructural variation. Titanium is especially sensitive to interstitial contamination at elevated temperature, so powder handling, inert atmosphere, thermal processing and surface control are important parts of the qualification plan.'
+    },
+    {
+        q: 'What applications are suitable for titanium additive manufacturing?',
+        a: 'Typical candidates include lightweight aerospace brackets and structural hardware, propulsion and fluid-system components, heat-management parts, complex manifolds, unmanned-system hardware, high-value industrial components and selected Grade 23 applications where extra-low-interstitial chemistry is required. Application suitability depends on the material specification, loading, environment, surface condition and qualification requirements.'
+    },
+    {
+        q: 'What should procurement teams evaluate in a titanium additive manufacturing supplier?',
+        a: 'Evaluate supported titanium grades and AM standards, powder chemistry and interstitial control, lot traceability, qualified build parameters, atmosphere control, heat treatment, HIP strategy, finish machining, fatigue-critical surface treatment, NDT or CT capability, mechanical testing, documentation and whether the supplier can compare additive manufacturing with casting, forging and machining.'
+    },
+    {
+        q: 'What information should I send for a titanium additive manufacturing RFQ?',
+        a: 'Provide the 3D CAD model and drawing when available, Ti-6Al-4V grade and applicable AM specification, prototype and annual quantities, critical dimensions and GD&T, service environment, mechanical and fatigue requirements, surface finish, heat treatment, HIP, NDT or CT requirements, documentation, qualification requirements and requested delivery schedule. Identify inaccessible internal passages and fatigue-critical surfaces.'
+    }
+];
+
+const sources = [
+    { label: 'ASTM International - ASTM F2924, Additive Manufacturing Ti-6Al-4V with Powder Bed Fusion', url: 'https://store.astm.org/standards/f2924' },
+    { label: 'ASTM International - ASTM F3001, Additive Manufacturing Ti-6Al-4V ELI with Powder Bed Fusion', url: 'https://store.astm.org/standards/f3001' },
+    { label: 'ASTM International - Additive Manufacturing Standards', url: 'https://store.astm.org/products-services/standards-and-publications/standards/additive-manufacturing-standards.html' },
+    { label: 'ASTM International - ASTM F3049, Characterizing Metal Powders for Additive Manufacturing', url: 'https://store.astm.org/standards/f3049' },
+    { label: 'ASTM International - ASTM F3301, Thermal Post-Processing of Metal Powder Bed Fusion Parts', url: 'https://store.astm.org/f3301-18a.html' },
+    { label: 'EOS - Titanium Ti64 Material Data Sheet', url: 'https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-titanium-ti64' },
+    { label: 'EOS - Titanium Ti64 Grade 23 Material Data Sheet', url: 'https://www.eos.info/en-us/metal-solutions/metal-materials/data-sheets/mds-eos-titanium-ti64-grade-23' },
+    { label: 'NIST - Powder Bed Fusion', url: 'https://www.nist.gov/additive-manufacturing/research-areas/technologies/powder-bed-fusion' }
+];
+
+const internalResources = [
+    // Additive Manufacturing Cluster
+    { label: 'Metal Additive Manufacturing Services', url: '/additive-manufacturing/' },
+    { label: 'Inconel 718 Additive Manufacturing', url: '/inconel-718-additive-manufacturing/' },
+    { label: 'Inconel 625 Additive Manufacturing', url: '/inconel-625-additive-manufacturing/' },
+
+    // Titanium Manufacturing Routes
+    { label: 'Titanium Casting', url: '/titanium-casting/' },
+    { label: 'Titanium Machining', url: '/titanium-machining/' },
+    { label: 'Forging Capabilities', url: '/forging/' },
+    { label: 'Titanium Alloys', url: '/titanium-alloys/' },
+
+    // Downstream Processing and Quality
+    { label: 'Hot Isostatic Pressing (HIP)', url: '/hot-isostatic-pressing/' },
+    { label: 'Heat Treatment', url: '/heat-treatment/' },
+    { label: 'High-Precision CNC Machining', url: '/high-precision-machining/' },
+    { label: 'Testing & Inspection Capabilities', url: '/testing-inspection-capabilities/' },
+    { label: 'Quality Assurance & Certifications', url: '/quality-assurance-certifications/' }
+];
+
+const pageSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'WebPage',
+            '@id': `${canonicalUrl}#webpage`,
+            url: canonicalUrl,
+            name: seoTitle,
+            description: seoDescription,
+            isPartOf: {
+                '@id': 'https://www.forcebeyond.com/#website'
+            },
+            primaryImageOfPage: {
+                '@type': 'ImageObject',
+                url: socialImage
+            },
+            breadcrumb: {
+                '@id': `${canonicalUrl}#breadcrumb`
+            },
+            about: [
+                { '@type': 'Thing', name: 'Titanium additive manufacturing' },
+                { '@type': 'Thing', name: 'Ti-6Al-4V Grade 5' },
+                { '@type': 'Thing', name: 'Ti-6Al-4V ELI Grade 23' },
+                { '@type': 'Thing', name: 'Laser powder bed fusion' },
+                { '@type': 'Thing', name: 'ASTM F2924' },
+                { '@type': 'Thing', name: 'ASTM F3001' }
+            ],
+            mainEntity: {
+                '@id': `${canonicalUrl}#service`
+            },
+            inLanguage: 'en-US'
+        },
+        {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            itemListElement: [
+                {
+                    '@type': 'ListItem',
+                    position: 1,
+                    name: 'Home',
+                    item: 'https://www.forcebeyond.com/'
+                },
+                {
+                    '@type': 'ListItem',
+                    position: 2,
+                    name: 'Additive Manufacturing',
+                    item: 'https://www.forcebeyond.com/additive-manufacturing/'
+                },
+                {
+                    '@type': 'ListItem',
+                    position: 3,
+                    name: 'Titanium Additive Manufacturing',
+                    item: canonicalUrl
+                }
+            ]
+        },
+        {
+            '@type': 'Service',
+            '@id': `${canonicalUrl}#service`,
+            name: 'Titanium Additive Manufacturing Services',
+            serviceType: 'Ti-6Al-4V Laser Powder Bed Fusion Additive Manufacturing',
+            description: seoDescription,
+            url: canonicalUrl,
+            provider: {
+                '@id': 'https://www.forcebeyond.com/#organization'
+            },
+            areaServed: {
+                '@type': 'Country',
+                name: 'United States'
+            },
+            material: [
+                'Ti-6Al-4V Grade 5',
+                'Ti-6Al-4V ELI Grade 23'
+            ],
+            knowsAbout: [
+                'Titanium Additive Manufacturing',
+                'Ti-6Al-4V',
+                'Ti-6Al-4V Grade 5',
+                'Ti-6Al-4V ELI Grade 23',
+                'Laser Powder Bed Fusion',
+                'LPBF',
+                'ASTM F2924',
+                'ASTM F3001',
+                'Hot Isostatic Pressing',
+                'Heat Treatment',
+                'Precision Machining',
+                'Industrial CT',
+                'Non-Destructive Testing'
+            ],
+            hasOfferCatalog: {
+                '@type': 'OfferCatalog',
+                name: 'Titanium Additive Manufacturing and Post-Processing',
+                itemListElement: [
+                    {
+                        '@type': 'ListItem',
+                        position: 1,
+                        name: 'Ti-6Al-4V Grade 5 LPBF'
+                    },
+                    {
+                        '@type': 'ListItem',
+                        position: 2,
+                        name: 'Ti-6Al-4V ELI Grade 23 LPBF'
+                    },
+                    {
+                        '@type': 'ListItem',
+                        position: 3,
+                        name: 'Stress Relief and Heat Treatment'
+                    },
+                    {
+                        '@type': 'ListItem',
+                        position: 4,
+                        name: 'Hot Isostatic Pressing where required'
+                    },
+                    {
+                        '@type': 'ListItem',
+                        position: 5,
+                        name: 'Precision CNC Finish Machining'
+                    },
+                    {
+                        '@type': 'ListItem',
+                        position: 6,
+                        name: 'NDT, CT and Dimensional Inspection'
+                    }
+                ]
+            }
+        },
+        {
+            '@type': 'FAQPage',
+            '@id': `${canonicalUrl}#faq`,
+            mainEntity: faqs.map((faq) => ({
+                '@type': 'Question',
+                name: faq.q,
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: faq.a.replace(/<[^>]+>/g, '')
+                }
+            }))
+        }
+    ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
+    modifiedDate={dates.modified}
+    publishedDate={dates.published}
+    pageTitle={pageTitle}
+    heroImage={heroImage}
+    heroImageAlt="Titanium component being produced by laser powder bed fusion metal additive manufacturing"
+    socialImage={socialImage}
+    socialImageAlt="Titanium additive manufacturing services for Ti-6Al-4V Grade 5 and Grade 23"
+    schema={pageSchema}
+    faqSectionTitle="Titanium Additive Manufacturing FAQ"
+    faqItems={faqs}
+    ctaTitle="Evaluate Titanium Additive Manufacturing for Your Part"
+    ctaDescription="Send your geometry, titanium grade, quantity, weight-reduction targets, critical tolerances, fatigue requirements, delivery needs and qualification requirements. ForceBeyond can compare LPBF with titanium casting, forging and CNC machining to determine the most appropriate manufacturing route."
+    ctaButtonUrl="/request-for-quote/"
+    ctaButtonText="Request a Titanium Manufacturing Review"
+    sourcesTitle="Titanium Additive Manufacturing Technical Sources"
+    sourcesList={sources}
+    resourcesTitle="Related Titanium & Additive Manufacturing Resources"
+    resourcesList={internalResources}
+>
+    <div class="individual-content">
+        <p class="page-lead">
+            <strong>ForceBeyond provides titanium additive manufacturing services</strong> using <strong>laser powder bed fusion (LPBF)</strong> for lightweight, high-value <strong>Ti-6Al-4V Grade 5 and Ti-6Al-4V ELI Grade 23</strong> components, with coordinated <a href="/heat-treatment/" class="highlight-link">heat treatment</a>, <a href="/hot-isostatic-pressing/" class="highlight-link">HIP</a> where required, <a href="/titanium-machining/" class="highlight-link">titanium finish machining</a>, NDT and dimensional inspection. LPBF is particularly attractive when a program combines high strength-to-weight requirements with complex geometry, internal passages, topology optimization, low-to-moderate quantities or a high conventional machining buy-to-fly ratio.
+        </p>
+    </div>
+
+    <div slot="full-width" class="individual-content">
+        <section id="overview">
+            <div class="content-container">
+                <h2>Why Ti-6Al-4V Is a Leading Titanium Alloy for Metal Additive Manufacturing</h2>
+                <p>
+                    Ti-6Al-4V is an <strong>alpha-beta titanium alloy</strong> valued for its combination of low density, high specific strength, corrosion resistance and broad engineering use. These characteristics make titanium especially attractive when component weight matters but aluminum, steel or nickel alloys cannot satisfy the required strength, temperature, corrosion or qualification requirements.
+                </p>
+                <p>
+                    The manufacturing economics are equally important. Titanium is expensive and relatively demanding to machine, so conventionally machined aerospace and structural components can begin with substantially more material than remains in the final part. LPBF can place titanium closer to final geometry before finish machining, potentially reducing raw-material waste, machining hours and tool consumption on parts with unfavorable buy-to-fly ratios.
+                </p>
+                <p>
+                    Titanium also benefits strongly from AM design freedom. Lightweight brackets, hollow or internally routed structures, topology-optimized shapes and integrated fluid or thermal features can be produced without the same tool-access limitations as conventional machining. The strongest business case appears when the design actually uses this freedom rather than simply printing a geometry already manufactured efficiently by another process.
+                </p>
+            </div>
+        </section>
+
+        <section id="grades">
+            <div class="content-container">
+                <h2>Ti-6Al-4V Grade 5 vs. Grade 23 for Additive Manufacturing</h2>
+                <p>
+                    ForceBeyond's flagship titanium AM focus is Ti-6Al-4V in conventional Grade 5 and extra-low-interstitial Grade 23 forms. They share the same basic Ti-Al-V alloy system, but their chemistry limits and target applications are not identical.
+                </p>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <caption>
+                            <span class="caption-title">Grade 5 vs. Grade 23 AM Selection</span>
+                            <span class="caption-subtitle">Final selection must follow the applicable material specification and customer requirements.</span>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Decision Factor</th>
+                                <th scope="col">Ti-6Al-4V Grade 5</th>
+                                <th scope="col">Ti-6Al-4V ELI Grade 23</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Material character</th>
+                                <td>Standard Ti-6Al-4V alpha-beta alloy</td>
+                                <td>Extra-low-interstitial Ti-6Al-4V</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Interstitial control</th>
+                                <td>Conventional Grade 5 limits</td>
+                                <td>Tighter oxygen / nitrogen and related chemistry limits</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Typical design emphasis</th>
+                                <td>High specific strength and structural efficiency</td>
+                                <td>Ductility, toughness and applications requiring ELI chemistry</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">AM specification</th>
+                                <td>ASTM F2924</td>
+                                <td>ASTM F3001</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Post-processing</th>
+                                <td>Heat treatment / HIP / machining as required</td>
+                                <td>Heat treatment / HIP / machining as required</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    Grade 23 should not automatically be treated as a universally "better" titanium grade. It is selected when the tighter ELI chemistry and resulting property balance are required by the application or specification. Grade 5 remains a strong choice for many structural aerospace and industrial components.
+                </p>
+            </div>
+        </section>
+
+        <section id="metallurgy">
+            <div class="content-container">
+                <h2>Titanium AM Metallurgy: Alpha, Beta and Interstitial Control</h2>
+                <p>
+                    Titanium AM requires both geometric process control and metallurgical discipline. Ti-6Al-4V is an alpha-beta alloy in conventional equilibrium conditions, but the extremely rapid cooling of LPBF can produce a very different as-built microstructure.
+                </p>
+
+                <div class="grid gap-6 md:grid-cols-2 mt-8">
+                    <div class="content-card">
+                        <h3>Alpha and Beta Phases</h3>
+                        <p>
+                            Aluminum stabilizes the alpha phase and vanadium stabilizes the beta phase in Ti-6Al-4V. The final balance, morphology and scale of these phases depend on composition and thermal history and influence strength, ductility and fatigue behavior.
+                        </p>
+                    </div>
+                    <div class="content-card">
+                        <h3>As-Built Alpha-Prime Martensite</h3>
+                        <p>
+                            Rapid LPBF cooling can transform the high-temperature beta structure into fine acicular <strong>alpha-prime (α′) martensite</strong>. This can provide high as-built strength but may be associated with lower ductility and substantial residual stress compared with an appropriately heat-treated alpha-plus-beta condition.
+                        </p>
+                    </div>
+                    <div class="content-card">
+                        <h3>Oxygen and Nitrogen Sensitivity</h3>
+                        <p>
+                            Titanium has a strong affinity for interstitial elements at elevated temperature. Oxygen and nitrogen can increase strength but reduce ductility and toughness when excessive. Powder chemistry, handling, chamber atmosphere and thermal processing therefore require controlled conditions and traceability.
+                        </p>
+                    </div>
+                    <div class="content-card">
+                        <h3>Alpha-Case Risk During Thermal Processing</h3>
+                        <p>
+                            Exposure of hot titanium to oxygen can create an oxygen-enriched alpha-case layer. Vacuum or suitably controlled inert-atmosphere heat treatment, appropriate finishing allowances and verification are important when surface integrity is critical.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="microstructure">
+            <div class="content-container">
+                <h2>How LPBF and Post-Processing Change Ti-6Al-4V Microstructure</h2>
+                <p>
+                    AM Ti-6Al-4V should be treated as a sequence of material conditions rather than a single generic "printed titanium" state. EOS material guidance for Grade 23 notes an as-manufactured acicular alpha-prime microstructure and recommends heat treatment to reduce internal stress and increase ductility; appropriate thermal processing can transform the microstructure toward fine alpha plus beta.
+                </p>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <caption>
+                            <span class="caption-title">Typical Material-State Considerations for LPBF Ti-6Al-4V</span>
+                            <span class="caption-subtitle">Qualitative guidance only; final requirements must come from the qualified process and governing specification.</span>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Condition</th>
+                                <th scope="col">Typical Characteristics</th>
+                                <th scope="col">Engineering Implication</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">As-Built</th>
+                                <td>Fine acicular α′ structure, directional thermal history and relatively high residual stress.</td>
+                                <td>May provide high strength but is not automatically the final condition for critical hardware.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Stress-Relieved / Heat Treated</th>
+                                <td>Residual stress is reduced and α′ can decompose toward a more ductile α + β structure depending on the thermal cycle.</td>
+                                <td>Used to establish the required balance of strength, ductility and dimensional stability.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">HIP + Heat Treated</th>
+                                <td>Suitable internal pores may be reduced while the elevated-temperature cycle also changes the microstructure.</td>
+                                <td>Applied where fatigue, density, criticality or qualification requirements justify the route.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Finish Machined / Surface Finished</th>
+                                <td>Critical geometry and surface condition are established after thermal processing as required.</td>
+                                <td>Important for fatigue-critical surfaces, fits, sealing features and drawing compliance.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="capabilities">
+            <div class="content-container">
+                <h2>Titanium Additive Manufacturing Capabilities</h2>
+                <p>
+                    For sourcing teams, the practical requirement is control of the complete titanium AM route—from powder chemistry and atmosphere through thermal processing, machining and inspection. ForceBeyond supports project-specific LPBF programs with downstream operations aligned to the drawing, purchase order and applicable qualification requirements.
+                </p>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <caption>
+                            <span class="caption-title">Titanium AM Service Scope</span>
+                            <span class="caption-subtitle">Availability, testing and acceptance criteria remain project- and specification-dependent.</span>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Capability</th>
+                                <th scope="col">Support</th>
+                                <th scope="col">Commercial / Engineering Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Materials</th>
+                                <td>Ti-6Al-4V Grade 5 / Grade 23</td>
+                                <td>Focuses on widely used high-performance alpha-beta titanium grades.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Primary AM Route</th>
+                                <td>LPBF</td>
+                                <td>Supports lightweight near-net geometry, internal passages, topology optimization and part consolidation.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Prototype & Qualification Builds</th>
+                                <td>Supported</td>
+                                <td>Useful for development, weight-reduction studies, design validation and qualification hardware.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Low-Volume / Bridge Production</th>
+                                <td>Supported</td>
+                                <td>Can reduce tooling dependency while mature casting or forging routes are being evaluated or developed.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Heat Treatment</th>
+                                <td>Coordinated per grade and specification</td>
+                                <td>Reduces residual stress and establishes the required microstructural and mechanical condition.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">HIP</th>
+                                <td>Available where required</td>
+                                <td>May reduce suitable internal porosity and support fatigue, density or qualification objectives.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">CNC Finish Machining</th>
+                                <td>Available</td>
+                                <td>Completes critical datums, bores, threads, interfaces and tight final tolerances.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">NDT / CT / Dimensional Inspection</th>
+                                <td>Project-specific</td>
+                                <td>Inspection is selected around geometry, defect risk, part criticality and acceptance criteria.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Mechanical / Metallurgical Testing</th>
+                                <td>Per qualification plan</td>
+                                <td>May include witness coupons, tensile testing, density, metallography, hardness or other specified tests.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Manufacturing Route Review</th>
+                                <td>AM vs. casting / forging / machining</td>
+                                <td>Helps determine whether titanium AM creates enough weight, material, tooling or lead-time value to justify the route.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="when-to-use">
+            <div class="content-container">
+                <h2>When Does Titanium Additive Manufacturing Make Sense?</h2>
+                <p>
+                    Titanium AM becomes most compelling when the design benefits from low mass, high material value, complex geometry or reduced tooling—not merely because titanium can be printed.
+                </p>
+
+                <div class="grid gap-6 md:grid-cols-2 mt-8">
+                    <div class="content-card">
+                        <h3>Strong Candidates for LPBF Titanium</h3>
+                        <ul>
+                            <li><strong>High buy-to-fly components:</strong> Parts that would otherwise remove large amounts of expensive titanium stock.</li>
+                            <li><strong>Topology-optimized structures:</strong> Lightweight brackets and load paths that place material where structurally required.</li>
+                            <li><strong>Complex internal passages:</strong> Fluid, cooling or thermal features difficult to machine conventionally.</li>
+                            <li><strong>Part consolidation:</strong> Multiple machined or joined components redesigned as fewer parts.</li>
+                            <li><strong>Low-volume high-value production:</strong> Quantities where dedicated tooling is difficult to justify.</li>
+                            <li><strong>Rapid design iteration:</strong> Programs with changing geometry or aggressive weight targets.</li>
+                            <li><strong>Bridge production:</strong> Early hardware while a longer-term casting or forging route is being qualified.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>When a Traditional Route May Be Better</h3>
+                        <ul>
+                            <li><strong>Stable high-volume production:</strong> Casting or forging may provide stronger recurring economics once tooling is amortized.</li>
+                            <li><strong>Simple accessible geometry:</strong> CNC machining may remain the most direct route.</li>
+                            <li><strong>Wrought product requirements:</strong> Forging or machining from wrought stock may be required by the design basis or governing specification.</li>
+                            <li><strong>Large components:</strong> Part size may exceed the practical LPBF build envelope.</li>
+                            <li><strong>Existing qualified tooling:</strong> AM may not create enough incremental value to justify a manufacturing-route change.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="lpbf-process">
+            <div class="content-container">
+                <h2>Titanium LPBF Manufacturing Process</h2>
+                <p>
+                    LPBF builds Ti-6Al-4V by selectively melting successive layers of powder according to sliced CAD geometry. Titanium's sensitivity to interstitial contamination makes powder handling, chamber atmosphere and thermal-processing controls especially important.
+                </p>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <caption>
+                            <span class="caption-title">Typical Titanium Additive Manufacturing Route</span>
+                            <span class="caption-subtitle">The exact sequence depends on grade, qualified process, drawing and customer requirements.</span>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Stage</th>
+                                <th scope="col">Purpose</th>
+                                <th scope="col">Key Engineering Considerations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1. Design & Build Preparation</th>
+                                <td>Orient the part, generate supports and define machining stock.</td>
+                                <td>Load path, fatigue-critical surfaces, support access, distortion, powder removal and final datums.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2. Powder & Atmosphere Control</th>
+                                <td>Confirm titanium powder chemistry and controlled build environment.</td>
+                                <td>Oxygen / nitrogen pickup, powder lot, reuse controls, particle characteristics and traceability.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3. LPBF Build</th>
+                                <td>Laser selectively melts Ti-6Al-4V powder layer by layer.</td>
+                                <td>Qualified parameters, melt-pool stability, scan strategy, build monitoring and inert atmosphere.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4. Stress Relief / Heat Treatment</th>
+                                <td>Reduce residual stress and establish the required microstructure.</td>
+                                <td>Use a validated titanium AM thermal route and control oxygen exposure / alpha-case risk.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5. Build & Support Removal</th>
+                                <td>Separate the component from the plate and remove supports.</td>
+                                <td>Thin-wall protection, accessibility, residual stress and dimensional stability.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6. HIP Where Required</th>
+                                <td>Reduce suitable internal porosity and support fatigue or density objectives.</td>
+                                <td>Not universal; apply according to specification, criticality and qualification plan.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">7. CNC / Surface Finishing</th>
+                                <td>Establish final geometry and fatigue-critical surface condition.</td>
+                                <td>Datums, threads, bores, sealing faces, surface roughness and potential alpha-case removal.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">8. Inspection & Documentation</th>
+                                <td>Verify final geometry, material condition and required internal / surface quality.</td>
+                                <td>CMM, CT, NDT, coupons, mechanical tests and traceability according to program requirements.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison">
+            <div class="content-container">
+                <h2>Titanium Additive Manufacturing vs. Casting, Forging and CNC Machining</h2>
+                <p>
+                    ForceBeyond can evaluate titanium LPBF against <a href="/titanium-casting/" class="highlight-link">titanium casting</a>, <a href="/forging/" class="highlight-link">forging</a> and <a href="/titanium-machining/" class="highlight-link">titanium machining</a>. Additive manufacturing should be selected when the complete program benefits from its geometry, tooling, material-utilization or lifecycle advantages.
+                </p>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <caption>
+                            <span class="caption-title">Manufacturing Route Selection for Ti-6Al-4V</span>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Decision Factor</th>
+                                <th scope="col">LPBF Additive</th>
+                                <th scope="col">Investment Casting</th>
+                                <th scope="col">Forging</th>
+                                <th scope="col">CNC from Stock</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Prototype / design iteration</th>
+                                <td><strong>Excellent</strong></td>
+                                <td>Good with printed patterns; production tooling adds time</td>
+                                <td>Limited when dedicated dies are required</td>
+                                <td><strong>Excellent</strong> for machinable geometry</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Topology optimization / lattice potential</th>
+                                <td><strong>Primary advantage</strong></td>
+                                <td>Limited</td>
+                                <td>Limited</td>
+                                <td>Limited by tool access</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Complex internal passages</th>
+                                <td><strong>Excellent</strong></td>
+                                <td>Good when core technology is practical</td>
+                                <td>Limited</td>
+                                <td>Limited by tool access</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">High buy-to-fly geometry</th>
+                                <td><strong>Strong</strong></td>
+                                <td>Strong near-net potential</td>
+                                <td>Strong with near-net preforms</td>
+                                <td>Can create significant material waste</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">High-volume economics</th>
+                                <td>Application dependent</td>
+                                <td><strong>Strong</strong></td>
+                                <td><strong>Strong</strong></td>
+                                <td>Geometry / cycle-time dependent</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Wrought grain flow</th>
+                                <td>No conventional forging grain flow</td>
+                                <td>No</td>
+                                <td><strong>Primary advantage</strong></td>
+                                <td>Inherited from wrought stock</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Tight final tolerances</th>
+                                <td>Finish machining commonly required</td>
+                                <td>Finish machining commonly required</td>
+                                <td>Finish machining commonly required</td>
+                                <td><strong>Primary advantage</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="applications">
+            <div class="content-container">
+                <h2>Typical Titanium Additive Manufacturing Applications</h2>
+                <p>
+                    The strongest titanium AM applications use LPBF to reduce mass, reduce material waste, integrate functions or produce geometry that conventional tooling and cutting processes cannot achieve efficiently.
+                </p>
+
+                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-8">
+                    <div class="content-card">
+                        <h3>Aerospace & Propulsion</h3>
+                        <ul>
+                            <li>Lightweight structural brackets</li>
+                            <li>Engine and propulsion support hardware</li>
+                            <li>Complex manifolds and fluid-routing components</li>
+                            <li>Thermal-management hardware</li>
+                            <li>Low-rate development and qualification components</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Defense & Unmanned Systems</h3>
+                        <ul>
+                            <li>Weight-sensitive structural hardware</li>
+                            <li>Compact integrated assemblies</li>
+                            <li>Low-volume mission-specific components</li>
+                            <li>Replacement or legacy hardware</li>
+                            <li>Rapidly iterated prototype components</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Advanced Industrial & Selected Grade 23 Programs</h3>
+                        <ul>
+                            <li>High-value corrosion-resistant components</li>
+                            <li>Compact heat-transfer and fluid structures</li>
+                            <li>Specialized tooling and fixtures</li>
+                            <li>Low-volume custom hardware</li>
+                            <li>Applications requiring Grade 23 ELI chemistry when specified</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="lead-time">
+            <div class="content-container">
+                <h2>Lead-Time and Buy-to-Fly Advantages for Titanium Programs</h2>
+                <p>
+                    Titanium AM can create value in two places at once: development lead time and material utilization. A design can move from digital geometry into LPBF without first waiting for hard tooling, while near-net building can reduce the amount of expensive titanium that must later be removed by machining.
+                </p>
+
+                <div class="grid gap-8 lg:grid-cols-2 mt-8">
+                    <div class="content-card">
+                        <h3>Conventional Titanium Route</h3>
+                        <p><strong>Billet / forging / casting → rough machining → extensive material removal → heat treatment / finishing → inspection</strong></p>
+                        <p>The route may be highly effective, but some complex aerospace components can require significant stock removal or dedicated tooling.</p>
+                    </div>
+                    <div class="content-card">
+                        <h3>LPBF Titanium Route</h3>
+                        <p><strong>CAD → build preparation → LPBF → thermal processing → finish machining → inspection</strong></p>
+                        <p>The value improves when digital design iteration, near-net geometry and reduced material removal offset AM build and post-processing cost.</p>
+                    </div>
+                </div>
+
+                <p>
+                    Commercially, LPBF can support <strong>prototype builds, engineering validation, qualification hardware, bridge production, low-volume production and replacement-part programs</strong>. Printing itself is not the complete lead time; heat treatment, HIP where required, machining, inspection and qualification must still be included in the schedule.
+                </p>
+            </div>
+        </section>
+
+        <section id="quality-risks">
+            <div class="content-container">
+                <h2>Quality Risks to Control in Titanium LPBF</h2>
+                <p>
+                    Titanium's combination of fatigue sensitivity, surface sensitivity and reactivity makes process discipline especially important. A production-ready AM route must address both internal defects and surface / environmental controls.
+                </p>
+
+                <div class="grid gap-6 md:grid-cols-2 mt-8">
+                    <div class="content-card">
+                        <h3>Build-Related Risks</h3>
+                        <ul>
+                            <li><strong>Lack of fusion:</strong> Incomplete melting can create irregular internal discontinuities.</li>
+                            <li><strong>Gas / keyhole porosity:</strong> Powder or melt-pool instability can produce internal pores.</li>
+                            <li><strong>Residual stress and distortion:</strong> Rapid thermal cycling can distort thin or asymmetric geometry.</li>
+                            <li><strong>Surface roughness:</strong> Down-facing and internal surfaces can become fatigue-critical if left unfinished.</li>
+                            <li><strong>Trapped powder:</strong> Internal passages require practical powder evacuation and cleaning.</li>
+                        </ul>
+                    </div>
+                    <div class="content-card">
+                        <h3>Material & Qualification Risks</h3>
+                        <ul>
+                            <li><strong>Interstitial pickup:</strong> Excess oxygen or nitrogen can reduce ductility and toughness.</li>
+                            <li><strong>As-built α′ microstructure:</strong> Thermal processing may be needed to reach the required property balance.</li>
+                            <li><strong>Anisotropy:</strong> Build direction and thermal history can influence response.</li>
+                            <li><strong>Alpha case:</strong> Poorly controlled thermal exposure can degrade the surface layer.</li>
+                            <li><strong>Fatigue sensitivity:</strong> Surface condition, internal defects and residual stress can strongly affect fatigue behavior.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="design-considerations">
+            <div class="content-container">
+                <h2>Design Considerations for LPBF Titanium Parts</h2>
+
+                <h3>Topology Optimization and Load Path</h3>
+                <p>
+                    Titanium AM can provide exceptional weight-reduction opportunities, but topology-optimized geometry still needs realistic load cases, stiffness requirements, fatigue considerations and manufacturable support / finishing access.
+                </p>
+
+                <h3>Build Orientation</h3>
+                <p>
+                    Orientation affects supports, residual stress, surface condition, dimensional variation, anisotropy and the location of fatigue-critical surfaces. Final machining datums and structural load directions should be considered before build release.
+                </p>
+
+                <h3>Internal Features and Powder Removal</h3>
+                <p>
+                    Internal channels must allow powder evacuation, cleaning and inspection. A channel that is geometrically printable is not automatically production-ready if powder cannot be removed or the feature cannot be verified.
+                </p>
+
+                <h3>Fatigue-Critical Surface Condition</h3>
+                <p>
+                    Rough as-built titanium surfaces can act as stress concentrators. Fatigue-sensitive areas may require machining, polishing, peening or other qualified finishing methods according to the drawing and service requirements.
+                </p>
+
+                <h3>Machining Allowance</h3>
+                <p>
+                    Critical datums, holes, sealing faces, threads and tight GD&T should include appropriate finishing stock. Fixture strategy and final heat-treatment condition should be planned before the AM model is released.
+                </p>
+            </div>
+        </section>
+
+        <section id="why-forcebeyond">
+            <div class="content-container">
+                <h2>Why Source Titanium Additive Manufacturing Through ForceBeyond?</h2>
+                <p>
+                    ForceBeyond treats titanium AM as part of a broader manufacturing strategy. The objective is to use LPBF where weight reduction, geometric freedom, material utilization or development speed creates a real advantage—and to compare another route when casting, forging or machining is more appropriate.
+                </p>
+
+                <div class="grid gap-6 md:grid-cols-2 mt-8">
+                    <div class="content-card">
+                        <h3>Manufacturing-Route Review</h3>
+                        <p>
+                            A topology-optimized low-volume bracket may favor LPBF, while a mature repeat-production housing may fit <a href="/titanium-casting/" class="highlight-link">titanium casting</a>. A highly loaded wrought structure may require forging, while simple precision geometry may be best machined from wrought stock.
+                        </p>
+                    </div>
+                    <div class="content-card">
+                        <h3>Titanium Metallurgical Control</h3>
+                        <p>
+                            Titanium requires careful control of powder chemistry, atmosphere and post-build thermal exposure. Heat treatment, HIP where required and surface-finishing strategy should be coordinated around the required grade and qualification plan.
+                        </p>
+                    </div>
+                    <div class="content-card">
+                        <h3>Near-Net Build + Precision Machining</h3>
+                        <p>
+                            LPBF can reduce raw-material removal, while <a href="/titanium-machining/" class="highlight-link">precision machining</a> establishes final datums, bores, threads, fits and fatigue-critical interfaces.
+                        </p>
+                    </div>
+                    <div class="content-card">
+                        <h3>Prototype-to-Production Flexibility</h3>
+                        <p>
+                            AM can support prototype, validation and bridge production. As geometry stabilizes and annual demand increases, the route can be reviewed again against casting, forging or machining economics.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="supplier-evaluation">
+            <div class="content-container">
+                <h2>What Should Procurement Teams Evaluate in a Titanium AM Supplier?</h2>
+                <p>
+                    Titanium supplier qualification should go beyond checking whether an LPBF machine is available. Procurement and engineering teams should review the complete material, atmosphere, post-processing and inspection chain.
+                </p>
+                <ul>
+                    <li><strong>Grade and AM specification:</strong> Confirm Grade 5 / ASTM F2924, Grade 23 / ASTM F3001 or the applicable customer specification.</li>
+                    <li><strong>Powder chemistry:</strong> Review titanium chemistry, oxygen / nitrogen limits, particle characteristics and powder reuse controls.</li>
+                    <li><strong>Atmosphere control:</strong> Verify inert-gas and contamination-control practices for titanium processing.</li>
+                    <li><strong>Qualified build parameters:</strong> Confirm machine, scan strategy, process window and monitoring approach.</li>
+                    <li><strong>Heat-treatment route:</strong> Verify that the cycle is qualified for AM Ti-6Al-4V and the desired α / β microstructure and property balance.</li>
+                    <li><strong>HIP strategy:</strong> Define whether HIP is required by fatigue, density, criticality or contractual requirements.</li>
+                    <li><strong>Surface / alpha-case control:</strong> Review vacuum or inert thermal processing and any required removal or verification of affected surface layers.</li>
+                    <li><strong>Fatigue-critical finishing:</strong> Confirm how rough AM surfaces will be machined, polished, peened or otherwise treated where fatigue matters.</li>
+                    <li><strong>Mechanical and metallurgical testing:</strong> Define witness coupons, tensile tests, density, metallography or other required acceptance tests.</li>
+                    <li><strong>Internal-feature inspection:</strong> Review CT, radiography or other methods for hidden channels and internal discontinuities.</li>
+                    <li><strong>Documentation:</strong> Define powder certificates, build records, heat-treatment records, HIP records, inspection reports and qualification deliverables.</li>
+                    <li><strong>Alternate-route capability:</strong> A supplier that can compare AM with titanium casting, forging and machining can help avoid unnecessary additive cost when another route is better.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="post-processing">
+            <div class="content-container">
+                <h2>Post-Processing Titanium: From Printed Shape to Finished Component</h2>
+                <p>
+                    Titanium AM should be treated as an integrated production chain. The build produces the near-net shape; thermal processing, HIP where required, machining, surface treatment and inspection establish the final drawing-compliant condition.
+                </p>
+
+                <h3>Stress Relief and Heat Treatment</h3>
+                <p>
+                    Heat treatment can reduce residual stress and transform the as-built alpha-prime structure toward an alpha-plus-beta microstructure with a different strength / ductility balance. Vacuum or controlled inert atmosphere is important for limiting oxygen contamination and alpha-case formation.
+                </p>
+
+                <h3>Hot Isostatic Pressing</h3>
+                <p>
+                    <a href="/hot-isostatic-pressing/" class="highlight-link">HIP</a> may be used to reduce suitable internal porosity and support fatigue, density or qualification objectives. It is not automatically required for every LPBF titanium component and does not replace qualified build control or inspection.
+                </p>
+
+                <h3>Precision CNC Machining and Surface Finishing</h3>
+                <p>
+                    Final <a href="/titanium-machining/" class="highlight-link">titanium machining</a> can establish tight tolerances and controlled surfaces on datums, bores, threads, sealing interfaces and fatigue-sensitive regions. Other finishing processes may be specified according to the application and drawing.
+                </p>
+
+                <h3>NDT, CT and Dimensional Inspection</h3>
+                <p>
+                    <a href="/testing-inspection-capabilities/" class="highlight-link">Testing and inspection</a> may include dimensional metrology, penetrant inspection, radiography, industrial CT, metallography, density evaluation or mechanical testing according to the defined acceptance criteria and qualification plan.
+                </p>
+            </div>
+        </section>
+
+        <section id="standards">
+            <div class="content-container">
+                <h2>Titanium Additive Manufacturing Standards & Qualification</h2>
+                <p>
+                    The titanium grade alone is not sufficient to define an AM component. The purchase order and drawing should identify the applicable AM specification, material condition, thermal processing, HIP requirements, inspection, mechanical testing, documentation and acceptance criteria.
+                </p>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Reference</th>
+                                <th scope="col">Relevance to Titanium AM</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">ASTM F2924</th>
+                                <td>Specification for additively manufactured Ti-6Al-4V components using full-melt powder bed fusion.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">ASTM F3001</th>
+                                <td>Specification for additively manufactured Ti-6Al-4V ELI components using full-melt powder bed fusion.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">ASTM F3049</th>
+                                <td>Guide for characterizing properties of metal powders used in additive manufacturing.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">ASTM F3301</th>
+                                <td>Addresses thermal post-processing of metal powder bed fusion parts.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Customer / Industry Specifications</th>
+                                <td>May define qualified machines, process parameters, mechanical properties, HIP, inspection, fatigue, traceability and approval requirements.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    Conventional titanium casting, forging or wrought specifications should not be assumed to apply directly to LPBF product without explicit engineering and contractual approval. The specification must match the actual product form and qualified manufacturing route.
+                </p>
+            </div>
+        </section>
+
+        <section id="rfq-information">
+            <div class="content-container">
+                <h2>What to Include in a Titanium Additive Manufacturing RFQ</h2>
+                <p>
+                    A complete technical package allows the engineering team to determine whether LPBF creates enough weight, material, geometry or lead-time value to justify the route and to plan post-processing before quoting.
+                </p>
+                <ul>
+                    <li><strong>3D CAD model:</strong> Geometry suitable for build and manufacturability review.</li>
+                    <li><strong>2D drawing:</strong> GD&T, datums, threads, bores, surface finishes and inspection requirements.</li>
+                    <li><strong>Titanium grade:</strong> Ti-6Al-4V Grade 5 or Grade 23 and the applicable AM / customer specification.</li>
+                    <li><strong>Quantity:</strong> Prototype quantity, batch size and expected annual volume.</li>
+                    <li><strong>Weight / performance target:</strong> Required mass reduction, stiffness, load path or other optimization objectives where relevant.</li>
+                    <li><strong>Service conditions:</strong> Temperature, corrosion environment, fatigue, pressure and structural loading.</li>
+                    <li><strong>Mechanical requirements:</strong> Tensile, ductility, fatigue, fracture or other specified acceptance criteria.</li>
+                    <li><strong>Post-processing:</strong> Stress relief, heat treatment, HIP, machining and surface-finishing requirements.</li>
+                    <li><strong>Inspection:</strong> NDT, CT, dimensional inspection, metallography, coupon and sampling requirements.</li>
+                    <li><strong>Documentation:</strong> Powder lot traceability, process records, heat treatment, HIP, inspection and qualification deliverables.</li>
+                    <li><strong>Delivery requirement:</strong> Prototype milestone, qualification schedule and production delivery targets.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="manufacturing-route-review">
+            <div class="content-container">
+                <h2>Choose the Titanium Manufacturing Route by Part Requirements</h2>
+                <p>
+                    ForceBeyond can evaluate several titanium manufacturing routes rather than forcing every high-value part into additive manufacturing. A lightweight low-volume bracket with topology-optimized geometry may be an excellent LPBF candidate; a mature repeat-production housing may fit <a href="/titanium-casting/" class="highlight-link">investment casting</a>; a highly loaded structural preform may require forging; and a simple precision component may be best produced directly through <a href="/titanium-machining/" class="highlight-link">CNC machining</a>.
+                </p>
+                <p>
+                    The manufacturing decision should consider <strong>geometry, weight target, quantity, tooling, buy-to-fly ratio, development lead time, mechanical and fatigue requirements, inspection, qualification and total delivered cost</strong>. As a program moves from prototype to mature production, the optimal titanium manufacturing route can change.
+                </p>
+            </div>
+        </section>
+    </div>
+</IndividualPageLayout>

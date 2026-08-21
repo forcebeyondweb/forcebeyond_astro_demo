@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/zinc-die-casting/'];
 
 const pageTitle = 'Zinc Die Casting Services for Precision ZAMAK Components';
 const seoTitle = 'Zinc Die Casting Services | ZAMAK 3, 5 & ZA-8 Parts';
@@ -65,7 +69,7 @@ const internalResources = [
     { label: "Automotive", url: "/automotive" },
     { label: "HVAC, Fluid & Flow Control", url: "/hvac-flow" },
     { label: "Medical & Healthcare", url: "/medical" },
-    { label: "Space & Defence", url: "/space-defence" },
+    { label: "Space & Defence", url: "/space-defense" },
     { label: "Energy & Power Generation", url: "/energy-power-generation" }
 ];
 
@@ -203,7 +207,10 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="Hot-chamber zinc die casting production for precision ZAMAK components"

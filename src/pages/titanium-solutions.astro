@@ -1,0 +1,217 @@
+---
+import { pageDates } from '../data/page-dates.js';
+import TitaniumSolutionsPageLayout from '../layouts/TitaniumSolutionsPageLayout.astro';
+
+
+const dates = pageDates['/titanium-solutions/'];
+
+const pageTitle = 'Titanium Solutions';
+const seoTitle = 'Titanium Solutions | Titanium Castings & Machined Parts | ForceBeyond';
+const seoDescription = 'ForceBeyond provides customized titanium casting and precision-machined titanium parts for industrial applications, including pumps, valves, impellers, fasteners, medical components, bicycle parts, and more.';
+
+const galleryItems = [
+    { src: '/media/thumbs_titanium-pump-body-sku-2.jpg', alt: 'Titanium Casting Pump Body' },
+    { src: '/media/thumbs_titanium-valve-part.jpg', alt: 'Titanium Casting Valve' },
+    { src: '/media/thumbs_titanium-pipe-union.jpg', alt: 'Titanium Pipe Union' },
+    { src: '/media/thumbs_titanium-pipe-fittings.jpg', alt: 'Titanium Pipe Fittings' },
+    { src: '/media/thumbs_titanium-parts-broach-broadhead-sku11.jpg', alt: 'Titanium Parts Broach Broadhead sku 1' },
+    { src: '/media/thumbs_titanium-casting-titanium-impeller.jpg', alt: 'Titanium Casting Titanium Impeller sku 1' },
+    { src: '/media/thumbs_titanium-casting-titanium-turbo-impeller.jpg', alt: 'Titanium Casting Titanium Turbo Impeller' },
+    { src: '/media/thumbs_titanium-fastener-tapered-socket-head-screw.jpg', alt: 'Titanium Fastener Tapered Socket Head Screw' },
+    { src: '/media/thumbs_titanium-flange.jpg', alt: 'Titanium Flange' },
+    { src: '/media/thumbs_titanium-medical-bone.jpg', alt: 'Titanium Bone Replacement' },
+    { src: '/media/thumbs_titanium-parts-biciycle-parts-pedal-spindle-axles.jpg', alt: 'Titanium Bicycle Pedal Spindle Axles' },
+    { src: '/media/thumbs_titanium-parts-bicycle-quick-release-qr-1.jpg', alt: 'Titanium Bicycle Quick Release qr-sku 1' },
+    { src: '/media/thumbs_titanium-parts-bicycle-quick-release-qr-2.jpg', alt: 'Titanium Bicycle Quick Release qr-sku 2' },
+    { src: '/media/thumbs_titanium-parts-bicycle-seat-post.jpg', alt: 'Titanium Bicycle Seat Post' },
+    { src: '/media/thumbs_titanium-parts-bicycle-stem-sku1.jpg', alt: 'Titanium Bicycle Stem sku1' },
+    { src: '/media/thumbs_titanium-parts-broach-broadhead-sku2.jpg', alt: 'Titanium Broach Broadhead-sku2 (Oil Industry)' },
+    { src: '/media/thumbs_titanium-bicycle-frame.jpg', alt: 'Titanium Bicycle Frame' },
+    { src: '/media/thumbs_titanium-casting-parts-titanium-valve-body.jpg', alt: 'Titanium Casting Parts Titanium Valve Body' }
+];
+
+const sources = [
+    { label: 'American Foundry Society — Metal Casting', url: 'https://www.afsinc.org/' },
+    { label: 'Wikipedia — Investment Casting', url: 'https://en.wikipedia.org/wiki/Investment_casting' },
+    { label: 'Wikipedia — Sand Casting', url: 'https://en.wikipedia.org/wiki/Sand_casting' },
+    { label: 'eFunda — Sand Casting', url: 'https://www.efunda.com/processes/metal_processing/sand_casting_intro.cfm' },
+    { label: 'The Investment Casting Institute — What is Investment Casting?', url: 'https://www.investmentcasting.org/what-is-investment-casting.html' },
+    { label: 'The Library of Manufacturing — Investment Casting', url: 'http://thelibraryofmanufacturing.com/investment_casting.html' },
+    { label: 'Forging Industry Association — Forging Industry', url: 'https://www.forging.org/' }
+];
+
+const internalResources = [
+    { label: 'Die Casting', url: '/die-casting/' },
+    { label: 'Aluminum Die Casting', url: '/aluminum-die-casting/' },
+    { label: 'Zinc Die Casting', url: '/zinc-die-casting/' },
+    { label: 'A356 Aluminum Casting with T6 Heat Treatment', url: '/a356-t6-casting/' },
+    { label: 'Magnesium Die Casting', url: '/magnesium-casting/' },
+    { label: 'Investment Casting', url: '/investment-casting/' },
+    { label: 'Stainless Steel Casting', url: '/stainless-steel-casting/' },
+    { label: 'Duplex Stainless Steel Casting', url: '/duplex-stainless-steel-casting/' },
+    { label: 'Titanium Casting', url: '/titanium-casting/' },
+    { label: 'Carbon & Low Alloy Casting', url: '/carbon-steel-casting/' },
+    { label: 'Forging', url: '/forging/' },
+    { label: 'Cold Forging', url: '/cold-forging/' },
+    { label: 'ECO BRASS C69300 Brass Forging', url: '/c69300-brass-forging/' },
+    { label: 'Sand Casting (Aluminum, Ductile Iron & Gray Iron)', url: '/sand-casting/' }
+];
+
+const pageSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'WebPage',
+            '@id': 'https://www.forcebeyond.com/titanium-solutions/#webpage',
+            url: 'https://www.forcebeyond.com/titanium-solutions/',
+            name: seoTitle,
+            description: seoDescription,
+            datePublished: '2019-10-18T11:56:12-04:00',
+            dateModified: dates.modified,
+            isPartOf: { '@id': 'https://www.forcebeyond.com/#website' },
+            about: { '@id': 'https://www.forcebeyond.com/titanium-solutions/#service' },
+            inLanguage: 'en-US'
+        },
+        {
+            '@type': 'Service',
+            '@id': 'https://www.forcebeyond.com/titanium-solutions/#service',
+            name: 'Titanium Casting and Titanium Machining Solutions',
+            serviceType: 'Titanium Casting and Machining Solutions',
+            description: seoDescription,
+            provider: { '@id': 'https://www.forcebeyond.com/#organization' },
+            areaServed: { '@type': 'Country', name: 'United States' }
+        }
+    ]
+};
+---
+
+<TitaniumSolutionsPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    schema={pageSchema}
+    pageTitle={pageTitle}
+    heroImage="/media/titanium-solutions-and-parts-hero.jpg"
+    heroImageAlt="Titanium pump body and precision titanium components manufactured by ForceBeyond"
+    publishedDate="2019-10-18T11:56:12-04:00"
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+    ctaTitle="Request a Quote for Titanium Parts"
+    ctaDescription="Tell us about your titanium casting or machined-part requirements and our team will review your project."
+    ctaButtonUrl="/request-for-quote/"
+    ctaButtonText="Request for Quote"
+    sourcesTitle="Sources"
+    sourcesList={sources}
+    resourcesTitle="Our Internal Resources for Die Casting, Investment Casting, Forging and Sand Casting"
+    resourcesList={internalResources}
+>
+    <div class="individual-content">
+        <h2>Titanium Casting and Titanium Machining Solutions</h2>
+
+        <div class="titanium-intro-grid">
+            <div class="titanium-intro-copy">
+                <p>
+                    We are very experienced in the customized production of titanium castings and machined titanium parts for a variety of industries. We provide a wide range of titanium castings and machined titanium parts, which are designed to meet our customer’s target.
+                </p>
+
+                <p>
+                    We maintain proactive communication with our customers to assure that we fully understand our customers’ requirements and produce parts with the desired characteristics in the most cost effective manner.
+                </p>
+
+                <p>
+                    If you are looking for titanium castings or machined titanium parts, get in touch today and we will provide you with an accurate quote and our best services.
+                </p>
+
+                <p>
+                    Please visit <a href="/titanium-casting/" class="highlight-link">Titanium Casting</a> for more detailed technical information about Casting Titanium.
+                </p>
+            </div>
+
+            <figure class="titanium-intro-image-wrap">
+                <img
+                    src="/media/Titanium-Pump-Body-Pump-Casing-1.jpg"
+                    alt="Titanium pump body and pump casing"
+                    class="titanium-intro-image"
+                    loading="eager"
+                    decoding="async"
+                />
+            </figure>
+        </div>
+
+        <section id="titanium-parts-gallery" class="titanium-parts-gallery">
+            <h2>Titanium Castings &amp; Machined Titanium Parts</h2>
+
+            <div class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                {galleryItems.map((item) => (
+                    <figure class="group overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+                        <div class="aspect-[4/3] overflow-hidden bg-slate-100">
+                            <img
+                                src={item.src}
+                                alt={item.alt}
+                                class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                                loading="lazy"
+                                decoding="async"
+                            />
+                        </div>
+                        <figcaption class="px-4 py-3 text-center text-sm font-semibold leading-snug text-slate-800">
+                            {item.alt}
+                        </figcaption>
+                    </figure>
+                ))}
+            </div>
+        </section>
+    </div>
+
+    <style>
+        .titanium-intro-grid {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 390px;
+            gap: 2.5rem;
+            align-items: start;
+            margin-top: 1.25rem;
+        }
+
+        .titanium-intro-copy {
+            min-width: 0;
+        }
+
+        .titanium-intro-copy > p:first-child {
+            margin-top: 0;
+        }
+
+        .titanium-intro-image-wrap {
+            margin: 0;
+            width: 100%;
+            align-self: start;
+        }
+
+        .titanium-intro-image {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-width: none;
+            object-fit: contain;
+        }
+
+        .titanium-parts-gallery {
+            margin-top: 2.5rem;
+        }
+
+        @media (max-width: 1100px) {
+            .titanium-intro-grid {
+                grid-template-columns: minmax(0, 1fr) 320px;
+                gap: 2rem;
+            }
+        }
+
+        @media (max-width: 850px) {
+            .titanium-intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .titanium-intro-image-wrap {
+                max-width: 520px;
+            }
+        }
+    </style>
+</TitaniumSolutionsPageLayout>

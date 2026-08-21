@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/stainless-steel-machining/'];
 
 const pageTitle = 'Stainless Steel CNC Machining Services for Precision Components';
 const seoTitle = 'Stainless Steel CNC Machining | 304, 316 & 17-4 PH Parts';
@@ -70,7 +74,7 @@ const internalResources = [
     { label: "HVAC, Fluid & Flow Control", url: "/hvac-flow" },
     { label: "Oil & Gas", url: "/oil-gas" },
     { label: "Energy & Power Generation", url: "/energy-power-generation" },
-    { label: "Space & Defence", url: "/space-defence" }
+    { label: "Space & Defence", url: "/space-defense" }
 ];
 
 const pageSchema = {
@@ -201,7 +205,10 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="Precision CNC machining of stainless steel components"
@@ -446,7 +453,7 @@ const pageSchema = {
                     <li><strong><a href="/hvac-flow" class="highlight-link">Fluid and flow control:</a></strong> valve stems, manifolds, pump components, fittings, impellers, nozzles, and sealing hardware.</li>
                     <li><strong><a href="/oil-gas" class="highlight-link">Oil and gas:</a></strong> pressure-control parts, fittings, valve components, shafts, and corrosion-resistant equipment hardware.</li>
                     <li><strong><a href="/energy-power-generation" class="highlight-link">Energy and power generation:</a></strong> turbine-related components, valve parts, pump hardware, shafts, and heat-resistant fittings.</li>
-                    <li><strong><a href="/space-defence" class="highlight-link">Aerospace and defense:</a></strong> 17-4 PH brackets, actuators, fittings, housings, fasteners, and precision structural components.</li>
+                    <li><strong><a href="/space-defense" class="highlight-link">Aerospace and defense:</a></strong> 17-4 PH brackets, actuators, fittings, housings, fasteners, and precision structural components.</li>
                     <li><strong>Food, beverage and sanitary processing:</strong> valves, fittings, mixer shafts, pump components, nozzles, and cleanable equipment parts.</li>
                 </ul>
             </div>

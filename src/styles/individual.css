@@ -399,4 +399,288 @@
             width: 100%;
         }
     }
+
+
+    /* ==========================================================================
+       Titanium Solutions Family Layout
+       Shared by TitaniumSolutionsPageLayout and all Titanium child pages.
+       ========================================================================== */
+
+    .titanium-solutions-shell {
+        display: grid;
+        grid-template-columns: 250px minmax(0, 1fr);
+        gap: 2.5rem;
+        align-items: start;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .titanium-solutions-sidebar {
+        width: 250px;
+        min-width: 0;
+    }
+
+    .titanium-solutions-main {
+        min-width: 0;
+        width: 100%;
+        max-width: 100%;
+        overflow: visible;
+    }
+
+    .titanium-sidebar-card {
+        position: sticky;
+        top: 6.5rem;
+        width: 100%;
+        overflow: hidden;
+        border: 1px solid #e2e8f0;
+        border-radius: 0.75rem;
+        background: #ffffff;
+        box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+    }
+
+    .individual-content .titanium-sidebar-title {
+        display: block;
+        padding: 1rem 1.1rem;
+        background: #0f2744;
+        color: #ffffff;
+        font-size: 1.05rem;
+        font-weight: 700;
+        line-height: 1.35;
+        text-decoration: none;
+    }
+
+    .individual-content .titanium-sidebar-title:hover,
+    .individual-content .titanium-sidebar-title.is-active {
+        background: #0363ce;
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .individual-content .titanium-sidebar-list,
+    .individual-content .titanium-sidebar-sublist {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .individual-content .titanium-sidebar-list {
+        padding: 0.45rem 0;
+    }
+
+    .individual-content .titanium-sidebar-item {
+        margin: 0;
+        padding: 0;
+    }
+
+    .individual-content .titanium-sidebar-link,
+    .individual-content .titanium-sidebar-sublink {
+        display: block;
+        border-left: 3px solid transparent;
+        color: #334155;
+        font-size: 0.9rem;
+        font-weight: 600;
+        line-height: 1.4;
+        text-decoration: none;
+        transition:
+            background-color 160ms ease,
+            color 160ms ease,
+            border-color 160ms ease;
+    }
+
+    .individual-content .titanium-sidebar-link {
+        padding: 0.68rem 1rem;
+    }
+
+    .individual-content .titanium-sidebar-sublink {
+        padding: 0.56rem 1rem 0.56rem 1.75rem;
+        color: #64748b;
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+
+    .individual-content .titanium-sidebar-link:hover,
+    .individual-content .titanium-sidebar-sublink:hover {
+        border-left-color: #0363ce;
+        background: #f8fafc;
+        color: #0363ce;
+        text-decoration: none;
+    }
+
+    .individual-content .titanium-sidebar-link.is-active,
+    .individual-content .titanium-sidebar-sublink.is-active {
+        border-left-color: #0363ce;
+        background: #eff6ff;
+        color: #0363ce;
+        font-weight: 700;
+        text-decoration: none;
+    }
+
+    .individual-content .titanium-sidebar-group {
+        display: block;
+        margin-top: 0.2rem;
+        padding: 0.72rem 1rem 0.38rem;
+        color: #0f172a;
+        font-size: 0.88rem;
+        font-weight: 750;
+        line-height: 1.35;
+    }
+
+    .individual-content .titanium-sidebar-sublist {
+        padding-bottom: 0.3rem;
+    }
+
+    .titanium-sidebar-mobile {
+        display: none;
+        overflow: hidden;
+        border: 1px solid #e2e8f0;
+        border-radius: 0.75rem;
+        background: #ffffff;
+        box-shadow: 0 3px 12px rgba(15, 23, 42, 0.05);
+    }
+
+    .titanium-sidebar-mobile > summary {
+        display: flex;
+        cursor: pointer;
+        list-style: none;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.9rem 1rem;
+        background: #0f2744;
+        color: #ffffff;
+        font-weight: 700;
+    }
+
+    .titanium-sidebar-mobile > summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .titanium-mobile-chevron {
+        transition: transform 180ms ease;
+    }
+
+    .titanium-sidebar-mobile[open] .titanium-mobile-chevron {
+        transform: rotate(180deg);
+    }
+
+    .individual-content .titanium-mobile-home {
+        border-bottom: 1px solid #e2e8f0;
+    }
+
+    /* Reusable text + image row for Titanium pages */
+    .individual-content .titanium-content-media-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) 360px;
+        gap: 2.5rem;
+        align-items: start;
+        margin-top: 1.25rem;
+    }
+
+    .individual-content .titanium-content-media {
+        width: 100%;
+        margin: 0;
+    }
+
+    .individual-content .titanium-content-media img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    /* Reusable Titanium gallery */
+    .individual-content .titanium-product-gallery-section {
+        margin-top: 2.5rem;
+    }
+
+    .individual-content .titanium-product-gallery {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+    }
+
+    .individual-content .titanium-product-card {
+        margin: 0;
+        overflow: hidden;
+        border: 1px solid #e2e8f0;
+        border-radius: 0.75rem;
+        background: #ffffff;
+        box-shadow: 0 1px 2px rgba(15, 23, 42, 0.05);
+        transition:
+            transform 180ms ease,
+            box-shadow 180ms ease;
+    }
+
+    .individual-content .titanium-product-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.10);
+    }
+
+    .individual-content .titanium-product-image {
+        aspect-ratio: 3 / 2;
+        overflow: hidden;
+        background: #ffffff;
+    }
+
+    .individual-content .titanium-product-image img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+
+    .individual-content .titanium-product-card figcaption,
+    .individual-content .titanium-gallery-caption {
+        padding: 0.8rem 1rem;
+        color: #334155;
+        font-size: 0.875rem;
+        font-weight: 600;
+        line-height: 1.4;
+        text-align: center;
+    }
+
+    @media (max-width: 1100px) {
+        .individual-content .titanium-content-media-row {
+            grid-template-columns: minmax(0, 1fr) 300px;
+            gap: 2rem;
+        }
+
+        .individual-content .titanium-product-gallery {
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+    }
+
+    @media (max-width: 1023px) {
+        .titanium-solutions-shell {
+            grid-template-columns: minmax(0, 1fr);
+            gap: 2rem;
+        }
+
+        .titanium-solutions-sidebar {
+            width: 100%;
+        }
+
+        .titanium-sidebar-desktop {
+            display: none;
+        }
+
+        .titanium-sidebar-mobile {
+            display: block;
+        }
+    }
+
+    @media (max-width: 767px) {
+        .individual-content .titanium-content-media-row {
+            grid-template-columns: 1fr;
+        }
+
+        .individual-content .titanium-content-media {
+            max-width: 520px;
+        }
+
+        .individual-content .titanium-product-gallery {
+            grid-template-columns: 1fr;
+        }
+    }
+
 }

@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/titanium-casting/'];
 
 const pageTitle = 'Titanium Casting Supplier: AS9100-Certified Co-Owned Foundry Network';
 const seoTitle = 'Titanium Casting Supplier | AS9100 Co-Owned & Operated Foundry';
@@ -75,105 +79,6 @@ const pageSchema = {
         "@id": "https://www.forcebeyond.com/#website"
       },
       "inLanguage": "en-US"
-    },
-    {
-      "@type": "Organization",
-      "name": "ForceBeyond",
-      "url": "https://www.forcebeyond.com/titanium-casting/",
-      "logo": "https://www.forcebeyond.com/media/forcebeyond-logo-svg.webp",
-      "image": "https://www.forcebeyond.com/media/forcebeyond-logo-svg.webp",
-      "description": "Tier-1.5 titanium casting supplier. ForceBeyond co-owns and operates AS9100-certified vacuum investment casting foundries specializing in VIM and HIP processing.",
-      "telephone": "+1-302-995-6588",
-      "priceRange": "$$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "261 Quigley Blvd, Suite 18",
-        "addressLocality": "New Castle",
-        "addressRegion": "DE",
-        "postalCode": "19720",
-        "addressCountry": "US"
-      },
-      "certification": "AS9100D",
-      "areaServed": [
-        "United States",
-        "Canada",
-        "Europe",
-        "Asia-Pacific"
-      ],
-      "location": [
-        {
-          "@type": "LocalBusiness",
-          "name": "ForceBeyond USA HQ",
-          "image": "https://www.forcebeyond.com/media/forcebeyond-logo-svg.webp",
-          "telephone": "+1-302-995-6588",
-          "priceRange": "$$$",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "261 Quigley Blvd, Suite 18",
-            "addressLocality": "New Castle",
-            "addressRegion": "DE",
-            "postalCode": "19720",
-            "addressCountry": "US"
-          }
-        },
-        {
-          "@type": "LocalBusiness",
-          "name": "ForceBeyond South Korea Foundry",
-          "image": "https://www.forcebeyond.com/media/forcebeyond-logo-svg.webp",
-          "telephone": "+1-302-995-6588",
-          "priceRange": "$$$",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Gyeonggi-do Industrial Zone",
-            "addressLocality": "Gyeonggi-do",
-            "postalCode": "10000",
-            "addressCountry": "KR"
-          }
-        },
-        {
-          "@type": "LocalBusiness",
-          "name": "ForceBeyond Taiwan Facility",
-          "image": "https://www.forcebeyond.com/media/forcebeyond-logo-svg.webp",
-          "telephone": "+1-302-995-6588",
-          "priceRange": "$$$",
-          "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Taichung Precision Machinery Park",
-            "addressLocality": "Taichung",
-            "postalCode": "408",
-            "addressCountry": "TW"
-          }
-        }
-      ],
-      "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Titanium Casting Services",
-        "itemListElement": [
-          {
-            "@type": "Service",
-            "name": "Titanium Investment Casting",
-            "url": "https://www.forcebeyond.com/titanium-investment-casting/"
-          },
-          {
-            "@type": "Service",
-            "name": "Industrial Titanium Sand Casting",
-            "url": "https://www.forcebeyond.com/industrial-titanium-sand-casting/"
-          },
-          {
-            "@type": "Service",
-            "name": "Aerospace Titanium Casting",
-            "url": "https://www.forcebeyond.com/titanium-aerospace-casting/"
-          }
-        ]
-      },
-      "knowsAbout": [
-        "Vacuum Induction Melting (VIM)",
-        "Hot Isostatic Pressing (HIP)",
-        "Ti-6Al-4V Grade 5",
-        "AS9100",
-        "ASTM B367",
-        "Near-Net-Shape Manufacturing"
-      ]
     }
   ]
 };
@@ -182,7 +87,10 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/precision-cnc-machining-tools-metal-components-hero.webp"
     heroImageAlt="High-precision CNC machining tools cutting metal components with coolant in a modern manufacturing facility"

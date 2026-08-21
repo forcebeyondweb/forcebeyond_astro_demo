@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/a356-t6-casting/'];
 
 const pageTitle = 'A356 Aluminum Casting & T6 Heat Treatment Services';
 const seoTitle = 'A356 Aluminum Casting Services | T6 Heat-Treated Parts';
@@ -64,7 +68,7 @@ const internalResources = [
     { label: "Automotive", url: "/automotive" },
     { label: "HVAC, Fluid & Flow Control", url: "/hvac-flow" },
     { label: "Energy & Power Generation", url: "/energy-power-generation" },
-    { label: "Space & Defence", url: "/space-defence" },
+    { label: "Space & Defence", url: "/space-defense" },
     { label: "Mining & Heavy Equipment", url: "/mining" }
 ];
 
@@ -196,6 +200,9 @@ const pageSchema = {
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
     schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     pageTitle={pageTitle}
     heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="A356 aluminum casting and T6 heat treatment for precision industrial components"
@@ -440,7 +447,7 @@ const pageSchema = {
             <div class="content-container">
                 <h2>A356-T6 Casting Applications by Industry</h2>
                 <ul>
-                    <li><strong><a href="/space-defence" class="highlight-link">Aerospace and defense:</a></strong> housings, brackets, equipment structures, and lightweight support components where cast aluminum is permitted.</li>
+                    <li><strong><a href="/space-defense" class="highlight-link">Aerospace and defense:</a></strong> housings, brackets, equipment structures, and lightweight support components where cast aluminum is permitted.</li>
                     <li><strong><a href="/automotive" class="highlight-link">Automotive and transportation:</a></strong> cases, brackets, fan components, housings, wheels, and heavy-vehicle hardware.</li>
                     <li><strong><a href="/hvac-flow" class="highlight-link">HVAC, pumps and flow control:</a></strong> impellers, pump housings, blower components, manifolds, and fluid-control parts.</li>
                     <li><strong><a href="/energy-power-generation" class="highlight-link">Energy and power generation:</a></strong> enclosures, cooling components, housings, brackets, and equipment hardware.</li>

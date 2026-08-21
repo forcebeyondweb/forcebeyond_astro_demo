@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/superalloys-exotic-metals/'];
 
 const pageTitle = 'Superalloys & Exotic Metals for Casting, Forging and Machining';
 const seoTitle = 'Superalloys & Exotic Metals | Inconel, Hastelloy & Cobalt';
@@ -225,7 +229,10 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/precision-cnc-machining-metal-manufacturing-workshop-hero.webp"
     heroImageAlt="Precision machining and manufacturing of high-performance superalloy components"

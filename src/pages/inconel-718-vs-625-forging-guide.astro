@@ -113,7 +113,7 @@ const pageSchema = {
       name: seoTitle,
       description: seoDescription,
       ...(dates?.published && { datePublished: dates.published }),
-      ...(dates?.modified && { dateModified: dates.modified }),
+      ...(dates?.modified && { dateModified: dates.modified}),
       isPartOf: { '@id': 'https://www.forcebeyond.com/#website' },
       mainEntity: { '@id': `${pageUrl}#article` },
       inLanguage: 'en-US'
@@ -125,7 +125,7 @@ const pageSchema = {
       headline: 'Inconel 718 vs. Inconel 625 Forging: A Technical Guide to Alloy Selection, Forging, Heat Treatment, and Applications',
       description: seoDescription,
       ...(dates?.published && { datePublished: dates.published }),
-      ...(dates?.modified && { dateModified: dates.modified }),
+      ...(dates?.modified && { dateModified: dates.modified}),
       author: { '@id': 'https://www.forcebeyond.com/#organization' },
       publisher: { '@id': 'https://www.forcebeyond.com/#organization' },
       about: [
@@ -178,7 +178,9 @@ const pageSchema = {
   schema={pageSchema}
   pageTitle={pageTitle}
   publishedDate={dates?.published}
-  modifiedDate={dates?.modified}
+  modifiedDate={dates.modified}
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
   heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
   heroImageAlt="Inconel 718 and Inconel 625 forged nickel-alloy components for aerospace, energy, marine, and chemical processing applications"
   faqSectionTitle="Frequently Asked Engineering Questions"

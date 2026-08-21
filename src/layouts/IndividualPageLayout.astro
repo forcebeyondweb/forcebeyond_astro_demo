@@ -177,27 +177,6 @@ const formatDisplayDate = (value?: string) => {
 
     <section class="w-full pt-8 pb-14 lg:pt-12 lg:pb-16">
         <div class="mx-auto max-w-7xl px-6 sm:px-12">
-            {(resolvedPublishedDate || resolvedModifiedDate) && (
-                <div class="mb-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm text-slate-500" aria-label="Page dates">
-                    {resolvedPublishedDate && (
-                        <span>
-                            Published: {' '}
-                            <time datetime={resolvedPublishedDate} class="font-medium text-slate-600">
-                                {formatDisplayDate(resolvedPublishedDate)}
-                            </time>
-                        </span>
-                    )}
-                    {resolvedModifiedDate && (
-                        <span>
-                            Last updated: {' '}
-                            <time datetime={resolvedModifiedDate} class="font-medium text-slate-600">
-                                {formatDisplayDate(resolvedModifiedDate)}
-                            </time>
-                        </span>
-                    )}
-                </div>
-            )}
-
             <div class="individual-content">
                 <slot />
             </div>

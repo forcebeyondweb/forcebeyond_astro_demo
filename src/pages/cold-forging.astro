@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/cold-forging/'];
 
 const pageTitle = 'Cold Forging: High-Volume Precision & Strain-Hardened Strength';
 const seoTitle = 'Cold Forging Services | High-Volume Net-Shape Precision';
@@ -66,13 +70,13 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.com/cold-forging#webpage",
+      "@id": "https://www.forcebeyond.com/cold-forging/#webpage",
       "url": "https://www.forcebeyond.com/cold-forging",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.com#website",
+        "@id": "https://www.forcebeyond.com/#website",
         "name": "ForceBeyond",
         "url": "https://www.forcebeyond.com"
       },
@@ -96,31 +100,12 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.com/cold-forging#service",
+      "@id": "https://www.forcebeyond.com/cold-forging/#service",
       "name": "High-Volume Precision Cold Forging & Cold Heading Services",
       "serviceType": "Net-Shape Cold Forging & Extrusion",
       "description": seoDescription,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.com#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.com",
-        "logo": "https://www.forcebeyond.com/media/logo.png",
-        "knowsAbout": [
-          "High-Volume Precision Cold Forging & Heading",
-          "Strain Hardening / Work Hardening Mechanical Enhancement",
-          "Forward Extrusion, Backward Extrusion & Upsetting",
-          "Near-Net and True Net-Shape Fastener & Shaft Production",
-          "Carbon Steel (1008, 1018), Aluminum (6061, 7075), Copper & Brass Cold Forming",
-          "Secondary Thread Rolling & Micro-Machining",
-          "ISO 9001:2015 Quality Management System"
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "New Castle",
-          "addressRegion": "DE",
-          "addressCountry": "US"
-        }
+        "@id": "https://www.forcebeyond.com/#organization"
       },
       "areaServed": [
         {
@@ -181,7 +166,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.com/cold-forging#faq",
+      "@id": "https://www.forcebeyond.com/cold-forging/#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,
@@ -198,7 +183,9 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     pageTitle={pageTitle}
     heroImage="/media/titanium-aerospace-jet-engine-testing-hero.webp"
     heroImageAlt="Titanium aerospace jet engine undergoing a high-performance ground test with active exhaust"

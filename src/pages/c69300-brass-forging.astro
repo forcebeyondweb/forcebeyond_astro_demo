@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/c69300-brass-forging/'];
 
 const pageTitle = 'ECO BRASS® C69300 Forging & Machining: Lead-Free Precision';
 const seoTitle = 'Lead-Free ECO BRASS C69300 Forging & Machining Services';
@@ -7,7 +11,7 @@ const seoDescription = 'AS9100/ISO 9001-certified ECO BRASS® C69300 forging and
 const faqs = [
     {
         q: "Is ECO BRASS C69300 completely lead-free?",
-        a: "Yes. ECO BRASS C69300 contains a maximum of just 0.09% lead, making it fully compliant with the Federal Drinking Water Act, NSF 14, and other global lead-free plumbing mandates. It is also completely free of arsenic and bismuth."
+        a: "ECO BRASS C69300 is designed for low-lead plumbing applications. Compliance with applicable drinking-water and NSF requirements must be confirmed for the specified material, finished product, and certification scope."
     },
     {
         q: "How does the strength of ECO BRASS compare to standard materials?",
@@ -66,13 +70,13 @@ const pageSchema = {
   "@graph": [
     {
       "@type": "WebPage",
-      "@id": "https://www.forcebeyond.com/c69300-brass-forging#webpage",
+      "@id": "https://www.forcebeyond.com/c69300-brass-forging/#webpage",
       "url": "https://www.forcebeyond.com/c69300-brass-forging",
       "name": seoTitle,
       "description": seoDescription,
       "isPartOf": {
         "@type": "WebSite",
-        "@id": "https://www.forcebeyond.com#website",
+        "@id": "https://www.forcebeyond.com/#website",
         "name": "ForceBeyond",
         "url": "https://www.forcebeyond.com"
       },
@@ -96,31 +100,12 @@ const pageSchema = {
     },
     {
       "@type": "Service",
-      "@id": "https://www.forcebeyond.com/c69300-brass-forging#service",
+      "@id": "https://www.forcebeyond.com/c69300-brass-forging/#service",
       "name": "Lead-Free ECO BRASS® C69300 Forging & CNC Machining Services",
       "serviceType": "Lead-Free Brass Forging & Precision CNC Machining",
       "description": seoDescription,
       "provider": {
-        "@type": "Organization",
-        "@id": "https://www.forcebeyond.com#organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.com",
-        "logo": "https://www.forcebeyond.com/media/logo.png",
-        "knowsAbout": [
-          "ECO BRASS C69300 Closed-Die Hot Forging & CNC Machining",
-          "Lead-Free Brass Manufacturing (<0.09% Pb)",
-          "Safe Drinking Water Act & NSF 14 Compliance",
-          "High-Pressure Leak-Proof Microstructure Optimization",
-          "Dezincification & Stress Corrosion Cracking Resistance",
-          "EPA-Registered Antimicrobial Copper Alloy Processing",
-          "ISO 9001:2015 & AS9100 Rev D Quality Management"
-        ],
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "New Castle",
-          "addressRegion": "DE",
-          "addressCountry": "US"
-        }
+        "@id": "https://www.forcebeyond.com/#organization"
       },
       "areaServed": [
         {
@@ -181,7 +166,7 @@ const pageSchema = {
     },
     {
       "@type": "FAQPage",
-      "@id": "https://www.forcebeyond.com/c69300-brass-forging#faq",
+      "@id": "https://www.forcebeyond.com/c69300-brass-forging/#faq",
       "mainEntity": faqs.map(f => ({
         "@type": "Question",
         "name": f.q,
@@ -198,7 +183,9 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/titanium-aerospace-jet-engine-testing-hero.webp"
     heroImageAlt="Titanium aerospace jet engine undergoing a high-performance ground test with active exhaust"
@@ -229,7 +216,7 @@ const pageSchema = {
                         <p>
                             Through our world-class <a href="/closed-die-forging" class="highlight-link">closed-die forging</a> and CNC machining capabilities within our <a href="/forging" class="highlight-link">custom forging solutions</a>, ForceBeyond delivers leak-proof, high-density brass components 
                             tailored for the plumbing, automotive, electrical, and fluid control industries. From intricate PEX fittings to commercial faucet parts, 
-                            we ensure every component is dimensionally accurate, rigorously tested, and fully compliant with the Federal Drinking Water Act.
+                            we control and inspect components against the dimensional and regulatory requirements applicable to the specified alloy, product, and program.
                         </p>
                     </div>
                     <div class="relative">
@@ -255,7 +242,7 @@ const pageSchema = {
                     </p>
                     <h3>Chemical Composition</h3>
                     <p>
-                        ForceBeyond ensures strict adherence to metallurgical standards to guarantee the alloy's performance and regulatory compliance.
+                        ForceBeyond controls material and process requirements against the applicable specifications to support the required alloy performance and regulatory objectives.
                     </p>
                     <div class="content-table-wrapper">
                     <table>
@@ -359,7 +346,7 @@ const pageSchema = {
                         <strong>High Impact & Fatigue Strength:</strong> The forged grain structure results in significantly higher impact strength and fatigue resistance compared to standard bar stock, while avoiding brittleness at elevated temperatures.
                     </li>
                     <li>
-                        <strong>Regulatory & Health Compliance:</strong> Fully compliant with NSF 14, S. 3874 (Reduction of Lead in Drinking Water Act), and registered as an EPA CuVerro Antimicrobial Alloy capable of neutralizing bacteria like Staphylococcus aureus and Salmonella.
+                        <strong>Regulatory & Health Compliance:</strong> Regulatory and health compliance must be confirmed for the specified alloy, finished product, manufacturing route, and applicable certification or listing requirements.
                     </li>
                 </ul>
                 

@@ -1,0 +1,176 @@
+---
+import IndividualPageLayout from './IndividualPageLayout.astro';
+
+export interface FaqItem {
+    q: string;
+    a: string;
+}
+
+interface Props {
+    title?: string;
+    description?: string;
+    canonicalUrl?: string;
+    robots?: string;
+    pageTitle?: string;
+    heroImage?: string;
+    heroImageAlt?: string;
+    heroImageWidth?: number;
+    heroImageHeight?: number;
+    socialImage?: string;
+    socialImageAlt?: string;
+    schema?: Record<string, any>;
+    publishedDate?: string;
+    modifiedDate?: string;
+    faqSectionTitle?: string;
+    faqItems?: FaqItem[];
+    ctaTitle?: string;
+    ctaDescription?: string | string[];
+    ctaButtonUrl?: string;
+    ctaButtonText?: string;
+    sourcesTitle?: string;
+    sourcesList?: { label: string; url?: string }[];
+    resourcesTitle?: string;
+    resourcesList?: { label: string; url: string }[];
+}
+
+const props = Astro.props;
+const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
+
+const isActive = (href: string) => {
+    const target = href.replace(/\/$/, '') || '/';
+    return currentPath === target;
+};
+
+const titaniumNav = [
+    { label: 'Machined Titanium Parts', href: '/machined-titanium-parts/' },
+    { label: 'Titanium Jet Engine Blades', href: '/titanium-jet-engine-blades/' },
+    { label: 'Titanium Fan Blades', href: '/titanium-fan-blades/' },
+    {
+        label: 'Titanium Pump & Valve',
+        children: [
+            { label: 'Titanium Pump Impeller', href: '/titanium-pump-impeller/' },
+            { label: 'Titanium Pump Body Casting', href: '/titanium-pump-body-casting/' },
+            { label: 'Titanium Valve Body Casting', href: '/titanium-valve-body-casting/' }
+        ]
+    },
+    { label: 'Titanium Impeller', href: '/titanium-impeller/' },
+    { label: 'Titanium Brake Rotor & Stator', href: '/titanium-stator-titanium-brake-rotor/' },
+    {
+        label: 'Titanium Turbine & Compressor',
+        children: [
+            { label: 'Titanium Turbine Blade', href: '/titanium-turbine-blade/' },
+            { label: 'Titanium Turbine Impeller', href: '/titanium-turbine-impeller/' },
+            { label: 'Titanium Compressor Impeller', href: '/titanium-compressor-impeller/' }
+        ]
+    },
+    { label: 'Titanium Exhaust Manifold', href: '/titanium-exhaust-manifold/' },
+    { label: 'Titanium Bolts', href: '/titanium-bolts/' },
+    { label: 'Titanium Boat Propeller', href: '/titanium-boat-propeller/' }
+];
+---
+
+<IndividualPageLayout {...props}>
+    <div class="titanium-solutions-shell">
+        <aside class="titanium-solutions-sidebar" aria-label="Titanium Solutions navigation">
+            <!-- Desktop sidebar -->
+            <nav class="titanium-sidebar-card titanium-sidebar-desktop">
+                <a
+                    href="/titanium-solutions/"
+                    class:list={['titanium-sidebar-title', { 'is-active': isActive('/titanium-solutions/') }]}
+                >
+                    Titanium Solutions
+                </a>
+
+                <ul class="titanium-sidebar-list">
+                    {titaniumNav.map((item) => (
+                        <li class="titanium-sidebar-item">
+                            {'href' in item && item.href ? (
+                                <a
+                                    href={item.href}
+                                    class:list={['titanium-sidebar-link', { 'is-active': isActive(item.href) }]}
+                                    aria-current={isActive(item.href) ? 'page' : undefined}
+                                >
+                                    {item.label}
+                                </a>
+                            ) : (
+                                <>
+                                    <span class="titanium-sidebar-group">{item.label}</span>
+                                    <ul class="titanium-sidebar-sublist">
+                                        {item.children?.map((child) => (
+                                            <li>
+                                                <a
+                                                    href={child.href}
+                                                    class:list={['titanium-sidebar-sublink', { 'is-active': isActive(child.href) }]}
+                                                    aria-current={isActive(child.href) ? 'page' : undefined}
+                                                >
+                                                    {child.label}
+                                                </a>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </>
+                            )}
+                        </li>
+                    ))}
+                </ul>
+            </nav>
+
+            <!-- Mobile/tablet navigation -->
+            <details class="titanium-sidebar-mobile">
+                <summary>
+                    <span>Titanium Solutions</span>
+                    <span class="titanium-mobile-chevron" aria-hidden="true">⌄</span>
+                </summary>
+                <nav aria-label="Titanium Solutions mobile navigation">
+                    <a
+                        href="/titanium-solutions/"
+                        class:list={['titanium-sidebar-link titanium-mobile-home', { 'is-active': isActive('/titanium-solutions/') }]}
+                    >
+                        Titanium Solutions Overview
+                    </a>
+                    <ul class="titanium-sidebar-list">
+                        {titaniumNav.map((item) => (
+                            <li class="titanium-sidebar-item">
+                                {'href' in item && item.href ? (
+                                    <a
+                                        href={item.href}
+                                        class:list={['titanium-sidebar-link', { 'is-active': isActive(item.href) }]}
+                                        aria-current={isActive(item.href) ? 'page' : undefined}
+                                    >
+                                        {item.label}
+                                    </a>
+                                ) : (
+                                    <>
+                                        <span class="titanium-sidebar-group">{item.label}</span>
+                                        <ul class="titanium-sidebar-sublist">
+                                            {item.children?.map((child) => (
+                                                <li>
+                                                    <a
+                                                        href={child.href}
+                                                        class:list={['titanium-sidebar-sublink', { 'is-active': isActive(child.href) }]}
+                                                        aria-current={isActive(child.href) ? 'page' : undefined}
+                                                    >
+                                                        {child.label}
+                                                    </a>
+                                                </li>
+                                            ))}
+                                        </ul>
+                                    </>
+                                )}
+                            </li>
+                        ))}
+                    </ul>
+                </nav>
+            </details>
+        </aside>
+
+        <main class="titanium-solutions-main">
+            <slot />
+        </main>
+    </div>
+
+    <div slot="full-width" class="individual-content">
+        <slot name="full-width" />
+    </div>
+</IndividualPageLayout>
+

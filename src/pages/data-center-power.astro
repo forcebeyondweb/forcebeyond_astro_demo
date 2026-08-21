@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/data-center-power/'];
 
 const pageTitle = 'Data Center Power Generation Components for Gas Turbines & Microgrids';
 const seoTitle = 'Data Center Power Components | Gas Turbines & Microgrids';
@@ -128,7 +132,9 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/data-center-power-generation-infrastructure-hero.webp"
     heroImageAlt="Data center power infrastructure with turbine generation, server facilities, and electrical distribution"

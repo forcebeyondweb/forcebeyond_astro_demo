@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/high-performance-superalloy-machining/'];
 
 const pageTitle = 'High-Performance Superalloy Machining Services';
 const seoTitle = 'Superalloy Machining Services | 5-Axis CNC | ForceBeyond';
@@ -11,7 +15,7 @@ const faqs = [
     },
     {
         q: "What does it mean to be a “Tier-1.5” machining supplier?",
-        a: "Traditional supply chains are fragmented: you buy a raw forging from a forge shop, then ship it to a separate machine shop. This introduces massive risk, higher scrap rates, and longer lead times. As a Tier-1.5 supplier, ForceBeyond executes the melting, forging, casting, and precision 5-axis CNC machining under one AS9100-certified umbrella across our USA, South Korea, and Taiwan facilities. This single-source accountability guarantees final print dimensions and reduces total cost of ownership (TCO)."
+        a: "Traditional supply chains may separate forging and machining, increasing handoff risk, scrap exposure, and lead time. As a Tier-1.5 supplier, ForceBeyond coordinates melting, forging, casting, and precision 5-axis CNC machining through qualified facilities in the USA, South Korea, and Taiwan. Facility certification scope is verified for each program, and integrated accountability supports conformance to final drawing requirements and lower total cost of ownership (TCO)."
     },
     {
         q: "How do you hold tight aerospace tolerances on forged Inconel parts?",
@@ -85,10 +89,7 @@ const pageSchema = {
       "@id": "https://www.forcebeyond.com/high-performance-superalloy-machining/#service",
       "serviceType": "High-Performance Superalloy CNC Machining",
       "provider": {
-        "@type": "Organization",
-        "name": "ForceBeyond",
-        "url": "https://www.forcebeyond.com/",
-        "image": "https://www.forcebeyond.com/media/forcebeyond-logo-svg.webp"
+        "@id": "https://www.forcebeyond.com/#organization"
       },
       "description": "AS9100 certified Tier-1.5 precision 5-axis CNC machining, heavy-duty turning, and EDM for nickel-based superalloys including Inconel 718 and Inconel 625.",
       "areaServed": [
@@ -137,7 +138,10 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/inconel-718-5-axis-cnc-machining-turbine-impeller.webp"
     heroImageAlt="5-axis CNC machining an Inconel 718 turbine impeller inside a high-precision machining center"
@@ -299,7 +303,7 @@ const pageSchema = {
                     Machining superalloys is only half the battle; proving the dimensions is the other. 
                     All ForceBeyond facilities operate under strict <strong>AS9100 Rev D</strong> quality systems. 
                     Every component undergoes 100% CMM verification, surface profilometry (Ra/Rz), 
-                    and post-machining FPI (Fluorescent Penetrant Inspection) to guarantee zero surface anomalies.
+                    and post-machining FPI (Fluorescent Penetrant Inspection) to detect relevant surface discontinuities against the applicable acceptance criteria.
                 </p>
             </div>
         </section>

@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/energy-power-generation/'];
 
 const pageTitle = 'Energy & Power Generation Components: Casting, Forging & Machining';
 const seoTitle = 'Energy & Power Generation Components | Casting, Forging & CNC';
@@ -212,7 +216,9 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     pageTitle={pageTitle}
     heroImage="/media/combined-cycle-power-generation-plant-grid-infrastructure-hero.webp"
     heroImageAlt="Combined-cycle power generation plant with industrial turbines and electrical grid infrastructure"

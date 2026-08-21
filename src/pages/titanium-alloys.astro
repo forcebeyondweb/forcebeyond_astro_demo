@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/titanium-alloys/'];
 
 const pageTitle = 'Titanium Alloys for Casting, Forging and Precision Machining';
 const seoTitle = 'Titanium Alloys | Ti-6Al-4V, Grade 23 & CP Titanium';
@@ -71,7 +75,7 @@ const internalResources = [
     { label: "Medical & Healthcare", url: "/medical" },
     { label: "Oil & Gas", url: "/oil-gas" },
     { label: "Energy & Power Generation", url: "/energy-power-generation" },
-    { label: "Space & Defence", url: "/space-defence" }
+    { label: "Space & Defence", url: "/space-defense" }
 ];
 
 const pageSchema = {
@@ -231,7 +235,10 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/precision-cnc-machining-metal-manufacturing-workshop-hero.webp"
     heroImageAlt="Precision manufacturing and CNC machining of titanium alloy components"
@@ -481,7 +488,7 @@ const pageSchema = {
                 <h2>Titanium Applications by Industry</h2>
                 <ul>
                     <li><strong><a href="/aerospace" class="highlight-link">Aerospace:</a></strong> brackets, fittings, fasteners, shafts, engine-adjacent hardware, airframe structures, and propulsion components.</li>
-                    <li><strong><a href="/space-defence" class="highlight-link">Space and defense:</a></strong> lightweight structures, housings, actuators, fasteners, UAV hardware, and corrosion-resistant components.</li>
+                    <li><strong><a href="/space-defense" class="highlight-link">Space and defense:</a></strong> lightweight structures, housings, actuators, fasteners, UAV hardware, and corrosion-resistant components.</li>
                     <li><strong><a href="/medical" class="highlight-link">Medical and healthcare:</a></strong> instruments, housings, fixation hardware, and implantable components only where the exact grade, process, validation, and regulatory requirements are approved.</li>
                     <li><strong><a href="/oil-gas" class="highlight-link">Oil and gas:</a></strong> corrosion-resistant fasteners, valves, pump components, offshore hardware, and deepwater equipment.</li>
                     <li><strong><a href="/energy-power-generation" class="highlight-link">Energy and power generation:</a></strong> heat-exchanger hardware, turbine-related components, fasteners, and corrosion-resistant equipment parts.</li>

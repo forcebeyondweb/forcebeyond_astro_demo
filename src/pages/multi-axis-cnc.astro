@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/multi-axis-cnc/'];
 
 const pageTitle = 'Multi-Axis CNC Milling & Turning Services for Complex Components';
 const seoTitle = 'Multi-Axis CNC Machining | 5-Axis Milling & Mill-Turn';
@@ -69,7 +73,7 @@ const internalResources = [
     { label: "Manufacturing Design Guides", url: "/manufacturing-design-guides" },
 
     // Industries
-    { label: "Space & Defence", url: "/space-defence" },
+    { label: "Space & Defence", url: "/space-defense" },
     { label: "Medical & Healthcare", url: "/medical" },
     { label: "Oil & Gas", url: "/oil-gas" },
     { label: "Energy & Power Generation", url: "/energy-power-generation" },
@@ -204,7 +208,10 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="Multi-axis CNC machining of a complex precision metal component"
@@ -425,7 +432,7 @@ const pageSchema = {
             <div class="content-container">
                 <h2>Multi-Axis CNC Machining Applications by Industry</h2>
                 <ul>
-                    <li><strong><a href="/space-defence" class="highlight-link">Aerospace and defense:</a></strong> impellers, blades, blisks, manifolds, brackets, housings, actuator parts, and landing-gear components.</li>
+                    <li><strong><a href="/space-defense" class="highlight-link">Aerospace and defense:</a></strong> impellers, blades, blisks, manifolds, brackets, housings, actuator parts, and landing-gear components.</li>
                     <li><strong><a href="/medical" class="highlight-link">Medical and healthcare:</a></strong> instrument components, implants where permitted, surgical hardware, housings, screws, and precision fixtures.</li>
                     <li><strong><a href="/oil-gas" class="highlight-link">Oil and gas:</a></strong> valve bodies, downhole components, pump parts, manifolds, fittings, and pressure-control hardware.</li>
                     <li><strong><a href="/energy-power-generation" class="highlight-link">Energy and power generation:</a></strong> turbine-related components, impellers, valve parts, shafts, housings, and flow-control hardware.</li>

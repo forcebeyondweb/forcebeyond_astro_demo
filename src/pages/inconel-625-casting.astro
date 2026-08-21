@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/inconel-625-casting/'];
 
 const pageTitle = 'Inconel 625 Casting Services: Co-Owned Foundries in USA, South Korea & Taiwan';
 const seoTitle = 'Inconel 625 Casting Services | Nuclear SMR & Marine | ForceBeyond';
@@ -122,7 +126,8 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+    modifiedDate={dates.modified}
+    publishedDate = {dates.published}
     pageTitle={pageTitle}
     heroImage="/media/industry-aerospace-turbine-engine-v5.webp"
     heroImageAlt="industry-aerospace-turbine-engine"

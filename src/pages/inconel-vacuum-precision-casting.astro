@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/inconel-vacuum-precision-casting/'];
 
 const pageTitle = 'Inconel Vacuum Precision Casting: Global Co-Owned Foundries';
 const seoTitle = 'Inconel Vacuum Casting Services | VIM, HIP & NDT | ForceBeyond';
@@ -168,7 +172,10 @@ const pageSchema = {
 <IndividualPageLayout
     title={seoTitle}
     description={seoDescription}
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/industry-aerospace-turbine-engine-v5.webp"
     heroImageAlt="Close-up of an aerospace gas turbine engine illustrating high-temperature Inconel casting applications"

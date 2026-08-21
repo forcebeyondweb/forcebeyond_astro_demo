@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/404-page/'];
 
 const pageTitle = 'Error 404 Page';
 const seoTitle = 'Page Not Found | ForceBeyond';
@@ -30,6 +34,9 @@ const pageSchema = {
     canonicalUrl={canonicalUrl}
     robots="noindex,follow"
     schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     pageTitle={pageTitle}
     heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="ForceBeyond precision manufacturing background"

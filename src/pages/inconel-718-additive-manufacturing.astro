@@ -1,0 +1,962 @@
+---
+import { pageDates } from '../data/page-dates.js';
+import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+const dates = pageDates['/inconel-718-additive-manufacturing/'] ?? {
+    published: '2026-08-19',
+    modified: '2026-08-19'
+};
+
+const pageTitle = 'Inconel 718 Additive Manufacturing Services';
+const seoTitle = 'Inconel 718 Additive Manufacturing Services | LPBF | ForceBeyond';
+const seoDescription = 'Inconel 718 additive manufacturing using LPBF for complex high-value parts, with coordinated heat treatment, HIP where required, CNC machining, NDT and inspection.';
+
+const canonicalUrl = 'https://www.forcebeyond.com/inconel-718-additive-manufacturing/';
+const heroImage = '/media/metal-additive-manufacturing-inconel-titanium-hero.webp';
+const socialImage = `https://www.forcebeyond.com${heroImage}`;
+
+const faqs = [
+    {
+        q: 'Can Inconel 718 be additively manufactured?',
+        a: 'Yes. Inconel 718 (UNS N07718) is one of the most established nickel-based superalloys for metal additive manufacturing. Full-melt powder bed fusion, including laser powder bed fusion (LPBF), is covered by ASTM F3055 for additively manufactured UNS N07718 components. Final properties depend on powder quality, build parameters, orientation, post-processing, heat treatment, inspection and the governing customer specification.'
+    },
+    {
+        q: 'Why is Inconel 718 well suited to laser powder bed fusion?',
+        a: 'Inconel 718 combines high-temperature strength, precipitation-hardening response, corrosion and oxidation resistance, and comparatively good weldability for a nickel superalloy. Those characteristics have helped make it a widely adopted alloy for LPBF, particularly for complex aerospace, energy and industrial components.'
+    },
+    {
+        q: 'Why choose Inconel 718 instead of Inconel 625 for additive manufacturing?',
+        a: 'Inconel 718 is generally selected when higher mechanical strength, precipitation-hardening response and load-bearing performance at elevated temperature are primary design drivers. Inconel 625 is a solid-solution-strengthened nickel alloy more commonly selected when corrosion resistance, chloride exposure and harsh chemical or marine environments dominate. Both alloys are established AM materials, but the correct choice depends on temperature, loading, corrosion environment, required heat treatment, qualification requirements and the governing material specification.'
+    },
+    {
+        q: 'When should I choose Inconel 718 additive manufacturing instead of investment casting?',
+        a: 'LPBF is often attractive for prototypes, low-volume or evolving designs, complex internal passages, consolidated assemblies and programs where casting tooling lead time is difficult to justify. Investment casting can become more economical for mature repeat-production programs when tooling can be amortized over larger quantities. The correct route depends on geometry, quantity, specification, inspection requirements, lead time and total cost.'
+    },
+    {
+        q: 'When should I choose Inconel 718 additive manufacturing instead of forging?',
+        a: 'Additive manufacturing is generally considered when geometry, internal features, part consolidation, low-volume flexibility or material utilization are primary drivers. Forging is generally preferred for many highly loaded parts that benefit from a wrought structure, controlled grain flow and established forging specifications. The drawing, load case, material specification and qualification requirements should govern the decision.'
+    },
+    {
+        q: 'Does an additively manufactured Inconel 718 part require heat treatment?',
+        a: 'Heat treatment is commonly part of the production route for precipitation-hardenable Inconel 718, but the exact sequence must follow the applicable material specification, qualified process, required properties and customer requirements. AM-specific thermal history can differ from wrought or cast product forms, so conventional heat-treatment assumptions should not be transferred automatically.'
+    },
+    {
+        q: 'Is HIP always required for LPBF Inconel 718?',
+        a: 'No. Hot Isostatic Pressing may be specified to reduce certain internal porosity and support density or fatigue-performance objectives, but it is not automatically required for every LPBF Inconel 718 component. HIP requirements should follow the drawing, material specification, qualification plan, service conditions and customer requirements.'
+    },
+    {
+        q: 'Does printed Inconel 718 still require CNC machining?',
+        a: 'Often, yes. LPBF is effective for producing complex near-net geometry, but critical sealing faces, bores, threads, bearing fits, datums and tight-tolerance interfaces commonly require finish machining. Machining allowance should therefore be planned before the build rather than added after printing.'
+    },
+    {
+        q: 'What inspection methods can be used for additively manufactured Inconel 718?',
+        a: 'Inspection can include dimensional inspection, CMM, optical scanning, penetrant inspection, radiography, industrial CT, ultrasonic methods, metallography, density evaluation and mechanical testing, depending on geometry, defect type, acceptance criteria and governing specification. Internal channels and complex AM geometries may require CT or other methods capable of evaluating hidden features.'
+    },
+    {
+        q: 'What applications are suitable for Inconel 718 additive manufacturing?',
+        a: 'Typical candidates include complex aerospace and propulsion hardware, turbine and combustion components, heat-management hardware, manifolds, ducts, brackets, instrumentation components and other high-value parts that combine elevated-temperature requirements with geometry that is difficult to manufacture conventionally.'
+    },
+    {
+        q: 'What information should I send for an Inconel 718 additive manufacturing RFQ?',
+        a: 'Provide the 3D CAD model and drawing when available, UNS N07718 or applicable material specification, prototype and annual quantities, critical dimensions and GD&T, required mechanical properties, surface finish, heat treatment, HIP requirements, NDT and inspection criteria, documentation, certification and requested delivery schedule. Also identify inaccessible internal passages and critical-to-quality surfaces.'
+    }
+];
+
+const sources = [
+    { label: 'ASTM International - ASTM F3055, Additive Manufacturing Nickel Alloy UNS N07718 with Powder Bed Fusion', url: 'https://store.astm.org/f3055-14ar21.html' },
+    { label: 'NIST - Additive Manufacturing of Metals', url: 'https://www.nist.gov/programs-projects/additive-manufacturing-metals' },
+    { label: 'NIST - Enhanced Strength of Additively Manufactured Inconel 718', url: 'https://www.nist.gov/publications/enhanced-strength-additively-manufactured-inconel-718-means-simplified-heat-treatment' },
+    { label: 'NIST - Phase Composition and Transformation of Additively Manufactured Alloy 718', url: 'https://www.nist.gov/publications/phase-composition-and-phase-transformation-additively-manufactured-nickel-alloy-718-am' },
+    { label: 'NIST - Heat Treatment Protocol for Additively Manufactured Alloy 718', url: 'https://www.nist.gov/publications/developing-appropriate-heat-treatment-protocol-additively-manufactured-alloy-718-oil' },
+    { label: 'NIST - Build Orientation and Defect Structure in LPBF Inconel 718', url: 'https://www.nist.gov/publications/effects-laser-energy-density-and-build-orientation-defect-structure-microstructure-and' },
+    { label: 'EOS - NickelAlloy IN718 Material Data Sheet', url: 'https://www.eos.info/metal-solutions/metal-materials/data-sheets/mds-eos-nickelalloy-in718' },
+    { label: 'Renishaw - Inconel 718 Material Data for RenAM Systems', url: 'https://www.renishaw.com/resourcecentre/download/data-sheet-renam-500-series-inconel-718-material-data-sheet--139233' },
+    { label: 'Carpenter Additive - PowderRange 718 Datasheet', url: 'https://www.carpenteradditive.com/datasheet-powderrange-718' }
+];
+
+const internalResources = [
+    // Additive Manufacturing Cluster
+    { label: 'Metal Additive Manufacturing Services', url: '/additive-manufacturing/' },
+    { label: 'Inconel 625 Additive Manufacturing', url: '/inconel-625-additive-manufacturing/' },
+    { label: 'Titanium Additive Manufacturing', url: '/titanium-additive-manufacturing/' },
+
+    // Inconel 718 Manufacturing Routes
+    { label: 'Inconel 718 Casting', url: '/inconel-718-casting/' },
+    { label: 'Inconel 718 Forging', url: '/inconel-718-forging/' },
+    { label: 'Inconel 718 Machining', url: '/inconel-718-machining/' },
+    { label: 'Superalloy Casting Services', url: '/high-performance-superalloy-casting/' },
+    { label: 'Superalloy Forging Services', url: '/high-performance-superalloy-forging/' },
+    { label: 'Superalloy Machining Services', url: '/high-performance-superalloy-machining/' },
+
+    // Downstream Operations and Quality
+    { label: 'Hot Isostatic Pressing (HIP)', url: '/hot-isostatic-pressing/' },
+    { label: 'Heat Treatment', url: '/heat-treatment/' },
+    { label: 'High-Precision CNC Machining', url: '/high-precision-machining/' },
+    { label: 'Testing & Inspection Capabilities', url: '/testing-inspection-capabilities/' },
+    { label: 'Quality Assurance & Certifications', url: '/quality-assurance-certifications/' }
+];
+
+const pageSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+        {
+            '@type': 'WebPage',
+            '@id': `${canonicalUrl}#webpage`,
+            url: canonicalUrl,
+            name: seoTitle,
+            description: seoDescription,
+            isPartOf: {
+                '@id': 'https://www.forcebeyond.com/#website'
+            },
+            primaryImageOfPage: {
+                '@type': 'ImageObject',
+                url: socialImage
+            },
+            breadcrumb: {
+                '@id': `${canonicalUrl}#breadcrumb`
+            },
+            about: [
+                { '@type': 'Thing', name: 'Inconel 718 additive manufacturing' },
+                { '@type': 'Thing', name: 'UNS N07718' },
+                { '@type': 'Thing', name: 'Laser powder bed fusion' },
+                { '@type': 'Thing', name: 'Powder bed fusion' },
+                { '@type': 'Thing', name: 'ASTM F3055' }
+            ],
+            mainEntity: {
+                '@id': `${canonicalUrl}#service`
+            },
+            inLanguage: 'en-US'
+        },
+        {
+            '@type': 'BreadcrumbList',
+            '@id': `${canonicalUrl}#breadcrumb`,
+            itemListElement: [
+                {
+                    '@type': 'ListItem',
+                    position: 1,
+                    name: 'Home',
+                    item: 'https://www.forcebeyond.com/'
+                },
+                {
+                    '@type': 'ListItem',
+                    position: 2,
+                    name: 'Additive Manufacturing',
+                    item: 'https://www.forcebeyond.com/additive-manufacturing/'
+                },
+                {
+                    '@type': 'ListItem',
+                    position: 3,
+                    name: 'Inconel 718 Additive Manufacturing',
+                    item: canonicalUrl
+                }
+            ]
+        },
+        {
+            '@type': 'Service',
+            '@id': `${canonicalUrl}#service`,
+            name: 'Inconel 718 Additive Manufacturing Services',
+            serviceType: 'Inconel 718 Laser Powder Bed Fusion Additive Manufacturing',
+            description: seoDescription,
+            url: canonicalUrl,
+            provider: {
+                '@id': 'https://www.forcebeyond.com/#organization'
+            },
+            areaServed: {
+                '@type': 'Country',
+                name: 'United States'
+            },
+            material: 'Inconel 718 / UNS N07718',
+            knowsAbout: [
+                'Inconel 718',
+                'UNS N07718',
+                'Laser Powder Bed Fusion',
+                'LPBF',
+                'ASTM F3055',
+                'Hot Isostatic Pressing',
+                'Heat Treatment',
+                'Precision Machining',
+                'Industrial CT',
+                'Non-Destructive Testing'
+            ],
+            hasOfferCatalog: {
+                '@type': 'OfferCatalog',
+                name: 'Inconel 718 Additive Manufacturing and Post-Processing',
+                itemListElement: [
+                    {
+                        '@type': 'ListItem',
+                        position: 1,
+                        name: 'Laser Powder Bed Fusion (LPBF)'
+                    },
+                    {
+                        '@type': 'ListItem',
+                        position: 2,
+                        name: 'Stress Relief and Heat Treatment'
+                    },
+                    {
+                        '@type': 'ListItem',
+                        position: 3,
+                        name: 'Hot Isostatic Pressing where required'
+                    },
+                    {
+                        '@type': 'ListItem',
+                        position: 4,
+                        name: 'Precision CNC Finish Machining'
+                    },
+                    {
+                        '@type': 'ListItem',
+                        position: 5,
+                        name: 'NDT and Dimensional Inspection'
+                    }
+                ]
+            }
+        },
+        {
+            '@type': 'FAQPage',
+            '@id': `${canonicalUrl}#faq`,
+            mainEntity: faqs.map((faq) => ({
+                '@type': 'Question',
+                name: faq.q,
+                acceptedAnswer: {
+                    '@type': 'Answer',
+                    text: faq.a.replace(/<[^>]+>/g, '')
+                }
+            }))
+        }
+    ]
+};
+---
+
+<IndividualPageLayout
+    title={seoTitle}
+    description={seoDescription}
+    canonicalUrl={canonicalUrl}
+    robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
+    modifiedDate={dates.modified}
+    publishedDate={dates.published}
+    pageTitle={pageTitle}
+    heroImage={heroImage}
+    heroImageAlt="Inconel 718 component being produced by laser powder bed fusion metal additive manufacturing"
+    socialImage={socialImage}
+    socialImageAlt="Inconel 718 additive manufacturing using laser powder bed fusion"
+    schema={pageSchema}
+    faqSectionTitle="Inconel 718 Additive Manufacturing FAQ"
+    faqItems={faqs}
+    ctaTitle="Evaluate Inconel 718 Additive Manufacturing for Your Part"
+    ctaDescription="Send your geometry, material specification, quantity, critical tolerances, delivery requirements and qualification needs. ForceBeyond can compare LPBF with Inconel 718 casting, forging and CNC machining to determine the most appropriate manufacturing route."
+    ctaButtonUrl="/request-for-quote/"
+    ctaButtonText="Request an Inconel 718 Manufacturing Review"
+    sourcesTitle="Inconel 718 Additive Manufacturing Technical Sources"
+    sourcesList={sources}
+    resourcesTitle="Related Inconel 718 & Additive Manufacturing Resources"
+    resourcesList={internalResources}
+>
+    <div class="individual-content">
+        <p class="page-lead">
+            <strong>ForceBeyond provides Inconel 718 additive manufacturing services</strong> using <strong>laser powder bed fusion (LPBF)</strong> for complex, high-strength <strong>UNS N07718</strong> components, with coordinated <a href="/heat-treatment/" class="highlight-link">heat treatment</a>, <a href="/hot-isostatic-pressing/" class="highlight-link">HIP</a> where required, <a href="/inconel-718-machining/" class="highlight-link">Inconel 718 finish machining</a>, NDT and dimensional inspection. The route is particularly useful when a program combines elevated-temperature load requirements with internal passages, consolidated geometry, low-to-moderate quantities, high conventional tooling cost or aggressive development schedules.
+        </p>
+    </div>
+
+    <div slot="full-width" class="individual-content">
+        <section id="overview">
+            <div class="content-container">
+                <h2>Why Inconel 718 Is a Leading Alloy for Metal Additive Manufacturing</h2>
+                <div class="grid gap-10 lg:grid-cols-2 lg:items-center mt-6">
+                    <div>
+                        <p>
+                            Inconel 718 is a precipitation-hardenable nickel-chromium superalloy widely used for components that require a combination of <strong>high mechanical strength, fatigue resistance, corrosion and oxidation resistance, and useful elevated-temperature performance</strong>. Industrial AM suppliers and material-system manufacturers have established mature LPBF parameter sets for IN718, and ASTM F3055 specifically addresses full-melt powder bed fusion of UNS N07718.
+                        </p>
+                        <p>
+                            The alloy is also comparatively weldable for a high-strength nickel superalloy, which is one reason it has become a major material in metal AM. For design engineers, the value is not simply that Inconel 718 can be printed: LPBF can place this high-value alloy into geometries that would otherwise require difficult machining, complex casting cores, multiple joined pieces or dedicated tooling.
+                        </p>
+                        <p>
+                            Published industrial material data for AM Inconel 718 commonly reference useful mechanical performance at temperatures around <strong>700°C / 1290°F</strong>. Actual allowable service temperature and design properties depend on the qualified AM process, material condition, heat treatment, geometry, loading, environment and governing specification.
+                        </p>
+                    </div>
+                    <div class="relative">
+                        <div class="overflow-hidden">
+                            <img
+                                src="/media/inconel-718-aerospace-turbine-wheel-4k.webp"
+                                alt="Finished Inconel 718 aerospace turbine component representing high-value superalloy applications"
+                                class="w-full h-auto object-cover hover:scale-105 transition-transform duration-500"
+                                loading="lazy"
+                            />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="in718-metallurgy">
+            <div class="content-container">
+                <h2>Inconel 718 Metallurgy: Why the Alloy Responds Well to Additive Manufacturing</h2>
+                <p>
+                    Inconel 718 is not only a heat-resistant nickel alloy; it is a <strong>precipitation-hardenable nickel-chromium superalloy</strong> whose final properties depend heavily on composition, thermal history and post-build heat treatment. Its nickel-rich matrix contains chromium for oxidation and corrosion resistance, while niobium, molybdenum, titanium and aluminum contribute to strengthening and phase development. In practical AM production, this means the printed geometry and the final material condition must be engineered together.
+                </p>
+
+                <div class="grid gap-6 md:grid-cols-2 mt-8">
+                    <div class="content-card">
+                        <h3>Precipitation Strengthening</h3>
+                        <p>
+                            Alloy 718 derives much of its strength from precipitation of <strong>gamma double-prime (γ″)</strong> with a smaller contribution from <strong>gamma prime (γ′)</strong> during aging. These strengthening phases are developed through controlled thermal processing rather than simply by completing the LPBF build.
+                        </p>
+                    </div>
+                    <div class="content-card">
+                        <h3>Why Weldability Matters in LPBF</h3>
+                        <p>
+                            LPBF repeatedly melts and resolidifies small volumes of metal. Inconel 718 is comparatively weldable for a high-strength nickel superalloy, which contributes to its broad industrial adoption in laser-based metal AM. Even so, residual stress, segregation, defects and undesirable secondary phases still require process and heat-treatment control.
+                        </p>
+                    </div>
+                    <div class="content-card">
+                        <h3>Niobium-Rich Phase Control</h3>
+                        <p>
+                            Rapid solidification can produce local chemical segregation, especially of niobium. Depending on build conditions and post-processing, niobium-rich secondary phases such as <strong>Laves phase</strong> can form and may need to be reduced, dissolved or redistributed through an appropriate thermal route.
+                        </p>
+                    </div>
+                    <div class="content-card">
+                        <h3>AM-Specific Thermal History</h3>
+                        <p>
+                            Each layer experiences rapid melting, solidification and repeated reheating from subsequent layers. The resulting microstructure is therefore different from conventional wrought or cast Inconel 718, which is why AM-specific heat treatment and qualification are important.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="in718-am-microstructure">
+            <div class="content-container">
+                <h2>How LPBF Changes the Microstructure of Inconel 718</h2>
+                <p>
+                    Laser powder bed fusion subjects Inconel 718 to extremely rapid solidification and steep thermal gradients. NIST studies of AM Alloy 718 show that the as-built material contains a distinct phase and microstructural condition that evolves substantially during homogenization and aging. For engineering applications, the important point is that <strong>as-built, heat-treated and HIP-treated Inconel 718 should be treated as different material conditions</strong>, not as interchangeable states.
+                </p>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <caption>
+                            <span class="caption-title">Typical Material-State Considerations for LPBF Inconel 718</span>
+                            <span class="caption-subtitle">Qualitative guidance only; final acceptance values must come from the applicable qualified process and specification.</span>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Material Condition</th>
+                                <th scope="col">Typical Characteristics</th>
+                                <th scope="col">Engineering Implication</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">As-Built</th>
+                                <td>High residual stress, AM-specific cellular / directional solidification structure, possible segregation and build-orientation effects.</td>
+                                <td>Usually not the final condition for critical production hardware.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Stress-Relieved</th>
+                                <td>Reduced residual-stress risk while much of the AM solidification structure may remain.</td>
+                                <td>Can improve handling and dimensional stability before support or build-plate removal.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Solution / Aged</th>
+                                <td>Thermal processing develops precipitation strengthening and modifies secondary phases and segregation.</td>
+                                <td>Common route for establishing specified strength and material condition.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">HIP + Heat Treated</th>
+                                <td>Suitable internal pores may be reduced while the thermal cycle also changes microstructure and precipitate state.</td>
+                                <td>Used where density, fatigue, qualification or customer requirements justify HIP.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    NIST research has also demonstrated that build orientation and laser-energy conditions can influence defect structure, microstructure and tensile response. That is why orientation, parameter qualification, heat treatment and inspection should be controlled as parts of one manufacturing plan rather than treated as independent steps.
+                </p>
+            </div>
+        </section>
+
+        <section id="in718-quality-risks">
+            <div class="content-container">
+                <h2>Key Quality Risks in Inconel 718 Additive Manufacturing</h2>
+                <p>
+                    Mature LPBF parameter sets make Inconel 718 one of the most established nickel superalloys in AM, but a qualified process still has to control defects created by powder quality, energy input, scan strategy, geometry and thermal history. Procurement specifications should therefore define both material requirements and the required process-control / inspection framework.
+                </p>
+
+                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-8">
+                    <div class="content-card">
+                        <h3>Lack-of-Fusion Defects</h3>
+                        <p>Insufficient overlap or energy input can leave irregular unmelted regions between tracks or layers. Process qualification and appropriate volumetric inspection are important where internal discontinuities are critical.</p>
+                    </div>
+                    <div class="content-card">
+                        <h3>Gas or Keyhole Porosity</h3>
+                        <p>Powder condition and unstable melt-pool behavior can contribute to internal pores. The relevant acceptance criteria depend on part criticality, geometry and specification.</p>
+                    </div>
+                    <div class="content-card">
+                        <h3>Residual Stress & Distortion</h3>
+                        <p>Repeated localized heating and cooling can create substantial residual stress, especially in thin, asymmetric or highly constrained features.</p>
+                    </div>
+                    <div class="content-card">
+                        <h3>Segregation & Secondary Phases</h3>
+                        <p>Rapid solidification can create local compositional heterogeneity and niobium-rich secondary phases. Heat treatment must be selected for the qualified AM route.</p>
+                    </div>
+                    <div class="content-card">
+                        <h3>Internal-Surface Roughness</h3>
+                        <p>Internal channels may retain rough as-built surfaces that cannot be reached by conventional machining. Flow, fatigue, cleanliness and inspection requirements should be evaluated early.</p>
+                    </div>
+                    <div class="content-card">
+                        <h3>Trapped Powder & Hidden Geometry</h3>
+                        <p>Complex passages require a realistic powder-removal and inspection strategy. A geometry that can be printed but cannot be cleaned or verified may not be a production-ready design.</p>
+                    </div>
+                </div>
+
+                <p>
+                    For critical hardware, the control plan may include build records, powder lot traceability, witness coupons, density or metallographic evaluation, dimensional inspection, penetrant testing, radiography or industrial CT, and mechanical testing as required by the drawing and governing specification.
+                </p>
+            </div>
+        </section>
+
+        <section id="capabilities">
+            <div class="content-container">
+                <h2>Inconel 718 Additive Manufacturing Capabilities</h2>
+                <p>
+                    For sourcing and engineering teams, the important question is whether the complete Inconel 718 AM route can be controlled from powder and build preparation through heat treatment, machining and final qualification. ForceBeyond supports project-specific LPBF programs with downstream manufacturing and quality operations aligned to the drawing, purchase order and applicable qualification requirements.
+                </p>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <caption>
+                            <span class="caption-title">Inconel 718 AM Service Scope</span>
+                            <span class="caption-subtitle">Availability, testing and acceptance criteria remain project- and specification-dependent.</span>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Capability</th>
+                                <th scope="col">Support</th>
+                                <th scope="col">Commercial / Engineering Value</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Material</th>
+                                <td>Inconel 718 / UNS N07718</td>
+                                <td>Precipitation-hardenable nickel superalloy for high-strength, elevated-temperature applications.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Primary AM Route</th>
+                                <td>LPBF</td>
+                                <td>Supports complex near-net geometry, internal passages, part consolidation and digital design iteration without conventional hard tooling.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Prototype & Qualification Builds</th>
+                                <td>Supported</td>
+                                <td>Useful for design validation, first articles, engineering changes and qualification hardware before a mature production route is finalized.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Low-Volume / Bridge Production</th>
+                                <td>Supported</td>
+                                <td>Can reduce tooling dependency while casting or forging tooling is under development or when annual volume does not justify dedicated tooling.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Stress Relief & Heat Treatment</th>
+                                <td>Coordinated per specification</td>
+                                <td>Controls residual stress and develops the required precipitation-hardened material condition.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">HIP</th>
+                                <td>Available where required</td>
+                                <td>May reduce suitable internal porosity and support density, fatigue or qualification objectives.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">CNC Finish Machining</th>
+                                <td>Available</td>
+                                <td>Establishes critical datums, sealing faces, bearing fits, threads, bores and tight final tolerances.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">NDT / CT / Dimensional Inspection</th>
+                                <td>Project-specific</td>
+                                <td>Inspection is selected around geometry, expected AM defect modes, part criticality and governing acceptance criteria.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Mechanical Testing</th>
+                                <td>Per specification / qualification plan</td>
+                                <td>May include witness coupons, tensile, hardness, density, metallography or other tests required by the program.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Documentation & Traceability</th>
+                                <td>Per drawing / PO requirements</td>
+                                <td>Can include powder lot, process, heat-treatment, HIP, machining and inspection records as required.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Manufacturing Route Review</th>
+                                <td>AM vs. casting / forging / machining</td>
+                                <td>Helps sourcing teams avoid selecting AM when another Inconel 718 route provides a better total-cost, structural or qualification outcome.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="when-to-use-in718-am">
+            <div class="content-container">
+                <h2>When Does Inconel 718 Additive Manufacturing Make Sense?</h2>
+                <p>
+                    Inconel 718 is expensive to machine, conventional superalloy tooling can require substantial lead time, and many high-performance applications use geometries that are difficult to reach with cutting tools. LPBF becomes most compelling when the part takes advantage of one or more of these conditions rather than simply replacing an already efficient conventional route.
+                </p>
+
+                <div class="grid gap-6 md:grid-cols-2 mt-8">
+                    <div class="content-card">
+                        <h3>Strong Candidates for LPBF Inconel 718</h3>
+                        <ul>
+                            <li><strong>Complex internal passages:</strong> Curved cooling, flow or heat-transfer channels that are difficult to drill or cast with removable cores.</li>
+                            <li><strong>Low-volume high-value production:</strong> Quantities where dedicated casting or forging tooling is difficult to justify.</li>
+                            <li><strong>Rapid design iteration:</strong> Programs where geometry is still changing and tooling revisions would extend development schedules.</li>
+                            <li><strong>Part consolidation:</strong> Multiple machined, welded or brazed components redesigned as a single build.</li>
+                            <li><strong>Poor machining buy-to-fly ratio:</strong> Components that would otherwise remove large amounts of expensive Inconel stock.</li>
+                            <li><strong>Lightweight or topology-optimized geometry:</strong> Structures that place material only where required by load and thermal requirements.</li>
+                            <li><strong>Bridge production:</strong> Early production while casting or forging tooling is still being developed.</li>
+                        </ul>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>When a Traditional Route May Be Better</h3>
+                        <ul>
+                            <li><strong>Stable high-volume production:</strong> Investment casting may provide lower recurring cost after tooling is amortized.</li>
+                            <li><strong>Highly loaded wrought structures:</strong> Forging may be preferred when controlled grain flow or a specific wrought material condition is required.</li>
+                            <li><strong>Simple machinable geometry:</strong> CNC machining can remain the most direct route for parts with accessible features and efficient stock utilization.</li>
+                            <li><strong>Existing qualified tooling:</strong> AM may not create sufficient commercial value if the conventional process is already mature and validated.</li>
+                            <li><strong>Part size outside practical LPBF build envelopes:</strong> Another manufacturing process may provide a more efficient route.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="lpbf-process">
+            <div class="content-container">
+                <h2>Inconel 718 LPBF Manufacturing Process</h2>
+                <p>
+                    LPBF builds the component by selectively melting successive layers of Inconel 718 powder according to sliced CAD geometry. Printing is only one stage of the complete manufacturing route. Build orientation, support strategy, thermal management, powder controls, post-processing and inspection all influence final part performance.
+                </p>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <caption>
+                            <span class="caption-title">Typical Inconel 718 Additive Manufacturing Route</span>
+                            <span class="caption-subtitle">The exact sequence depends on the qualified process, drawing, specification and customer requirements.</span>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Stage</th>
+                                <th scope="col">Purpose</th>
+                                <th scope="col">Key Engineering Considerations</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1. Design & Build Preparation</th>
+                                <td>Orient the component, generate supports and prepare the build file.</td>
+                                <td>Critical surfaces, distortion risk, support access, internal powder removal and machining allowance.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2. LPBF Build</th>
+                                <td>Laser selectively melts Inconel 718 powder layer by layer.</td>
+                                <td>Qualified machine, powder lot, process parameters, atmosphere control and build monitoring.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3. Stress Relief / Thermal Processing</th>
+                                <td>Manage residual stress and prepare the part for removal or further treatment.</td>
+                                <td>Thermal cycle must match the validated production route and required material condition.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4. Build Removal & Support Removal</th>
+                                <td>Separate the component from the build plate and remove support structures.</td>
+                                <td>Access, local surface condition, dimensional stability and protection of thin features.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5. HIP Where Required</th>
+                                <td>Reduce suitable internal porosity and support density or fatigue objectives.</td>
+                                <td>Not universal; apply according to drawing, specification, qualification plan and service conditions.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">6. Solution / Aging Heat Treatment</th>
+                                <td>Develop the required precipitation-hardened material condition.</td>
+                                <td>Use the AM-qualified thermal route rather than automatically applying a wrought or cast recipe.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">7. CNC Finish Machining</th>
+                                <td>Establish critical datums, fits, bores, sealing surfaces, threads and final tolerances.</td>
+                                <td>Plan machining stock during AM design and account for final material condition.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">8. Inspection & Documentation</th>
+                                <td>Verify geometry, surface condition, internal quality and required material properties.</td>
+                                <td>Method and acceptance criteria depend on geometry, criticality and governing specification.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section id="comparison">
+            <div class="content-container">
+                <h2>Inconel 718 Additive Manufacturing vs. Casting, Forging and CNC Machining</h2>
+                <p>
+                    ForceBeyond already supports <a href="/inconel-718-casting/" class="highlight-link">Inconel 718 casting</a>, <a href="/inconel-718-forging/" class="highlight-link">Inconel 718 forging</a> and <a href="/inconel-718-machining/" class="highlight-link">Inconel 718 machining</a>. Additive manufacturing should be treated as another manufacturing route—not as a universal replacement for the other three.
+                </p>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <caption>
+                            <span class="caption-title">Manufacturing Route Selection for Inconel 718</span>
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Decision Factor</th>
+                                <th scope="col">LPBF Additive</th>
+                                <th scope="col">Investment Casting</th>
+                                <th scope="col">Forging</th>
+                                <th scope="col">CNC from Stock</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">Prototype / design iteration</th>
+                                <td><strong>Excellent</strong></td>
+                                <td>Good with printed patterns; production tooling adds time</td>
+                                <td>Limited when dedicated dies are required</td>
+                                <td><strong>Excellent</strong> for machinable geometry</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Complex internal passages</th>
+                                <td><strong>Excellent</strong></td>
+                                <td>Good when core technology is practical</td>
+                                <td>Limited</td>
+                                <td>Limited by tool access</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Dedicated tooling</th>
+                                <td>Low</td>
+                                <td>Typically required for mature production</td>
+                                <td>Often required for closed-die production</td>
+                                <td>Low, but fixtures may be required</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">High-volume economics</th>
+                                <td>Application dependent</td>
+                                <td><strong>Strong</strong></td>
+                                <td><strong>Strong</strong></td>
+                                <td>Geometry and cycle-time dependent</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Wrought grain flow</th>
+                                <td>No conventional forging grain flow</td>
+                                <td>No</td>
+                                <td><strong>Primary advantage</strong></td>
+                                <td>Inherited from wrought stock</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Material utilization</th>
+                                <td><strong>High near-net potential</strong></td>
+                                <td>High near-net potential</td>
+                                <td>High with near-net preforms</td>
+                                <td>Can be poor for heavily machined billet parts</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Tight final tolerances</th>
+                                <td>Finish machining commonly required</td>
+                                <td>Finish machining commonly required</td>
+                                <td>Finish machining commonly required</td>
+                                <td><strong>Primary advantage</strong></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h3>LPBF vs. Inconel 718 Investment Casting</h3>
+                <p>
+                    LPBF can remove conventional tooling from early development and can directly create internal passages that might otherwise require complicated ceramic cores. <a href="/inconel-718-casting/" class="highlight-link">Investment casting</a> remains highly competitive for repeat production of complex near-net-shape parts, particularly when the geometry is stable and tooling cost can be distributed over larger quantities.
+                </p>
+
+                <h3>LPBF vs. Inconel 718 Forging</h3>
+                <p>
+                    LPBF provides much greater geometric freedom, while <a href="/inconel-718-forging/" class="highlight-link">forging</a> offers a wrought manufacturing route with controlled material flow that is important for many highly loaded components. For fatigue-critical or structurally demanding hardware, the governing drawing and material specification must determine whether an AM material route is acceptable.
+                </p>
+
+                <h3>LPBF vs. Machining from Inconel 718 Billet</h3>
+                <p>
+                    Direct machining remains excellent for accessible geometry and tight tolerances, but Inconel 718 is difficult and time-consuming to machine. For parts with a poor buy-to-fly ratio, LPBF can place material closer to the final geometry before <a href="/inconel-718-machining/" class="highlight-link">precision finish machining</a> establishes critical interfaces.
+                </p>
+            </div>
+        </section>
+
+        <section id="applications">
+            <div class="content-container">
+                <h2>Typical Inconel 718 Additive Manufacturing Applications</h2>
+                <p>
+                    The strongest AM applications are generally not simple copies of conventional parts. They use the manufacturing freedom of LPBF to improve thermal performance, reduce assembly count, eliminate inaccessible machining operations or shorten development cycles.
+                </p>
+
+                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 mt-8">
+                    <div class="content-card">
+                        <h3>Aerospace & Propulsion</h3>
+                        <ul>
+                            <li>Fuel and flow-control hardware</li>
+                            <li>Complex manifolds and ducting</li>
+                            <li>Engine and propulsion brackets</li>
+                            <li>Thermally loaded housings</li>
+                            <li>Low-volume development hardware</li>
+                        </ul>
+                    </div>
+                    <div class="content-card">
+                        <h3>Power Generation & Energy</h3>
+                        <ul>
+                            <li>Combustion and turbine support hardware</li>
+                            <li>Heat-management components</li>
+                            <li>Instrumentation and sensor housings</li>
+                            <li>Complex replacement components</li>
+                            <li>Development and qualification hardware</li>
+                        </ul>
+                    </div>
+                    <div class="content-card">
+                        <h3>Industrial High-Temperature Systems</h3>
+                        <ul>
+                            <li>Complex flow bodies and manifolds</li>
+                            <li>Compact heat-transfer structures</li>
+                            <li>High-temperature tooling and fixtures</li>
+                            <li>Low-volume customized components</li>
+                            <li>Legacy parts with unavailable tooling</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="lead-time">
+            <div class="content-container">
+                <h2>Lead-Time Advantage for Inconel 718 Development and Bridge Production</h2>
+                <p>
+                    For the right program, one of the largest commercial advantages of Inconel 718 AM is the ability to reduce dependence on conventional tooling. A design can move from released CAD geometry into build preparation without first waiting for wax tooling or dedicated forging dies. This can be particularly valuable during <strong>prototype builds, engineering validation, qualification hardware, bridge production, low-volume production and replacement-part programs</strong>.
+                </p>
+
+                <div class="grid gap-8 lg:grid-cols-2 mt-8">
+                    <div class="content-card">
+                        <h3>Typical Conventional Development Route</h3>
+                        <p><strong>CAD → tooling design → tooling manufacture → process development → first articles → post-processing → inspection</strong></p>
+                        <p>Tooling can be worthwhile for mature production, but it adds a development step and may need revision after engineering changes.</p>
+                    </div>
+                    <div class="content-card">
+                        <h3>Typical LPBF Development Route</h3>
+                        <p><strong>CAD → build preparation → LPBF → post-processing → machining → inspection</strong></p>
+                        <p>Design changes can often be introduced through the digital model and build preparation rather than remanufacturing conventional production tooling.</p>
+                    </div>
+                </div>
+
+                <p>
+                    Printing itself is not the complete lead time. Heat treatment, HIP where required, machining, inspection and qualification still need to be scheduled. The correct comparison is therefore <strong>total manufacturing lead time</strong>, not printer cycle time alone.
+                </p>
+            </div>
+        </section>
+
+        <section id="design-considerations">
+            <div class="content-container">
+                <h2>Design Considerations for LPBF Inconel 718 Parts</h2>
+                <p>
+                    AM design decisions influence both manufacturability and final performance. NIST research on LPBF Inconel 718 has shown that process conditions and build orientation can affect defect structure and microstructure, making build planning part of the material-control strategy rather than only a geometric decision.
+                </p>
+
+                <h3>Build Orientation & Anisotropy</h3>
+                <p>
+                    Orientation affects support requirements, surface condition, thermal history, distortion risk and potentially mechanical response. Critical load directions and final machined datums should be reviewed during build preparation.
+                </p>
+
+                <h3>Residual Stress & Distortion</h3>
+                <p>
+                    Repeated localized melting and cooling create thermal gradients. Thin sections, long unsupported features and asymmetric geometry may require supports, orientation changes, stress relief, machining strategy or geometry compensation.
+                </p>
+
+                <h3>Internal Channels & Powder Removal</h3>
+                <p>
+                    LPBF can create internal passages that cannot be machined conventionally, but every enclosed feature must still be evaluated for powder evacuation, inspection access, minimum feature size and downstream cleaning requirements.
+                </p>
+
+                <h3>Support Removal</h3>
+                <p>
+                    Support structures must be reachable after the build. A geometry that is printable but impossible to remove from supports economically may not be production-ready.
+                </p>
+
+                <h3>Surface Finish</h3>
+                <p>
+                    As-built LPBF surfaces are generally rougher than precision-machined surfaces. Sealing faces, bearing surfaces, bores, threads and fatigue-sensitive interfaces should be identified for machining or other finishing operations.
+                </p>
+
+                <h3>Machining Allowance</h3>
+                <p>
+                    Critical surfaces should be designed with appropriate stock for final machining. The AM model, datum strategy, fixture approach and final heat-treatment condition should be coordinated before the build is released.
+                </p>
+            </div>
+        </section>
+
+        <section id="post-processing">
+            <div class="content-container">
+                <h2>Post-Processing Inconel 718: From Printed Shape to Finished Component</h2>
+                <p>
+                    Inconel 718 AM should be treated as an integrated manufacturing route. Printing creates the geometry, while downstream metallurgical and precision operations establish the required final condition.
+                </p>
+
+                <h3>Stress Relief and Heat Treatment</h3>
+                <p>
+                    Inconel 718 develops high strength through precipitation hardening, but AM creates a distinct thermal history and microstructure. Heat-treatment selection must therefore follow the validated AM process and required material properties. NIST has specifically studied heat-treatment routes for additively manufactured Alloy 718, illustrating why AM material should not simply be assumed to behave identically to conventional product forms.
+                </p>
+
+                <h3>Hot Isostatic Pressing (HIP)</h3>
+                <p>
+                    <a href="/hot-isostatic-pressing/" class="highlight-link">HIP</a> may be used to reduce suitable internal porosity and support density, fatigue or qualification objectives. It is not a universal requirement and does not replace appropriate process control or inspection.
+                </p>
+
+                <h3>Precision CNC Machining</h3>
+                <p>
+                    Final <a href="/high-precision-machining/" class="highlight-link">precision machining</a> can establish tight tolerances and surface finishes on critical interfaces. Because heat treatment and HIP can influence dimensions, the process sequence should be planned before machining datums and finishing stock are finalized.
+                </p>
+
+                <h3>NDT, CT and Dimensional Inspection</h3>
+                <p>
+                    The inspection plan should reflect the AM geometry and expected defect modes. <a href="/testing-inspection-capabilities/" class="highlight-link">Testing and inspection</a> may include dimensional metrology, penetrant inspection, radiography, industrial CT, ultrasonic techniques, metallography or mechanical testing according to drawing and specification requirements.
+                </p>
+            </div>
+        </section>
+
+        <section id="why-forcebeyond">
+            <div class="content-container">
+                <h2>Why Source Inconel 718 Additive Manufacturing Through ForceBeyond?</h2>
+                <p>
+                    ForceBeyond approaches Inconel 718 additive manufacturing as one option within a broader manufacturing decision rather than the default answer for every part. This matters for aerospace, propulsion, energy and other qualification-sensitive programs because the best route depends on geometry, loading, material condition, volume, inspection and the applicable specification.
+                </p>
+
+                <div class="grid gap-6 md:grid-cols-2 mt-8">
+                    <div class="content-card">
+                        <h3>Multi-Process Manufacturing Review</h3>
+                        <p>
+                            A low-volume manifold with inaccessible internal passages may favor LPBF, while a mature repeat-production housing may be better suited to <a href="/inconel-718-casting/" class="highlight-link">Inconel 718 investment casting</a>. A highly loaded ring, shaft or other wrought structure may require <a href="/inconel-718-forging/" class="highlight-link">forging</a>, while simpler precision geometry may be best machined directly from wrought stock.
+                        </p>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Metallurgical Post-Processing Coordination</h3>
+                        <p>
+                            Inconel 718 is precipitation hardenable, so the printed shape is not the final material condition. ForceBeyond can coordinate stress relief, solution and aging treatments, HIP where required and downstream inspection around the qualified AM route rather than treating heat treatment as a generic secondary operation.
+                        </p>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Near-Net Build + Precision Machining</h3>
+                        <p>
+                            LPBF can place material close to the final geometry, while <a href="/inconel-718-machining/" class="highlight-link">precision machining</a> establishes the critical datums, bearing fits, sealing surfaces, threads and tight-tolerance interfaces required on finished components.
+                        </p>
+                    </div>
+
+                    <div class="content-card">
+                        <h3>Qualification and Inspection Planning</h3>
+                        <p>
+                            Critical programs may require witness coupons, mechanical testing, metallography, CT, penetrant inspection, dimensional metrology and detailed process records. Coordinating these requirements before build release reduces the risk of discovering qualification gaps after printing is complete.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="supplier-evaluation">
+            <div class="content-container">
+                <h2>What Should Procurement Teams Evaluate in an Inconel 718 AM Supplier?</h2>
+                <p>
+                    A supplier should be evaluated on more than printer availability. For critical Alloy 718 programs, sourcing and engineering teams should review whether the supplier can control the complete material, metallurgical and inspection chain and whether those controls match the drawing and applicable specification.
+                </p>
+                <ul>
+                    <li><strong>Applicable AM standard:</strong> Confirm whether the program is supported to ASTM F3055 or another customer-approved specification.</li>
+                    <li><strong>Powder chemistry and lot traceability:</strong> Review UNS N07718 chemistry, lot controls, particle characterization, handling and powder-reuse rules.</li>
+                    <li><strong>Qualified build parameters:</strong> Confirm the machine, process window, scan strategy and monitoring approach used for production.</li>
+                    <li><strong>Build orientation and witness strategy:</strong> Understand how orientation, supports and witness coupons are selected for the required mechanical and dimensional performance.</li>
+                    <li><strong>AM-specific heat treatment:</strong> Verify that stress relief, solution and aging routes are validated for LPBF Inconel 718 rather than copied automatically from wrought or cast practice.</li>
+                    <li><strong>Segregation and secondary-phase control:</strong> Review how Laves phase, local niobium segregation and other AM-specific microstructural risks are managed.</li>
+                    <li><strong>HIP strategy:</strong> Determine whether HIP is required by the drawing, qualification plan, fatigue objective or service risk rather than assuming it is universal.</li>
+                    <li><strong>Mechanical testing:</strong> Define tensile, hardness, density, metallography, fatigue or other required acceptance tests and coupon plans.</li>
+                    <li><strong>Internal-defect inspection:</strong> Review CT, radiography or other volumetric methods when hidden defects or internal passages are critical.</li>
+                    <li><strong>Surface and dimensional inspection:</strong> Confirm penetrant testing, CMM, optical methods or other controls for final geometry and surface-critical features.</li>
+                    <li><strong>Finish-machining capability:</strong> Confirm how final datums, threads, bores, bearing fits and sealing surfaces will be completed after thermal processing.</li>
+                    <li><strong>Documentation package:</strong> Define powder certificates, build records, heat-treatment records, HIP records, inspection reports and qualification deliverables before production.</li>
+                    <li><strong>Alternate-route capability:</strong> A supplier that can also evaluate Inconel 718 casting, forging and machining may help avoid unnecessary AM cost when geometry, structural requirements or production volume favor another route.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="standards">
+            <div class="content-container">
+                <h2>Inconel 718 Additive Manufacturing Standards & Qualification</h2>
+                <p>
+                    Qualification requirements vary by industry and application. The material designation alone is not sufficient: the purchase order and drawing should identify the applicable AM process specification, material condition, acceptance criteria, post-processing, testing and documentation requirements.
+                </p>
+
+                <div class="content-table-wrapper">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th scope="col">Reference</th>
+                                <th scope="col">Relevance to Inconel 718 AM</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">ASTM F3055</th>
+                                <td>Standard specification covering additive manufacturing of nickel alloy UNS N07718 using full-melt powder bed fusion processes.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Customer / Industry Specifications</th>
+                                <td>May define qualified machine/process routes, heat treatment, HIP, mechanical properties, inspection, lot controls, traceability and acceptance criteria.</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">Drawing & Purchase Order</th>
+                                <td>Should control final geometry, CTQs, material condition, documentation, NDT, dimensional inspection and delivery requirements.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p>
+                    Conventional Inconel 718 forging and casting specifications should not be assumed to apply directly to LPBF product without explicit engineering and contractual approval. The required standard must match the actual product form and manufacturing route.
+                </p>
+            </div>
+        </section>
+
+        <section id="rfq-information">
+            <div class="content-container">
+                <h2>What to Include in an Inconel 718 Additive Manufacturing RFQ</h2>
+                <p>
+                    A complete technical package allows the engineering team to determine whether LPBF is appropriate and to plan post-processing before quoting the build.
+                </p>
+                <ul>
+                    <li><strong>3D CAD model:</strong> Native or neutral geometry suitable for build and manufacturability review.</li>
+                    <li><strong>2D drawing:</strong> Critical dimensions, GD&T, datums, threads, surface finishes and inspection requirements.</li>
+                    <li><strong>Material requirement:</strong> Inconel 718 / UNS N07718 and the applicable AM material or customer specification.</li>
+                    <li><strong>Quantity:</strong> Prototype quantity, batch size and expected annual volume.</li>
+                    <li><strong>Service conditions:</strong> Temperature, pressure, fatigue, corrosion environment and critical load conditions where relevant.</li>
+                    <li><strong>Mechanical-property requirements:</strong> Required tensile, fatigue, hardness or other acceptance criteria when specified.</li>
+                    <li><strong>Post-processing:</strong> Stress relief, solution/aging treatment, HIP, machining and surface finishing requirements.</li>
+                    <li><strong>Inspection:</strong> NDT method, CT requirements, acceptance criteria, dimensional inspection and sampling frequency.</li>
+                    <li><strong>Documentation:</strong> Material traceability, process records, inspection reports, certificates and qualification deliverables.</li>
+                    <li><strong>Delivery requirement:</strong> Prototype milestone, qualification schedule and production delivery targets.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="manufacturing-route-review">
+            <div class="content-container">
+                <h2>Choose the Inconel 718 Manufacturing Route by Part Requirements</h2>
+                <p>
+                    ForceBeyond's advantage is the ability to evaluate several established Inconel 718 manufacturing routes instead of forcing every project into one process. A low-volume manifold with inaccessible internal passages may be an excellent LPBF candidate; a mature high-volume complex housing may fit <a href="/inconel-718-casting/" class="highlight-link">investment casting</a>; a highly loaded ring or shaft may require <a href="/inconel-718-forging/" class="highlight-link">forging</a>; and a simple precision component may be best produced directly by <a href="/inconel-718-machining/" class="highlight-link">CNC machining</a>.
+                </p>
+                <p>
+                    The manufacturing decision should consider <strong>geometry, quantity, tooling, development lead time, material utilization, mechanical-performance requirements, inspection, qualification and total delivered cost</strong>. For programs that evolve from prototype to mature production, the optimal route can also change over the product lifecycle.
+                </p>
+            </div>
+        </section>
+    </div>
+</IndividualPageLayout>

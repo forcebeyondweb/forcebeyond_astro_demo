@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/medical/'];
 
 const pageTitle = 'Medical Device Components: Precision Casting, Forging & CNC Machining';
 const seoTitle = 'Medical Device Components | Precision Casting & CNC Machining';
@@ -201,7 +205,10 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/robotic-surgery-system-modern-operating-room-hero.webp"
     heroImageAlt="Robotic surgery system and precision medical equipment in a modern operating room"

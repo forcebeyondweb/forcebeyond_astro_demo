@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/some-of-our-customers/'];
 
 const pageTitle = 'Some of Our Customers';
 const seoTitle = 'Some of Our Customers | ForceBeyond';
@@ -33,17 +37,16 @@ const pageSchema = {
     '@graph': [
         {
             '@type': 'WebPage',
-            '@id': 'https://www.forcebeyond.com/some-of-our-customers#webpage',
+            '@id': 'https://www.forcebeyond.com/some-of-our-customers/#webpage',
             url: 'https://www.forcebeyond.com/some-of-our-customers',
             name: seoTitle,
             description: seoDescription,
             isPartOf: {
                 '@type': 'WebSite',
-                '@id': 'https://www.forcebeyond.com#website'
+                '@id': 'https://www.forcebeyond.com/#website'
             },
             about: {
-                '@type': 'Organization',
-                '@id': 'https://www.forcebeyond.com#organization'
+                '@id': 'https://www.forcebeyond.com/#organization'
             }
         }
     ]
@@ -54,8 +57,11 @@ const pageSchema = {
     title={seoTitle}
     description={seoDescription}
     schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     pageTitle={pageTitle}
-    canonicalUrl="/some-of-our-customers"
+    canonicalUrl="/some-of-our-customers/"
     heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="ForceBeyond industrial manufacturing customer showcase"
     ctaTitle="Discuss Your Next Manufacturing Project"

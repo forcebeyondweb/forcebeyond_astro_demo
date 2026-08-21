@@ -1,6 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import Layout from '../layouts/Layout.astro';
 import { sanityClient } from 'sanity:client';
+
+const dates = pageDates['/contact-us/'];
 
 // 1. Fetch Dynamic Cloud Configuration from Sanity
 const data = await sanityClient.fetch(`*[_type == "contactPage"][0]`);
@@ -38,6 +41,9 @@ const contactSchema = {
 ---
 
 <Layout title="Contact Corporate Access | ForceBeyond" description={data?.seoDescription || "Submit your metal manufacturing requirements to ForceBeyond."}>
+    <Fragment slot="head">
+        <meta property="article:modified_time" content={dates.modified} />
+    </Fragment>
     <script slot="head" src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
     <script slot="head" type="application/ld+json" set:html={JSON.stringify(contactSchema)}></script>
     

@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/high-performance-superalloy-forging/'];
 
 const pageTitle = 'Superalloy Forging Services: USA, South Korea & Taiwan Manufacturing Network';
 const seoTitle = 'Superalloy Forging Services | Inconel 718 & 625 | ForceBeyond';
@@ -257,6 +261,9 @@ const pageSchema = {
     title={seoTitle}
     description={seoDescription}
     schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     pageTitle={pageTitle}
     heroImage="/media/high-performance-superalloy-forging-hero.webp"
     heroImageAlt="High-performance superalloy forging within ForceBeyond’s manufacturing network"
@@ -352,8 +359,7 @@ const pageSchema = {
                 <h2>Leading Forging Suppliers for Inconel 718 & 625</h2>
                 
                 <p>
-                    We focus on the two most critical alloys in the superalloy market, ensuring our grain flow and thermal 
-                    processing meet the most stringent aerospace and energy standards.
+                    We focus on Inconel 718 and 625, controlling grain flow and thermal processing to meet the specifications and acceptance criteria applicable to each aerospace or energy program.
                 </p>
                 <h3>Inconel 718 Forging (AMS 5662 / 5663)</h3>
                 <p>Inconel 718 is the “workhorse” of the industry. Inconel 718 is an age-hardenable nickel-based superalloy selected
@@ -544,9 +550,7 @@ const pageSchema = {
             <div class="content-container">
                 <h2>Quality Assurance: Why Tier-1.5 Matters</h2>
                 <p>
-                    As a Tier-1.5 supplier, we perform rigorous Non-Destructive Testing (NDT) in-house at 
-                    our South Korea and Taiwan facilities to ensure every forged component is supports aerospace
-                    and nuclear-grade inspection requirements.
+                    As a Tier-1.5 supplier, we coordinate Non-Destructive Testing (NDT) at selected South Korea and Taiwan facilities according to the methods, acceptance criteria, facility qualifications, and documentation required by the applicable aerospace or nuclear program.
                 </p>
                 <ul>
                     <li>

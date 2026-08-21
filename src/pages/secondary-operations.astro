@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/secondary-operations/'];
 
 const pageTitle = 'Secondary Operations for Castings, Forgings & Machined Components';
 const seoTitle = 'Secondary Operations | CNC Machining, Heat Treatment & Finishing';
@@ -207,7 +211,10 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="Secondary operations for cast, forged, and machined metal components"
@@ -416,7 +423,7 @@ const pageSchema = {
                 </p>
                 <ul>
                     <li>
-                        <strong>Radiographic Testing (RT):</strong> X-ray inspection (ASTM E192/E1030) to verify zero internal shrinkage or porosity before and after <a href="/hot-isostatic-pressing" class="highlight-link">HIP</a>.
+                        <strong>Radiographic Testing (RT):</strong> X-ray inspection using the applicable ASTM method to detect relevant internal shrinkage or porosity before and after <a href="/hot-isostatic-pressing" class="highlight-link">HIP</a>.
                     </li>
                     <li>
                         <strong>Fluorescent Penetrant Inspection (FPI):</strong> Liquid penetrant testing (ASTM E1417) to detect surface-breaking cracks or pores on machined and cast surfaces.

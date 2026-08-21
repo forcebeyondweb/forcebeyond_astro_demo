@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/die-casting/'];
 
 const pageTitle = 'Die Casting Services for High-Volume Precision Metal Components';
 const seoTitle = 'Die Casting Services | Aluminum, Zinc & Magnesium Parts';
@@ -68,7 +72,7 @@ const internalResources = [
     { label: "Automotive", url: "/automotive" },
     { label: "HVAC, Fluid & Flow Control", url: "/hvac-flow" },
     { label: "Energy & Power Generation", url: "/energy-power-generation" },
-    { label: "Space & Defence", url: "/space-defence" }
+    { label: "Space & Defence", url: "/space-defense" }
 ];
 
 const pageSchema = {
@@ -199,7 +203,9 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
     pageTitle={pageTitle}
     heroImage="/media/die-casting-investment-casting-forging-cnc-high-precision-machining-title-bar-2.jpg"
     heroImageAlt="High-pressure die casting production for aluminum and zinc metal components"
@@ -436,7 +442,7 @@ const pageSchema = {
                     <li><strong><a href="/automotive" class="highlight-link">Automotive and transportation:</a></strong> transmission housings, brackets, covers, structural components, heat-management parts, and lightweight assemblies.</li>
                     <li><strong><a href="/hvac-flow" class="highlight-link">HVAC, fluid and flow control:</a></strong> compressor housings, valve components, manifolds, pump parts, fittings, and control hardware.</li>
                     <li><strong><a href="/energy-power-generation" class="highlight-link">Energy and power generation:</a></strong> electrical housings, cooling components, brackets, covers, and industrial equipment hardware.</li>
-                    <li><strong><a href="/space-defence" class="highlight-link">Aerospace and defense:</a></strong> lightweight housings, brackets, enclosures, and noncritical support components where die casting is permitted by design requirements.</li>
+                    <li><strong><a href="/space-defense" class="highlight-link">Aerospace and defense:</a></strong> lightweight housings, brackets, enclosures, and noncritical support components where die casting is permitted by design requirements.</li>
                     <li><strong><a href="/medical" class="highlight-link">Medical and healthcare:</a></strong> equipment housings, structural frames, handles, enclosures, and device-support components.</li>
                     <li><strong><a href="/mining" class="highlight-link">Industrial and heavy equipment:</a></strong> controls, housings, covers, brackets, handles, and high-volume equipment components.</li>
                 </ul>

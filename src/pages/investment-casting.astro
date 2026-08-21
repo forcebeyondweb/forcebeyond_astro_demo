@@ -1,5 +1,9 @@
 ---
+import { pageDates } from '../data/page-dates.js';
 import IndividualPageLayout from '../layouts/IndividualPageLayout.astro';
+
+
+const dates = pageDates['/investment-casting/'];
 
 const pageTitle = 'Investment Casting Services: Precision Lost-Wax Metal Components';
 const seoTitle = 'Investment Casting Services | Precision Lost-Wax Metal Parts';
@@ -196,7 +200,10 @@ const pageSchema = {
     description={seoDescription}
     canonicalUrl={canonicalUrl}
     robots="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1"
-    schema={pageSchema}
+
+        modifiedDate={dates.modified}
+publishedDate = {dates.published}
+
     pageTitle={pageTitle}
     heroImage="/media/titanium-investment-casting-lost-wax-process-hero.webp"
     heroImageAlt="Investment casting process with wax patterns and ceramic shell preparation"
@@ -435,7 +442,7 @@ const pageSchema = {
             <div class="content-container">
                 <h2>Investment Casting Applications by Industry</h2>
                 <ul>
-                    <li><strong><a href="/space-defence" class="highlight-link">Aerospace and defense:</a></strong> brackets, housings, turbine-related hardware, structural components, and precision superalloy or titanium parts.</li>
+                    <li><strong><a href="/space-defense" class="highlight-link">Aerospace and defense:</a></strong> brackets, housings, turbine-related hardware, structural components, and precision superalloy or titanium parts.</li>
                     <li><strong><a href="/energy-power-generation" class="highlight-link">Energy and power generation:</a></strong> turbine hardware, valve components, burner parts, flow-control hardware, and heat-resistant castings.</li>
                     <li><strong><a href="/oil-gas" class="highlight-link">Oil, gas and flow control:</a></strong> valve bodies, impellers, pump components, fittings, and corrosion-resistant duplex or nickel-alloy parts.</li>
                     <li><strong><a href="/medical" class="highlight-link">Medical and healthcare:</a></strong> instrument components, device housings, surgical hardware, and corrosion-resistant stainless or titanium castings.</li>
